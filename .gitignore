@@ -1,0 +1,23 @@
+# PDF generado por build.ps1
+dist/
+
+# Previsualizacion de la caratula
+config/preview/*.pdf
+
+# Auxiliares de LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+
+# Basura del sistema
+Thumbs.db
+desktop.ini
+.DS_Store

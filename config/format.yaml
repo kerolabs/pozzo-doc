@@ -1,0 +1,22 @@
+---
+lang: es
+papersize: letter
+fontsize: 12pt
+mainfont: "TeX Gyre Termes"
+
+indent: true
+
+numbersections: false
+
+toc: false
+toc-depth: 3
+toc-title: "Contenido"
+
+lof: false
+lot: false
+
+colorlinks: true
+linkcolor: black
+urlcolor: blue
+citecolor: black
+---

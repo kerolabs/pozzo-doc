@@ -1,0 +1,89 @@
+% Formato APA 7 para el informe. Se inyecta en el preambulo del documento.
+
+% Imagenes. Pandoc solo carga graphicx si hay imagenes en el Markdown,
+% pero la caratula siempre necesita el logo.
+\usepackage{graphicx}
+
+% Margenes de 1 pulgada.
+\usepackage{geometry}
+\geometry{letterpaper, margin=1in, headheight=15pt}
+
+% Interlineado 1.5.
+\usepackage{setspace}
+\onehalfspacing
+
+% Sangria de 0.5 in en la primera linea, sin espacio entre parrafos.
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+
+% Texto alineado a la izquierda conservando la sangria.
+\usepackage{ragged2e}
+\setlength{\RaggedRightParindent}{\parindent}
+\RaggedRight
+
+% Sin viudas ni huerfanas.
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\brokenpenalty=10000
+\raggedbottom
+
+% Numero de pagina arriba a la derecha, sin linea.
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}\fancyhead[R]{\thepage}\renewcommand{\headrulewidth}{0pt}}
+
+% Tamanos de letra arbitrarios y columnas con formato propio.
+\usepackage{anyfontsize}
+\usepackage{array}
+
+% Los cinco niveles de encabezado de APA 7.
+% Los numeros (1.1, 2.3.4) se escriben a mano en los .md, por eso no hay etiqueta.
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\bfseries\centering}{}{0pt}{}
+\titleformat{\subsection}{\normalfont\bfseries\RaggedRight}{}{0pt}{}
+\titleformat{\subsubsection}{\normalfont\bfseries\itshape\RaggedRight}{}{0pt}{}
+\titleformat{\paragraph}[runin]{\normalfont\bfseries}{}{0pt}{}[.]
+\titleformat{\subparagraph}[runin]{\normalfont\bfseries\itshape}{}{0pt}{}[.]
+\titlespacing*{\section}{0pt}{2ex plus .5ex}{1ex}
+\titlespacing*{\subsection}{0pt}{1.6ex plus .4ex}{0.8ex}
+\titlespacing*{\subsubsection}{0pt}{1.4ex plus .4ex}{0.7ex}
+\titlespacing*{\paragraph}{0.5in}{1.2ex plus .3ex}{1em}
+\titlespacing*{\subparagraph}{0.5in}{1.2ex plus .3ex}{1em}
+
+% Cada seccion de primer nivel (#) empieza en pagina nueva,
+% como exige el enunciado para Registro de Versiones, Contenido, capitulos, etc.
+\let\oldsection\section
+\renewcommand{\section}{\clearpage\oldsection}
+
+% El titulo del indice. Sin esto LaTeX lo rotula "Indice".
+\AtBeginDocument{\renewcommand{\contentsname}{Contenido}}
+
+% Figuras y tablas donde se escriben, con el rotulo arriba.
+\usepackage{float}
+\makeatletter\def\fps@figure{H}\def\fps@table{H}\makeatother
+\usepackage{caption}
+\captionsetup{position=above, labelfont=bf, textfont=it,
+              singlelinecheck=false, justification=raggedright, skip=6pt}
+
+% En espanol babel rotula "Cuadro"; APA usa "Tabla".
+\AtBeginDocument{%
+  \renewcommand{\tablename}{Tabla}%
+  \renewcommand{\figurename}{Figura}}
+
+% Sangria francesa de 0.5 in en las referencias.
+% El \ifdefined evita fallar cuando se compila sin citas.
+\AtBeginDocument{%
+  \ifdefined\cslhangindent
+    \setlength{\cslhangindent}{0.5in}%
+    \setlength{\csllabelwidth}{0pt}%
+  \fi}
+
+% Bloques de codigo que se parten en vez de salirse del margen.
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{%
+  breaklines,breaknonspaceingroup,breakanywhere,commandchars=\\\{\}}

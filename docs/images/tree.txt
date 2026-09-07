@@ -1,0 +1,42 @@
+repo/
+├── README.md                  Portada del informe
+├── CONTRIBUTING.md            Esta guía
+├── references.bib             Fuentes en BibTeX
+├── .gitignore                 Ignora el PDF y los temporales
+├── .gitattributes             Finales de línea
+│
+├── docs/                      Contenido del informe
+│   ├── chapter_1.md           Capítulo I
+│   ├── chapter_2.md           Capítulo II
+│   ├── chapter_3.md           Capítulo III
+│   ├── chapter_4.md           Capítulo IV
+│   ├── closing.md             Conclusiones y anexos
+│   └── images/                Diagramas y capturas
+│       ├── upc_logo.png
+│       ├── pipeline.svg
+│       ├── tree.txt
+│       ├── tree.svg
+│       ├── tree-dark.svg
+│       └── chapter_1..4/      Una carpeta por capítulo
+│
+├── config/                    Formato. No se toca al escribir.
+│   ├── format.yaml            Opciones de Pandoc
+│   ├── apa7.tex               Reglas APA 7 en LaTeX
+│   ├── cover.tex              Carátula
+│   ├── apa.csl                Estilo de citación
+│   ├── pdf-only.lua           Filtro de GitHub y PDF
+│   └── preview/               Previsualizar la carátula
+│
+├── scripts/
+│   ├── dependencies.ps1       Instala Pandoc y MiKTeX
+│   ├── build.ps1              Genera el PDF
+│   └── protect.ps1            Protege las ramas
+│
+├── .github/
+│   └── workflows/
+│       ├── report.yml         Compila y publica el release
+│       └── commit-policy.yml  Revisa la autoría del commit
+│
+├── .githooks/                 Hook de commits
+├── dist/                      PDF generado. Ignorado.
+└── .vscode/                   Extensiones y receta de XeLaTeX

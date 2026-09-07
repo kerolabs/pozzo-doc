@@ -1,0 +1,39 @@
+name: Commit policy
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  # Do not rename this job: it is the required status check on main and develop.
+  no-ai-authorship:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan commit messages
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            range="origin/${{ github.base_ref }}..HEAD"
+          elif [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
+            range="HEAD"
+          else
+            range="${{ github.event.before }}..${{ github.sha }}"
+          fi
+
+          echo "Scanning: $range"
+
+          pattern='Co-authored-by:.*(claude|copilot|chatgpt|openai|anthropic|gemini|cursor|codeium|devin|tabnine)|Generated with.*(Claude|Copilot|ChatGPT)'
+
+          found=$(git log --format='%H%n%B%n---' "$range" | grep -iE "$pattern" || true)
+
+          if [ -n "$found" ]; then
+            echo "::error::Some commits credit an AI tool as an author"
+            echo "$found"
+            exit 1
+          fi
+
+          echo "No AI authorship found."
