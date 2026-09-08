@@ -7,8 +7,38 @@
 ### 1.1.2. Perfiles de integrantes del equipo
 
 ## 1.2. Solution Profile
+Kero es una iniciativa de tecnologia financiera comunitaria orientada a digitalizar la administración de las juntas peruanas a través de su producto central: Pozzo. Nuestra solución es un ecosistema compuesto por una aplicación móvil nativa para el participante, una aplicación multiplataforma para el organizador de la junta y un conjunto de servicios web RESTful que sostienen la lógica del ciclo de ahorro rotativo.
+
+A diferencia de las plataformas que digitalizan este mecanismo en otros mercados, Pozzo no administra los fondos de la junta. El aporte continúa realizándose de participante a participante mediante la billetera digital que el grupo ya utiliza, y la aplicación se limita a registrar, verificar y coordinar. Esta decisión de diseño elimina la necesidad de que el usuario confíe su dinero a un intermediario, evita el marco regulatorio aplicable a la captación de fondos del público y preserva la dinámica social de reciprocidad sobre la que la junta se sostiene desde siempre.
 
 ### 1.2.1. Antecedentes y problemática
+La junta, denominada también pandero o tanomoshi, es una asociación rotativa de ahorro y crédito en la que un grupo de conocidos aporta un monto fijo con periodicidad acordada y el fondo acumulado se entrega íntegro a un integrante distinto en cada turno, hasta que todos han cobrado una vez. La literatura académica la estudia bajo la denominación de **ROSCA** (*Rotating Savings and Credit Association*) y la registra en casi todo el mundo en desarrollo: *tanda* en México, *susu* en África Occidental o *chit fund* en la India.
+
+Su vigencia en el Perú no es residual. Al segundo trimestre de 2025, el 61,6 % de los adultos contaba con algún producto en el sistema financiero, proporción que desciende al 41,8 % en el área rural (SBS, 2025). En ese espacio operan las juntas, que representan el 7 % de las formas de ahorro de los hogares peruanos y el 18,9 % entre quienes alcanzaron a lo sumo educación primaria; la razón predominante para preferirlas no es la falta de oferta financiera, sino la desconfianza hacia las entidades formales (SBS, 2020).
+
+El medio de pago que las sostiene, en cambio, ya se digitalizo: Yape cerró 2025 con 19,1 millones de usuarios, y el aporte a la junta se realiza hoy desde el teléfono en segundos. **Lo que no se digitalizó fue la administración.** Quién aportó, a quién le toca cobrar, cuánto falta para completar el pozo y la prueba de que un pago efectivamente ocurrió siguen dependiendo de un cuaderno, de un chat saturado de capturas y de la memoria del organizador.
+
+Al analizar esta situación mediante la técnica de las **5 W's y 2 H's** se identifican los siguientes elementos:
+
+* **Who (Quiénes):** La **cabeza de junta**, que asume sin compensación el trabajo de registrar aportes, verificar comprobantes y cobrar a los atrasados, y que responde ante el grupo cuando la cuenta no cuadra; y el **participante**, que carece de un medio para acreditar un aporte cuestionado y de visibilidad sobre si el fondo estará completo al llegar su turno de cobro. De forma indirecta, el problema alcanza al grupo entero, pues un incumplimiento no detectado a tiempo deteriora una relación personal preexistente.
+
+* **What (Qué):** La problemática radica en la **desconexión entre un medio de pago digitalizado y una administración analógica**. No existe una fuente única y confiable que indique quién ha depositado, quién adeuda y cuánto falta para completar el pozo del turno vigente; esa información permanece dispersa entre el cuaderno del organizador, el chat grupal y la aplicación de billetera digital.
+
+* **When (Cuándo):** En cada período de aporte, con la frecuencia que la junta haya pactado (semanal, quincenal o mensual), y se agrava en los días previos a la fecha de corte, cuando el organizador debe requerir individualmente a quienes no han depositado. El punto de máxima tensión es la fecha de entrega del fondo, momento en que el pozo debe estar íntegro.
+
+* **Where (Dónde):** En juntas de ámbito urbano en el Perú, conformadas entre compañeros de trabajo, vecinos y familiares. Operativamente, el problema reside en tres espacios simultáneos y desconectados entre sí: el registro manual del organizador, el grupo de mensajería donde se remiten los comprobantes y la billetera digital donde ocurre la transferencia efectiva.
+
+* **Why (Por qué):** Porque la billetera digital resuelve la transferencia individual pero no está diseñada para la lógica de un ahorro rotativo: desconoce la existencia del grupo, no gestiona turnos ni periodicidad y no consolida los aportes de múltiples personas hacia un objetivo común. Ese vacío funcional lo cubre hoy una persona con un cuaderno.
+
+* **How (Cómo):** El participante transfiere mediante la billetera digital, captura el comprobante y lo remite al grupo. El organizador revisa las capturas una por una, las contrasta con su registro manual y escribe a quienes faltan. Ante una discrepancia, la controversia se dirime buscando manualmente una captura antigua en el historial del chat, o simplemente no se dirime.
+
+* **How Much (Cuánto):**
+    * Las juntas y panderos representan el **7 %** de las formas de ahorro de los hogares peruanos, proporción que alcanza el **18,9 %** entre los de menor nivel educativo y el **7,4 %** en hogares encabezados por mujeres frente al 5,7 % en los encabezados por hombres (SBS, 2020).
+    * La base potencial la constituye el **38,4 %** de adultos peruanos sin producto alguno en el sistema financiero, cifra que se eleva al 58,2 % en el área rural (SBS, 2025).
+    * El mercado global de aplicaciones para la digitalización de ROSCAs fue valorizado en **USD 0,92 mil millones** en 2025, con una tasa de crecimiento anual compuesta proyectada de 14,5 % hacia 2034.
+    * El costo específico del problema (horas mensuales que invierte una cabeza de junta en labores administrativas, frecuencia de discrepancias por ciclo y monto promedio en disputa) se cuantificará a partir de las entrevistas registradas en la sección 2.2, y constituye una de las asunciones a validar dentro del proceso Lean UX.
+
+De este análisis se desprende que el problema no es la carencia de un medio de pago ni la ausencia de confianza entre los integrantes de una junta, sino la **falta de un registro compartido y verificable sobre un dinero que ya circula de forma digital**. Dicho vacío produce tres consecuencias concretas: una carga administrativa no remunerada que recae íntegramente sobre el organizador, quien además debe ejercer de cobrador frente a personas de su entorno cercano; la imposibilidad de dirimir una discrepancia cuando un participante sostiene haber depositado y el registro indica lo contrario; y la opacidad para quien va a cobrar, que no puede anticipar si el fondo de su turno estará completo hasta que la fecha llega y ya no hay margen de reacción. En conjunto, estas consecuencias erosionan la confianza entre conocidos, que es el activo sobre el cual una junta se sostiene, y explican tanto la disolución de numerosos grupos tras un único ciclo como la abstención de personas que valoran el mecanismo pero desconfían de su administración.
 
 ### 1.2.2. Lean UX Process
 
