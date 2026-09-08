@@ -1,9 +1,20 @@
 # Capítulo I: Presentación
 
 ## 1.1. Startup Profile
-
+En esta sección se presenta el perfil de Kero, incluyendo una descripción general de la startup, su propósito, misión y visión, así como los perfiles de los integrantes del equipo y las principales capacidades que aportan al desarrollo de Pozzo.
 ### 1.1.1. Descripción de la Startup
 
+Kero es una startup peruana de tecnología financiera comunitaria enfocada en digitalizar la administración de juntas de ahorro. Su producto principal, Pozzo, nace como respuesta a una situación frecuente en estos grupos: aunque los aportes ya se realizan mediante billeteras digitales como Yape, el control de pagos, turnos, comprobantes y recordatorios continúa dependiendo de cuadernos, capturas y mensajes de WhatsApp.
+
+Pozzo permite centralizar la gestión de la junta sin intervenir directamente en el movimiento del dinero. La cabeza de junta puede configurar el monto, número de participantes, periodicidad y asignación de turnos, mientras que los participantes pueden consultar su calendario, registrar sus aportes mediante vouchers y conocer en tiempo real el estado del pozo. De esta manera, la aplicación busca reducir errores de conteo, facilitar la verificación de pagos y disminuir la carga de seguimiento que actualmente recae sobre el organizador.
+
+La propuesta de Kero está orientada principalmente a grupos de familiares, amigos, vecinos o compañeros de trabajo que ya utilizan juntas como mecanismo de ahorro y desean mantener su dinámica habitual, pero con una administración más ordenada, transparente y verificable. A través de Pozzo, la startup busca combinar la confianza social propia de las juntas con herramientas digitales que simplifiquen su operación.
+
+**Misión:**  
+Facilitar la administración de juntas de ahorro mediante una solución digital simple y confiable que permita organizar aportes, turnos y comprobantes, reduciendo el trabajo manual y mejorando la transparencia entre sus participantes.
+
+**Visión:**  
+Ser una plataforma referente en la digitalización de juntas de ahorro en el Perú y Latinoamérica, contribuyendo a modernizar mecanismos financieros comunitarios sin alterar la confianza y dinámica social sobre la que se sostienen.
 ### 1.1.2. Perfiles de integrantes del equipo
 
 ## 1.2. Solution Profile
