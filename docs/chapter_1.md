@@ -17,6 +17,11 @@ Facilitar la administración de juntas de ahorro mediante una solución digital 
 Ser una plataforma referente en la digitalización de juntas de ahorro en el Perú y Latinoamérica, contribuyendo a modernizar mecanismos financieros comunitarios sin alterar la confianza y dinámica social sobre la que se sostienen.
 ### 1.1.2. Perfiles de integrantes del equipo
 
+| Integrante                                                                                                              | Información                                                                                                                                                                                                                                                                                 |
+|-------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![Leonardo Sanchez Benavente](images/chapter_1/leonardo_sanchez_benavente.jpg)<br>**Leonardo Matias Sanchez Benavente** | **Código de estudiante:** U20241b184<br>**Carrera:** Ingeniería de Software<br><br> Estudiante de Ingeniería de Software con base en desarrollo web full-stack: Angular y TypeScript en el cliente, Java con Spring Boot y APIs REST bajo enfoque DDD en el servidor.                       |
+| ![Gabriela Tirado Carrera](images/chapter_1/gabriela_tirado_carrera.jpeg)<br>**Gabriela Luciana Tirado Carrera**        | **Código de estudiante:** U202519592<br>**Carrera:** Ingeniería de Software<br><br> Estudiante de Ingeniería de Software con conocimientos en desarrollo Full Stack, incluyendo Angular, Vue, HTML, CSS,C#, Java, JavaScript y SQL. Hábil en trabajo de equipos y desarrollo de interfaces. |
+
 ## 1.2. Solution Profile
 
 ### 1.2.1. Antecedentes y problemática
