@@ -7,7 +7,7 @@ $ErrorActionPreference = 'Stop'
 $Period     = '202620'
 $CourseCode = '1acc0238'
 $Nrc        = '13980'
-$Startup    = 'nombrestartup'
+$Startup    = 'Kerolabs'
 
 $Deliveries = @('av1', 'tb1', 'av2', 'tb2')
 
