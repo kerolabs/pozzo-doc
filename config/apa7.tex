@@ -60,6 +60,22 @@
 \let\oldsection\section
 \renewcommand{\section}{\clearpage\oldsection}
 
+% Un encabezado no debe quedar al pie separado del texto que introduce.
+% Las penalizaciones de mas arriba solo cubren viudas y huerfanas dentro de un
+% mismo parrafo; no dicen nada sobre un titulo que cae en la ultima linea de la
+% pagina. Esto reserva sitio para el titulo y las primeras lineas que lo siguen:
+% si no caben, el titulo entero pasa a la pagina siguiente.
+% Los de primer nivel no necesitan esto porque ya abren pagina con \clearpage.
+\usepackage{needspace}
+\let\oldsubsection\subsection
+\renewcommand{\subsection}{\needspace{4\baselineskip}\oldsubsection}
+\let\oldsubsubsection\subsubsection
+\renewcommand{\subsubsection}{\needspace{4\baselineskip}\oldsubsubsection}
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}{\needspace{3\baselineskip}\oldparagraph}
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}{\needspace{3\baselineskip}\oldsubparagraph}
+
 % El titulo del indice. Sin esto LaTeX lo rotula "Indice".
 \AtBeginDocument{\renewcommand{\contentsname}{Contenido}}
 

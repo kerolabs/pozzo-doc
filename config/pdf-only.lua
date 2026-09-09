@@ -46,6 +46,26 @@ function Table(tbl)
   return pandoc.walk_block(tbl, { Inlines = alinearArriba })
 end
 
+-- Un encabezado seguido de una tabla necesita mas holgura que uno seguido de
+-- texto. El \needspace de apa7.tex reserva unas pocas lineas, suficientes para
+-- un parrafo; pero un longtable mide su primera fila por su cuenta y, si no le
+-- entra, salta de pagina y deja el titulo solo al pie. Reservando el alto de una
+-- fila completa, el titulo se va con su tabla en lugar de quedarse atras.
+local RESERVA_ANTES_DE_TABLA = 12
+
+function Blocks(bloques)
+  if not FORMAT:match('latex') then return nil end
+  local salida = pandoc.List()
+  for i, b in ipairs(bloques) do
+    if b.t == 'Header' and bloques[i + 1] and bloques[i + 1].t == 'Table' then
+      salida:insert(pandoc.RawBlock(
+        'latex', '\\needspace{' .. RESERVA_ANTES_DE_TABLA .. '\\baselineskip}'))
+    end
+    salida:insert(b)
+  end
+  return salida
+end
+
 function Pandoc(doc)
   local out = {}
   local omit = false
