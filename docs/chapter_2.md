@@ -118,7 +118,79 @@ La herramienta acompaña a la junta durante todo su ciclo operativo, desde la or
 
 ## 2.2. Entrevistas
 
+Esta sección presenta el estudio cualitativo basado en entrevistas semiestructuradas orientadas a validar Pozzo, una aplicación para administrar juntas (o panderos) informales sin que el dinero pase por la plataforma. El estudio exploró cómo se administran hoy las juntas, cómo se registran y comprueban los aportes por Yape o Plin, cómo se reparten los turnos y cómo se maneja la cobranza y los reclamos dentro del grupo. Participaron cabezas de junta con experiencia organizando varios ciclos y participantes de juntas activas, lo que permitió identificar que el registro manual en cuadernos y la revisión de capturas una por una son las principales fuentes de errores y desconfianza en la administración.
+
 ### 2.2.1. Diseño de entrevistas
+
+"Antes de iniciar la entrevista, se brinda un saludo cordial y una breve presentación del entrevistador, explicando que el propósito de la conversación es conocer cómo las personas organizan y participan en juntas de ahorro en su día a día. Se aclara que la información recopilada será utilizada únicamente con fines académicos para el desarrollo del proyecto Pozzo y se mantendrá en estricta confidencialidad. Como primer paso, se solicita al entrevistado brindar su nombre completo, edad y lugar de residencia para fines de registro. Asimismo, se señala que la entrevista tendrá una duración aproximada de 10 a 15 minutos y se desarrollará de manera abierta, por lo que se le invita a responder con total libertad y basándose en ejemplos de su experiencia real, destacando que no existen respuestas correctas o incorrectas."
+
+**Preguntas introductorias**
+
+-   ¿Cuál es su nombre completo?
+
+**Segmento 1: Cabezas de junta (organizadores)**
+
+1. Para empezar, cuéntame de ti: ¿qué edad tienes, en qué distrito vives y a qué te dedicas?
+
+2. ¿Cómo terminaste organizando juntas? ¿Hace cuánto y cuántas has administrado?
+
+3. La junta que llevas ahora, ¿de quiénes se compone? ¿Trabajo, familia, vecinos, una mezcla?
+
+4. Descríbeme la última junta que organizaste de principio a fin: cuánta gente, cuánto aportaba cada uno y cada cuánto tiempo.
+
+5. ¿Cómo decidieron quién cobra primero y quién al final?
+
+6. ¿Cómo te llegan los aportes? ¿Yape, Plin, efectivo, una mezcla?
+
+7. En el último ciclo, ¿dónde anotaste quién había depositado y quién no?
+
+8. Cuéntame paso a paso qué hiciste en la última fecha de corte, desde que se acercaba el día hasta que confirmaste que el pozo estaba completo.
+
+9. En ese ciclo, ¿a cuántas personas tuviste que recordarles el pago? ¿Y cuántas veces a cada una?
+
+10. ¿Cuántos comprobantes revisaste ese ciclo y cómo los revisabas?
+
+11. Cuéntame la última vez que la cuenta no cuadró, o que alguien dijo haber pagado y no te aparecía. ¿Qué pasó y cómo se resolvió?
+
+12. De todas las juntas que has organizado, ¿en cuántas pasó algo parecido? ¿Alguna se rompió por eso?
+
+13. ¿Qué es lo que menos te gusta de organizar la junta?
+
+14. ¿Has intentado llevarlo con Excel, alguna app o algo parecido? ¿Qué pasó?
+
+15. ¿Qué celular usas y qué aplicaciones abres todos los días?
+
+**Segmento 2: Participantes de junta**
+
+1. Cuéntame de ti: ¿qué edad tienes, en qué distrito vives y a qué te dedicas?
+
+2. ¿Cómo entraste a tu primera junta? ¿Quién te invitó?
+
+3. El dinero que cobraste, ¿para qué lo usaste?
+
+4. Descríbeme la junta en la que estás ahora: cuánta gente, cuánto aportas y cada cuánto.
+
+5. Cuéntame paso a paso qué haces cuando toca aportar, desde que te acuerdas hasta que terminas.
+
+6. ¿Cómo supiste qué turno te tocaba?
+
+7. Después de yapear, ¿qué haces con la captura?
+
+8. ¿Alguna vez te dijeron que no habías pagado cuando sí lo habías hecho? Cuéntame qué pasó.
+
+9. Si el organizador te dijera hoy que falta un aporte tuyo de hace tres meses, ¿podrías demostrar que sí pagaste? ¿Cómo lo buscarías?
+
+10. Antes de que te toque cobrar, ¿cómo sabes si el pozo va a estar completo?
+
+11. Cuéntame cómo fue la última vez que te tocó cobrar.
+
+12. ¿Has estado en una junta que se rompió o donde alguien dejó de pagar? ¿Qué pasó?
+
+13. Cuando te invitan a una junta nueva, ¿qué te hace decidir si entras o no?
+
+14. ¿Alguna vez pediste ver cómo iba la cuenta de la junta? ¿Qué te respondieron?
+
+15. ¿Qué celular usas y qué aplicaciones abres todos los días?
 
 ### 2.2.2. Registro de entrevistas
 
