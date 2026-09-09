@@ -18,6 +18,34 @@ function RawInline(el)
   end
 end
 
+-- Una imagen en LaTeX se apoya sobre la linea base, igual que una letra, asi que
+-- crece hacia arriba. Las columnas que genera pandoc son \parbox[t], que alinean
+-- las celdas de una fila por la linea base de su primera linea. Con una foto en
+-- la primera celda esa linea base cae en el borde inferior de la foto, y el texto
+-- de la celda vecina arranca ahi, dejando en blanco todo el alto de la imagen.
+--
+-- Bajar la imagen hasta que su borde superior quede a la altura de una linea
+-- normal alinea ambas celdas por arriba. Solo se toca lo que esta dentro de una
+-- tabla: las figuras del resto del documento se siguen componiendo como siempre.
+local function alinearArriba(inlines)
+  local salida = pandoc.List()
+  for _, el in ipairs(inlines) do
+    if el.t == 'Image' then
+      salida:insert(pandoc.RawInline('latex', '\\raisebox{\\dimexpr-\\height+\\ht\\strutbox\\relax}{'))
+      salida:insert(el)
+      salida:insert(pandoc.RawInline('latex', '}'))
+    else
+      salida:insert(el)
+    end
+  end
+  return salida
+end
+
+function Table(tbl)
+  if not FORMAT:match('latex') then return nil end
+  return pandoc.walk_block(tbl, { Inlines = alinearArriba })
+end
+
 function Pandoc(doc)
   local out = {}
   local omit = false
