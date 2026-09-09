@@ -120,6 +120,20 @@ if ($missing.Count -gt 0) {
     exit 1
 }
 
+# Los [[PENDIENTE: ...]] marcan huecos que hay que rellenar antes de entregar.
+# Se compila igual, porque el PDF sirve para revisar el avance, pero el aviso
+# sale en cada build para que ninguno llegue a la entrega sin que nadie lo vea.
+$pending = Select-String -Path $Chapters -Pattern '\[\[PENDIENTE' -ErrorAction SilentlyContinue
+
+if ($pending) {
+    Write-Host ''
+    Write-Host ('AVISO: {0} marcador(es) PENDIENTE sin rellenar.' -f $pending.Count) -ForegroundColor Yellow
+    foreach ($hit in $pending) {
+        Write-Host ('  {0}:{1}' -f $hit.Path.Replace((Get-Location).Path + '\', ''), $hit.LineNumber) -ForegroundColor DarkYellow
+    }
+    Write-Host '  El PDF se genera igual, pero no lo entregues asi.' -ForegroundColor DarkYellow
+}
+
 if (-not (Test-Path 'dist')) { New-Item -ItemType Directory 'dist' | Out-Null }
 
 $output = "dist/upc-pre-$Period-$CourseCode-$Nrc-$Startup-report-$Delivery.pdf"
