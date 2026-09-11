@@ -432,12 +432,17 @@ El journey de Sofia Gonzales representa la experiencia de una participante desde
 
 ### 2.3.4. Empathy Mapping
 
-### Empathy map 1: Anna Webber - Cabeza de Junta
+#### Empathy map 1: Anna Webber - Cabeza de Junta
 
 El empathy map de Anna Weber, como administradora de juntas entre conocidos, refleja su rol clave en coordinar reglas, turnos y la entrega del pozo, enfrentando el desafío de equilibrar su confianza en el grupo con la frustración de la revisión manual de comprobantes y la incomodidad de gestionar cobranzas, lo que demuestra la necesidad de mejorar estos procesos, asegurar la transparencia de los aportes y preservar la confianza.
 
 ![Anna Weber Empathy Map](images/chapter_2/anna_webber_empathy_map.png)
 
+#### Empathy map 2: Sofia Gonzales - Participante de Junta
+
+El empathy map de Sofia Gonzales, como participante en una junta, está basada en la confianza donde busca cumplir puntualmente con sus aportes y recibir el pozo en su turno. Asimismo enfrenta la incomodidad de buscar comprobantes antiguos y la incertidumbre ante posibles retrasos del grupo. Esto demuestra la necesidad de evidenciar de forma organizada los pagos, el estado del pozo y así tener la tranquilidad frente al cumplimiento general.
+
+![Sofia Gonzales Empathy Map](images/chapter_2/sofia_gonzales_empathy_map.png)
 
 
 ### 2.3.5. Big Picture EventStorming
