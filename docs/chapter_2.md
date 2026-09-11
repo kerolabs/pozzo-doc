@@ -426,6 +426,11 @@ El journey de Anna Weber representa el recorrido de una cabeza de junta desde la
 
 ![Anna Weber Journey Map](images/chapter_2/anna_weber_journey_map.png)
 
+#### User Journey Map 2: Sofia Gonzales — Participante de junta
+
+El journey de Sofia Gonzales representa la experiencia de una participante desde que evalúa incorporarse a una junta hasta que recibe el pozo en el turno asignado. Su decisión inicial depende principalmente de la confianza en el organizador y en los demás integrantes. Durante el ciclo realiza sus aportes mediante Yape o, eventualmente, otros medios acordados, envía comprobantes por WhatsApp y conserva las capturas como respaldo. Los principales aparecen al intentar demostrar aportes anteriores y durante la espera previa a su turno, cuando no existe certeza de que todos los integrantes hayan pagado a tiempo.
+
+![Sofia Gonzales Journey Map](images/chapter_2/sofia_gonzales_journey_map.png)
 
 ### 2.3.5. Big Picture EventStorming
 
