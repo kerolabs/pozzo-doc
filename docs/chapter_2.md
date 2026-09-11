@@ -416,7 +416,16 @@ Entre las tareas compartidas por ambos segmentos, destacan especialmente consult
 ***
 ### 2.3.3. User Journey Mapping
 
+Los User Journey Maps representan el recorrido actual de los dos segmentos objetivo durante su participación en una junta de ahorro, antes de la introducción de Pozzo. A partir de los patrones identificados en las entrevistas, se modelan las actividades, objetivos, dificultades y emociones que experimentan tanto la cabeza de junta como el participante a lo largo de un ciclo.
+
 ### 2.3.4. Empathy Mapping
+
+#### User Journey Map 1: Anna Weber — Cabeza de junta
+
+El journey de Anna Weber representa el recorrido de una cabeza de junta desde la conformación del grupo hasta la entrega del pozo correspondiente a cada período. El proceso se caracteriza por una alta carga administrativa: coordinación mediante WhatsApp, registro manual de aportes, revisión individual de comprobantes y seguimiento constante a los participantes atrasados. La angustia y estres se concentran cerca de la fecha de corte, cuando Anna necesita comprobar que todos los aportes hayan sido recibidos y resolver cualquier inconsistencia antes de realizar la entrega.
+
+![Anna Weber Journey Map](images/chapter_2/anna_weber_journey_map.png)
+
 
 ### 2.3.5. Big Picture EventStorming
 
