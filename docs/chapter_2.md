@@ -18,16 +18,16 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
 
 #### Competitive Analysis Landscape
 
-| Característica | Pozzo | Tandapp / MiTandita | Moneypool | Splitwise |
-| :--- | :--- | :--- | :--- | :--- |
-| **Perfil / Overview** | Plataforma móvil y web para administrar juntas de ahorro en tiempo real, validando vouchers sin custodiar dinero. | App móvil para registrar integrantes, armar tandas, asignar turnos y marcar pagos manualmente. | Plataforma fintech para recaudar fondos grupales mediante saldo digital y links de pago. | Aplicación para registrar, calcular y saldar gastos compartidos entre grupos de personas. |
-| **Ventaja competitiva** | Validación OCR de vouchers de Yape/Plin y modelo 100 % no custodial adaptado a las juntas en Perú. | Interfaz enfocada únicamente en la dinámica de tandas sin requerir cuentas bancarias. | Cobro integrado con tarjeta de crédito/débito y dispersión a cuentas bancarias vía SPEI. | Marca global consolidada con algoritmo para optimizar y simplificar deudas cruzadas. |
+| Característica | Pozzo                                                                                                                   | Tandapp / MiTandita | Moneypool | Splitwise |
+| :--- |:------------------------------------------------------------------------------------------------------------------------| :--- | :--- | :--- |
+| **Perfil / Overview** | Plataforma móvil y web para administrar juntas de ahorro en tiempo real, validando vouchers sin custodiar dinero.       | App móvil para registrar integrantes, armar tandas, asignar turnos y marcar pagos manualmente. | Plataforma fintech para recaudar fondos grupales mediante saldo digital y links de pago. | Aplicación para registrar, calcular y saldar gastos compartidos entre grupos de personas. |
+| **Ventaja competitiva** | Validación OCR de vouchers de Yape/Plin y modelo 100 % no custodial adaptado a las juntas en Perú.                      | Interfaz enfocada únicamente en la dinámica de tandas sin requerir cuentas bancarias. | Cobro integrado con tarjeta de crédito/débito y dispersión a cuentas bancarias vía SPEI. | Marca global consolidada con algoritmo para optimizar y simplificar deudas cruzadas. |
 | **Valor ofrecido** | Elimina el conteo manual, evita reclamos ("yo sí pagué"), despersonaliza la cobranza y transparenta el estado del pozo. | Permite calendarizar montos, fechas y turnos para consultar el avance de la tanda desde el celular. | Centraliza dinero en un fondo digital compartido para eventos o compras conjuntas antes de retirarlo. | Otorga claridad continua sobre quién le debe a quién en gastos diarios compartidos y viajes. |
-| **Mercado objetivo** | Organizadores y participantes de juntas de ahorro en zonas urbanas del Perú (NSE B, C y D). | Organizadores y miembros de tandas comunitarias y familiares en México y Latinoamérica. | Grupos de amigos, familias y organizadores de eventos sociales en México. | Compañeros de departamento, grupos de viaje, parejas y amigos a nivel internacional. |
-| **Estrategias de marketing** | Invitación directa vía enlace de WhatsApp y recomendación orgánica dentro de redes de confianza. | Posicionamiento en tiendas de aplicaciones (ASO) mediante palabras clave ("tanda", "ahorro grupal"). | Marketing digital B2C, campañas en redes sociales y alianzas en el ecosistema fintech mexicano. | Crecimiento guiado por el producto (PLG) y optimización en Google Play y App Store. |
-| **Productos y servicios** | Panel de organizador, app de participante, validador OCR de vouchers, gestión de turnos e historial de cumplimiento. | Creación de tandas, lista de participantes, asignador de turnos/fechas y registro manual de aportes. | Creación de "pools", links de cobro, saldo virtual interno y transferencias vía SPEI. | Calculadora de división de cuentas, balance de saldos, registro de abonos y reportes exportables. |
-| **Precios & costos** | Modelo freemium / microcomisión por ciclo de junta administrada. | Descarga gratuita con anuncios publicitarios invasivos; opción de compra in-app para retirarlos. | Comisión por transacción con tarjeta (aprox. 3.9 %) y tarifas según el tamaño del pool. | Versión gratuita básica; suscripción prémium (*Splitwise Pro*) para escaneo de recibos y gráficos. |
-| **Canales de distribución** | Aplicación móvil nativa (Android/iOS), versión web responsiva (PWA) y enlaces por WhatsApp. | Google Play Store y Apple App Store. | Sitio web oficial (moneypool.mx) y app en Google Play / App Store. | Sitio web oficial (splitwise.com) y app en Google Play / App Store. |
+| **Mercado objetivo** | Organizadores y participantes de juntas de ahorro en zonas urbanas del Perú (NSE B, C y D).                             | Organizadores y miembros de tandas comunitarias y familiares en México y Latinoamérica. | Grupos de amigos, familias y organizadores de eventos sociales en México. | Compañeros de departamento, grupos de viaje, parejas y amigos a nivel internacional. |
+| **Estrategias de marketing** | Invitación directa vía enlace de WhatsApp y recomendación orgánica dentro de redes de confianza.                        | Posicionamiento en tiendas de aplicaciones (ASO) mediante palabras clave ("tanda", "ahorro grupal"). | Marketing digital B2C, campañas en redes sociales y alianzas en el ecosistema fintech mexicano. | Crecimiento guiado por el producto (PLG) y optimización en Google Play y App Store. |
+| **Productos y servicios** | Panel de organizador, app de participante, validador OCR de vouchers, gestión de turnos e historial de cumplimiento.    | Creación de tandas, lista de participantes, asignador de turnos/fechas y registro manual de aportes. | Creación de "pools", links de cobro, saldo virtual interno y transferencias vía SPEI. | Calculadora de división de cuentas, balance de saldos, registro de abonos y reportes exportables. |
+| **Precios & costos** | Modelo freemium / microcomisión por ciclo de junta administrada.                                                        | Descarga gratuita con anuncios publicitarios invasivos; opción de compra in-app para retirarlos. | Comisión por transacción con tarjeta (aprox. 3.9 %) y tarifas según el tamaño del pool. | Versión gratuita básica; suscripción prémium (*Splitwise Pro*) para escaneo de recibos y gráficos. |
+| **Canales de distribución** | Aplicación móvil nativa (Android/iOS), version multiplataforma (PWA) y enlaces por WhatsApp.                            | Google Play Store y Apple App Store. | Sitio web oficial (moneypool.mx) y app en Google Play / App Store. | Sitio web oficial (splitwise.com) y app en Google Play / App Store. |
 
 * **Tandapp / MiTandita** se enfoca exclusivamente en la calendarización de tandas, permitiendo registrar participantes y definir el orden de entrega. Su limitación principal radica en que el registro de aportes es enteramente manual por parte del administrador, no cuenta con herramientas para validar transferencias bancarias y monetiza mediante anuncios publicitarios invasivos.
 * **Moneypool** resuelve la recaudación colectiva centralizando los fondos en una cuenta virtual propia y habilitando cobros con tarjeta. Esta infraestructura presenta fricciones para el ahorro tradicional: la plataforma retiene el dinero y cobra comisiones por transacción, lo cual desincentiva a grupos informales habituados a transferencias directas, inmediatas y gratuitas entre cuentas bancarias personales.
@@ -92,7 +92,7 @@ Para que una junta adopte la solución, todo el grupo debe poder utilizarla sin 
 
 * Permitir el ingreso mediante un enlace de invitación distribuido por WhatsApp, facilitando que los participantes consulten el calendario en pocos segundos.
 * Diseñar un flujo de registro mínimo que requiera únicamente nombre y número de celular, priorizando la facilidad de uso sobre la carga de datos.
-* Disponer de una versión web responsiva (PWA) junto a la app móvil, permitiendo consultar turnos y subir vouchers sin exigir una descarga obligatoria a quienes tengan limitaciones de almacenamiento.
+* Disponer de una versión multiplataforma (PWA) junto a la app móvil, permitiendo consultar turnos y subir vouchers sin exigir una descarga obligatoria a quienes tengan limitaciones de almacenamiento.
 * Presentar una interfaz gráfica limpia y visual que permita entender de un vistazo el avance de la junta, accesible para usuarios con poca experiencia digital.
 
 #### Estrategia 3: Cobranza despersonalizada y transparencia de recaudación
@@ -254,7 +254,7 @@ Jorge organiza juntas desde hace unos cinco años; empezó entre hermanos y prim
 
 | Campo | Detalle |
 | --- | --- |
-| **Entrevistado(a)** | Sofia Gonzales |
+| **Entrevistado(a)** | Elizabeth Díaz |
 | **Género** | Femenino |
 | **Edad** | 22 |
 | **Lugar de residencia** | Callao |
@@ -262,7 +262,7 @@ Jorge organiza juntas desde hace unos cinco años; empezó entre hermanos y prim
 | **Duración** | 7:57 |
 | **Link de la entrevista** | https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a290_upc_edu_pe/IQCFSDS82wYXTLbYwVMsMQKqAYFMxBZ7A2ITCzsY__4CGdI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=MGNr2M |
 
-![Captura de la entrevista a Sofia Gonzales](images/chapter_2/elizabeth_diaz.png){width=90%}
+![Captura de la entrevista a Elizabeth Díaz](images/chapter_2/elizabeth_diaz.png){width=90%}
 
 Elizabeth entró a su primera junta invitada por una amiga de la universidad, que le comentó que varias amigas estaban ahorrando en grupo para recibir una cantidad más grande de dinero; al principio dudó, pero como conocía a todas, decidió entrar, y ese primer cobro lo usó para comprarse una laptop que necesitaba para estudiar. Hoy participa en una junta de ocho personas que aportan S/300 al mes durante ocho meses, con los turnos definidos por sorteo y publicados por la organizadora en el grupo de WhatsApp. Cuando toca aportar, la organizadora avisa por el grupo, ella revisa que tenga el dinero, yapea, toma la captura del comprobante y se la envía; la organizadora confirma en el grupo que el aporte se hizo. Guarda las capturas en su galería, pero mezcladas con todas las demás, sin una carpeta propia. Ya le pasó que la organizadora pensó que no había pagado y tuvo que buscar la conversación y reenviar la captura de Yape para demostrarlo; si le pidieran probar un aporte de hace tres meses, revisaría primero el chat de WhatsApp, luego la galería y, por último, sus movimientos de Yape. Antes de cobrar le preocupa que alguien se atrase, sobre todo si ya cuenta con ese dinero, aunque confía porque son amigas y la organizadora avisa quiénes ya pagaron. Para decidir entrar a una junta le importa quién la organiza y quiénes participan, porque con desconocidos sería más difícil reclamar si ocurre un problema. Usa un celular Android y hace todo lo de la junta desde el teléfono, con WhatsApp y Yape.
 
@@ -378,40 +378,41 @@ En esta sección se presentan los artefactos resultantes del análisis de la inf
 Cada característica presente en los arquetipos proviene de los resúmenes y del análisis estadístico de las seis entrevistas registradas; no se incorporó ningún atributo que no tenga respaldo en dicha información.
 ### 2.3.1. User Personas
 
-Se elaboró una ficha de User Persona por cada segmento objetivo, utilizando UXPressia. Para cada segmento se tomó como base a la entrevistada más representativa, cuyo caso concentra los patrones que se repiten en los tres entrevistados, y se contrastó cada rasgo con los porcentajes consolidados en la sección 2.2.3.
+Se elaboró una ficha de User Persona por cada segmento objetivo, utilizando UXPressia. Para cada segmento se construyó un arquetipo representativo a partir de los patrones recurrentes identificados en las tres entrevistas, contrastando sus características con los resultados consolidados de la sección 2.2.3.
 
 ### User Persona 1: Cabeza de junta
-<img src="images/chapter_2/anna_weber_us1.png" width="700">
+
+![Anna Weber](images/chapter_2/anna_weber_us1.png)
 
 ### User Persona 2: Participante de junta
-<img src="images/chapter_2/sofia_gonzales_us2.png" width="700">
+![Sofia Gonzales](images/chapter_2/sofia_gonzales_us2.png)
 
 ***
 ### 2.3.2. User Task Matrix
-El User Task Matrix concentra las tareas que los User Personas realizan para cumplir sus objetivos dentro de una junta, con independencia de que exista o no una solución de software. No se trata de funcionalidades de Pozzo, sino de actividades que ambos segmentos ya ejecutan hoy con cuaderno, hoja de cálculo y mensajería
+El User Task Matrix concentra las tareas que los User Personas realizan para cumplir sus objetivos dentro de una junta, con independencia de que exista o no una solución de software. No se trata de funcionalidades de Pozzo, sino de actividades que ambos segmentos ya ejecutan hoy con cuaderno, hoja de cálculo y mensajería.
 
-| User Task Matrix                                                | Ana Weber (Frecuencia) | Ana Weber (Importancia) | Sofia Gonzales (Frecuencia) | Sofia Gonzales (Importancia) |
-|:----------------------------------------------------------------| :---: | :---: | :---: | :---: |
-|Convocar y conformar el grupo de la junta                        | Media | Alta | Baja | Media |
-|Definir monto, periodicidad y número de integrantes            | Media | Alta | Baja | Media |
-|Acordar o sortear el orden de los turnos                         | Baja | Alta | Baja | Alta |
-|Transferir el aporte por billetera digital          | Media | Alta | Alta | Alta |
-|Guardar el comprobante del aporte propio                  | Media | Media | Alta | Alta |
-|Registrar quién aportó en cada fecha de corte                   | Alta | Alta | Baja | Baja |
-|Verificar el comprobante de cada aporte recibido                           | Alta | Alta | Baja | Media |
-|Recordar el pago a los integrantes atrasados                    | Alta | Alta | Baja | Baja |
-|Consultar cuánto falta para completar el pozo                   | Media | Alta | Media | Alta |
-|Entregar el pozo al integrante del turno | Media | Alta | Baja | Media |
-|Resolver un reclamo sobre un aporte no registrado   | Media | Alta | Media | Alta |
-|Demostrar que un aporte propio sí se realizó   | Baja | Media | Media | Alta |
-|Cubrir el atraso de un integrante para no romper la cadena  | Baja | Alta | Baja | Baja |
-|Decidir si acepta entrar a una nueva junta  | Baja | Media | Media | Alta |
+| User Task Matrix                                                | Anna Weber (Frecuencia) | Anna Weber (Importancia) | Sofia Gonzales (Frecuencia) | Sofia Gonzales (Importancia) |
+|:----------------------------------------------------------------|:-----------------------:|:------------------------:| :---: | :---: |
+|Convocar y conformar el grupo de la junta                        |          Media          |           Alta           | Baja | Media |
+|Definir monto, periodicidad y número de integrantes            |          Media          |           Alta           | Baja | Media |
+|Acordar o sortear el orden de los turnos                         |          Baja           |           Alta           | Baja | Alta |
+|Transferir el aporte por billetera digital          |          Media          |           Alta           | Alta | Alta |
+|Guardar el comprobante del aporte propio                  |          Media          |          Media           | Alta | Alta |
+|Registrar quién aportó en cada fecha de corte                   |          Alta           |           Alta           | Baja | Baja |
+|Verificar el comprobante de cada aporte recibido                           |          Alta           |           Alta           | Baja | Media |
+|Recordar el pago a los integrantes atrasados                    |          Alta           |           Alta           | Baja | Baja |
+|Consultar cuánto falta para completar el pozo                   |          Media          |           Alta           | Media | Alta |
+|Entregar el pozo al integrante del turno |          Media          |           Alta           | Baja | Media |
+|Resolver un reclamo sobre un aporte no registrado   |          Media          |           Alta           | Media | Alta |
+|Demostrar que un aporte propio sí se realizó   |          Baja           |          Media           | Media | Alta |
+|Cubrir el atraso de un integrante para no romper la cadena  |          Baja           |           Alta           | Baja | Baja |
+|Decidir si acepta entrar a una nueva junta  |          Baja           |          Media           | Media | Alta |
 
 **Leyenda:** Frecuencia e Importancia se expresan en tres niveles: Baja, Media y Alta.
 
-Del cuadro se desprenden tres lecturas. La primera es que **las tareas de mayor frecuencia e importancia para Shirley son precisamente las administrativas**: registrar aportes, verificar comprobantes y recordar el pago. Son actividades que no aportan valor al ahorro en sí mismo y que, sin embargo, consumen la mayor parte de su esfuerzo. La segunda es que **para Elizabeth las tareas de alta frecuencia son las de ejecución y resguardo**, transferir el aporte y guardar el comprobante, mientras que las de mayor importancia relativa son las defensivas: demostrar un aporte y saber si el pozo estará completo.
+Del cuadro se desprenden tres lecturas. La primera es que **las tareas de mayor frecuencia e importancia para Anna son precisamente las administrativas**: registrar aportes, verificar comprobantes y recordar el pago. Son actividades que no aportan valor al ahorro en sí mismo y que, sin embargo, consumen la mayor parte de su esfuerzo. La segunda es que **para Sofia las tareas de alta frecuencia son las de ejecución y resguardo**, transferir el aporte y guardar el comprobante, mientras que las de mayor importancia relativa son las defensivas: demostrar un aporte y saber si el pozo estará completo.
 
-La tercera lectura es la más relevante para el diseño de la solución: **ambos segmentos coinciden en dos tareas de importancia alta**, consultar cuánto falta para completar el pozo y resolver un reclamo sobre un aporte no registrado. Son los dos únicos puntos donde organizador y participante comparten la misma necesidad, y por lo tanto constituyen el núcleo funcional sobre el que Pozzo debe construirse.
+Entre las tareas compartidas por ambos segmentos, destacan especialmente consultar cuánto falta para completar el pozo y resolver reclamos sobre aportes no registrados, porque ambas están directamente relacionadas con la transparencia y trazabilidad del ciclo.
 ***
 ### 2.3.3. User Journey Mapping
 
