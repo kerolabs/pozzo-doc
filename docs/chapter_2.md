@@ -418,19 +418,27 @@ Entre las tareas compartidas por ambos segmentos, destacan especialmente consult
 
 Los User Journey Maps representan el recorrido actual de los dos segmentos objetivo durante su participación en una junta de ahorro, antes de la introducción de Pozzo. A partir de los patrones identificados en las entrevistas, se modelan las actividades, objetivos, dificultades y emociones que experimentan tanto la cabeza de junta como el participante a lo largo de un ciclo.
 
-#### User Journey Map 1: Anna Weber — Cabeza de junta
+#### User Journey Map 1: Anna Weber - Cabeza de junta
 
 El journey de Anna Weber representa el recorrido de una cabeza de junta desde la conformación del grupo hasta la entrega del pozo correspondiente a cada período. El proceso se caracteriza por una alta carga administrativa: coordinación mediante WhatsApp, registro manual de aportes, revisión individual de comprobantes y seguimiento constante a los participantes atrasados. La angustia y estres se concentran cerca de la fecha de corte, cuando Anna necesita comprobar que todos los aportes hayan sido recibidos y resolver cualquier inconsistencia antes de realizar la entrega.
 
 ![Anna Weber Journey Map](images/chapter_2/anna_weber_journey_map.png)
 
-#### User Journey Map 2: Sofia Gonzales — Participante de junta
+#### User Journey Map 2: Sofia Gonzales - Participante de junta
 
 El journey de Sofia Gonzales representa la experiencia de una participante desde que evalúa incorporarse a una junta hasta que recibe el pozo en el turno asignado. Su decisión inicial depende principalmente de la confianza en el organizador y en los demás integrantes. Durante el ciclo realiza sus aportes mediante Yape o, eventualmente, otros medios acordados, envía comprobantes por WhatsApp y conserva las capturas como respaldo. Los principales aparecen al intentar demostrar aportes anteriores y durante la espera previa a su turno, cuando no existe certeza de que todos los integrantes hayan pagado a tiempo.
 
 ![Sofia Gonzales Journey Map](images/chapter_2/sofia_gonzales_journey_map.png)
 
 ### 2.3.4. Empathy Mapping
+
+### Empathy map 1: Anna Webber - Cabeza de Junta
+
+El empathy map de Anna Weber, como administradora de juntas entre conocidos, refleja su rol clave en coordinar reglas, turnos y la entrega del pozo, enfrentando el desafío de equilibrar su confianza en el grupo con la frustración de la revisión manual de comprobantes y la incomodidad de gestionar cobranzas, lo que demuestra la necesidad de mejorar estos procesos, asegurar la transparencia de los aportes y preservar la confianza.
+
+![Anna Weber Empathy Map](images/chapter_2/anna_webber_empathy_map.png)
+
+
 
 ### 2.3.5. Big Picture EventStorming
 
