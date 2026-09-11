@@ -416,9 +416,69 @@ Entre las tareas compartidas por ambos segmentos, destacan especialmente consult
 ***
 ### 2.3.3. User Journey Mapping
 
+Los User Journey Maps representan el recorrido actual de los dos segmentos objetivo durante su participación en una junta de ahorro, antes de la introducción de Pozzo. A partir de los patrones identificados en las entrevistas, se modelan las actividades, objetivos, dificultades y emociones que experimentan tanto la cabeza de junta como el participante a lo largo de un ciclo.
+
+#### User Journey Map 1: Anna Weber - Cabeza de junta
+
+El journey de Anna Weber representa el recorrido de una cabeza de junta desde la conformación del grupo hasta la entrega del pozo correspondiente a cada período. El proceso se caracteriza por una alta carga administrativa: coordinación mediante WhatsApp, registro manual de aportes, revisión individual de comprobantes y seguimiento constante a los participantes atrasados. La angustia y estrés se concentran cerca de la fecha de corte, cuando Anna necesita comprobar que todos los aportes hayan sido recibidos y resolver cualquier inconsistencia antes de realizar la entrega.
+
+![Anna Weber Journey Map](images/chapter_2/anna_weber_journey_map.png)
+
+#### User Journey Map 2: Sofia Gonzales - Participante de junta
+
+El journey de Sofia Gonzales representa la experiencia de una participante desde que evalúa incorporarse a una junta hasta que recibe el pozo en el turno asignado. Su decisión inicial depende principalmente de la confianza en el organizador y en los demás integrantes. Durante el ciclo realiza sus aportes mediante Yape o, eventualmente, otros medios acordados, envía comprobantes por WhatsApp y conserva las capturas como respaldo. Los principales problemas aparecen al intentar demostrar aportes anteriores y durante la espera previa a su turno, cuando no existe certeza de que todos los integrantes hayan pagado a tiempo.
+
+![Sofia Gonzales Journey Map](images/chapter_2/sofia_gonzales_journey_map.png)
+
 ### 2.3.4. Empathy Mapping
 
+#### Empathy map 1: Anna Weber - Cabeza de Junta
+
+El empathy map de Anna Weber, como administradora de juntas entre conocidos, refleja su rol clave en coordinar reglas, turnos y la entrega del pozo, enfrentando el desafío de equilibrar su confianza en el grupo con la frustración de la revisión manual de comprobantes y la incomodidad de gestionar cobranzas, lo que demuestra la necesidad de mejorar estos procesos, asegurar la transparencia de los aportes y preservar la confianza.
+
+![Anna Weber Empathy Map](images/chapter_2/anna_webber_empathy_map.png)
+
+#### Empathy map 2: Sofia Gonzales - Participante de Junta
+
+El empathy map de Sofia Gonzales, como participante en una junta, está basada en la confianza donde busca cumplir puntualmente con sus aportes y recibir el pozo en su turno. Asimismo enfrenta la incomodidad de buscar comprobantes antiguos y la incertidumbre ante posibles retrasos del grupo. Esto demuestra la necesidad de evidenciar de forma organizada los pagos, el estado del pozo y así tener la tranquilidad frente al cumplimiento general.
+
+![Sofia Gonzales Empathy Map](images/chapter_2/sofia_gonzales_empathy_map.png)
+
+
 ### 2.3.5. Big Picture EventStorming
+
+El Big Picture EventStorming se utilizó para representar de manera colaborativa el funcionamiento general de una junta de ahorro, identificando los eventos relevantes que ocurren desde la conformación del grupo hasta la finalización del ciclo. El objetivo fue construir una visión compartida del dominio a partir de los hallazgos obtenidos en las entrevistas, sin incorporar todavía funcionalidades específicas de Pozzo.
+
+**Leyenda**
+- **Domain Event**: Hecho relevante del dominio que ya ocurrió.
+- **Hotspot**: Problema, duda, riesgo o punto que requiere mayor análisis.
+- **Actor**: Persona o rol que participa en una acción del proceso.
+- **Command**: Acción o intención que provoca un cambio en el dominio.
+- **Policy**: Regla que determina qué acción realizar cuando ocurre determinado evento.
+- **External System**: Sistema o herramienta externa que interactúa con el proceso.
+- **Comment**: Nota, pregunta o aclaración añadida durante el análisis
+
+![Leyenda de conceptos](images/chapter_2/leyenda.jpg)
+#### Identificación de eventos
+El equipo inició la sesión identificando los principales eventos que ocurren durante una junta de ahorro. Cada evento se formuló como un hecho ocurrido dentro del dominio, sin considerar todavía su orden ni posibles soluciones tecnológicas.
+
+![Identificacion de eventos](images/chapter_2/identificacion_de_eventos.jpg)
+
+#### Ordenamiento temporal
+Los eventos identificados se organizaron cronológicamente para reconstruir el recorrido completo de una junta, desde su conformación hasta la finalización del ciclo.
+
+![Ordenamiento temporal](images/chapter_2/ordenamiento_temporal.jpg)
+
+#### Actores, sistemas externos y comandos
+Posteriormente se incorporaron los roles que participan en cada actividad y las herramientas utilizadas actualmente, entre ellas WhatsApp, Yape, Plin, aplicaciones bancarias y hojas de cálculo. Ademas se utilizan verbos en infinitivo para representar las acciones que se están haciendo.
+
+![Actores,sistemas externos y comandos](images/chapter_2/actores_sistemas_externos_comandos.jpg)
+
+#### Identificación de problemas y validación
+
+Finalmente, mediante storytelling se revisó el recorrido completo y se identificaron los principales puntos de fricción, como la cobranza repetitiva, la verificación manual y los aportes pendientes.
+
+![Problemas y Validación](images/chapter_2/problemas_validacion.jpg)
 
 ### 2.3.6. Ubiquitous Language
 
