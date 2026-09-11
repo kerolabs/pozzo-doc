@@ -254,7 +254,7 @@ Jorge organiza juntas desde hace unos cinco años; empezó entre hermanos y prim
 
 | Campo | Detalle |
 | --- | --- |
-| **Entrevistado(a)** | Elizabeth Díaz |
+| **Entrevistado(a)** | Sofia Gonzales |
 | **Género** | Femenino |
 | **Edad** | 22 |
 | **Lugar de residencia** | Callao |
@@ -262,7 +262,7 @@ Jorge organiza juntas desde hace unos cinco años; empezó entre hermanos y prim
 | **Duración** | 7:57 |
 | **Link de la entrevista** | https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a290_upc_edu_pe/IQCFSDS82wYXTLbYwVMsMQKqAYFMxBZ7A2ITCzsY__4CGdI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=MGNr2M |
 
-![Captura de la entrevista a Elizabeth Díaz](images/chapter_2/elizabeth_diaz.png){width=90%}
+![Captura de la entrevista a Sofia Gonzales](images/chapter_2/elizabeth_diaz.png){width=90%}
 
 Elizabeth entró a su primera junta invitada por una amiga de la universidad, que le comentó que varias amigas estaban ahorrando en grupo para recibir una cantidad más grande de dinero; al principio dudó, pero como conocía a todas, decidió entrar, y ese primer cobro lo usó para comprarse una laptop que necesitaba para estudiar. Hoy participa en una junta de ocho personas que aportan S/300 al mes durante ocho meses, con los turnos definidos por sorteo y publicados por la organizadora en el grupo de WhatsApp. Cuando toca aportar, la organizadora avisa por el grupo, ella revisa que tenga el dinero, yapea, toma la captura del comprobante y se la envía; la organizadora confirma en el grupo que el aporte se hizo. Guarda las capturas en su galería, pero mezcladas con todas las demás, sin una carpeta propia. Ya le pasó que la organizadora pensó que no había pagado y tuvo que buscar la conversación y reenviar la captura de Yape para demostrarlo; si le pidieran probar un aporte de hace tres meses, revisaría primero el chat de WhatsApp, luego la galería y, por último, sus movimientos de Yape. Antes de cobrar le preocupa que alguien se atrase, sobre todo si ya cuenta con ese dinero, aunque confía porque son amigas y la organizadora avisa quiénes ya pagaron. Para decidir entrar a una junta le importa quién la organiza y quiénes participan, porque con desconocidos sería más difícil reclamar si ocurre un problema. Usa un celular Android y hace todo lo de la junta desde el teléfono, con WhatsApp y Yape.
 
@@ -390,7 +390,7 @@ Se elaboró una ficha de User Persona por cada segmento objetivo, utilizando UXP
 ### 2.3.2. User Task Matrix
 El User Task Matrix concentra las tareas que los User Personas realizan para cumplir sus objetivos dentro de una junta, con independencia de que exista o no una solución de software. No se trata de funcionalidades de Pozzo, sino de actividades que ambos segmentos ya ejecutan hoy con cuaderno, hoja de cálculo y mensajería
 
-| User Task Matrix                                                | Shirley Becerra (Frecuencia) | Shirley Becerra (Importancia) | Elizabeth Díaz (Frecuencia) | Elizabeth Díaz (Importancia) |
+| User Task Matrix                                                | Ana Weber (Frecuencia) | Ana Weber (Importancia) | Sofia Gonzales (Frecuencia) | Sofia Gonzales (Importancia) |
 |:----------------------------------------------------------------| :---: | :---: | :---: | :---: |
 |Convocar y conformar el grupo de la junta                        | Media | Alta | Baja | Media |
 |Definir monto, periodicidad y número de integrantes            | Media | Alta | Baja | Media |
