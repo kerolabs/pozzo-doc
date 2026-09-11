@@ -18,6 +18,54 @@ function RawInline(el)
   end
 end
 
+-- Una imagen en LaTeX se apoya sobre la linea base, igual que una letra, asi que
+-- crece hacia arriba. Las columnas que genera pandoc son \parbox[t], que alinean
+-- las celdas de una fila por la linea base de su primera linea. Con una foto en
+-- la primera celda esa linea base cae en el borde inferior de la foto, y el texto
+-- de la celda vecina arranca ahi, dejando en blanco todo el alto de la imagen.
+--
+-- Bajar la imagen hasta que su borde superior quede a la altura de una linea
+-- normal alinea ambas celdas por arriba. Solo se toca lo que esta dentro de una
+-- tabla: las figuras del resto del documento se siguen componiendo como siempre.
+local function alinearArriba(inlines)
+  local salida = pandoc.List()
+  for _, el in ipairs(inlines) do
+    if el.t == 'Image' then
+      salida:insert(pandoc.RawInline('latex', '\\raisebox{\\dimexpr-\\height+\\ht\\strutbox\\relax}{'))
+      salida:insert(el)
+      salida:insert(pandoc.RawInline('latex', '}'))
+    else
+      salida:insert(el)
+    end
+  end
+  return salida
+end
+
+function Table(tbl)
+  if not FORMAT:match('latex') then return nil end
+  return pandoc.walk_block(tbl, { Inlines = alinearArriba })
+end
+
+-- Un encabezado seguido de una tabla necesita mas holgura que uno seguido de
+-- texto. El \needspace de apa7.tex reserva unas pocas lineas, suficientes para
+-- un parrafo; pero un longtable mide su primera fila por su cuenta y, si no le
+-- entra, salta de pagina y deja el titulo solo al pie. Reservando el alto de una
+-- fila completa, el titulo se va con su tabla en lugar de quedarse atras.
+local RESERVA_ANTES_DE_TABLA = 12
+
+function Blocks(bloques)
+  if not FORMAT:match('latex') then return nil end
+  local salida = pandoc.List()
+  for i, b in ipairs(bloques) do
+    if b.t == 'Header' and bloques[i + 1] and bloques[i + 1].t == 'Table' then
+      salida:insert(pandoc.RawBlock(
+        'latex', '\\needspace{' .. RESERVA_ANTES_DE_TABLA .. '\\baselineskip}'))
+    end
+    salida:insert(b)
+  end
+  return salida
+end
+
 function Pandoc(doc)
   local out = {}
   local omit = false
