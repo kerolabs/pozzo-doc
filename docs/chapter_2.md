@@ -447,6 +447,39 @@ El empathy map de Sofia Gonzales, como participante en una junta, está basada e
 
 ### 2.3.5. Big Picture EventStorming
 
+El Big Picture EventStorming se utilizó para representar de manera colaborativa el funcionamiento general de una junta de ahorro, identificando los eventos relevantes que ocurren desde la conformación del grupo hasta la finalización del ciclo. El objetivo fue construir una visión compartida del dominio a partir de los hallazgos obtenidos en las entrevistas, sin incorporar todavía funcionalidades específicas de Pozzo.
+
+**Leyenda**
+- **Domain Event**: Hecho relevante del dominio que ya ocurrió.
+- **Hotspot**: Problema, duda, riesgo o punto que requiere mayor análisis.
+- **Actor**: Persona o rol que participa en una acción del proceso.
+- **Command**: Acción o intención que provoca un cambio en el dominio.
+- **Policy**: Regla que determina qué acción realizar cuando ocurre determinado evento.
+- **External System**: Sistema o herramienta externa que interactúa con el proceso.
+- **Comment**: Nota, pregunta o aclaración añadida durante el análisis
+
+![Leyenda de conceptos](images/chapter_2/leyenda.jpg)
+#### Identificación de eventos
+El equipo inició la sesión identificando los principales eventos que ocurren durante una junta de ahorro. Cada evento se formuló como un hecho ocurrido dentro del dominio, sin considerar todavía su orden ni posibles soluciones tecnológicas.
+
+![Identificacion de eventos](images/chapter_2/identificacion_de_eventos.jpg)
+
+#### Ordenamiento temporal
+Los eventos identificados se organizaron cronológicamente para reconstruir el recorrido completo de una junta, desde su conformación hasta la finalización del ciclo.
+
+![Ordenamiento temporal](images/chapter_2/ordenamiento_temporal.jpg)
+
+#### Actores, sistemas externos y comandos
+Posteriormente se incorporaron los roles que participan en cada actividad y las herramientas utilizadas actualmente, entre ellas WhatsApp, Yape, Plin, aplicaciones bancarias y hojas de cálculo. Ademas se utilizan verbos en infinitivo para representar las acciones que se están haciendo.
+
+![Actores,sistemas externos y comandos](images/chapter_2/actores_sistemas_externos_comandos.jpg)
+
+#### Identificación de problemas y validación
+
+Finalmente, mediante storytelling se revisó el recorrido completo y se identificaron los principales puntos de fricción, como la cobranza repetitiva, la verificación manual y los aportes pendientes.
+
+![Problemas y Validación](images/chapter_2/problemas_validacion.jpg)
+
 ### 2.3.6. Ubiquitous Language
 
 El siguiente glosario reúne los términos y conceptos del dominio del ahorro rotativo que el equipo utiliza de forma uniforme en todos los artefactos, en el código y en la comunicación con los interesados. Se incluyen únicamente términos del negocio, no términos técnicos de ingeniería de software. Los términos se registran en inglés, con su equivalente de uso corriente en el Perú entre paréntesis.
