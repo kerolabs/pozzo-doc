@@ -183,6 +183,15 @@ Cada `#` de primer nivel abre página nueva. El índice llega hasta el tercer ni
 los más profundos salen en el documento pero no se listan. Para forzar un salto,
 `\newpage` en una línea propia.
 
+> [!CAUTION]
+> Deja siempre una línea en blanco antes de cada título. Si el título viene pegado
+> a un `***`, a una imagen o a un párrafo, Pandoc lo trata como texto normal: sale
+> en el PDF con las almohadillas y desaparece del índice.
+
+Los títulos sin número (nivel 4 y 5, como "User Journey Map 1" o "Hypothesis
+Statement 01") no van en el índice. No uses nivel 3 para un título sin número,
+porque el índice lo listaría al mismo nivel que las secciones numeradas.
+
 ### Separadores y emojis
 
 Usa `***` para una línea separadora, con una línea en blanco antes y después.
