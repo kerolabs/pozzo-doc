@@ -273,8 +273,7 @@ y la funcionalidad que lo habilita.
 - **Con** las dos vías de incorporación: el enlace de invitación que el
   organizador comparte por mensajería y el ingreso desde la propia aplicación.
 
-
-ewpage
+\newpage
 
 #### 1.2.2.4. Lean UX Canvas
 
