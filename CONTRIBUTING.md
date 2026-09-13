@@ -202,9 +202,10 @@ necesitas marcar estados en una tabla, escríbelos con palabras.
 
 ### Tablas
 
-Hay dos formas de escribir una tabla. Para tablas cortas y simples, las de tuberías
-de Markdown. Para cualquier tabla con celdas largas, varias columnas o celdas
-combinadas, HTML.
+Todas las tablas del informe están escritas en HTML y esa es la forma recomendada
+para las nuevas: anchos controlados, celdas combinadas y sin que una línea en
+blanco rompa nada. Las tablas de tuberías de Markdown siguen funcionando para
+tablas cortas y simples, pero con la salvedad de anchos que se explica más abajo.
 
 #### Tablas HTML (recomendado para tablas grandes)
 

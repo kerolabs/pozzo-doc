@@ -18,16 +18,20 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
 
 #### Competitive Analysis Landscape
 
-| Característica | Pozzo                                                                                                                   | Tandapp / MiTandita | Moneypool | Splitwise |
-| :------------- | :--------------------- | :--------------------- | :--------------------- | :--------------------- |
-| **Perfil / Overview** | Plataforma móvil y web para administrar juntas de ahorro en tiempo real, validando vouchers sin custodiar dinero.       | App móvil para registrar integrantes, armar tandas, asignar turnos y marcar pagos manualmente. | Plataforma fintech para recaudar fondos grupales mediante saldo digital y links de pago. | Aplicación para registrar, calcular y saldar gastos compartidos entre grupos de personas. |
-| **Ventaja competitiva** | Validación OCR de vouchers de Yape/Plin y modelo 100 % no custodial adaptado a las juntas en Perú.                      | Interfaz enfocada únicamente en la dinámica de tandas sin requerir cuentas bancarias. | Cobro integrado con tarjeta de crédito/débito y dispersión a cuentas bancarias vía SPEI. | Marca global consolidada con algoritmo para optimizar y simplificar deudas cruzadas. |
-| **Valor ofrecido** | Elimina el conteo manual, evita reclamos ("yo sí pagué"), despersonaliza la cobranza y transparenta el estado del pozo. | Permite calendarizar montos, fechas y turnos para consultar el avance de la tanda desde el celular. | Centraliza dinero en un fondo digital compartido para eventos o compras conjuntas antes de retirarlo. | Otorga claridad continua sobre quién le debe a quién en gastos diarios compartidos y viajes. |
-| **Mercado objetivo** | Organizadores y participantes de juntas de ahorro en zonas urbanas del Perú (NSE B, C y D).                             | Organizadores y miembros de tandas comunitarias y familiares en México y Latinoamérica. | Grupos de amigos, familias y organizadores de eventos sociales en México. | Compañeros de departamento, grupos de viaje, parejas y amigos a nivel internacional. |
-| **Estrategias de marketing** | Invitación directa vía enlace de WhatsApp y recomendación orgánica dentro de redes de confianza.                        | Posicionamiento en tiendas de aplicaciones (ASO) mediante palabras clave ("tanda", "ahorro grupal"). | Marketing digital B2C, campañas en redes sociales y alianzas en el ecosistema fintech mexicano. | Crecimiento guiado por el producto (PLG) y optimización en Google Play y App Store. |
-| **Productos y servicios** | Panel de organizador, app de participante, validador OCR de vouchers, gestión de turnos e historial de cumplimiento.    | Creación de tandas, lista de participantes, asignador de turnos/fechas y registro manual de aportes. | Creación de "pools", links de cobro, saldo virtual interno y transferencias vía SPEI. | Calculadora de división de cuentas, balance de saldos, registro de abonos y reportes exportables. |
-| **Precios & costos** | Modelo freemium / microcomisión por ciclo de junta administrada.                                                        | Descarga gratuita con anuncios publicitarios invasivos; opción de compra in-app para retirarlos. | Comisión por transacción con tarjeta (aprox. 3.9 %) y tarifas según el tamaño del pool. | Versión gratuita básica; suscripción prémium (*Splitwise Pro*) para escaneo de recibos y gráficos. |
-| **Canales de distribución** | Aplicación móvil nativa (Android/iOS), version multiplataforma (PWA) y enlaces por WhatsApp.                            | Google Play Store y Apple App Store. | Sitio web oficial (moneypool.mx) y app en Google Play / App Store. | Sitio web oficial (splitwise.com) y app en Google Play / App Store. |
+<table>
+  <colgroup><col style="width:8%"><col style="width:23%"><col style="width:23%"><col style="width:23%"><col style="width:23%"></colgroup>
+  <thead><tr><th>Característica</th><th>Pozzo</th><th>Tandapp / MiTandita</th><th>Moneypool</th><th>Splitwise</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Perfil / Overview</strong></td><td>Plataforma móvil y web para administrar juntas de ahorro en tiempo real, validando vouchers sin custodiar dinero.</td><td>App móvil para registrar integrantes, armar tandas, asignar turnos y marcar pagos manualmente.</td><td>Plataforma fintech para recaudar fondos grupales mediante saldo digital y links de pago.</td><td>Aplicación para registrar, calcular y saldar gastos compartidos entre grupos de personas.</td></tr>
+    <tr><td><strong>Ventaja competitiva</strong></td><td>Validación OCR de vouchers de Yape/Plin y modelo 100 % no custodial adaptado a las juntas en Perú.</td><td>Interfaz enfocada únicamente en la dinámica de tandas sin requerir cuentas bancarias.</td><td>Cobro integrado con tarjeta de crédito/débito y dispersión a cuentas bancarias vía SPEI.</td><td>Marca global consolidada con algoritmo para optimizar y simplificar deudas cruzadas.</td></tr>
+    <tr><td><strong>Valor ofrecido</strong></td><td>Elimina el conteo manual, evita reclamos ("yo sí pagué"), despersonaliza la cobranza y transparenta el estado del pozo.</td><td>Permite calendarizar montos, fechas y turnos para consultar el avance de la tanda desde el celular.</td><td>Centraliza dinero en un fondo digital compartido para eventos o compras conjuntas antes de retirarlo.</td><td>Otorga claridad continua sobre quién le debe a quién en gastos diarios compartidos y viajes.</td></tr>
+    <tr><td><strong>Mercado objetivo</strong></td><td>Organizadores y participantes de juntas de ahorro en zonas urbanas del Perú (NSE B, C y D).</td><td>Organizadores y miembros de tandas comunitarias y familiares en México y Latinoamérica.</td><td>Grupos de amigos, familias y organizadores de eventos sociales en México.</td><td>Compañeros de departamento, grupos de viaje, parejas y amigos a nivel internacional.</td></tr>
+    <tr><td><strong>Estrategias de marketing</strong></td><td>Invitación directa vía enlace de WhatsApp y recomendación orgánica dentro de redes de confianza.</td><td>Posicionamiento en tiendas de aplicaciones (ASO) mediante palabras clave ("tanda", "ahorro grupal").</td><td>Marketing digital B2C, campañas en redes sociales y alianzas en el ecosistema fintech mexicano.</td><td>Crecimiento guiado por el producto (PLG) y optimización en Google Play y App Store.</td></tr>
+    <tr><td><strong>Productos y servicios</strong></td><td>Panel de organizador, app de participante, validador OCR de vouchers, gestión de turnos e historial de cumplimiento.</td><td>Creación de tandas, lista de participantes, asignador de turnos/fechas y registro manual de aportes.</td><td>Creación de "pools", links de cobro, saldo virtual interno y transferencias vía SPEI.</td><td>Calculadora de división de cuentas, balance de saldos, registro de abonos y reportes exportables.</td></tr>
+    <tr><td><strong>Precios & costos</strong></td><td>Modelo freemium / microcomisión por ciclo de junta administrada.</td><td>Descarga gratuita con anuncios publicitarios invasivos; opción de compra in-app para retirarlos.</td><td>Comisión por transacción con tarjeta (aprox. 3.9 %) y tarifas según el tamaño del pool.</td><td>Versión gratuita básica; suscripción prémium (<em>Splitwise Pro</em>) para escaneo de recibos y gráficos.</td></tr>
+    <tr><td><strong>Canales de distribución</strong></td><td>Aplicación móvil nativa (Android/iOS), version multiplataforma (PWA) y enlaces por WhatsApp.</td><td>Google Play Store y Apple App Store.</td><td>Sitio web oficial (moneypool.mx) y app en Google Play / App Store.</td><td>Sitio web oficial (splitwise.com) y app en Google Play / App Store.</td></tr>
+  </tbody>
+</table>
 
 * **Tandapp / MiTandita** se enfoca exclusivamente en la calendarización de tandas, permitiendo registrar participantes y definir el orden de entrega. Su limitación principal radica en que el registro de aportes es enteramente manual por parte del administrador, no cuenta con herramientas para validar transferencias bancarias y monetiza mediante anuncios publicitarios invasivos.
 * **Moneypool** resuelve la recaudación colectiva centralizando los fondos en una cuenta virtual propia y habilitando cobros con tarjeta. Esta infraestructura presenta fricciones para el ahorro tradicional: la plataforma retiene el dinero y cobra comisiones por transacción, lo cual desincentiva a grupos informales habituados a transferencias directas, inmediatas y gratuitas entre cuentas bancarias personales.
@@ -37,35 +41,51 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
 
 ##### Pozzo
 
-| Fortalezas | Debilidades |
-| :--- | :--- |
-| • Adaptada al flujo de pago real en Perú mediante lectura OCR de comprobantes de Yape y Plin.<br>• Modelo 100 % no custodial: no retiene dinero, eliminando riesgos legales y desconfianza de los usuarios.<br>• Transparencia en tiempo real: calendario compartido donde todos ven el estado de aportes y el pozo.<br>• Cobranza automatizada mediante recordatorios escalonados que evitan el desgaste entre conocidos.<br>• Flexibilidad para asignar turnos según la costumbre del grupo (sorteo, orden acordado o subasta). | • Producto nuevo en etapa de desarrollo, sin base instalada de usuarios previa.<br>• Dependencia técnica de la legibilidad de vouchers y de posibles cambios visuales en Yape/Plin.<br>• Capacidad operativa y recursos de difusión acotados frente a plataformas comerciales consolidadas.<br>• Resistencia inicial al uso de herramientas digitales en participantes poco familiarizados con apps. |
-| **Oportunidades** | **Amenazas** |
-| • Uso masivo y cotidiano de billeteras móviles en el Perú (más de 16 millones de usuarios activos).<br>• Alto porcentaje de la población no bancarizada o sub-bancarizada que ahorra activamente en juntas.<br>• Adquisición viral de bajo costo: cada organizador incorpora directamente a su grupo por WhatsApp.<br>• Reutilización del historial de cumplimiento para facilitar la organización de siguientes ciclos. | • Hábito arraigado de organizadores de llevar sus cuentas en cuadernos físicos o libretas de notas.<br>• Posibilidad de que billeteras como Yape incorporen herramientas nativas de ahorro grupal.<br>• Ingreso de comprobantes duplicados, ilegibles o manipulados que requieran revisión manual.<br>• Casos de morosidad o deserción de integrantes que comprometan la continuidad de la junta. |
+<table>
+  <colgroup><col style="width:50%"><col style="width:50%"></colgroup>
+  <thead><tr><th>Fortalezas</th><th>Debilidades</th></tr></thead>
+  <tbody>
+    <tr><td>• Adaptada al flujo de pago real en Perú mediante lectura OCR de comprobantes de Yape y Plin.<br>• Modelo 100 % no custodial: no retiene dinero, eliminando riesgos legales y desconfianza de los usuarios.<br>• Transparencia en tiempo real: calendario compartido donde todos ven el estado de aportes y el pozo.<br>• Cobranza automatizada mediante recordatorios escalonados que evitan el desgaste entre conocidos.<br>• Flexibilidad para asignar turnos según la costumbre del grupo (sorteo, orden acordado o subasta).</td><td>• Producto nuevo en etapa de desarrollo, sin base instalada de usuarios previa.<br>• Dependencia técnica de la legibilidad de vouchers y de posibles cambios visuales en Yape/Plin.<br>• Capacidad operativa y recursos de difusión acotados frente a plataformas comerciales consolidadas.<br>• Resistencia inicial al uso de herramientas digitales en participantes poco familiarizados con apps.</td></tr>
+    <tr><td><strong>Oportunidades</strong></td><td><strong>Amenazas</strong></td></tr>
+    <tr><td>• Uso masivo y cotidiano de billeteras móviles en el Perú (más de 16 millones de usuarios activos).<br>• Alto porcentaje de la población no bancarizada o sub-bancarizada que ahorra activamente en juntas.<br>• Adquisición viral de bajo costo: cada organizador incorpora directamente a su grupo por WhatsApp.<br>• Reutilización del historial de cumplimiento para facilitar la organización de siguientes ciclos.</td><td>• Hábito arraigado de organizadores de llevar sus cuentas en cuadernos físicos o libretas de notas.<br>• Posibilidad de que billeteras como Yape incorporen herramientas nativas de ahorro grupal.<br>• Ingreso de comprobantes duplicados, ilegibles o manipulados que requieran revisión manual.<br>• Casos de morosidad o deserción de integrantes que comprometan la continuidad de la junta.</td></tr>
+  </tbody>
+</table>
 
 ##### Tandapp / MiTandita
 
-| Fortalezas | Debilidades |
-| :--- | :--- |
-| • Especialización directa en el flujo tradicional de tandas y ahorro rotativo.<br>• Configuración rápida y uso ligero sin solicitar vinculación de cuentas bancarias.<br>• Buen posicionamiento orgánico en tiendas móviles para búsquedas relacionadas con tandas. | • Registro de pagos 100 % manual por parte del organizador.<br>• Experiencia de uso deteriorada por la presencia de publicidad en la versión gratuita.<br>• Nula validación de comprobantes ni compatibilidad con billeteras móviles peruanas. |
-| **Oportunidades** | **Amenazas** |
-| • Interés de sectores populares por ordenar el seguimiento de sus tandas desde el celular.<br>• Posibilidad de transicionar hacia esquemas de suscripción accesibles sin anuncios. | • Pérdida de usuarios ante aplicaciones que automaticen la verificación de abonos.<br>• Alta tasa de abandono provocada por la saturación de anuncios dentro de la app. |
+<table>
+  <colgroup><col style="width:50%"><col style="width:50%"></colgroup>
+  <thead><tr><th>Fortalezas</th><th>Debilidades</th></tr></thead>
+  <tbody>
+    <tr><td>• Especialización directa en el flujo tradicional de tandas y ahorro rotativo.<br>• Configuración rápida y uso ligero sin solicitar vinculación de cuentas bancarias.<br>• Buen posicionamiento orgánico en tiendas móviles para búsquedas relacionadas con tandas.</td><td>• Registro de pagos 100 % manual por parte del organizador.<br>• Experiencia de uso deteriorada por la presencia de publicidad en la versión gratuita.<br>• Nula validación de comprobantes ni compatibilidad con billeteras móviles peruanas.</td></tr>
+    <tr><td><strong>Oportunidades</strong></td><td><strong>Amenazas</strong></td></tr>
+    <tr><td>• Interés de sectores populares por ordenar el seguimiento de sus tandas desde el celular.<br>• Posibilidad de transicionar hacia esquemas de suscripción accesibles sin anuncios.</td><td>• Pérdida de usuarios ante aplicaciones que automaticen la verificación de abonos.<br>• Alta tasa de abandono provocada por la saturación de anuncios dentro de la app.</td></tr>
+  </tbody>
+</table>
 
 ##### Moneypool
 
-| Fortalezas | Debilidades |
-| :--- | :--- |
-| • Respaldo formal como entidad fintech regulada (IFPE) en México.<br>• Infraestructura propia con links de cobro y recepción de pagos con tarjeta de débito/crédito.<br>• Marca reconocida en recaudación de fondos y eventos sociales en su país de origen. | • Cobro de comisiones que reducen el monto final del ahorro acumulado.<br>• Fricción y rechazo de usuarios informales a dejar su dinero bajo custodia de un tercero.<br>• Operatividad restringida al sistema bancario mexicano, sin soporte para soles peruanos. |
-| **Oportunidades** | **Amenazas** |
-| • Generación de microrendimientos financieros sobre los saldos depositados en la plataforma.<br>• Expansión hacia cobros colectivos corporativos, institucionales y eventos masivos. | • Preferencia del público por transferencias interbancarias directas y sin comisión.<br>• Mayor rigidez en normativas sobre captación de fondos y billeteras electrónicas. |
+<table>
+  <colgroup><col style="width:50%"><col style="width:50%"></colgroup>
+  <thead><tr><th>Fortalezas</th><th>Debilidades</th></tr></thead>
+  <tbody>
+    <tr><td>• Respaldo formal como entidad fintech regulada (IFPE) en México.<br>• Infraestructura propia con links de cobro y recepción de pagos con tarjeta de débito/crédito.<br>• Marca reconocida en recaudación de fondos y eventos sociales en su país de origen.</td><td>• Cobro de comisiones que reducen el monto final del ahorro acumulado.<br>• Fricción y rechazo de usuarios informales a dejar su dinero bajo custodia de un tercero.<br>• Operatividad restringida al sistema bancario mexicano, sin soporte para soles peruanos.</td></tr>
+    <tr><td><strong>Oportunidades</strong></td><td><strong>Amenazas</strong></td></tr>
+    <tr><td>• Generación de microrendimientos financieros sobre los saldos depositados en la plataforma.<br>• Expansión hacia cobros colectivos corporativos, institucionales y eventos masivos.</td><td>• Preferencia del público por transferencias interbancarias directas y sin comisión.<br>• Mayor rigidez en normativas sobre captación de fondos y billeteras electrónicas.</td></tr>
+  </tbody>
+</table>
 
 ##### Splitwise
 
-| Fortalezas | Debilidades |
-| :--- | :--- |
-| • Marca global líder en administración y liquidación de gastos compartidos.<br>• Algoritmo optimizado para consolidar saldos y reducir transferencias entre integrantes.<br>• Plataforma madura con sincronización multidispositivo y respaldo en la nube. | • No contempla la estructura de turnos rotativos ni el cobro de cuotas periódicas de una junta.<br>• La lectura automática de recibos (OCR) está restringida al plan de pago prémium.<br>• Carece de recordatorios de cobro escalonados diseñados para la disciplina de ahorro. |
-| **Oportunidades** | **Amenazas** |
-| • Integración con medios de pago locales en mercados emergentes.<br>• Desarrollo de funciones orientadas a metas de ahorro grupal para viajes o proyectos. | • Fuga de usuarios hacia aplicaciones verticales enfocadas en esquemas de ahorro rotativo.<br>• Descontento de los usuarios frente a la limitación progresiva de opciones gratuitas. |
+<table>
+  <colgroup><col style="width:50%"><col style="width:50%"></colgroup>
+  <thead><tr><th>Fortalezas</th><th>Debilidades</th></tr></thead>
+  <tbody>
+    <tr><td>• Marca global líder en administración y liquidación de gastos compartidos.<br>• Algoritmo optimizado para consolidar saldos y reducir transferencias entre integrantes.<br>• Plataforma madura con sincronización multidispositivo y respaldo en la nube.</td><td>• No contempla la estructura de turnos rotativos ni el cobro de cuotas periódicas de una junta.<br>• La lectura automática de recibos (OCR) está restringida al plan de pago prémium.<br>• Carece de recordatorios de cobro escalonados diseñados para la disciplina de ahorro.</td></tr>
+    <tr><td><strong>Oportunidades</strong></td><td><strong>Amenazas</strong></td></tr>
+    <tr><td>• Integración con medios de pago locales en mercados emergentes.<br>• Desarrollo de funciones orientadas a metas de ahorro grupal para viajes o proyectos.</td><td>• Fuga de usuarios hacia aplicaciones verticales enfocadas en esquemas de ahorro rotativo.<br>• Descontento de los usuarios frente a la limitación progresiva de opciones gratuitas.</td></tr>
+  </tbody>
+</table>
 
 ### 2.1.2. Estrategias y tácticas frente a competidores
 
@@ -198,15 +218,19 @@ Esta sección presenta el estudio cualitativo basado en entrevistas semiestructu
 
 - **Primera entrevista**
 
-| Campo | Detalle |
-| --- | --- |
-| **Entrevistado(a)** | Shirley Romy Becerra Pinchi |
-| **Género** | Femenino |
-| **Edad** | 33 |
-| **Lugar de residencia** | Tarapoto |
-| **Entrevistador(a)** | Fernando Flores |
-| **Duración** | 22:31 |
-| **Link de la entrevista** | https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a290_upc_edu_pe/IQDdvQoO5oy9TryDnR0F1bBHAb2aLP_LWFC5botPe_XVj3Q?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=FpKimc |
+<table>
+  <colgroup><col style="width:24%"><col style="width:76%"></colgroup>
+  <thead><tr><th>Campo</th><th>Detalle</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Entrevistado(a)</strong></td><td>Shirley Romy Becerra Pinchi</td></tr>
+    <tr><td><strong>Género</strong></td><td>Femenino</td></tr>
+    <tr><td><strong>Edad</strong></td><td>33</td></tr>
+    <tr><td><strong>Lugar de residencia</strong></td><td>Tarapoto</td></tr>
+    <tr><td><strong>Entrevistador(a)</strong></td><td>Fernando Flores</td></tr>
+    <tr><td><strong>Duración</strong></td><td>22:31</td></tr>
+    <tr><td><strong>Link de la entrevista</strong></td><td>https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a290_upc_edu_pe/IQDdvQoO5oy9TryDnR0F1bBHAb2aLP_LWFC5botPe_XVj3Q?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=FpKimc</td></tr>
+  </tbody>
+</table>
 
 ![Captura de la entrevista a Shirley Romy Becerra Pinchi](images/chapter_2/shirley_pinchi.png){width=90%}
 
@@ -216,15 +240,19 @@ Shirley organiza panderos desde el colegio y lo ve como una forma de ahorrar; po
 
 - **Segunda entrevista**
 
-| Campo | Detalle |
-| --- | --- |
-| **Entrevistado(a)** | Ariel Roberto Mendoza Blanco |
-| **Género** | Masculino |
-| **Edad** | 29 |
-| **Lugar de residencia** | Pueblo Libre, Lima |
-| **Entrevistador(a)** | Fernando Flores |
-| **Duración** | 8:22 |
-| **Link de la entrevista** | https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a290_upc_edu_pe/IQDRpPL_neBqRL0gl1hTRH-lAWqb_FLzHgtfgUrKclzgcQE?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=AL0giv |
+<table>
+  <colgroup><col style="width:24%"><col style="width:76%"></colgroup>
+  <thead><tr><th>Campo</th><th>Detalle</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Entrevistado(a)</strong></td><td>Ariel Roberto Mendoza Blanco</td></tr>
+    <tr><td><strong>Género</strong></td><td>Masculino</td></tr>
+    <tr><td><strong>Edad</strong></td><td>29</td></tr>
+    <tr><td><strong>Lugar de residencia</strong></td><td>Pueblo Libre, Lima</td></tr>
+    <tr><td><strong>Entrevistador(a)</strong></td><td>Fernando Flores</td></tr>
+    <tr><td><strong>Duración</strong></td><td>8:22</td></tr>
+    <tr><td><strong>Link de la entrevista</strong></td><td>https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a290_upc_edu_pe/IQDRpPL_neBqRL0gl1hTRH-lAWqb_FLzHgtfgUrKclzgcQE?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=AL0giv</td></tr>
+  </tbody>
+</table>
 
 ![Captura de la entrevista a Ariel Roberto Mendoza Blanco](images/chapter_2/ariel_mendoza.png){width=90%}
 
@@ -234,15 +262,19 @@ Ariel organiza juntas desde los 20 años como una forma de obligarse a ahorrar, 
 
 - **Tercera entrevista**
 
-| Campo | Detalle |
-| --- | --- |
-| **Entrevistado(a)** | Jorge Chávez |
-| **Género** | Masculino |
-| **Edad** | 25 |
-| **Lugar de residencia** | San Martín de Porres, Lima |
-| **Entrevistador(a)** | Fernando Flores |
-| **Duración** | 8:11 |
-| **Link de la entrevista** | https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a290_upc_edu_pe/IQBMwoKhRDb-Ta5sFdnCJm7SATYbCURZgS1q9Fn4MKZ6yZ8?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=iNPW0v |
+<table>
+  <colgroup><col style="width:24%"><col style="width:76%"></colgroup>
+  <thead><tr><th>Campo</th><th>Detalle</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Entrevistado(a)</strong></td><td>Jorge Chávez</td></tr>
+    <tr><td><strong>Género</strong></td><td>Masculino</td></tr>
+    <tr><td><strong>Edad</strong></td><td>25</td></tr>
+    <tr><td><strong>Lugar de residencia</strong></td><td>San Martín de Porres, Lima</td></tr>
+    <tr><td><strong>Entrevistador(a)</strong></td><td>Fernando Flores</td></tr>
+    <tr><td><strong>Duración</strong></td><td>8:11</td></tr>
+    <tr><td><strong>Link de la entrevista</strong></td><td>https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a290_upc_edu_pe/IQBMwoKhRDb-Ta5sFdnCJm7SATYbCURZgS1q9Fn4MKZ6yZ8?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=iNPW0v</td></tr>
+  </tbody>
+</table>
 
 ![Captura de la entrevista a Jorge Chávez](images/chapter_2/jorge_chavez.png){width=90%}
 
@@ -252,15 +284,19 @@ Jorge organiza juntas desde hace unos cinco años; empezó entre hermanos y prim
 
 - **Primera entrevista**
 
-| Campo | Detalle |
-| --- | --- |
-| **Entrevistado(a)** | Elizabeth Díaz |
-| **Género** | Femenino |
-| **Edad** | 22 |
-| **Lugar de residencia** | Callao |
-| **Entrevistador(a)** | Fernando Flores |
-| **Duración** | 7:57 |
-| **Link de la entrevista** | https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a290_upc_edu_pe/IQCFSDS82wYXTLbYwVMsMQKqAYFMxBZ7A2ITCzsY__4CGdI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=MGNr2M |
+<table>
+  <colgroup><col style="width:24%"><col style="width:76%"></colgroup>
+  <thead><tr><th>Campo</th><th>Detalle</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Entrevistado(a)</strong></td><td>Elizabeth Díaz</td></tr>
+    <tr><td><strong>Género</strong></td><td>Femenino</td></tr>
+    <tr><td><strong>Edad</strong></td><td>22</td></tr>
+    <tr><td><strong>Lugar de residencia</strong></td><td>Callao</td></tr>
+    <tr><td><strong>Entrevistador(a)</strong></td><td>Fernando Flores</td></tr>
+    <tr><td><strong>Duración</strong></td><td>7:57</td></tr>
+    <tr><td><strong>Link de la entrevista</strong></td><td>https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a290_upc_edu_pe/IQCFSDS82wYXTLbYwVMsMQKqAYFMxBZ7A2ITCzsY__4CGdI?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=MGNr2M</td></tr>
+  </tbody>
+</table>
 
 ![Captura de la entrevista a Elizabeth Díaz](images/chapter_2/elizabeth_diaz.png){width=90%}
 
@@ -270,15 +306,19 @@ Elizabeth entró a su primera junta invitada por una amiga de la universidad, qu
 
 - **Segunda entrevista**
 
-| Campo | Detalle |
-| --- | --- |
-| **Entrevistado(a)** | Mariana López |
-| **Género** | Femenino |
-| **Edad** | 35 |
-| **Lugar de residencia** | San Juan de Lurigancho |
-| **Entrevistador(a)** | Fernando Flores |
-| **Duración** | 8:12 |
-| **Link de la entrevista** | https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a290_upc_edu_pe/IQBGVs0x_7sNQqDkjCTOiN9nAYOPzQ04mGl01GjuDQbolVg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=uhHyGn |
+<table>
+  <colgroup><col style="width:24%"><col style="width:76%"></colgroup>
+  <thead><tr><th>Campo</th><th>Detalle</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Entrevistado(a)</strong></td><td>Mariana López</td></tr>
+    <tr><td><strong>Género</strong></td><td>Femenino</td></tr>
+    <tr><td><strong>Edad</strong></td><td>35</td></tr>
+    <tr><td><strong>Lugar de residencia</strong></td><td>San Juan de Lurigancho</td></tr>
+    <tr><td><strong>Entrevistador(a)</strong></td><td>Fernando Flores</td></tr>
+    <tr><td><strong>Duración</strong></td><td>8:12</td></tr>
+    <tr><td><strong>Link de la entrevista</strong></td><td>https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a290_upc_edu_pe/IQBGVs0x_7sNQqDkjCTOiN9nAYOPzQ04mGl01GjuDQbolVg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=uhHyGn</td></tr>
+  </tbody>
+</table>
 
 ![Captura de la entrevista a Mariana López](images/chapter_2/mariana_lopez.png){width=90%}
 
@@ -288,15 +328,19 @@ Mariana entró a su primera junta invitada por una amiga del trabajo; prefirió 
 
 - **Tercera entrevista**
 
-| Campo | Detalle |
-| --- | --- |
-| **Entrevistado(a)** | Catherine Villar |
-| **Género** | Femenino |
-| **Edad** | 27 |
-| **Lugar de residencia** | Los Olivos, Lima |
-| **Entrevistador(a)** | Fernando Flores |
-| **Duración** | 7:33 |
-| **Link de la entrevista** | https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a290_upc_edu_pe/IQCj6omQVLR0RLcd9rwXUD8RAbMbkbsxrhkpd7shCpX2DGM?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=yhcfhQ |
+<table>
+  <colgroup><col style="width:24%"><col style="width:76%"></colgroup>
+  <thead><tr><th>Campo</th><th>Detalle</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Entrevistado(a)</strong></td><td>Catherine Villar</td></tr>
+    <tr><td><strong>Género</strong></td><td>Femenino</td></tr>
+    <tr><td><strong>Edad</strong></td><td>27</td></tr>
+    <tr><td><strong>Lugar de residencia</strong></td><td>Los Olivos, Lima</td></tr>
+    <tr><td><strong>Entrevistador(a)</strong></td><td>Fernando Flores</td></tr>
+    <tr><td><strong>Duración</strong></td><td>7:33</td></tr>
+    <tr><td><strong>Link de la entrevista</strong></td><td>https://upcedupe-my.sharepoint.com/:v:/g/personal/u20241a290_upc_edu_pe/IQCj6omQVLR0RLcd9rwXUD8RAbMbkbsxrhkpd7shCpX2DGM?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D&e=yhcfhQ</td></tr>
+  </tbody>
+</table>
 
 ![Captura de la entrevista a Catherine Villar](images/chapter_2/catherine_villar.png){width=90%}
 
@@ -391,22 +435,26 @@ Se elaboró una ficha de User Persona por cada segmento objetivo, utilizando UXP
 ### 2.3.2. User Task Matrix
 El User Task Matrix concentra las tareas que los User Personas realizan para cumplir sus objetivos dentro de una junta, con independencia de que exista o no una solución de software. No se trata de funcionalidades de Pozzo, sino de actividades que ambos segmentos ya ejecutan hoy con cuaderno, hoja de cálculo y mensajería.
 
-| User Task Matrix                                                | Anna Weber (Frecuencia) | Anna Weber (Importancia) | Sofia Gonzales (Frecuencia) | Sofia Gonzales (Importancia) |
-|:----------------------------------------------------------------|:-----------------------:|:------------------------:| :---: | :---: |
-|Convocar y conformar el grupo de la junta                        |          Media          |           Alta           | Baja | Media |
-|Definir monto, periodicidad y número de integrantes            |          Media          |           Alta           | Baja | Media |
-|Acordar o sortear el orden de los turnos                         |          Baja           |           Alta           | Baja | Alta |
-|Transferir el aporte por billetera digital          |          Media          |           Alta           | Alta | Alta |
-|Guardar el comprobante del aporte propio                  |          Media          |          Media           | Alta | Alta |
-|Registrar quién aportó en cada fecha de corte                   |          Alta           |           Alta           | Baja | Baja |
-|Verificar el comprobante de cada aporte recibido                           |          Alta           |           Alta           | Baja | Media |
-|Recordar el pago a los integrantes atrasados                    |          Alta           |           Alta           | Baja | Baja |
-|Consultar cuánto falta para completar el pozo                   |          Media          |           Alta           | Media | Alta |
-|Entregar el pozo al integrante del turno |          Media          |           Alta           | Baja | Media |
-|Resolver un reclamo sobre un aporte no registrado   |          Media          |           Alta           | Media | Alta |
-|Demostrar que un aporte propio sí se realizó   |          Baja           |          Media           | Media | Alta |
-|Cubrir el atraso de un integrante para no romper la cadena  |          Baja           |           Alta           | Baja | Baja |
-|Decidir si acepta entrar a una nueva junta  |          Baja           |          Media           | Media | Alta |
+<table>
+  <colgroup><col style="width:33%"><col style="width:15%"><col style="width:16%"><col style="width:18%"><col style="width:18%"></colgroup>
+  <thead><tr><th>User Task Matrix</th><th align="center">Anna Weber (Frecuencia)</th><th align="center">Anna Weber (Importancia)</th><th align="center">Sofia Gonzales (Frecuencia)</th><th align="center">Sofia Gonzales (Importancia)</th></tr></thead>
+  <tbody>
+    <tr><td>Convocar y conformar el grupo de la junta</td><td align="center">Media</td><td align="center">Alta</td><td align="center">Baja</td><td align="center">Media</td></tr>
+    <tr><td>Definir monto, periodicidad y número de integrantes</td><td align="center">Media</td><td align="center">Alta</td><td align="center">Baja</td><td align="center">Media</td></tr>
+    <tr><td>Acordar o sortear el orden de los turnos</td><td align="center">Baja</td><td align="center">Alta</td><td align="center">Baja</td><td align="center">Alta</td></tr>
+    <tr><td>Transferir el aporte por billetera digital</td><td align="center">Media</td><td align="center">Alta</td><td align="center">Alta</td><td align="center">Alta</td></tr>
+    <tr><td>Guardar el comprobante del aporte propio</td><td align="center">Media</td><td align="center">Media</td><td align="center">Alta</td><td align="center">Alta</td></tr>
+    <tr><td>Registrar quién aportó en cada fecha de corte</td><td align="center">Alta</td><td align="center">Alta</td><td align="center">Baja</td><td align="center">Baja</td></tr>
+    <tr><td>Verificar el comprobante de cada aporte recibido</td><td align="center">Alta</td><td align="center">Alta</td><td align="center">Baja</td><td align="center">Media</td></tr>
+    <tr><td>Recordar el pago a los integrantes atrasados</td><td align="center">Alta</td><td align="center">Alta</td><td align="center">Baja</td><td align="center">Baja</td></tr>
+    <tr><td>Consultar cuánto falta para completar el pozo</td><td align="center">Media</td><td align="center">Alta</td><td align="center">Media</td><td align="center">Alta</td></tr>
+    <tr><td>Entregar el pozo al integrante del turno</td><td align="center">Media</td><td align="center">Alta</td><td align="center">Baja</td><td align="center">Media</td></tr>
+    <tr><td>Resolver un reclamo sobre un aporte no registrado</td><td align="center">Media</td><td align="center">Alta</td><td align="center">Media</td><td align="center">Alta</td></tr>
+    <tr><td>Demostrar que un aporte propio sí se realizó</td><td align="center">Baja</td><td align="center">Media</td><td align="center">Media</td><td align="center">Alta</td></tr>
+    <tr><td>Cubrir el atraso de un integrante para no romper la cadena</td><td align="center">Baja</td><td align="center">Alta</td><td align="center">Baja</td><td align="center">Baja</td></tr>
+    <tr><td>Decidir si acepta entrar a una nueva junta</td><td align="center">Baja</td><td align="center">Media</td><td align="center">Media</td><td align="center">Alta</td></tr>
+  </tbody>
+</table>
 
 **Leyenda:** Frecuencia e Importancia se expresan en tres niveles: Baja, Media y Alta.
 
@@ -484,28 +532,32 @@ Finalmente, mediante storytelling se revisó el recorrido completo y se identifi
 
 El siguiente glosario reúne los términos y conceptos del dominio del ahorro rotativo que el equipo utiliza de forma uniforme en todos los artefactos, en el código y en la comunicación con los interesados. Se incluyen únicamente términos del negocio, no términos técnicos de ingeniería de software. Los términos se registran en inglés, con su equivalente de uso corriente en el Perú entre paréntesis.
 
-| Término | Definición |
-| :--- | :--- |
-| **Savings Group** (Junta, pandero) | Asociación rotativa de ahorro y crédito conformada por personas conocidas entre sí, que aportan un monto fijo con periodicidad acordada para que el fondo acumulado se entregue íntegro a un integrante distinto en cada turno. |
-| **Cycle** (Ciclo) | Duración total de una junta, equivalente al número de períodos necesarios para que todos los integrantes hayan cobrado una vez. |
-| **Contribution Period** (Período de aporte) | Intervalo de tiempo acordado entre un aporte y el siguiente. Puede ser semanal, quincenal o mensual. |
-| **Contribution** (Aporte) | Monto fijo que cada integrante entrega en cada período de aporte. |
-| **Pot** (Pozo) | Suma de todos los aportes de un período, que se entrega completa al integrante cuyo turno corresponde. |
-| **Turn** (Turno) | Posición dentro del ciclo que determina en qué período le corresponde cobrar el pozo a cada integrante. |
-| **Turn Assignment** (Asignación de turnos) | Mecanismo mediante el cual el grupo determina el orden de cobro al constituir la junta. |
-| **Draw** (Sorteo) | Mecanismo de asignación de turnos en el que el orden se determina al azar entre los integrantes. |
-| **Agreed Order** (Orden acordado) | Mecanismo de asignación de turnos en el que el orden se define por consenso, generalmente según la urgencia de cada integrante. |
-| **Bidding** (Subasta) | Mecanismo de asignación de turnos en el que un integrante cede parte del pozo a cambio de cobrar en un período anterior al que le correspondería. |
-| **Organizer** (Cabeza de junta) | Integrante que convoca al grupo, define las reglas de la junta, registra los aportes y entrega el pozo en cada turno. |
-| **Member** (Participante) | Integrante que aporta en cada período y recibe el pozo cuando llega su turno. |
-| **Cut-off Date** (Fecha de corte) | Fecha límite acordada para que todos los aportes de un período estén realizados. |
-| **Payout** (Cobro, adjudicación) | Entrega del pozo completo al integrante cuyo turno corresponde en el período vigente. |
-| **Payment Proof** (Comprobante, voucher) | Constancia de la transferencia realizada por un integrante, que acredita el monto, la fecha y el destinatario de su aporte. |
-| **Delinquency** (Morosidad) | Situación en la que un integrante no realiza su aporte dentro de la fecha de corte. |
-| **Coverage** (Cobertura) | Práctica por la cual el organizador u otro integrante asume con dinero propio el aporte de un moroso para que el pozo se complete y la cadena no se rompa. |
-| **Dropout** (Deserción) | Abandono definitivo de un integrante antes de finalizar el ciclo, habitualmente después de haber cobrado su turno. |
-| **Compliance History** (Historial de cumplimiento) | Registro del comportamiento de pago de un integrante a lo largo de los ciclos en los que ha participado. |
-| **Reminder** (Recordatorio) | Aviso dirigido a un integrante para que realice su aporte antes de la fecha de corte. |
+<table>
+  <colgroup><col style="width:38%"><col style="width:62%"></colgroup>
+  <thead><tr><th>Término</th><th>Definición</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Savings Group</strong> (Junta, pandero)</td><td>Asociación rotativa de ahorro y crédito conformada por personas conocidas entre sí, que aportan un monto fijo con periodicidad acordada para que el fondo acumulado se entregue íntegro a un integrante distinto en cada turno.</td></tr>
+    <tr><td><strong>Cycle</strong> (Ciclo)</td><td>Duración total de una junta, equivalente al número de períodos necesarios para que todos los integrantes hayan cobrado una vez.</td></tr>
+    <tr><td><strong>Contribution Period</strong> (Período de aporte)</td><td>Intervalo de tiempo acordado entre un aporte y el siguiente. Puede ser semanal, quincenal o mensual.</td></tr>
+    <tr><td><strong>Contribution</strong> (Aporte)</td><td>Monto fijo que cada integrante entrega en cada período de aporte.</td></tr>
+    <tr><td><strong>Pot</strong> (Pozo)</td><td>Suma de todos los aportes de un período, que se entrega completa al integrante cuyo turno corresponde.</td></tr>
+    <tr><td><strong>Turn</strong> (Turno)</td><td>Posición dentro del ciclo que determina en qué período le corresponde cobrar el pozo a cada integrante.</td></tr>
+    <tr><td><strong>Turn Assignment</strong> (Asignación de turnos)</td><td>Mecanismo mediante el cual el grupo determina el orden de cobro al constituir la junta.</td></tr>
+    <tr><td><strong>Draw</strong> (Sorteo)</td><td>Mecanismo de asignación de turnos en el que el orden se determina al azar entre los integrantes.</td></tr>
+    <tr><td><strong>Agreed Order</strong> (Orden acordado)</td><td>Mecanismo de asignación de turnos en el que el orden se define por consenso, generalmente según la urgencia de cada integrante.</td></tr>
+    <tr><td><strong>Bidding</strong> (Subasta)</td><td>Mecanismo de asignación de turnos en el que un integrante cede parte del pozo a cambio de cobrar en un período anterior al que le correspondería.</td></tr>
+    <tr><td><strong>Organizer</strong> (Cabeza de junta)</td><td>Integrante que convoca al grupo, define las reglas de la junta, registra los aportes y entrega el pozo en cada turno.</td></tr>
+    <tr><td><strong>Member</strong> (Participante)</td><td>Integrante que aporta en cada período y recibe el pozo cuando llega su turno.</td></tr>
+    <tr><td><strong>Cut-off Date</strong> (Fecha de corte)</td><td>Fecha límite acordada para que todos los aportes de un período estén realizados.</td></tr>
+    <tr><td><strong>Payout</strong> (Cobro, adjudicación)</td><td>Entrega del pozo completo al integrante cuyo turno corresponde en el período vigente.</td></tr>
+    <tr><td><strong>Payment Proof</strong> (Comprobante, voucher)</td><td>Constancia de la transferencia realizada por un integrante, que acredita el monto, la fecha y el destinatario de su aporte.</td></tr>
+    <tr><td><strong>Delinquency</strong> (Morosidad)</td><td>Situación en la que un integrante no realiza su aporte dentro de la fecha de corte.</td></tr>
+    <tr><td><strong>Coverage</strong> (Cobertura)</td><td>Práctica por la cual el organizador u otro integrante asume con dinero propio el aporte de un moroso para que el pozo se complete y la cadena no se rompa.</td></tr>
+    <tr><td><strong>Dropout</strong> (Deserción)</td><td>Abandono definitivo de un integrante antes de finalizar el ciclo, habitualmente después de haber cobrado su turno.</td></tr>
+    <tr><td><strong>Compliance History</strong> (Historial de cumplimiento)</td><td>Registro del comportamiento de pago de un integrante a lo largo de los ciclos en los que ha participado.</td></tr>
+    <tr><td><strong>Reminder</strong> (Recordatorio)</td><td>Aviso dirigido a un integrante para que realice su aporte antes de la fecha de corte.</td></tr>
+  </tbody>
+</table>
 ***
 
 ## 2.4. Requirements specification
@@ -522,20 +574,24 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 
 #### Epics
 
-| Epic ID | Nombre | Descripción |
-| :--------- | :------------------------- | :---------------------------------------------------------------- |
-| EP01 | Acceso y cuenta | Ingreso a Pozzo con el número de celular verificado por SMS, sin contraseña, y administración del perfil. |
-| EP02 | Configuración de la junta | Creación de la junta con sus reglas (aporte, periodicidad, integrantes, fecha de corte, destino de los aportes) y su inicio. |
-| EP03 | Incorporación de integrantes | Invitación por código o enlace, ingreso del participante, integrantes sin la aplicación y administración de la lista antes de iniciar. |
-| EP04 | Asignación de turnos | Reparto del orden de cobro por sorteo, orden acordado o subasta, y consulta del calendario de turnos. |
-| EP05 | Registro y validación de aportes | Registro del aporte a partir del comprobante, lectura automática de sus datos, validación contra lo esperado, revisión de inconsistencias y aportes en efectivo. |
-| EP06 | Transparencia del pozo | Estado del período vigente visible para todo el grupo: quién aportó, quién debe y cuánto falta. |
-| EP07 | Recordatorios y avisos | Recordatorios automáticos escalonados a quien no ha aportado y avisos de los hechos relevantes de la junta. |
-| EP08 | Entrega del pozo y cierre del ciclo | Entrega del pozo al integrante del turno, apertura del siguiente período, coberturas, deserciones y cierre de la junta. |
-| EP09 | Historial de cumplimiento | Registro del comportamiento de pago de cada integrante a lo largo de sus juntas, consultable y compartible. |
-| EP10 | Landing page | Sitio web estático que presenta el problema, la propuesta de valor y la vía de acceso a la aplicación. |
-| EP11 | Servicios RESTful | Technical Stories de los servicios web que sostienen la aplicación móvil. |
-| EP12 | Investigación técnica | Spike Stories para reducir la incertidumbre técnica antes de implementar. |
+<table>
+  <colgroup><col style="width:9%"><col style="width:28%"><col style="width:63%"></colgroup>
+  <thead><tr><th>Epic ID</th><th>Nombre</th><th>Descripción</th></tr></thead>
+  <tbody>
+    <tr><td>EP01</td><td>Acceso y cuenta</td><td>Ingreso a Pozzo con el número de celular verificado por SMS, sin contraseña, y administración del perfil.</td></tr>
+    <tr><td>EP02</td><td>Configuración de la junta</td><td>Creación de la junta con sus reglas (aporte, periodicidad, integrantes, fecha de corte, destino de los aportes) y su inicio.</td></tr>
+    <tr><td>EP03</td><td>Incorporación de integrantes</td><td>Invitación por código o enlace, ingreso del participante, integrantes sin la aplicación y administración de la lista antes de iniciar.</td></tr>
+    <tr><td>EP04</td><td>Asignación de turnos</td><td>Reparto del orden de cobro por sorteo, orden acordado o subasta, y consulta del calendario de turnos.</td></tr>
+    <tr><td>EP05</td><td>Registro y validación de aportes</td><td>Registro del aporte a partir del comprobante, lectura automática de sus datos, validación contra lo esperado, revisión de inconsistencias y aportes en efectivo.</td></tr>
+    <tr><td>EP06</td><td>Transparencia del pozo</td><td>Estado del período vigente visible para todo el grupo: quién aportó, quién debe y cuánto falta.</td></tr>
+    <tr><td>EP07</td><td>Recordatorios y avisos</td><td>Recordatorios automáticos escalonados a quien no ha aportado y avisos de los hechos relevantes de la junta.</td></tr>
+    <tr><td>EP08</td><td>Entrega del pozo y cierre del ciclo</td><td>Entrega del pozo al integrante del turno, apertura del siguiente período, coberturas, deserciones y cierre de la junta.</td></tr>
+    <tr><td>EP09</td><td>Historial de cumplimiento</td><td>Registro del comportamiento de pago de cada integrante a lo largo de sus juntas, consultable y compartible.</td></tr>
+    <tr><td>EP10</td><td>Landing page</td><td>Sitio web estático que presenta el problema, la propuesta de valor y la vía de acceso a la aplicación.</td></tr>
+    <tr><td>EP11</td><td>Servicios RESTful</td><td>Technical Stories de los servicios web que sostienen la aplicación móvil.</td></tr>
+    <tr><td>EP12</td><td>Investigación técnica</td><td>Spike Stories para reducir la incertidumbre técnica antes de implementar.</td></tr>
+  </tbody>
+</table>
 
 #### Historias de usuario
 
@@ -1204,44 +1260,60 @@ El Impact Map vincula los objetivos de negocio de Pozzo con las personas que pue
 
 Los objetivos de negocio se derivan de los resultados que el equipo definió en los Business Outcome Assumptions y en el Problem Statement, formulados con los criterios SMART (específicos, medibles, alcanzables, relevantes y con plazo). El horizonte de medición son las juntas piloto que el equipo acompañará después del lanzamiento. Se seleccionaron los tres outcomes del primer ciclo de uso; el outcome de crecimiento por referidos (una de cada tres juntas nuevas formada por integrantes que ya usaron Pozzo) se medirá recién entre los meses 7 y 12, por lo que queda fuera de este mapa y se retoma al planificar el segundo semestre.
 
-| Business Goal | Enunciado |
-| :--------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
-| BG01 | Lograr que 10 juntas piloto completen un ciclo entero en Pozzo, sin volver al cuaderno ni al grupo de mensajería para llevar la cuenta, en los 6 meses siguientes al lanzamiento. |
-| BG02 | Alcanzar que al menos el 80 % de los aportes de cada ciclo se validen sin revisión manual de la cabeza de junta, y que el 100 % de las discrepancias sobre aportes se resuelvan dentro de la aplicación con comprobante localizable, en las juntas piloto, dentro de los 3 primeros meses. |
-| BG03 | Reducir a cero los recordatorios de cobranza enviados a mano por la cabeza de junta durante un ciclo, en las juntas piloto, dentro de los 3 primeros meses. |
+<table>
+  <colgroup><col style="width:18%"><col style="width:82%"></colgroup>
+  <thead><tr><th>Business Goal</th><th>Enunciado</th></tr></thead>
+  <tbody>
+    <tr><td>BG01</td><td>Lograr que 10 juntas piloto completen un ciclo entero en Pozzo, sin volver al cuaderno ni al grupo de mensajería para llevar la cuenta, en los 6 meses siguientes al lanzamiento.</td></tr>
+    <tr><td>BG02</td><td>Alcanzar que al menos el 80 % de los aportes de cada ciclo se validen sin revisión manual de la cabeza de junta, y que el 100 % de las discrepancias sobre aportes se resuelvan dentro de la aplicación con comprobante localizable, en las juntas piloto, dentro de los 3 primeros meses.</td></tr>
+    <tr><td>BG03</td><td>Reducir a cero los recordatorios de cobranza enviados a mano por la cabeza de junta durante un ciclo, en las juntas piloto, dentro de los 3 primeros meses.</td></tr>
+  </tbody>
+</table>
 
 Los actores son los dos User Personas del proyecto: **Anna Weber**, cabeza de junta y tomadora de la decisión de adoptar Pozzo, y **Sofia Gonzales**, participante que aporta cada período y espera su turno. Los deliverables corresponden a las Epics de la especificación, y cada historia se identifica con su código y su enunciado. Las Technical Stories y las Spike Stories no aparecen en el mapa porque no modifican el comportamiento de un actor; entran al Product Backlog por la dependencia técnica de las historias que habilitan.
 
 #### Business Goal 01: ciclo completo en Pozzo
 
-| Actor | Impact | Deliverable | User Stories |
-| :----------- | :------------------------------------------- | :------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------- |
-| Anna Weber | Conoce Pozzo por el landing page que le compartió un integrante y decide probarlo con su junta. | EP10 Landing page | US43 Como visitante, deseo entender en pocos segundos qué problema resuelve Pozzo, para decidir si me interesa para mi junta.<br>US44 Como visitante, deseo encontrar cómo obtener la aplicación o dejar mi contacto, para empezar a usar Pozzo con mi grupo.<br>US45 Como visitante, deseo saber quiénes están detrás de Pozzo y cómo contactarlos, para confiar en el producto.<br>US46 Como visitante que abre el enlace desde el celular, deseo que el landing page se lea bien en pantalla pequeña, para no abandonarlo. |
-| Anna Weber | Configura su junta con las mismas reglas que su grupo ya acordó y la inicia sin ayuda de nadie. | EP02 Configuración de la junta<br>EP04 Asignación de turnos | US07 Como cabeza de junta, deseo crear una junta definiendo aporte, periodicidad, integrantes, día de corte y fecha de inicio, para reproducir en Pozzo las reglas que mi grupo acordó.<br>US09 Como cabeza de junta, deseo revisar y corregir las reglas antes de iniciar, para que queden como las acordó el grupo.<br>US10 Como cabeza de junta, deseo iniciar la junta cuando el grupo está completo y los turnos definidos, para abrir el primer período.<br>US17 Como cabeza de junta, deseo sortear el orden de cobro, para que el reparto sea al azar.<br>US18 Como cabeza de junta, deseo ordenar los turnos según lo conversado, para respetar la urgencia de cada integrante.<br>US19 Como cabeza de junta, deseo definir que cada turno se asigne por subasta, para reproducir el reparto que mi grupo practica.<br>US20 Como participante que aún no ha cobrado, deseo ofertar un descuento por cobrar este turno, para acceder al dinero cuando lo necesito.<br>US21 Como cabeza de junta, deseo cerrar la subasta y asignar el turno a la mejor oferta, para que el grupo sepa quién cobra y cuánto. |
-| Anna Weber | Incorpora al grupo entero, incluidos los que no instalan la aplicación, sin registrar a cada uno a mano. | EP03 Incorporación de integrantes | US11 Como cabeza de junta, deseo obtener un código y un enlace de invitación y compartirlos, para que mi grupo entre sin que yo registre a cada uno.<br>US14 Como cabeza de junta, deseo registrar a un integrante que no instalará Pozzo, para que la junta refleje a todo el grupo.<br>US15 Como cabeza de junta, deseo retirar a alguien que entró por error, para que el grupo quede correcto antes de asignar turnos.<br>US16 Como integrante, deseo ver quiénes están en la junta, para saber con quién comparto el ciclo. |
-| Anna Weber | Registra la entrega de cada pozo y avanza de turno dentro de la aplicación en lugar del cuaderno, hasta cerrar el ciclo. | EP08 Entrega del pozo y cierre del ciclo | US36 Como cabeza de junta, deseo registrar que entregué el pozo, para cerrar el período y que el siguiente empiece con todos avisados.<br>US38 Como cabeza de junta, deseo registrar una deserción y su reemplazo, para que el ciclo pueda continuar.<br>US39 Como cabeza de junta, deseo que la junta se cierre al entregar el último pozo, para tener el resumen del ciclo y abrir uno nuevo con el mismo grupo. |
-| Sofia Gonzales | Se une a la junta el mismo día que recibe la invitación, sin configurar nada. | EP01 Acceso y cuenta<br>EP03 Incorporación de integrantes | US01 Como integrante, deseo ingresar con mi número de celular, para acceder sin contraseña.<br>US02 Como integrante, deseo confirmar el código que recibí por SMS, para demostrar que el número es mío.<br>US03 Como integrante nuevo, deseo registrarme solo con mi nombre y aceptar los términos, para empezar sin trámites.<br>US04 Como integrante, deseo que mi sesión permanezca iniciada, para no verificar mi número cada vez.<br>US12 Como participante, deseo unirme con el código o el enlace que me compartió la cabeza, para quedar registrada sin configurar nada.<br>US13 Como participante, deseo ver los datos de la junta antes de unirme, para decidir si entro. |
-| Sofia Gonzales | Consulta el estado del pozo y su turno en Pozzo en lugar de preguntar en el grupo de mensajería. | EP06 Transparencia del pozo<br>EP04 Asignación de turnos | US29 Como integrante, deseo ver cuánto se ha reunido, quién aportó y quién debe, para tener la misma información que la cabeza.<br>US22 Como integrante, deseo ver el calendario completo del ciclo, para saber cuándo me toca cobrar.<br>US31 Como integrante, deseo ver el último estado de mi junta sin conexión, para no depender de la señal. |
-| Sofia Gonzales | Cumple con sus aportes durante todo el ciclo porque su historial de cumplimiento queda registrado y le sirve para juntas futuras. | EP09 Historial de cumplimiento | US40 Como participante, deseo ver mi historial de aportes puntuales, atrasados y cubiertos, para acreditar mi cumplimiento.<br>US41 Como participante, deseo compartir un resumen verificable de mi historial, para que me acepten en una junta nueva.<br>US42 Como cabeza de junta, deseo ver el historial de quien entra a mi junta, para decidir con información si lo acepto. |
+<table>
+  <colgroup><col style="width:6%"><col style="width:35%"><col style="width:24%"><col style="width:35%"></colgroup>
+  <thead><tr><th>Actor</th><th>Impact</th><th>Deliverable</th><th>User Stories</th></tr></thead>
+  <tbody>
+    <tr><td>Anna Weber</td><td>Conoce Pozzo por el landing page que le compartió un integrante y decide probarlo con su junta.</td><td>EP10 Landing page</td><td>US43 Como visitante, deseo entender en pocos segundos qué problema resuelve Pozzo, para decidir si me interesa para mi junta.<br>US44 Como visitante, deseo encontrar cómo obtener la aplicación o dejar mi contacto, para empezar a usar Pozzo con mi grupo.<br>US45 Como visitante, deseo saber quiénes están detrás de Pozzo y cómo contactarlos, para confiar en el producto.<br>US46 Como visitante que abre el enlace desde el celular, deseo que el landing page se lea bien en pantalla pequeña, para no abandonarlo.</td></tr>
+    <tr><td>Anna Weber</td><td>Configura su junta con las mismas reglas que su grupo ya acordó y la inicia sin ayuda de nadie.</td><td>EP02 Configuración de la junta<br>EP04 Asignación de turnos</td><td>US07 Como cabeza de junta, deseo crear una junta definiendo aporte, periodicidad, integrantes, día de corte y fecha de inicio, para reproducir en Pozzo las reglas que mi grupo acordó.<br>US09 Como cabeza de junta, deseo revisar y corregir las reglas antes de iniciar, para que queden como las acordó el grupo.<br>US10 Como cabeza de junta, deseo iniciar la junta cuando el grupo está completo y los turnos definidos, para abrir el primer período.<br>US17 Como cabeza de junta, deseo sortear el orden de cobro, para que el reparto sea al azar.<br>US18 Como cabeza de junta, deseo ordenar los turnos según lo conversado, para respetar la urgencia de cada integrante.<br>US19 Como cabeza de junta, deseo definir que cada turno se asigne por subasta, para reproducir el reparto que mi grupo practica.<br>US20 Como participante que aún no ha cobrado, deseo ofertar un descuento por cobrar este turno, para acceder al dinero cuando lo necesito.<br>US21 Como cabeza de junta, deseo cerrar la subasta y asignar el turno a la mejor oferta, para que el grupo sepa quién cobra y cuánto.</td></tr>
+    <tr><td>Anna Weber</td><td>Incorpora al grupo entero, incluidos los que no instalan la aplicación, sin registrar a cada uno a mano.</td><td>EP03 Incorporación de integrantes</td><td>US11 Como cabeza de junta, deseo obtener un código y un enlace de invitación y compartirlos, para que mi grupo entre sin que yo registre a cada uno.<br>US14 Como cabeza de junta, deseo registrar a un integrante que no instalará Pozzo, para que la junta refleje a todo el grupo.<br>US15 Como cabeza de junta, deseo retirar a alguien que entró por error, para que el grupo quede correcto antes de asignar turnos.<br>US16 Como integrante, deseo ver quiénes están en la junta, para saber con quién comparto el ciclo.</td></tr>
+    <tr><td>Anna Weber</td><td>Registra la entrega de cada pozo y avanza de turno dentro de la aplicación en lugar del cuaderno, hasta cerrar el ciclo.</td><td>EP08 Entrega del pozo y cierre del ciclo</td><td>US36 Como cabeza de junta, deseo registrar que entregué el pozo, para cerrar el período y que el siguiente empiece con todos avisados.<br>US38 Como cabeza de junta, deseo registrar una deserción y su reemplazo, para que el ciclo pueda continuar.<br>US39 Como cabeza de junta, deseo que la junta se cierre al entregar el último pozo, para tener el resumen del ciclo y abrir uno nuevo con el mismo grupo.</td></tr>
+    <tr><td>Sofia Gonzales</td><td>Se une a la junta el mismo día que recibe la invitación, sin configurar nada.</td><td>EP01 Acceso y cuenta<br>EP03 Incorporación de integrantes</td><td>US01 Como integrante, deseo ingresar con mi número de celular, para acceder sin contraseña.<br>US02 Como integrante, deseo confirmar el código que recibí por SMS, para demostrar que el número es mío.<br>US03 Como integrante nuevo, deseo registrarme solo con mi nombre y aceptar los términos, para empezar sin trámites.<br>US04 Como integrante, deseo que mi sesión permanezca iniciada, para no verificar mi número cada vez.<br>US12 Como participante, deseo unirme con el código o el enlace que me compartió la cabeza, para quedar registrada sin configurar nada.<br>US13 Como participante, deseo ver los datos de la junta antes de unirme, para decidir si entro.</td></tr>
+    <tr><td>Sofia Gonzales</td><td>Consulta el estado del pozo y su turno en Pozzo en lugar de preguntar en el grupo de mensajería.</td><td>EP06 Transparencia del pozo<br>EP04 Asignación de turnos</td><td>US29 Como integrante, deseo ver cuánto se ha reunido, quién aportó y quién debe, para tener la misma información que la cabeza.<br>US22 Como integrante, deseo ver el calendario completo del ciclo, para saber cuándo me toca cobrar.<br>US31 Como integrante, deseo ver el último estado de mi junta sin conexión, para no depender de la señal.</td></tr>
+    <tr><td>Sofia Gonzales</td><td>Cumple con sus aportes durante todo el ciclo porque su historial de cumplimiento queda registrado y le sirve para juntas futuras.</td><td>EP09 Historial de cumplimiento</td><td>US40 Como participante, deseo ver mi historial de aportes puntuales, atrasados y cubiertos, para acreditar mi cumplimiento.<br>US41 Como participante, deseo compartir un resumen verificable de mi historial, para que me acepten en una junta nueva.<br>US42 Como cabeza de junta, deseo ver el historial de quien entra a mi junta, para decidir con información si lo acepto.</td></tr>
+  </tbody>
+</table>
 
 #### Business Goal 02: aportes validados y discrepancias resueltas en la aplicación
 
-| Actor | Impact | Deliverable | User Stories |
-| :----------- | :------------------------------------------- | :------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------- |
-| Sofia Gonzales | Registra su aporte con el comprobante inmediatamente después de transferir, en lugar de enviar la captura al chat. | EP05 Registro y validación de aportes | US23 Como participante, deseo registrar mi aporte tomando una foto del comprobante o eligiéndolo de la galería, para que quede constancia sin reenviar capturas.<br>US24 Como participante, deseo revisar y corregir los datos que Pozzo leyó de mi comprobante, para que un error de lectura no se convierta en un rechazo. |
-| Sofia Gonzales | Transfiere el monto exacto al destinatario correcto, de modo que el comprobante coincide con lo esperado. | EP05 Registro y validación de aportes<br>EP02 Configuración de la junta<br>EP01 Acceso y cuenta | US25 Como participante, deseo que mi aporte quede validado al instante cuando el comprobante coincide, para no depender de la revisión de la cabeza.<br>US08 Como cabeza de junta, deseo indicar el número de Yape o Plin al que deben llegar los aportes, para que Pozzo valide contra ese destinatario.<br>US05 Como integrante, deseo mantener mi número de Yape o Plin en mi perfil, para que mi grupo sepa a quién transferir. |
-| Sofia Gonzales | Muestra su comprobante desde Pozzo cuando alguien cuestiona su pago, en lugar de buscar capturas en la galería o el chat. | EP05 Registro y validación de aportes<br>EP06 Transparencia del pozo | US28 Como participante, deseo ver todos mis aportes con su estado y su comprobante, para demostrar que pagué cuando alguien lo cuestiona.<br>US31 Como integrante, deseo ver mis comprobantes aunque no tenga señal, para no depender de la conexión al defender un aporte.<br>US32 Como integrante, deseo revisar los períodos ya cerrados, para reconstruir qué pasó en un turno pasado. |
-| Anna Weber | Revisa únicamente los aportes con alguna inconsistencia y confía en la validación automática del resto. | EP05 Registro y validación de aportes | US26 Como cabeza de junta, deseo ver el comprobante y los datos leídos de un aporte que no coincidió, para aprobarlo o rechazarlo con conocimiento. |
-| Anna Weber | Registra en la aplicación los aportes que recibe en efectivo y las coberturas, de modo que el registro siempre cuadra con el dinero. | EP05 Registro y validación de aportes<br>EP08 Entrega del pozo y cierre del ciclo | US27 Como cabeza de junta, deseo registrar el aporte de quien me entregó el dinero en efectivo, para que el pozo refleje todos los aportes.<br>US37 Como cabeza de junta, deseo registrar que alguien cubrió el aporte de un moroso, para que el pozo se complete y quede constancia de quién puso el dinero. |
-| Anna Weber | Consulta el registro de aportes de la junta en lugar de reconstruir la cuenta de memoria o pedir capturas. | EP06 Transparencia del pozo | US29 Como integrante, deseo ver el estado del pozo del período vigente, para tener la misma información que todos.<br>US32 Como integrante, deseo revisar los períodos ya cerrados, para reconstruir qué pasó en un turno pasado. |
+<table>
+  <colgroup><col style="width:6%"><col style="width:31%"><col style="width:31%"><col style="width:32%"></colgroup>
+  <thead><tr><th>Actor</th><th>Impact</th><th>Deliverable</th><th>User Stories</th></tr></thead>
+  <tbody>
+    <tr><td>Sofia Gonzales</td><td>Registra su aporte con el comprobante inmediatamente después de transferir, en lugar de enviar la captura al chat.</td><td>EP05 Registro y validación de aportes</td><td>US23 Como participante, deseo registrar mi aporte tomando una foto del comprobante o eligiéndolo de la galería, para que quede constancia sin reenviar capturas.<br>US24 Como participante, deseo revisar y corregir los datos que Pozzo leyó de mi comprobante, para que un error de lectura no se convierta en un rechazo.</td></tr>
+    <tr><td>Sofia Gonzales</td><td>Transfiere el monto exacto al destinatario correcto, de modo que el comprobante coincide con lo esperado.</td><td>EP05 Registro y validación de aportes<br>EP02 Configuración de la junta<br>EP01 Acceso y cuenta</td><td>US25 Como participante, deseo que mi aporte quede validado al instante cuando el comprobante coincide, para no depender de la revisión de la cabeza.<br>US08 Como cabeza de junta, deseo indicar el número de Yape o Plin al que deben llegar los aportes, para que Pozzo valide contra ese destinatario.<br>US05 Como integrante, deseo mantener mi número de Yape o Plin en mi perfil, para que mi grupo sepa a quién transferir.</td></tr>
+    <tr><td>Sofia Gonzales</td><td>Muestra su comprobante desde Pozzo cuando alguien cuestiona su pago, en lugar de buscar capturas en la galería o el chat.</td><td>EP05 Registro y validación de aportes<br>EP06 Transparencia del pozo</td><td>US28 Como participante, deseo ver todos mis aportes con su estado y su comprobante, para demostrar que pagué cuando alguien lo cuestiona.<br>US31 Como integrante, deseo ver mis comprobantes aunque no tenga señal, para no depender de la conexión al defender un aporte.<br>US32 Como integrante, deseo revisar los períodos ya cerrados, para reconstruir qué pasó en un turno pasado.</td></tr>
+    <tr><td>Anna Weber</td><td>Revisa únicamente los aportes con alguna inconsistencia y confía en la validación automática del resto.</td><td>EP05 Registro y validación de aportes</td><td>US26 Como cabeza de junta, deseo ver el comprobante y los datos leídos de un aporte que no coincidió, para aprobarlo o rechazarlo con conocimiento.</td></tr>
+    <tr><td>Anna Weber</td><td>Registra en la aplicación los aportes que recibe en efectivo y las coberturas, de modo que el registro siempre cuadra con el dinero.</td><td>EP05 Registro y validación de aportes<br>EP08 Entrega del pozo y cierre del ciclo</td><td>US27 Como cabeza de junta, deseo registrar el aporte de quien me entregó el dinero en efectivo, para que el pozo refleje todos los aportes.<br>US37 Como cabeza de junta, deseo registrar que alguien cubrió el aporte de un moroso, para que el pozo se complete y quede constancia de quién puso el dinero.</td></tr>
+    <tr><td>Anna Weber</td><td>Consulta el registro de aportes de la junta en lugar de reconstruir la cuenta de memoria o pedir capturas.</td><td>EP06 Transparencia del pozo</td><td>US29 Como integrante, deseo ver el estado del pozo del período vigente, para tener la misma información que todos.<br>US32 Como integrante, deseo revisar los períodos ya cerrados, para reconstruir qué pasó en un turno pasado.</td></tr>
+  </tbody>
+</table>
 
 #### Business Goal 03: cero recordatorios manuales
 
-| Actor | Impact | Deliverable | User Stories |
-| :----------- | :------------------------------------------- | :------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------- |
-| Sofia Gonzales | Aporta antes de la fecha de corte al recibir los recordatorios automáticos, sin que la cabeza le escriba. | EP07 Recordatorios y avisos | US33 Como participante, deseo recibir recordatorios automáticos que aumenten su frecuencia conforme se acerca el corte, para no atrasarme sin que la cabeza me escriba.<br>US35 Como integrante, deseo recibir un aviso cuando ocurre algo relevante en mi junta, para enterarme sin revisar la aplicación. |
-| Sofia Gonzales | Aporta a tiempo porque el grupo entero ve quién debe. | EP06 Transparencia del pozo | US29 Como integrante, deseo ver quién aportó y quién debe, para tener la misma información que la cabeza.<br>US30 Como participante al que le toca cobrar, deseo ver cuánto falta para mi pozo, para anticipar si cobraré a tiempo. |
-| Anna Weber | Deja que el sistema recuerde los aportes en nombre de la junta y no escribe a nadie por su cuenta. | EP07 Recordatorios y avisos | US34 Como cabeza de junta, deseo activar o desactivar los recordatorios automáticos y ver su cadencia, para ajustarlos a la costumbre del grupo. |
+<table>
+  <colgroup><col style="width:7%"><col style="width:40%"><col style="width:13%"><col style="width:40%"></colgroup>
+  <thead><tr><th>Actor</th><th>Impact</th><th>Deliverable</th><th>User Stories</th></tr></thead>
+  <tbody>
+    <tr><td>Sofia Gonzales</td><td>Aporta antes de la fecha de corte al recibir los recordatorios automáticos, sin que la cabeza le escriba.</td><td>EP07 Recordatorios y avisos</td><td>US33 Como participante, deseo recibir recordatorios automáticos que aumenten su frecuencia conforme se acerca el corte, para no atrasarme sin que la cabeza me escriba.<br>US35 Como integrante, deseo recibir un aviso cuando ocurre algo relevante en mi junta, para enterarme sin revisar la aplicación.</td></tr>
+    <tr><td>Sofia Gonzales</td><td>Aporta a tiempo porque el grupo entero ve quién debe.</td><td>EP06 Transparencia del pozo</td><td>US29 Como integrante, deseo ver quién aportó y quién debe, para tener la misma información que la cabeza.<br>US30 Como participante al que le toca cobrar, deseo ver cuánto falta para mi pozo, para anticipar si cobraré a tiempo.</td></tr>
+    <tr><td>Anna Weber</td><td>Deja que el sistema recuerde los aportes en nombre de la junta y no escribe a nadie por su cuenta.</td><td>EP07 Recordatorios y avisos</td><td>US34 Como cabeza de junta, deseo activar o desactivar los recordatorios automáticos y ver su cadencia, para ajustarlos a la costumbre del grupo.</td></tr>
+  </tbody>
+</table>
 
 ### 2.4.3. Product Backlog
 
