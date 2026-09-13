@@ -46,7 +46,13 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
   <thead><tr><th>Fortalezas</th><th>Debilidades</th></tr></thead>
   <tbody>
     <tr><td>• Adaptada al flujo de pago real en Perú mediante lectura OCR de comprobantes de Yape y Plin.<br>• Modelo 100 % no custodial: no retiene dinero, eliminando riesgos legales y desconfianza de los usuarios.<br>• Transparencia en tiempo real: calendario compartido donde todos ven el estado de aportes y el pozo.<br>• Cobranza automatizada mediante recordatorios escalonados que evitan el desgaste entre conocidos.<br>• Flexibilidad para asignar turnos según la costumbre del grupo (sorteo, orden acordado o subasta).</td><td>• Producto nuevo en etapa de desarrollo, sin base instalada de usuarios previa.<br>• Dependencia técnica de la legibilidad de vouchers y de posibles cambios visuales en Yape/Plin.<br>• Capacidad operativa y recursos de difusión acotados frente a plataformas comerciales consolidadas.<br>• Resistencia inicial al uso de herramientas digitales en participantes poco familiarizados con apps.</td></tr>
-    <tr><td><strong>Oportunidades</strong></td><td><strong>Amenazas</strong></td></tr>
+  </tbody>
+</table>
+
+<table>
+  <colgroup><col style="width:50%"><col style="width:50%"></colgroup>
+  <thead><tr><th>Oportunidades</th><th>Amenazas</th></tr></thead>
+  <tbody>
     <tr><td>• Uso masivo y cotidiano de billeteras móviles en el Perú (más de 16 millones de usuarios activos).<br>• Alto porcentaje de la población no bancarizada o sub-bancarizada que ahorra activamente en juntas.<br>• Adquisición viral de bajo costo: cada organizador incorpora directamente a su grupo por WhatsApp.<br>• Reutilización del historial de cumplimiento para facilitar la organización de siguientes ciclos.</td><td>• Hábito arraigado de organizadores de llevar sus cuentas en cuadernos físicos o libretas de notas.<br>• Posibilidad de que billeteras como Yape incorporen herramientas nativas de ahorro grupal.<br>• Ingreso de comprobantes duplicados, ilegibles o manipulados que requieran revisión manual.<br>• Casos de morosidad o deserción de integrantes que comprometan la continuidad de la junta.</td></tr>
   </tbody>
 </table>
@@ -58,7 +64,13 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
   <thead><tr><th>Fortalezas</th><th>Debilidades</th></tr></thead>
   <tbody>
     <tr><td>• Especialización directa en el flujo tradicional de tandas y ahorro rotativo.<br>• Configuración rápida y uso ligero sin solicitar vinculación de cuentas bancarias.<br>• Buen posicionamiento orgánico en tiendas móviles para búsquedas relacionadas con tandas.</td><td>• Registro de pagos 100 % manual por parte del organizador.<br>• Experiencia de uso deteriorada por la presencia de publicidad en la versión gratuita.<br>• Nula validación de comprobantes ni compatibilidad con billeteras móviles peruanas.</td></tr>
-    <tr><td><strong>Oportunidades</strong></td><td><strong>Amenazas</strong></td></tr>
+  </tbody>
+</table>
+
+<table>
+  <colgroup><col style="width:50%"><col style="width:50%"></colgroup>
+  <thead><tr><th>Oportunidades</th><th>Amenazas</th></tr></thead>
+  <tbody>
     <tr><td>• Interés de sectores populares por ordenar el seguimiento de sus tandas desde el celular.<br>• Posibilidad de transicionar hacia esquemas de suscripción accesibles sin anuncios.</td><td>• Pérdida de usuarios ante aplicaciones que automaticen la verificación de abonos.<br>• Alta tasa de abandono provocada por la saturación de anuncios dentro de la app.</td></tr>
   </tbody>
 </table>
@@ -70,7 +82,13 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
   <thead><tr><th>Fortalezas</th><th>Debilidades</th></tr></thead>
   <tbody>
     <tr><td>• Respaldo formal como entidad fintech regulada (IFPE) en México.<br>• Infraestructura propia con links de cobro y recepción de pagos con tarjeta de débito/crédito.<br>• Marca reconocida en recaudación de fondos y eventos sociales en su país de origen.</td><td>• Cobro de comisiones que reducen el monto final del ahorro acumulado.<br>• Fricción y rechazo de usuarios informales a dejar su dinero bajo custodia de un tercero.<br>• Operatividad restringida al sistema bancario mexicano, sin soporte para soles peruanos.</td></tr>
-    <tr><td><strong>Oportunidades</strong></td><td><strong>Amenazas</strong></td></tr>
+  </tbody>
+</table>
+
+<table>
+  <colgroup><col style="width:50%"><col style="width:50%"></colgroup>
+  <thead><tr><th>Oportunidades</th><th>Amenazas</th></tr></thead>
+  <tbody>
     <tr><td>• Generación de microrendimientos financieros sobre los saldos depositados en la plataforma.<br>• Expansión hacia cobros colectivos corporativos, institucionales y eventos masivos.</td><td>• Preferencia del público por transferencias interbancarias directas y sin comisión.<br>• Mayor rigidez en normativas sobre captación de fondos y billeteras electrónicas.</td></tr>
   </tbody>
 </table>
@@ -82,7 +100,13 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
   <thead><tr><th>Fortalezas</th><th>Debilidades</th></tr></thead>
   <tbody>
     <tr><td>• Marca global líder en administración y liquidación de gastos compartidos.<br>• Algoritmo optimizado para consolidar saldos y reducir transferencias entre integrantes.<br>• Plataforma madura con sincronización multidispositivo y respaldo en la nube.</td><td>• No contempla la estructura de turnos rotativos ni el cobro de cuotas periódicas de una junta.<br>• La lectura automática de recibos (OCR) está restringida al plan de pago prémium.<br>• Carece de recordatorios de cobro escalonados diseñados para la disciplina de ahorro.</td></tr>
-    <tr><td><strong>Oportunidades</strong></td><td><strong>Amenazas</strong></td></tr>
+  </tbody>
+</table>
+
+<table>
+  <colgroup><col style="width:50%"><col style="width:50%"></colgroup>
+  <thead><tr><th>Oportunidades</th><th>Amenazas</th></tr></thead>
+  <tbody>
     <tr><td>• Integración con medios de pago locales en mercados emergentes.<br>• Desarrollo de funciones orientadas a metas de ahorro grupal para viajes o proyectos.</td><td>• Fuga de usuarios hacia aplicaciones verticales enfocadas en esquemas de ahorro rotativo.<br>• Descontento de los usuarios frente a la limitación progresiva de opciones gratuitas.</td></tr>
   </tbody>
 </table>
