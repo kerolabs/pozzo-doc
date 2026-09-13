@@ -416,22 +416,25 @@ El 100% decide entrar a una junta según la confianza en quien la organiza y el 
 
 Los participantes viven la junta con poca visibilidad y sin una prueba de pago ordenada: guardan las capturas sin criterio, ya han tenido que defender un pago que sí hicieron y sienten incertidumbre cada vez que se acerca su turno. La totalidad conoce casos de incumplimiento y la mayoría ya sufrió un retraso al cobrar. La confianza en el organizador es lo que los hace entrar, por lo que valoran una herramienta que dé transparencia del estado del pozo y respaldo verificable de sus aportes, sin alterar la dinámica de confianza del grupo.
 ***
+
 ## 2.3. Needfinding
 En esta sección se presentan los artefactos resultantes del análisis de la información recolectada en las entrevistas de la sección 2.2. A partir de los patrones identificados en los dos segmentos objetivo se construyeron los arquetipos de usuario, se mapearon las tareas que realizan hoy con independencia de la existencia de Pozzo, se representaron sus recorridos actuales y su marco emocional, y se consolidó el lenguaje del dominio que el equipo utilizará de forma uniforme durante todo el proyecto.
 
 Cada característica presente en los arquetipos proviene de los resúmenes y del análisis estadístico de las seis entrevistas registradas; no se incorporó ningún atributo que no tenga respaldo en dicha información.
+
 ### 2.3.1. User Personas
 
 Se elaboró una ficha de User Persona por cada segmento objetivo, utilizando UXPressia. Para cada segmento se construyó un arquetipo representativo a partir de los patrones recurrentes identificados en las tres entrevistas, contrastando sus características con los resultados consolidados de la sección 2.2.3.
 
-### User Persona 1: Cabeza de junta
+#### User Persona 1: Cabeza de junta
 
 ![Anna Weber](images/chapter_2/anna_weber_us1.png)
 
-### User Persona 2: Participante de junta
+#### User Persona 2: Participante de junta
 ![Sofia Gonzales](images/chapter_2/sofia_gonzales_us2.png)
 
 ***
+
 ### 2.3.2. User Task Matrix
 El User Task Matrix concentra las tareas que los User Personas realizan para cumplir sus objetivos dentro de una junta, con independencia de que exista o no una solución de software. No se trata de funcionalidades de Pozzo, sino de actividades que ambos segmentos ya ejecutan hoy con cuaderno, hoja de cálculo y mensajería.
 
@@ -462,6 +465,7 @@ Del cuadro se desprenden tres lecturas. La primera es que **las tareas de mayor 
 
 Entre las tareas compartidas por ambos segmentos, destacan especialmente consultar cuánto falta para completar el pozo y resolver reclamos sobre aportes no registrados, porque ambas están directamente relacionadas con la transparencia y trazabilidad del ciclo.
 ***
+
 ### 2.3.3. User Journey Mapping
 
 Los User Journey Maps representan el recorrido actual de los dos segmentos objetivo durante su participación en una junta de ahorro, antes de la introducción de Pozzo. A partir de los patrones identificados en las entrevistas, se modelan las actividades, objetivos, dificultades y emociones que experimentan tanto la cabeza de junta como el participante a lo largo de un ciclo.
@@ -507,6 +511,7 @@ El Big Picture EventStorming se utilizó para representar de manera colaborativa
 - **Comment**: Nota, pregunta o aclaración añadida durante el análisis
 
 ![Leyenda de conceptos](images/chapter_2/leyenda.jpg)
+
 #### Identificación de eventos
 El equipo inició la sesión identificando los principales eventos que ocurren durante una junta de ahorro. Cada evento se formuló como un hecho ocurrido dentro del dominio, sin considerar todavía su orden ni posibles soluciones tecnológicas.
 

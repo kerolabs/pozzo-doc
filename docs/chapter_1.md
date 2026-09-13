@@ -158,7 +158,7 @@ proyecto.
   comprobar.
 - Al menos una de cada tres juntas nuevas se forma con integrantes, organizadores
   o participantes, que ya usaron Pozzo en un ciclo anterior.
-  
+
 ##### User Assumptions
 
 - Los actores que interactúan con el sistema son dos: la cabeza de junta, en su
