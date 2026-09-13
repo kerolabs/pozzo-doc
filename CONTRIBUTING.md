@@ -202,7 +202,51 @@ necesitas marcar estados en una tabla, escríbelos con palabras.
 
 ### Tablas
 
-Solo tablas de tuberías.
+Hay dos formas de escribir una tabla. Para tablas cortas y simples, las de tuberías
+de Markdown. Para cualquier tabla con celdas largas, varias columnas o celdas
+combinadas, HTML.
+
+#### Tablas HTML (recomendado para tablas grandes)
+
+```html
+<table>
+  <colgroup>
+    <col style="width:20%">
+    <col style="width:50%">
+    <col style="width:30%">
+  </colgroup>
+  <thead>
+    <tr><th>Story ID</th><th>User</th><th>Priority</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>US01</td><td>Integrante</td><td>Alta</td></tr>
+    <tr>
+      <td><strong>Acceptance Criteria</strong></td>
+      <td colspan="2">
+        <strong>Escenario 1</strong><br>
+        Dado que...<br>
+        Cuando...<br>
+        Entonces...
+      </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+El build la convierte en una tabla nativa con `config/html-tables.lua`, así que en
+el PDF sale igual que en GitHub. Reglas:
+
+- El ancho de cada columna se fija con `<col style="width:NN%">`. Sin `colgroup`,
+  LaTeX reparte el ancho según el contenido y las columnas con texto largo se
+  aplastan.
+- Dentro de una celda el contenido es HTML, no Markdown: `<strong>` en vez de `**`,
+  `<br>` para bajar de línea, `<p>` para separar párrafos, `<ul><li>` para listas.
+- `colspan` y `rowspan` funcionan. Las imágenes dentro de celdas, con `<img>` y
+  ruta relativa al `.md`.
+- Las líneas en blanco dentro de la tabla no la rompen, a diferencia de las tablas
+  de tuberías.
+
+#### Tablas de tuberías (solo para tablas simples)
 
 ```markdown
 | Versión | Fecha      | Autor |
@@ -210,39 +254,30 @@ Solo tablas de tuberías.
 | AV1     | 02/04/2026 | Todos |
 ```
 
-Escribirlas a mano y mantener las tuberías alineadas es un dolor. Para armarlas usa
-[Tables Generator](https://www.tablesgenerator.com/markdown_tables): tiene una
-cuadrícula tipo hoja de cálculo, importa desde CSV, y te devuelve el Markdown ya
-formateado para pegar.
-
 > [!CAUTION]
-> Nunca uses `<table>` de HTML. Al exportar, Pandoc descarta el marcado y conserva
-> solo el texto, así que la tabla se convierte en párrafos sueltos, sin estructura y
-> sin ningún mensaje de error. A `<div align="center">` le pasa lo mismo con el
-> centrado.
+> En una tabla de tuberías, la cantidad de guiones bajo cada encabezado es el ancho
+> relativo de esa columna en el PDF. Si una columna tiene 120 guiones y las otras
+> 4, las otras salen de un centímetro y con las palabras partidas sílaba por sílaba.
+> Dale a cada columna al menos tantos guiones como caracteres tiene su encabezado y
+> reparte el resto según cuánto texto lleva cada una. Tables Generator no hace esto
+> por ti: alinea las tuberías con el contenido de la primera fila, que suele ser
+> justo lo contrario de lo que el PDF necesita.
 
-#### Saltos de línea dentro de una celda
-
-**Usa `<br>`.** Una fila entera tiene que caber en una sola línea del archivo, así
-que no puedes pulsar Enter dentro de una celda: si partes la línea, Markdown deja de
-ver una fila y la tabla se rompe. `<br>` es la forma de bajar de línea sin salir de
-esa línea.
+Una fila entera tiene que caber en una sola línea del archivo, y dentro de una celda
+se baja de línea con `<br>`:
 
 ```markdown
 | Criterio | Acciones realizadas |
 | --- | --- |
-| Comunica oralmente | **Apellido, Nombre**<br>*AV1:* Lo que hizo.<br>*TB1:* Lo que hizo.<br><br>**Otro Apellido, Nombre**<br>*AV1:* Lo que hizo. |
+| Comunica oralmente | **Apellido, Nombre**<br>*AV1:* Lo que hizo.<br>*TB1:* Lo que hizo. |
 ```
 
-Dos `<br>` seguidos dejan una línea en blanco, que es lo que separa a un integrante
-del siguiente.
+`<br>` es la única etiqueta HTML que sobrevive dentro de una tabla de tuberías,
+porque `config/pdf-only.lua` la traduce a un salto de línea antes de exportar.
 
-Sin esto, una celda como las del Student Outcome sale en el PDF como un párrafo
-corrido donde el nombre de una persona aparece en mitad de la frase de otra, y no se
-distingue quién hizo qué.
-
-`<br>` es la única etiqueta HTML que sobrevive al PDF, y solo porque
-`config/pdf-only.lua` la traduce a un salto de línea de verdad antes de exportar.
+> [!CAUTION]
+> `<div align="center">` y otros bloques HTML que no sean `<table>` siguen
+> perdiéndose en el PDF: Pandoc descarta el marcado y conserva solo el texto.
 
 ### Imágenes
 

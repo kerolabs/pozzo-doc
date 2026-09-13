@@ -148,6 +148,7 @@ pandoc $Chapters `
     --metadata-file=config/format.yaml `
     --include-in-header=config/apa7.tex `
     --include-before-body=config/cover.tex `
+    --lua-filter=config/html-tables.lua `
     --lua-filter=config/pdf-only.lua `
     --citeproc `
     --csl=config/apa.csl `
