@@ -19,7 +19,7 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
 #### Competitive Analysis Landscape
 
 <table>
-  <colgroup><col style="width:8%"><col style="width:23%"><col style="width:23%"><col style="width:23%"><col style="width:23%"></colgroup>
+  <colgroup><col style="width:16%"><col style="width:21%"><col style="width:21%"><col style="width:21%"><col style="width:21%"></colgroup>
   <thead><tr><th>Característica</th><th>Pozzo</th><th>Tandapp / MiTandita</th><th>Moneypool</th><th>Splitwise</th></tr></thead>
   <tbody>
     <tr><td><strong>Perfil / Overview</strong></td><td>Plataforma móvil y web para administrar juntas de ahorro en tiempo real, validando vouchers sin custodiar dinero.</td><td>App móvil para registrar integrantes, armar tandas, asignar turnos y marcar pagos manualmente.</td><td>Plataforma fintech para recaudar fondos grupales mediante saldo digital y links de pago.</td><td>Aplicación para registrar, calcular y saldar gastos compartidos entre grupos de personas.</td></tr>
@@ -575,7 +575,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 #### Epics
 
 <table>
-  <colgroup><col style="width:9%"><col style="width:28%"><col style="width:63%"></colgroup>
+  <colgroup><col style="width:10%"><col style="width:28%"><col style="width:62%"></colgroup>
   <thead><tr><th>Epic ID</th><th>Nombre</th><th>Descripción</th></tr></thead>
   <tbody>
     <tr><td>EP01</td><td>Acceso y cuenta</td><td>Ingreso a Pozzo con el número de celular verificado por SMS, sin contraseña, y administración del perfil.</td></tr>
@@ -1275,7 +1275,7 @@ Los actores son los dos User Personas del proyecto: **Anna Weber**, cabeza de ju
 #### Business Goal 01: ciclo completo en Pozzo
 
 <table>
-  <colgroup><col style="width:6%"><col style="width:35%"><col style="width:24%"><col style="width:35%"></colgroup>
+  <colgroup><col style="width:14%"><col style="width:30%"><col style="width:20%"><col style="width:36%"></colgroup>
   <thead><tr><th>Actor</th><th>Impact</th><th>Deliverable</th><th>User Stories</th></tr></thead>
   <tbody>
     <tr><td>Anna Weber</td><td>Conoce Pozzo por el landing page que le compartió un integrante y decide probarlo con su junta.</td><td>EP10 Landing page</td><td>US43 Como visitante, deseo entender en pocos segundos qué problema resuelve Pozzo, para decidir si me interesa para mi junta.<br>US44 Como visitante, deseo encontrar cómo obtener la aplicación o dejar mi contacto, para empezar a usar Pozzo con mi grupo.<br>US45 Como visitante, deseo saber quiénes están detrás de Pozzo y cómo contactarlos, para confiar en el producto.<br>US46 Como visitante que abre el enlace desde el celular, deseo que el landing page se lea bien en pantalla pequeña, para no abandonarlo.</td></tr>
@@ -1291,7 +1291,7 @@ Los actores son los dos User Personas del proyecto: **Anna Weber**, cabeza de ju
 #### Business Goal 02: aportes validados y discrepancias resueltas en la aplicación
 
 <table>
-  <colgroup><col style="width:6%"><col style="width:31%"><col style="width:31%"><col style="width:32%"></colgroup>
+  <colgroup><col style="width:14%"><col style="width:30%"><col style="width:20%"><col style="width:36%"></colgroup>
   <thead><tr><th>Actor</th><th>Impact</th><th>Deliverable</th><th>User Stories</th></tr></thead>
   <tbody>
     <tr><td>Sofia Gonzales</td><td>Registra su aporte con el comprobante inmediatamente después de transferir, en lugar de enviar la captura al chat.</td><td>EP05 Registro y validación de aportes</td><td>US23 Como participante, deseo registrar mi aporte tomando una foto del comprobante o eligiéndolo de la galería, para que quede constancia sin reenviar capturas.<br>US24 Como participante, deseo revisar y corregir los datos que Pozzo leyó de mi comprobante, para que un error de lectura no se convierta en un rechazo.</td></tr>
@@ -1306,7 +1306,7 @@ Los actores son los dos User Personas del proyecto: **Anna Weber**, cabeza de ju
 #### Business Goal 03: cero recordatorios manuales
 
 <table>
-  <colgroup><col style="width:7%"><col style="width:40%"><col style="width:13%"><col style="width:40%"></colgroup>
+  <colgroup><col style="width:14%"><col style="width:30%"><col style="width:20%"><col style="width:36%"></colgroup>
   <thead><tr><th>Actor</th><th>Impact</th><th>Deliverable</th><th>User Stories</th></tr></thead>
   <tbody>
     <tr><td>Sofia Gonzales</td><td>Aporta antes de la fecha de corte al recibir los recordatorios automáticos, sin que la cabeza le escriba.</td><td>EP07 Recordatorios y avisos</td><td>US33 Como participante, deseo recibir recordatorios automáticos que aumenten su frecuencia conforme se acerca el corte, para no atrasarme sin que la cabeza me escriba.<br>US35 Como integrante, deseo recibir un aviso cuando ocurre algo relevante en mi junta, para enterarme sin revisar la aplicación.</td></tr>

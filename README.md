@@ -86,7 +86,7 @@
 # Student Outcome
 
 <table>
-  <colgroup><col style="width:67%"><col style="width:19%"><col style="width:14%"></colgroup>
+  <colgroup><col style="width:40%"><col style="width:35%"><col style="width:25%"></colgroup>
   <thead><tr><th>Criterio específico</th><th>Acciones realizadas</th><th>Conclusiones</th></tr></thead>
   <tbody>
     <tr><td>Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.</td><td></td><td></td></tr>
