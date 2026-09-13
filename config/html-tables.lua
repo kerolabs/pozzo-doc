@@ -124,6 +124,20 @@ function Pandoc(doc)
       i = i + 1
     end
   end
+  -- Los titulos de nivel 4 y 5 son "run-in" (el texto sigue en la misma linea).
+  -- Si lo que sigue es una tabla, LaTeX imprime la cabecera de la tabla antes
+  -- que el titulo. Cerrar el parrafo del titulo evita el cruce.
+  if FORMAT:match('latex') then
+    local conCierre = pandoc.List()
+    for k, b in ipairs(salida) do
+      conCierre:insert(b)
+      local siguiente = salida[k + 1]
+      if b.t == 'Header' and b.level >= 4 and siguiente and siguiente.t == 'Table' then
+        conCierre:insert(pandoc.RawBlock('latex', '\\leavevmode\\par'))
+      end
+    end
+    salida = conCierre
+  end
   doc.blocks = salida
   return doc
 end
