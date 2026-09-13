@@ -239,10 +239,10 @@ el PDF sale igual que en GitHub. Reglas:
 - El ancho de cada columna se fija con `<col style="width:NN%">`. Sin `colgroup`,
   LaTeX reparte el ancho según el contenido y las columnas con texto largo se
   aplastan.
-- Dentro de una celda el contenido es HTML, no Markdown: `<strong>` en vez de `**`,
-  `<br>` para bajar de línea, `<p>` para separar párrafos, `<ul><li>` para listas.
-- `colspan` y `rowspan` funcionan. Las imágenes dentro de celdas, con `<img>` y
-  ruta relativa al `.md`.
+- Dentro de una celda vale Markdown o HTML, como prefieras: `**negrita**` o
+  `<strong>`, `*cursiva*` o `<em>`, `` `código` ``, `[enlace](url)`,
+  `![imagen](ruta)` o `<img>`. `<br>` baja de línea y `<p>` separa párrafos.
+- `colspan` y `rowspan` funcionan.
 - Las líneas en blanco dentro de la tabla no la rompen, a diferencia de las tablas
   de tuberías.
 
@@ -275,9 +275,28 @@ se baja de línea con `<br>`:
 `<br>` es la única etiqueta HTML que sobrevive dentro de una tabla de tuberías,
 porque `config/pdf-only.lua` la traduce a un salto de línea antes de exportar.
 
-> [!CAUTION]
-> `<div align="center">` y otros bloques HTML que no sean `<table>` siguen
-> perdiéndose en el PDF: Pandoc descarta el marcado y conserva solo el texto.
+### Centrar y otros bloques HTML
+
+`<div align="center">` centra su contenido en el PDF, sea texto, una imagen en
+Markdown o un `<img>`. El mismo filtro lo resuelve:
+
+```markdown
+<div align="center">
+
+![Context map](images/chapter_2/context-map.png){width=70%}
+
+**Figura centrada** con su descripción.
+
+</div>
+```
+
+Deja una línea en blanco después de `<div ...>` y otra antes de `</div>` cuando el
+contenido es Markdown; si es una sola línea de HTML (`<img ...><br>texto`), puede ir
+todo junto.
+
+Un `<img src="..." width="...">` suelto dentro de un párrafo también sobrevive al
+PDF. Cualquier otra etiqueta HTML de bloque (`<span>`, `<p align>`, `<font>`) sigue
+perdiéndose: Pandoc conserva solo el texto.
 
 ### Imágenes
 
