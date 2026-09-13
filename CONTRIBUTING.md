@@ -244,7 +244,10 @@ el PDF sale igual que en GitHub. Reglas:
   `<strong>`, `*cursiva*` o `<em>`, `` `código` ``, `[enlace](url)`,
   `![imagen](ruta)` o `<img>`. `<br>` baja de línea y `<p>` separa párrafos.
 - `colspan` y `rowspan` funcionan.
-- Las líneas en blanco dentro de la tabla no la rompen, a diferencia de las tablas
+- Cada `<tr>` con todas sus celdas va en **una sola línea**. Si una celda queda
+  sola en su línea, Pandoc lee lo que sigue a la etiqueta como Markdown y un
+  texto como "1. Problema" se convierte en lista numerada.
+- Las líneas en blanco entre filas no rompen la tabla, a diferencia de las tablas
   de tuberías.
 
 #### Tablas de tuberías (solo para tablas simples)
