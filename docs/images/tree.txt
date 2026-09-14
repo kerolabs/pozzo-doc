@@ -25,7 +25,6 @@ repo/
 │   ├── cover.tex              Carátula
 │   ├── apa.csl                Estilo de citación
 │   ├── pdf-only.lua           Filtro de GitHub y PDF
-│   ├── html-tables.lua        Tablas HTML en el PDF
 │   └── preview/               Previsualizar la carátula
 │
 ├── scripts/

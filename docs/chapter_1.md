@@ -12,27 +12,19 @@ Pozzo permite centralizar la gestión de la junta sin intervenir directamente en
 
 La propuesta de Kero está orientada principalmente a grupos de familiares, amigos, vecinos o compañeros de trabajo que ya utilizan juntas como mecanismo de ahorro y desean mantener su dinámica habitual, pero con una administración más ordenada, transparente y verificable. A través de Pozzo, la startup busca combinar la confianza social propia de las juntas con herramientas digitales que simplifiquen su operación.
 
-<table>
-  <colgroup><col style="width:50%"><col style="width:50%"></colgroup>
-  <thead><tr><th align="center"><strong>Misión</strong></th><th align="center"><strong>Visión</strong></th></tr></thead>
-  <tbody>
-    <tr><td align="center">Facilitar la administración de juntas de ahorro mediante una solución digital simple y confiable que permita organizar aportes, turnos y comprobantes, reduciendo el trabajo manual y mejorando la transparencia entre sus participantes.</td><td align="center">Ser una plataforma referente en la digitalización de juntas de ahorro en el Perú y Latinoamérica, contribuyendo a modernizar mecanismos financieros comunitarios sin alterar la confianza y dinámica social sobre la que se sostienen.</td></tr>
-  </tbody>
-</table>
+|                                                                                                                 **Misión**                                                                                                                |                                                                                                               **Visión**                                                                                                               |
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Facilitar la administración de juntas de ahorro mediante una solución digital simple y confiable que permita organizar aportes, turnos y comprobantes, reduciendo el trabajo manual y mejorando la transparencia entre sus participantes. | Ser una plataforma referente en la digitalización de juntas de ahorro en el Perú y Latinoamérica, contribuyendo a modernizar mecanismos financieros comunitarios sin alterar la confianza y dinámica social sobre la que se sostienen. |
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
-<table>
-  <colgroup><col style="width:27%"><col style="width:73%"></colgroup>
-  <thead><tr><th>Integrante</th><th>Información</th></tr></thead>
-  <tbody>
-    <tr><td><img src="images/chapter_1/leonardo_sanchez_benavente.jpg" alt="Leonardo Sanchez Benavente" width="85%"><br>&nbsp;</td><td><strong>Leonardo Matias Sanchez Benavente</strong><br><strong>Código de estudiante:</strong> U20241b184<br><strong>Carrera:</strong> Ingeniería de Software<br><br>Estudiante de Ingeniería de Software con base en desarrollo web full-stack: Angular y TypeScript en el cliente, Java con Spring Boot y APIs REST bajo enfoque DDD en el servidor.<br><br></td></tr>
-    <tr><td><img src="images/chapter_1/gabriela_tirado_carrera.jpeg" alt="Gabriela Tirado Carrera" width="85%"><br>&nbsp;</td><td><strong>Gabriela Luciana Tirado Carrera</strong><br><strong>Código de estudiante:</strong> U202519592<br><strong>Carrera:</strong> Ingeniería de Software<br><br>Estudiante de Ingeniería de Software con conocimientos en desarrollo Full Stack, incluyendo Angular, Vue, HTML, CSS, C#, Java, JavaScript y SQL. Hábil en trabajo de equipos y desarrollo de interfaces.<br><br></td></tr>
-    <tr><td><img src="images/chapter_1/julius_camargo.png" alt="Joseph Julius Camargo Briceño" width="85%"><br>&nbsp;</td><td><strong>Joseph Julius Camargo Briceño</strong><br><strong>Código de estudiante:</strong> U20241D992<br><strong>Carrera:</strong> Ingeniería de Software<br><br>Estudiante de Ingeniería de Software especializado en C++ y en desarrollo backend con Java y C#, con conocimientos de HTML, CSS básico y frameworks frontend como Vue y Angular. Orientado a resultados, tanto a nivel de equipo como individual, con capacidad para potenciar el rendimiento del grupo. Abierto a las ideas y opiniones ajenas, y promotor del diálogo y el debate constructivo ante perspectivas en conflicto.<br><br></td></tr>
-    <tr><td><img src="images/chapter_1/fernando_flores.png" alt="Jose Fernando Flores Pinchi" width="85%"><br>&nbsp;</td><td><strong>Jose Fernando Flores Pinchi</strong><br><strong>Código de estudiante:</strong> U20241A290<br><strong>Carrera:</strong> Ingeniería de Software<br><br>Estudiante de Ingeniería de Software de cuarto ciclo, con conocimientos en bases de datos, HTML, CSS y frameworks como Vue y Angular, con orientación hacia la ciberseguridad. Responsable y adaptable, con interés en el aprendizaje continuo y la innovación tecnológica. Aplica sus conocimientos en proyectos prácticos que aporten valor y mejoren la vida cotidiana, fortaleciendo sus competencias mediante la colaboración con otros desarrolladores.<br><br></td></tr>
-    <tr><td><img src="images/chapter_1/estefano_solis_campos.png" alt="Estefano Sebastian Solis Campos" width="85%"><br>&nbsp;</td><td><strong>Estefano Sebastian Solis Campos</strong><br><strong>Código de estudiante:</strong> U202314354<br><strong>Carrera:</strong> Ingeniería de Software<br><br>Estudiante apasionado de la carrera de Ingeniería de Software, enfocado en aplicar sus conocimientos para el desarrollo de soluciones tecnológicas innovadoras y en constante búsqueda de oportunidades de aprendizaje y crecimiento profesional en el sector tecnológico.</td></tr>
-  </tbody>
-</table>
+| Integrante                                                                     | Información                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|--------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![Leonardo Sanchez Benavente](images/chapter_1/leonardo_sanchez_benavente.jpg) | **Leonardo Matias Sanchez Benavente**<br>**Código de estudiante:** U20241b184<br>**Carrera:** Ingeniería de Software<br><br>Estudiante de Ingeniería de Software con base en desarrollo web full-stack: Angular y TypeScript en el cliente, Java con Spring Boot y APIs REST bajo enfoque DDD en el servidor.<br><br>                                                                                                                                                                                                                                                                       |
+| ![Gabriela Tirado Carrera](images/chapter_1/gabriela_tirado_carrera.jpeg)      | **Gabriela Luciana Tirado Carrera**<br>**Código de estudiante:** U202519592<br>**Carrera:** Ingeniería de Software<br><br>Estudiante de Ingeniería de Software con conocimientos en desarrollo Full Stack, incluyendo Angular, Vue, HTML, CSS, C#, Java, JavaScript y SQL. Hábil en trabajo de equipos y desarrollo de interfaces.<br><br>                                                                                                                                                                                                                                                  |
+| ![Joseph Julius Camargo Briceño](images/chapter_1/julius_camargo.png)          | **Joseph Julius Camargo Briceño**<br>**Código de estudiante:** U20241D992<br>**Carrera:** Ingeniería de Software<br><br>Estudiante de Ingeniería de Software especializado en C++ y en desarrollo backend con Java y C#, con conocimientos de HTML, CSS básico y frameworks frontend como Vue y Angular. Orientado a resultados, tanto a nivel de equipo como individual, con capacidad para potenciar el rendimiento del grupo. Abierto a las ideas y opiniones ajenas, y promotor del diálogo y el debate constructivo ante perspectivas en conflicto.<br><br>                            |
+| ![Jose Fernando Flores Pinchi](images/chapter_1/fernando_flores.png)           | **Jose Fernando Flores Pinchi**<br>**Código de estudiante:** U20241A290<br>**Carrera:** Ingeniería de Software<br><br>Estudiante de Ingeniería de Software de cuarto ciclo, con conocimientos en bases de datos, HTML, CSS y frameworks como Vue y Angular, con orientación hacia la ciberseguridad. Responsable y adaptable, con interés en el aprendizaje continuo y la innovación tecnológica. Aplica sus conocimientos en proyectos prácticos que aporten valor y mejoren la vida cotidiana, fortaleciendo sus competencias mediante la colaboración con otros desarrolladores.<br><br> |
+| ![Estefano Sebastian Solis Campos](images/chapter_1/estefano_solis_campos.png) | **Estefano Sebastian Solis Campos**<br>**Código de estudiante:** U202314354<br>**Carrera:** Ingeniería de Software<br><br>Estudiante apasionado de la carrera de Ingeniería de Software, enfocado en aplicar sus conocimientos para el desarrollo de soluciones tecnológicas innovadoras y en constante búsqueda de oportunidades de aprendizaje y crecimiento profesional en el sector tecnológico. |
 
 ## 1.2. Solution Profile
 
@@ -216,7 +208,7 @@ assumption enunciada en la sección anterior. Cada hipótesis vincula un resulta
 de negocio, la persona que lo hace posible, el beneficio que esa persona obtiene
 y la funcionalidad que lo habilita.
 
-##### Hypothesis Statement 01
+##### Hypothesis Statement 01 (a partir de F1)
 
 - **Creemos que lograremos** que el tiempo que la cabeza de junta dedica a
   administrar su junta por ciclo disminuya respecto del que dedica hoy.
@@ -226,7 +218,7 @@ y la funcionalidad que lo habilita.
 - **Con** la validación automática del aporte a partir del voucher, que reconoce
   monto, fecha y destinatario.
 
-##### Hypothesis Statement 02
+##### Hypothesis Statement 02 (a partir de F2)
 
 - **Creemos que lograremos** que las discrepancias sobre un aporte se resuelvan
   dentro de la aplicación y no buscando capturas antiguas en el chat.
@@ -235,7 +227,7 @@ y la funcionalidad que lo habilita.
   falta para completar el pozo
 - **Con** el calendario de turnos con el estado de los aportes en tiempo real.
 
-##### Hypothesis Statement 03
+##### Hypothesis Statement 03 (a partir de F3)
 
 - **Creemos que lograremos** que las juntas completen su ciclo sin que el
   organizador tenga que escribirle uno por uno a los atrasados.
@@ -245,7 +237,7 @@ y la funcionalidad que lo habilita.
 - **Con** los recordatorios automáticos que aumentan su insistencia conforme se
   acerca la fecha de corte.
 
-##### Hypothesis Statement 04
+##### Hypothesis Statement 04 (a partir de F4)
 
 - **Creemos que lograremos** que todas las juntas piloto completen un ciclo
   entero en Pozzo sin abandonar la aplicación a mitad de camino.
@@ -254,7 +246,7 @@ y la funcionalidad que lo habilita.
   tiene acordado
 - **Con** la asignación de turnos por sorteo, por orden acordado o por subasta.
 
-##### Hypothesis Statement 05
+##### Hypothesis Statement 05 (a partir de F5)
 
 - **Creemos que lograremos** que una parte de las juntas nuevas se forme con
   participantes que ya usaron Pozzo.
@@ -263,7 +255,7 @@ y la funcionalidad que lo habilita.
   palabra de un tercero
 - **Con** el historial de cumplimiento que conservan al cerrar el ciclo.
 
-##### Hypothesis Statement 06
+##### Hypothesis Statement 06 (a partir de F6)
 
 - **Creemos que lograremos** que las juntas que adoptan Pozzo completen un ciclo
   entero sin volver al cuaderno ni al grupo de mensajería.
@@ -277,17 +269,21 @@ y la funcionalidad que lo habilita.
 
 #### 1.2.2.4. Lean UX Canvas
 
-<table>
-  <colgroup><col style="width:34%"><col style="width:33%"><col style="width:33%"></colgroup>
-  <tbody>
-    <tr><td><strong>1. Problema de negocio</strong></td><td><strong>5. Ideas de soluciones</strong></td><td><strong>2. Resultados comerciales</strong></td></tr>
-    <tr><td>Muchas juntas informales se administran a mano, con el dinero moviéndose por Yape pero las cuentas en un cuaderno y en capturas de WhatsApp. Esto genera errores de conteo, falta de prueba de pago y poca visibilidad sobre cuánto falta para el pozo. En ese contexto, Pozzo busca responder: ¿cómo administrar una junta que ya existe, validando los aportes y mostrando el avance en tiempo real, sin mover el dinero por la plataforma?</td><td rowspan="3">Lector de vouchers de Yape que valida monto, fecha y destinatario.<br>Calendario de turnos con el estado de los aportes en tiempo real.<br>Recordatorios automáticos que suben de tono.<br>Asignación de turnos por sorteo, orden acordado o subasta.<br>Historial de cumplimiento portable entre juntas.<br>Incorporación por enlace de invitación o desde la propia aplicación.</td><td>Todas las juntas piloto terminan su ciclo en la aplicación sin volver al cuaderno.<br>Al menos el 80 % de los aportes se validan sin revisión manual de la cabeza.<br>Cero recordatorios de cobranza enviados a mano por la cabeza durante el ciclo.<br>Ninguna discrepancia sin comprobante localizable en la aplicación.<br>Al menos una de cada tres juntas nuevas llega por integrantes que ya usaron Pozzo.</td></tr>
-    <tr><td><strong>3. Usuarios y clientes</strong></td><td><strong>4. Beneficios del usuario</strong></td></tr>
-    <tr><td>La cabeza de junta arma el grupo y hoy lleva las cuentas a mano. Los participantes aportan con la periodicidad que el grupo haya pactado y esperan su turno para cobrar. El participante al que le toca cobrar necesita ver quién ya depositó y quién falta. Todos ya usan Yape y WhatsApp.</td><td>La cabeza deja de perseguir gente y de equivocarse en el conteo.<br>El participante tiene una prueba clara de su aporte.<br>El que va a cobrar sabe en tiempo real cuánto falta para el pozo.<br>Los recordatorios evitan que alguien haga de cobrador.<br>El historial de cumplimiento abre la puerta a nuevas juntas.</td></tr>
-    <tr><td><strong>6. Hipótesis</strong></td><td><strong>7. ¿Qué es lo más importante que necesitamos aprender primero?</strong></td><td><strong>8. ¿Cuál es la menor cantidad de trabajo que necesitamos hacer para aprenderlo?</strong></td></tr>
-    <tr><td>La validación automática del voucher reduce el tiempo que la cabeza dedica a administrar la junta.<br>El calendario en tiempo real traslada a la aplicación las discrepancias sobre un aporte.<br>Los recordatorios automáticos evitan que el organizador tenga que cobrar uno por uno.<br>El reparto por sorteo, orden acordado o subasta permite adoptar Pozzo sin cambiar la costumbre del grupo.<br>El historial de cumplimiento lleva participantes hacia juntas nuevas.<br>La invitación desde la aplicación permite registrar el primer aporte sin configurar nada.</td><td>Lo primero que debemos validar es si las cabezas y los participantes confían en que la validación del voucher de Yape basta para dar por registrado un aporte, sin revisarlo a mano. Toda la propuesta de valor depende de esa confianza.</td><td>Un experimento sin código: acompañar 2 o 3 juntas reales durante un ciclo, recibiendo las capturas de Yape por WhatsApp y respondiendo a cada participante "aporte registrado" tras validarlas a mano, como si lo hiciera el sistema. Al cierre, medir si la cabeza dejó de revisar sus movimientos por su cuenta y cuántos reclamos surgieron. Si la confianza se sostiene, recién entonces construir el lector de vouchers, el calendario y los recordatorios.</td></tr>
-  </tbody>
-</table>
+| **1. Problema de negocio** | **5. Ideas de soluciones** | **2. Resultados comerciales** |
+| --- | --- | --- |
+| Muchas juntas informales se administran a mano, con el dinero moviéndose por Yape pero las cuentas en un cuaderno y en capturas de WhatsApp. Esto genera errores de conteo, falta de prueba de pago y poca visibilidad sobre cuánto falta para el pozo. En ese contexto, Pozzo busca responder: ¿cómo administrar una junta que ya existe, validando los aportes y mostrando el avance en tiempo real, sin mover el dinero por la plataforma? | Lector de vouchers de Yape que valida monto, fecha y destinatario.<br>Calendario de turnos con el estado de los aportes en tiempo real.<br>Recordatorios automáticos que suben de tono.<br>Asignación de turnos por sorteo, orden acordado o subasta.<br>Historial de cumplimiento portable entre juntas.<br>Incorporación por enlace de invitación o desde la propia aplicación. | Todas las juntas piloto terminan su ciclo en la aplicación sin volver al cuaderno.<br>Al menos el 80 % de los aportes se validan sin revisión manual de la cabeza.<br>Cero recordatorios de cobranza enviados a mano por la cabeza durante el ciclo.<br>Ninguna discrepancia sin comprobante localizable en la aplicación.<br>Al menos una de cada tres juntas nuevas llega por integrantes que ya usaron Pozzo. |
+
+<br><br>
+
+| **3. Usuarios y clientes** | **4. Beneficios del usuario** |
+| --- | --- |
+| La cabeza de junta arma el grupo y hoy lleva las cuentas a mano. Los participantes aportan con la periodicidad que el grupo haya pactado y esperan su turno para cobrar. El participante al que le toca cobrar necesita ver quién ya depositó y quién falta. Todos ya usan Yape y WhatsApp. | La cabeza deja de perseguir gente y de equivocarse en el conteo.<br>El participante tiene una prueba clara de su aporte.<br>El que va a cobrar sabe en tiempo real cuánto falta para el pozo.<br>Los recordatorios evitan que alguien haga de cobrador.<br>El historial de cumplimiento abre la puerta a nuevas juntas. |
+
+<br><br>
+
+| **6. Hipótesis** | **7. ¿Qué es lo más importante que necesitamos aprender primero?** | **8. ¿Cuál es la menor cantidad de trabajo que necesitamos hacer para aprenderlo?** |
+| --- | --- | --- |
+| La validación automática del voucher reduce el tiempo que la cabeza dedica a administrar la junta.<br>El calendario en tiempo real traslada a la aplicación las discrepancias sobre un aporte.<br>Los recordatorios automáticos evitan que el organizador tenga que cobrar uno por uno.<br>El reparto por sorteo, orden acordado o subasta permite adoptar Pozzo sin cambiar la costumbre del grupo.<br>El historial de cumplimiento lleva participantes hacia juntas nuevas.<br>La invitación desde la aplicación permite registrar el primer aporte sin configurar nada. | Lo primero que debemos validar es si las cabezas y los participantes confían en que la validación del voucher de Yape basta para dar por registrado un aporte, sin revisarlo a mano. Toda la propuesta de valor depende de esa confianza. | Un experimento sin código: acompañar 2 o 3 juntas reales durante un ciclo, recibiendo las capturas de Yape por WhatsApp y respondiendo a cada participante "aporte registrado" tras validarlas a mano, como si lo hiciera el sistema. Al cierre, medir si la cabeza dejó de revisar sus movimientos por su cuenta y cuántos reclamos surgieron. Si la confianza se sostiene, recién entonces construir el lector de vouchers, el calendario y los recordatorios. |
 
 ## 1.3. Segmentos objetivo
 

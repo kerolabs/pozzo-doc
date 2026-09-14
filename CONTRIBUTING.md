@@ -183,15 +183,6 @@ Cada `#` de primer nivel abre página nueva. El índice llega hasta el tercer ni
 los más profundos salen en el documento pero no se listan. Para forzar un salto,
 `\newpage` en una línea propia.
 
-> [!CAUTION]
-> Deja siempre una línea en blanco antes de cada título. Si el título viene pegado
-> a un `***`, a una imagen o a un párrafo, Pandoc lo trata como texto normal: sale
-> en el PDF con las almohadillas y desaparece del índice.
-
-Los títulos sin número (nivel 4 y 5, como "User Journey Map 1" o "Hypothesis
-Statement 01") no van en el índice. No uses nivel 3 para un título sin número,
-porque el índice lo listaría al mismo nivel que las secciones numeradas.
-
 ### Separadores y emojis
 
 Usa `***` para una línea separadora, con una línea en blanco antes y después.
@@ -211,55 +202,7 @@ necesitas marcar estados en una tabla, escríbelos con palabras.
 
 ### Tablas
 
-Todas las tablas del informe están escritas en HTML y esa es la forma recomendada
-para las nuevas: anchos controlados, celdas combinadas y sin que una línea en
-blanco rompa nada. Las tablas de tuberías de Markdown siguen funcionando para
-tablas cortas y simples, pero con la salvedad de anchos que se explica más abajo.
-
-#### Tablas HTML (recomendado para tablas grandes)
-
-```html
-<table>
-  <colgroup>
-    <col style="width:20%">
-    <col style="width:50%">
-    <col style="width:30%">
-  </colgroup>
-  <thead>
-    <tr><th>Story ID</th><th>User</th><th>Priority</th></tr>
-  </thead>
-  <tbody>
-    <tr><td>US01</td><td>Integrante</td><td>Alta</td></tr>
-    <tr>
-      <td><strong>Acceptance Criteria</strong></td>
-      <td colspan="2">
-        <strong>Escenario 1</strong><br>
-        Dado que...<br>
-        Cuando...<br>
-        Entonces...
-      </td>
-    </tr>
-  </tbody>
-</table>
-```
-
-El build la convierte en una tabla nativa con `config/html-tables.lua`, así que en
-el PDF sale igual que en GitHub. Reglas:
-
-- El ancho de cada columna se fija con `<col style="width:NN%">`. Sin `colgroup`,
-  LaTeX reparte el ancho según el contenido y las columnas con texto largo se
-  aplastan.
-- Dentro de una celda vale Markdown o HTML, como prefieras: `**negrita**` o
-  `<strong>`, `*cursiva*` o `<em>`, `` `código` ``, `[enlace](url)`,
-  `![imagen](ruta)` o `<img>`. `<br>` baja de línea y `<p>` separa párrafos.
-- `colspan` y `rowspan` funcionan.
-- Cada `<tr>` con todas sus celdas va en **una sola línea**. Si una celda queda
-  sola en su línea, Pandoc lee lo que sigue a la etiqueta como Markdown y un
-  texto como "1. Problema" se convierte en lista numerada.
-- Las líneas en blanco entre filas no rompen la tabla, a diferencia de las tablas
-  de tuberías.
-
-#### Tablas de tuberías (solo para tablas simples)
+Solo tablas de tuberías.
 
 ```markdown
 | Versión | Fecha      | Autor |
@@ -267,49 +210,39 @@ el PDF sale igual que en GitHub. Reglas:
 | AV1     | 02/04/2026 | Todos |
 ```
 
-> [!CAUTION]
-> En una tabla de tuberías, la cantidad de guiones bajo cada encabezado es el ancho
-> relativo de esa columna en el PDF. Si una columna tiene 120 guiones y las otras
-> 4, las otras salen de un centímetro y con las palabras partidas sílaba por sílaba.
-> Dale a cada columna al menos tantos guiones como caracteres tiene su encabezado y
-> reparte el resto según cuánto texto lleva cada una. Tables Generator no hace esto
-> por ti: alinea las tuberías con el contenido de la primera fila, que suele ser
-> justo lo contrario de lo que el PDF necesita.
+Escribirlas a mano y mantener las tuberías alineadas es un dolor. Para armarlas usa
+[Tables Generator](https://www.tablesgenerator.com/markdown_tables): tiene una
+cuadrícula tipo hoja de cálculo, importa desde CSV, y te devuelve el Markdown ya
+formateado para pegar.
 
-Una fila entera tiene que caber en una sola línea del archivo, y dentro de una celda
-se baja de línea con `<br>`:
+> [!CAUTION]
+> Nunca uses `<table>` de HTML. Al exportar, Pandoc descarta el marcado y conserva
+> solo el texto, así que la tabla se convierte en párrafos sueltos, sin estructura y
+> sin ningún mensaje de error. A `<div align="center">` le pasa lo mismo con el
+> centrado.
+
+#### Saltos de línea dentro de una celda
+
+**Usa `<br>`.** Una fila entera tiene que caber en una sola línea del archivo, así
+que no puedes pulsar Enter dentro de una celda: si partes la línea, Markdown deja de
+ver una fila y la tabla se rompe. `<br>` es la forma de bajar de línea sin salir de
+esa línea.
 
 ```markdown
 | Criterio | Acciones realizadas |
 | --- | --- |
-| Comunica oralmente | **Apellido, Nombre**<br>*AV1:* Lo que hizo.<br>*TB1:* Lo que hizo. |
+| Comunica oralmente | **Apellido, Nombre**<br>*AV1:* Lo que hizo.<br>*TB1:* Lo que hizo.<br><br>**Otro Apellido, Nombre**<br>*AV1:* Lo que hizo. |
 ```
 
-`<br>` es la única etiqueta HTML que sobrevive dentro de una tabla de tuberías,
-porque `config/pdf-only.lua` la traduce a un salto de línea antes de exportar.
+Dos `<br>` seguidos dejan una línea en blanco, que es lo que separa a un integrante
+del siguiente.
 
-### Centrar y otros bloques HTML
+Sin esto, una celda como las del Student Outcome sale en el PDF como un párrafo
+corrido donde el nombre de una persona aparece en mitad de la frase de otra, y no se
+distingue quién hizo qué.
 
-`<div align="center">` centra su contenido en el PDF, sea texto, una imagen en
-Markdown o un `<img>`. El mismo filtro lo resuelve:
-
-```markdown
-<div align="center">
-
-![Context map](images/chapter_2/context-map.png){width=70%}
-
-**Figura centrada** con su descripción.
-
-</div>
-```
-
-Deja una línea en blanco después de `<div ...>` y otra antes de `</div>` cuando el
-contenido es Markdown; si es una sola línea de HTML (`<img ...><br>texto`), puede ir
-todo junto.
-
-Un `<img src="..." width="...">` suelto dentro de un párrafo también sobrevive al
-PDF. Cualquier otra etiqueta HTML de bloque (`<span>`, `<p align>`, `<font>`) sigue
-perdiéndose: Pandoc conserva solo el texto.
+`<br>` es la única etiqueta HTML que sobrevive al PDF, y solo porque
+`config/pdf-only.lua` la traduce a un salto de línea de verdad antes de exportar.
 
 ### Imágenes
 

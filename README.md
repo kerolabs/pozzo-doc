@@ -1,12 +1,8 @@
 # Registro de Versiones del Informe
 
-<table>
-  <colgroup><col style="width:17%"><col style="width:15%"><col style="width:21%"><col style="width:47%"></colgroup>
-  <thead><tr><th align="center">Versión</th><th align="center">Fecha</th><th align="center">Autor</th><th align="center">Descripción de modificación</th></tr></thead>
-  <tbody>
-    <tr><td align="center">AV1</td><td align="center">02/09/2026</td><td align="center">Todo el equipo</td><td align="center">Primera versión</td></tr>
-  </tbody>
-</table>
+| Versión |    Fecha   |      Autor     | Descripción de modificación |
+|:-------:|:----------:|:--------------:|:---------------------------:|
+|   AV1   | 02/09/2026 | Todo el equipo |       Primera versión       |
 
 # Project Report Collaboration Insights
 
@@ -85,13 +81,9 @@
 
 # Student Outcome
 
-<table>
-  <colgroup><col style="width:40%"><col style="width:35%"><col style="width:25%"></colgroup>
-  <thead><tr><th>Criterio específico</th><th>Acciones realizadas</th><th>Conclusiones</th></tr></thead>
-  <tbody>
-    <tr><td>Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.</td><td></td><td></td></tr>
-    <tr><td>Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.</td><td></td><td></td></tr>
-  </tbody>
-</table>
+| Criterio específico                                                                                                                     | Acciones realizadas | Conclusiones |
+|:---------------------------------------|:----------------------------------|:------------------------|
+| Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software. |                     |              |
+| Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.  |                     |              |
 
 # Objetivos SMART
