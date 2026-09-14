@@ -977,9 +977,9 @@ Las Spike Stories cubren la investigación necesaria antes de implementar las hi
 
 ### 2.4.2. Impact Mapping
 
-El Impact Map vincula los objetivos de negocio de Pozzo con las personas que pueden hacerlos posibles, el cambio de comportamiento que se espera de ellas, lo que el producto entrega para provocar ese cambio y las historias que lo implementan. El equipo lo elaboró en UXPressia a partir de las fichas de User Persona de Anna Weber y Sofia Gonzales, respondiendo en cada nivel las preguntas del método: quiénes ayudan a lograr la meta, qué tendrían que hacer, qué puede hacer el negocio digital para provocarlo y con qué historias.
+El Impact Map vincula los objetivos de negocio de Pozzo con las personas que pueden hacerlos posibles, el cambio de comportamiento que se espera de ellas, lo que el producto entrega para provocar ese cambio y las historias que lo implementan. El equipo lo elaboró en UXPressia a partir de las fichas de User Persona de Anna Weber y Sofia Gonzales, respondiendo en cada nivel las preguntas del método: quiénes ayudan a lograr la meta, qué tendrían que hacer, qué puede hacer el negocio digital para provocarlo y con qué historias. Se elaboró un mapa por cada objetivo de negocio.
 
-Los objetivos de negocio se derivan de los resultados que el equipo definió en los Business Outcome Assumptions y en el Problem Statement, formulados con los criterios SMART (específicos, medibles, alcanzables, relevantes y con plazo). El horizonte de medición son las juntas piloto que el equipo acompañará después del lanzamiento. Se seleccionaron los tres outcomes del primer ciclo de uso; el outcome de crecimiento por referidos (una de cada tres juntas nuevas formada por integrantes que ya usaron Pozzo) se medirá recién entre los meses 7 y 12, por lo que queda fuera de este mapa y se retoma al planificar el segundo semestre.
+Los objetivos de negocio se derivan de los resultados que el equipo definió en los Business Outcome Assumptions y en el Problem Statement, formulados con los criterios SMART (específicos, medibles, alcanzables, relevantes y con plazo). El horizonte de medición son las juntas piloto que el equipo acompañará después del lanzamiento. Se seleccionaron los tres outcomes del primer ciclo de uso; el outcome de crecimiento por referidos (una de cada tres juntas nuevas formada por integrantes que ya usaron Pozzo) se medirá recién entre los meses 7 y 12, por lo que queda fuera de estos mapas y se retoma al planificar el segundo semestre.
 
 | Business Goal | Enunciado |
 | :--------- | :---------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -987,40 +987,99 @@ Los objetivos de negocio se derivan de los resultados que el equipo definió en 
 | BG02 | Alcanzar que al menos el 80 % de los aportes de cada ciclo se validen sin revisión manual de la cabeza de junta, y que el 100 % de las discrepancias sobre aportes se resuelvan dentro de la aplicación con comprobante localizable, en las juntas piloto, dentro de los 3 primeros meses. |
 | BG03 | Reducir a cero los recordatorios de cobranza enviados a mano por la cabeza de junta durante un ciclo, en las juntas piloto, dentro de los 3 primeros meses. |
 
-Los actores son los dos User Personas del proyecto: **Anna Weber**, cabeza de junta y tomadora de la decisión de adoptar Pozzo, y **Sofia Gonzales**, participante que aporta cada período y espera su turno. Los deliverables corresponden a las Epics de la especificación, y cada historia se identifica con su código y su enunciado. Las Technical Stories y las Spike Stories no aparecen en el mapa porque no modifican el comportamiento de un actor; entran al Product Backlog por la dependencia técnica de las historias que habilitan.
+Los actores son los dos User Personas del proyecto: **Anna Weber**, cabeza de junta y tomadora de la decisión de adoptar Pozzo, y **Sofia Gonzales**, participante que aporta cada período y espera su turno. Los deliverables corresponden a las Epics de la especificación, y cada historia aparece con su código y su enunciado. Las Technical Stories y las Spike Stories no aparecen en los mapas porque no modifican el comportamiento de un actor; entran al Product Backlog por la dependencia técnica de las historias que habilitan.
 
 #### Business Goal 01: ciclo completo en Pozzo
 
-| Actor | Impact | Deliverable | User Stories |
-| :----------- | :------------------------------------------- | :------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------- |
-| Anna Weber | Conoce Pozzo por el landing page que le compartió un integrante y decide probarlo con su junta. | EP10 Landing page | US43 Como visitante, deseo entender en pocos segundos qué problema resuelve Pozzo, para decidir si me interesa para mi junta.<br>US44 Como visitante, deseo encontrar cómo obtener la aplicación o dejar mi contacto, para empezar a usar Pozzo con mi grupo.<br>US45 Como visitante, deseo saber quiénes están detrás de Pozzo y cómo contactarlos, para confiar en el producto.<br>US46 Como visitante que abre el enlace desde el celular, deseo que el landing page se lea bien en pantalla pequeña, para no abandonarlo. |
-| Anna Weber | Configura su junta con las mismas reglas que su grupo ya acordó y la inicia sin ayuda de nadie. | EP02 Configuración de la junta<br>EP04 Asignación de turnos | US07 Como cabeza de junta, deseo crear una junta definiendo aporte, periodicidad, integrantes, día de corte y fecha de inicio, para reproducir en Pozzo las reglas que mi grupo acordó.<br>US09 Como cabeza de junta, deseo revisar y corregir las reglas antes de iniciar, para que queden como las acordó el grupo.<br>US10 Como cabeza de junta, deseo iniciar la junta cuando el grupo está completo y los turnos definidos, para abrir el primer período.<br>US17 Como cabeza de junta, deseo sortear el orden de cobro, para que el reparto sea al azar.<br>US18 Como cabeza de junta, deseo ordenar los turnos según lo conversado, para respetar la urgencia de cada integrante.<br>US19 Como cabeza de junta, deseo definir que cada turno se asigne por subasta, para reproducir el reparto que mi grupo practica.<br>US20 Como participante que aún no ha cobrado, deseo ofertar un descuento por cobrar este turno, para acceder al dinero cuando lo necesito.<br>US21 Como cabeza de junta, deseo cerrar la subasta y asignar el turno a la mejor oferta, para que el grupo sepa quién cobra y cuánto. |
-| Anna Weber | Incorpora al grupo entero, incluidos los que no instalan la aplicación, sin registrar a cada uno a mano. | EP03 Incorporación de integrantes | US11 Como cabeza de junta, deseo obtener un código y un enlace de invitación y compartirlos, para que mi grupo entre sin que yo registre a cada uno.<br>US14 Como cabeza de junta, deseo registrar a un integrante que no instalará Pozzo, para que la junta refleje a todo el grupo.<br>US15 Como cabeza de junta, deseo retirar a alguien que entró por error, para que el grupo quede correcto antes de asignar turnos.<br>US16 Como integrante, deseo ver quiénes están en la junta, para saber con quién comparto el ciclo. |
-| Anna Weber | Registra la entrega de cada pozo y avanza de turno dentro de la aplicación en lugar del cuaderno, hasta cerrar el ciclo. | EP08 Entrega del pozo y cierre del ciclo | US36 Como cabeza de junta, deseo registrar que entregué el pozo, para cerrar el período y que el siguiente empiece con todos avisados.<br>US38 Como cabeza de junta, deseo registrar una deserción y su reemplazo, para que el ciclo pueda continuar.<br>US39 Como cabeza de junta, deseo que la junta se cierre al entregar el último pozo, para tener el resumen del ciclo y abrir uno nuevo con el mismo grupo. |
-| Sofia Gonzales | Se une a la junta el mismo día que recibe la invitación, sin configurar nada. | EP01 Acceso y cuenta<br>EP03 Incorporación de integrantes | US01 Como integrante, deseo ingresar con mi número de celular, para acceder sin contraseña.<br>US02 Como integrante, deseo confirmar el código que recibí por SMS, para demostrar que el número es mío.<br>US03 Como integrante nuevo, deseo registrarme solo con mi nombre y aceptar los términos, para empezar sin trámites.<br>US04 Como integrante, deseo que mi sesión permanezca iniciada, para no verificar mi número cada vez.<br>US12 Como participante, deseo unirme con el código o el enlace que me compartió la cabeza, para quedar registrada sin configurar nada.<br>US13 Como participante, deseo ver los datos de la junta antes de unirme, para decidir si entro. |
-| Sofia Gonzales | Consulta el estado del pozo y su turno en Pozzo en lugar de preguntar en el grupo de mensajería. | EP06 Transparencia del pozo<br>EP04 Asignación de turnos | US29 Como integrante, deseo ver cuánto se ha reunido, quién aportó y quién debe, para tener la misma información que la cabeza.<br>US22 Como integrante, deseo ver el calendario completo del ciclo, para saber cuándo me toca cobrar.<br>US31 Como integrante, deseo ver el último estado de mi junta sin conexión, para no depender de la señal. |
-| Sofia Gonzales | Cumple con sus aportes durante todo el ciclo porque su historial de cumplimiento queda registrado y le sirve para juntas futuras. | EP09 Historial de cumplimiento | US40 Como participante, deseo ver mi historial de aportes puntuales, atrasados y cubiertos, para acreditar mi cumplimiento.<br>US41 Como participante, deseo compartir un resumen verificable de mi historial, para que me acepten en una junta nueva.<br>US42 Como cabeza de junta, deseo ver el historial de quien entra a mi junta, para decidir con información si lo acepto. |
+Este mapa responde a la pregunta de qué tiene que pasar para que una junta que hoy se administra con cuaderno y mensajería complete un ciclo entero dentro de Pozzo. De Anna Weber se esperan tres cambios: que configure su junta con las mismas reglas que su grupo ya acordó y la inicie sin ayuda (deliverables de configuración de la junta y asignación de turnos, con las historias de crear e iniciar la junta y de repartir turnos por sorteo, orden acordado o subasta); que incorpore al grupo entero, incluidos quienes no instalan la aplicación (incorporación de integrantes, con la invitación por código y enlace, el registro de integrantes sin aplicación y la lista de integrantes); y que registre la entrega de cada pozo y avance de turno dentro de la aplicación hasta cerrar el ciclo (entrega del pozo y cierre). De Sofia Gonzales se esperan dos: que se una a la junta el mismo día que recibe la invitación, sin configurar nada (incorporación de integrantes y acceso y cuenta), y que consulte el estado del pozo y su turno en Pozzo en lugar de preguntar en el grupo de mensajería (transparencia del pozo y calendario de turnos).
+
+![Impact Map del Business Goal 01](images/chapter_2/impact_map_bg01.png){width=100%}
 
 #### Business Goal 02: aportes validados y discrepancias resueltas en la aplicación
 
-| Actor | Impact | Deliverable | User Stories |
-| :----------- | :------------------------------------------- | :------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------- |
-| Sofia Gonzales | Registra su aporte con el comprobante inmediatamente después de transferir, en lugar de enviar la captura al chat. | EP05 Registro y validación de aportes | US23 Como participante, deseo registrar mi aporte tomando una foto del comprobante o eligiéndolo de la galería, para que quede constancia sin reenviar capturas.<br>US24 Como participante, deseo revisar y corregir los datos que Pozzo leyó de mi comprobante, para que un error de lectura no se convierta en un rechazo. |
-| Sofia Gonzales | Transfiere el monto exacto al destinatario correcto, de modo que el comprobante coincide con lo esperado. | EP05 Registro y validación de aportes<br>EP02 Configuración de la junta<br>EP01 Acceso y cuenta | US25 Como participante, deseo que mi aporte quede validado al instante cuando el comprobante coincide, para no depender de la revisión de la cabeza.<br>US08 Como cabeza de junta, deseo indicar el número de Yape o Plin al que deben llegar los aportes, para que Pozzo valide contra ese destinatario.<br>US05 Como integrante, deseo mantener mi número de Yape o Plin en mi perfil, para que mi grupo sepa a quién transferir. |
-| Sofia Gonzales | Muestra su comprobante desde Pozzo cuando alguien cuestiona su pago, en lugar de buscar capturas en la galería o el chat. | EP05 Registro y validación de aportes<br>EP06 Transparencia del pozo | US28 Como participante, deseo ver todos mis aportes con su estado y su comprobante, para demostrar que pagué cuando alguien lo cuestiona.<br>US31 Como integrante, deseo ver mis comprobantes aunque no tenga señal, para no depender de la conexión al defender un aporte.<br>US32 Como integrante, deseo revisar los períodos ya cerrados, para reconstruir qué pasó en un turno pasado. |
-| Anna Weber | Revisa únicamente los aportes con alguna inconsistencia y confía en la validación automática del resto. | EP05 Registro y validación de aportes | US26 Como cabeza de junta, deseo ver el comprobante y los datos leídos de un aporte que no coincidió, para aprobarlo o rechazarlo con conocimiento. |
-| Anna Weber | Registra en la aplicación los aportes que recibe en efectivo y las coberturas, de modo que el registro siempre cuadra con el dinero. | EP05 Registro y validación de aportes<br>EP08 Entrega del pozo y cierre del ciclo | US27 Como cabeza de junta, deseo registrar el aporte de quien me entregó el dinero en efectivo, para que el pozo refleje todos los aportes.<br>US37 Como cabeza de junta, deseo registrar que alguien cubrió el aporte de un moroso, para que el pozo se complete y quede constancia de quién puso el dinero. |
-| Anna Weber | Consulta el registro de aportes de la junta en lugar de reconstruir la cuenta de memoria o pedir capturas. | EP06 Transparencia del pozo | US29 Como integrante, deseo ver el estado del pozo del período vigente, para tener la misma información que todos.<br>US32 Como integrante, deseo revisar los períodos ya cerrados, para reconstruir qué pasó en un turno pasado. |
+El segundo mapa sostiene la hipótesis central de Pozzo: que la validación automática del comprobante reemplace la revisión manual de la cabeza y que toda discrepancia se resuelva con evidencia dentro de la aplicación. Sofia Gonzales debe registrar su aporte con el comprobante apenas transfiere, en lugar de enviar la captura al chat (registro y validación de aportes, con las historias de registrar el aporte y revisar los datos leídos); transferir el monto exacto al destinatario correcto, de modo que el comprobante coincida con lo esperado (validación automática, destino de los aportes y número de Yape o Plin en el perfil); y mostrar su comprobante desde Pozzo cuando alguien cuestione su pago (mis aportes con comprobante y consulta sin conexión). Anna Weber debe revisar únicamente los aportes con alguna inconsistencia y confiar en la validación del resto (revisión de aportes con inconsistencia); registrar en la aplicación los aportes en efectivo y las coberturas para que el registro cuadre con el dinero (aporte en efectivo y cobertura); y consultar el registro de aportes en lugar de reconstruir la cuenta de memoria o pedir capturas (estado del pozo y períodos anteriores).
+
+![Impact Map del Business Goal 02](images/chapter_2/impact_map_bg02.png){width=100%}
 
 #### Business Goal 03: cero recordatorios manuales
 
-| Actor | Impact | Deliverable | User Stories |
-| :----------- | :------------------------------------------- | :------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------- |
-| Sofia Gonzales | Aporta antes de la fecha de corte al recibir los recordatorios automáticos, sin que la cabeza le escriba. | EP07 Recordatorios y avisos | US33 Como participante, deseo recibir recordatorios automáticos que aumenten su frecuencia conforme se acerca el corte, para no atrasarme sin que la cabeza me escriba.<br>US35 Como integrante, deseo recibir un aviso cuando ocurre algo relevante en mi junta, para enterarme sin revisar la aplicación. |
-| Sofia Gonzales | Aporta a tiempo porque el grupo entero ve quién debe. | EP06 Transparencia del pozo | US29 Como integrante, deseo ver quién aportó y quién debe, para tener la misma información que la cabeza.<br>US30 Como participante al que le toca cobrar, deseo ver cuánto falta para mi pozo, para anticipar si cobraré a tiempo. |
-| Anna Weber | Deja que el sistema recuerde los aportes en nombre de la junta y no escribe a nadie por su cuenta. | EP07 Recordatorios y avisos | US34 Como cabeza de junta, deseo activar o desactivar los recordatorios automáticos y ver su cadencia, para ajustarlos a la costumbre del grupo. |
+El tercer mapa es el más acotado y apunta al desgaste que las cabezas describieron en las entrevistas: escribirle a dos o tres personas hasta cinco veces por ciclo. De Sofia Gonzales se espera que aporte antes de la fecha de corte al recibir los recordatorios automáticos, sin que la cabeza le escriba (recordatorios y avisos, con los recordatorios escalonados y los avisos de la junta), y que aporte a tiempo porque el grupo entero ve quién debe (transparencia del pozo, con el estado del pozo y el indicador de cuánto falta para quien cobra). De Anna Weber se espera un solo cambio, pero decisivo para el objetivo: que deje que el sistema recuerde los aportes en nombre de la junta y no escriba a nadie por su cuenta (configuración de los recordatorios de la junta).
+
+![Impact Map del Business Goal 03](images/chapter_2/impact_map_bg03.png){width=100%}
 
 ### 2.4.3. Product Backlog
+
+El Product Backlog reúne las 46 User Stories, las 8 Technical Stories y las 3 Spike Stories de la especificación, estimadas en Story Points con la escala 1, 2, 3, 5 y 8 y ordenadas por el valor que aportan al negocio. La estimación la hizo el equipo por consenso, comparando cada historia con una de referencia (crear una junta, US07, en 3 puntos) y considerando la incertidumbre técnica: las historias que dependen de la lectura de comprobantes, de las notificaciones o de los enlaces de invitación cargan puntos adicionales hasta que sus spikes las reduzcan.
+
+El orden sigue el Impact Map: primero lo que permite que una junta exista y complete un ciclo (landing page, creación e invitación, turnos, estado del pozo), luego lo que sostiene la validación automática de aportes, después los recordatorios y el historial, y al final la subasta y las historias que amplían la propuesta. Las historias del landing page van en el primer sprint, como exige el enunciado. La autenticación por SMS no encabeza el backlog: se ubica en el segundo sprint, cuando el flujo principal ya existe y hace falta distinguir a los usuarios.
+
+Los sprints corresponden a las entregas del curso: el Sprint 1 a TB1, el Sprint 2 a AV2 y los Sprints 3 y 4 a TB2.
+
+| # Orden | User Story Id | Título | Story Points (1 / 2 / 3 / 5 / 8) | Sprint |
+| :-----: | :------------ | :------------------------------------------------------------ | :----------: | :----: |
+| 1 | US43 | Entender qué resuelve Pozzo | 2 | 1 |
+| 2 | US44 | Acceder a la aplicación desde el landing page | 1 | 1 |
+| 3 | US46 | Navegar el landing page desde el celular | 2 | 1 |
+| 4 | US45 | Conocer al equipo y contactarlo | 1 | 1 |
+| 5 | US07 | Crear una junta | 3 | 1 |
+| 6 | US08 | Definir el destino de los aportes | 2 | 1 |
+| 7 | TS02 | Servicio de juntas | 5 | 1 |
+| 8 | US11 | Invitar integrantes con código y enlace | 3 | 1 |
+| 9 | US12 | Unirme a una junta con código o enlace | 3 | 1 |
+| 10 | US13 | Revisar la junta antes de unirme | 2 | 1 |
+| 11 | TS03 | Servicio de integrantes e invitaciones | 5 | 1 |
+| 12 | US16 | Ver la lista de integrantes | 2 | 1 |
+| 13 | US17 | Asignar turnos por sorteo | 2 | 1 |
+| 14 | US18 | Asignar turnos por orden acordado | 3 | 1 |
+| 15 | US10 | Iniciar la junta | 3 | 1 |
+| 16 | US22 | Consultar el calendario de turnos | 3 | 1 |
+| 17 | US29 | Ver el estado del pozo del período vigente | 5 | 1 |
+| 18 | SP01 | Investigar la lectura automática de comprobantes de Yape y Plin | 8 | 1 |
+| 19 | US01 | Ingresar con el número de celular | 2 | 2 |
+| 20 | US02 | Verificar el código SMS | 2 | 2 |
+| 21 | US03 | Completar el registro | 2 | 2 |
+| 22 | TS01 | Servicio de autenticación por SMS | 5 | 2 |
+| 23 | US04 | Mantener la sesión en el dispositivo | 2 | 2 |
+| 24 | US23 | Registrar mi aporte con el comprobante | 5 | 2 |
+| 25 | US24 | Revisar los datos leídos del comprobante | 5 | 2 |
+| 26 | US25 | Validación automática del aporte | 8 | 2 |
+| 27 | TS05 | Servicio de aportes y comprobantes | 8 | 2 |
+| 28 | US26 | Revisar un aporte con inconsistencia | 3 | 2 |
+| 29 | US27 | Registrar un aporte en efectivo | 2 | 2 |
+| 30 | US28 | Consultar mis aportes y sus comprobantes | 3 | 2 |
+| 31 | US30 | Saber si mi pozo estará completo | 2 | 2 |
+| 32 | US36 | Entregar el pozo y abrir el siguiente turno | 5 | 2 |
+| 33 | US39 | Cerrar la junta al completar el ciclo | 3 | 2 |
+| 34 | TS06 | Servicio de entrega del pozo y cierre | 5 | 2 |
+| 35 | SP02 | Investigar las notificaciones push y la programación de recordatorios | 5 | 2 |
+| 36 | US33 | Recibir recordatorios escalonados de mi aporte | 5 | 3 |
+| 37 | US35 | Recibir avisos de los hechos de la junta | 3 | 3 |
+| 38 | US34 | Configurar los recordatorios de la junta | 2 | 3 |
+| 39 | TS07 | Servicio de recordatorios y notificaciones | 8 | 3 |
+| 40 | US14 | Agregar un integrante sin la aplicación | 3 | 3 |
+| 41 | US15 | Retirar un integrante antes de iniciar | 1 | 3 |
+| 42 | US09 | Consultar y ajustar las reglas de la junta | 2 | 3 |
+| 43 | US05 | Administrar mi perfil | 3 | 3 |
+| 44 | US31 | Consultar la junta sin conexión | 5 | 3 |
+| 45 | US32 | Consultar períodos anteriores | 2 | 3 |
+| 46 | US40 | Consultar mi historial de cumplimiento | 3 | 3 |
+| 47 | US42 | Ver el historial de quien se une a mi junta | 2 | 3 |
+| 48 | TS08 | Servicio de historial de cumplimiento | 3 | 3 |
+| 49 | SP03 | Investigar los enlaces de invitación que abren la aplicación | 5 | 3 |
+| 50 | US19 | Configurar la junta por subasta | 3 | 4 |
+| 51 | US20 | Ofertar en la subasta del turno | 5 | 4 |
+| 52 | US21 | Cerrar la subasta y asignar el turno | 5 | 4 |
+| 53 | TS04 | Servicio de turnos y subastas | 8 | 4 |
+| 54 | US37 | Registrar la cobertura de un aporte | 3 | 4 |
+| 55 | US38 | Registrar una deserción y su reemplazo | 3 | 4 |
+| 56 | US41 | Compartir mi historial | 2 | 4 |
+| 57 | US06 | Elegir el tema visual | 1 | 4 |
+
+El total es de 199 Story Points: 55 en el Sprint 1, 67 en el Sprint 2, 47 en el Sprint 3 y 30 en el Sprint 4. Los dos primeros sprints concentran la carga porque en ellos se construye el ciclo completo de la junta y la validación de aportes, que son las dos hipótesis con mayor valor; el cuarto sprint queda deliberadamente liviano para absorber lo que se desplace de los anteriores y para las validaciones con usuarios.
+
+El backlog se administra en la herramienta indicada por el docente, donde cada historia se registra como tarjeta con su código, título, puntos y sprint, en el mismo orden de esta tabla.
+
+[[PENDIENTE: captura del Product Backlog en la herramienta y URL pública del tablero]]
 
 ## 2.5. Strategic-Level Domain-Driven Design
 
