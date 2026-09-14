@@ -150,7 +150,7 @@ proyecto.
   comprobar.
 - Al menos una de cada tres juntas nuevas se forma con integrantes, organizadores
   o participantes, que ya usaron Pozzo en un ciclo anterior.
-  
+
 ##### User Assumptions
 
 - Los actores que interactúan con el sistema son dos: la cabeza de junta, en su
@@ -264,6 +264,8 @@ y la funcionalidad que lo habilita.
   configurar nada
 - **Con** las dos vías de incorporación: el enlace de invitación que el
   organizador comparte por mensajería y el ingreso desde la propia aplicación.
+
+\newpage
 
 #### 1.2.2.4. Lean UX Canvas
 
