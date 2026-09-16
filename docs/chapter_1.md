@@ -304,54 +304,44 @@ y la funcionalidad que lo habilita.
 #### 1.2.2.4. Lean UX Canvas
 
 <table>
+  <colgroup>
+    <col width="16.66%">
+    <col width="16.66%">
+    <col width="16.66%">
+    <col width="16.66%">
+    <col width="16.66%">
+    <col width="16.66%">
+  </colgroup>
   <thead>
     <tr>
-      <th><b>1. Problema de negocio</b></th>
-      <th><b>5. Ideas de soluciones</b></th>
-      <th><b>2. Resultados comerciales</b></th>
+      <th colspan="2"><b>1. Problema de negocio</b></th>
+      <th colspan="2"><b>5. Ideas de soluciones</b></th>
+      <th colspan="2"><b>2. Resultados comerciales</b></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Muchas juntas informales se administran a mano, con el dinero moviéndose por Yape pero las cuentas en un cuaderno y en capturas de WhatsApp. Esto genera errores de conteo, falta de prueba de pago y poca visibilidad sobre cuánto falta para el pozo. En ese contexto, Pozzo busca responder: ¿cómo administrar una junta que ya existe, validando los aportes y mostrando el avance en tiempo real, sin mover el dinero por la plataforma?</td>
-      <td>Lector de vouchers de Yape que valida monto, fecha y destinatario.<br>Calendario de turnos con el estado de los aportes en tiempo real.<br>Recordatorios automáticos que suben de tono.<br>Asignación de turnos por sorteo, orden acordado o subasta.<br>Historial de cumplimiento portable entre juntas.<br>Incorporación por enlace de invitación o desde la propia aplicación.</td>
-      <td>Todas las juntas piloto terminan su ciclo en la aplicación sin volver al cuaderno.<br>Al menos el 80 % de los aportes se validan sin revisión manual de la cabeza.<br>Cero recordatorios de cobranza enviados a mano por la cabeza durante el ciclo.<br>Ninguna discrepancia sin comprobante localizable en la aplicación.<br>Al menos una de cada tres juntas nuevas llega por integrantes que ya usaron Pozzo.</td>
+      <td colspan="2">Muchas juntas informales se administran a mano, con el dinero moviéndose por Yape pero las cuentas en un cuaderno y en capturas de WhatsApp. Esto genera errores de conteo, falta de prueba de pago y poca visibilidad sobre cuánto falta para el pozo. En ese contexto, Pozzo busca responder: ¿cómo administrar una junta que ya existe, validando los aportes y mostrando el avance en tiempo real, sin mover el dinero por la plataforma?</td>
+      <td colspan="2">Lector de vouchers de Yape que valida monto, fecha y destinatario.<br>Calendario de turnos con el estado de los aportes en tiempo real.<br>Recordatorios automáticos que suben de tono.<br>Asignación de turnos por sorteo, orden acordado o subasta.<br>Historial de cumplimiento portable entre juntas.<br>Incorporación por enlace de invitación o desde la propia aplicación.</td>
+      <td colspan="2">Todas las juntas piloto terminan su ciclo en la aplicación sin volver al cuaderno.<br>Al menos el 80 % de los aportes se validan sin revisión manual de la cabeza.<br>Cero recordatorios de cobranza enviados a mano por la cabeza durante el ciclo.<br>Ninguna discrepancia sin comprobante localizable en la aplicación.<br>Al menos una de cada tres juntas nuevas llega por integrantes que ya usaron Pozzo.</td>
     </tr>
-  </tbody>
-</table>
-
-<br><br>
-
-<table>
-  <thead>
     <tr>
-      <th><b>3. Usuarios y clientes</b></th>
-      <th><b>4. Beneficios del usuario</b></th>
+      <td colspan="3"><b>3. Usuarios y clientes</b></td>
+      <td colspan="3"><b>4. Beneficios del usuario</b></td>
     </tr>
-  </thead>
-  <tbody>
     <tr>
-      <td>La cabeza de junta arma el grupo y hoy lleva las cuentas a mano. Los participantes aportan con la periodicidad que el grupo haya pactado y esperan su turno para cobrar. El participante al que le toca cobrar necesita ver quién ya depositó y quién falta. Todos ya usan Yape y WhatsApp.</td>
-      <td>La cabeza deja de perseguir gente y de equivocarse en el conteo.<br>El participante tiene una prueba clara de su aporte.<br>El que va a cobrar sabe en tiempo real cuánto falta para el pozo.<br>Los recordatorios evitan que alguien haga de cobrador.<br>El historial de cumplimiento abre la puerta a nuevas juntas.</td>
+      <td colspan="3">La cabeza de junta arma el grupo y hoy lleva las cuentas a mano. Los participantes aportan con la periodicidad que el grupo haya pactado y esperan su turno para cobrar. El participante al que le toca cobrar necesita ver quién ya depositó y quién falta. Todos ya usan Yape y WhatsApp.</td>
+      <td colspan="3">La cabeza deja de perseguir gente y de equivocarse en el conteo.<br>El participante tiene una prueba clara de su aporte.<br>El que va a cobrar sabe en tiempo real cuánto falta para el pozo.<br>Los recordatorios evitan que alguien haga de cobrador.<br>El historial de cumplimiento abre la puerta a nuevas juntas.</td>
     </tr>
-  </tbody>
-</table>
-
-<br><br>
-
-<table>
-  <thead>
     <tr>
-      <th><b>6. Hipótesis</b></th>
-      <th><b>7. ¿Qué es lo más importante que necesitamos aprender primero?</b></th>
-      <th><b>8. ¿Cuál es la menor cantidad de trabajo que necesitamos hacer para aprenderlo?</b></th>
+      <td colspan="2"><b>6. Hipótesis</b></td>
+      <td colspan="2"><b>7. ¿Qué es lo más importante que necesitamos aprender primero?</b></td>
+      <td colspan="2"><b>8. ¿Cuál es la menor cantidad de trabajo que necesitamos hacer para aprenderlo?</b></td>
     </tr>
-  </thead>
-  <tbody>
     <tr>
-      <td>La validación automática del voucher reduce el tiempo que la cabeza dedica a administrar la junta.<br>El calendario en tiempo real traslada a la aplicación las discrepancias sobre un aporte.<br>Los recordatorios automáticos evitan que el organizador tenga que cobrar uno por uno.<br>El reparto por sorteo, orden acordado o subasta permite adoptar Pozzo sin cambiar la costumbre del grupo.<br>El historial de cumplimiento lleva participantes hacia juntas nuevas.<br>La invitación desde la aplicación permite registrar el primer aporte sin configurar nada.</td>
-      <td>Lo primero que debemos validar es si las cabezas y los participantes confían en que la validación del voucher de Yape basta para dar por registrado un aporte, sin revisarlo a mano. Toda la propuesta de valor depende de esa confianza.</td>
-      <td>Un experimento sin código: acompañar 2 o 3 juntas reales durante un ciclo, recibiendo las capturas de Yape por WhatsApp y respondiendo a cada participante "aporte registrado" tras validarlas a mano, como si lo hiciera el sistema. Al cierre, medir si la cabeza dejó de revisar sus movimientos por su cuenta y cuántos reclamos surgieron. Si la confianza se sostiene, recién entonces construir el lector de vouchers, el calendario y los recordatorios.</td>
+      <td colspan="2">La validación automática del voucher reduce el tiempo que la cabeza dedica a administrar la junta.<br>El calendario en tiempo real traslada a la aplicación las discrepancias sobre un aporte.<br>Los recordatorios automáticos evitan que el organizador tenga que cobrar uno por uno.<br>El reparto por sorteo, orden acordado o subasta permite adoptar Pozzo sin cambiar la costumbre del grupo.<br>El historial de cumplimiento lleva participantes hacia juntas nuevas.<br>La invitación desde la aplicación permite registrar el primer aporte sin configurar nada.</td>
+      <td colspan="2">Lo primero que debemos validar es si las cabezas y los participantes confían en que la validación del voucher de Yape basta para dar por registrado un aporte, sin revisarlo a mano. Toda la propuesta de valor depende de esa confianza.</td>
+      <td colspan="2">Un experimento sin código: acompañar 2 o 3 juntas reales durante un ciclo, recibiendo las capturas de Yape por WhatsApp y respondiendo a cada participante "aporte registrado" tras validarlas a mano, como si lo hiciera el sistema. Al cierre, medir si la cabeza dejó de revisar sus movimientos por su cuenta y cuántos reclamos surgieron. Si la confianza se sostiene, recién entonces construir el lector de vouchers, el calendario y los recordatorios.</td>
     </tr>
   </tbody>
 </table>
