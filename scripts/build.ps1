@@ -47,6 +47,9 @@ $ChaptersByDelivery = @{
 $ConfigFiles = @(
     'config/format.yaml'
     'config/apa7.tex'
+    'config/html-tables.lua'
+    'config/pdf-only.lua'
+    'config/table-grid.lua'
     'config/cover.tex'
     'config/apa.csl'
     'references.bib'
@@ -148,8 +151,10 @@ pandoc $Chapters `
     --metadata-file=config/format.yaml `
     --include-in-header=config/apa7.tex `
     --include-before-body=config/cover.tex `
+    --lua-filter=config/html-tables.lua `
     --lua-filter=config/pdf-only.lua `
     --citeproc `
+    --lua-filter=config/table-grid.lua `
     --csl=config/apa.csl `
     --bibliography=references.bib `
     --pdf-engine=xelatex `

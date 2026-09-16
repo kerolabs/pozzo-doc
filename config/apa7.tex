@@ -103,3 +103,41 @@
 \usepackage{fvextra}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{%
   breaklines,breaknonspaceingroup,breakanywhere,commandchars=\\\{\}}
+
+% Celdas combinadas en vertical (rowspan). multirow centra el texto entre las
+% filas que abarca calculando que todas miden lo mismo, y en una tabla con
+% parrafos nunca es asi: el texto queda flotando entre lineas de la fila vecina.
+% Anclado arriba, arranca a la altura de la primera fila, como el resto de celdas.
+\makeatletter
+\AtBeginDocument{%
+  \ifdefined\multirow
+    \renewcommand\multirow[2][t]{\@multirow[#1]{#2}}%
+  \fi}
+\makeatother
+
+% Paquetes de tablas. Pandoc los carga solo si encuentra tablas en el documento,
+% pero config/table-grid.lua las convierte en LaTeX crudo antes de que pandoc las
+% cuente, asi que hay que cargarlos aqui. Cargar dos veces un paquete no molesta.
+\usepackage{longtable,booktabs,array,multirow,calc}
+\makeatletter
+\ifdefined\c@none\else
+  \newcounter{none} % contador que pandoc usa para tablas sin numerar
+  % Sin esto, una tabla justo despues de un encabezado en linea (####) se
+  % imprime antes que el encabezado.
+  \usepackage{etoolbox}
+  \patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\fi
+% Lo mismo con \pandocbounded, que pandoc define solo si ve imagenes fuera de
+% las tablas: escala una imagen para que quepa en la pagina.
+\ifdefined\pandocbounded\else
+  \newsavebox\pandoc@box
+  \newcommand*\pandocbounded[1]{%
+    \sbox\pandoc@box{#1}%
+    \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+    \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+    \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi
+    \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+    \else\usebox{\pandoc@box}%
+    \fi}
+\fi
+\makeatother
