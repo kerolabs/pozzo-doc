@@ -202,49 +202,65 @@ necesitas marcar estados en una tabla, escríbelos con palabras.
 
 ### Tablas
 
-Hay dos formas de escribirlas y cada una sirve para una cosa.
-
-**Tabla de tuberías** para cualquier cuadrícula regular: todas las filas con las
-mismas columnas.
-
-```markdown
-| Versión | Fecha      | Autor |
-| ------- | ---------- | ----- |
-| AV1     | 02/04/2026 | Todos |
-```
-
-Escribirlas a mano y mantener las tuberías alineadas es un dolor. Para armarlas usa
-[Tables Generator](https://www.tablesgenerator.com/markdown_tables): tiene una
-cuadrícula tipo hoja de cálculo, importa desde CSV, y te devuelve el Markdown ya
-formateado para pegar.
-
-**Tabla HTML** cuando una celda tiene que abarcar varias columnas o varias filas,
-como en el cuadro de cada User Story, el Competitive Analysis Landscape o el Sprint
-Backlog. Markdown no tiene forma de expresar eso; HTML sí, con `colspan` y
-`rowspan`.
+Las tablas del informe se escriben en HTML. Markdown solo sabe de cuadrículas
+regulares, y varios cuadros del enunciado necesitan celdas que abarquen varias
+columnas o filas: el de cada User Story, el Competitive Analysis Landscape, el Sprint
+Backlog. HTML lo expresa con `colspan` y `rowspan`, y una sola forma de escribir
+tablas evita mezclar dos sintaxis en el mismo capítulo.
 
 ```html
 <table>
-<tr><th>Story ID</th><th>User</th><th>Priority</th><th>Epic</th></tr>
-<tr><td>US01</td><td>Cabeza de junta</td><td>Alta</td><td>EP01 Acceso y cuenta</td></tr>
-<tr><td><b>Title</b></td><td colspan="3">Crear cuenta</td></tr>
-<tr><td><b>Description</b></td><td colspan="3">Como cabeza de junta deseo crear mi cuenta para administrar mis juntas desde la aplicación.</td></tr>
-<tr><td><b>Acceptance Criteria</b></td><td colspan="3"><b>Escenario 1:</b> registro correcto<br>Given que el visitante no tiene cuenta<br>When registra sus datos<br>Then el sistema crea la cuenta</td></tr>
+  <thead>
+    <tr>
+      <th>Story ID</th>
+      <th>User</th>
+      <th>Priority</th>
+      <th>Epic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>US01</td>
+      <td>Cabeza de junta</td>
+      <td>Alta</td>
+      <td>EP01</td>
+    </tr>
+    <tr>
+      <td><b>Title</b></td>
+      <td colspan="3">Crear cuenta</td>
+    </tr>
+    <tr>
+      <td><b>Description</b></td>
+      <td colspan="3">Como cabeza de junta deseo crear mi cuenta para administrar mis juntas desde la aplicación.</td>
+    </tr>
+    <tr>
+      <td><b>Acceptance Criteria</b></td>
+      <td colspan="3"><b>Escenario 1:</b> registro correcto<br>Given que el visitante no tiene cuenta<br>When registra sus datos<br>Then el sistema crea la cuenta</td>
+    </tr>
+  </tbody>
 </table>
 ```
 
-`config/html-tables.lua` la convierte en una tabla de verdad antes de exportar, con
-las celdas combinadas, la cabecera repetida en cada página cuando la tabla se corta
-y el ancho de cada columna repartido según su contenido. Reglas para que salga bien
-en GitHub y en el PDF a la vez:
+Una etiqueta por línea, sangría de dos espacios por nivel y el contenido de cada
+celda en la misma línea que su `<td>`. Así una fila se lee de un vistazo y el diff de
+una Pull Request muestra exactamente qué celda cambió. No sangres el contenido en
+una línea aparte con cuatro espacios o más: Markdown lo tomaría por un bloque de
+código.
+
+`config/html-tables.lua` convierte la tabla antes de exportar, con las celdas
+combinadas, la cabecera repetida en cada página cuando la tabla se corta y el ancho
+de cada columna repartido según su contenido. Reglas para que salga bien en GitHub
+y en el PDF a la vez:
 
 - Línea en blanco antes de `<table>` y después de `</table>`.
-- La primera fila es la cabecera si sus celdas son `<th>`. Si la cabecera ocupa dos
-  filas, envuélvelas en `<thead>` para que las dos se repitan al cambiar de página.
+- Cabecera dentro de `<thead>` y con celdas `<th>`; si ocupa dos filas, las dos se
+  repiten al cambiar de página.
 - Negrita y cursiva con `<b>` y `<i>`, no con `**` ni `*`. GitHub no interpreta
   Markdown dentro de una tabla HTML, así que los asteriscos se verían tal cual en
-  el repositorio, aunque en el PDF salgan bien.
-- Salto de línea dentro de una celda con `<br>`, igual que en las de tuberías.
+  el repositorio, aunque en el PDF salgan bien. Lo mismo con imágenes y enlaces:
+  `<img src="images/chapter_1/foto.png" alt="Nombre">` y `<a href="url">texto</a>`.
+- Salto de línea dentro de una celda con `<br>`.
+- Columna centrada con `align="center"` en cada una de sus celdas.
 - Las citas `[@clave]` sí funcionan dentro de las celdas.
 - Si el reparto automático de anchos no convence, fíjalos a mano con
   `<colgroup><col width="20%"><col width="80%"></colgroup>` justo después de
@@ -252,7 +268,7 @@ en GitHub y en el PDF a la vez:
 - Una celda con `rowspan` no se puede partir entre dos páginas. Si la tabla es
   larga, úsalo solo en filas cortas.
 
-En el PDF todas las tablas, de tuberías o HTML, salen con la cuadrícula completa:
+En el PDF todas las tablas salen con la cuadrícula completa:
 borde, una línea entre filas y una entre columnas. Lo hace `config/table-grid.lua`
 en el último paso de la exportación. APA 7 pide solo tres líneas horizontales; el
 equipo prefirió la cuadrícula porque en cuadros con celdas combinadas y texto
@@ -265,25 +281,22 @@ largo se lee mejor.
 
 #### Saltos de línea dentro de una celda
 
-**Usa `<br>`.** Una fila entera tiene que caber en una sola línea del archivo, así
-que no puedes pulsar Enter dentro de una celda: si partes la línea, Markdown deja de
-ver una fila y la tabla se rompe. `<br>` es la forma de bajar de línea sin salir de
-esa línea.
+**Usa `<br>`.** El contenido de una celda va en una sola línea del archivo; `<br>` es
+la forma de bajar de línea sin salir de ella.
 
-```markdown
-| Criterio | Acciones realizadas |
-| --- | --- |
-| Comunica oralmente | **Apellido, Nombre**<br>*AV1:* Lo que hizo.<br>*TB1:* Lo que hizo.<br><br>**Otro Apellido, Nombre**<br>*AV1:* Lo que hizo. |
+```html
+<tr>
+  <td>Comunica oralmente</td>
+  <td><b>Apellido, Nombre</b><br><i>AV1:</i> Lo que hizo.<br><i>TB1:</i> Lo que hizo.<br><br><b>Otro Apellido, Nombre</b><br><i>AV1:</i> Lo que hizo.</td>
+</tr>
 ```
 
 Dos `<br>` seguidos dejan una línea en blanco, que es lo que separa a un integrante
-del siguiente.
+del siguiente. Sin esto, una celda como las del Student Outcome sale en el PDF como
+un párrafo corrido donde el nombre de una persona aparece en mitad de la frase de
+otra, y no se distingue quién hizo qué.
 
-Sin esto, una celda como las del Student Outcome sale en el PDF como un párrafo
-corrido donde el nombre de una persona aparece en mitad de la frase de otra, y no se
-distingue quién hizo qué.
-
-Fuera de una tabla HTML, `<br>` es la única etiqueta que sobrevive al PDF, y solo
+Fuera de una tabla, `<br>` es la única etiqueta HTML que sobrevive al PDF, y solo
 porque `config/pdf-only.lua` la traduce a un salto de línea de verdad antes de
 exportar.
 

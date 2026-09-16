@@ -1,8 +1,23 @@
 # Registro de Versiones del Informe
 
-| Versión |    Fecha   |      Autor     | Descripción de modificación |
-|:-------:|:----------:|:--------------:|:---------------------------:|
-|   AV1   | 02/09/2026 | Todo el equipo |       Primera versión       |
+<table>
+  <thead>
+    <tr>
+      <th align="center">Versión</th>
+      <th align="center">Fecha</th>
+      <th align="center">Autor</th>
+      <th align="center">Descripción de modificación</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td align="center">AV1</td>
+      <td align="center">02/09/2026</td>
+      <td align="center">Todo el equipo</td>
+      <td align="center">Primera versión</td>
+    </tr>
+  </tbody>
+</table>
 
 # Project Report Collaboration Insights
 
@@ -81,9 +96,22 @@
 
 # Student Outcome
 
-| Criterio específico                                                                                                                     | Acciones realizadas | Conclusiones |
-|:---------------------------------------|:----------------------------------|:------------------------|
-| Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software. |                     |              |
-| Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.  |                     |              |
+<table>
+  <thead>
+    <tr>
+      <th>Criterio específico</th>
+      <th>Acciones realizadas</th>
+      <th>Conclusiones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="3">Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.</td>
+    </tr>
+    <tr>
+      <td colspan="3">Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.</td>
+    </tr>
+  </tbody>
+</table>
 
 # Objetivos SMART

@@ -61,6 +61,13 @@ end
 -- de "caracteres" a "fraccion del ancho" al fijar el minimo de cada columna.
 local CARACTERES_POR_LINEA = 80
 
+-- Una "palabra" mas larga que esto es un enlace o algo parecido, que LaTeX si
+-- puede partir; no tiene sentido ensanchar la columna por ella.
+local PALABRA_MAXIMA = 30
+
+-- Hasta este largo, un titulo de columna se mantiene en una sola linea.
+local TITULO_MAXIMO = 12
+
 local function medir(celda)
   local texto = pandoc.utils.stringify(celda.contents)
   local palabra = 0
@@ -99,12 +106,16 @@ local function repartirAnchos(tabla, html)
   -- Un rowspan ocupa sitio en las filas siguientes; hay que saltarlo al
   -- ubicar cada celda en su columna.
   local ocupada = {}
+  local cabeceras = #tabla.head.rows
   for r, fila in ipairs(filasDe(tabla)) do
     ocupada[r] = ocupada[r] or {}
     local c = 1
     for _, celda in ipairs(fila.cells) do
       while ocupada[r][c] do c = c + 1 end
       local total, masLarga = medir(celda)
+      -- Un titulo de columna se lee mejor entero en una linea, mientras sea
+      -- corto: uno largo no justifica quitarle sitio al contenido.
+      if r <= cabeceras then masLarga = math.max(masLarga, math.min(total, TITULO_MAXIMO)) end
       local porColumna = total / celda.col_span
       for k = c, c + celda.col_span - 1 do
         largo[k] = math.max(largo[k], porColumna)
@@ -129,7 +140,7 @@ local function repartirAnchos(tabla, html)
   -- la deja salir por el borde de la celda.
   local anchos, suma = {}, 0
   for c = 1, ncol do
-    local minimo = (palabra[c] + 2) / CARACTERES_POR_LINEA
+    local minimo = (math.min(palabra[c], PALABRA_MAXIMA) + 2) / CARACTERES_POR_LINEA
     anchos[c] = math.max(largo[c] / total, minimo)
     suma = suma + anchos[c]
   end
