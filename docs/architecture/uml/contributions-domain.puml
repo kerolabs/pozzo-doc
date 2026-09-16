@@ -1,0 +1,213 @@
+@startuml contributions-domain
+title Contributions: Domain Layer
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam nodesep 40
+skinparam ranksep 60
+skinparam class {
+  BackgroundColor #FFF7F7
+  BorderColor #BD0A0A
+  ArrowColor #313131
+}
+skinparam enum {
+  BackgroundColor #FFFFFF
+  BorderColor #8A8A7E
+}
+skinparam interface {
+  BackgroundColor #FFFFFF
+  BorderColor #8A8A7E
+}
+hide empty members
+
+  class Cycle <<Aggregate Root>> {
+    - id : CycleId
+    - groupId : GroupId
+    - rules : CycleRules
+    - turns : List<TurnSlot>
+    - currentTurn : int
+    - status : CycleStatus
+    - startedAt : LocalDateTime
+    - closedAt : LocalDateTime
+    + start(groupId, rules, turns) : Cycle {static}
+    + openFirstPeriod() : Period
+    + openNextPeriod() : Period
+    + replaceMember(dropped : MemberId, replacement : MemberId) : void
+    + hasRemainingTurns() : boolean
+    + close() : void
+    + payoutMemberForTurn(turn : int) : MemberId
+  }
+
+  class Period <<Aggregate Root>> {
+    - id : PeriodId
+    - cycleId : CycleId
+    - turnNumber : int
+    - opensAt : LocalDate
+    - cutoffDate : LocalDate
+    - payoutMemberId : MemberId
+    - expected : List<ExpectedContribution>
+    - status : PeriodStatus
+    - deliveredAt : LocalDateTime
+    + open(cycle : Cycle, turn : int) : Period {static}
+    + expectedFor(memberId : MemberId) : ExpectedContribution
+    + settle(memberId : MemberId, how : ContributionMethod) : void
+    + isPotComplete() : boolean
+    + markPotComplete() : void
+    + deliverPot(organizerId : MemberId) : void
+    + pendingMembers() : List<MemberId>
+  }
+
+  class Contribution <<Aggregate Root>> {
+    - id : ContributionId
+    - cycleId : CycleId
+    - periodId : PeriodId
+    - memberId : MemberId
+    - amount : Money
+    - method : ContributionMethod
+    - receipt : PaymentReceipt
+    - status : ContributionStatus
+    - inconsistencies : List<Inconsistency>
+    - coveredBy : MemberId
+    - review : Review
+    - registeredAt : LocalDateTime
+    + fromReceipt(periodId, memberId, receipt) : Contribution {static}
+    + inCash(periodId, memberId, amount, organizerId) : Contribution {static}
+    + asCoverage(periodId, memberId, amount, coveredBy) : Contribution {static}
+    + validate(expected : ExpectedContribution, rules : CycleRules, duplicate : boolean) : void
+    + approve(organizerId : MemberId, note : String) : void
+    + reject(organizerId : MemberId, note : String) : void
+    + isValid() : boolean
+  }
+
+  class ExpectedContribution <<Entity>> {
+    - memberId : MemberId
+    - amount : Money
+    - status : ExpectedStatus
+    - settledBy : ContributionId
+    + settle(how : ContributionMethod, by : ContributionId) : void
+    + isPending() : boolean
+  }
+
+  class CycleRules <<Value Object>> {
+    - contributionAmount : Money
+    - periodicity : Periodicity
+    - cutoffDay : int
+    - destinationAccount : String
+    + nextCutoff(from : LocalDate) : LocalDate
+  }
+  class TurnSlot <<Value Object>> {
+    - turnNumber : int
+    - memberId : MemberId
+  }
+  class PaymentReceipt <<Value Object>> {
+    - operationNumber : String
+    - payer : String
+    - payee : String
+    - amount : Money
+    - paidAt : LocalDate
+    - source : ReceiptSource
+    + matchesPayee(destinationAccount : String) : boolean
+  }
+  class Inconsistency <<Value Object>> {
+    - field : String
+    - expected : String
+    - found : String
+  }
+  class Review <<Value Object>> {
+    - reviewerId : MemberId
+    - note : String
+    - reviewedAt : LocalDateTime
+  }
+  class Money <<Value Object>> {
+    - amount : BigDecimal
+    - currency : String
+    + plus(other : Money) : Money
+    + equals(other : Money) : boolean
+  }
+
+  enum CycleStatus {
+    ACTIVE
+    CLOSED
+  }
+  enum PeriodStatus {
+    OPEN
+    POT_COMPLETE
+    DELIVERED
+  }
+  enum ContributionStatus {
+    REGISTERED
+    VALIDATED
+    INCONSISTENT
+    APPROVED
+    REJECTED
+  }
+  enum ContributionMethod {
+    TRANSFER
+    CASH
+    COVERAGE
+  }
+  enum ExpectedStatus {
+    PENDING
+    PAID
+    COVERED
+    LATE
+  }
+  enum Periodicity {
+    WEEKLY
+    BIWEEKLY
+    MONTHLY
+  }
+  enum ReceiptSource {
+    YAPE
+    PLIN
+    BANK
+  }
+
+  interface ContributionValidationService <<Domain Service>> {
+    + validate(contribution : Contribution, period : Period, rules : CycleRules) : void
+  }
+
+  interface CycleRepository <<Repository>> {
+    + findById(id : CycleId) : Optional<Cycle>
+    + findActiveByGroupId(groupId : GroupId) : Optional<Cycle>
+    + save(cycle : Cycle) : Cycle
+  }
+  interface PeriodRepository <<Repository>> {
+    + findById(id : PeriodId) : Optional<Period>
+    + findCurrentByCycleId(cycleId : CycleId) : Optional<Period>
+    + findAllByCycleId(cycleId : CycleId) : List<Period>
+    + save(period : Period) : Period
+  }
+  interface ContributionRepository <<Repository>> {
+    + findById(id : ContributionId) : Optional<Contribution>
+    + findByPeriodId(periodId : PeriodId) : List<Contribution>
+    + findByMemberIdAndCycleId(memberId : MemberId, cycleId : CycleId) : List<Contribution>
+    + existsByCycleIdAndOperationNumber(cycleId : CycleId, operationNumber : String) : boolean
+    + save(contribution : Contribution) : Contribution
+  }
+
+Cycle "1" *-- "1" CycleRules : rules
+Cycle "1" *-- "1..*" TurnSlot : turns
+Cycle "1" o-- "1..*" Period : periods >
+Period "1" *-- "1..*" ExpectedContribution : expected
+Period "1" o-- "0..*" Contribution : contributions >
+Contribution "1" *-- "0..1" PaymentReceipt : receipt
+Contribution "1" *-- "0..*" Inconsistency : inconsistencies
+Contribution "1" *-- "0..1" Review : review
+Contribution --> Money
+ExpectedContribution --> Money
+PaymentReceipt --> Money
+CycleRules --> Periodicity
+PaymentReceipt --> ReceiptSource
+Cycle --> CycleStatus
+Period --> PeriodStatus
+Contribution --> ContributionStatus
+Contribution --> ContributionMethod
+ExpectedContribution --> ExpectedStatus
+
+CycleRepository ..> Cycle : persists
+PeriodRepository ..> Period : persists
+ContributionRepository ..> Contribution : persists
+ContributionValidationService ..> Contribution : validates
+ContributionValidationService ..> ContributionRepository : checks duplicates
+@enduml

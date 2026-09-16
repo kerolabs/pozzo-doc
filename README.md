@@ -58,7 +58,8 @@
   - [2.5.2. Context Mapping](docs/chapter_2.md#252-context-mapping)
   - [2.5.3. Software Architecture](docs/chapter_2.md#253-software-architecture)
 - [2.6. Tactical-Level Domain-Driven Design](docs/chapter_2.md#26-tactical-level-domain-driven-design)
-  - [2.6.1. Bounded Context: NombreDelBoundedContext](docs/chapter_2.md#261-bounded-context-nombredelboundedcontext)
+  - [2.6.1. Bounded Context: Contributions](docs/chapter_2.md#261-bounded-context-contributions)
+  - [2.6.2. Bounded Context: Savings Groups](docs/chapter_2.md#262-bounded-context-savings-groups)
 
 ### [Capítulo III: Solution UI/UX Design](docs/chapter_3.md#capítulo-iii-solution-uiux-design)
 - [3.1. Product design](docs/chapter_3.md#31-product-design)

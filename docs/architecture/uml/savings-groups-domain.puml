@@ -1,0 +1,199 @@
+@startuml savings-groups-domain
+title Savings Groups: Domain Layer
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam nodesep 40
+skinparam ranksep 60
+skinparam class {
+  BackgroundColor #F5F9FF
+  BorderColor #305BAB
+  ArrowColor #313131
+}
+skinparam enum {
+  BackgroundColor #FFFFFF
+  BorderColor #8A8A7E
+}
+skinparam interface {
+  BackgroundColor #FFFFFF
+  BorderColor #8A8A7E
+}
+hide empty members
+
+  class SavingsGroup <<Aggregate Root>> {
+    - id : GroupId
+    - name : String
+    - organizerId : MemberId
+    - rules : GroupRules
+    - memberships : List<Membership>
+    - turns : List<TurnSlot>
+    - turnMethod : TurnMethod
+    - status : GroupStatus
+    - createdAt : LocalDateTime
+    - startedAt : LocalDateTime
+    + create(organizerId, name, rules) : SavingsGroup {static}
+    + defineDestination(account : String) : void
+    + join(memberId : MemberId, displayName : String) : Membership
+    + addManualMember(displayName : String, phone : PhoneNumber) : Membership
+    + removeMember(membershipId : MembershipId) : void
+    + assignTurns(slots : List<TurnSlot>, method : TurnMethod) : void
+    + assignTurnFromAuction(turnNumber : int, winner : MemberId) : void
+    + hasFreeSeats() : boolean
+    + canStart() : boolean
+    + start() : void
+    + registerDropout(dropped : MemberId, replacement : MemberId) : void
+    + turnCalendar() : List<TurnSlot>
+  }
+
+  class Invitation <<Aggregate Root>> {
+    - id : InvitationId
+    - groupId : GroupId
+    - code : InvitationCode
+    - createdBy : MemberId
+    - createdAt : LocalDateTime
+    - expiresAt : LocalDateTime
+    - status : InvitationStatus
+    + generate(groupId : GroupId, organizerId : MemberId) : Invitation {static}
+    + link() : String
+    + isUsable() : boolean
+    + expire() : void
+  }
+
+  class Auction <<Aggregate Root>> {
+    - id : AuctionId
+    - groupId : GroupId
+    - turnNumber : int
+    - bids : List<Bid>
+    - status : AuctionStatus
+    - openedAt : LocalDateTime
+    - closedAt : LocalDateTime
+    - winnerId : MemberId
+    + open(groupId : GroupId, turnNumber : int) : Auction {static}
+    + placeBid(memberId : MemberId, amount : Money) : Bid
+    + highestBids() : List<Bid>
+    + close(tieBreakBy : MemberId) : MemberId
+  }
+
+  class Membership <<Entity>> {
+    - id : MembershipId
+    - memberId : MemberId
+    - displayName : String
+    - phone : PhoneNumber
+    - kind : MembershipKind
+    - status : MembershipStatus
+    - joinedAt : LocalDateTime
+    + isActive() : boolean
+    + markDropped() : void
+  }
+
+  class Bid <<Entity>> {
+    - id : BidId
+    - memberId : MemberId
+    - amount : Money
+    - placedAt : LocalDateTime
+  }
+
+  class GroupRules <<Value Object>> {
+    - contributionAmount : Money
+    - periodicity : Periodicity
+    - cutoffDay : int
+    - seats : int
+    - destinationAccount : String
+    + withDestination(account : String) : GroupRules
+  }
+  class TurnSlot <<Value Object>> {
+    - turnNumber : int
+    - memberId : MemberId
+  }
+  class InvitationCode <<Value Object>> {
+    - value : String
+    + random() : InvitationCode {static}
+  }
+  class PhoneNumber <<Value Object>> {
+    - value : String
+    + isValid() : boolean
+  }
+  class Money <<Value Object>> {
+    - amount : BigDecimal
+    - currency : String
+  }
+
+  enum GroupStatus {
+    DRAFT
+    READY
+    STARTED
+    CLOSED
+  }
+  enum MembershipKind {
+    APP
+    MANUAL
+  }
+  enum MembershipStatus {
+    ACTIVE
+    REMOVED
+    DROPPED
+    REPLACEMENT
+  }
+  enum TurnMethod {
+    DRAW
+    AGREED
+    AUCTION
+  }
+  enum InvitationStatus {
+    ACTIVE
+    EXPIRED
+  }
+  enum AuctionStatus {
+    OPEN
+    CLOSED
+  }
+  enum Periodicity {
+    WEEKLY
+    BIWEEKLY
+    MONTHLY
+  }
+
+  interface TurnAssignmentService <<Domain Service>> {
+    + drawTurns(group : SavingsGroup, seed : String) : List<TurnSlot>
+    + agreedTurns(group : SavingsGroup, order : List<MemberId>) : List<TurnSlot>
+  }
+
+  interface SavingsGroupRepository <<Repository>> {
+    + findById(id : GroupId) : Optional<SavingsGroup>
+    + findByMemberId(memberId : MemberId) : List<SavingsGroup>
+    + save(group : SavingsGroup) : SavingsGroup
+  }
+  interface InvitationRepository <<Repository>> {
+    + findByCode(code : InvitationCode) : Optional<Invitation>
+    + findActiveByGroupId(groupId : GroupId) : Optional<Invitation>
+    + save(invitation : Invitation) : Invitation
+  }
+  interface AuctionRepository <<Repository>> {
+    + findById(id : AuctionId) : Optional<Auction>
+    + findOpenByGroupId(groupId : GroupId) : Optional<Auction>
+    + save(auction : Auction) : Auction
+  }
+
+SavingsGroup "1" *-- "1" GroupRules : rules
+SavingsGroup "1" *-- "1..*" Membership : memberships
+SavingsGroup "1" *-- "0..*" TurnSlot : turns
+SavingsGroup "1" o-- "0..*" Invitation : invitations >
+SavingsGroup "1" o-- "0..*" Auction : auctions >
+Auction "1" *-- "0..*" Bid : bids
+Invitation "1" *-- "1" InvitationCode : code
+Membership --> PhoneNumber
+Bid --> Money
+GroupRules --> Money
+GroupRules --> Periodicity
+SavingsGroup --> GroupStatus
+SavingsGroup --> TurnMethod
+Membership --> MembershipKind
+Membership --> MembershipStatus
+Invitation --> InvitationStatus
+Auction --> AuctionStatus
+
+SavingsGroupRepository ..> SavingsGroup : persists
+InvitationRepository ..> Invitation : persists
+AuctionRepository ..> Auction : persists
+TurnAssignmentService ..> SavingsGroup : assigns turns
+@enduml
