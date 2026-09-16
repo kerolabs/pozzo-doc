@@ -86,8 +86,11 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
         organizer -> whatsapp "Comparte el enlace de invitación"
         whatsapp -> pozzo.mobile "Abre la aplicación en la junta invitada" "Enlace"
         member -> wallets "Transfiere el aporte y captura el comprobante"
+        wallets -> pozzo "Emite comprobante de pago digital para verificación de aportes" "Comprobante digital"
 
         # Contenedores
+        pozzo.landing -> pozzo.mobile "Enlaza a la descarga e instalación del APK" "HTTPS"
+        wallets -> pozzo.mobile "Provee captura del comprobante para extracción con ML Kit" "Captura de pantalla"
         pozzo.mobile -> pozzo.localStore "Guarda la sesión y la copia local de la junta" "Room"
         pozzo.mobile -> pozzo.api "Consume la API: autenticación, juntas, integrantes, turnos, aportes, entrega, historial y registro del dispositivo" "JSON/HTTPS"
 
