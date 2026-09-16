@@ -106,10 +106,14 @@
   </thead>
   <tbody>
     <tr>
-      <td colspan="3">Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.</td>
+      <td>Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.</td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
-      <td colspan="3">Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.</td>
+      <td>Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.</td>
+      <td></td>
+      <td></td>
     </tr>
   </tbody>
 </table>
