@@ -66,15 +66,26 @@
 % pagina. Esto reserva sitio para el titulo y las primeras lineas que lo siguen:
 % si no caben, el titulo entero pasa a la pagina siguiente.
 % Los de primer nivel no necesitan esto porque ya abren pagina con \clearpage.
+%
+% La reserva se salta cuando el encabezado viene justo detras de otro (@nobreak
+% sigue activo hasta que empieza un parrafo). El \needspace mete un punto de
+% corte permitido, y entre dos titulos seguidos ese era el unico que habia: TeX
+% cortaba ahi y el primer titulo se quedaba solo al pie de la pagina. Sin el
+% punto de corte, los dos titulos viajan juntos con el texto que sigue.
 \usepackage{needspace}
+\makeatletter
+\newcommand{\reservar}[1]{\if@nobreak\else\needspace{#1\baselineskip}\fi}
+% Version para un titulo seguido de tabla; la usa config/pdf-only.lua.
+\newcommand{\reservarAntesDeTabla}[1]{\if@nobreak\else\Needspace*{#1\baselineskip}\fi}
+\makeatother
 \let\oldsubsection\subsection
-\renewcommand{\subsection}{\needspace{4\baselineskip}\oldsubsection}
+\renewcommand{\subsection}{\reservar{4}\oldsubsection}
 \let\oldsubsubsection\subsubsection
-\renewcommand{\subsubsection}{\needspace{4\baselineskip}\oldsubsubsection}
+\renewcommand{\subsubsection}{\reservar{4}\oldsubsubsection}
 \let\oldparagraph\paragraph
-\renewcommand{\paragraph}{\needspace{3\baselineskip}\oldparagraph}
+\renewcommand{\paragraph}{\reservar{3}\oldparagraph}
 \let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}{\needspace{3\baselineskip}\oldsubparagraph}
+\renewcommand{\subparagraph}{\reservar{3}\oldsubparagraph}
 
 % El titulo del indice. Sin esto LaTeX lo rotula "Indice".
 \AtBeginDocument{\renewcommand{\contentsname}{Contenido}}

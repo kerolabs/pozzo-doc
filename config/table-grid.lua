@@ -138,6 +138,17 @@ local function lineasBajoFilas(tbl)
       lineas[r] = table.concat(tramos, ' ')
     end
   end
+
+  -- Dentro de longtable, \hline son dos reglas superpuestas con un punto de
+  -- corte de pagina entre ellas: si la pagina se corta ahi, una regla cierra la
+  -- pagina y la otra abre la siguiente. Eso es lo que queremos entre filas,
+  -- pero no en el borde inferior de la tabla, donde TeX prefiere ese corte
+  -- (tiene penalizacion negativa) al que hay despues de la tabla y deja una
+  -- regla suelta al inicio de la pagina siguiente. La ultima linea es una
+  -- regla simple, sin punto de corte.
+  if lineas[#filas] == '\\hline' then
+    lineas[#filas] = '\\noalign{\\hrule height\\arrayrulewidth}'
+  end
   return lineas
 end
 
@@ -230,11 +241,12 @@ local function cuadricular(latex, tbl)
   cuerpo = insertarLineas(cuerpo, lineasBajoFilas(tbl))
 
   -- Pandoc cierra la cabecera con \endhead, que la repite en cada pagina que
-  -- ocupe la tabla. Pasarla a \endfirsthead la imprime solo al principio; la
-  -- cabecera de las paginas siguientes queda reducida a la linea superior, que
-  -- cierra la primera fila de esa pagina.
+  -- ocupe la tabla. Pasarla a \endfirsthead la imprime solo al principio y deja
+  -- vacia la cabecera de las paginas siguientes. La linea superior de esas
+  -- paginas no hace falta: la pone la mitad del \hline en que se corto la
+  -- pagina (ver lineasBajoFilas).
   if not REPETIR_CABECERA then
-    cuerpo = reemplazar(cuerpo, '\\endhead', '\\endfirsthead\n\\hline\n\\endhead')
+    cuerpo = reemplazar(cuerpo, '\\endhead', '\\endfirsthead\n\\endhead')
   end
 
   return cabeza .. cuerpo .. cola

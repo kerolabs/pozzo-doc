@@ -71,6 +71,10 @@ end
 -- este ya ha tomado el control de la salida de pagina, retrocede hasta la goma
 -- y vuelve a imprimir la cabecera de la tabla en la pagina nueva, antes del
 -- titulo de la seccion.
+--
+-- Va envuelto en \reservarAntesDeTabla (apa7.tex), que lo omite cuando el
+-- encabezado viene justo detras de otro encabezado, por la misma razon que los
+-- \needspace de los titulos: no abrir un punto de corte entre dos titulos.
 local RESERVA_ANTES_DE_TABLA = 12
 
 function Blocks(bloques)
@@ -79,7 +83,7 @@ function Blocks(bloques)
   for i, b in ipairs(bloques) do
     if b.t == 'Header' and bloques[i + 1] and bloques[i + 1].t == 'Table' then
       salida:insert(pandoc.RawBlock(
-        'latex', '\\Needspace*{' .. RESERVA_ANTES_DE_TABLA .. '\\baselineskip}'))
+        'latex', '\\reservarAntesDeTabla{' .. RESERVA_ANTES_DE_TABLA .. '}'))
     end
     salida:insert(b)
   end
