@@ -248,13 +248,13 @@ una línea aparte con cuatro espacios o más: Markdown lo tomaría por un bloque
 código.
 
 `config/html-tables.lua` convierte la tabla antes de exportar, con las celdas
-combinadas, la cabecera repetida en cada página cuando la tabla se corta y el ancho
+combinadas, el ancho
 de cada columna repartido según su contenido. Reglas para que salga bien en GitHub
 y en el PDF a la vez:
 
 - Línea en blanco antes de `<table>` y después de `</table>`.
-- Cabecera dentro de `<thead>` y con celdas `<th>`; si ocupa dos filas, las dos se
-  repiten al cambiar de página.
+- Cabecera dentro de `<thead>` y con celdas `<th>`; se imprime una sola vez,
+  aunque la tabla siga en la página siguiente.
 - Negrita y cursiva con `<b>` y `<i>`, no con `**` ni `*`. GitHub no interpreta
   Markdown dentro de una tabla HTML, así que los asteriscos se verían tal cual en
   el repositorio, aunque en el PDF salgan bien. Lo mismo con imágenes y enlaces:

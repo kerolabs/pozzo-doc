@@ -20,6 +20,10 @@
 -- aplicados). Por la misma razon pandoc no carga longtable ni multirow por su
 -- cuenta: los carga apa7.tex.
 
+-- Si la tabla ocupa varias paginas, repetir o no la fila de cabecera en cada una.
+-- El equipo prefiere que la cabecera aparezca una sola vez, como en Word.
+REPETIR_CABECERA = false
+
 -- Devuelve la posicion del } que cierra el { situado en s[i].
 local function cierreDeGrupo(s, i)
   local nivel = 0
@@ -224,6 +228,14 @@ local function cuadricular(latex, tbl)
   cuerpo = reemplazar(cuerpo, '\\midrule\\noalign{}', '\\noalign{}')
   cuerpo = reemplazar(cuerpo, '\\bottomrule\\noalign{}', '\\noalign{}')
   cuerpo = insertarLineas(cuerpo, lineasBajoFilas(tbl))
+
+  -- Pandoc cierra la cabecera con \endhead, que la repite en cada pagina que
+  -- ocupe la tabla. Pasarla a \endfirsthead la imprime solo al principio; la
+  -- cabecera de las paginas siguientes queda reducida a la linea superior, que
+  -- cierra la primera fila de esa pagina.
+  if not REPETIR_CABECERA then
+    cuerpo = reemplazar(cuerpo, '\\endhead', '\\endfirsthead\n\\hline\n\\endhead')
+  end
 
   return cabeza .. cuerpo .. cola
 end
