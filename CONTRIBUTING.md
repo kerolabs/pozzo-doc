@@ -267,6 +267,10 @@ y en el PDF a la vez:
   `<table>`. Al ver un `<col>`, el filtro respeta esos anchos y no calcula nada.
 - Una celda con `rowspan` no se puede partir entre dos páginas. Si la tabla es
   larga, úsalo solo en filas cortas.
+- Un identificador largo sin espacios (`RegisterContributionCommand`,
+  `/api/v1/periods/{id}`) se corta solo en el PDF en los límites CamelCase y
+  después de `/` o `.`. Lo hace `config/pdf-only.lua` únicamente dentro de
+  tablas; no hace falta partirlo a mano.
 
 En el PDF todas las tablas salen con la cuadrícula completa:
 borde, una línea entre filas y una entre columnas. Lo hace `config/table-grid.lua`
@@ -299,6 +303,28 @@ otra, y no se distingue quién hizo qué.
 Fuera de una tabla, `<br>` es la única etiqueta HTML que sobrevive al PDF, y solo
 porque `config/pdf-only.lua` la traduce a un salto de línea de verdad antes de
 exportar.
+
+### Diagramas
+
+Los diagramas de arquitectura se escriben como texto en `docs/architecture/` y se
+regeneran con Docker; las imágenes resultantes se copian a `docs/images/chapter_2/`.
+
+| Fuente | Herramienta | Salida |
+| --- | --- | --- |
+| `workspace.dsl` | Structurizr (C4: contexto, contenedores, componentes, despliegue) | `c4_*.png` |
+| `uml/*.puml` | PlantUML (diagramas de clases) | `uml_*.png` |
+| `db/*.puml` y `db/*.sql` | PlantUML (entidad-relación) y el DDL de cada esquema | `db_*.png` |
+
+```powershell
+docker run --rm -e PLANTUML_LIMIT_SIZE=16384 -v "${PWD}/docs/architecture:/data" plantuml/plantuml -tpng -o out "/data/uml/*.puml" "/data/db/*.puml"
+```
+
+```powershell
+docker run -d --name structurizr -p 8080:8080 -v "${PWD}/docs/architecture:/usr/local/structurizr" structurizr/structurizr local
+```
+
+Structurizr renderiza en el navegador: abre `http://localhost:8080`, entra a cada
+vista y usa su botón de exportar a PNG. Las carpetas `out/` no se versionan.
 
 ### Imágenes
 

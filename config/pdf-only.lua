@@ -50,9 +50,49 @@ local function sinSaltosFinales(inlines)
   return inlines
 end
 
+-- Un identificador largo (RegisterContributionCommand, /api/v1/periods/{id})
+-- no tiene guiones ni espacios donde LaTeX pueda cortar, y en una columna
+-- estrecha se sale de la celda. Se le abren puntos de corte opcionales donde
+-- una persona los pondria: entre una minuscula y una mayuscula (CamelCase) y
+-- despues de una barra o un punto. Solo se tocan palabras largas dentro de
+-- tablas; el resto del texto se compone como siempre.
+local LARGO_MINIMO = 18
+
+local function conCortes(str)
+  local texto = str.text
+  if utf8.len(texto) == nil or #texto < LARGO_MINIMO then return nil end
+  local partes = {}
+  local actual = ''
+  local previo = ''
+  for _, cp in utf8.codes(texto) do
+    local c = utf8.char(cp)
+    local mayuscula = c:match('^%u$')
+    local minuscula = previo:match('^[%l%d]$')
+    if mayuscula and minuscula and actual ~= '' then
+      table.insert(partes, actual)
+      actual = ''
+    end
+    actual = actual .. c
+    if c == '/' or c == '.' then
+      table.insert(partes, actual)
+      actual = ''
+    end
+    previo = c
+  end
+  if actual ~= '' then table.insert(partes, actual) end
+  if #partes < 2 then return nil end
+  local salida = pandoc.List()
+  for i, parte in ipairs(partes) do
+    if i > 1 then salida:insert(pandoc.RawInline('latex', [[\allowbreak{}]])) end
+    salida:insert(pandoc.Str(parte))
+  end
+  return salida
+end
+
 function Table(tbl)
   if not FORMAT:match('latex') then return nil end
   return pandoc.walk_block(tbl, {
+    Str = conCortes,
     Inlines = function(inlines)
       return alinearArriba(sinSaltosFinales(inlines))
     end,
