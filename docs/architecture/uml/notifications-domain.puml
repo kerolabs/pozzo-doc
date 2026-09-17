@@ -1,0 +1,127 @@
+@startuml notifications-domain
+title Notifications: Domain Layer
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam nodesep 40
+skinparam ranksep 60
+skinparam class {
+  BackgroundColor #F7F5FF
+  BorderColor #6631D7
+  ArrowColor #313131
+}
+skinparam enum {
+  BackgroundColor #FFFFFF
+  BorderColor #8A8A7E
+}
+skinparam interface {
+  BackgroundColor #FFFFFF
+  BorderColor #8A8A7E
+}
+hide empty members
+
+  class Device <<Aggregate Root>> {
+    - id : DeviceId
+    - memberId : MemberId
+    - pushToken : PushToken
+    - platform : Platform
+    - registeredAt : LocalDateTime
+    - active : boolean
+    + register(memberId : MemberId, token : PushToken, platform : Platform) : Device {static}
+    + refreshToken(token : PushToken) : void
+    + deactivate() : void
+  }
+
+  class ReminderPlan <<Aggregate Root>> {
+    - id : ReminderPlanId
+    - groupId : GroupId
+    - offsetsInDays : List<Integer>
+    - sendHour : int
+    - enabled : boolean
+    + defaultFor(groupId : GroupId) : ReminderPlan {static}
+    + configure(offsets : List<Integer>, sendHour : int, enabled : boolean) : void
+    + scheduleFor(cutoffDate : LocalDate) : List<LocalDateTime>
+  }
+
+  class Notification <<Aggregate Root>> {
+    - id : NotificationId
+    - memberId : MemberId
+    - groupId : GroupId
+    - kind : NotificationKind
+    - content : NotificationContent
+    - dedupKey : DedupKey
+    - scheduledAt : LocalDateTime
+    - sentAt : LocalDateTime
+    - status : NotificationStatus
+    - attempts : int
+    + reminder(memberId, groupId, periodId, when, content) : Notification {static}
+    + alert(memberId, groupId, content, dedupKey) : Notification {static}
+    + isDue(now : LocalDateTime) : boolean
+    + markSent() : void
+    + markFailed() : void
+    + cancel() : void
+  }
+
+  class NotificationContent <<Value Object>> {
+    - title : String
+    - body : String
+    - deepLink : String
+  }
+  class DedupKey <<Value Object>> {
+    - value : String
+    + of(kind : NotificationKind, memberId : MemberId, referenceId : String) : DedupKey {static}
+  }
+  class PushToken <<Value Object>> {
+    - value : String
+  }
+
+  enum NotificationKind {
+    REMINDER
+    ALERT
+  }
+  enum NotificationStatus {
+    SCHEDULED
+    SENT
+    CANCELLED
+    FAILED
+  }
+  enum Platform {
+    ANDROID
+    IOS
+  }
+
+  interface ReminderSchedulingService <<Domain Service>> {
+    + scheduleReminders(plan : ReminderPlan, periodId : PeriodId, cutoffDate : LocalDate, pending : List<MemberId>) : List<Notification>
+    + cancelReminders(periodId : PeriodId, memberId : MemberId) : void
+  }
+
+  interface DeviceRepository <<Repository>> {
+    + findActiveByMemberId(memberId : MemberId) : List<Device>
+    + findByPushToken(token : PushToken) : Optional<Device>
+    + save(device : Device) : Device
+  }
+  interface ReminderPlanRepository <<Repository>> {
+    + findByGroupId(groupId : GroupId) : Optional<ReminderPlan>
+    + save(plan : ReminderPlan) : ReminderPlan
+  }
+  interface NotificationRepository <<Repository>> {
+    + findDue(now : LocalDateTime) : List<Notification>
+    + findScheduledByPeriodAndMember(periodId : PeriodId, memberId : MemberId) : List<Notification>
+    + existsByDedupKey(key : DedupKey) : boolean
+    + findByMemberId(memberId : MemberId) : List<Notification>
+    + save(notification : Notification) : Notification
+  }
+
+Device "1" *-- "1" PushToken : pushToken
+Device --> Platform
+Notification "1" *-- "1" NotificationContent : content
+Notification "1" *-- "1" DedupKey : dedupKey
+Notification --> NotificationKind
+Notification --> NotificationStatus
+ReminderPlan ..> Notification : schedules
+ReminderSchedulingService ..> ReminderPlan : uses
+ReminderSchedulingService ..> Notification : creates
+DeviceRepository ..> Device : persists
+ReminderPlanRepository ..> ReminderPlan : persists
+NotificationRepository ..> Notification : persists
+@enduml

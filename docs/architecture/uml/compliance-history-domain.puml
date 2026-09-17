@@ -1,0 +1,107 @@
+@startuml compliance-history-domain
+title Compliance History: Domain Layer
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam nodesep 40
+skinparam ranksep 60
+skinparam class {
+  BackgroundColor #F3FBF6
+  BorderColor #067429
+  ArrowColor #313131
+}
+skinparam enum {
+  BackgroundColor #FFFFFF
+  BorderColor #8A8A7E
+}
+skinparam interface {
+  BackgroundColor #FFFFFF
+  BorderColor #8A8A7E
+}
+hide empty members
+
+  class MemberRecord <<Aggregate Root>> {
+    - memberId : MemberId
+    - entries : List<ComplianceEntry>
+    - updatedAt : LocalDateTime
+    + forMember(memberId : MemberId) : MemberRecord {static}
+    + record(entry : ComplianceEntry) : void
+    + summary() : ComplianceSummary
+    + entriesInCycle(cycleId : CycleId) : List<ComplianceEntry>
+  }
+
+  class ShareLink <<Aggregate Root>> {
+    - token : ShareToken
+    - memberId : MemberId
+    - createdAt : LocalDateTime
+    - expiresAt : LocalDateTime
+    - revoked : boolean
+    + issue(memberId : MemberId, validity : Duration) : ShareLink {static}
+    + isValid(now : LocalDateTime) : boolean
+    + revoke() : void
+  }
+
+  class ComplianceEntry <<Entity>> {
+    - id : EntryId
+    - cycleId : CycleId
+    - periodId : PeriodId
+    - kind : EntryKind
+    - occurredAt : LocalDateTime
+    - sourceEventId : String
+    + isNegative() : boolean
+  }
+
+  class ComplianceSummary <<Value Object>> {
+    - onTime : int
+    - late : int
+    - covered : int
+    - dropouts : int
+    - cyclesCompleted : int
+    - level : ComplianceLevel
+    + complianceRate() : BigDecimal
+  }
+  class ShareToken <<Value Object>> {
+    - value : String
+    + random() : ShareToken {static}
+  }
+
+  enum EntryKind {
+    ON_TIME
+    LATE
+    COVERED
+    REJECTED
+    DROPOUT
+    CYCLE_COMPLETED
+  }
+  enum ComplianceLevel {
+    EXCELLENT
+    GOOD
+    REGULAR
+    RISKY
+    NEW
+  }
+
+  interface ComplianceScoringService <<Domain Service>> {
+    + summarize(entries : List<ComplianceEntry>) : ComplianceSummary
+  }
+
+  interface MemberRecordRepository <<Repository>> {
+    + findByMemberId(memberId : MemberId) : Optional<MemberRecord>
+    + existsEntryBySourceEventId(sourceEventId : String) : boolean
+    + save(record : MemberRecord) : MemberRecord
+  }
+  interface ShareLinkRepository <<Repository>> {
+    + findByToken(token : ShareToken) : Optional<ShareLink>
+    + save(link : ShareLink) : ShareLink
+  }
+
+MemberRecord "1" *-- "0..*" ComplianceEntry : entries
+MemberRecord ..> ComplianceSummary : produces
+MemberRecord "1" o-- "0..*" ShareLink : shared as >
+ShareLink "1" *-- "1" ShareToken : token
+ComplianceEntry --> EntryKind
+ComplianceSummary --> ComplianceLevel
+ComplianceScoringService ..> ComplianceSummary : computes
+MemberRecordRepository ..> MemberRecord : persists
+ShareLinkRepository ..> ShareLink : persists
+@enduml

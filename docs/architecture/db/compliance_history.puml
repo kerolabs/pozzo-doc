@@ -1,0 +1,53 @@
+@startuml compliance-history-db
+title Compliance History: esquema compliance_history (PostgreSQL)
+
+skinparam linetype ortho
+skinparam shadowing false
+skinparam dpi 200
+skinparam nodesep 60
+skinparam ranksep 70
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #067429
+  ArrowColor #313131
+  HeaderBackgroundColor #ADF0C7
+}
+hide circle
+hide empty methods
+
+entity "member_records" as records {
+  * member_id : UUID <<PK>>
+  --
+  * on_time_count : INTEGER
+  * late_count : INTEGER
+  * covered_count : INTEGER
+  * rejected_count : INTEGER
+  * dropout_count : INTEGER
+  * cycles_completed : INTEGER
+  * level : VARCHAR(10)
+  * updated_at : TIMESTAMP
+}
+
+entity "compliance_entries" as entries {
+  * id : UUID <<PK>>
+  --
+  * member_id : UUID <<FK>>
+  * cycle_id : UUID
+  period_id : UUID
+  * kind : VARCHAR(16)
+  * occurred_at : TIMESTAMP
+  * source_event_id : VARCHAR(64) <<UQ>>
+}
+
+entity "share_links" as links {
+  * token : VARCHAR(32) <<PK>>
+  --
+  * member_id : UUID <<FK>>
+  * created_at : TIMESTAMP
+  * expires_at : TIMESTAMP
+  * revoked : BOOLEAN
+}
+
+records ||--o{ entries : "acumula"
+records ||--o{ links : "comparte con"
+@enduml
