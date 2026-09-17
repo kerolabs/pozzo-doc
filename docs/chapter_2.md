@@ -3340,11 +3340,1229 @@ La sección cierra con la arquitectura de software de la solución, representada
 
 ### 2.5.1. EventStorming
 
+El equipo volvió al tablero de Miro con el mismo grupo que hizo el Big Picture del Needfinding, pero con un objetivo distinto. Aquel EventStorming describía cómo funciona hoy una junta con cuaderno, WhatsApp y Yape; este modela la solución: qué comandos ejecuta cada actor dentro de Pozzo, qué agregado decide si el comando procede, qué evento queda registrado cuando procede, qué política se dispara a continuación y qué vista necesita ver el actor antes de decidir. Es el nivel de detalle que Brandolini llama design-level, el que ya permite derivar clases y endpoints [@brandolini2021eventstorming]. La sesión duró dos horas, partió de las User Stories de 2.4.1 y del Ubiquitous Language de 2.3.6, y terminó con el tablero ordenado de izquierda a derecha en cuatro flujos: la constitución de la junta, el ciclo de aportes, la entrega del pozo y el cierre, y los hechos transversales de acceso, avisos e historial.
+
+La notación amplía la del Big Picture con tres tipos de nota que antes no hacían falta, porque describen decisiones de la solución y no del negocio: el agregado que recibe cada comando, la política que reacciona a cada evento y la vista que sostiene cada decisión.
+
+<table>
+  <colgroup><col width="26%"><col width="74%"></colgroup>
+  <thead>
+    <tr>
+      <th>Nota</th>
+      <th>Qué representa en el tablero</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Domain Event</b></td>
+      <td>Hecho del dominio que ya ocurrió y que el sistema registra. Se redacta en pasado: Junta iniciada, Aporte validado, Pozo entregado.</td>
+    </tr>
+    <tr>
+      <td><b>Command</b></td>
+      <td>Intención de un actor de provocar un cambio. Se redacta en infinitivo: Registrar mi aporte, Entregar el pozo.</td>
+    </tr>
+    <tr>
+      <td><b>Actor</b></td>
+      <td>Quién ejecuta el comando: cabeza de junta, participante o visitante.</td>
+    </tr>
+    <tr>
+      <td><b>Aggregate</b></td>
+      <td>La pieza del modelo que recibe el comando, comprueba sus reglas y decide si el evento ocurre. Es la nota nueva más importante: cada agregado del tablero es un aggregate root en el diseño táctico de 2.6.</td>
+    </tr>
+    <tr>
+      <td><b>Policy</b></td>
+      <td>Reacción automática a un evento, escrita como <i>cada vez que ocurre X, entonces Y</i>. Sustituye a las decisiones que hoy toma la cabeza a mano.</td>
+    </tr>
+    <tr>
+      <td><b>Read Model</b></td>
+      <td>La información que el actor necesita tener a la vista para ejecutar el comando. Cada vista del tablero es una consulta en 2.6.</td>
+    </tr>
+    <tr>
+      <td><b>External System</b></td>
+      <td>Sistema fuera de Pozzo que participa en el flujo: la pasarela de SMS, la lectura del comprobante en el dispositivo y la mensajería de los recordatorios.</td>
+    </tr>
+    <tr>
+      <td><b>Hotspot</b></td>
+      <td>Desacuerdo, duda o riesgo que la sesión no resolvió en el momento y que quedó marcado para decidir antes de cerrar el tablero.</td>
+    </tr>
+  </tbody>
+</table>
+
+El resultado de la sesión es el cuadro siguiente, que recorre el tablero de izquierda a derecha. Cada fila es una secuencia completa de comando, agregado y evento, con la política o la vista asociada cuando existe. De este cuadro salen los Bounded Contexts candidatos de 2.5.1.1, los flujos de mensajes de 2.5.1.2 y, más adelante, los comandos, eventos y consultas de cada capa en 2.6.
+
+<table>
+  <colgroup><col width="22%"><col width="11%"><col width="16%"><col width="21%"><col width="30%"></colgroup>
+  <thead>
+    <tr>
+      <th>Comando</th>
+      <th>Actor</th>
+      <th>Agregado</th>
+      <th>Evento</th>
+      <th>Política o vista asociada</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="5"><b>Flujo A. Constitución de la junta</b></td>
+    </tr>
+    <tr>
+      <td>Crear una junta</td>
+      <td>Cabeza</td>
+      <td>SavingsGroup</td>
+      <td>Junta creada</td>
+      <td><i>Vista:</i> mis juntas.</td>
+    </tr>
+    <tr>
+      <td>Definir el destino de los aportes</td>
+      <td>Cabeza</td>
+      <td>SavingsGroup</td>
+      <td>Destino definido</td>
+      <td><i>Regla:</i> sin destino definido la junta no puede iniciar.</td>
+    </tr>
+    <tr>
+      <td>Generar la invitación</td>
+      <td>Cabeza</td>
+      <td>Invitation</td>
+      <td>Invitación generada</td>
+      <td><i>Vista:</i> código y enlace vigentes.</td>
+    </tr>
+    <tr>
+      <td>Unirse con el código o el enlace</td>
+      <td>Participante</td>
+      <td>Invitation, SavingsGroup</td>
+      <td>Integrante incorporado</td>
+      <td><i>Vista:</i> resumen de la junta antes de unirse.</td>
+    </tr>
+    <tr>
+      <td>Agregar un integrante sin la aplicación</td>
+      <td>Cabeza</td>
+      <td>SavingsGroup</td>
+      <td>Integrante manual agregado</td>
+      <td><i>Regla:</i> queda sin cuenta asociada y la cabeza registra sus aportes.</td>
+    </tr>
+    <tr>
+      <td>Retirar un integrante</td>
+      <td>Cabeza</td>
+      <td>SavingsGroup</td>
+      <td>Integrante retirado</td>
+      <td><i>Regla:</i> solo antes de iniciar la junta.</td>
+    </tr>
+    <tr>
+      <td>Asignar los turnos por sorteo</td>
+      <td>Cabeza</td>
+      <td>SavingsGroup</td>
+      <td>Turnos asignados</td>
+      <td><i>Vista:</i> calendario de turnos con la semilla del sorteo.</td>
+    </tr>
+    <tr>
+      <td>Asignar los turnos por orden acordado</td>
+      <td>Cabeza</td>
+      <td>SavingsGroup</td>
+      <td>Turnos asignados</td>
+      <td><i>Regla:</i> el orden incluye a todos los integrantes y sin repetidos.</td>
+    </tr>
+    <tr>
+      <td>Abrir la subasta de un turno</td>
+      <td>Cabeza</td>
+      <td>Auction</td>
+      <td>Subasta abierta</td>
+      <td><i>Vista:</i> ofertas vigentes del turno.</td>
+    </tr>
+    <tr>
+      <td>Ofertar por el turno</td>
+      <td>Participante</td>
+      <td>Auction</td>
+      <td>Oferta registrada</td>
+      <td><i>Política:</i> cada oferta actualiza la vista de ofertas de todo el grupo.</td>
+    </tr>
+    <tr>
+      <td>Cerrar la subasta</td>
+      <td>Cabeza</td>
+      <td>Auction</td>
+      <td>Subasta cerrada</td>
+      <td><i>Política:</i> al cerrarse, el turno se asigna a la oferta mayor.</td>
+    </tr>
+    <tr>
+      <td>Iniciar la junta</td>
+      <td>Cabeza</td>
+      <td>SavingsGroup</td>
+      <td><b>Junta iniciada</b></td>
+      <td><i>Políticas:</i> la invitación caduca, las reglas se bloquean y el ciclo de aportes arranca.</td>
+    </tr>
+    <tr>
+      <td colspan="5"><b>Flujo B. Ciclo de aportes</b></td>
+    </tr>
+    <tr>
+      <td>Iniciar el ciclo</td>
+      <td>Política</td>
+      <td>Cycle</td>
+      <td>Ciclo iniciado</td>
+      <td><i>Política:</i> al iniciarse el ciclo se abre el primer período.</td>
+    </tr>
+    <tr>
+      <td>Abrir el período</td>
+      <td>Política</td>
+      <td>Cycle, Period</td>
+      <td>Período abierto</td>
+      <td><i>Política:</i> se calcula lo esperado de cada integrante y la fecha de corte del turno.</td>
+    </tr>
+    <tr>
+      <td>Registrar mi aporte con el comprobante</td>
+      <td>Participante</td>
+      <td>Contribution</td>
+      <td>Aporte registrado</td>
+      <td><i>Sistema externo:</i> lectura del comprobante en el dispositivo. <i>Vista:</i> datos leídos para confirmar.</td>
+    </tr>
+    <tr>
+      <td>Validar el aporte</td>
+      <td>Política</td>
+      <td>Contribution</td>
+      <td><b>Aporte validado</b> o Inconsistencia detectada</td>
+      <td><i>Regla:</i> monto acordado, fecha dentro del corte, destinatario correcto y número de operación no usado antes en la junta.</td>
+    </tr>
+    <tr>
+      <td>Revisar un aporte con inconsistencia</td>
+      <td>Cabeza</td>
+      <td>Contribution</td>
+      <td>Aporte aprobado o Aporte rechazado</td>
+      <td><i>Vista:</i> aportes pendientes de revisión con la diferencia señalada.</td>
+    </tr>
+    <tr>
+      <td>Registrar un aporte en efectivo</td>
+      <td>Cabeza</td>
+      <td>Contribution</td>
+      <td>Aporte registrado</td>
+      <td><i>Regla:</i> solo la cabeza lo registra, porque solo ella recibió el efectivo.</td>
+    </tr>
+    <tr>
+      <td>Registrar la cobertura de un aporte</td>
+      <td>Cabeza</td>
+      <td>Contribution</td>
+      <td>Aporte cubierto</td>
+      <td><i>Política:</i> lo esperado queda cubierto, pero el moroso sigue debiendo a quien lo cubrió.</td>
+    </tr>
+    <tr>
+      <td>Liquidar lo esperado del período</td>
+      <td>Política</td>
+      <td>Period</td>
+      <td><b>Pozo completo</b></td>
+      <td><i>Regla:</i> el pozo está completo cuando ningún integrante queda pendiente. <i>Vistas:</i> estado del pozo y proyección.</td>
+    </tr>
+    <tr>
+      <td colspan="5"><b>Flujo C. Entrega del pozo y cierre del ciclo</b></td>
+    </tr>
+    <tr>
+      <td>Entregar el pozo</td>
+      <td>Cabeza</td>
+      <td>Period</td>
+      <td><b>Pozo entregado</b></td>
+      <td><i>Política:</i> al entregarse se abre el siguiente período, o se cierra el ciclo si era el último turno.</td>
+    </tr>
+    <tr>
+      <td>Registrar una deserción y su reemplazo</td>
+      <td>Cabeza</td>
+      <td>SavingsGroup</td>
+      <td>Deserción registrada, Reemplazo incorporado</td>
+      <td><i>Política:</i> el reemplazo hereda el turno pendiente del que desertó.</td>
+    </tr>
+    <tr>
+      <td>Cerrar la junta</td>
+      <td>Cabeza</td>
+      <td>Cycle</td>
+      <td><b>Ciclo cerrado</b></td>
+      <td><i>Regla:</i> solo se cierra cuando todos los turnos cobraron. <i>Vista:</i> resumen del ciclo y períodos anteriores.</td>
+    </tr>
+    <tr>
+      <td colspan="5"><b>Flujo D. Acceso, avisos e historial</b></td>
+    </tr>
+    <tr>
+      <td>Ingresar con el número de celular</td>
+      <td>Integrante</td>
+      <td>VerificationChallenge</td>
+      <td>Código enviado</td>
+      <td><i>Sistema externo:</i> pasarela de SMS.</td>
+    </tr>
+    <tr>
+      <td>Verificar el código recibido</td>
+      <td>Integrante</td>
+      <td>Account</td>
+      <td>Cuenta verificada, Sesión abierta</td>
+      <td><i>Política:</i> la sesión se mantiene en el dispositivo hasta que el integrante la cierre.</td>
+    </tr>
+    <tr>
+      <td>Completar el registro y el perfil</td>
+      <td>Integrante</td>
+      <td>Account</td>
+      <td>Perfil actualizado</td>
+      <td><i>Vista:</i> mi perfil.</td>
+    </tr>
+    <tr>
+      <td>Configurar los recordatorios de la junta</td>
+      <td>Cabeza</td>
+      <td>ReminderPolicy</td>
+      <td>Recordatorios configurados</td>
+      <td><i>Regla:</i> la cabeza elige cuántos días antes del corte empiezan y por qué canal salen.</td>
+    </tr>
+    <tr>
+      <td>Enviar el recordatorio</td>
+      <td>Política</td>
+      <td>Notification</td>
+      <td>Recordatorio enviado</td>
+      <td><i>Política:</i> cada vez que se acerca la fecha de corte y el aporte sigue pendiente, el aviso sube de tono. <i>Sistema externo:</i> mensajería.</td>
+    </tr>
+    <tr>
+      <td>Avisar un hecho de la junta</td>
+      <td>Política</td>
+      <td>Notification</td>
+      <td>Aviso enviado</td>
+      <td><i>Política:</i> los hechos que cambian el estado de la junta se avisan a quienes participan en ellos.</td>
+    </tr>
+    <tr>
+      <td>Actualizar el historial</td>
+      <td>Política</td>
+      <td>ComplianceRecord</td>
+      <td>Historial actualizado</td>
+      <td><i>Política:</i> cada aporte validado, cobertura, deserción y ciclo cerrado deja registro en el historial de su protagonista.</td>
+    </tr>
+    <tr>
+      <td>Compartir mi historial</td>
+      <td>Integrante</td>
+      <td>ComplianceRecord</td>
+      <td>Historial compartido</td>
+      <td><i>Regla:</i> el historial sale de Pozzo solo si su dueño lo comparte. <i>Vista:</i> mi historial y mi nivel de cumplimiento.</td>
+    </tr>
+  </tbody>
+</table>
+
+Los cinco eventos en negrita son los que la sesión marcó como pivotales, y son los que 2.5.1.1 usa para trazar fronteras. Cuatro hotspots quedaron abiertos durante la sesión y se resolvieron antes de cerrar el tablero.
+
+<table>
+  <colgroup><col width="42%"><col width="58%"></colgroup>
+  <thead>
+    <tr>
+      <th>Hotspot</th>
+      <th>Resolución</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Un integrante registra dos veces el mismo comprobante, o uno de otra junta.</td>
+      <td>El número de operación es único dentro de la junta y el destinatario leído debe coincidir con el destino definido en las reglas. Las dos comprobaciones entran en la validación del aporte.</td>
+    </tr>
+    <tr>
+      <td>Nadie cubre el aporte de un moroso y el pozo no se completa a la fecha de corte.</td>
+      <td>El período permanece abierto y el pozo no se marca completo. Pozzo no mueve dinero, así que no puede resolverlo solo: muestra el faltante a todo el grupo y escala el recordatorio, y el grupo decide si alguien cubre.</td>
+    </tr>
+    <tr>
+      <td>Dos ofertas iguales ganan la subasta de un turno.</td>
+      <td>El empate lo resuelve la cabeza al cerrar la subasta y la decisión queda registrada. Resolverlo por antigüedad de la oferta se descartó porque premia la velocidad de la conexión.</td>
+    </tr>
+    <tr>
+      <td>Un integrante sin un teléfono con la aplicación aporta en efectivo a la cabeza.</td>
+      <td>Existe como integrante manual dentro de la junta, sin cuenta asociada, y la cabeza registra su aporte en efectivo. Nadie puede actuar en su nombre porque no hay cuenta que lo represente.</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 2.5.1.1. Candidate Context Discovery
+
+Con el tablero terminado, la misma sesión siguió con el descubrimiento de contextos candidatos. Un Bounded Context no se decide por la pantalla ni por la tabla que le corresponde, sino por el lenguaje: allí donde una palabra deja de significar lo mismo, hay una frontera [@evans2003ddd]. Para encontrarlas el equipo combinó dos heurísticas del EventStorming.
+
+La primera, **start-with-value**, consiste en aislar antes que nada la parte del dominio que sostiene la propuesta de valor, y proteger su modelo de todo lo demás. En Pozzo esa parte es la validación del aporte contra el comprobante y el estado del pozo a la vista de todos: es lo que reemplaza el cuaderno de la cabeza y la discusión en el grupo de WhatsApp, y es la hipótesis que el proyecto quiere validar. Todo lo que apareció alrededor de los eventos Aporte validado, Pozo completo y Pozo entregado formó el primer contexto, y el resto del tablero se ordenó en función de él.
+
+La segunda, **look-for-pivotal-events**, consiste en recorrer la línea de tiempo buscando los eventos después de los cuales el dominio ya no funciona igual: cambia quién puede hacer qué, cambia el lenguaje o cambia el ritmo del proceso. Esos eventos son buenos candidatos a frontera porque casi siempre separan dos modelos distintos.
+
+<table>
+  <colgroup><col width="20%"><col width="45%"><col width="35%"></colgroup>
+  <thead>
+    <tr>
+      <th>Evento pivotal</th>
+      <th>Qué cambia después de él</th>
+      <th>Frontera que sugiere</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Junta iniciada</b></td>
+      <td>Las reglas se bloquean, la invitación caduca y nadie entra ni sale libremente. El grupo deja de configurarse y empieza a operar. El vocabulario cambia: antes se habla de cupos, invitación y orden de turnos; después, de períodos, aportes y pozo.</td>
+      <td>Separa la configuración de la junta de la operación del ciclo. Es la frontera entre Savings Groups y Contributions.</td>
+    </tr>
+    <tr>
+      <td><b>Aporte validado</b></td>
+      <td>El aporte deja de ser una foto enviada al grupo y pasa a ser un hecho comprobado que cuenta para el pozo y para el historial de quien lo hizo.</td>
+      <td>Separa lo que el sistema verifica, dentro del contexto core, de lo que otros contextos solo consumen como hecho consumado.</td>
+    </tr>
+    <tr>
+      <td><b>Pozo completo</b></td>
+      <td>La cobranza termina y empieza la entrega. Los recordatorios del período dejan de tener sentido y el integrante del turno pasa a ser el protagonista.</td>
+      <td>Separa la cobranza, que es del core, del envío de avisos, que no lo es.</td>
+    </tr>
+    <tr>
+      <td><b>Pozo entregado</b></td>
+      <td>El turno se consume y el ciclo avanza: se abre el período siguiente o, si era el último, se cierra la junta.</td>
+      <td>Confirma que el avance del ciclo es una decisión interna del core y no de quien administra el grupo.</td>
+    </tr>
+    <tr>
+      <td><b>Ciclo cerrado</b></td>
+      <td>La junta deja de existir como operación en curso, pero lo que cada integrante hizo en ella sobrevive y se suma a lo que hizo en juntas anteriores.</td>
+      <td>Separa la vida de una junta del registro que la sobrevive. Es la frontera de Compliance History.</td>
+    </tr>
+  </tbody>
+</table>
+
+Las dos heurísticas convergieron en cinco contextos candidatos. Para clasificarlos el equipo usó la distinción entre subdominio core, de soporte y genérico: el core es lo que diferencia a Pozzo de un cuaderno y de sus competidores, el de soporte es necesario para el negocio pero no lo diferencia, y el genérico es un problema ya resuelto que cualquiera podría comprar hecho.
+
+<table>
+  <colgroup><col width="17%"><col width="14%"><col width="38%"><col width="31%"></colgroup>
+  <thead>
+    <tr>
+      <th>Contexto candidato</th>
+      <th>Clasificación</th>
+      <th>Qué agrupa del tablero</th>
+      <th>Agregados</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Contributions</b></td>
+      <td>Core</td>
+      <td>Todo el flujo B y el flujo C: apertura de períodos, registro y validación de aportes, revisión de inconsistencias, efectivo y coberturas, completitud del pozo, entrega y cierre del ciclo.</td>
+      <td>Cycle, Period, Contribution</td>
+    </tr>
+    <tr>
+      <td><b>Savings Groups</b></td>
+      <td>Soporte</td>
+      <td>Todo el flujo A: creación de la junta y sus reglas, invitaciones, incorporación y retiro de integrantes, asignación de turnos por los tres métodos y el inicio de la junta. Además, la deserción y su reemplazo del flujo C.</td>
+      <td>SavingsGroup, Invitation, Auction</td>
+    </tr>
+    <tr>
+      <td><b>Compliance History</b></td>
+      <td>Soporte</td>
+      <td>La parte del flujo D que reacciona a los aportes validados, las coberturas, las deserciones y los ciclos cerrados para construir el registro de comportamiento de cada integrante a lo largo de sus juntas.</td>
+      <td>ComplianceRecord</td>
+    </tr>
+    <tr>
+      <td><b>Notifications</b></td>
+      <td>Genérico</td>
+      <td>La parte del flujo D que decide a quién avisar, cuándo y por qué canal: recordatorios escalonados de aporte y avisos de los hechos de la junta.</td>
+      <td>ReminderPolicy, Notification</td>
+    </tr>
+    <tr>
+      <td><b>Identity and Access</b></td>
+      <td>Genérico</td>
+      <td>El ingreso con número de celular verificado por SMS, la sesión en el dispositivo y el perfil de la persona.</td>
+      <td>Account, VerificationChallenge</td>
+    </tr>
+  </tbody>
+</table>
+
+La discusión más larga no fue sobre los contextos que quedaron, sino sobre los que no. Cuatro candidatos se propusieron y se descartaron, y dejarlos escritos importa tanto como el resultado, porque explica por qué el mapa tiene cinco contextos y no nueve.
+
+<table>
+  <colgroup><col width="26%"><col width="74%"></colgroup>
+  <thead>
+    <tr>
+      <th>Candidato descartado</th>
+      <th>Por qué no quedó como contexto propio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Turns</b>, con el sorteo, el orden acordado y la subasta</td>
+      <td>Un turno no significa nada fuera de su junta: se calcula con los integrantes y las reglas de esa junta y se consume en ella. Separarlo obligaba a Savings Groups a consultar a otro contexto para saber si puede iniciar, que es su regla más importante. La subasta quedó como agregado con ciclo de vida propio dentro de Savings Groups, que es donde vive su lenguaje.</td>
+    </tr>
+    <tr>
+      <td><b>Payments</b>, con los comprobantes y su lectura</td>
+      <td>El comprobante no tiene vida propia: nace con el aporte, se valida con él y no se consulta por separado. Además, la lectura de sus datos ocurre en el dispositivo del participante, no en el servidor, así que no hay un modelo que administrar del lado del servicio. Separarlo habría partido en dos la regla que da sentido al producto, que compara el comprobante con lo esperado del período.</td>
+    </tr>
+    <tr>
+      <td><b>Reporting</b>, con los tableros y las estadísticas de la junta</td>
+      <td>Lo que hoy se necesita mostrar son las vistas del período vigente, de los períodos anteriores y del historial, y cada una se resuelve dentro del contexto que ya tiene esos datos. Un contexto de reportes se justificaría si los informes cruzaran varias juntas y varios ciclos para un tercero, que es una posibilidad del modelo de negocio pero no del alcance del ciclo.</td>
+    </tr>
+    <tr>
+      <td><b>Compliance History</b> dentro de Contributions</td>
+      <td>Este sí estuvo cerca de fusionarse, porque casi todo lo que registra viene de aportes validados. Se mantuvo aparte por tres razones: su unidad de análisis es la persona y no la junta, de modo que cruza juntas distintas y sobrevive al cierre del ciclo; su ritmo de cambio es otro, porque se escribe una vez y se lee muchas; y es el contexto que sostiene la hipótesis de negocio del historial de cumplimiento como referencia crediticia, que en el futuro se consulta desde fuera. Fusionarlo habría atado esa evolución al contexto core.</td>
+    </tr>
+  </tbody>
+</table>
 
 #### 2.5.1.2. Domain Message Flows Modeling
 
+Los contextos candidatos se validaron contándolos como historias. La técnica es la de Domain Storytelling: narrar un escenario concreto del dominio como una secuencia numerada de frases con la forma actor, mensaje y destinatario, y comprobar que la historia se pueda contar de principio a fin sin que ningún participante tenga que adivinar lo que otro sabe [@hofer2021domainstorytelling]. Aquí los participantes no son solo personas: son los actores del tablero y los cinco contextos candidatos, y cada flecha es un mensaje de uno de tres tipos.
+
+<table>
+  <colgroup><col width="16%"><col width="84%"></colgroup>
+  <thead>
+    <tr>
+      <th>Tipo</th>
+      <th>Qué significa en el flujo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Comando</b></td>
+      <td>Petición dirigida a un contexto para que haga algo. Puede fallar, y quien la envía espera la respuesta.</td>
+    </tr>
+    <tr>
+      <td><b>Evento</b></td>
+      <td>Aviso de que algo ya ocurrió. Quien lo publica no sabe quién lo escucha ni espera respuesta; quien lo consume decide qué hacer con él.</td>
+    </tr>
+    <tr>
+      <td><b>Consulta</b></td>
+      <td>Pregunta por información que vive en otro contexto. No cambia nada y devuelve siempre datos traducidos al lenguaje de quien pregunta.</td>
+    </tr>
+  </tbody>
+</table>
+
+Se modelaron seis escenarios, elegidos porque cubren los cinco eventos pivotales y las dos excepciones que más aparecieron en las entrevistas: el aporte que no cuadra y la deserción a mitad de ciclo.
+
+##### Flujo 1: de la junta creada a la junta iniciada
+
+Es el escenario que atraviesa la frontera más discutida, la que separa la configuración de la operación. Termina en el primer período abierto, que es el momento en que Contributions empieza a existir para esa junta.
+
+<table>
+  <colgroup><col width="4%"><col width="15%"><col width="25%"><col width="10%"><col width="15%"><col width="31%"></colgroup>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Origen</th>
+      <th>Mensaje</th>
+      <th>Tipo</th>
+      <th>Destino</th>
+      <th>Efecto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Cabeza</td>
+      <td>Crear una junta</td>
+      <td>Comando</td>
+      <td>Savings Groups</td>
+      <td>La junta queda en borrador con su aporte, periodicidad, cupos y fecha de corte.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Savings Groups</td>
+      <td>Resolver la sesión</td>
+      <td>Consulta</td>
+      <td>Identity and Access</td>
+      <td>Devuelve el identificador verificado de quien envía el comando. Ocurre en todos los comandos y por eso no se repite en los flujos siguientes.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Cabeza</td>
+      <td>Generar la invitación</td>
+      <td>Comando</td>
+      <td>Savings Groups</td>
+      <td>Se emite un código corto y un enlace con vencimiento.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Participante</td>
+      <td>Unirse con el código</td>
+      <td>Comando</td>
+      <td>Savings Groups</td>
+      <td>Se comprueba que la invitación siga vigente y que queden cupos, y el participante queda incorporado.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Savings Groups</td>
+      <td>Consultar el resumen de cumplimiento</td>
+      <td>Consulta</td>
+      <td>Compliance History</td>
+      <td>Devuelve el nivel y las juntas completadas del que se une, para que la cabeza lo vea en la lista de integrantes.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Savings Groups</td>
+      <td>Integrante incorporado</td>
+      <td>Evento</td>
+      <td>Notifications</td>
+      <td>Avisa a la cabeza que alguien entró y cuántos cupos quedan.</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Cabeza</td>
+      <td>Asignar los turnos</td>
+      <td>Comando</td>
+      <td>Savings Groups</td>
+      <td>Por sorteo, por orden acordado o por el resultado de la subasta, el orden de cobro queda fijado.</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Savings Groups</td>
+      <td>Turnos asignados</td>
+      <td>Evento</td>
+      <td>Notifications</td>
+      <td>Avisa a todo el grupo el calendario de turnos.</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Cabeza</td>
+      <td>Iniciar la junta</td>
+      <td>Comando</td>
+      <td>Savings Groups</td>
+      <td>Se comprueba que los cupos estén cubiertos y los turnos asignados. Las reglas se bloquean y la invitación caduca.</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Savings Groups</td>
+      <td>Junta iniciada</td>
+      <td>Evento</td>
+      <td>Contributions</td>
+      <td>Es el único punto de entrada del ciclo. Contributions reacciona iniciándolo.</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Contributions</td>
+      <td>Consultar reglas, integrantes y turnos</td>
+      <td>Consulta</td>
+      <td>Savings Groups</td>
+      <td>Devuelve la configuración de la junta, que Contributions copia y traduce a su propio modelo. Después de esto no vuelve a preguntar.</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Contributions</td>
+      <td>Período abierto</td>
+      <td>Evento</td>
+      <td>Notifications</td>
+      <td>Avisa a todos cuánto se espera de cada uno y hasta cuándo.</td>
+    </tr>
+  </tbody>
+</table>
+
+##### Flujo 2: un aporte que valida a la primera
+
+Es el camino feliz del contexto core y el que sostiene la propuesta de valor. La lectura del comprobante no aparece como mensaje entre contextos porque ocurre antes, en el dispositivo del participante.
+
+<table>
+  <colgroup><col width="4%"><col width="15%"><col width="25%"><col width="10%"><col width="15%"><col width="31%"></colgroup>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Origen</th>
+      <th>Mensaje</th>
+      <th>Tipo</th>
+      <th>Destino</th>
+      <th>Efecto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Participante</td>
+      <td>Leer el comprobante</td>
+      <td>Comando</td>
+      <td>Aplicación móvil</td>
+      <td>La aplicación extrae monto, fecha, destinatario y número de operación, y los muestra para que el participante los confirme.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Participante</td>
+      <td>Registrar mi aporte</td>
+      <td>Comando</td>
+      <td>Contributions</td>
+      <td>El aporte se registra con los cuatro campos confirmados.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Contributions</td>
+      <td>Validar el aporte</td>
+      <td>Comando</td>
+      <td>Contributions</td>
+      <td>Compara lo registrado con lo esperado del período y con las reglas del ciclo, y comprueba que el número de operación no se haya usado antes en la junta.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Contributions</td>
+      <td>Aporte validado</td>
+      <td>Evento</td>
+      <td>Contributions</td>
+      <td>Su propia política liquida lo esperado de ese integrante en el período.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Contributions</td>
+      <td>Aporte validado</td>
+      <td>Evento</td>
+      <td>Compliance History</td>
+      <td>Registra el aporte puntual en el historial de quien lo hizo.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Contributions</td>
+      <td>Aporte validado</td>
+      <td>Evento</td>
+      <td>Notifications</td>
+      <td>Avisa al integrante del turno que ya le depositaron y cancela los recordatorios pendientes de quien aportó.</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Integrante</td>
+      <td>Consultar el estado del pozo</td>
+      <td>Consulta</td>
+      <td>Contributions</td>
+      <td>Devuelve quién aportó, quién falta y cuánto, con el mismo detalle para todo el grupo.</td>
+    </tr>
+  </tbody>
+</table>
+
+##### Flujo 3: un aporte con inconsistencia
+
+Es el escenario que justifica que la validación viva en el core y no en la aplicación. El sistema no rechaza por su cuenta: detecta la diferencia, la muestra y deja la decisión en la cabeza, que es quien responde por el dinero ante el grupo.
+
+<table>
+  <colgroup><col width="4%"><col width="15%"><col width="25%"><col width="10%"><col width="15%"><col width="31%"></colgroup>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Origen</th>
+      <th>Mensaje</th>
+      <th>Tipo</th>
+      <th>Destino</th>
+      <th>Efecto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Participante</td>
+      <td>Registrar mi aporte</td>
+      <td>Comando</td>
+      <td>Contributions</td>
+      <td>El aporte se registra, pero el monto leído es menor al acordado.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Contributions</td>
+      <td>Inconsistencia detectada</td>
+      <td>Evento</td>
+      <td>Notifications</td>
+      <td>Avisa a la cabeza que hay un aporte esperando su revisión y al participante que el suyo quedó observado.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Cabeza</td>
+      <td>Consultar los aportes pendientes de revisión</td>
+      <td>Consulta</td>
+      <td>Contributions</td>
+      <td>Devuelve cada aporte observado con el campo que no cuadró, lo esperado y lo encontrado.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Cabeza</td>
+      <td>Aprobar el aporte</td>
+      <td>Comando</td>
+      <td>Contributions</td>
+      <td>Con su nota, el aporte queda aprobado y liquida lo esperado. Si en cambio lo rechaza, lo esperado sigue pendiente y el participante vuelve a registrar.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Contributions</td>
+      <td>Aporte aprobado</td>
+      <td>Evento</td>
+      <td>Compliance History</td>
+      <td>Registra el aporte y deja constancia de que necesitó revisión.</td>
+    </tr>
+  </tbody>
+</table>
+
+##### Flujo 4: los recordatorios hasta la fecha de corte
+
+Es el escenario que reemplaza la cobranza por WhatsApp, que las entrevistas señalaron como el mayor desgaste de la cabeza. Todo el flujo ocurre sin que nadie ejecute un comando.
+
+<table>
+  <colgroup><col width="4%"><col width="15%"><col width="25%"><col width="10%"><col width="15%"><col width="31%"></colgroup>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Origen</th>
+      <th>Mensaje</th>
+      <th>Tipo</th>
+      <th>Destino</th>
+      <th>Efecto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Contributions</td>
+      <td>Período abierto</td>
+      <td>Evento</td>
+      <td>Notifications</td>
+      <td>Programa la secuencia de recordatorios del período según lo que configuró la cabeza.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Notifications</td>
+      <td>Consultar quiénes siguen pendientes</td>
+      <td>Consulta</td>
+      <td>Contributions</td>
+      <td>Devuelve los integrantes sin aporte liquidado en el período vigente.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Notifications</td>
+      <td>Enviar el recordatorio</td>
+      <td>Comando</td>
+      <td>Mensajería</td>
+      <td>Sale el primer aviso, informativo, días antes de la fecha de corte.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Notifications</td>
+      <td>Recordatorio enviado</td>
+      <td>Evento</td>
+      <td>Contributions</td>
+      <td>Alimenta la proyección de si el pozo estará completo a tiempo, que la cabeza consulta antes del corte.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Notifications</td>
+      <td>Enviar el recordatorio</td>
+      <td>Comando</td>
+      <td>Mensajería</td>
+      <td>Los avisos siguientes suben de tono a medida que se acerca el corte, y el último se envía el mismo día.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Contributions</td>
+      <td>Aporte validado</td>
+      <td>Evento</td>
+      <td>Notifications</td>
+      <td>Cancela los recordatorios que quedaban programados para ese integrante en el período.</td>
+    </tr>
+  </tbody>
+</table>
+
+##### Flujo 5: pozo completo, entrega y turno siguiente
+
+Es el escenario donde el ciclo avanza solo. La cabeza ejecuta un único comando, el de entregar el pozo, y el resto son políticas del propio contexto core.
+
+<table>
+  <colgroup><col width="4%"><col width="15%"><col width="25%"><col width="10%"><col width="15%"><col width="31%"></colgroup>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Origen</th>
+      <th>Mensaje</th>
+      <th>Tipo</th>
+      <th>Destino</th>
+      <th>Efecto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Contributions</td>
+      <td>Pozo completo</td>
+      <td>Evento</td>
+      <td>Notifications</td>
+      <td>Avisa a todo el grupo que ya no falta nadie y al integrante del turno que puede cobrar.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Cabeza</td>
+      <td>Entregar el pozo</td>
+      <td>Comando</td>
+      <td>Contributions</td>
+      <td>El período queda entregado, con la fecha y quién cobró.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Contributions</td>
+      <td>Pozo entregado</td>
+      <td>Evento</td>
+      <td>Contributions</td>
+      <td>Su propia política abre el período siguiente, o cierra el ciclo si era el último turno.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Contributions</td>
+      <td>Pozo entregado</td>
+      <td>Evento</td>
+      <td>Compliance History</td>
+      <td>Registra que ese integrante cobró su turno, dato que distingue al que sigue aportando después de cobrar del que deserta.</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Contributions</td>
+      <td>Ciclo cerrado</td>
+      <td>Evento</td>
+      <td>Compliance History</td>
+      <td>Consolida la junta completada en el historial de cada integrante y recalcula su nivel.</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Contributions</td>
+      <td>Ciclo cerrado</td>
+      <td>Evento</td>
+      <td>Notifications</td>
+      <td>Avisa el cierre de la junta y el resumen final a todo el grupo.</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Integrante</td>
+      <td>Consultar mi historial</td>
+      <td>Consulta</td>
+      <td>Compliance History</td>
+      <td>Devuelve las juntas en las que participó, su puntualidad y su nivel, que puede compartir.</td>
+    </tr>
+  </tbody>
+</table>
+
+##### Flujo 6: una deserción y su reemplazo
+
+Es el escenario que obligó a decidir quién manda sobre los turnos cuando el ciclo ya empezó. La junta cambia en Savings Groups, pero el ciclo en curso solo se entera por un evento y arregla su propia copia.
+
+<table>
+  <colgroup><col width="4%"><col width="15%"><col width="25%"><col width="10%"><col width="15%"><col width="31%"></colgroup>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Origen</th>
+      <th>Mensaje</th>
+      <th>Tipo</th>
+      <th>Destino</th>
+      <th>Efecto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Cabeza</td>
+      <td>Registrar la deserción y su reemplazo</td>
+      <td>Comando</td>
+      <td>Savings Groups</td>
+      <td>El que se va queda marcado como desertor y el que entra hereda su turno pendiente.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Savings Groups</td>
+      <td>Reemplazo incorporado</td>
+      <td>Evento</td>
+      <td>Contributions</td>
+      <td>Actualiza el orden de turnos de su copia del ciclo, sin volver a consultar la junta completa.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Savings Groups</td>
+      <td>Deserción registrada</td>
+      <td>Evento</td>
+      <td>Compliance History</td>
+      <td>Registra la deserción en el historial del que se fue, con el turno en el que ocurrió.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Savings Groups</td>
+      <td>Reemplazo incorporado</td>
+      <td>Evento</td>
+      <td>Notifications</td>
+      <td>Avisa al grupo el cambio y el calendario de turnos resultante.</td>
+    </tr>
+  </tbody>
+</table>
+
+Contar los seis flujos dejó tres conclusiones que el tablero por sí solo no mostraba, y que son las que fijan el mapa de 2.5.2. La primera: Contributions consulta a Savings Groups una sola vez en toda la vida de una junta, al iniciarla, y desde entonces opera con su copia. Un cambio de reglas en la junta no puede alterar un ciclo en curso, que era justamente lo que el grupo temía del cuaderno. La segunda: Notifications nunca recibe comandos de los otros contextos, solo escucha sus eventos y decide por su cuenta a quién avisar. Eso permite cambiar los canales o la escalada de tono sin tocar el core. La tercera: la única consulta que va en dirección contraria a los eventos es la del resumen de cumplimiento, del paso 5 del primer flujo, y aparece en un momento en que no hay ciclo en curso. No es un ciclo de dependencias en tiempo de ejecución, pero sí una dependencia de modelo, y por eso en el mapa se aísla con una capa anticorrupción.
+
 #### 2.5.1.3. Bounded Context Canvases
+
+Cada contexto candidato se describió en un Bounded Context Canvas, la plantilla colaborativa del DDD Crew que obliga a decir, en una sola hoja, para qué existe un contexto, qué tan estratégico es, qué mensajes recibe y publica, con qué palabras habla y qué reglas hace cumplir [@dddcrew2021canvas]. El equipo siguió el proceso iterativo que propone la plantilla: definir el contexto, destilar sus reglas de negocio y su lenguaje, analizar sus capacidades, capturar sus dependencias y, al final, criticar el diseño buscando responsabilidades mal colocadas.
+
+Los cinco canvases se presentan en orden de importancia estratégica, que es el mismo orden en que se desarrolla el diseño táctico de 2.6. La clasificación estratégica usa tres ejes: el tipo de subdominio, la razón por la que el negocio lo necesita y la etapa de evolución en que se encuentra, de génesis a mercancía. La última fila de cada canvas recoge las preguntas que el equipo no cerró, que son las que se llevan a las siguientes entrevistas y a la validación con usuarios.
+
+##### Canvas 1: Contributions
+
+<table>
+  <colgroup><col width="22%"><col width="78%"></colgroup>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Contenido</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Propósito</b></td>
+      <td>Registrar los aportes de cada período, validarlos contra lo que la junta acordó, mantener el estado del pozo a la vista de todo el grupo y llevar el ciclo turno por turno hasta su cierre.</td>
+    </tr>
+    <tr>
+      <td><b>Clasificación estratégica</b></td>
+      <td><i>Subdominio:</i> core.<br><i>Razón de negocio:</i> sostiene la hipótesis central de Pozzo, que la validación automática del aporte reemplaza al cuaderno y a la discusión en el grupo de WhatsApp. No genera ingreso directo porque el dinero no pasa por la plataforma.<br><i>Evolución:</i> hecho a medida; la validación del comprobante está todavía en génesis.</td>
+    </tr>
+    <tr>
+      <td><b>Roles de dominio</b></td>
+      <td>Libro de registro del ciclo: su valor está en que lo registrado sea confiable y consultable por cualquiera del grupo. También es contexto de ejecución, porque hace avanzar el ciclo sin intervención.</td>
+    </tr>
+    <tr>
+      <td><b>Comunicación entrante</b></td>
+      <td><i>De la cabeza:</i> revisar un aporte observado, registrar un aporte en efectivo, registrar una cobertura, entregar el pozo y cerrar la junta.<br><i>Del participante:</i> registrar su aporte con el comprobante y consultar sus aportes.<br><i>De Savings Groups:</i> Junta iniciada y Reemplazo incorporado.<br><i>De Notifications:</i> Recordatorio enviado, y la consulta de quiénes siguen pendientes.</td>
+    </tr>
+    <tr>
+      <td><b>Comunicación saliente</b></td>
+      <td><i>Eventos:</i> Período abierto, Aporte registrado, Aporte validado, Inconsistencia detectada, Aporte aprobado, Aporte rechazado, Aporte cubierto, Pozo completo, Pozo entregado y Ciclo cerrado, que consumen Compliance History y Notifications.<br><i>Consultas:</i> reglas, integrantes y turnos a Savings Groups, una sola vez al iniciar el ciclo.<br><i>Vistas que ofrece:</i> estado del pozo, proyección del período, períodos anteriores, mis aportes y pendientes de revisión.</td>
+    </tr>
+    <tr>
+      <td><b>Lenguaje ubicuo</b></td>
+      <td>Ciclo, período, turno, aporte, aporte esperado, comprobante, inconsistencia, revisión, cobertura, efectivo, pozo, entrega, fecha de corte.</td>
+    </tr>
+    <tr>
+      <td><b>Reglas de negocio y políticas</b></td>
+      <td>Un aporte es válido si el monto es el acordado, la fecha cae dentro del período, el destinatario es el destino definido y el número de operación no se usó antes en la junta.<br>El pozo está completo cuando ningún integrante queda pendiente, sea por aporte propio, efectivo o cobertura.<br>Cada vez que se entrega el pozo se abre el período siguiente, y si era el último turno el ciclo se cierra.<br>Solo la cabeza aprueba o rechaza un aporte observado, registra efectivo y registra coberturas.<br>Las reglas del ciclo son una copia congelada al iniciar la junta y no cambian aunque la junta cambie.</td>
+    </tr>
+    <tr>
+      <td><b>Decisiones de diseño</b></td>
+      <td>Período y aporte se separaron en dos agregados porque cambian a ritmos distintos.<br>El contexto copia las reglas en lugar de consultarlas, para no depender de Savings Groups en operación.<br>La cobertura liquida lo esperado pero no borra la deuda entre personas, que Pozzo registra y no cobra.</td>
+    </tr>
+    <tr>
+      <td><b>Supuestos</b></td>
+      <td>Los comprobantes de Yape y Plin traen legibles los cuatro campos que la validación necesita.<br>El participante registra su aporte el mismo día en que transfiere.<br>La cabeza revisa los aportes observados dentro del período.</td>
+    </tr>
+    <tr>
+      <td><b>Métricas de verificación</b></td>
+      <td>Porcentaje de aportes validados sin intervención de la cabeza.<br>Tiempo entre la transferencia y la validación.<br>Inconsistencias por período y proporción de ellas que termina aprobada.<br>Períodos que completan el pozo antes de la fecha de corte.</td>
+    </tr>
+    <tr>
+      <td><b>Preguntas abiertas</b></td>
+      <td>Si un aporte parcial debe registrarse como tal o rechazarse.<br>Si el grupo puede acordar entregar el pozo incompleto y cómo queda registrado.<br>Cómo tratar una transferencia interbancaria que se acredita después de la fecha de corte.</td>
+    </tr>
+  </tbody>
+</table>
+
+##### Canvas 2: Savings Groups
+
+<table>
+  <colgroup><col width="22%"><col width="78%"></colgroup>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Contenido</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Propósito</b></td>
+      <td>Definir la junta antes de que exista un ciclo: sus reglas, sus integrantes, la invitación con la que entran y el orden en que van a cobrar, y dejarla lista para iniciar.</td>
+    </tr>
+    <tr>
+      <td><b>Clasificación estratégica</b></td>
+      <td><i>Subdominio:</i> de soporte.<br><i>Razón de negocio:</i> sin junta configurada no hay ciclo, y es la puerta de entrada de los participantes al producto, así que decide la adopción.<br><i>Evolución:</i> hecho a medida; la asignación de turnos por subasta no existe en los competidores revisados en 2.1.</td>
+    </tr>
+    <tr>
+      <td><b>Roles de dominio</b></td>
+      <td>Contexto de configuración y punto de encuentro del grupo. Todo lo que ocurre en él lo inicia una persona.</td>
+    </tr>
+    <tr>
+      <td><b>Comunicación entrante</b></td>
+      <td><i>De la cabeza:</i> crear la junta, definir el destino de los aportes, generar la invitación, agregar un integrante sin la aplicación, retirar un integrante, asignar turnos por sorteo o por orden acordado, abrir y cerrar la subasta, iniciar la junta y registrar una deserción con su reemplazo.<br><i>Del participante:</i> revisar la junta antes de unirse, unirse con el código o el enlace y ofertar en la subasta.<br><i>De Contributions:</i> la consulta de reglas, integrantes y turnos al iniciar el ciclo.</td>
+    </tr>
+    <tr>
+      <td><b>Comunicación saliente</b></td>
+      <td><i>Eventos:</i> Junta creada, Invitación generada, Integrante incorporado, Integrante manual agregado, Integrante retirado, Turnos asignados, Subasta abierta, Oferta registrada, Subasta cerrada, Junta iniciada, Deserción registrada y Reemplazo incorporado.<br><i>Consultas:</i> el resumen de cumplimiento de un integrante a Compliance History.<br><i>Vistas que ofrece:</i> mis juntas, reglas de la junta, lista de integrantes, resumen antes de unirse, calendario de turnos y ofertas vigentes.</td>
+    </tr>
+    <tr>
+      <td><b>Lenguaje ubicuo</b></td>
+      <td>Junta, reglas, cupo, invitación, código, enlace, integrante, integrante sin la aplicación, turno, sorteo, orden acordado, subasta, oferta, deserción, reemplazo.</td>
+    </tr>
+    <tr>
+      <td><b>Reglas de negocio y políticas</b></td>
+      <td>Una junta inicia solo si todos los cupos están cubiertos y los turnos asignados.<br>Al iniciar, las reglas se bloquean y la invitación caduca.<br>Un integrante se retira solo antes de que la junta inicie; después, lo que existe es la deserción con reemplazo.<br>En la subasta gana la oferta mayor, y el empate lo resuelve la cabeza.<br>Nadie ocupa dos turnos y el reemplazo hereda el turno pendiente del que desertó.<br>Un integrante sin la aplicación no puede aportar por sí mismo, porque no tiene cuenta que lo represente.</td>
+    </tr>
+    <tr>
+      <td><b>Decisiones de diseño</b></td>
+      <td>La invitación es un agregado aparte para poder regenerarla sin tocar la junta.<br>La subasta también, porque abre y cierra con su propio ciclo de vida.<br>El sorteo usa una semilla que se muestra al grupo, para que cualquiera pueda comprobar el resultado.</td>
+    </tr>
+    <tr>
+      <td><b>Supuestos</b></td>
+      <td>La cabeza conoce a todos los integrantes, que es lo que sostiene la confianza de una junta real.<br>El enlace de invitación abre la aplicación o lleva a la tienda, sin pasos intermedios.<br>Un grupo acepta que el orden de turnos quede fijado por un sorteo verificable.</td>
+    </tr>
+    <tr>
+      <td><b>Métricas de verificación</b></td>
+      <td>Proporción de invitados que completan su ingreso.<br>Tiempo entre la creación de la junta y su inicio.<br>Juntas que inician con todos los cupos cubiertos.<br>Proporción de integrantes registrados sin la aplicación.</td>
+    </tr>
+    <tr>
+      <td><b>Preguntas abiertas</b></td>
+      <td>Si una junta puede iniciar con menos integrantes que cupos y repartir el faltante.<br>Si la cabeza participa siempre como integrante o puede solo administrar.<br>Cómo se administra una junta que repite ciclo con el mismo grupo.</td>
+    </tr>
+  </tbody>
+</table>
+
+##### Canvas 3: Compliance History
+
+<table>
+  <colgroup><col width="22%"><col width="78%"></colgroup>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Contenido</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Propósito</b></td>
+      <td>Construir y conservar el registro de comportamiento de pago de cada persona a lo largo de todas las juntas en las que participa, y ponerlo a su disposición para consultarlo y compartirlo.</td>
+    </tr>
+    <tr>
+      <td><b>Clasificación estratégica</b></td>
+      <td><i>Subdominio:</i> de soporte, con potencial de convertirse en core.<br><i>Razón de negocio:</i> es el activo que sobrevive al ciclo y el que sostiene la hipótesis de ingreso del historial de cumplimiento como referencia crediticia alternativa.<br><i>Evolución:</i> génesis.</td>
+    </tr>
+    <tr>
+      <td><b>Roles de dominio</b></td>
+      <td>Contexto de análisis: no decide nada del ciclo, solo observa lo que ocurre en los demás y lo convierte en un juicio sobre el comportamiento de cada persona.</td>
+    </tr>
+    <tr>
+      <td><b>Comunicación entrante</b></td>
+      <td><i>De Contributions:</i> Aporte validado, Aporte aprobado, Aporte rechazado, Aporte cubierto, Pozo entregado y Ciclo cerrado.<br><i>De Savings Groups:</i> Integrante incorporado, Deserción registrada y Reemplazo incorporado.<br><i>Del integrante:</i> consultar su historial y compartirlo.</td>
+    </tr>
+    <tr>
+      <td><b>Comunicación saliente</b></td>
+      <td><i>Eventos:</i> Historial actualizado e Historial compartido.<br><i>Vistas que ofrece:</i> mi historial con el detalle por junta, mi nivel de cumplimiento y el resumen que Savings Groups muestra a la cabeza cuando alguien se une.</td>
+    </tr>
+    <tr>
+      <td><b>Lenguaje ubicuo</b></td>
+      <td>Historial de cumplimiento, puntualidad, aporte a tiempo, aporte tardío, cobertura recibida, deserción, junta completada, nivel de cumplimiento.</td>
+    </tr>
+    <tr>
+      <td><b>Reglas de negocio y políticas</b></td>
+      <td>El historial se escribe solo a partir de hechos ya ocurridos en otros contextos y nunca se edita a mano.<br>Un aporte cuenta como puntual si se validó antes de la fecha de corte de su período.<br>Una deserción pesa más que un aporte tardío, y pesa más todavía si ocurrió después de haber cobrado el turno.<br>El historial sale de Pozzo únicamente si su dueño lo comparte.</td>
+    </tr>
+    <tr>
+      <td><b>Decisiones de diseño</b></td>
+      <td>La unidad del modelo es la persona, no la junta, que es lo que lo separa del contexto core.<br>Se calcula a partir de eventos y no consultando a los otros contextos, para que el cierre de una junta no borre su rastro.<br>El nivel de cumplimiento se expresa como una calificación simple y explicable, no como un puntaje opaco.</td>
+    </tr>
+    <tr>
+      <td><b>Supuestos</b></td>
+      <td>A un integrante le importa que su cumplimiento quede registrado y le sirva fuera de la junta.<br>Una cabeza acepta a alguien desconocido si puede ver su historial.<br>Los eventos recibidos bastan para reconstruir el comportamiento sin consultar el detalle de cada aporte.</td>
+    </tr>
+    <tr>
+      <td><b>Métricas de verificación</b></td>
+      <td>Proporción de integrantes que consultan su historial al menos una vez por ciclo.<br>Historiales compartidos.<br>Diferencia de puntualidad entre integrantes con historial visible y sin él.</td>
+    </tr>
+    <tr>
+      <td><b>Preguntas abiertas</b></td>
+      <td>Cuánto tiempo se conserva el historial de una persona que deja de usar Pozzo.<br>Si el historial debe poder consultarse por un tercero con consentimiento, y bajo qué formato.<br>Si las juntas administradas fuera de Pozzo pueden incorporarse al historial de alguna forma.</td>
+    </tr>
+  </tbody>
+</table>
+
+##### Canvas 4: Notifications
+
+<table>
+  <colgroup><col width="22%"><col width="78%"></colgroup>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Contenido</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Propósito</b></td>
+      <td>Decidir a quién avisar, cuándo y por qué canal, para que la cabeza deje de perseguir a los que faltan y el grupo se entere de los hechos de la junta sin preguntar.</td>
+    </tr>
+    <tr>
+      <td><b>Clasificación estratégica</b></td>
+      <td><i>Subdominio:</i> genérico.<br><i>Razón de negocio:</i> elimina el trabajo de cobranza que las entrevistas identificaron como el mayor desgaste de la cabeza, pero el envío de mensajes en sí no diferencia al producto.<br><i>Evolución:</i> producto, apoyado en servicios de mensajería de terceros.</td>
+    </tr>
+    <tr>
+      <td><b>Roles de dominio</b></td>
+      <td>Pasarela hacia el mundo exterior: traduce hechos del dominio en mensajes a personas y aísla al resto del sistema de los proveedores de mensajería.</td>
+    </tr>
+    <tr>
+      <td><b>Comunicación entrante</b></td>
+      <td><i>De Contributions:</i> Período abierto, Inconsistencia detectada, Aporte validado, Pozo completo, Pozo entregado y Ciclo cerrado.<br><i>De Savings Groups:</i> Integrante incorporado, Turnos asignados, Subasta cerrada, Junta iniciada y Reemplazo incorporado.<br><i>De la cabeza:</i> configurar los recordatorios de la junta.<br><i>Del integrante:</i> elegir por qué canal recibe los avisos.</td>
+    </tr>
+    <tr>
+      <td><b>Comunicación saliente</b></td>
+      <td><i>Hacia sistemas externos:</i> los mensajes de recordatorio y de aviso.<br><i>Eventos:</i> Recordatorio enviado y Aviso enviado, que Contributions usa para su proyección del pozo.<br><i>Consultas:</i> quiénes siguen pendientes en el período vigente, a Contributions.</td>
+    </tr>
+    <tr>
+      <td><b>Lenguaje ubicuo</b></td>
+      <td>Recordatorio, aviso, canal, plantilla, escalamiento, destinatario, silencio, entrega del mensaje.</td>
+    </tr>
+    <tr>
+      <td><b>Reglas de negocio y políticas</b></td>
+      <td>Cada vez que se acerca la fecha de corte y el aporte sigue pendiente, sale un recordatorio y el tono sube.<br>Un integrante que ya aportó no recibe más recordatorios de ese período.<br>Los recordatorios son personales y los avisos de estado son para todo el grupo, porque la cobranza pública fue el reclamo más repetido en las entrevistas.<br>Ningún mensaje contiene el monto que otro integrante debe.</td>
+    </tr>
+    <tr>
+      <td><b>Decisiones de diseño</b></td>
+      <td>El contexto solo escucha eventos: ningún otro contexto le ordena enviar un mensaje, de modo que la política de avisos se cambia sin tocar el core.<br>Los proveedores de mensajería quedan detrás de un adaptador propio, para poder cambiarlos sin reescribir la política.</td>
+    </tr>
+    <tr>
+      <td><b>Supuestos</b></td>
+      <td>El recordatorio automático es mejor recibido que el mensaje personal de la cabeza.<br>La mensajería instantánea tiene mejor tasa de lectura que la notificación de la aplicación.<br>Tres avisos por período bastan para no ser ignorado ni resultar molesto.</td>
+    </tr>
+    <tr>
+      <td><b>Métricas de verificación</b></td>
+      <td>Aportes registrados dentro de las horas siguientes a un recordatorio.<br>Recordatorios necesarios por aporte.<br>Integrantes que silencian los avisos.<br>Reducción de mensajes de cobranza escritos a mano por la cabeza.</td>
+    </tr>
+    <tr>
+      <td><b>Preguntas abiertas</b></td>
+      <td>Qué canal usar cuando el integrante no tiene la aplicación instalada.<br>Si la cabeza puede escribir el texto de sus propios recordatorios.<br>Hasta dónde puede subir el tono sin que el grupo lo perciba como hostil.</td>
+    </tr>
+  </tbody>
+</table>
+
+##### Canvas 5: Identity and Access
+
+<table>
+  <colgroup><col width="22%"><col width="78%"></colgroup>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Contenido</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Propósito</b></td>
+      <td>Establecer quién es cada persona dentro de Pozzo con su número de celular verificado, mantener su sesión en el dispositivo y administrar su perfil.</td>
+    </tr>
+    <tr>
+      <td><b>Clasificación estratégica</b></td>
+      <td><i>Subdominio:</i> genérico.<br><i>Razón de negocio:</i> es la condición de entrada al producto y la que permite que una junta se arme con los mismos contactos que ya tiene la cabeza en el celular.<br><i>Evolución:</i> mercancía; hay servicios que resuelven el ingreso por celular de forma equivalente.</td>
+    </tr>
+    <tr>
+      <td><b>Roles de dominio</b></td>
+      <td>Pasarela de entrada. Es el único contexto que conoce datos personales de la persona fuera de una junta.</td>
+    </tr>
+    <tr>
+      <td><b>Comunicación entrante</b></td>
+      <td><i>Del visitante o integrante:</i> ingresar con el número de celular, verificar el código recibido, completar el registro, administrar el perfil y cerrar la sesión.<br><i>De los demás contextos:</i> la resolución de la sesión que acompaña a cada comando.</td>
+    </tr>
+    <tr>
+      <td><b>Comunicación saliente</b></td>
+      <td><i>Hacia sistemas externos:</i> el envío del código por la pasarela de SMS.<br><i>Eventos:</i> Cuenta verificada, Sesión abierta y Perfil actualizado.<br><i>Vistas que ofrece:</i> mi perfil y el identificador verificado con el que los demás contextos nombran a una persona.</td>
+    </tr>
+    <tr>
+      <td><b>Lenguaje ubicuo</b></td>
+      <td>Cuenta, número de celular, código de verificación, sesión, dispositivo, perfil, nombre visible.</td>
+    </tr>
+    <tr>
+      <td><b>Reglas de negocio y políticas</b></td>
+      <td>Un número de celular corresponde a una sola cuenta.<br>El código de verificación vence y se puede reintentar un número limitado de veces.<br>La sesión se mantiene en el dispositivo hasta que la persona la cierre.<br>Ningún otro contexto guarda el número de celular de una persona con cuenta; guardan su identificador.</td>
+    </tr>
+    <tr>
+      <td><b>Decisiones de diseño</b></td>
+      <td>Ingreso sin contraseña, porque el segmento ya opera así en sus aplicaciones de pago.<br>El identificador de la persona es el único dato que cruza la frontera hacia los otros contextos.<br>El contexto se diseñó para poder reemplazarse por un servicio de terceros sin afectar a los demás.</td>
+    </tr>
+    <tr>
+      <td><b>Supuestos</b></td>
+      <td>El número de celular es un identificador estable en el segmento.<br>La entrega del SMS es suficientemente confiable en el Perú para no necesitar un segundo canal.<br>Nadie necesita más de una cuenta.</td>
+    </tr>
+    <tr>
+      <td><b>Métricas de verificación</b></td>
+      <td>Proporción de ingresos que completan la verificación.<br>Tiempo desde el primer intento hasta la cuenta verificada.<br>Reintentos de código por ingreso.</td>
+    </tr>
+    <tr>
+      <td><b>Preguntas abiertas</b></td>
+      <td>Qué ocurre cuando una persona cambia de número de celular y participa en juntas en curso.<br>Si conviene reemplazar el contexto por un servicio de terceros antes de la primera entrega de la aplicación.<br>Si el nombre visible debe poder cambiarse una vez iniciada una junta.</td>
+    </tr>
+  </tbody>
+</table>
+
+La crítica final del diseño, el último paso del proceso del canvas, movió una responsabilidad. En la primera versión, la decisión de a quién recordarle el aporte estaba en Contributions, que era el contexto que sabía quién seguía pendiente. Al escribir el canvas de Notifications quedó claro que esa decisión pertenece a la política de avisos y no a la del ciclo: qué tan seguido se recuerda y con qué tono es una regla que el grupo ajusta, mientras que quién está pendiente es un hecho que el core publica. La responsabilidad se movió a Notifications y Contributions quedó solo con la consulta.
 
 ### 2.5.2. Context Mapping
 
