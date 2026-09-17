@@ -3477,6 +3477,80 @@ Con los contextos validados por las historias, el equipo elaboró un Bounded Con
 
 ### 2.5.2. Context Mapping
 
+El Context Map define cómo se relacionan los cinco Bounded Contexts y, en particular, quién se adapta a quién cuando dos contextos necesitan comunicarse. Antes de fijarlo, el equipo discutió cuatro alternativas de partición, siguiendo las preguntas que propone el proceso de Context Mapping: qué pasaría si se unen dos contextos, si se parte uno, si se mueve una capability a otro contexto o si se crea un shared service.
+
+![Alternativas de context mapping evaluadas](images/chapter_2/context_map_alternativas.png)
+
+La primera alternativa, unir Savings Groups y Contributions en un solo contexto Junta, simplificaría las llamadas entre servicios pero mezclaría el core con la configuración y las invitaciones, y dejaría un agregado Junta que crecería con todos los aportes de todos los períodos; se descartó para mantener el core aislado. La segunda, extraer los turnos y la subasta a un contexto Turn Allocation, se descartó porque los tres métodos de reparto operan sobre la misma lista de integrantes y los mismos cupos, y separarlos duplicaría ese modelo para un equipo de cinco personas; si la subasta crece, se extraerá después. La tercera, dejar el historial dentro de Contributions, se descartó porque el historial cruza juntas y se modela por persona, no por período, y exponerlo desde el core filtraría montos y nombres de otras juntas. La cuarta, que cada contexto envíe sus propias notificaciones, se descartó porque tres contextos hablarían con Firebase Cloud Messaging y repetirían el registro de dispositivos, el escalonamiento y la deduplicación; Notifications quedó como un shared service que reacciona a los eventos publicados.
+
+![Context Map de Pozzo](images/chapter_2/context_map.png)
+
+El mapa definitivo usa cuatro de los patrones de relación de Domain-Driven Design. En cada relación la flecha va del contexto upstream (U) al downstream (D).
+
+<table>
+  <thead>
+    <tr>
+      <th>Upstream</th>
+      <th>Downstream</th>
+      <th>Patrón</th>
+      <th>Qué se intercambia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Savings Groups</td>
+      <td>Contributions</td>
+      <td>Customer/Supplier</td>
+      <td>Reglas de la junta, integrantes y calendario de turnos. Contributions, como customer y core, define el contrato que Savings Groups debe cumplir.</td>
+    </tr>
+    <tr>
+      <td>Contributions</td>
+      <td>Notifications</td>
+      <td>Published Language / Conformist</td>
+      <td>Eventos Período abierto, Aporte validado, Aporte rechazado, Pozo completo, Pozo entregado y Ciclo cerrado. Notifications se conforma al esquema de los eventos.</td>
+    </tr>
+    <tr>
+      <td>Contributions</td>
+      <td>Compliance History</td>
+      <td>Published Language / Anti-corruption Layer</td>
+      <td>Los mismos eventos, traducidos por una capa anticorrupción a hechos de cumplimiento por persona (puntual, tardío, cubierto).</td>
+    </tr>
+    <tr>
+      <td>Savings Groups</td>
+      <td>Notifications</td>
+      <td>Published Language / Conformist</td>
+      <td>Eventos Junta iniciada, Turnos asignados y Reemplazo incorporado.</td>
+    </tr>
+    <tr>
+      <td>Compliance History</td>
+      <td>Savings Groups</td>
+      <td>Open Host Service / Conformist</td>
+      <td>Consulta del historial del integrante que se une, expuesta como servicio con un contrato público.</td>
+    </tr>
+    <tr>
+      <td>Identity &amp; Access</td>
+      <td>Savings Groups, Contributions</td>
+      <td>Open Host Service / Published Language / Conformist</td>
+      <td>Identidad del integrante y validación del token de sesión. Notifications no depende de este contexto: el registro del dispositivo lo pide la aplicación móvil después de iniciar sesión.</td>
+    </tr>
+    <tr>
+      <td>Identity &amp; Access</td>
+      <td>Proveedor de SMS</td>
+      <td>Anti-corruption Layer</td>
+      <td>Un adaptador aísla al contexto del proveedor elegido, que podrá cambiarse sin tocar las reglas de acceso.</td>
+    </tr>
+    <tr>
+      <td>Notifications</td>
+      <td>Firebase Cloud Messaging</td>
+      <td>Conformist</td>
+      <td>Notifications usa el SDK de FCM tal como viene; no tiene sentido traducir un servicio que no va a cambiar.</td>
+    </tr>
+  </tbody>
+</table>
+
+No se usa Shared Kernel: ningún contexto comparte código de dominio con otro. Cada uno tiene su propio modelo de integrante, por ejemplo, y los datos que necesita de otro contexto le llegan por eventos o por consultas con un contrato explícito. Esta decisión es la que permite que los cinco integrantes del equipo trabajen cada uno en un contexto sin bloquearse.
+
+
 ### 2.5.3. Software Architecture
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
