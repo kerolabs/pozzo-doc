@@ -1,0 +1,130 @@
+@startuml identity-access-domain
+title Identity & Access: Domain Layer
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam nodesep 40
+skinparam ranksep 60
+skinparam class {
+  BackgroundColor #F7F7F7
+  BorderColor #595959
+  ArrowColor #313131
+}
+skinparam enum {
+  BackgroundColor #FFFFFF
+  BorderColor #8A8A7E
+}
+skinparam interface {
+  BackgroundColor #FFFFFF
+  BorderColor #8A8A7E
+}
+hide empty members
+
+  class Account <<Aggregate Root>> {
+    - id : AccountId
+    - phoneNumber : PhoneNumber
+    - profile : Profile
+    - termsAcceptedAt : LocalDateTime
+    - status : AccountStatus
+    - createdAt : LocalDateTime
+    + register(phone : PhoneNumber, profile : Profile, termsAccepted : boolean) : Account {static}
+    + updateProfile(profile : Profile) : void
+    + hasAcceptedTerms() : boolean
+    + deactivate() : void
+  }
+
+  class VerificationCode <<Aggregate Root>> {
+    - id : VerificationId
+    - phoneNumber : PhoneNumber
+    - codeHash : String
+    - issuedAt : LocalDateTime
+    - expiresAt : LocalDateTime
+    - attempts : int
+    - status : VerificationStatus
+    + issue(phone : PhoneNumber, code : String) : VerificationCode {static}
+    + verify(input : String, now : LocalDateTime) : boolean
+    + isExpired(now : LocalDateTime) : boolean
+    + remainingAttempts() : int
+  }
+
+  class Session <<Aggregate Root>> {
+    - id : SessionId
+    - accountId : AccountId
+    - tokenHash : String
+    - deviceLabel : String
+    - issuedAt : LocalDateTime
+    - expiresAt : LocalDateTime
+    - revokedAt : LocalDateTime
+    + open(accountId : AccountId, tokenHash : String, deviceLabel : String) : Session {static}
+    + isActive(now : LocalDateTime) : boolean
+    + revoke() : void
+  }
+
+  class PhoneNumber <<Value Object>> {
+    - countryCode : String
+    - number : String
+    + e164() : String
+    + isPeruvianMobile() : boolean
+  }
+  class Profile <<Value Object>> {
+    - displayName : String
+    - photoUrl : String
+    - theme : Theme
+  }
+
+  enum AccountStatus {
+    ACTIVE
+    DEACTIVATED
+  }
+  enum VerificationStatus {
+    PENDING
+    VERIFIED
+    EXPIRED
+    BLOCKED
+  }
+  enum Theme {
+    SYSTEM
+    LIGHT
+    DARK
+  }
+
+  interface CodeGenerationService <<Domain Service>> {
+    + generate() : String
+    + hash(code : String) : String
+    + matches(code : String, hash : String) : boolean
+  }
+  interface TokenService <<Domain Service>> {
+    + issue(accountId : AccountId) : String
+    + hash(token : String) : String
+    + validate(token : String) : Optional<AccountId>
+  }
+
+  interface AccountRepository <<Repository>> {
+    + findById(id : AccountId) : Optional<Account>
+    + findByPhoneNumber(phone : PhoneNumber) : Optional<Account>
+    + existsByPhoneNumber(phone : PhoneNumber) : boolean
+    + save(account : Account) : Account
+  }
+  interface VerificationCodeRepository <<Repository>> {
+    + findPendingByPhoneNumber(phone : PhoneNumber) : Optional<VerificationCode>
+    + save(code : VerificationCode) : VerificationCode
+  }
+  interface SessionRepository <<Repository>> {
+    + findByTokenHash(hash : String) : Optional<Session>
+    + findActiveByAccountId(accountId : AccountId) : List<Session>
+    + save(session : Session) : Session
+  }
+
+Account "1" *-- "1" PhoneNumber : phoneNumber
+Account "1" *-- "1" Profile : profile
+Account "1" o-- "0..*" Session : sessions >
+VerificationCode "1" *-- "1" PhoneNumber : phoneNumber
+Account --> AccountStatus
+VerificationCode --> VerificationStatus
+Profile --> Theme
+CodeGenerationService ..> VerificationCode : issues and checks
+TokenService ..> Session : issues tokens
+AccountRepository ..> Account : persists
+VerificationCodeRepository ..> VerificationCode : persists
+SessionRepository ..> Session : persists
+@enduml

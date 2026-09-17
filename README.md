@@ -60,6 +60,9 @@
 - [2.6. Tactical-Level Domain-Driven Design](docs/chapter_2.md#26-tactical-level-domain-driven-design)
   - [2.6.1. Bounded Context: Contributions](docs/chapter_2.md#261-bounded-context-contributions)
   - [2.6.2. Bounded Context: Savings Groups](docs/chapter_2.md#262-bounded-context-savings-groups)
+  - [2.6.3. Bounded Context: Compliance History](docs/chapter_2.md#263-bounded-context-compliance-history)
+  - [2.6.4. Bounded Context: Notifications](docs/chapter_2.md#264-bounded-context-notifications)
+  - [2.6.5. Bounded Context: Identity & Access](docs/chapter_2.md#265-bounded-context-identity--access)
 
 ### [Capítulo III: Solution UI/UX Design](docs/chapter_3.md#capítulo-iii-solution-uiux-design)
 - [3.1. Product design](docs/chapter_3.md#31-product-design)

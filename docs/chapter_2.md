@@ -3902,3 +3902,623 @@ SavingsGroup compone sus reglas, sus integrantes y sus turnos, y agrega por iden
 ![Diagrama de base de datos de Savings Groups](images/chapter_2/db_savings_groups.png){width=85%}
 
 El esquema `savings_groups` tiene seis tablas. `savings_groups` guarda la junta con sus reglas en columnas; `memberships` una fila por integrante, con `member_id` nulo para los registrados sin la aplicación y una restricción que exige celular en ese caso; `invitations` los códigos, únicos en toda la base; `turn_slots` el orden de cobro con clave compuesta por junta y turno y unicidad por integrante, de modo que nadie ocupa dos turnos; `auctions` una subasta por turno y `bids` sus ofertas con índice descendente por monto para resolver rápido la mayor.
+
+### 2.6.3. Bounded Context: Compliance History
+
+Compliance History es un contexto de análisis: no toma decisiones sobre la junta, solo acumula hechos de cumplimiento por persona y los resume. Su modelo tiene dos agregados. **MemberRecord** es el historial de un integrante, con una entrada por cada hecho relevante recibido de otros contextos; produce un resumen agregado que es lo único que se muestra fuera. **ShareLink** es un enlace con vigencia limitada que permite mostrar ese resumen a alguien que no es integrante de Pozzo. La capa anticorrupción está en los event handlers: reciben eventos de Contributions y Savings Groups expresados en términos de aportes y períodos, y los traducen a entradas de cumplimiento (puntual, tardío, cubierto, rechazado, deserción, ciclo completado).
+
+#### 2.6.3.1. Domain Layer
+
+<table>
+  <colgroup><col width="24%"><col width="14%"><col width="28%"><col width="34%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Propósito</th>
+      <th>Atributos y métodos principales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>MemberRecord</b></td>
+      <td>Aggregate Root</td>
+      <td>Historial de un integrante a lo largo de todas sus juntas. Su identidad es el propio memberId.</td>
+      <td>memberId, entries, updatedAt. forMember(memberId), record(entry), summary(), entriesInCycle(cycleId).</td>
+    </tr>
+    <tr>
+      <td><b>ShareLink</b></td>
+      <td>Aggregate Root</td>
+      <td>Enlace verificable para compartir el historial, con vigencia y revocación.</td>
+      <td>token, memberId, createdAt, expiresAt, revoked. issue(memberId, validity), isValid(now), revoke().</td>
+    </tr>
+    <tr>
+      <td><b>ComplianceEntry</b></td>
+      <td>Entity</td>
+      <td>Un hecho de cumplimiento, con el evento de origen que lo produjo para no registrarlo dos veces.</td>
+      <td>id, cycleId, periodId, kind, occurredAt, sourceEventId. isNegative().</td>
+    </tr>
+    <tr>
+      <td><b>ComplianceSummary</b></td>
+      <td>Value Object</td>
+      <td>Resumen agregado: conteos por tipo, juntas completadas y nivel. Es lo que se muestra a la cabeza y en el enlace compartido; nunca los montos ni los nombres de otras juntas.</td>
+      <td>onTime, late, covered, dropouts, cyclesCompleted, level. complianceRate().</td>
+    </tr>
+    <tr>
+      <td><b>ShareToken</b></td>
+      <td>Value Object</td>
+      <td>Token aleatorio del enlace.</td>
+      <td>value, random().</td>
+    </tr>
+    <tr>
+      <td><b>EntryKind,<br>ComplianceLevel</b></td>
+      <td>Enumeración</td>
+      <td>Tipos de hecho y niveles del resumen.</td>
+      <td>ON_TIME / LATE / COVERED / REJECTED / DROPOUT / CYCLE_COMPLETED; EXCELLENT / GOOD / REGULAR / RISKY / NEW.</td>
+    </tr>
+    <tr>
+      <td><b>ComplianceScoringService</b></td>
+      <td>Domain Service</td>
+      <td>Calcula el resumen y el nivel a partir de las entradas. Un integrante sin entradas es NEW; una deserción reciente lo lleva a RISKY; más del 90 % de aportes puntuales en tres o más juntas completadas es EXCELLENT.</td>
+      <td>summarize(entries).</td>
+    </tr>
+    <tr>
+      <td><b>MemberRecordRepository,<br>ShareLinkRepository</b></td>
+      <td>Repository (interfaz)</td>
+      <td>Persistencia de los agregados y verificación de idempotencia por evento de origen.</td>
+      <td>findByMemberId, existsEntryBySourceEventId, findByToken, save.</td>
+    </tr>
+    <tr>
+      <td><b>RecordComplianceEntryCommand,<br>ShareHistoryCommand,<br>RevokeShareLinkCommand</b></td>
+      <td>Command</td>
+      <td>Registrar un hecho (lo emiten los event handlers), compartir el historial y revocar un enlace.</td>
+      <td>memberId, cycleId, periodId, kind, sourceEventId; validity; token.</td>
+    </tr>
+    <tr>
+      <td><b>GetMyHistoryQuery,<br>GetMemberSummaryQuery,<br>GetSharedHistoryQuery</b></td>
+      <td>Query</td>
+      <td>Historial propio con detalle, resumen de otro integrante (para la cabeza y para Savings Groups) e historial por enlace compartido.</td>
+      <td>memberId, token.</td>
+    </tr>
+    <tr>
+      <td><b>HistoryUpdatedEvent,<br>HistorySharedEvent</b></td>
+      <td>Domain Event</td>
+      <td>Hechos que publica el contexto; Notifications no los consume, se conservan para auditoría.</td>
+      <td>memberId, fecha.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### 2.6.3.2. Interface Layer
+
+<table>
+  <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Propósito</th>
+      <th>Endpoints</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>ComplianceHistoryController</b></td>
+      <td>Consulta y compartición del historial. El endpoint del resumen de otro integrante exige que quien consulta sea cabeza de una junta no iniciada a la que ese integrante se unió.</td>
+      <td>GET /api/v1/members/me/compliance,<br>GET /api/v1/members/{memberId}/compliance/summary,<br>POST /api/v1/members/me/compliance/share,<br>DELETE /api/v1/compliance/shares/{token},<br>GET /api/v1/compliance/shared/{token} (público,<br>sin token de sesión).</td>
+    </tr>
+    <tr>
+      <td><b>ComplianceHistoryResource, ComplianceSummaryResource, ShareLinkResource</b> y sus assemblers</td>
+      <td>Recursos JSON y transformaciones.</td>
+      <td>No aplica.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### 2.6.3.3. Application Layer
+
+<table>
+  <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Responsabilidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>ComplianceCommandServiceImpl</b></td>
+      <td>Command Service</td>
+      <td>handle(RecordComplianceEntryCommand): ignora el comando si el evento de origen ya se registró, crea el MemberRecord si no existe y agrega la entrada. handle(ShareHistoryCommand) y handle(RevokeShareLinkCommand): emite y revoca enlaces.</td>
+    </tr>
+    <tr>
+      <td><b>ComplianceQueryServiceImpl</b></td>
+      <td>Query Service</td>
+      <td>Resuelve el historial propio, el resumen de otro integrante y el historial compartido; en los dos últimos devuelve solo ComplianceSummary.</td>
+    </tr>
+    <tr>
+      <td><b>ContributionEventsHandler</b></td>
+      <td>Event Handler (ACL)</td>
+      <td>Traduce ContributionValidatedEvent a ON_TIME o LATE según la fecha de pago frente a la fecha de corte, ContributionCoveredEvent a COVERED y ContributionRejectedEvent a REJECTED.</td>
+    </tr>
+    <tr>
+      <td><b>GroupEventsHandler</b></td>
+      <td>Event Handler (ACL)</td>
+      <td>Traduce MemberDroppedEvent a DROPOUT y CycleClosedEvent a CYCLE_COMPLETED para cada integrante que terminó el ciclo.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### 2.6.3.4. Infrastructure Layer
+
+<table>
+  <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Responsabilidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>MemberRecordRepositoryImpl,<br>ShareLinkRepositoryImpl</b></td>
+      <td>Repository (JPA)</td>
+      <td>Persistencia sobre el esquema `compliance_history`; los conteos del resumen se guardan desnormalizados en `member_records` para que la consulta de la cabeza no recorra todas las entradas.</td>
+    </tr>
+    <tr>
+      <td><b>ComplianceScoringServiceImpl</b></td>
+      <td>Domain Service (implementación)</td>
+      <td>Implementa los umbrales de nivel, configurables por propiedades.</td>
+    </tr>
+    <tr>
+      <td><b>SharedHistoryLinkBuilder</b></td>
+      <td>Adaptador</td>
+      <td>Construye la URL pública del historial compartido que la aplicación entrega a la hoja de compartir del sistema.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Diagrama de componentes de Compliance History](images/chapter_2/c4_components_compliance_history.png){width=75%}
+
+El contexto tiene dos entradas: el controller, para las consultas y la compartición desde la aplicación, y los event handlers, que reciben los eventos de Contributions y Savings Groups y los convierten en comandos de registro. Ambos pasan por el command service, que es el único que escribe. Savings Groups consume el query service a través de su propia capa anticorrupción.
+
+#### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Diagrama de clases del Domain Layer de Compliance History](images/chapter_2/uml_compliance_history_domain.png){width=80%}
+
+##### 2.6.3.6.2. Bounded Context Database Design Diagram
+
+![Diagrama de base de datos de Compliance History](images/chapter_2/db_compliance_history.png){width=75%}
+
+El esquema `compliance_history` tiene tres tablas. `member_records` usa el identificador del integrante como clave y guarda los conteos y el nivel ya calculados; `compliance_entries` guarda cada hecho con el identificador del evento que lo originó, único para garantizar que un mismo evento no se cuente dos veces aunque se vuelva a publicar; `share_links` guarda los enlaces con su vencimiento y revocación.
+
+### 2.6.4. Bounded Context: Notifications
+
+Notifications es un contexto genérico y reactivo: casi todo lo que hace lo dispara un evento de otro contexto. Su modelo tiene tres agregados. **Device** es un dispositivo registrado para recibir push, con su token de Firebase Cloud Messaging. **ReminderPlan** es la política de recordatorios de una junta: cuántos días antes de la fecha de corte se envían y a qué hora; existe uno por junta y por defecto es tres días, un día y el mismo día. **Notification** es un recordatorio o aviso programado o enviado a un integrante, con una clave de deduplicación que impide que un mismo hecho produzca dos avisos. El domain service ReminderSchedulingService convierte un plan y una fecha de corte en las notificaciones programadas de cada integrante pendiente, y las cancela cuando el aporte se valida.
+
+#### 2.6.4.1. Domain Layer
+
+<table>
+  <colgroup><col width="24%"><col width="14%"><col width="28%"><col width="34%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Propósito</th>
+      <th>Atributos y métodos principales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Device</b></td>
+      <td>Aggregate Root</td>
+      <td>Dispositivo de un integrante con su token push; se registra al iniciar sesión y se desactiva al cerrarla o cuando FCM informa que el token ya no es válido.</td>
+      <td>id, memberId, pushToken, platform, registeredAt, active. register(memberId, token, platform), refreshToken(token), deactivate().</td>
+    </tr>
+    <tr>
+      <td><b>ReminderPlan</b></td>
+      <td>Aggregate Root</td>
+      <td>Política de recordatorios de una junta.</td>
+      <td>id, groupId, offsetsInDays, sendHour, enabled. defaultFor(groupId), configure(offsets, sendHour, enabled), scheduleFor(cutoffDate).</td>
+    </tr>
+    <tr>
+      <td><b>Notification</b></td>
+      <td>Aggregate Root</td>
+      <td>Un recordatorio o aviso con su contenido, su momento de envío, su estado y su clave de deduplicación.</td>
+      <td>id, memberId, groupId, kind, content, dedupKey, scheduledAt, sentAt, status, attempts. reminder(...), alert(...), isDue(now), markSent(), markFailed(), cancel().</td>
+    </tr>
+    <tr>
+      <td><b>NotificationContent,<br>DedupKey,<br>PushToken</b></td>
+      <td>Value Object</td>
+      <td>Título, cuerpo y enlace profundo; clave única por tipo, integrante y referencia; token de FCM.</td>
+      <td>title, body, deepLink; of(kind, memberId, referenceId); value.</td>
+    </tr>
+    <tr>
+      <td><b>NotificationKind,<br>NotificationStatus,<br>Platform</b></td>
+      <td>Enumeración</td>
+      <td>Tipo, estado y plataforma.</td>
+      <td>REMINDER / ALERT; SCHEDULED / SENT / CANCELLED / FAILED; ANDROID / IOS.</td>
+    </tr>
+    <tr>
+      <td><b>ReminderSchedulingService</b></td>
+      <td>Domain Service</td>
+      <td>Programa los recordatorios de un período para los integrantes pendientes según el plan, y los cancela para un integrante cuando su aporte se valida.</td>
+      <td>scheduleReminders(plan, periodId, cutoffDate, pending), cancelReminders(periodId, memberId).</td>
+    </tr>
+    <tr>
+      <td><b>DeviceRepository,<br>ReminderPlanRepository,<br>NotificationRepository</b></td>
+      <td>Repository (interfaz)</td>
+      <td>Persistencia; NotificationRepository expone las notificaciones vencidas para el despachador y la verificación de la clave de deduplicación.</td>
+      <td>findActiveByMemberId, findByPushToken, findByGroupId, findDue, findScheduledByPeriodAndMember, existsByDedupKey, findByMemberId, save.</td>
+    </tr>
+    <tr>
+      <td><b>RegisterDeviceCommand,<br>DeactivateDeviceCommand,<br>ConfigureReminderPlanCommand,<br>ScheduleRemindersCommand,<br>CancelRemindersCommand,<br>CreateAlertCommand</b></td>
+      <td>Command</td>
+      <td>Comandos de la aplicación (dispositivo y plan) y comandos internos que emiten los event handlers.</td>
+      <td>memberId, token, plataforma; groupId, offsets, hora; periodId, fecha de corte, pendientes; contenido y clave.</td>
+    </tr>
+    <tr>
+      <td><b>GetNotificationsQuery,<br>GetReminderPlanQuery</b></td>
+      <td>Query</td>
+      <td>Avisos recibidos y plan de recordatorios de la junta.</td>
+      <td>memberId, groupId.</td>
+    </tr>
+    <tr>
+      <td><b>DeviceRegisteredEvent,<br>ReminderPlanConfiguredEvent,<br>ReminderSentEvent,<br>AlertSentEvent</b></td>
+      <td>Domain Event</td>
+      <td>Hechos que publica el contexto, usados para métricas.</td>
+      <td>Identificadores y fecha.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### 2.6.4.2. Interface Layer
+
+<table>
+  <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Propósito</th>
+      <th>Endpoints</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>DevicesController</b></td>
+      <td>Registro y baja del dispositivo.</td>
+      <td>POST /api/v1/members/me/devices,<br>DELETE /api/v1/members/me/devices/{deviceId}.</td>
+    </tr>
+    <tr>
+      <td><b>ReminderPlansController</b></td>
+      <td>Consulta y configuración del plan de recordatorios de la junta, solo para la cabeza.</td>
+      <td>GET /api/v1/groups/{groupId}/reminder-plan,<br>PUT /api/v1/groups/{groupId}/reminder-plan.</td>
+    </tr>
+    <tr>
+      <td><b>NotificationsController</b></td>
+      <td>Avisos recibidos por el integrante.</td>
+      <td>GET /api/v1/members/me/notifications.</td>
+    </tr>
+    <tr>
+      <td><b>RegisterDeviceResource, ReminderPlanResource, NotificationResource</b> y sus assemblers</td>
+      <td>Recursos JSON y transformaciones.</td>
+      <td>No aplica.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### 2.6.4.3. Application Layer
+
+<table>
+  <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Responsabilidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>NotificationCommandServiceImpl</b></td>
+      <td>Command Service</td>
+      <td>Registra y da de baja dispositivos, configura el plan, programa y cancela recordatorios con ReminderSchedulingService y crea avisos descartando los que repiten una clave de deduplicación.</td>
+    </tr>
+    <tr>
+      <td><b>NotificationQueryServiceImpl</b></td>
+      <td>Query Service</td>
+      <td>Resuelve los avisos de un integrante y el plan de una junta.</td>
+    </tr>
+    <tr>
+      <td><b>PeriodEventsHandler</b></td>
+      <td>Event Handler</td>
+      <td>Al recibir PeriodOpenedEvent, obtiene el plan de la junta y programa los recordatorios de todos los integrantes; al recibir ContributionValidatedEvent o ContributionCoveredEvent, cancela los del integrante.</td>
+    </tr>
+    <tr>
+      <td><b>GroupEventsHandler</b></td>
+      <td>Event Handler</td>
+      <td>Convierte Junta iniciada, Turnos asignados, Reemplazo incorporado, Pozo completo, Pozo entregado, Aporte rechazado y Ciclo cerrado en avisos para los integrantes correspondientes.</td>
+    </tr>
+    <tr>
+      <td><b>NotificationDispatcher</b></td>
+      <td>Tarea programada</td>
+      <td>Cada minuto toma las notificaciones vencidas, las envía a los dispositivos activos del integrante con FcmPushSender y marca el resultado; reintenta hasta tres veces y desactiva los dispositivos cuyo token FCM rechaza.</td>
+    </tr>
+  </tbody>
+</table>
+
+El equipo eligió un despachador con tarea programada sobre la tabla de notificaciones, en lugar de una cola con retardo, porque no añade infraestructura, sobrevive a reinicios y hace trivial cancelar un recordatorio: basta con cambiar su estado antes de que venza. Es la respuesta a la Spike Story sobre notificaciones.
+
+#### 2.6.4.4. Infrastructure Layer
+
+<table>
+  <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Responsabilidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>DeviceRepositoryImpl,<br>ReminderPlanRepositoryImpl,<br>NotificationRepositoryImpl</b></td>
+      <td>Repository (JPA)</td>
+      <td>Persistencia sobre el esquema `notifications`, con un índice por estado y fecha programada para el despachador.</td>
+    </tr>
+    <tr>
+      <td><b>ReminderSchedulingServiceImpl</b></td>
+      <td>Domain Service (implementación)</td>
+      <td>Calcula las fechas de envío en la zona horaria de Lima y crea las Notification con su clave de deduplicación.</td>
+    </tr>
+    <tr>
+      <td><b>FcmPushSender</b></td>
+      <td>Adaptador (Conformist)</td>
+      <td>Envía mensajes con el SDK de Firebase Admin y traduce sus errores a resultados de entrega.</td>
+    </tr>
+    <tr>
+      <td><b>NotificationsJpaConfig,<br>SchedulingConfig</b></td>
+      <td>Configuración</td>
+      <td>Esquema y convertidores; habilitación del programador de tareas con un solo hilo para evitar envíos duplicados.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Diagrama de componentes de Notifications](images/chapter_2/c4_components_notifications.png){width=80%}
+
+Los event handlers son la entrada principal del contexto y los controllers la secundaria. El despachador es el único componente que habla con Firebase Cloud Messaging, a través del adaptador FcmPushSender, lo que concentra en un punto el manejo de tokens inválidos y reintentos.
+
+#### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Diagrama de clases del Domain Layer de Notifications](images/chapter_2/uml_notifications_domain.png){width=90%}
+
+##### 2.6.4.6.2. Bounded Context Database Design Diagram
+
+![Diagrama de base de datos de Notifications](images/chapter_2/db_notifications.png){width=85%}
+
+El esquema `notifications` tiene cuatro tablas. `devices` guarda los tokens, únicos, con su plataforma y si están activos; `reminder_plans` un plan por junta; `notifications` cada recordatorio o aviso con su clave de deduplicación única, su fecha programada y su estado, más el período y el integrante para poder cancelar los recordatorios de quien ya aportó; `deliveries` registra cada intento de envío a cada dispositivo con el resultado que devolvió FCM. Las tablas no se relacionan con las de otros esquemas: `member_id`, `group_id` y `period_id` son referencias por identificador.
+
+### 2.6.5. Bounded Context: Identity & Access
+
+Identity & Access es el contexto genérico que identifica a cada integrante por su número de celular, sin contraseña. Su modelo tiene tres agregados. **Account** es la cuenta de un integrante con su celular, su perfil y la aceptación de términos. **VerificationCode** es un código SMS emitido para un celular, con su vencimiento y sus intentos; se modela como agregado separado porque existe antes de que exista la cuenta. **Session** es una sesión abierta en un dispositivo, representada por el hash de su token, para poder revocarla. Dos servicios de dominio se definen como interfaces: la generación y comparación de códigos y la emisión y validación de tokens, cuyas implementaciones dependen de bibliotecas de infraestructura.
+
+#### 2.6.5.1. Domain Layer
+
+<table>
+  <colgroup><col width="24%"><col width="14%"><col width="28%"><col width="34%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Propósito</th>
+      <th>Atributos y métodos principales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Account</b></td>
+      <td>Aggregate Root</td>
+      <td>Cuenta del integrante: celular único, perfil, términos aceptados y estado.</td>
+      <td>id, phoneNumber, profile, termsAcceptedAt, status, createdAt. register(phone, profile, termsAccepted), updateProfile(profile), hasAcceptedTerms(), deactivate().</td>
+    </tr>
+    <tr>
+      <td><b>VerificationCode</b></td>
+      <td>Aggregate Root</td>
+      <td>Código de seis dígitos emitido para un celular; vence a los cinco minutos y admite tres intentos, después de los cuales queda bloqueado.</td>
+      <td>id, phoneNumber, codeHash, issuedAt, expiresAt, attempts, status. issue(phone, code), verify(input, now), isExpired(now), remainingAttempts().</td>
+    </tr>
+    <tr>
+      <td><b>Session</b></td>
+      <td>Aggregate Root</td>
+      <td>Sesión abierta en un dispositivo; persiste hasta que el integrante la cierra o vence.</td>
+      <td>id, accountId, tokenHash, deviceLabel, issuedAt, expiresAt, revokedAt. open(accountId, tokenHash, deviceLabel), isActive(now), revoke().</td>
+    </tr>
+    <tr>
+      <td><b>PhoneNumber</b></td>
+      <td>Value Object</td>
+      <td>Celular en formato E.164; valida que sea un móvil peruano.</td>
+      <td>countryCode, number. e164(), isPeruvianMobile().</td>
+    </tr>
+    <tr>
+      <td><b>Profile</b></td>
+      <td>Value Object</td>
+      <td>Nombre visible, foto y tema visual.</td>
+      <td>displayName, photoUrl, theme.</td>
+    </tr>
+    <tr>
+      <td><b>AccountStatus,<br>VerificationStatus,<br>Theme</b></td>
+      <td>Enumeración</td>
+      <td>Estados y tema.</td>
+      <td>ACTIVE / DEACTIVATED; PENDING / VERIFIED / EXPIRED / BLOCKED; SYSTEM / LIGHT / DARK.</td>
+    </tr>
+    <tr>
+      <td><b>CodeGenerationService</b></td>
+      <td>Domain Service (interfaz)</td>
+      <td>Genera códigos aleatorios y los compara con su hash; el código en claro nunca se persiste.</td>
+      <td>generate(), hash(code), matches(code, hash).</td>
+    </tr>
+    <tr>
+      <td><b>TokenService</b></td>
+      <td>Domain Service (interfaz)</td>
+      <td>Emite y valida los tokens de sesión que autorizan cada solicitud.</td>
+      <td>issue(accountId), hash(token), validate(token).</td>
+    </tr>
+    <tr>
+      <td><b>AccountRepository,<br>VerificationCodeRepository,<br>SessionRepository</b></td>
+      <td>Repository (interfaz)</td>
+      <td>Persistencia de los agregados.</td>
+      <td>findById, findByPhoneNumber, existsByPhoneNumber, findPendingByPhoneNumber, findByTokenHash, findActiveByAccountId, save.</td>
+    </tr>
+    <tr>
+      <td><b>RequestCodeCommand,<br>VerifyCodeCommand,<br>CompleteRegistrationCommand,<br>SignOutCommand,<br>UpdateProfileCommand</b></td>
+      <td>Command</td>
+      <td>Comandos del EventStorming de acceso.</td>
+      <td>phone; phone y código; phone, nombre, foto y aceptación de términos; token; perfil.</td>
+    </tr>
+    <tr>
+      <td><b>GetProfileQuery,<br>GetAccountByPhoneQuery,<br>ValidateTokenQuery</b></td>
+      <td>Query</td>
+      <td>Perfil, existencia de cuenta por celular (para decidir si se pide el registro) y validación del token desde el filtro de seguridad.</td>
+      <td>accountId, phone, token.</td>
+    </tr>
+    <tr>
+      <td><b>CodeRequestedEvent,<br>CodeVerifiedEvent,<br>AccountCreatedEvent,<br>SessionOpenedEvent,<br>SessionRevokedEvent,<br>ProfileUpdatedEvent</b></td>
+      <td>Domain Event</td>
+      <td>Hechos que publica el contexto. SessionRevokedEvent lo consume Notifications para desactivar el dispositivo.</td>
+      <td>accountId, phone, fecha.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### 2.6.5.2. Interface Layer
+
+<table>
+  <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Propósito</th>
+      <th>Endpoints</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>AuthenticationController</b></td>
+      <td>Acceso sin contraseña: solicitar el código, verificarlo (devuelve el token si la cuenta existe o un token de registro si no), completar el registro y cerrar sesión.</td>
+      <td>POST /api/v1/auth/codes,<br>POST /api/v1/auth/codes/verify,<br>POST /api/v1/auth/register,<br>POST /api/v1/auth/sign-out.</td>
+    </tr>
+    <tr>
+      <td><b>ProfilesController</b></td>
+      <td>Perfil y tema visual del integrante autenticado.</td>
+      <td>GET /api/v1/members/me/profile,<br>PUT /api/v1/members/me/profile.</td>
+    </tr>
+    <tr>
+      <td><b>RequestCodeResource, VerifyCodeResource, RegisterResource, AuthenticatedResource, ProfileResource</b> y sus assemblers</td>
+      <td>Recursos JSON y transformaciones.</td>
+      <td>No aplica.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### 2.6.5.3. Application Layer
+
+<table>
+  <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Responsabilidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>AuthenticationCommandServiceImpl</b></td>
+      <td>Command Service</td>
+      <td>handle(RequestCodeCommand): invalida códigos pendientes, genera uno nuevo, lo guarda con hash y lo envía por SmsSender. handle(VerifyCodeCommand): verifica el código y, si el celular ya tiene cuenta, abre una Session y devuelve el token; si no, devuelve un token de registro de corta vida. handle(CompleteRegistrationCommand): crea la Account y abre la sesión. handle(SignOutCommand): revoca la sesión y publica SessionRevokedEvent.</td>
+    </tr>
+    <tr>
+      <td><b>AccountQueryServiceImpl</b></td>
+      <td>Query Service</td>
+      <td>Resuelve el perfil, la existencia por celular y la validación del token (sesión activa y no revocada).</td>
+    </tr>
+    <tr>
+      <td><b>SmsSender</b></td>
+      <td>Outbound Service (interfaz)</td>
+      <td>Contrato hacia el proveedor de SMS: send(phone, message).</td>
+    </tr>
+  </tbody>
+</table>
+
+#### 2.6.5.4. Infrastructure Layer
+
+<table>
+  <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Tipo</th>
+      <th>Responsabilidad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>AccountRepositoryImpl,<br>VerificationCodeRepositoryImpl,<br>SessionRepositoryImpl</b></td>
+      <td>Repository (JPA)</td>
+      <td>Persistencia sobre el esquema `identity_access`.</td>
+    </tr>
+    <tr>
+      <td><b>SecureRandomCodeGenerationService</b></td>
+      <td>Domain Service (implementación)</td>
+      <td>Códigos de seis dígitos con SecureRandom y hash con BCrypt.</td>
+    </tr>
+    <tr>
+      <td><b>JwtTokenService</b></td>
+      <td>Domain Service (implementación)</td>
+      <td>Tokens JWT firmados con clave del servidor, con el identificador de la cuenta y la sesión como claims.</td>
+    </tr>
+    <tr>
+      <td><b>SmsSenderImpl</b></td>
+      <td>Anti-corruption Layer</td>
+      <td>Adaptador al proveedor de SMS elegido en la Spike Story correspondiente; el contexto solo conoce la interfaz SmsSender.</td>
+    </tr>
+    <tr>
+      <td><b>BearerAuthorizationFilter</b></td>
+      <td>Filtro de seguridad</td>
+      <td>Lee el token de cada solicitud, lo valida con AccountQueryService y coloca la identidad del integrante en el contexto de seguridad, que los controllers de los demás módulos leen como principal.</td>
+    </tr>
+    <tr>
+      <td><b>SecurityConfig,<br>IdentityJpaConfig</b></td>
+      <td>Configuración</td>
+      <td>Rutas públicas (códigos, verificación, registro, historial compartido, OpenAPI) y protegidas; esquema y convertidores.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
+
+![Diagrama de componentes de Identity & Access](images/chapter_2/c4_components_identity_access.png){width=80%}
+
+Además de los controllers y servicios habituales, el diagrama muestra BearerAuthorizationFilter, el componente por el que Identity & Access actúa como Open Host Service para los demás módulos: valida el token de cada solicitud y expone la identidad del integrante sin que los otros contextos conozcan cuentas ni sesiones. SmsSender es el único componente que habla con el proveedor de SMS.
+
+#### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
+
+##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
+
+![Diagrama de clases del Domain Layer de Identity & Access](images/chapter_2/uml_identity_access_domain.png){width=90%}
+
+##### 2.6.5.6.2. Bounded Context Database Design Diagram
+
+![Diagrama de base de datos de Identity & Access](images/chapter_2/db_identity_access.png){width=75%}
+
+El esquema `identity_access` tiene tres tablas. `accounts` guarda la cuenta con el celular único y el perfil; `verification_codes` los códigos con su hash, vencimiento e intentos, sin clave foránea a la cuenta porque se emiten antes de que exista; `sessions` las sesiones con el hash del token, único, y la fecha de revocación. Ningún dato de otros contextos vive aquí: los demás esquemas guardan el identificador de la cuenta como referencia.
+

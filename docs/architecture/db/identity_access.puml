@@ -1,0 +1,55 @@
+@startuml identity-access-db
+title Identity & Access: esquema identity_access (PostgreSQL)
+
+skinparam linetype ortho
+skinparam shadowing false
+skinparam dpi 200
+skinparam nodesep 60
+skinparam ranksep 70
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #595959
+  ArrowColor #313131
+  HeaderBackgroundColor #E7E7E7
+}
+hide circle
+hide empty methods
+
+entity "accounts" as accounts {
+  * id : UUID <<PK>>
+  --
+  * phone_number : VARCHAR(20) <<UQ>>
+  * display_name : VARCHAR(80)
+  photo_url : VARCHAR(300)
+  * theme : VARCHAR(10)
+  * terms_accepted_at : TIMESTAMP
+  * status : VARCHAR(12)
+  * created_at : TIMESTAMP
+  * updated_at : TIMESTAMP
+}
+
+entity "verification_codes" as codes {
+  * id : UUID <<PK>>
+  --
+  * phone_number : VARCHAR(20)
+  * code_hash : VARCHAR(120)
+  * issued_at : TIMESTAMP
+  * expires_at : TIMESTAMP
+  * attempts : SMALLINT
+  * status : VARCHAR(10)
+}
+
+entity "sessions" as sessions {
+  * id : UUID <<PK>>
+  --
+  * account_id : UUID <<FK>>
+  * token_hash : VARCHAR(120) <<UQ>>
+  device_label : VARCHAR(80)
+  * issued_at : TIMESTAMP
+  * expires_at : TIMESTAMP
+  revoked_at : TIMESTAMP
+}
+
+accounts ||--o{ sessions : "abre"
+accounts .. codes : "verifica (por phone_number)"
+@enduml
