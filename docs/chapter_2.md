@@ -4566,6 +4566,126 @@ La crítica final del diseño, el último paso del proceso del canvas, movió un
 
 ### 2.5.2. Context Mapping
 
+Los canvases describen cada contexto por separado; el Context Map describe lo que ocurre entre ellos. Un mapa de contextos no es un diagrama de componentes: lo que registra no es quién llama a quién, sino quién depende del modelo de quién, y por lo tanto de quién tiene que enterarse un equipo antes de cambiar una regla [@evans2003ddd]. En cada relación hay un contexto aguas arriba, que impone su lenguaje, y uno aguas abajo, que tiene que acomodarse; el patrón elegido dice cómo se acomoda.
+
+Los cinco contextos de Pozzo se implementan como módulos de un mismo servicio, según la arquitectura de 2.5.3, así que ninguna de estas relaciones cruza la red. Eso hace más fácil equivocarse, no menos: cuando dos módulos comparten proceso, nada impide que uno importe las clases del otro y el mapa se vuelva decorativo. Por eso cada relación se implementa con un mecanismo explícito, un evento de dominio o una interfaz de servicio saliente, y las dependencias que aparecen en el cuadro son las únicas que el diseño permite.
+
+<table>
+  <colgroup><col width="24%"><col width="18%"><col width="22%"><col width="36%"></colgroup>
+  <thead>
+    <tr>
+      <th>Relación</th>
+      <th>Patrón</th>
+      <th>Mecanismo</th>
+      <th>Por qué se eligió</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Savings Groups</b> (aguas arriba) y <b>Contributions</b> (aguas abajo)</td>
+      <td>Customer/Supplier con capa anticorrupción</td>
+      <td>El evento Junta iniciada dispara el ciclo, y una única consulta de reglas, integrantes y turnos que un servicio saliente traduce al modelo de Contributions.</td>
+      <td>El core necesita lo que la junta acordó, pero no puede quedar expuesto a los cambios de un contexto de soporte. La traducción en la frontera permite que Savings Groups agregue campos o renombre conceptos sin tocar el ciclo, y que el ciclo en curso opere con una copia que nadie puede alterar.</td>
+    </tr>
+    <tr>
+      <td><b>Savings Groups</b> (aguas arriba) y <b>Contributions</b> (aguas abajo), durante el ciclo</td>
+      <td>Conformist</td>
+      <td>El evento Reemplazo incorporado, que Contributions consume tal como se publica.</td>
+      <td>Es el único cambio de la junta que el ciclo acepta una vez iniciado. Al ser un hecho puntual y sin ambigüedad, traducirlo con una capa anticorrupción no aportaba nada.</td>
+    </tr>
+    <tr>
+      <td><b>Contributions</b> (aguas arriba) y <b>Compliance History</b> (aguas abajo)</td>
+      <td>Published Language y Conformist</td>
+      <td>Los eventos de dominio del core, publicados después de confirmar la transacción.</td>
+      <td>El historial se construye a partir de hechos ya ocurridos, y le sirve el vocabulario del core sin adaptarlo. Como el core no sabe quién lo escucha, puede sumar consumidores sin cambiar nada.</td>
+    </tr>
+    <tr>
+      <td><b>Savings Groups</b> (aguas arriba) y <b>Compliance History</b> (aguas abajo)</td>
+      <td>Published Language y Conformist</td>
+      <td>Los eventos Integrante incorporado, Deserción registrada y Reemplazo incorporado.</td>
+      <td>Misma razón: la deserción es un hecho del grupo que el historial registra, no una regla que negocie con él.</td>
+    </tr>
+    <tr>
+      <td><b>Compliance History</b> (aguas arriba) y <b>Savings Groups</b> (aguas abajo)</td>
+      <td>Customer/Supplier con capa anticorrupción</td>
+      <td>Una consulta que devuelve un resumen reducido, nivel y juntas completadas, traducido por un servicio saliente.</td>
+      <td>Es la relación que invierte el sentido de las otras dos y la que más se discutió. Se aceptó porque ocurre solo al mostrar la lista de integrantes, antes de que exista un ciclo, y porque lo que cruza la frontera es un resumen y no el historial. La capa anticorrupción evita que el modelo de análisis se filtre al de configuración.</td>
+    </tr>
+    <tr>
+      <td><b>Contributions</b> y <b>Savings Groups</b> (aguas arriba) y <b>Notifications</b> (aguas abajo)</td>
+      <td>Published Language y Conformist</td>
+      <td>Todos los eventos de ambos contextos.</td>
+      <td>Notifications decide por su cuenta a quién avisar. Que sea conformista con el lenguaje de los otros dos es lo que permite cambiar canales, plantillas y escalamiento sin pedirle nada al core.</td>
+    </tr>
+    <tr>
+      <td><b>Contributions</b> (aguas arriba) y <b>Notifications</b> (aguas abajo)</td>
+      <td>Customer/Supplier</td>
+      <td>La consulta de quiénes siguen pendientes en el período vigente.</td>
+      <td>Notifications no guarda el estado del período: lo pregunta cuando le toca enviar. El core se compromete a mantener esa consulta disponible porque sin ella no hay recordatorios, que es la funcionalidad más valorada en las entrevistas.</td>
+    </tr>
+    <tr>
+      <td><b>Notifications</b> (aguas arriba) y <b>Contributions</b> (aguas abajo)</td>
+      <td>Conformist</td>
+      <td>El evento Recordatorio enviado.</td>
+      <td>La proyección de si el pozo estará completo mejora sabiendo a quién ya se le recordó. Es información de apoyo: si Notifications dejara de publicarla, la proyección pierde precisión pero el ciclo sigue funcionando.</td>
+    </tr>
+    <tr>
+      <td><b>Identity and Access</b> (aguas arriba) y los cuatro contextos restantes (aguas abajo)</td>
+      <td>Open Host Service y Published Language</td>
+      <td>La resolución de la sesión y el identificador verificado de la persona, iguales para todos.</td>
+      <td>Todos los contextos necesitan saber quién ejecuta un comando y ninguno necesita saber nada más de esa persona. Un único servicio publicado, con un contrato estable y mínimo, evita cinco integraciones distintas y deja los datos personales en un solo lugar.</td>
+    </tr>
+    <tr>
+      <td><b>Notifications</b> y los proveedores de mensajería</td>
+      <td>Conformist con capa anticorrupción</td>
+      <td>Un adaptador por canal, detrás de una interfaz propia.</td>
+      <td>El contrato de un proveedor externo no se negocia, así que el contexto conforma. El adaptador impide que su vocabulario entre al modelo y permite cambiar de proveedor o agregar un canal sin tocar la política de avisos.</td>
+    </tr>
+    <tr>
+      <td><b>Identity and Access</b> y la pasarela de SMS</td>
+      <td>Conformist con capa anticorrupción</td>
+      <td>Un adaptador de envío detrás de una interfaz propia.</td>
+      <td>Misma razón, y además deja el contexto listo para reemplazarse por un servicio de terceros que resuelva el ingreso por celular completo.</td>
+    </tr>
+    <tr>
+      <td><b>Servicios RESTful</b> (aguas arriba) y <b>aplicación móvil</b> (aguas abajo)</td>
+      <td>Open Host Service y Published Language</td>
+      <td>La API REST documentada con OpenAPI, con un recurso por concepto del lenguaje ubicuo.</td>
+      <td>Los dos clientes del alcance, la aplicación nativa y la cross-platform, consumen el mismo contrato. Publicarlo como lenguaje evita que cada cliente invente su propio vocabulario y que el modelo de dominio se filtre a las pantallas.</td>
+    </tr>
+  </tbody>
+</table>
+
+Leído de un vistazo, el mapa tiene una forma reconocible. Contributions está al centro y recibe una sola dependencia de entrada, la de la junta iniciada; todo lo demás sale de él como eventos. Savings Groups es el único contexto que nadie usa para operar, solo para configurar. Compliance History y Notifications son consumidores: escuchan a los dos primeros y no les imponen nada. Identity and Access está debajo de todos, con el mismo contrato para cada uno. Ese reparto es lo que permite que el contexto core se pueda cambiar sin coordinar con nadie, que es el objetivo del diseño estratégico.
+
+Tres alternativas se discutieron y se descartaron, y dejarlas registradas explica por qué el mapa quedó así.
+
+<table>
+  <colgroup><col width="26%"><col width="74%"></colgroup>
+  <thead>
+    <tr>
+      <th>Alternativa descartada</th>
+      <th>Razón</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Shared Kernel</b> con los conceptos comunes, como el monto con moneda, la periodicidad y el identificador de la persona</td>
+      <td>Es el patrón más barato de escribir y el más caro de mantener: cualquier cambio en ese núcleo obliga a coordinar a los cinco contextos a la vez, que es exactamente lo que el diseño estratégico busca evitar. Cada contexto define sus propios objetos de valor aunque se llamen igual, y lo único que cruza la frontera es el identificador como valor, no como modelo.</td>
+    </tr>
+    <tr>
+      <td><b>Partnership</b> entre Savings Groups y Contributions</td>
+      <td>Parecía natural porque son los dos contextos que más se hablan, pero un partnership significa que los dos cambian juntos y se entregan juntos. La copia de las reglas al iniciar el ciclo hace innecesaria esa coordinación, y mantener la relación como Customer/Supplier deja claro cuál de los dos manda cuando hay desacuerdo: el ciclo en curso.</td>
+    </tr>
+    <tr>
+      <td><b>Conformist sin capa anticorrupción</b> entre Contributions y Savings Groups</td>
+      <td>Habría ahorrado una capa de traducción, pero pone al contexto core a hablar el idioma de un contexto de soporte. Un aporte y un integrante significan cosas distintas de un lado y del otro, y confundirlos era el riesgo más caro del diseño, porque afecta la regla que da sentido al producto.</td>
+    </tr>
+  </tbody>
+</table>
+
+El mapa también fija cómo se implementa cada frontera en el servicio. Cada contexto vive en su propio paquete y en su propio esquema de la base de datos, y ningún módulo consulta las tablas de otro: el aislamiento se sostiene en la base de datos y no solo en el código. Las relaciones de evento se resuelven con publicación dentro del proceso después de confirmar la transacción, de modo que nadie reacciona a un hecho que todavía puede revertirse. Las relaciones de consulta pasan siempre por una interfaz de servicio saliente declarada en el contexto que pregunta, nunca por una llamada directa al modelo del otro. Esa disciplina es la que permitiría extraer un contexto a un servicio propio sin rediseñar el mapa, y el primer candidato sería Compliance History, que es el único cuya evolución apunta fuera de la aplicación.
+
 ### 2.5.3. Software Architecture
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
