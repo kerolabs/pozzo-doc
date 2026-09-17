@@ -3340,9 +3340,116 @@ La sección cierra con la arquitectura de software de la solución, representada
 
 ### 2.5.1. EventStorming
 
+La sesión de EventStorming de nivel de diseño se realizó en Miro con los cinco integrantes del equipo y duró dos horas. A diferencia del Big Picture, que describía cómo funciona hoy una junta sin Pozzo, esta sesión modeló cómo va a funcionar con Pozzo: qué comandos ejecuta cada actor desde la aplicación, qué agregado los recibe, qué eventos producen, qué políticas reaccionan a esos eventos, qué vistas consulta el usuario para decidir y con qué sistemas externos se conversa. Las User Stories sirvieron de guion: cada historia se tradujo en al menos un comando y en los eventos que su criterio de aceptación describe en la cláusula "Entonces".
+
+Se usó la notación habitual de Brandolini con un color por concepto: actor, comando, agregado, evento de dominio, política, vista (read model), sistema externo y hotspot. Los eventos se escribieron en pasado, los comandos en infinitivo y las políticas con la forma "cuando ocurre X, entonces Y". Los eventos pivotales, los que cambian el estado de la junta, se marcaron en negrita.
+
+![Leyenda del EventStorming de nivel de diseño](images/chapter_2/es_leyenda.png)
+
+Para que el resultado se pueda leer, el tablero se organizó en columnas y carriles. Cada columna es un paso del proceso y cada carril un tipo de nota, de modo que una columna se lee de arriba abajo como una frase: tal actor ejecuta tal comando sobre tal agregado y se produce tal evento, que dispara tal política. La sesión recorrió el ciclo de una junta en cuatro tramos.
+
+#### Acceso a Pozzo
+
+El primer tramo cubre la entrada de un integrante a la aplicación. Se identificó un único agregado, Cuenta, que recibe los comandos de solicitar y verificar el código SMS, completar el registro y administrar el perfil, y un agregado Sesión para el token que la aplicación guarda en el dispositivo. Dos políticas conectan este tramo con el resto: si el celular es nuevo se pide el registro, y al iniciar sesión se registra el dispositivo para recibir avisos. Los hotspots recogieron el vencimiento del código, los reintentos y la sesión en dos dispositivos a la vez.
+
+![EventStorming: acceso a Pozzo](images/chapter_2/es_acceso.png)
+
+#### Configuración de la junta, integrantes y turnos
+
+El segundo tramo va desde que la cabeza crea la junta hasta que la inicia. El agregado Junta concentra las reglas (aporte, periodicidad, cupos, fecha de corte y destino de los aportes), la lista de integrantes y los turnos; Invitación y Subasta aparecen como agregados propios porque tienen ciclo de vida independiente. El evento pivotal es Junta iniciada: a partir de él las reglas quedan bloqueadas, el código de invitación caduca y una política abre el primer período de aporte. Los hotspots de este tramo son decisiones que el prototipo dejó abiertas: si el destino de los aportes es la cuenta de la cabeza o la del integrante del turno, cómo se verifica ante el grupo que el sorteo fue justo y qué pasa con un empate en la subasta.
+
+![EventStorming: configuración de la junta, integrantes y turnos](images/chapter_2/es_junta.png)
+
+#### Registro y validación de aportes
+
+El tercer tramo es el núcleo de Pozzo. Al abrir un período, una política calcula el aporte esperado de cada integrante; antes de la fecha de corte, otra envía recordatorios escalonados a quien no ha aportado. El participante registra su aporte con la captura del comprobante, ML Kit lee en el dispositivo el monto, la fecha, el destinatario y el número de operación, y el participante confirma esos datos. El agregado Aporte los valida contra lo esperado y produce el evento pivotal Aporte validado o, si algo no cuadra, Inconsistencia detectada, que pide a la cabeza aprobar o rechazar. Los aportes en efectivo los registra solo la cabeza, porque no tienen comprobante. Cuando todos los aportes del período están validados, el pozo está completo. Los hotspots más discutidos fueron la captura borrosa o recortada, el comprobante reutilizado en dos aportes y el hecho de que la entrega del push no está garantizada.
+
+![EventStorming: registro y validación de aportes](images/chapter_2/es_aportes.png)
+
+#### Entrega del pozo, cierre del ciclo e historial
+
+El último tramo cubre las excepciones y el cierre. La cobertura de un aporte completa el pozo pero no borra la morosidad, y deja registrada la deuda del moroso con quien cubrió; la deserción incorpora un reemplazo que hereda el turno pendiente. Pozo entregado es el tercer evento pivotal: la transferencia ocurre fuera de Pozzo, por Yape, Plin o el banco, y la aplicación registra el hecho, avisa al grupo y abre el siguiente período. Tras el último turno, Ciclo cerrado cierra la junta. Una política transversal actualiza el historial de cumplimiento de cada integrante con cada aporte validado, cubierto, deserción o cierre, y el integrante puede compartirlo con la hoja de compartir del sistema. Este tramo también recoge el agregado Dispositivo y la política que envía un aviso en cada hecho relevante de la junta.
+
+![EventStorming: entrega del pozo, cierre del ciclo e historial](images/chapter_2/es_cierre.png)
+
 #### 2.5.1.1. Candidate Context Discovery
 
+Con el EventStorm completo, el equipo dedicó una segunda sesión de dos horas a identificar los Bounded Contexts candidatos. Se trabajó solo con los eventos de dominio, que se copiaron a una zona aparte del tablero para poder reordenarlos sin perder la línea de tiempo original, y se aplicaron tres técnicas en secuencia.
+
+**Paso 1: look-for-pivotal-events.** Se marcaron los cuatro eventos que cambian el estado de la junta y que ya se habían resaltado durante el EventStorming: Junta iniciada, Aporte validado, Pozo entregado y Ciclo cerrado. Cada uno separa fases con reglas distintas. Antes de Junta iniciada todo puede cambiar; después, las reglas se congelan. Aporte validado convierte una intención de pago en un hecho que cuenta para el pozo y para el historial. Pozo entregado marca el momento en que el dinero sale del proceso y arranca el siguiente turno. Ciclo cerrado deja a la junta como un registro cerrado del que solo queda el historial.
+
+![Candidate Context Discovery, paso 1: eventos pivotales](images/chapter_2/ccd_paso1.png)
+
+**Paso 2: start-with-simple.** Con los pivotales como cortes, la línea de tiempo se dividió en cinco segmentos secuenciales: antes de iniciar la junta; período abierto y registro; validación y completitud del pozo; entrega y siguiente turno; cierre e historial. Este paso hizo visible que el segundo, el tercero y el cuarto segmento se repiten por cada turno de la junta, mientras que el primero y el último ocurren una sola vez por ciclo, y que los eventos de acceso (código SMS, cuenta, sesión) y los de avisos (recordatorios, avisos) no pertenecen a ningún segmento en particular: aparecen en todos.
+
+![Candidate Context Discovery, paso 2: segmentos entre eventos pivotales](images/chapter_2/ccd_paso2.png)
+
+**Paso 3: start-with-value.** Por último se preguntó qué parte del dominio sostiene la hipótesis principal de Pozzo. La respuesta fue la validación de aportes y la transparencia del pozo: es lo que ningún competidor hace y lo que las entrevistas señalaron como el mayor punto de fricción. Los eventos de los segmentos que se repiten por turno, desde Período abierto hasta Ciclo cerrado, se agruparon como el contexto core, Contributions. El resto se regrupó por afinidad: lo que ocurre antes de iniciar la junta, incluidos los turnos y las deserciones, formó Savings Groups; los eventos transversales de acceso formaron Identity & Access; los de recordatorios y avisos, Notifications; y los dos eventos del historial, Compliance History.
+
+![Candidate Context Discovery, paso 3: bounded contexts candidatos](images/chapter_2/ccd_paso3.png)
+
+El resultado son cinco Bounded Contexts, uno por integrante del equipo, clasificados según el valor que aportan al negocio.
+
+<table>
+  <thead>
+    <tr>
+      <th>Bounded Context</th>
+      <th>Tipo de subdominio</th>
+      <th>Epics que cubre</th>
+      <th>Eventos pivotales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Contributions</b></td>
+      <td>Core</td>
+      <td>EP05 Registro y validación de aportes, EP06 Transparencia del pozo, EP08 Entrega del pozo y cierre del ciclo</td>
+      <td>Aporte validado, Pozo entregado, Ciclo cerrado</td>
+    </tr>
+    <tr>
+      <td><b>Savings Groups</b></td>
+      <td>Supporting</td>
+      <td>EP02 Configuración de la junta, EP03 Incorporación de integrantes, EP04 Asignación de turnos</td>
+      <td>Junta iniciada</td>
+    </tr>
+    <tr>
+      <td><b>Compliance History</b></td>
+      <td>Supporting</td>
+      <td>EP09 Historial de cumplimiento</td>
+      <td>Ninguno; reacciona a los del core</td>
+    </tr>
+    <tr>
+      <td><b>Notifications</b></td>
+      <td>Generic</td>
+      <td>EP07 Recordatorios y avisos</td>
+      <td>Ninguno; reacciona a los demás</td>
+    </tr>
+    <tr>
+      <td><b>Identity &amp; Access</b></td>
+      <td>Generic</td>
+      <td>EP01 Acceso y cuenta</td>
+      <td>Ninguno</td>
+    </tr>
+  </tbody>
+</table>
+
+Durante el paso 3 se discutió si los turnos y la subasta merecían un contexto propio y si el historial debía quedarse dentro de Contributions. Ambas alternativas se descartaron y las razones se recogen en el Context Mapping.
+
 #### 2.5.1.2. Domain Message Flows Modeling
+
+Para comprobar que los cinco contextos podían resolver los casos de uso sin depender unos de otros más de lo necesario, el equipo modeló con Domain Storytelling las tres historias que concentran el valor de Pozzo. En cada diagrama los actores son círculos, los objetos de trabajo son rectángulos coloreados según el contexto al que pertenecen, las zonas de fondo delimitan los Bounded Contexts y cada flecha lleva el número del paso, de modo que la historia se lee siguiendo la numeración.
+
+**Historia 1: la cabeza crea la junta e incorpora a los integrantes.** La cabeza crea la junta con sus reglas y genera una invitación en Savings Groups, la comparte por WhatsApp y el participante que recibe el enlace verifica su celular en Identity & Access antes de unirse. Al incorporarlo, Savings Groups consulta a Compliance History el historial del nuevo integrante y se lo muestra a la cabeza. Con los turnos asignados, la cabeza inicia la junta y Notifications avisa a todos. La historia muestra que Savings Groups es el contexto que orquesta esta fase y que solo necesita de los demás una consulta (el historial) y una identidad.
+
+![Domain Storytelling: la cabeza crea la junta e incorpora a los integrantes](images/chapter_2/ds_historia1.png)
+
+**Historia 2: el participante registra su aporte y Pozzo lo valida.** Antes de la fecha de corte, el período vigente pide a Notifications un recordatorio para el participante. Este transfiere en Yape o Plin, captura el comprobante y ML Kit lo lee en el dispositivo; el participante confirma los datos y registra el aporte en Contributions, que lo valida contra el aporte esperado y actualiza el estado del pozo. La cabeza consulta ese estado y solo interviene si hay una inconsistencia. El aporte validado se registra en Compliance History. La historia confirma que el core no depende de Savings Groups en tiempo de ejecución: las reglas se copiaron al período cuando se abrió.
+
+![Domain Storytelling: el participante registra su aporte y Pozzo lo valida](images/chapter_2/ds_historia2.png)
+
+**Historia 3: la cabeza entrega el pozo y cierra el ciclo.** Cuando el estado del pozo muestra el pozo completo, la cabeza transfiere fuera de Pozzo al participante del turno y registra la entrega en Contributions, que consulta el calendario de turnos en Savings Groups para abrir el siguiente período y pide a Notifications que avise al grupo. Tras el último turno la cabeza cierra la junta y Compliance History consolida el historial de todos. Esta historia expuso la única dependencia del core hacia Savings Groups, la consulta del siguiente turno, que se resolvió en el Context Map con una relación Customer/Supplier.
+
+![Domain Storytelling: la cabeza entrega el pozo y cierra el ciclo](images/chapter_2/ds_historia3.png)
 
 #### 2.5.1.3. Bounded Context Canvases
 
@@ -3382,7 +3489,7 @@ El diagrama de despliegue mapea los contenedores de software sobre los nodos de 
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
-En esta sección el equipo baja del mapa de contextos al diseño de las clases que implementan cada Bounded Context. Los cinco contextos se presentan en el mismo orden de importancia de los Bounded Context Canvases: Contributions, Savings Groups, Compliance History, Notifications e Identity & Access. Para cada uno se sigue la misma estructura de cuatro capas, la que adopta el monolito modular de los servicios RESTful: Domain Layer con el modelo y las reglas, Interface Layer con los controllers REST, Application Layer con los command services, query services y event handlers, e Infrastructure Layer con las implementaciones de repositorios y los adaptadores a servicios externos. Cada contexto vive en su propio paquete Java, `pe.kerolabs.pozzo.<contexto>`, con un subpaquete por capa, y en su propio esquema de PostgreSQL.
+En esta sección el equipo baja del mapa de contextos al diseño de las clases que implementan cada Bounded Context. Los cinco contextos se presentan en el mismo orden de importancia de los Bounded Context Canvases: Contributions, Savings Groups, Compliance History, Notifications e Identity and Access. Para cada uno se sigue la misma estructura de cuatro capas, la que adopta el monolito modular de los servicios RESTful: Domain Layer con el modelo y las reglas, Interface Layer con los controllers REST, Application Layer con los command services, query services y event handlers, e Infrastructure Layer con las implementaciones de repositorios y los adaptadores a servicios externos. Cada contexto vive en su propio paquete Java, `pe.kerolabs.pozzo.<contexto>`, con un subpaquete por capa, y en su propio esquema de PostgreSQL.
 
 Las clases se derivan directamente de los artefactos anteriores: cada comando del EventStorming es un command en el Domain Layer y un método `handle` en un command service; cada agregado es un aggregate root; cada evento de dominio es una clase de evento que se publica al confirmar la transacción y que los event handlers del propio contexto o de otros consumen; cada vista es una query y un query service; y las reglas de negocio de los canvases son métodos de los agregados o de un domain service. Los diagramas de clases y de base de datos se elaboraron en PlantUML a partir de los archivos de `docs/architecture/uml/` y `docs/architecture/db/`, donde cada esquema tiene además su DDL de PostgreSQL, y los diagramas de componentes en Structurizr a partir de `docs/architecture/workspace.dsl`, de modo que los tres se versionan junto con el informe y se regeneran con un comando.
 
