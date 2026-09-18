@@ -1,5 +1,6 @@
 param(
-    [string]$Delivery
+    [string]$Delivery,
+    [switch]$Draft
 )
 
 $ErrorActionPreference = 'Stop'
@@ -51,16 +52,21 @@ $ConfigFiles = @(
     'config/pdf-only.lua'
     'config/table-grid.lua'
     'config/cover.tex'
+    'config/draft.tex'
     'config/apa.csl'
     'references.bib'
 )
 
 function Show-Usage {
     Write-Host ''
-    Write-Host 'Usage:  .\scripts\build.ps1 <delivery>' -ForegroundColor Yellow
+    Write-Host 'Usage:  .\scripts\build.ps1 <delivery> [-Draft]' -ForegroundColor Yellow
     Write-Host ''
     Write-Host ('  <delivery> must be one of: {0}' -f ($Deliveries -join ', '))
     Write-Host '  It becomes the last part of the PDF file name.'
+    Write-Host ''
+    Write-Host '  -Draft    Skip the images: each one becomes an empty box with its file name.'
+    Write-Host '            Builds in a fraction of the time. For checking text, tables and'
+    Write-Host '            page breaks; never for a delivery.'
     Write-Host ''
     Write-Host '  Example:  .\scripts\build.ps1 tb1'
     Write-Host ('  Produces: upc-pre-{0}-{1}-{2}-{3}-report-tb1.pdf' -f $Period, $CourseCode, $Nrc, $Startup)
@@ -141,12 +147,22 @@ if (-not (Test-Path 'dist')) { New-Item -ItemType Directory 'dist' | Out-Null }
 
 $output = "dist/upc-pre-$Period-$CourseCode-$Nrc-$Startup-report-$Delivery.pdf"
 
+# Con -Draft el PDF va a otro archivo, para no confundirlo con una entrega, y
+# config/draft.tex pone graphicx en modo draft: reserva el sitio de cada imagen
+# sin cargarla. XeLaTeX se pasa casi todo el tiempo descomprimiendo y volviendo
+# a comprimir los PNG, asi que sin ellos cada pasada baja de minutos a segundos.
+$DraftArgs = @()
+if ($Draft) {
+    $output = "dist/draft-$Delivery.pdf"
+    $DraftArgs = @('--include-in-header=config/draft.tex')
+}
+
 Write-Host ''
 Write-Host ('Building {0} from {1} files...' -f $Delivery, $Chapters.Count) -ForegroundColor Cyan
 foreach ($file in $Chapters) { Write-Host ('  {0}' -f $file) -ForegroundColor DarkGray }
 Write-Host ''
 
-pandoc $Chapters `
+pandoc $Chapters @DraftArgs `
     --from=markdown-yaml_metadata_block `
     --metadata-file=config/format.yaml `
     --include-in-header=config/apa7.tex `

@@ -227,11 +227,13 @@ local function cuadricular(latex, tbl)
     pos = abreSpec + #nuevo + 1
   end
 
-  -- Pandoc calcula los anchos descontando solo los rellenos laterales de cada
-  -- columna; las barras verticales tambien ocupan sitio y, sin descontarlas, la
-  -- tabla se sale del margen derecho por unos puntos.
+  -- Pandoc calcula los anchos descontando 2(n-1) rellenos, porque sus tablas
+  -- empiezan y terminan con @{}, que suprime el relleno exterior. Al cambiar
+  -- los @{} por barras ese relleno vuelve, y las barras verticales tambien
+  -- ocupan sitio: hay que descontar 2n rellenos y n+1 barras, o la tabla se
+  -- sale del margen derecho por dos \tabcolsep (unos 12 pt).
   local ncol = #tbl.colspecs
-  local descuento = '(\\linewidth - %1\\tabcolsep - ' .. (ncol + 1) .. '\\arrayrulewidth)'
+  local descuento = '(\\linewidth - ' .. (2 * ncol) .. '\\tabcolsep - ' .. (ncol + 1) .. '\\arrayrulewidth)'
   cabeza = cabeza:gsub('%(\\linewidth %- (%d+)\\tabcolsep%)', descuento)
   cuerpo = cuerpo:gsub('%(\\linewidth %- (%d+)\\tabcolsep%)', descuento)
 

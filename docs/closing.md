@@ -240,3 +240,79 @@ Los artefactos del Strategic-Level Domain-Driven Design se elaboraron en un úni
 Enlace del tablero: <https://miro.com/app/board/uXjVHm8In_g=/?share_link_id=3138613697>
 
 ![Tablero de Miro del diseño estratégico de Pozzo](images/closing/miro_eventstorming.png)
+
+<!-- pdf:only
+\newpage
+-->
+
+## Anexo C. Fuentes de los diagramas de arquitectura
+
+Los diagramas de arquitectura del capítulo de Requirements Development and Software Solution Design no se dibujaron a mano: se generan a partir de archivos de texto que viven en la carpeta `docs/architecture/` del repositorio del informe (<https://github.com/kerolabs/pozzo-doc/tree/develop/docs/architecture>) y se versionan junto con el texto. Los diagramas del C4 Model (contexto, contenedores, componentes y despliegue) se describen en el lenguaje de Structurizr y se renderizan con Structurizr; los diagramas de clases del Domain Layer y los de base de datos se describen en PlantUML, y cada esquema de base de datos lleva además su definición en SQL para PostgreSQL. Las imágenes resultantes son las que aparecen en el capítulo. Mantener los diagramas como texto permite revisarlos en las Pull Requests igual que cualquier otro cambio, ver quién modificó qué y regenerarlos cuando el diseño cambia sin volver a dibujarlos.
+
+<table>
+  <colgroup><col width="34%"><col width="22%"><col width="44%"></colgroup>
+  <thead>
+    <tr>
+      <th>Artefacto</th>
+      <th>Herramienta</th>
+      <th>Archivo en el repositorio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Diagramas C4 de contexto, contenedores y despliegue, y diagramas de componentes de los cinco Bounded Contexts</td>
+      <td>Structurizr DSL, renderizado con Structurizr</td>
+      <td>docs/architecture/workspace.dsl</td>
+    </tr>
+    <tr>
+      <td>Diagrama de clases del Domain Layer de Contributions</td>
+      <td>PlantUML</td>
+      <td>docs/architecture/uml/contributions-domain.puml</td>
+    </tr>
+    <tr>
+      <td>Diagrama de clases del Domain Layer de Savings Groups</td>
+      <td>PlantUML</td>
+      <td>docs/architecture/uml/savings-groups-domain.puml</td>
+    </tr>
+    <tr>
+      <td>Diagrama de clases del Domain Layer de Compliance History</td>
+      <td>PlantUML</td>
+      <td>docs/architecture/uml/compliance-history-domain.puml</td>
+    </tr>
+    <tr>
+      <td>Diagrama de clases del Domain Layer de Notifications</td>
+      <td>PlantUML</td>
+      <td>docs/architecture/uml/notifications-domain.puml</td>
+    </tr>
+    <tr>
+      <td>Diagrama de clases del Domain Layer de Identity &amp; Access</td>
+      <td>PlantUML</td>
+      <td>docs/architecture/uml/identity-access-domain.puml</td>
+    </tr>
+    <tr>
+      <td>Diagrama de base de datos de Contributions y su DDL</td>
+      <td>PlantUML y SQL (PostgreSQL 16)</td>
+      <td>docs/architecture/db/contributions.puml, docs/architecture/db/contributions.sql</td>
+    </tr>
+    <tr>
+      <td>Diagrama de base de datos de Savings Groups y su DDL</td>
+      <td>PlantUML y SQL (PostgreSQL 16)</td>
+      <td>docs/architecture/db/savings_groups.puml, docs/architecture/db/savings_groups.sql</td>
+    </tr>
+    <tr>
+      <td>Diagrama de base de datos de Compliance History y su DDL</td>
+      <td>PlantUML y SQL (PostgreSQL 16)</td>
+      <td>docs/architecture/db/compliance_history.puml, docs/architecture/db/compliance_history.sql</td>
+    </tr>
+    <tr>
+      <td>Diagrama de base de datos de Notifications y su DDL</td>
+      <td>PlantUML y SQL (PostgreSQL 16)</td>
+      <td>docs/architecture/db/notifications.puml, docs/architecture/db/notifications.sql</td>
+    </tr>
+    <tr>
+      <td>Diagrama de base de datos de Identity &amp; Access y su DDL</td>
+      <td>PlantUML y SQL (PostgreSQL 16)</td>
+      <td>docs/architecture/db/identity_access.puml, docs/architecture/db/identity_access.sql</td>
+    </tr>
+  </tbody>
+</table>
