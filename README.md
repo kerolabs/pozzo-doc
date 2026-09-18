@@ -174,8 +174,6 @@ La diferencia en el número de commits se explica por el trabajo de configuraci�
 
 # Student Outcome
 
-Cada participante del equipo debe sustentar evidencia de cómo las actividades realizadas en el trabajo final han ayudado a desarrollar las dimensiones del student outcome. Por ello en esta sección debe haber una subsección por cada alumno donde éste describa por escrito la relación entre el outcome, sus dimensiones y el trabajo que ha realizado. Esto se complementa con lo reflejado en los testimonios expuestos que forman parte del video About The Team.
-
 El curso contribuye al cumplimiento del Student Outcome ABET:
 
 ABET - EAC - Student Outcome 7
