@@ -2812,7 +2812,7 @@ Las Spike Stories cubren la investigación necesaria antes de implementar las hi
     </tr>
     <tr>
       <td><b>Description</b></td>
-      <td colspan="3">Como equipo de desarrollo, deseo investigar cómo enviar notificaciones push desde nuestros servicios RESTful y cómo programar los recordatorios escalonados, para implementar los recordatorios automáticos de forma confiable.</td>
+      <td colspan="3">Como equipo de desarrollo, deseo investigar cómo enviar notificaciones push desde los servicios RESTful de desarrollo propio y cómo programar los recordatorios escalonados, para implementar los recordatorios automáticos de forma confiable.</td>
     </tr>
     <tr>
       <td><b>Acceptance Criteria</b></td>
@@ -2905,9 +2905,9 @@ El tercer mapa es el más acotado y apunta al desgaste que las cabezas describie
 
 El Product Backlog reúne las 46 User Stories, las 8 Technical Stories y las 3 Spike Stories de la especificación, estimadas en Story Points con la escala 1, 2, 3, 5 y 8 y ordenadas por el valor que aportan al negocio. La estimación la hizo el equipo por consenso, comparando cada historia con una de referencia (crear una junta, US07, en 3 puntos) y considerando la incertidumbre técnica: las historias que dependen de la lectura de comprobantes, de las notificaciones o de los enlaces de invitación cargan puntos adicionales hasta que sus spikes las reduzcan.
 
-El orden sigue el Impact Map: primero lo que permite que una junta exista y complete un ciclo (landing page, creación e invitación, turnos, estado del pozo), luego lo que sostiene la validación automática de aportes, después los recordatorios y el historial, y al final la subasta y las historias que amplían la propuesta. Las historias del landing page van en el primer sprint, como exige el enunciado. La autenticación por SMS no encabeza el backlog: se ubica en el segundo sprint, cuando el flujo principal ya existe y hace falta distinguir a los usuarios.
+El orden sigue el Impact Map: primero lo que permite que una junta exista y complete un ciclo (landing page, creación e invitación, turnos, estado del pozo), luego lo que sostiene la validación automática de aportes, después los recordatorios y el historial, y al final la subasta y las historias que amplían la propuesta. Las historias del landing page van en el primer sprint porque el sitio es la puerta de entrada de las cabezas de junta y no depende de que la aplicación exista. La autenticación por SMS no encabeza el backlog: se ubica en el segundo sprint, cuando el flujo principal ya existe y hace falta distinguir a los usuarios.
 
-Los sprints corresponden a las entregas del curso: el Sprint 1 a TB1, el Sprint 2 a AV2 y los Sprints 3 y 4 a TB2.
+Los sprints se alinean con los hitos de entrega del proyecto: el Sprint 1 con TB1, el Sprint 2 con AV2 y los Sprints 3 y 4 con TB2.
 
 <table>
   <thead>
