@@ -664,13 +664,13 @@ El 100% decide entrar a una junta según la confianza en quien la organiza y el 
 Los participantes viven la junta con poca visibilidad y sin una prueba de pago ordenada: guardan las capturas sin criterio, ya han tenido que defender un pago que sí hicieron y sienten incertidumbre cada vez que se acerca su turno. La totalidad conoce casos de incumplimiento y la mayoría ya sufrió un retraso al cobrar. La confianza en el organizador es lo que los hace entrar, por lo que valoran una herramienta que dé transparencia del estado del pozo y respaldo verificable de sus aportes, sin alterar la dinámica de confianza del grupo.
 
 ## 2.3. Needfinding
-En esta sección se presentan los artefactos resultantes del análisis de la información recolectada en las entrevistas de la sección 2.2. A partir de los patrones identificados en los dos segmentos objetivo se construyeron los arquetipos de usuario, se mapearon las tareas que realizan hoy con independencia de la existencia de Pozzo, se representaron sus recorridos actuales y su marco emocional, y se consolidó el lenguaje del dominio que el equipo utilizará de forma uniforme durante todo el proyecto.
+En esta sección se presentan los artefactos resultantes del análisis de la información recolectada en la sección Entrevistas. A partir de los patrones identificados en los dos segmentos objetivo se construyeron los arquetipos de usuario, se mapearon las tareas que realizan hoy con independencia de la existencia de Pozzo, se representaron sus recorridos actuales y su marco emocional, y se consolidó el lenguaje del dominio que el equipo utilizará de forma uniforme durante todo el proyecto.
 
 Cada característica presente en los arquetipos proviene de los resúmenes y del análisis estadístico de las seis entrevistas registradas; no se incorporó ningún atributo que no tenga respaldo en dicha información.
 
 ### 2.3.1. User Personas
 
-Se elaboró una ficha de User Persona por cada segmento objetivo, utilizando UXPressia. Para cada segmento se construyó un arquetipo representativo a partir de los patrones recurrentes identificados en las tres entrevistas, contrastando sus características con los resultados consolidados de la sección 2.2.3.
+Se elaboró una ficha de User Persona por cada segmento objetivo, utilizando UXPressia. Para cada segmento se construyó un arquetipo representativo a partir de los patrones recurrentes identificados en las tres entrevistas, contrastando sus características con los resultados consolidados en la sección Análisis de entrevistas.
 
 #### User Persona 1: Cabeza de junta
 
@@ -803,7 +803,7 @@ Entre las tareas compartidas por ambos segmentos, destacan especialmente consult
 
 ### 2.3.3. User Journey Mapping
 
-Los User Journey Maps representan el recorrido actual de los dos segmentos objetivo durante su participación en una junta de ahorro, antes de la introducción de Pozzo. A partir de los patrones identificados en las entrevistas, se modelan las actividades, objetivos, dificultades y emociones que experimentan tanto la cabeza de junta como el participante a lo largo de un ciclo.
+Los User Journey Maps representan el recorrido actual de los dos segmentos objetivo durante su participación en una junta de ahorro, antes de la introducción de Pozzo. A partir de los patrones identificados en la sección Análisis de entrevistas, se modelan las actividades, objetivos, dificultades y emociones que experimentan tanto la cabeza de junta como el participante a lo largo de un ciclo.
 
 #### User Journey Map 1: Anna Weber - Cabeza de junta
 
@@ -834,7 +834,7 @@ El empathy map de Sofia Gonzales, como participante en una junta, está basada e
 
 ### 2.3.5. Big Picture EventStorming
 
-El Big Picture EventStorming se utilizó para representar de manera colaborativa el funcionamiento general de una junta de ahorro, identificando los eventos relevantes que ocurren desde la conformación del grupo hasta la finalización del ciclo. El objetivo fue construir una visión compartida del dominio a partir de los hallazgos obtenidos en las entrevistas, sin incorporar todavía funcionalidades específicas de Pozzo.
+El Big Picture EventStorming se utilizó para representar de manera colaborativa el funcionamiento general de una junta de ahorro, identificando los eventos relevantes que ocurren desde la conformación del grupo hasta la finalización del ciclo. El objetivo fue construir una visión compartida del dominio a partir de los hallazgos de la sección Análisis de entrevistas, sin incorporar todavía funcionalidades específicas de Pozzo.
 
 **Leyenda**
 - **Domain Event**: Hecho relevante del dominio que ya ocurrió.
@@ -965,13 +965,13 @@ El siguiente glosario reúne los términos y conceptos del dominio del ahorro ro
 
 ## 2.4. Requirements specification
 
-En esta sección se especifican los requisitos de los productos digitales de Pozzo a partir de la información obtenida en la investigación: las entrevistas a cabezas de junta y participantes, el análisis por segmento, los User Personas de Anna Weber y Sofia Gonzales, el User Task Matrix, los User Journey Maps, el Big Picture EventStorming y las feature assumptions e hipótesis del Lean UX Process. Para reducir la ambigüedad antes de redactar, el equipo construyó un prototipo navegable de la aplicación móvil con datos de ejemplo, recorrió con él los flujos de ambos roles y ajustó pantallas y reglas hasta obtener una versión acordada; las historias que siguen describen ese comportamiento.
+En esta sección se especifican los requisitos de los productos digitales de Pozzo a partir de la información obtenida en la investigación: las entrevistas a cabezas de junta y participantes y su análisis por segmento (sección Entrevistas), los User Personas de Anna Weber y Sofia Gonzales, el User Task Matrix, los User Journey Maps y el Big Picture EventStorming (sección Needfinding), y las feature assumptions e hipótesis del Lean UX Process (capítulo I, Solution Profile). Para reducir la ambigüedad antes de redactar, el equipo construyó un prototipo navegable de la aplicación móvil con datos de ejemplo, recorrió con él los flujos de ambos roles y ajustó pantallas y reglas hasta obtener una versión acordada; las historias que siguen describen ese comportamiento.
 
 La especificación cubre los tres productos del alcance: la aplicación móvil, los servicios RESTful de desarrollo propio y el sitio web estático del landing page. Se organiza en tres partes: las User Stories, agrupadas en Epics e incluyendo Technical Stories y Spike Stories; el Impact Map, que vincula los objetivos de negocio con las historias; y el Product Backlog, con la estimación y priorización de cada historia.
 
 ### 2.4.1. User Stories
 
-Las historias se redactan desde la perspectiva de los dos actores del dominio identificados en los segmentos objetivo, la **cabeza de junta** (Organizer) y el **participante** (Member), y se usa **integrante** cuando la historia aplica a ambos por igual. Para el landing page el actor es el **visitante**, y para las Technical Stories y Spike Stories el rol **Developer**. Los términos siguen el Ubiquitous Language: junta, ciclo, período de aporte, turno, pozo, fecha de corte, comprobante, cobertura, deserción e historial de cumplimiento.
+Las historias se redactan desde la perspectiva de los dos actores del dominio identificados en la sección Segmentos objetivo del capítulo I, la **cabeza de junta** (Organizer) y el **participante** (Member), y se usa **integrante** cuando la historia aplica a ambos por igual. Para el landing page el actor es el **visitante**, y para las Technical Stories y Spike Stories el rol **Developer**. Los términos siguen el Ubiquitous Language: junta, ciclo, período de aporte, turno, pozo, fecha de corte, comprobante, cobertura, deserción e historial de cumplimiento.
 
 Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonces), se redactan en tiempo presente y tercera persona, no hacen referencia a detalles de interfaz de usuario y son comprobables. Cuando un criterio es una regla de negocio que no depende de una condición, se enuncia como tal. La prioridad refleja el valor para el negocio según las hipótesis del Lean UX Process: Alta para lo que sostiene la validación automática, la transparencia del pozo y la adopción; Media para lo que completa el ciclo; Baja para lo que amplía la propuesta.
 
@@ -2854,7 +2854,7 @@ Las Spike Stories cubren la investigación necesaria antes de implementar las hi
 
 El Impact Map vincula los objetivos de negocio de Pozzo con las personas que pueden hacerlos posibles, el cambio de comportamiento que se espera de ellas, lo que el producto entrega para provocar ese cambio y las historias que lo implementan. El equipo lo elaboró en UXPressia a partir de las fichas de User Persona de Anna Weber y Sofia Gonzales, respondiendo en cada nivel las preguntas del método: quiénes ayudan a lograr la meta, qué tendrían que hacer, qué puede hacer el negocio digital para provocarlo y con qué historias. Se elaboró un mapa por cada objetivo de negocio.
 
-Los objetivos de negocio se derivan de los resultados que el equipo definió en los Business Outcome Assumptions y en el Problem Statement, formulados con los criterios SMART (específicos, medibles, alcanzables, relevantes y con plazo). El horizonte de medición son las juntas piloto que el equipo acompañará después del lanzamiento. Se seleccionaron los tres outcomes del primer ciclo de uso; el outcome de crecimiento por referidos (una de cada tres juntas nuevas formada por integrantes que ya usaron Pozzo) se medirá recién entre los meses 7 y 12, por lo que queda fuera de estos mapas y se retoma al planificar el segundo semestre.
+Los objetivos de negocio se derivan de los resultados que el equipo definió en los Business Outcome Assumptions y en el Problem Statement del Lean UX Process (capítulo I, Solution Profile), formulados con los criterios SMART (específicos, medibles, alcanzables, relevantes y con plazo). El horizonte de medición son las juntas piloto que el equipo acompañará después del lanzamiento. Se seleccionaron los tres outcomes del primer ciclo de uso; el outcome de crecimiento por referidos (una de cada tres juntas nuevas formada por integrantes que ya usaron Pozzo) se medirá recién entre los meses 7 y 12, por lo que queda fuera de estos mapas y se retoma al planificar el segundo semestre.
 
 <table>
   <thead>
@@ -3322,21 +3322,19 @@ Los sprints corresponden a las entregas del curso: el Sprint 1 a TB1, el Sprint 
 
 El total es de 199 Story Points: 55 en el Sprint 1, 67 en el Sprint 2, 47 en el Sprint 3 y 30 en el Sprint 4. Los dos primeros sprints concentran la carga porque en ellos se construye el ciclo completo de la junta y la validación de aportes, que son las dos hipótesis con mayor valor; el cuarto sprint queda deliberadamente liviano para absorber lo que se desplace de los anteriores y para las validaciones con usuarios.
 
-El backlog se administra en la herramienta indicada por el docente, donde cada historia se registra como tarjeta con su código, título, puntos y sprint, en el mismo orden de esta tabla.
-
-[[PENDIENTE: captura del Product Backlog en la herramienta y URL pública del tablero]]
+El backlog se administra en Trello, en un tablero público con una lista por sprint: <https://trello.com/b/fRocSVZA/pozzo-product-backlog>. Cada historia es una tarjeta con su código, título y Story Points, en el mismo orden de esta tabla, y su descripción reproduce la historia y los criterios de aceptación para que el equipo trabaje desde el tablero sin volver al informe. La captura del tablero se incluye en el Anexo A, Product Backlog en Trello.
 
 ## 2.5. Strategic-Level Domain-Driven Design
 
 En esta sección se explica el proceso que siguió el equipo para tomar las decisiones de nivel estratégico de Domain-Driven Design [@evans2003ddd]: descomponer el dominio de las juntas de ahorro en subconjuntos con límites naturales, los Bounded Contexts, y definir cómo se relacionan entre sí antes de diseñar una sola clase o tabla. El enfoque aplica a todos los productos de la solución. En Pozzo esos productos son la aplicación móvil, los servicios RESTful de desarrollo propio que la sostienen y el landing page estático; el diseño estratégico se concentra en los dos primeros, que son los que implementan el dominio, mientras que el landing page solo aparece como un producto más en la arquitectura de software.
 
-El punto de partida fue el Big Picture EventStorming del Needfinding, que describe cómo funciona hoy una junta sin Pozzo, y el Ubiquitous Language consolidado a partir de él. Sobre esa base, y con las User Stories ya especificadas, el equipo repitió el EventStorming con un objetivo distinto: ya no explorar el negocio, sino modelar la solución con el mayor detalle posible, incorporando los comandos, políticas, agregados y vistas de lectura que la aplicación necesita para que una junta complete su ciclo, desde su creación y la incorporación de los integrantes hasta el registro y validación de aportes, la entrega del pozo y el cierre [@brandolini2021eventstorming]. La sesión se limitó a dos horas y se realizó en Miro.
+El punto de partida fue el Big Picture EventStorming del Needfinding, que describe cómo funciona hoy una junta sin Pozzo, y el Ubiquitous Language consolidado a partir de él. Sobre esa base, y con las User Stories ya especificadas, el equipo repitió el EventStorming con un objetivo distinto: ya no explorar el negocio, sino modelar la solución con el mayor detalle posible, incorporando los comandos, políticas, agregados y vistas de lectura que la aplicación necesita para que una junta complete su ciclo, desde su creación y la incorporación de los integrantes hasta el registro y validación de aportes, la entrega del pozo y el cierre [@brandolini2021eventstorming]. La sesión se limitó a dos horas y se realizó en Miro; el tablero completo, con todos los artefactos de esta sección, se enlaza en el Anexo B, Tablero de Miro del diseño estratégico.
 
 A partir de ese EventStorm de nivel de diseño, el equipo identificó los Bounded Contexts candidatos en una sesión de Candidate Context Discovery. Se combinaron dos técnicas: start-with-value, para aislar primero la parte del dominio que sostiene la hipótesis principal de Pozzo, la validación de aportes contra comprobantes, y look-for-pivotal-events, para reconocer los eventos que marcan un cambio de estado en la junta (junta iniciada, aporte validado, pozo entregado, ciclo cerrado) y usarlos como fronteras entre contextos. Con los contextos candidatos definidos, se modeló con Domain Storytelling cómo colaboran para resolver los casos de uso de la cabeza de junta y del participante [@hofer2021domainstorytelling], y se elaboró un Bounded Context Canvas por cada contexto, en orden de importancia, siguiendo el proceso iterativo de definición del contexto, destilación de reglas de negocio y captura del Ubiquitous Language, análisis de capabilities, captura de dependencias y crítica del diseño.
 
 Tres criterios guiaron esas decisiones a lo largo de todo el proceso. Primero, el contexto core, el que concentra la validación de aportes y la transparencia del pozo, debía quedar aislado de los subdominios de apoyo y genéricos, como el acceso con número de celular o el envío de recordatorios, para que la lógica que diferencia a Pozzo de sus competidores no dependa de decisiones tomadas en otros contextos. Segundo, cada contexto debía tener su propio modelo y su propio lenguaje: el mismo término, integrante o aporte, puede significar cosas distintas en el contexto que administra la junta y en el que registra los pagos, y esa diferencia se hace explícita en lugar de resolverse con un modelo único. Tercero, las relaciones entre contextos debían expresarse con los patrones de Context Mapping de Domain-Driven Design (Customer/Supplier, Conformist, Anti-corruption Layer, Shared Kernel), discutiendo alternativas antes de fijar el mapa definitivo.
 
-La sección cierra con la arquitectura de software de la solución, representada con el C4 Model en Structurizr [@brown2018c4], en sus niveles de contexto, contenedores y despliegue. Cada Bounded Context se refleja en esos diagramas, y el diseño táctico de cada uno se desarrolla en la sección siguiente.
+La sección cierra con la arquitectura de software de la solución, representada con el C4 Model en Structurizr [@brown2018c4], en sus niveles de contexto, contenedores y despliegue. Cada Bounded Context se refleja en esos diagramas, y el diseño táctico de cada uno se desarrolla en la sección Tactical-Level Domain-Driven Design.
 
 ### 2.5.1. EventStorming
 

@@ -188,7 +188,7 @@ proyecto.
 ##### User Assumptions
 
 - Los actores que interactúan con el sistema son dos: la cabeza de junta, en su
-  papel de organizadora, y el participante, ambos descritos en los segmentos objetivo.
+  papel de organizadora, y el participante, ambos descritos en la sección Segmentos objetivo.
 - La cabeza de junta es el tomador de decisión principal para la adopción; el
   participante se incorpora a una junta que otra persona ya creó y no elige la
   herramienta.
@@ -238,7 +238,7 @@ proyecto.
 #### 1.2.2.3. Lean UX Hypothesis Statements
 
 Siguiendo el Lean UX Process se formula un hypothesis statement por cada feature
-assumption enunciada en la sección anterior. Cada hipótesis vincula un resultado
+assumption enunciada en la sección Lean UX Assumptions. Cada hipótesis vincula un resultado
 de negocio, la persona que lo hace posible, el beneficio que esa persona obtiene
 y la funcionalidad que lo habilita.
 
