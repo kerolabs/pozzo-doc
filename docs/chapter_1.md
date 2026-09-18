@@ -165,6 +165,16 @@ proyecto.
 - El equipo cuenta con las capacidades técnicas y el tiempo necesarios para
   construir y sostener la aplicación móvil, los servicios RESTful y el landing
   page dentro del ciclo académico.
+- Pozzo se monetiza con una cuota fija por junta, que la cabeza de junta paga
+  una sola vez al crearla y cubre el ciclo completo, sea de seis o de doce
+  períodos, nunca con un porcentaje del pozo ni con una comisión sobre los
+  aportes. El plan gratuito permite administrar una junta activa de hasta seis
+  integrantes con sorteo u orden acordado y conserva el historial completo; el
+  plan de pago habilita juntas ilimitadas y simultáneas, sin tope de
+  integrantes, la asignación de turnos por subasta y la exportación del resumen
+  de cierre. La cuota se cobra por la misma billetera que el grupo ya usa y
+  cuesta menos que un aporte típico, entre 10 y 20 soles por junta, para que la
+  cabeza pueda repartirla entre el grupo sin discusión.
 
 ##### Business Outcome Assumptions
 
@@ -184,6 +194,10 @@ proyecto.
   comprobar.
 - Al menos una de cada tres juntas nuevas se forma con integrantes, organizadores
   o participantes, que ya usaron Pozzo en un ciclo anterior.
+- Al menos una de cada cuatro cabezas de junta que completan un ciclo en el
+  plan gratuito paga la cuota de su siguiente junta, sea porque organiza más de
+  una a la vez, porque su grupo supera los seis integrantes o porque adopta la
+  subasta.
 
 ##### User Assumptions
 
