@@ -4,6 +4,28 @@
 % pero la caratula siempre necesita el logo.
 \usepackage{graphicx}
 
+% Pandoc limita cada imagen a height=\textheight. Una imagen alta (los diagramas
+% de componentes, los tramos del EventStorming) queda entonces exactamente del
+% alto de la pagina, y con el titulo que la precede y la leyenda que la sigue ya
+% no cabe en ninguna: LaTeX salta de pagina, la figura tampoco entra en la
+% siguiente y deja una pagina en blanco en medio. Reservar el 15 % del alto para
+% titulo y leyenda hace que siempre quepan los tres juntos.
+%
+% Se hace aqui y no con un atributo height en el Markdown: cuando una imagen
+% lleva ancho y alto a la vez, Pandoc omite keepaspectratio y la imagen se
+% deforma. Reducir \textheight solo mientras se carga la imagen deja intactos
+% los atributos de Pandoc (width, height=\textheight, keepaspectratio) y el
+% resto de la pagina, porque el cambio muere al cerrar el grupo.
+\newlength{\altoMaximoDeImagen}
+\AtBeginDocument{%
+  \setlength{\altoMaximoDeImagen}{0.85\textheight}%
+  \let\includegraphicsOriginal\includegraphics
+  \renewcommand{\includegraphics}[2][]{%
+    \begingroup
+      \setlength{\textheight}{\altoMaximoDeImagen}%
+      \includegraphicsOriginal[#1]{#2}%
+    \endgroup}}
+
 % Margenes de 1 pulgada.
 \usepackage{geometry}
 \geometry{letterpaper, margin=1in, headheight=15pt}

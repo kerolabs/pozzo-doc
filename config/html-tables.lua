@@ -57,9 +57,12 @@ end
 -- LaTeX eso significa "tan anchas como su contenido": una celda con un parrafo
 -- se sale de la pagina. Se reparte el ancho de la pagina en proporcion al
 -- contenido de cada columna, como hace pandoc con las tablas de tuberias.
--- Una linea de texto en la pagina admite unos 80 caracteres. Sirve para pasar
--- de "caracteres" a "fraccion del ancho" al fijar el minimo de cada columna.
-local CARACTERES_POR_LINEA = 80
+-- Una linea de texto en la pagina admite unos 85 caracteres de media, pero el
+-- minimo de una columna lo marca su palabra mas larga, y las palabras que
+-- desbordan suelen ir en negrita o llevar mayusculas (Customer/Supplier,
+-- ComplianceSummary), mas anchas que la media. Se cuenta con 72 por linea para
+-- que el minimo cubra tambien esos casos.
+local CARACTERES_POR_LINEA = 72
 
 -- Una "palabra" mas larga que esto es un enlace o algo parecido, que LaTeX si
 -- puede partir; no tiene sentido ensanchar la columna por ella.
@@ -138,16 +141,52 @@ local function repartirAnchos(tabla, html)
   -- Cada columna recibe ancho en proporcion a su contenido, pero nunca menos
   -- de lo que ocupa su palabra mas larga: si no, LaTeX la parte con guiones o
   -- la deja salir por el borde de la celda.
-  local anchos, suma = {}, 0
+  --
+  -- Las columnas que no llegan a su minimo se fijan en el, y el ancho que queda
+  -- se reparte entre las demas en proporcion a su contenido. Fijar una puede
+  -- dejar a otra por debajo de su minimo, asi que se repite hasta que ninguna
+  -- cambie. Normalizar al final, como se hacia antes, encogia tambien las
+  -- columnas fijadas y las dejaba otra vez mas estrechas que su palabra.
+  local minimo = {}
   for c = 1, ncol do
-    local minimo = (math.min(palabra[c], PALABRA_MAXIMA) + 2) / CARACTERES_POR_LINEA
-    anchos[c] = math.max(largo[c] / total, minimo)
+    minimo[c] = (math.min(palabra[c], PALABRA_MAXIMA) + 2) / CARACTERES_POR_LINEA
+  end
+
+  local anchos, fija = {}, {}
+  repeat
+    local libre, contenidoLibre = 1, 0
+    for c = 1, ncol do
+      if fija[c] then libre = libre - minimo[c] else contenidoLibre = contenidoLibre + largo[c] end
+    end
+    local cambio = false
+    for c = 1, ncol do
+      if fija[c] then
+        anchos[c] = minimo[c]
+      else
+        anchos[c] = contenidoLibre > 0 and libre * largo[c] / contenidoLibre or 0
+        if anchos[c] < minimo[c] and libre > 0 then
+          fija[c] = true
+          cambio = true
+        end
+      end
+    end
+  until not cambio
+
+  -- Si ni siquiera los minimos caben, se reparte en proporcion a ellos.
+  local suma, invalido = 0, false
+  for c = 1, ncol do
     suma = suma + anchos[c]
+    if anchos[c] < 0 then invalido = true end
+  end
+  if invalido or suma > 1.0001 or suma <= 0 then
+    suma = 0
+    for c = 1, ncol do anchos[c] = minimo[c]; suma = suma + anchos[c] end
+    for c = 1, ncol do anchos[c] = anchos[c] / suma end
   end
 
   local specs = pandoc.List()
   for c = 1, ncol do
-    specs:insert({ tabla.colspecs[c][1], anchos[c] / suma })
+    specs:insert({ tabla.colspecs[c][1], anchos[c] })
   end
   tabla.colspecs = specs
   return tabla

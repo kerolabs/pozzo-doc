@@ -3555,31 +3555,19 @@ No se usa Shared Kernel: ningún contexto comparte código de dominio con otro. 
 
 El diagrama de contexto representa la visión de más alto nivel de Pozzo. Establece las fronteras del sistema y muestra las relaciones con los actores humanos (cabeza de junta, participante y visitante) y los ecosistemas externos que habilitan la operación del servicio.
 
-![Diagrama de contexto del sistema Pozzo](images/chapter_2/c4_context.png)
-
-<p align="center">
-  Elaboración propia
-</p>
+![Diagrama de contexto del sistema Pozzo (elaboración propia)](images/chapter_2/c4_context.png)
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
 El diagrama de contenedores descompone el sistema Pozzo en sus unidades de software ejecutables y de almacenamiento de datos, definiendo la tecnología empleada por cada contenedor y los límites de comunicación entre ellos.
 
-![Diagrama de contenedores del sistema Pozzo](images/chapter_2/c4_container.png)
-
-<p align="center">
-  Elaboración propia
-</p>
+![Diagrama de contenedores del sistema Pozzo (elaboración propia)](images/chapter_2/c4_container.png)
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
 El diagrama de despliegue mapea los contenedores de software sobre los nodos de infraestructura física y en la nube en el entorno de producción, detallando los entornos de ejecución, la distribución de componentes y los mecanismos de conectividad.
 
-![Diagrama de despliegue en producción del sistema Pozzo](images/chapter_2/c4_deployment.png)
-
-<p align="center">
-  Elaboración propia
-</p>
+![Diagrama de despliegue en producción del sistema Pozzo (elaboración propia)](images/chapter_2/c4_deployment.png)
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
@@ -3594,7 +3582,7 @@ Contributions es el contexto core. Registra y valida los aportes de cada períod
 #### 2.6.1.1. Domain Layer
 
 <table>
-  <colgroup><col width="24%"><col width="14%"><col width="28%"><col width="34%"></colgroup>
+  <colgroup><col width="26%"><col width="16%"><col width="26%"><col width="32%"></colgroup>
   <thead>
     <tr>
       <th>Clase</th>
@@ -3879,7 +3867,7 @@ Savings Groups es el contexto de soporte que define la junta antes de que exista
 #### 2.6.2.1. Domain Layer
 
 <table>
-  <colgroup><col width="24%"><col width="14%"><col width="28%"><col width="34%"></colgroup>
+  <colgroup><col width="26%"><col width="16%"><col width="26%"><col width="32%"></colgroup>
   <thead>
     <tr>
       <th>Clase</th>
@@ -4111,7 +4099,7 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
 #### 2.6.3.1. Domain Layer
 
 <table>
-  <colgroup><col width="24%"><col width="14%"><col width="28%"><col width="34%"></colgroup>
+  <colgroup><col width="26%"><col width="16%"><col width="26%"><col width="32%"></colgroup>
   <thead>
     <tr>
       <th>Clase</th>
@@ -4305,7 +4293,7 @@ Notifications es un contexto genérico y reactivo: casi todo lo que hace lo disp
 #### 2.6.4.1. Domain Layer
 
 <table>
-  <colgroup><col width="24%"><col width="14%"><col width="28%"><col width="34%"></colgroup>
+  <colgroup><col width="26%"><col width="16%"><col width="26%"><col width="32%"></colgroup>
   <thead>
     <tr>
       <th>Clase</th>
@@ -4515,7 +4503,7 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
 #### 2.6.5.1. Domain Layer
 
 <table>
-  <colgroup><col width="24%"><col width="14%"><col width="28%"><col width="34%"></colgroup>
+  <colgroup><col width="26%"><col width="16%"><col width="26%"><col width="32%"></colgroup>
   <thead>
     <tr>
       <th>Clase</th>
