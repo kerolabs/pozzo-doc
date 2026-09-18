@@ -5,7 +5,7 @@ param(
 $ErrorActionPreference = 'Stop'
 
 $Branches = @('main', 'develop')
-$RequiredCheck = 'no-ai-authorship'
+$RequiredCheck = 'commit-policy'
 
 function Show-Usage {
     Write-Host ''
