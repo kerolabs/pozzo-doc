@@ -43,7 +43,7 @@ La propuesta de Kerolabs está orientada principalmente a grupos de familiares, 
     </tr>
     <tr>
       <td><img src="images/chapter_1/gabriela_tirado_carrera.jpeg" alt="Gabriela Tirado Carrera"></td>
-      <td><b>Gabriela Luciana Tirado Carrera</b><br><b>Código de estudiante:</b> U202519592<br><b>Carrera:</b> Ingeniería de Software<br><br>Estudiante de Ingeniería de Software con conocimientos en desarrollo Full Stack, incluyendo Angular, Vue, HTML, CSS, C#, Java, JavaScript y SQL. Hábil en trabajo de equipos y desarrollo de interfaces.<br><br></td>
+      <td><b>Gabriela Luciana Tirado Carrera</b><br><b>Código de estudiante:</b> U202419592<br><b>Carrera:</b> Ingeniería de Software<br><br>Estudiante de Ingeniería de Software con conocimientos en desarrollo Full Stack, incluyendo Angular, Vue, HTML, CSS, C#, Java, JavaScript y SQL. Hábil en trabajo de equipos y desarrollo de interfaces.<br><br></td>
     </tr>
     <tr>
       <td><img src="images/chapter_1/julius_camargo.png" alt="Joseph Julius Camargo Briceño"></td>
