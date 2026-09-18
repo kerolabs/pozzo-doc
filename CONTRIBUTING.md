@@ -131,7 +131,7 @@ git push origin av1
 ### Protección de ramas
 
 `main` y `develop` rechazan los pushes directos. Todo entra por Pull Request y con
-el check `no-ai-authorship` en verde, incluidos los administradores.
+el check `commit-policy` en verde, incluidos los administradores.
 
 > [!WARNING]
 > Esa configuración vive en los ajustes del repositorio, no en sus archivos, así que
@@ -163,17 +163,22 @@ del repositorio y `chore` para configuración.
 > historial y los analíticos de colaboración. No es una preferencia del equipo: es
 > parte de la nota, igual que el contenido del informe.
 
-El historial es evidencia que se califica, así que ningún commit puede atribuir
-autoría a una herramienta de IA. Hay dos controles, uno en tu máquina y otro en el
-servidor:
+El formato se comprueba en dos sitios, uno en tu máquina y otro en el servidor:
 
 | Control | Dónde actúa | Se salta con |
 | --- | --- | --- |
 | `.githooks/commit-msg` | Al hacer commit, en tu equipo | `git commit --no-verify` |
 | `commit-policy.yml` | En cada push y cada Pull Request | Nada |
 
-El hook lo activa `dependencies.ps1`. Si un commit ya salió con esa línea y todavía
-no lo subiste, `git commit --amend` lo arregla.
+Los dos aplican las mismas reglas: la primera línea sigue Conventional Commits
+(`tipo: descripción`, con los tipos `feat`, `fix`, `docs`, `style`, `refactor`,
+`perf`, `test`, `build`, `ci`, `chore` y `revert`), y el commit se atribuye a un
+integrante del equipo, así que los pies que algunas herramientas añaden solos al
+mensaje (`Co-authored-by`, `Generated with`) se quitan antes de subir. Los commits
+de merge y de revert que generan git y GitHub quedan exentos.
+
+El hook lo activa `dependencies.ps1`. Si un commit ya salió mal y todavía no lo
+subiste, `git commit --amend` lo arregla.
 
 ## Convenciones de escritura
 

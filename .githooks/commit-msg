@@ -1,22 +1,44 @@
 #!/bin/sh
-# Rejects commits that credit an AI tool as an author.
+# Checks the commit message before the commit is created.
 # Enabled with:  git config core.hooksPath .githooks
 # dependencies.ps1 does this for you.
+#
+# Two rules, the same ones commit-policy.yml enforces on the server:
+#   1. Conventional Commits: "type: description", in English.
+#   2. Commits are authored by team members: trailers added by tools
+#      (Co-authored-by, Generated with) are removed.
 
 message="$1"
 
-coauthor='^[[:space:]]*Co-authored-by:.*(claude|copilot|chatgpt|openai|anthropic|gemini|cursor|codeium|devin|tabnine)'
-signature='(Generated with|Co-Authored-By).*(Claude|Copilot|ChatGPT|Gemini|Cursor)'
+types='feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert'
+subject="^($types)(\([a-z0-9._/-]+\))?!?: [^ ].+"
+trailer='^[[:space:]]*(Co-authored-by|Signed-off-by):.*(claude|copilot|chatgpt|openai|anthropic|gemini|cursor|codeium|devin|tabnine)|Generated with.*(Claude|Copilot|ChatGPT|Gemini|Cursor)'
 
-if grep -qiE "$coauthor" "$message" || grep -qE "$signature" "$message" || grep -q '🤖' "$message"; then
+first=$(grep -v '^#' "$message" | grep -m1 .)
+
+case "$first" in
+  Merge\ *|Revert\ \"*) exit 0 ;;
+esac
+
+if ! printf '%s\n' "$first" | grep -qE "$subject"; then
   echo ""
-  echo "COMMIT REJECTED: the message credits an AI tool as an author."
+  echo "COMMIT REJECTED: the message does not follow Conventional Commits."
+  echo ""
+  echo "  Got:      $first"
+  echo "  Expected: <type>: <description>     e.g.  docs: add user personas to chapter 2"
+  echo "  Types:    feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert"
+  echo ""
+  exit 1
+fi
+
+if grep -qiE "$trailer" "$message" || grep -q '🤖' "$message"; then
+  echo ""
+  echo "COMMIT REJECTED: the message carries a trailer added by a tool."
   echo ""
   echo "Offending lines:"
-  grep -inE "$coauthor|$signature|🤖" "$message" | sed 's/^/  /'
+  grep -inE "$trailer|🤖" "$message" | sed 's/^/  /'
   echo ""
-  echo "This course is graded individually and the commit history is part of"
-  echo "the evidence. Remove those lines from the message."
+  echo "Commits are authored by team members. Remove those lines and commit again."
   echo ""
   exit 1
 fi
