@@ -91,6 +91,8 @@
 ### [Bibliografía](docs/closing.md#bibliografía)
 
 ### [Anexos](docs/closing.md#anexos)
+- [Anexo A. Product Backlog en Trello](docs/closing.md#anexo-a-product-backlog-en-trello)
+- [Anexo B. Tablero de Miro del diseño estratégico](docs/closing.md#anexo-b-tablero-de-miro-del-diseño-estratégico)
 
 <!-- pdf:omit-end -->
 
