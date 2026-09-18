@@ -41,23 +41,6 @@ local function alinearArriba(inlines)
   return salida
 end
 
--- Pandoc limita cada imagen a height=\textheight. Una imagen alta (los diagramas
--- de componentes, los tramos del EventStorming) queda entonces exactamente del
--- alto de la pagina, y con el titulo que la precede y la leyenda que la sigue ya
--- no cabe en ninguna: LaTeX salta de pagina, la figura tampoco entra en la
--- siguiente y deja una pagina en blanco en medio. Reservar el 15 % del alto para
--- titulo y leyenda hace que siempre quepan los tres juntos. Solo se fija cuando
--- el autor no indico una altura; keepaspectratio sigue activo, asi que las
--- imagenes anchas no cambian.
-local ALTO_MAXIMO = '85%'
-
-function Image(el)
-  if not FORMAT:match('latex') then return nil end
-  if el.attributes.height then return nil end
-  el.attributes.height = ALTO_MAXIMO
-  return el
-end
-
 -- Un <br> al final de una celda no separa nada: solo deja una linea vacia
 -- pegada al borde inferior, que con la cuadricula se nota.
 local function sinSaltosFinales(inlines)
@@ -73,7 +56,7 @@ end
 -- una persona los pondria: entre una minuscula y una mayuscula (CamelCase) y
 -- despues de una barra o un punto. Solo se tocan palabras largas dentro de
 -- tablas; el resto del texto se compone como siempre.
-local LARGO_MINIMO = 18
+local LARGO_MINIMO = 14
 
 local function conCortes(str)
   local texto = str.text
@@ -134,6 +117,16 @@ end
 -- \needspace de los titulos: no abrir un punto de corte entre dos titulos.
 local RESERVA_ANTES_DE_TABLA = 12
 
+-- Un parrafo que es solo una etiqueta en negrita (**Tacticas:**, **Hallazgos**)
+-- hace de titulo de la lista o del bloque que le sigue, pero para LaTeX es un
+-- parrafo mas: sin espacio arriba queda pegado al texto anterior, y la lista de
+-- abajo si trae su propio espacio, asi que la etiqueta parece colgar del
+-- parrafo equivocado. Se le da el mismo respiro que tiene una lista y se
+-- prohibe el salto de pagina entre la etiqueta y lo que rotula.
+local function esEtiqueta(b)
+  return b.t == 'Para' and #b.content == 1 and b.content[1].t == 'Strong'
+end
+
 function Blocks(bloques)
   if not FORMAT:match('latex') then return nil end
   local salida = pandoc.List()
@@ -142,7 +135,16 @@ function Blocks(bloques)
       salida:insert(pandoc.RawBlock(
         'latex', '\\reservarAntesDeTabla{' .. RESERVA_ANTES_DE_TABLA .. '}'))
     end
-    salida:insert(b)
+    if esEtiqueta(b) then
+      local previo = bloques[i - 1]
+      if previo and previo.t ~= 'Header' then
+        salida:insert(pandoc.RawBlock('latex', '\\addvspace{\\topsep}'))
+      end
+      salida:insert(b)
+      salida:insert(pandoc.RawBlock('latex', '\\nopagebreak'))
+    else
+      salida:insert(b)
+    end
   end
   return salida
 end

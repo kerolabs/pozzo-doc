@@ -363,7 +363,7 @@ python -c "from PIL import Image; im=Image.open('captura.png'); r=1600/im.width;
 ```
 
 Una imagen más alta que la página se reduce sola al 85 % del alto del texto, para
-que quepa junto con su título y su leyenda; lo hace `config/pdf-only.lua`.
+que quepa junto con su título y su leyenda; lo hace `config/apa7.tex`.
 
 ### Contenido distinto en GitHub y en el PDF
 
