@@ -11,15 +11,85 @@
   </thead>
   <tbody>
     <tr>
-      <td align="center">AV1</td>
+      <td align="center">1.0</td>
       <td align="center">02/09/2026</td>
       <td align="center">Todo el equipo</td>
-      <td align="center">Primera versión</td>
+      <td align="center">Primera versión: estructura del informe y capítulos I y II</td>
+    </tr>
+    <tr>
+      <td align="center">1.1</td>
+      <td align="center">18/09/2026</td>
+      <td align="center">Todo el equipo</td>
+      <td align="center">Versión para AV1: Product Backlog en Trello, anexos, Student Outcome, Objetivos SMART, Conclusiones, Glosario y Collaboration Insights; remisiones internas por nombre de sección</td>
     </tr>
   </tbody>
 </table>
 
 # Project Report Collaboration Insights
+
+El informe se elabora en el repositorio `pozzo-doc` de la organización Kerolabs en GitHub: <https://github.com/kerolabs/pozzo-doc>. El informe está escrito en Markdown, con un archivo por capítulo, y el PDF de cada entrega se genera desde el repositorio con Pandoc y XeLaTeX bajo las normas APA 7, de modo que el documento entregado es siempre el estado exacto de la rama `main`.
+
+## AV1
+
+**Organización del trabajo.** El equipo repartió las secciones de los capítulos I y II entre los cinco integrantes y aplicó GitFlow: `main` guarda solo los estados entregados, `develop` integra el trabajo del equipo y cada sección se escribe en una rama `feature/*` nombrada con el número de la sección (por ejemplo `feature/2-3-needfinding` o `feature/2-5-2-Context-Mapping`). Cada rama se sube como Pull Request hacia `develop`, otro integrante la revisa y, al mergear, la rama se elimina. Los mensajes de commit siguen Conventional Commits en inglés, y un hook local junto con un check en el servidor rechazan cualquier commit que atribuya autoría a una herramienta de inteligencia artificial. Las reglas de escritura del informe (tablas en HTML, rutas de imágenes, citas con `references.bib`) están documentadas en el archivo `CONTRIBUTING.md` del repositorio, que todos los integrantes siguieron.
+
+**Coordinación.** El equipo trabajó con sesiones síncronas para las actividades colaborativas (entrevistas, EventStorming, Candidate Context Discovery, Bounded Context Canvases y Context Mapping, en Miro) y de forma asíncrona para la redacción de cada sección. Las revisiones se hicieron en las Pull Requests, donde se corrigieron errores de formato, terminología y coherencia entre secciones antes de integrar.
+
+**Aportes por integrante.** Entre el 7 y el 17 de septiembre de 2026 se integraron 26 Pull Requests y 76 commits en `develop`. El cuadro resume las secciones que cada integrante redactó y su actividad en el repositorio.
+
+<table>
+  <colgroup><col width="26%"><col width="50%"><col width="12%"><col width="12%"></colgroup>
+  <thead>
+    <tr>
+      <th>Integrante</th>
+      <th>Secciones redactadas en AV1</th>
+      <th align="center">Pull Requests</th>
+      <th align="center">Commits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Requirements specification (User Stories, Impact Mapping, Product Backlog); Tactical-Level DDD de Compliance History, Notifications e Identity & Access; introducción del Strategic-Level DDD; ajustes del Lean UX Process a las plantillas del enunciado; anexos; Student Outcome, Objetivos SMART, Conclusiones y Glosario; configuración de la exportación a PDF y de las tablas HTML del informe.</td>
+      <td align="center">13</td>
+      <td align="center">48</td>
+    </tr>
+    <tr>
+      <td>Flores Pinchi, Jose Fernando</td>
+      <td>Inicialización del repositorio desde la plantilla; Lean UX Process (Problem Statement, Assumptions, Hypothesis Statements, Lean UX Canvas); Entrevistas (diseño, registro y análisis); Tactical-Level DDD de Contributions y Savings Groups.</td>
+      <td align="center">3</td>
+      <td align="center">6</td>
+    </tr>
+    <tr>
+      <td>Sanchez Benavente, Leonardo Matias</td>
+      <td>Solution Profile (antecedentes y problemática); User Personas, User Task Matrix y Ubiquitous Language; EventStorming de nivel de diseño, Candidate Context Discovery y Domain Message Flows Modeling.</td>
+      <td align="center">3</td>
+      <td align="center">6</td>
+    </tr>
+    <tr>
+      <td>Solis Campos, Estefano Sebastian</td>
+      <td>Segmentos objetivo; Competidores (análisis competitivo, estrategias y tácticas); Software Architecture con el C4 Model (contexto, contenedores y despliegue).</td>
+      <td align="center">3</td>
+      <td align="center">3</td>
+    </tr>
+    <tr>
+      <td>Tirado Carrera, Gabriela Luciana</td>
+      <td>Startup Profile (descripción y perfiles); User Journey Mapping, Empathy Mapping y Big Picture EventStorming; Bounded Context Canvases y Context Mapping.</td>
+      <td align="center">4</td>
+      <td align="center">13</td>
+    </tr>
+  </tbody>
+</table>
+
+La diferencia en el número de commits se explica por el trabajo de configuración: además de sus secciones, Camargo construyó y ajustó la exportación a PDF (filtros para tablas HTML con celdas combinadas, cuadrícula, control de viudas y huérfanas), lo que generó una cantidad de commits pequeños de corrección que no corresponden a contenido nuevo.
+
+**Evidencia.** Las siguientes capturas corresponden a la pestaña Insights del repositorio al cierre de la entrega.
+
+![Contribuciones por integrante en el repositorio del informe, AV1](docs/images/insights_contributors_av1.png)
+
+![Actividad de commits en el repositorio del informe, AV1](docs/images/insights_commits_av1.png)
+
+![Pull Requests integradas en develop, AV1](docs/images/insights_pull_requests_av1.png)
 
 <!-- pdf:omit-start -->
 
