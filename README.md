@@ -164,6 +164,7 @@ La diferencia en el número de commits se explica por el trabajo de configuraci�
 ### [Anexos](docs/closing.md#anexos)
 - [Anexo A. Product Backlog en Trello](docs/closing.md#anexo-a-product-backlog-en-trello)
 - [Anexo B. Tablero de Miro del diseño estratégico](docs/closing.md#anexo-b-tablero-de-miro-del-diseño-estratégico)
+- [Anexo C. Fuentes de los diagramas de arquitectura](docs/closing.md#anexo-c-fuentes-de-los-diagramas-de-arquitectura)
 
 <!-- pdf:omit-end -->
 
