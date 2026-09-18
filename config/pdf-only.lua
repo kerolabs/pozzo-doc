@@ -41,6 +41,23 @@ local function alinearArriba(inlines)
   return salida
 end
 
+-- Pandoc limita cada imagen a height=\textheight. Una imagen alta (los diagramas
+-- de componentes, los tramos del EventStorming) queda entonces exactamente del
+-- alto de la pagina, y con el titulo que la precede y la leyenda que la sigue ya
+-- no cabe en ninguna: LaTeX salta de pagina, la figura tampoco entra en la
+-- siguiente y deja una pagina en blanco en medio. Reservar el 15 % del alto para
+-- titulo y leyenda hace que siempre quepan los tres juntos. Solo se fija cuando
+-- el autor no indico una altura; keepaspectratio sigue activo, asi que las
+-- imagenes anchas no cambian.
+local ALTO_MAXIMO = '85%'
+
+function Image(el)
+  if not FORMAT:match('latex') then return nil end
+  if el.attributes.height then return nil end
+  el.attributes.height = ALTO_MAXIMO
+  return el
+end
+
 -- Un <br> al final de una celda no separa nada: solo deja una linea vacia
 -- pegada al borde inferior, que con la cuadricula se nota.
 local function sinSaltosFinales(inlines)
