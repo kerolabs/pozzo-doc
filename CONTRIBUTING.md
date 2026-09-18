@@ -48,6 +48,20 @@ que sale:
 dist/upc-pre-<periodo>-1acc0238-<nrc>-<startup>-report-<entrega>.pdf
 ```
 
+El build completo tarda unos dos minutos, casi todo en XeLaTeX, que corre en un
+solo hilo y se pasa el tiempo descomprimiendo y volviendo a comprimir los PNG en
+cada una de sus dos o tres pasadas. Para revisar texto, tablas o paginación sin
+esperar, `-Draft` deja cada imagen como un marco vacío con su nombre y compila en
+unos veinte segundos:
+
+```powershell
+.\scripts\build.ps1 av1 -Draft
+```
+
+Sale en `dist/draft-<entrega>.pdf`, con otro nombre para que nadie lo entregue por
+error. La paginación es la misma que la del PDF completo, porque el marco ocupa
+exactamente el sitio de la imagen.
+
 ## Estructura
 
 <picture>
@@ -337,6 +351,19 @@ en GitHub como en el PDF.
 
 Cada imagen va en la carpeta de su capítulo. El logo y las fotos del equipo, en la
 raíz de `docs/images/`.
+
+Ancho máximo: **1600 píxeles**. En el PDF una imagen ocupa como mucho 6,5 pulgadas
+de ancho, así que 1600 px ya son 245 puntos por pulgada; más resolución no se
+distingue, pero engorda el PDF y alarga el build (cada pasada de XeLaTeX pasó de
+casi dos minutos a menos de uno al bajar las capturas de Miro de 3200 a 1600 px).
+Reduce la captura antes de subirla, con cualquier editor o con este comando:
+
+```powershell
+python -c "from PIL import Image; im=Image.open('captura.png'); r=1600/im.width; im.resize((1600, round(im.height*r)), Image.LANCZOS).save('captura.png', optimize=True)"
+```
+
+Una imagen más alta que la página se reduce sola al 85 % del alto del texto, para
+que quepa junto con su título y su leyenda; lo hace `config/pdf-only.lua`.
 
 ### Contenido distinto en GitHub y en el PDF
 
