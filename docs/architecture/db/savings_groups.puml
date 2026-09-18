@@ -1,0 +1,94 @@
+@startuml savings-groups-db
+title Savings Groups: esquema savings_groups (PostgreSQL)
+
+skinparam linetype ortho
+skinparam shadowing false
+skinparam dpi 200
+skinparam nodesep 60
+skinparam ranksep 70
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #305BAB
+  ArrowColor #313131
+  HeaderBackgroundColor #C6DCFF
+}
+hide circle
+hide empty methods
+
+entity "savings_groups" as groups {
+  * id : UUID <<PK>>
+  --
+  * name : VARCHAR(80)
+  * organizer_id : UUID
+  * contribution_amount : NUMERIC(12,2)
+  * currency : CHAR(3)
+  * periodicity : VARCHAR(10)
+  * cutoff_day : SMALLINT
+  * seats : SMALLINT
+  destination_account : VARCHAR(120)
+  turn_method : VARCHAR(10)
+  * status : VARCHAR(10)
+  * created_at : TIMESTAMP
+  started_at : TIMESTAMP
+}
+
+entity "memberships" as memberships {
+  * id : UUID <<PK>>
+  --
+  * group_id : UUID <<FK>>
+  member_id : UUID <<UQ>>
+  * display_name : VARCHAR(80)
+  phone : VARCHAR(20)
+  * kind : VARCHAR(10)
+  * status : VARCHAR(12)
+  * joined_at : TIMESTAMP
+}
+
+entity "invitations" as invitations {
+  * id : UUID <<PK>>
+  --
+  * group_id : UUID <<FK>>
+  * code : VARCHAR(8) <<UQ>>
+  * created_by : UUID
+  * created_at : TIMESTAMP
+  * expires_at : TIMESTAMP
+  * status : VARCHAR(10)
+}
+
+entity "turn_slots" as turn_slots {
+  * group_id : UUID <<PK, FK>>
+  * turn_number : SMALLINT <<PK>>
+  --
+  * membership_id : UUID <<FK, UQ>>
+  * assigned_by : VARCHAR(10)
+}
+
+entity "auctions" as auctions {
+  * id : UUID <<PK>>
+  --
+  * group_id : UUID <<FK>>
+  * turn_number : SMALLINT
+  * status : VARCHAR(10)
+  * opened_at : TIMESTAMP
+  closed_at : TIMESTAMP
+  winner_id : UUID <<FK>>
+}
+
+entity "bids" as bids {
+  * id : UUID <<PK>>
+  --
+  * auction_id : UUID <<FK>>
+  * membership_id : UUID <<FK>>
+  * amount : NUMERIC(12,2)
+  * placed_at : TIMESTAMP
+}
+
+groups ||--|{ memberships : "tiene"
+groups ||--o{ invitations : "invita con"
+groups ||--o{ turn_slots : "ordena"
+groups ||--o{ auctions : "subasta"
+memberships ||--o| turn_slots : "ocupa"
+memberships ||--o{ bids : "oferta"
+memberships |o--o{ auctions : "gana"
+auctions ||--o{ bids : "recibe"
+@enduml

@@ -41,9 +41,62 @@ local function alinearArriba(inlines)
   return salida
 end
 
+-- Un <br> al final de una celda no separa nada: solo deja una linea vacia
+-- pegada al borde inferior, que con la cuadricula se nota.
+local function sinSaltosFinales(inlines)
+  while #inlines > 0 and inlines[#inlines].t == 'LineBreak' do
+    inlines:remove(#inlines)
+  end
+  return inlines
+end
+
+-- Un identificador largo (RegisterContributionCommand, /api/v1/periods/{id})
+-- no tiene guiones ni espacios donde LaTeX pueda cortar, y en una columna
+-- estrecha se sale de la celda. Se le abren puntos de corte opcionales donde
+-- una persona los pondria: entre una minuscula y una mayuscula (CamelCase) y
+-- despues de una barra o un punto. Solo se tocan palabras largas dentro de
+-- tablas; el resto del texto se compone como siempre.
+local LARGO_MINIMO = 18
+
+local function conCortes(str)
+  local texto = str.text
+  if utf8.len(texto) == nil or #texto < LARGO_MINIMO then return nil end
+  local partes = {}
+  local actual = ''
+  local previo = ''
+  for _, cp in utf8.codes(texto) do
+    local c = utf8.char(cp)
+    local mayuscula = c:match('^%u$')
+    local minuscula = previo:match('^[%l%d]$')
+    if mayuscula and minuscula and actual ~= '' then
+      table.insert(partes, actual)
+      actual = ''
+    end
+    actual = actual .. c
+    if c == '/' or c == '.' then
+      table.insert(partes, actual)
+      actual = ''
+    end
+    previo = c
+  end
+  if actual ~= '' then table.insert(partes, actual) end
+  if #partes < 2 then return nil end
+  local salida = pandoc.List()
+  for i, parte in ipairs(partes) do
+    if i > 1 then salida:insert(pandoc.RawInline('latex', [[\allowbreak{}]])) end
+    salida:insert(pandoc.Str(parte))
+  end
+  return salida
+end
+
 function Table(tbl)
   if not FORMAT:match('latex') then return nil end
-  return pandoc.walk_block(tbl, { Inlines = alinearArriba })
+  return pandoc.walk_block(tbl, {
+    Str = conCortes,
+    Inlines = function(inlines)
+      return alinearArriba(sinSaltosFinales(inlines))
+    end,
+  })
 end
 
 -- Un encabezado seguido de una tabla necesita mas holgura que uno seguido de
@@ -51,6 +104,17 @@ end
 -- un parrafo; pero un longtable mide su primera fila por su cuenta y, si no le
 -- entra, salta de pagina y deja el titulo solo al pie. Reservando el alto de una
 -- fila completa, el titulo se va con su tabla en lugar de quedarse atras.
+--
+-- Tiene que ser \Needspace* (con asterisco), que mide el hueco y salta de pagina
+-- ahi mismo si no alcanza. El \needspace normal reserva con goma elastica y deja
+-- que TeX elija despues donde cortar; cuando el corte cae dentro del longtable,
+-- este ya ha tomado el control de la salida de pagina, retrocede hasta la goma
+-- y vuelve a imprimir la cabecera de la tabla en la pagina nueva, antes del
+-- titulo de la seccion.
+--
+-- Va envuelto en \reservarAntesDeTabla (apa7.tex), que lo omite cuando el
+-- encabezado viene justo detras de otro encabezado, por la misma razon que los
+-- \needspace de los titulos: no abrir un punto de corte entre dos titulos.
 local RESERVA_ANTES_DE_TABLA = 12
 
 function Blocks(bloques)
@@ -59,7 +123,7 @@ function Blocks(bloques)
   for i, b in ipairs(bloques) do
     if b.t == 'Header' and bloques[i + 1] and bloques[i + 1].t == 'Table' then
       salida:insert(pandoc.RawBlock(
-        'latex', '\\needspace{' .. RESERVA_ANTES_DE_TABLA .. '\\baselineskip}'))
+        'latex', '\\reservarAntesDeTabla{' .. RESERVA_ANTES_DE_TABLA .. '}'))
     end
     salida:insert(b)
   end

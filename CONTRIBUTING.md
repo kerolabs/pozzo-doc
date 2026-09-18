@@ -202,47 +202,129 @@ necesitas marcar estados en una tabla, escríbelos con palabras.
 
 ### Tablas
 
-Solo tablas de tuberías.
+Las tablas del informe se escriben en HTML. Markdown solo sabe de cuadrículas
+regulares, y varios cuadros del enunciado necesitan celdas que abarquen varias
+columnas o filas: el de cada User Story, el Competitive Analysis Landscape, el Sprint
+Backlog. HTML lo expresa con `colspan` y `rowspan`, y una sola forma de escribir
+tablas evita mezclar dos sintaxis en el mismo capítulo.
 
-```markdown
-| Versión | Fecha      | Autor |
-| ------- | ---------- | ----- |
-| AV1     | 02/04/2026 | Todos |
+```html
+<table>
+  <thead>
+    <tr>
+      <th>Story ID</th>
+      <th>User</th>
+      <th>Priority</th>
+      <th>Epic</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>US01</td>
+      <td>Cabeza de junta</td>
+      <td>Alta</td>
+      <td>EP01</td>
+    </tr>
+    <tr>
+      <td><b>Title</b></td>
+      <td colspan="3">Crear cuenta</td>
+    </tr>
+    <tr>
+      <td><b>Description</b></td>
+      <td colspan="3">Como cabeza de junta deseo crear mi cuenta para administrar mis juntas desde la aplicación.</td>
+    </tr>
+    <tr>
+      <td><b>Acceptance Criteria</b></td>
+      <td colspan="3"><b>Escenario 1:</b> registro correcto<br>Given que el visitante no tiene cuenta<br>When registra sus datos<br>Then el sistema crea la cuenta</td>
+    </tr>
+  </tbody>
+</table>
 ```
 
-Escribirlas a mano y mantener las tuberías alineadas es un dolor. Para armarlas usa
-[Tables Generator](https://www.tablesgenerator.com/markdown_tables): tiene una
-cuadrícula tipo hoja de cálculo, importa desde CSV, y te devuelve el Markdown ya
-formateado para pegar.
+Una etiqueta por línea, sangría de dos espacios por nivel y el contenido de cada
+celda en la misma línea que su `<td>`. Así una fila se lee de un vistazo y el diff de
+una Pull Request muestra exactamente qué celda cambió. No sangres el contenido en
+una línea aparte con cuatro espacios o más: Markdown lo tomaría por un bloque de
+código.
+
+`config/html-tables.lua` convierte la tabla antes de exportar, con las celdas
+combinadas, el ancho
+de cada columna repartido según su contenido. Reglas para que salga bien en GitHub
+y en el PDF a la vez:
+
+- Línea en blanco antes de `<table>` y después de `</table>`.
+- Cabecera dentro de `<thead>` y con celdas `<th>`; se imprime una sola vez,
+  aunque la tabla siga en la página siguiente.
+- Negrita y cursiva con `<b>` y `<i>`, no con `**` ni `*`. GitHub no interpreta
+  Markdown dentro de una tabla HTML, así que los asteriscos se verían tal cual en
+  el repositorio, aunque en el PDF salgan bien. Lo mismo con imágenes y enlaces:
+  `<img src="images/chapter_1/foto.png" alt="Nombre">` y `<a href="url">texto</a>`.
+- Salto de línea dentro de una celda con `<br>`.
+- Columna centrada con `align="center"` en cada una de sus celdas.
+- Las citas `[@clave]` sí funcionan dentro de las celdas.
+- Si el reparto automático de anchos no convence, fíjalos a mano con
+  `<colgroup><col width="20%"><col width="80%"></colgroup>` justo después de
+  `<table>`. Al ver un `<col>`, el filtro respeta esos anchos y no calcula nada.
+- Una celda con `rowspan` no se puede partir entre dos páginas. Si la tabla es
+  larga, úsalo solo en filas cortas.
+- Un identificador largo sin espacios (`RegisterContributionCommand`,
+  `/api/v1/periods/{id}`) se corta solo en el PDF en los límites CamelCase y
+  después de `/` o `.`. Lo hace `config/pdf-only.lua` únicamente dentro de
+  tablas; no hace falta partirlo a mano.
+
+En el PDF todas las tablas salen con la cuadrícula completa:
+borde, una línea entre filas y una entre columnas. Lo hace `config/table-grid.lua`
+en el último paso de la exportación. APA 7 pide solo tres líneas horizontales; el
+equipo prefirió la cuadrícula porque en cuadros con celdas combinadas y texto
+largo se lee mejor.
 
 > [!CAUTION]
-> Nunca uses `<table>` de HTML. Al exportar, Pandoc descarta el marcado y conserva
-> solo el texto, así que la tabla se convierte en párrafos sueltos, sin estructura y
-> sin ningún mensaje de error. A `<div align="center">` le pasa lo mismo con el
-> centrado.
+> `<div align="center">` y cualquier otra etiqueta HTML que no sea `<table>` y lo
+> que va dentro de ella se descarta al exportar, sin ningún mensaje de error: queda
+> el texto, se pierde el formato.
 
 #### Saltos de línea dentro de una celda
 
-**Usa `<br>`.** Una fila entera tiene que caber en una sola línea del archivo, así
-que no puedes pulsar Enter dentro de una celda: si partes la línea, Markdown deja de
-ver una fila y la tabla se rompe. `<br>` es la forma de bajar de línea sin salir de
-esa línea.
+**Usa `<br>`.** El contenido de una celda va en una sola línea del archivo; `<br>` es
+la forma de bajar de línea sin salir de ella.
 
-```markdown
-| Criterio | Acciones realizadas |
-| --- | --- |
-| Comunica oralmente | **Apellido, Nombre**<br>*AV1:* Lo que hizo.<br>*TB1:* Lo que hizo.<br><br>**Otro Apellido, Nombre**<br>*AV1:* Lo que hizo. |
+```html
+<tr>
+  <td>Comunica oralmente</td>
+  <td><b>Apellido, Nombre</b><br><i>AV1:</i> Lo que hizo.<br><i>TB1:</i> Lo que hizo.<br><br><b>Otro Apellido, Nombre</b><br><i>AV1:</i> Lo que hizo.</td>
+</tr>
 ```
 
 Dos `<br>` seguidos dejan una línea en blanco, que es lo que separa a un integrante
-del siguiente.
+del siguiente. Sin esto, una celda como las del Student Outcome sale en el PDF como
+un párrafo corrido donde el nombre de una persona aparece en mitad de la frase de
+otra, y no se distingue quién hizo qué.
 
-Sin esto, una celda como las del Student Outcome sale en el PDF como un párrafo
-corrido donde el nombre de una persona aparece en mitad de la frase de otra, y no se
-distingue quién hizo qué.
+Fuera de una tabla, `<br>` es la única etiqueta HTML que sobrevive al PDF, y solo
+porque `config/pdf-only.lua` la traduce a un salto de línea de verdad antes de
+exportar.
 
-`<br>` es la única etiqueta HTML que sobrevive al PDF, y solo porque
-`config/pdf-only.lua` la traduce a un salto de línea de verdad antes de exportar.
+### Diagramas
+
+Los diagramas de arquitectura se escriben como texto en `docs/architecture/` y se
+regeneran con Docker; las imágenes resultantes se copian a `docs/images/chapter_2/`.
+
+| Fuente | Herramienta | Salida |
+| --- | --- | --- |
+| `workspace.dsl` | Structurizr (C4: contexto, contenedores, componentes, despliegue) | `c4_*.png` |
+| `uml/*.puml` | PlantUML (diagramas de clases) | `uml_*.png` |
+| `db/*.puml` y `db/*.sql` | PlantUML (entidad-relación) y el DDL de cada esquema | `db_*.png` |
+
+```powershell
+docker run --rm -e PLANTUML_LIMIT_SIZE=16384 -v "${PWD}/docs/architecture:/data" plantuml/plantuml -tpng -o out "/data/uml/*.puml" "/data/db/*.puml"
+```
+
+```powershell
+docker run -d --name structurizr -p 8080:8080 -v "${PWD}/docs/architecture:/usr/local/structurizr" structurizr/structurizr local
+```
+
+Structurizr renderiza en el navegador: abre `http://localhost:8080`, entra a cada
+vista y usa su botón de exportar a PNG. Las carpetas `out/` no se versionan.
 
 ### Imágenes
 

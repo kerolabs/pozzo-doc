@@ -66,15 +66,26 @@
 % pagina. Esto reserva sitio para el titulo y las primeras lineas que lo siguen:
 % si no caben, el titulo entero pasa a la pagina siguiente.
 % Los de primer nivel no necesitan esto porque ya abren pagina con \clearpage.
+%
+% La reserva se salta cuando el encabezado viene justo detras de otro (@nobreak
+% sigue activo hasta que empieza un parrafo). El \needspace mete un punto de
+% corte permitido, y entre dos titulos seguidos ese era el unico que habia: TeX
+% cortaba ahi y el primer titulo se quedaba solo al pie de la pagina. Sin el
+% punto de corte, los dos titulos viajan juntos con el texto que sigue.
 \usepackage{needspace}
+\makeatletter
+\newcommand{\reservar}[1]{\if@nobreak\else\needspace{#1\baselineskip}\fi}
+% Version para un titulo seguido de tabla; la usa config/pdf-only.lua.
+\newcommand{\reservarAntesDeTabla}[1]{\if@nobreak\else\Needspace*{#1\baselineskip}\fi}
+\makeatother
 \let\oldsubsection\subsection
-\renewcommand{\subsection}{\needspace{4\baselineskip}\oldsubsection}
+\renewcommand{\subsection}{\reservar{4}\oldsubsection}
 \let\oldsubsubsection\subsubsection
-\renewcommand{\subsubsection}{\needspace{4\baselineskip}\oldsubsubsection}
+\renewcommand{\subsubsection}{\reservar{4}\oldsubsubsection}
 \let\oldparagraph\paragraph
-\renewcommand{\paragraph}{\needspace{3\baselineskip}\oldparagraph}
+\renewcommand{\paragraph}{\reservar{3}\oldparagraph}
 \let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}{\needspace{3\baselineskip}\oldsubparagraph}
+\renewcommand{\subparagraph}{\reservar{3}\oldsubparagraph}
 
 % El titulo del indice. Sin esto LaTeX lo rotula "Indice".
 \AtBeginDocument{\renewcommand{\contentsname}{Contenido}}
@@ -103,3 +114,68 @@
 \usepackage{fvextra}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{%
   breaklines,breaknonspaceingroup,breakanywhere,commandchars=\\\{\}}
+
+% Celdas combinadas en vertical (rowspan). multirow centra el texto entre las
+% filas que abarca calculando que todas miden lo mismo, y en una tabla con
+% parrafos nunca es asi: el texto queda flotando entre lineas de la fila vecina.
+% Anclado arriba, arranca a la altura de la primera fila, como el resto de celdas.
+\makeatletter
+\AtBeginDocument{%
+  \ifdefined\multirow
+    \renewcommand\multirow[2][t]{\@multirow[#1]{#2}}%
+  \fi}
+\makeatother
+
+% Paquetes de tablas. Pandoc los carga solo si encuentra tablas en el documento,
+% pero config/table-grid.lua las convierte en LaTeX crudo antes de que pandoc las
+% cuente, asi que hay que cargarlos aqui. Cargar dos veces un paquete no molesta.
+\usepackage{longtable,booktabs,array,multirow,calc}
+\makeatletter
+\ifdefined\c@none\else
+  \newcounter{none} % contador que pandoc usa para tablas sin numerar
+  % Sin esto, una tabla justo despues de un encabezado en linea (####) se
+  % imprime antes que el encabezado.
+  \usepackage{etoolbox}
+  \patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\fi
+% \pandocbounded escala una imagen para que quepa en la pagina. Pandoc la define
+% solo si ve imagenes fuera de las tablas, asi que aqui se garantiza; y se
+% redefine para que el tope de alto deje sitio al titulo que la precede y a su
+% rotulo: con la imagen a pagina completa, esos dos no entraban y LaTeX
+% metia paginas en blanco alrededor.
+\ifdefined\pandocbounded\else
+  \newsavebox\pandoc@box
+  \newcommand*\pandocbounded{}%
+\fi
+\renewcommand*\pandocbounded[1]{%
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\dimexpr\textheight-6\baselineskip\relax}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi}
+\makeatother
+
+% Los enlaces largos (las grabaciones de entrevistas en SharePoint) no tienen
+% espacios donde cortar y se salen de la celda. Permitir el corte tras
+% cualquier letra o digito los deja envolver como texto normal.
+\AtBeginDocument{%
+  \ifdefined\UrlBreaks
+    \renewcommand{\UrlBreaks}{\do\/\do\-\do\.\do\=\do\?\do\&\do\_\do\:%
+      \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m%
+      \do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z%
+      \do\A\do\B\do\C\do\D\do\E\do\F\do\G\do\H\do\I\do\J\do\K\do\L\do\M%
+      \do\N\do\O\do\P\do\Q\do\R\do\S\do\T\do\U\do\V\do\W\do\X\do\Y\do\Z%
+      \do\0\do\1\do\2\do\3\do\4\do\5\do\6\do\7\do\8\do\9}%
+  \fi}
+
+% Un encabezado en linea (#### y #####) se imprime recien cuando empieza el
+% parrafo siguiente. Si lo que sigue es una figura, la figura sale primero, el
+% titulo aparece debajo y, cuando la imagen es alta, queda una pagina en blanco
+% en medio. Abrir y cerrar un parrafo vacio antes de la figura imprime el titulo
+% en su sitio, y \nobreak evita que la figura se vaya a la pagina siguiente
+% dejando el titulo solo al pie. Pandoc hace lo primero con las tablas.
+\makeatletter
+\AtBeginEnvironment{figure}{\if@noskipsec\mbox{}\par\nobreak\fi}
+\makeatother

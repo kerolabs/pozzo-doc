@@ -1,0 +1,102 @@
+@startuml contributions-db
+title Contributions: esquema contributions (PostgreSQL)
+
+skinparam linetype ortho
+skinparam shadowing false
+skinparam dpi 200
+skinparam nodesep 60
+skinparam ranksep 70
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #BD0A0A
+  ArrowColor #313131
+  HeaderBackgroundColor #FFC6C6
+}
+hide circle
+hide empty methods
+
+entity "cycles" as cycles {
+  * id : UUID <<PK>>
+  --
+  * group_id : UUID <<UQ>>
+  * contribution_amount : NUMERIC(12,2)
+  * currency : CHAR(3)
+  * periodicity : VARCHAR(10)
+  * cutoff_day : SMALLINT
+  * destination_account : VARCHAR(120)
+  * total_turns : SMALLINT
+  * current_turn : SMALLINT
+  * status : VARCHAR(10)
+  * started_at : TIMESTAMP
+  closed_at : TIMESTAMP
+}
+
+entity "cycle_turns" as cycle_turns {
+  * cycle_id : UUID <<PK, FK>>
+  * turn_number : SMALLINT <<PK>>
+  --
+  * member_id : UUID <<UQ>>
+}
+
+entity "periods" as periods {
+  * id : UUID <<PK>>
+  --
+  * cycle_id : UUID <<FK>>
+  * turn_number : SMALLINT
+  * opens_at : DATE
+  * cutoff_date : DATE
+  * payout_member_id : UUID
+  * status : VARCHAR(15)
+  delivered_at : TIMESTAMP
+  delivered_by : UUID
+}
+
+entity "expected_contributions" as expected {
+  * id : UUID <<PK>>
+  --
+  * period_id : UUID <<FK>>
+  * member_id : UUID
+  * amount : NUMERIC(12,2)
+  * status : VARCHAR(10)
+  settled_by_contribution : UUID <<FK>>
+}
+
+entity "contributions" as contributions {
+  * id : UUID <<PK>>
+  --
+  * cycle_id : UUID <<FK>>
+  * period_id : UUID <<FK>>
+  * member_id : UUID
+  * amount : NUMERIC(12,2)
+  * method : VARCHAR(10)
+  * status : VARCHAR(15)
+  * registered_at : TIMESTAMP
+  receipt_operation_number : VARCHAR(40) <<UQ>>
+  receipt_payer : VARCHAR(120)
+  receipt_payee : VARCHAR(120)
+  receipt_amount : NUMERIC(12,2)
+  receipt_paid_at : DATE
+  receipt_source : VARCHAR(10)
+  covered_by_member_id : UUID
+  reviewed_by_member_id : UUID
+  review_note : VARCHAR(300)
+  reviewed_at : TIMESTAMP
+}
+
+entity "contribution_inconsistencies" as inconsistencies {
+  * id : UUID <<PK>>
+  --
+  * contribution_id : UUID <<FK>>
+  * field : VARCHAR(40)
+  * expected_value : VARCHAR(120)
+  * found_value : VARCHAR(120)
+}
+
+cycles ||--|{ cycle_turns : "tiene turnos"
+cycles ||--|{ periods : "abre"
+cycles ||--o{ contributions : "recibe"
+periods ||--|{ expected : "espera"
+periods ||--o{ contributions : "registra"
+contributions ||--o{ inconsistencies : "detecta"
+contributions |o--o| expected : "liquida"
+@enduml

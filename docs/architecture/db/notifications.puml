@@ -1,0 +1,69 @@
+@startuml notifications-db
+title Notifications: esquema notifications (PostgreSQL)
+
+skinparam linetype ortho
+skinparam shadowing false
+skinparam dpi 200
+skinparam nodesep 60
+skinparam ranksep 70
+skinparam class {
+  BackgroundColor #FFFFFF
+  BorderColor #6631D7
+  ArrowColor #313131
+  HeaderBackgroundColor #DEDAFF
+}
+hide circle
+hide empty methods
+
+entity "devices" as devices {
+  * id : UUID <<PK>>
+  --
+  * member_id : UUID
+  * push_token : VARCHAR(255) <<UQ>>
+  * platform : VARCHAR(10)
+  * registered_at : TIMESTAMP
+  * active : BOOLEAN
+}
+
+entity "reminder_plans" as plans {
+  * id : UUID <<PK>>
+  --
+  * group_id : UUID <<UQ>>
+  * offsets_in_days : VARCHAR(30)
+  * send_hour : SMALLINT
+  * enabled : BOOLEAN
+  * updated_at : TIMESTAMP
+}
+
+entity "notifications" as notifications {
+  * id : UUID <<PK>>
+  --
+  * member_id : UUID
+  * group_id : UUID
+  period_id : UUID
+  * kind : VARCHAR(10)
+  * title : VARCHAR(80)
+  * body : VARCHAR(240)
+  deep_link : VARCHAR(200)
+  * dedup_key : VARCHAR(120) <<UQ>>
+  * scheduled_at : TIMESTAMP
+  sent_at : TIMESTAMP
+  * status : VARCHAR(10)
+  * attempts : SMALLINT
+}
+
+entity "deliveries" as deliveries {
+  * id : UUID <<PK>>
+  --
+  * notification_id : UUID <<FK>>
+  * device_id : UUID <<FK>>
+  * attempted_at : TIMESTAMP
+  * result : VARCHAR(10)
+  provider_message_id : VARCHAR(120)
+  error : VARCHAR(200)
+}
+
+notifications ||--o{ deliveries : "se intenta en"
+devices ||--o{ deliveries : "recibe"
+plans .. notifications : "programa (por group_id)"
+@enduml
