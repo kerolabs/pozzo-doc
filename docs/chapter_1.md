@@ -62,7 +62,7 @@ La propuesta de Kerolabs está orientada principalmente a grupos de familiares, 
 
 ## 1.2. Solution Profile
 
-Kerolabs es una iniciativa de tecnología financiera comunitaria orientada a digitalizar la administración de las juntas peruanas a través de su producto central: Pozzo. Nuestra solución es un ecosistema compuesto por una aplicación móvil nativa y multiplataforma que atiende tanto al organizador como al participante de la junta, un conjunto de servicios web RESTful de desarrollo propio que sostienen la lógica del ciclo de ahorro rotativo, y un sitio web estático para el landing page del modelo de negocio. Las secciones siguientes presentan los antecedentes y la problemática que originan esta propuesta, y el resultado de aplicar Lean UX Process sobre el dominio del problema.
+Kerolabs es una iniciativa de tecnología financiera comunitaria orientada a digitalizar la administración de las juntas peruanas a través de su producto central: Pozzo. La solución es un ecosistema compuesto por una aplicación móvil nativa y multiplataforma que atiende tanto al organizador como al participante de la junta, un conjunto de servicios web RESTful de desarrollo propio que sostienen la lógica del ciclo de ahorro rotativo, y un sitio web estático para el landing page del modelo de negocio. Las secciones siguientes presentan los antecedentes y la problemática que originan esta propuesta, y el resultado de aplicar Lean UX Process sobre el dominio del problema.
 
 ### 1.2.1. Antecedentes y problemática
 
@@ -95,8 +95,8 @@ De este análisis se desprende que el problema no es la carencia de un medio de 
 
 ### 1.2.2. Lean UX Process
 
-En esta sección aplicamos el Lean UX Process [@gothelf2021leanux].
-Presentamos los Problem Statement, Assumptions, Hypothesis Statements y el Lean UX
+En esta sección se aplica el Lean UX Process [@gothelf2021leanux].
+Se presentan los Problem Statement, Assumptions, Hypothesis Statements y el Lean UX
 Canvas, adaptados al proyecto Pozzo.
 
 #### 1.2.2.1. Lean UX Problem Statements
@@ -145,7 +145,7 @@ sin volver al cuaderno ni al grupo de mensajería para llevar la cuenta.
 
 A partir de la discusión del equipo sobre el dominio del problema se enuncian
 las creencias que sostienen la propuesta, agrupadas en los cinco tipos de
-assumptions del Lean UX Process. Cada una es una afirmación que damos por cierta
+assumptions del Lean UX Process. Cada una es una afirmación que el equipo da por cierta
 sin haberla comprobado todavía y que, por tanto, debe validarse a lo largo del
 proyecto.
 
