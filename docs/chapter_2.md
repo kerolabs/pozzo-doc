@@ -819,6 +819,8 @@ El journey de Sofia Gonzales representa la experiencia de una participante desde
 
 ### 2.3.4. Empathy Mapping
 
+Los Empathy Maps se elaboraron en UXPressia, uno por cada User Persona, en una sesión de equipo posterior al análisis de entrevistas. El proceso siguió los pasos del método: se colocó al User Persona en el centro y el equipo fue ubicando en cada sección las observaciones que las entrevistas sostienen, respondiendo qué necesita hacer esa persona, qué dice, qué ve, qué hace, qué escucha y qué piensa y siente. Con las secciones completas se identificaron los Pains, lo que le preocupa y le frustra hoy al administrar o participar en una junta, y los Gains, lo que le ayudaría a resolver esos problemas y lo que la convencería de que Pozzo es la alternativa correcta. Cada observación se contrastó con los resúmenes de la sección Registro de entrevistas, de modo que ninguna afirmación del mapa carece de una entrevista que la respalde.
+
 #### Empathy map 1: Anna Weber - Cabeza de Junta
 
 El empathy map de Anna Weber, como administradora de juntas entre conocidos, refleja su rol clave en coordinar reglas, turnos y la entrega del pozo, enfrentando el desafío de equilibrar su confianza en el grupo con la frustración de la revisión manual de comprobantes y la incomodidad de gestionar cobranzas, lo que demuestra la necesidad de mejorar estos procesos, asegurar la transparencia de los aportes y preservar la confianza.
@@ -3550,6 +3552,8 @@ No se usa Shared Kernel: ningún contexto comparte código de dominio con otro. 
 
 
 ### 2.5.3. Software Architecture
+
+La arquitectura de software de Pozzo se representa con el C4 Model [@brown2018c4], que describe un sistema en niveles de abstracción sucesivos: el contexto, que muestra al sistema como una caja rodeada de sus usuarios y de los sistemas externos con los que conversa; los contenedores, que descomponen el sistema en las unidades que se ejecutan o almacenan datos por separado y fijan la tecnología de cada una; los componentes, que abren cada contenedor en sus bloques internos; y el código. Esta sección presenta los tres primeros niveles para la solución completa: la aplicación móvil, los servicios RESTful de desarrollo propio y el landing page, más un diagrama de despliegue que ubica cada contenedor en la infraestructura donde corre. Los diagramas de componentes se presentan por Bounded Context en la sección Tactical-Level Domain-Driven Design. Todos se describen en el lenguaje de Structurizr, en el archivo `docs/architecture/workspace.dsl` del repositorio, y se renderizan con Structurizr, de modo que la arquitectura se versiona y se revisa junto con el texto del informe.
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
