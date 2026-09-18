@@ -3555,19 +3555,19 @@ No se usa Shared Kernel: ningún contexto comparte código de dominio con otro. 
 
 El diagrama de contexto representa la visión de más alto nivel de Pozzo. Establece las fronteras del sistema y muestra las relaciones con los actores humanos (cabeza de junta, participante y visitante) y los ecosistemas externos que habilitan la operación del servicio.
 
-![Diagrama de contexto del sistema Pozzo (elaboración propia)](images/chapter_2/c4_context.png)
+![Diagrama de contexto del sistema Pozzo](images/chapter_2/c4_context.png)
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
 El diagrama de contenedores descompone el sistema Pozzo en sus unidades de software ejecutables y de almacenamiento de datos, definiendo la tecnología empleada por cada contenedor y los límites de comunicación entre ellos.
 
-![Diagrama de contenedores del sistema Pozzo (elaboración propia)](images/chapter_2/c4_container.png)
+![Diagrama de contenedores del sistema Pozzo](images/chapter_2/c4_container.png)
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
 El diagrama de despliegue mapea los contenedores de software sobre los nodos de infraestructura física y en la nube en el entorno de producción, detallando los entornos de ejecución, la distribución de componentes y los mecanismos de conectividad.
 
-![Diagrama de despliegue en producción del sistema Pozzo (elaboración propia)](images/chapter_2/c4_deployment.png)
+![Diagrama de despliegue en producción del sistema Pozzo](images/chapter_2/c4_deployment.png)
 
 ## 2.6. Tactical-Level Domain-Driven Design
 
