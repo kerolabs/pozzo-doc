@@ -16,10 +16,19 @@ jobs:
 
       - name: Check commit messages
         run: |
+          # Only the commits that are new to the target branch are checked.
+          # A push to a brand-new branch has no "before", so its commits are
+          # measured against develop (or main, for develop itself).
           if [ "${{ github.event_name }}" = "pull_request" ]; then
             range="origin/${{ github.base_ref }}..HEAD"
           elif [ "${{ github.event.before }}" = "0000000000000000000000000000000000000000" ]; then
-            range="HEAD"
+            if [ "${{ github.ref_name }}" != "develop" ] && git rev-parse --verify -q origin/develop >/dev/null; then
+              range="origin/develop..HEAD"
+            elif git rev-parse --verify -q origin/main >/dev/null; then
+              range="origin/main..HEAD"
+            else
+              range="HEAD"
+            fi
           else
             range="${{ github.event.before }}..${{ github.sha }}"
           fi
