@@ -2,15 +2,15 @@
 
 ## 1.1. Startup Profile
 
-En esta sección se presenta el perfil de Kero, incluyendo una descripción general de la startup, su propósito, misión y visión, así como los perfiles de los integrantes del equipo y las principales capacidades que aportan al desarrollo de Pozzo.
+En esta sección se presenta el perfil de Kerolabs, incluyendo una descripción general de la startup, su propósito, misión y visión, así como los perfiles de los integrantes del equipo y las principales capacidades que aportan al desarrollo de Pozzo.
 
 ### 1.1.1. Descripción de la Startup
 
-Kero es una startup peruana de tecnología financiera comunitaria enfocada en digitalizar la administración de juntas de ahorro. Su producto principal, Pozzo, nace como respuesta a una situación frecuente en estos grupos: aunque los aportes ya se realizan mediante billeteras digitales como Yape, el control de pagos, turnos, comprobantes y recordatorios continúa dependiendo de cuadernos, capturas y mensajes de WhatsApp.
+Kerolabs es una startup peruana de tecnología financiera comunitaria enfocada en digitalizar la administración de juntas de ahorro. Su producto principal, Pozzo, nace como respuesta a una situación frecuente en estos grupos: aunque los aportes ya se realizan mediante billeteras digitales como Yape, el control de pagos, turnos, comprobantes y recordatorios continúa dependiendo de cuadernos, capturas y mensajes de WhatsApp.
 
 Pozzo permite centralizar la gestión de la junta sin intervenir directamente en el movimiento del dinero. La cabeza de junta puede configurar el monto, número de participantes, periodicidad y asignación de turnos, mientras que los participantes pueden consultar su calendario, registrar sus aportes mediante vouchers y conocer en tiempo real el estado del pozo. De esta manera, la aplicación busca reducir errores de conteo, facilitar la verificación de pagos y disminuir la carga de seguimiento que actualmente recae sobre el organizador.
 
-La propuesta de Kero está orientada principalmente a grupos de familiares, amigos, vecinos o compañeros de trabajo que ya utilizan juntas como mecanismo de ahorro y desean mantener su dinámica habitual, pero con una administración más ordenada, transparente y verificable. A través de Pozzo, la startup busca combinar la confianza social propia de las juntas con herramientas digitales que simplifiquen su operación.
+La propuesta de Kerolabs está orientada principalmente a grupos de familiares, amigos, vecinos o compañeros de trabajo que ya utilizan juntas como mecanismo de ahorro y desean mantener su dinámica habitual, pero con una administración más ordenada, transparente y verificable. A través de Pozzo, la startup busca combinar la confianza social propia de las juntas con herramientas digitales que simplifiquen su operación.
 
 <table>
   <thead>
@@ -62,7 +62,7 @@ La propuesta de Kero está orientada principalmente a grupos de familiares, amig
 
 ## 1.2. Solution Profile
 
-Kero es una iniciativa de tecnología financiera comunitaria orientada a digitalizar la administración de las juntas peruanas a través de su producto central: Pozzo. Nuestra solución es un ecosistema compuesto por una aplicación móvil nativa y multiplataforma que atiende tanto al organizador como al participante de la junta, un conjunto de servicios web RESTful de desarrollo propio que sostienen la lógica del ciclo de ahorro rotativo, y un sitio web estático para el landing page del modelo de negocio. Las secciones siguientes presentan los antecedentes y la problemática que originan esta propuesta, y el resultado de aplicar Lean UX Process sobre el dominio del problema.
+Kerolabs es una iniciativa de tecnología financiera comunitaria orientada a digitalizar la administración de las juntas peruanas a través de su producto central: Pozzo. Nuestra solución es un ecosistema compuesto por una aplicación móvil nativa y multiplataforma que atiende tanto al organizador como al participante de la junta, un conjunto de servicios web RESTful de desarrollo propio que sostienen la lógica del ciclo de ahorro rotativo, y un sitio web estático para el landing page del modelo de negocio. Las secciones siguientes presentan los antecedentes y la problemática que originan esta propuesta, y el resultado de aplicar Lean UX Process sobre el dominio del problema.
 
 ### 1.2.1. Antecedentes y problemática
 
@@ -153,7 +153,7 @@ proyecto.
 
 - Existe un número suficiente de juntas urbanas que ya mueven sus aportes por
   billeteras digitales y siguen llevando el control de forma manual.
-- Administrar la junta sin custodiar ni movilizar el dinero mantiene a Kero
+- Administrar la junta sin custodiar ni movilizar el dinero mantiene a Kerolabs
   fuera del perímetro regulatorio que aplica a las entidades de pago, lo que
   reduce las barreras legales para operar.
 - La trazabilidad del ciclo completo es una ventaja defendible frente a los
