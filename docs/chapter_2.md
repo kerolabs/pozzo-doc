@@ -73,7 +73,7 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
     </tr>
     <tr>
       <td><b>Precios & costos</b></td>
-      <td>Modelo freemium / microcomisión por ciclo de junta administrada.</td>
+      <td>Plan gratuito para una junta activa de hasta seis integrantes; cuota fija de S/ 10 a 20 por junta, pagada una vez por la cabeza al crearla y válida por todo el ciclo, para juntas ilimitadas, sin tope de integrantes y con subasta. Sin comisiones sobre los aportes ni sobre el pozo.</td>
       <td>Descarga gratuita con anuncios publicitarios invasivos; opción de compra in-app para retirarlos.</td>
       <td>Comisión por transacción con tarjeta (aprox. 3.9 %) y tarifas según el tamaño del pool.</td>
       <td>Versión gratuita básica; suscripción prémium (<i>Splitwise Pro</i>) para escaneo de recibos y gráficos.</td>
