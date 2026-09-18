@@ -85,6 +85,7 @@
   - [4.3.3. Evaluaciones según heurísticas](docs/chapter_4.md#433-evaluaciones-según-heurísticas)
 
 ### [Conclusiones](docs/closing.md#conclusiones)
+- [Conclusiones y recomendaciones](docs/closing.md#conclusiones-y-recomendaciones)
 
 ### [Glosario](docs/closing.md#glosario)
 
