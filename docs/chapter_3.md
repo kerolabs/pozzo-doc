@@ -52,6 +52,73 @@ La profundidad máxima es de tres niveles: destino principal, detalle de la junt
 
 ![Arquitectura de información de la aplicación: cuatro destinos, grupos de pantallas por segmento y por tarea, y máximo tres niveles](images/chapter_3/ia_mapa_app.png){width=95%}
 
+##### Landing page
+
+El landing se organiza por tema y por tarea en una sola página de recorrido vertical, con la estructura lineal de un relato: primero qué es Pozzo y qué problema resuelve, luego cómo funciona, por qué confiar, qué incluye, quién lo hace, cómo registrarse y cómo contactar. Es el orden en que las historias US43 a US45 plantean las preguntas de un visitante. La barra superior fija y los enlaces ancla convierten ese recorrido en una estructura de hipertexto interno, de modo que se puede saltar a cualquier sección desde cualquier punto de la página.
+
+<table>
+  <colgroup><col width="14%"><col width="22%"><col width="42%"><col width="22%"></colgroup>
+  <thead>
+    <tr>
+      <th>Ancla</th>
+      <th>Sección</th>
+      <th>Contenido</th>
+      <th>Historia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>#top</b></td>
+      <td>Propuesta de valor</td>
+      <td>Problema, solución, el aviso de que Pozzo no maneja ni mueve el dinero y dos llamadas a la acción.</td>
+      <td>US43 (escenario 1)</td>
+    </tr>
+    <tr>
+      <td><b>#how</b></td>
+      <td>Cómo funciona</td>
+      <td>Tres pasos numerados: crear o unirse, aportar y subir el comprobante, y que Pozzo valide y lleve la cuenta.</td>
+      <td>US43</td>
+    </tr>
+    <tr>
+      <td><b>#trust</b></td>
+      <td>Tu dinero nunca pasa por Pozzo</td>
+      <td>Franja con tres puntos: sin billeteras que conectar, pagos directos entre integrantes y sin comisión sobre el pozo. No figura en la barra superior.</td>
+      <td>US43 (aclaración sobre el dinero)</td>
+    </tr>
+    <tr>
+      <td><b>#features</b></td>
+      <td>Funcionalidades</td>
+      <td>Cinco filas alternadas, cada una con una pantalla de la aplicación: validación de comprobantes, estado del pozo, recordatorios, turnos y historial.</td>
+      <td>US43 (escenario 2)</td>
+    </tr>
+    <tr>
+      <td><b>#team</b></td>
+      <td>Equipo</td>
+      <td>Misión de la startup y los cinco integrantes con nombre, rol y foto.</td>
+      <td>US45 (escenario 1)</td>
+    </tr>
+    <tr>
+      <td><b>#join</b></td>
+      <td>Registro de interés</td>
+      <td>Formulario con nombre y correo o celular, aceptación de los términos y mensaje de confirmación.</td>
+      <td>US44 (escenario 2)</td>
+    </tr>
+    <tr>
+      <td><b>#contact</b></td>
+      <td>Contacto</td>
+      <td>Correo de contacto y enlaces a las redes de la startup.</td>
+      <td>US45 (escenario 2)</td>
+    </tr>
+    <tr>
+      <td><b>pie</b></td>
+      <td>Pie de página</td>
+      <td>Enlaces a las secciones, selector de idioma, Términos y Condiciones y Política de privacidad.</td>
+      <td>US44 y US46</td>
+    </tr>
+  </tbody>
+</table>
+
+![Arquitectura de información del landing: dos idiomas con las mismas secciones, páginas legales y barra superior fija](images/chapter_3/ia_mapa_landing.png){width=95%}
 
 #### 3.1.2.2. Labelling Systems
 
