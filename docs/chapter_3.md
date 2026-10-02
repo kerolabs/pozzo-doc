@@ -1460,7 +1460,7 @@ El prototipo recorre solo el camino feliz: los campos de texto, el teclado numé
 
 El prototipo se recorre desde el archivo de Figma, en modo presentación, y el video del recorrido acompaña la entrega.
 
-Enlace al archivo y al prototipo de Figma: [[PENDIENTE: enlace de Figma con permiso de lectura para el docente]]
+Enlace al archivo y al prototipo de Figma: [https://www.figma.com/design/8KoGtoEQuWzHgtOih3hTgF/Pozzo---UI-UX-Design--TB1-?node-id=2-5&t=dYJd3mx1D7cuoisU-1]
 
-Video del recorrido de P1, P2 y P3: [[PENDIENTE: enlace del video]]
+Video del recorrido de P1, P2 y P3: [ ]
 
