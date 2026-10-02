@@ -340,6 +340,107 @@ En el texto del landing, la cabeza de junta se nombra con el mismo término del 
 
 #### 3.1.2.3. SEO Tags and Meta Tags
 
+El landing page es el principal contenido de Pozzo accesible para los motores de búsqueda. Por ello, sus etiquetas SEO y metadatos forman parte de la arquitectura del sitio y se generan desde una plantilla común, asegurando su presencia en todas las páginas.
+<table>
+  <colgroup><col width="22%"><col width="48%"><col width="30%"></colgroup>
+  <thead>
+    <tr>
+      <th>Etiqueta</th>
+      <th>Aplicación en Pozzo</th>
+      <th>Función</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>title</b></td>
+      <td>Incluye el nombre Pozzo y una propuesta breve de valor, adaptada al idioma y al tipo de página.</td>
+      <td>Identifica la página en los resultados de búsqueda y en la pestaña del navegador.</td>
+    </tr>
+    <tr>
+      <td><b>meta description</b></td>
+      <td>Resume las principales funciones de Pozzo, aclara que no administra el dinero e incluye una invitación a registrarse.</td>
+      <td>Describe brevemente la página en los resultados de búsqueda.</td>
+    </tr>
+    <tr>
+      <td><b>charset y viewport</b></td>
+      <td>UTF-8 y configuración responsive para dispositivos móviles.</td>
+      <td>Garantiza la correcta visualización del contenido.</td>
+    </tr>
+    <tr>
+      <td><b>robots</b></td>
+      <td>Permite indexar y seguir los enlaces de las páginas públicas del sitio.</td>
+      <td>Facilita el rastreo e indexación.</td>
+    </tr>
+    <tr>
+      <td><b>canonical</b></td>
+      <td>Cada página define su dirección oficial.</td>
+      <td>Evita problemas de contenido duplicado.</td>
+    </tr>
+    <tr>
+      <td><b>hreflang</b></td>
+      <td>Relaciona las versiones en inglés y español e incluye una versión predeterminada.</td>
+      <td>Ayuda al buscador a mostrar el idioma adecuado.</td>
+    </tr>
+    <tr>
+      <td><b>Open Graph</b></td>
+      <td>Incluye título, descripción, imagen, URL e idioma.</td>
+      <td>Define la vista previa al compartir Pozzo en WhatsApp y redes sociales.</td>
+    </tr>
+    <tr>
+      <td><b>Twitter card</b></td>
+      <td>Utiliza una tarjeta con imagen, título y descripción.</td>
+      <td>Mejora la presentación del enlace en plataformas compatibles.</td>
+    </tr>
+    <tr>
+      <td><b>JSON-LD</b></td>
+      <td>Describe a Kerolabs, el sitio web Pozzo y la aplicación móvil mediante datos estructurados.</td>
+      <td>Ayuda a los buscadores a interpretar el contenido y su relación con el producto.</td>
+    </tr>
+    <tr>
+      <td><b>Íconos y manifest</b></td>
+      <td>Incluye favicon, iconos para dispositivos móviles y archivo manifest.</td>
+      <td>Define la identidad visual del sitio en pestañas, accesos directos y marcadores.</td>
+    </tr>
+    <tr>
+      <td><b>sitemap.xml y robots.txt</b></td>
+      <td>El sitemap registra las páginas públicas y robots.txt permite su rastreo.</td>
+      <td>Facilita el descubrimiento e indexación del sitio.</td>
+    </tr>
+  </tbody>
+</table>
+
+El atributo lang diferencia las páginas en inglés y español, mientras que hreflang relaciona ambas versiones y define una alternativa predeterminada para otros idiomas. Además, cada versión referencia tanto a sí misma como a las demás, siguiendo las recomendaciones de Google.
+
+El sitio también emplea una estructura semántica clara, con un único h1 por página, encabezados jerarquizados, etiquetas de navegación, contenido principal y pie de página. Las imágenes incluyen texto alternativo, formatos optimizados y carga diferida cuando corresponde, mejorando tanto la accesibilidad como el rendimiento.
+
+##### Ficha de Google Play
+
+La ficha de Google Play cumple una función similar a los metadatos del landing, ya que permite presentar y posicionar la aplicación dentro de la tienda. El equipo propone inicialmente los siguientes contenidos:
+
+<table>
+  <colgroup><col width="25%"><col width="75%"></colgroup>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Texto propuesto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Título</b></td>
+      <td>Pozzo: administra tu junta</td>
+    </tr>
+    <tr>
+      <td><b>Descripción corta</b></td>
+      <td>Valida aportes, mira el pozo en tiempo real y recuerda a quien se atrasa.</td>
+    </tr>
+    <tr>
+      <td><b>Descripción completa</b></td>
+      <td>Presentará primero la propuesta de valor y la aclaración de que Pozzo no administra el dinero. Luego resumirá las principales funciones: validación de comprobantes, seguimiento del pozo, recordatorios, turnos e historial, y cerrará con una invitación a crear o unirse a una junta.</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 3.1.2.4. Searching Systems
 
 #### 3.1.2.5. Navigation Systems
