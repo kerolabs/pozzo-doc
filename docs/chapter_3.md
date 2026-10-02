@@ -122,6 +122,222 @@ El landing se organiza por tema y por tarea en una sola página de recorrido ver
 
 #### 3.1.2.2. Labelling Systems
 
+Las etiquetas son la manera en que el sistema habla: el nombre de un destino, el texto de un botón, el título de una sección. Una etiqueta mal elegida obliga a la persona a adivinar qué hay detrás, y eso rompe la heurística de coincidir con el mundo real. Para Pozzo el equipo fijó cuatro reglas:
+
+1. Las etiquetas salen del Ubiquitous Language de la sección 2.3.6. Si un concepto ya tiene nombre en el glosario, la interfaz usa ese nombre y no inventa uno.
+2. Cada concepto tiene una sola etiqueta. El glosario registra junta y pandero como sinónimos, pero la interfaz usa solo "junta", para no tener dos nombres para lo mismo.
+3. Una etiqueta describe el destino o la acción, no el contenedor: "Historial" y "Avisos" dicen qué se va a encontrar; "Registrar mi aporte de S/ 300" dice qué va a pasar y cuánto.
+4. La misma acción lleva el mismo texto en todos los lugares donde aparece. En el landing, los tres botones que llevan al formulario dicen exactamente lo mismo.
+
+##### Etiquetas de la aplicación
+
+<table>
+  <colgroup><col width="22%"><col width="25%"><col width="53%"></colgroup>
+  <thead>
+    <tr>
+      <th>Término del Ubiquitous Language</th>
+      <th>Etiqueta en la interfaz</th>
+      <th>Dónde aparece</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Savings Group (Junta)</td>
+      <td>Junta, Mis juntas</td>
+      <td>Destino de la barra inferior y título de B1 y B2.</td>
+    </tr>
+    <tr>
+      <td>Contribution (Aporte)</td>
+      <td>Aporte, Aportar</td>
+      <td>"Registrar mi aporte de S/ 300" (F1), "Aportar ahora" (B2), "Aporte validado" (F5).</td>
+    </tr>
+    <tr>
+      <td>Pot (Pozo)</td>
+      <td>Pozo</td>
+      <td>"Estado del pozo" (F1), "Entregar el pozo" (H4).</td>
+    </tr>
+    <tr>
+      <td>Turn y Turn Assignment (Turno, Asignación de turnos)</td>
+      <td>Turno, Asignar turnos</td>
+      <td>"Tu turno (4.º)" (B2), "Asignar turnos" (E1), "Ordenar turnos" (E5), "Calendario de turnos" (G2).</td>
+    </tr>
+    <tr>
+      <td>Draw, Agreed Order y Bidding (Sorteo, Orden acordado, Subasta)</td>
+      <td>Sorteo, Orden acordado, Subasta (con el chip "Próximamente")</td>
+      <td>E3, E4 y E5. La subasta se muestra desactivada porque no entra en la primera versión.</td>
+    </tr>
+    <tr>
+      <td>Organizer y Member (Cabeza de junta, Participante)</td>
+      <td>Cabeza de junta, Participante</td>
+      <td>Chips de las tarjetas de B1 y B2. En la lista de integrantes (E1) el chip se abrevia a "Cabeza".</td>
+    </tr>
+    <tr>
+      <td>Cut-off Date (Fecha de corte)</td>
+      <td>Fecha de corte, Corte</td>
+      <td>"Fecha de corte 5 de ene" (B1), "Corte 5 ene" (F1).</td>
+    </tr>
+    <tr>
+      <td>Payout (Cobro)</td>
+      <td>Cobro, Cobra, Entregar el pozo</td>
+      <td>"Cobra Carla Vega" (F1 y H4): el participante cobra y la cabeza entrega.</td>
+    </tr>
+    <tr>
+      <td>Payment Proof (Comprobante)</td>
+      <td>Comprobante</td>
+      <td>"Subir comprobante" (F3). La palabra voucher no aparece en pantalla.</td>
+    </tr>
+    <tr>
+      <td>Coverage (Cobertura)</td>
+      <td>Cubrir un aporte, cubierto</td>
+      <td>H5 y el resumen de cierre (H6).</td>
+    </tr>
+    <tr>
+      <td>Compliance History (Historial de cumplimiento)</td>
+      <td>Historial, Mi historial de cumplimiento, Integrantes</td>
+      <td>Destino Historial de la barra inferior: "Mi historial de cumplimiento" para el participante (G3) y la pestaña Integrantes, con el porcentaje de puntualidad de cada uno, para la cabeza (K2).</td>
+    </tr>
+    <tr>
+      <td>Reminder (Recordatorio)</td>
+      <td>Recordatorios automáticos, Detenidos</td>
+      <td>Interruptor en Avisos (I3), chip "Detenidos" cuando el aporte ya se validó (J3) y notificaciones de Pozzo antes del corte (J1).</td>
+    </tr>
+    <tr>
+      <td>Cycle y Contribution Period (Ciclo, Período)</td>
+      <td>Ciclo, Período</td>
+      <td>"Período 3 de 8" (F1), "Ciclo completado" (H6).</td>
+    </tr>
+    <tr>
+      <td>Delinquency y Dropout (Morosidad, Deserción)</td>
+      <td>No aparecen</td>
+      <td>Son términos del análisis que suenan a reproche. La interfaz dice "Atrasado" (chip en J2) y deja que el dato hable por sí solo.</td>
+    </tr>
+  </tbody>
+</table>
+
+Los estados de un aporte y de una junta también son etiquetas, y se escriben siempre igual y con el mismo tono de color (sección 3.1.1.1):
+
+<table>
+  <colgroup><col width="20%"><col width="18%"><col width="62%"></colgroup>
+  <thead>
+    <tr>
+      <th>Etiqueta</th>
+      <th>Tono</th>
+      <th>Significado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Validado</b></td>
+      <td>success</td>
+      <td>El comprobante coincide con lo esperado, o la cabeza aprobó el aporte.</td>
+    </tr>
+    <tr>
+      <td><b>En revisión</b></td>
+      <td>warning</td>
+      <td>Pozzo leyó el comprobante pero no coincide con lo esperado, y la cabeza debe revisarlo.</td>
+    </tr>
+    <tr>
+      <td><b>Monto distinto, Destinatario</b></td>
+      <td>error en texto e icono</td>
+      <td>Indican en qué dato no coincide un aporte en revisión: el monto o el destinatario.</td>
+    </tr>
+    <tr>
+      <td><b>Pendiente</b></td>
+      <td>warning o neutral</td>
+      <td>El aporte todavía no se registró. Va en warning cuando es el propio de la persona y en neutral cuando es el de otro integrante.</td>
+    </tr>
+    <tr>
+      <td><b>Atrasado</b></td>
+      <td>error</td>
+      <td>Pasó la fecha de corte y el aporte sigue sin registrarse. Se muestra a la cabeza y a todo el grupo (J2), con un reloj junto al texto para no depender solo del color.</td>
+    </tr>
+    <tr>
+      <td><b>Por iniciar, En curso</b></td>
+      <td>warning, success</td>
+      <td>Estado de la junta: aún se están definiendo los turnos, o ya corre el ciclo.</td>
+    </tr>
+    <tr>
+      <td><b>Usa Pozzo</b></td>
+      <td>neutral</td>
+      <td>En la lista de integrantes, distingue a quien usa la aplicación de quien fue agregado por la cabeza sin ella.</td>
+    </tr>
+    <tr>
+      <td><b>Solo lectura, Recalculado, Detenidos</b></td>
+      <td>neutral, gold, success</td>
+      <td>Marcan el estado de una pantalla: reglas que el participante solo puede consultar (E9), pozo por turno recalculado al ajustar el aporte (E7) y recordatorios que Pozzo dejó de enviar al validarse el aporte (J3).</td>
+    </tr>
+  </tbody>
+</table>
+
+##### Etiquetas del landing
+
+El landing tiene dos conjuntos de etiquetas, uno por idioma, que se mantienen en archivos separados y con las mismas claves. Los nombres de los idiomas se escriben en su propio idioma (English y Español) y no se traducen. Las etiquetas de navegación son sustantivos cortos que repiten el título de la sección a la que llevan.
+
+<table>
+  <colgroup><col width="28%"><col width="36%"><col width="36%"></colgroup>
+  <thead>
+    <tr>
+      <th>Elemento</th>
+      <th>English (en_US)</th>
+      <th>Español (es_419)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Barra superior</b></td>
+      <td>How it works, Features, Team, Contact</td>
+      <td>Cómo funciona, Funcionalidades, Equipo, Contacto</td>
+    </tr>
+    <tr>
+      <td><b>Llamada a la acción principal</b></td>
+      <td>Join the waitlist</td>
+      <td>Unirme a la lista de espera</td>
+    </tr>
+    <tr>
+      <td><b>Llamada a la acción secundaria</b></td>
+      <td>See how it works</td>
+      <td>Ver cómo funciona</td>
+    </tr>
+    <tr>
+      <td><b>Título del hero</b></td>
+      <td>Your junta, without the notebook or the screenshots</td>
+      <td>Tu junta, sin cuaderno ni capturas</td>
+    </tr>
+    <tr>
+      <td><b>Aviso sobre el dinero</b></td>
+      <td>Pozzo never holds or moves your money</td>
+      <td>Pozzo no maneja ni mueve tu dinero</td>
+    </tr>
+    <tr>
+      <td><b>Franja de confianza</b></td>
+      <td>Your money never touches Pozzo</td>
+      <td>Tu dinero nunca pasa por Pozzo</td>
+    </tr>
+    <tr>
+      <td><b>Funcionalidades</b></td>
+      <td>Receipts checked for you, The pot in real time, Automatic reminders, Fair turns: draw, agreed order or auction, A track record that travels with you</td>
+      <td>Comprobantes validados para ti, El pozo en tiempo real, Recordatorios automáticos, Turnos justos: sorteo, orden acordado o subasta, Un historial que te acompaña</td>
+    </tr>
+    <tr>
+      <td><b>Marca de disponibilidad</b></td>
+      <td>Available in v1</td>
+      <td>Disponible en la v1</td>
+    </tr>
+    <tr>
+      <td><b>Pie de página</b></td>
+      <td>Terms and Conditions, Privacy Policy, Back to top</td>
+      <td>Términos y Condiciones, Política de privacidad, Volver arriba</td>
+    </tr>
+    <tr>
+      <td><b>Accesibilidad</b></td>
+      <td>Skip to content, Main navigation, Theme: system</td>
+      <td>Saltar al contenido, Navegación principal, Tema: sistema</td>
+    </tr>
+  </tbody>
+</table>
+
+En el texto del landing, la cabeza de junta se nombra con el mismo término del glosario ("la cabeza de junta") y no con un sinónimo; en inglés se escribe "the organizer" porque el término cabeza de junta no tiene equivalente en esa lengua.
+
 #### 3.1.2.3. SEO Tags and Meta Tags
 
 #### 3.1.2.4. Searching Systems
