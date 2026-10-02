@@ -894,8 +894,8 @@ El landing tiene dos conjuntos de etiquetas, uno por idioma, que se mantienen en
   <thead>
     <tr>
       <th>Elemento</th>
-      <th>English (en_US)</th>
-      <th>Español (es_419)</th>
+      <th>English (EN)</th>
+      <th>Español (ES)</th>
     </tr>
   </thead>
   <tbody>
@@ -1211,6 +1211,150 @@ Dos decisiones merecen explicarse. La primera es que no hay migas de pan (breadc
 </table>
 
 El landing tampoco usa migas de pan, porque tiene un solo nivel de profundidad: una portada con anclas y cuatro páginas hoja que se vuelven a la portada con el logo.
+
+### 3.1.4. Landing Page UI Design
+El landing page presenta Pozzo a quien todavía no lo conoce y recoge su interés mientras la aplicación no está publicada. Responde a las cuatro historias del epic EP10: entender qué resuelve Pozzo (US43), encontrar cómo obtenerlo o dejar un contacto (US44), conocer al equipo (US45) y poder leerlo y navegarlo desde el celular (US46). Se diseñó primero en Figma, en dos fidelidades y en dos anchos, y después se implementó como sitio estático en HTML5, CSS3 y JavaScript sin dependencias de ejecución, con textos en inglés (EN, idioma por defecto) y en español (ES). La implementación sale del diseño y lo respeta; las pocas diferencias están señaladas en cada sección.
+
+Como una página completa es demasiado alta para una figura, cada versión se presenta como un tablero de ventanas: cada recuadro es una ventana del navegador (de 1440 x 900 px en escritorio y de 360 x 800 px en celular) puesta sobre el mismo desplazamiento de la página. El escritorio ocupa ocho ventanas, dos por figura, y el celular trece ventanas en una sola figura.
+#### 3.1.3.1 Landing Page Wireframe
+El wireframe define la estructura y la jerarquía visual del landing page antes de incorporar colores, imágenes y contenido final. Sigue el modo wireframe establecido en la guía de estilo de la sección 3.1.1.1, utilizando tonos grises y elementos simplificados para representar la distribución de cada sección.
+La siguiente tabla resume la estructura planteada para las versiones de escritorio y celular:
+
+<table>
+  <colgroup><col width="17%"><col width="45%"><col width="38%"></colgroup>
+  <thead>
+    <tr>
+      <th>Sección</th>
+      <th>Escritorio</th>
+      <th>Celular</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Barra superior</b></td>
+      <td>Logo a la izquierda, enlaces de navegación al centro y, a la derecha, selector de idioma, cambio de tema y llamada a la acción principal.</td>
+      <td>Logo, selector de idioma, llamada a la acción y botón de menú. Los enlaces de navegación se muestran dentro del menú desplegable.</td>
+    </tr>
+    <tr>
+      <td><b>Hero (#top)</b></td>
+      <td>Dos columnas. A la izquierda se muestran la propuesta de valor, el problema, la solución, la aclaración de que Pozzo no administra el dinero y las principales llamadas a la acción. A la derecha aparecen dos pantallas de la aplicación.</td>
+      <td>El contenido se organiza en una sola columna y las pantallas de la aplicación se colocan debajo del texto.</td>
+    </tr>
+    <tr>
+      <td><b>Cómo funciona (#how)</b></td>
+      <td>Tres tarjetas numeradas organizadas en una fila.</td>
+      <td>Las tres tarjetas se muestran de forma apilada.</td>
+    </tr>
+    <tr>
+      <td><b>Confianza (#trust)</b></td>
+      <td>Franja de ancho completo con un título, tres elementos informativos y una llamada a la acción.</td>
+      <td>Los elementos se presentan de forma vertical para facilitar su lectura.</td>
+    </tr>
+    <tr>
+      <td><b>Funcionalidades (#features)</b></td>
+      <td>Cinco bloques en los que se alternan texto y pantallas de la aplicación. Cada bloque incluye ícono, título, explicación y una representación visual de la funcionalidad.</td>
+      <td>Cada funcionalidad se organiza en una sola columna, con el texto seguido de la pantalla correspondiente.</td>
+    </tr>
+    <tr>
+      <td><b>Equipo (#team)</b></td>
+      <td>Se presenta la misión de Pozzo y las tarjetas de los integrantes con fotografía, nombre y rol.</td>
+      <td>La misión y las tarjetas se reorganizan para adaptarse al ancho disponible.</td>
+    </tr>
+    <tr>
+      <td><b>Registro (#join)</b></td>
+      <td>Texto informativo a un lado y formulario al otro, acompañado por el estado de confirmación.</td>
+      <td>El formulario ocupa el ancho disponible y el estado de confirmación aparece debajo.</td>
+    </tr>
+    <tr>
+      <td><b>Contacto y pie (#contact)</b></td>
+      <td>Incluye información de contacto, redes sociales, enlaces de navegación, idioma y textos legales.</td>
+      <td>Los elementos se presentan de manera apilada para facilitar su lectura.</td>
+    </tr>
+  </tbody>
+</table>
+
+Hay una decisiones del wireframe que conviene explicar: la franja de confianza: se separó del hero y se le dio una banda propia, de ancho completo, porque la aclaración de que Pozzo no maneja el dinero responde a la duda más probable de un visitante y no debía depender de que lea el recuadro del hero. 
+
+![Wireframe del landing en escritorio, ventanas 1 y 2 de 8](images/chapter_3/landing_wireframe_desktop_1.png){width=90%}
+
+![Wireframe del landing en escritorio, ventanas 3 y 4 de 8](images/chapter_3/landing_wireframe_desktop_2.png){width=90%}
+
+![Wireframe del landing en escritorio, ventanas 5 y 6 de 8](images/chapter_3/landing_wireframe_desktop_3.png){width=90%}
+
+![Wireframe del landing en escritorio, ventanas 7 y 8 de 8](images/chapter_3/landing_wireframe_desktop_4.png){width=90%}
+
+![Wireframe del landing en celular de 360 px, trece ventanas](images/chapter_3/landing_wireframe_mobile.png){width=90%}
+
+#### 3.1.3.2 Landing Page Mockup
+El mock-up transforma el wireframe en una propuesta de alta fidelidad mediante la incorporación de los colores de la marca, tipografía, componentes visuales y pantallas reales de la aplicación. Las pantallas utilizadas corresponden a los mock-ups desarrollados en la sección 3.1.4.3, manteniendo así coherencia entre la aplicación móvil y su presentación en el landing page.
+
+Además de la versión de escritorio en modo claro, se desarrollaron variantes para el modo oscuro y para las versiones móviles en inglés y español. De esta manera, se puede evaluar cómo se adapta la interfaz a diferentes dispositivos, idiomas y preferencias visuales.
+
+Las pantallas de la aplicación se presentan en español incluso dentro de la versión en inglés del landing, debido a que el producto se encuentra orientado inicialmente al mercado peruano. Esta decisión se comunica dentro de la sección de funcionalidades para evitar confusión.
+
+En el mock-up, las fotografías de los integrantes del equipo se representan mediante elementos gráficos temporales. Las fotografías reales se incorporan posteriormente en la implementación del sitio.
+
+![Mock-up del landing en escritorio, ventanas 1 y 2 de 8](images/chapter_3/landing_mockup_desktop_1.png){width=90%}
+
+![Mock-up del landing en escritorio, ventanas 3 y 4 de 8](images/chapter_3/landing_mockup_desktop_2.png){width=90%}
+
+![Mock-up del landing en escritorio, ventanas 5 y 6 de 8](images/chapter_3/landing_mockup_desktop_3.png){width=90%}
+
+![Mock-up del landing en escritorio, ventanas 7 y 8 de 8](images/chapter_3/landing_mockup_desktop_4.png){width=90%}
+
+![Mock-up del hero del landing en escritorio, modo oscuro](images/chapter_3/landing_mockup_desktop_dark_hero.png){width=90%}
+
+![Mock-up del landing en celular de 360 px, versión en inglés](images/chapter_3/landing_mockup_mobile_en.png){width=90%}
+
+![Mock-up del landing en celular de 360 px, versión en español (es_419)](images/chapter_3/landing_mockup_mobile_es.png){width=90%}
+
+El landing page se implementó como un sitio web estático utilizando únicamente HTML, CSS y JavaScript.
+
+HTML se utiliza para definir la estructura y el contenido de las páginas; CSS permite aplicar los estilos visuales, la adaptación a distintos tamaños de pantalla y los modos claro y oscuro; mientras que JavaScript se encarga de las principales interacciones del sitio, como el menú móvil, el selector de idioma, el cambio de tema y la validación del formulario.
+
+El sitio se publica mediante GitHub Pages desde un repositorio independiente del utilizado para este informe. Los archivos necesarios para su funcionamiento, como estilos, scripts, imágenes e íconos, se almacenan dentro del mismo proyecto, lo que permite mantener una implementación sencilla y reducir la dependencia de recursos externos.
+
+Las pantallas de la aplicación utilizadas en el landing fueron obtenidas a partir de los mismos mock-ups elaborados en Figma y se presentan en formatos adecuados para su visualización en la web.
+
+La implementación mantiene la propuesta definida en el mock-up, aunque incorpora algunas diferencias intencionales derivadas del funcionamiento real del sitio:
+
+<table>
+  <colgroup><col width="30%"><col width="35%"><col width="35%"></colgroup>
+  <thead>
+    <tr>
+      <th>Aspecto</th>
+      <th>Mock-up</th>
+      <th>Sitio implementado</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Fotografías del equipo</b></td>
+      <td>Recuadro de color con un ícono de persona.</td>
+      <td>Fotografía de cada integrante acompañada de su respectivo texto alternativo.</td>
+    </tr>
+    <tr>
+      <td><b>Titular del hero</b></td>
+      <td>Tamaño definido para la composición diseñada.</td>
+      <td>El tamaño se adapta de acuerdo con el ancho disponible para conservar la legibilidad.</td>
+    </tr>
+    <tr>
+      <td><b>Formulario</b></td>
+      <td>Campos y estado de confirmación representados visualmente.</td>
+      <td>Campos funcionales con validación mediante JavaScript, mensajes de error y confirmación de la acción realizada.</td>
+    </tr>
+    <tr>
+      <td><b>Menú en celular</b></td>
+      <td>Ícono de menú representado gráficamente.</td>
+      <td>Menú interactivo que puede abrirse y cerrarse desde dispositivos móviles y mediante teclado.</td>
+    </tr>
+    <tr>
+      <td><b>Modo de tema</b></td>
+      <td>Versiones clara y oscura representadas como variantes del diseño.</td>
+      <td>Permite utilizar el tema del sistema o seleccionar los modos claro y oscuro.</td>
+    </tr>
+  </tbody>
+</table>
 
 ### 3.1.4. Mobile Applications UX/UI Design
 
