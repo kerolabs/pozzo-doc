@@ -443,6 +443,56 @@ La ficha de Google Play cumple una función similar a los metadatos del landing,
 
 #### 3.1.2.4. Searching Systems
 
+Un sistema de búsqueda se justifica cuando hay tanto contenido que navegar deja de alcanzar . En Pozzo no ocurre: una persona tiene unas pocas juntas, cada una con un grupo de integrantes que se conocen entre sí y un período activo a la vez. Por eso esta versión no incluye un buscador global dentro de la aplicación. El componente de barra superior del catálogo prevé un icono de búsqueda para cuando el volumen lo justifique, pero ninguna pantalla de esta versión lo usa. En su lugar, cada lugar donde la persona necesita encontrar algo tiene un mecanismo propio, más corto que escribir una consulta:
+
+<table>
+  <colgroup><col width="28%"><col width="38%"><col width="14%"><col width="20%"></colgroup>
+  <thead>
+    <tr>
+      <th>Lo que la persona busca</th>
+      <th>Mecanismo</th>
+      <th align="center">Pantalla</th>
+      <th>Historia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Una junta a la que la invitaron</td>
+      <td>Ingresar el código de invitación o abrir el enlace compartido por WhatsApp. El código identifica la junta sin que haya que buscarla por nombre.</td>
+      <td align="center">D1</td>
+      <td>US12</td>
+    </tr>
+    <tr>
+      <td>Los aportes que la cabeza debe revisar</td>
+      <td>Pestañas "Por revisar (2)" y "Todos", con el número de pendientes en la etiqueta, y un aviso con ese mismo número en la pantalla de inicio.</td>
+      <td align="center">B1 y H1</td>
+      <td>US26</td>
+    </tr>
+    <tr>
+      <td>Cuándo cobra cada quien y cuándo es el corte</td>
+      <td>Calendario cronológico con un período por fila, que se abre desde el ícono de calendario de la barra superior de la junta.</td>
+      <td align="center">G2</td>
+      <td>US22</td>
+    </tr>
+    <tr>
+      <td>Quién aportó en cada período y cómo cumple cada integrante</td>
+      <td>Historial de la cabeza: una matriz de integrantes por períodos con el estado de cada aporte (al tocar un estado se ve el comprobante) y una pestaña Integrantes con sus aportes puntuales.</td>
+      <td align="center">K1 y K2</td>
+      <td>US32 y US42</td>
+    </tr>
+    <tr>
+      <td>La prueba de un aporte propio</td>
+      <td>Mis aportes, con una fila por período y el comprobante de cada aporte validado, y el historial de cumplimiento del destino Historial, que resume la puntualidad por junta. Mis aportes sigue disponible sin conexión con lo último guardado.</td>
+      <td align="center">G1 y G3</td>
+      <td>US28, US31, US40 y US41</td>
+    </tr>
+  </tbody>
+</table>
+
+La última fila responde a un hallazgo del Capítulo II: el 100% de los participantes reconoce que probar un aporte de hace tres meses les costaría y les resultaría incómodo. Hoy buscan la captura en la galería; en Pozzo la prueba ya está en la lista del período correspondiente.
+
+Hacia afuera, la búsqueda ocurre en dos sitios que el equipo no controla: el buscador, donde el landing se encuentra por sus etiquetas de cabecera, y la tienda de aplicaciones, donde la aplicación se encuentra por su ficha. El landing tampoco tiene buscador interno: es una sola página con ocho secciones y se recorre con la barra superior.
+
 #### 3.1.2.5. Navigation Systems
 
 ### 3.1.3. Landing Page UI Design
