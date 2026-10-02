@@ -22,6 +22,12 @@
       <td align="center">Todo el equipo</td>
       <td align="center">Versión para AV1: Product Backlog en Trello, anexos, Student Outcome, Objetivos SMART, Conclusiones, Glosario y Collaboration Insights; remisiones internas por nombre de sección</td>
     </tr>
+    <tr>
+      <td align="center">1.2</td>
+      <td align="center">02/10/2026</td>
+      <td align="center">Sanchez Benavente, Leonardo Matias</td>
+      <td align="center">Borrador del Capítulo III para TB1: guía de estilo, arquitectura de información, diseño del landing page y de la aplicación móvil (wireframes, wireflows, mock-ups, user flows y prototipo)</td>
+    </tr>
   </tbody>
 </table>
 
