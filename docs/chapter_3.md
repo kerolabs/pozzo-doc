@@ -2080,7 +2080,6 @@ Dos decisiones de forma merecen una explicación. El flujo 3 es el único con ca
 
 El prototipo permite recorrer la aplicación con el dedo antes de escribir código. Se armó en Figma con las pantallas del mock-up en modo claro y reproduce los tres caminos que sostienen la promesa de Pozzo: entrar con el celular (P1), crear una junta e invitar (P2) y aportar con comprobante (P3). Los dos primeros son los que hace Anna para empezar y el tercero es el que hace Sofia cada mes. El resto de las pantallas existe como mock-up, pero todavía no está enlazado.
 
-Cada camino tiene un punto de inicio de flujo definido en Figma (A1 para P1, B3 para P2 y B2 para P3), de modo que quien lo presenta elige el recorrido y entra directo a su primera pantalla. Los botones principales de cada pantalla avanzan a la siguiente con una transición Smart animate de 0,25 s con aceleración de salida (ease out), y la pantalla final de cada camino queda sin enlaces. En total hay 14 interacciones.
 
 <table>
   <colgroup><col width="8%"><col width="22%"><col width="40%"><col width="30%"></colgroup>
@@ -2188,11 +2187,8 @@ El mapa de flujos resume los tres caminos: las pantallas con interacción tienen
 
 El prototipo recorre solo el camino feliz: los campos de texto, el teclado numérico y los demás elementos no responden, y un botón avanza aunque el campo esté vacío. Los errores, las alternativas y las decisiones están en los wireflows (3.1.4.2) y en los user flows (3.1.4.4). Hay una diferencia entre el prototipo y el wireflow 10 (Participante): en el prototipo, "Aportar ahora" de B2 lleva a F1 (el estado del pozo), mientras que en el wireflow ese botón es un atajo directo a F2 y a F1 se llega tocando la tarjeta de la junta.
 
-##### Enlaces pendientes
+Enlace al [Figma](https://www.figma.com/design/8KoGtoEQuWzHgtOih3hTgF/Pozzo---UI-UX-Design--TB1-?node-id=2-5&t=dYJd3mx1D7cuoisU-1)
 
-El prototipo se recorre desde el archivo de Figma, en modo presentación, y el video del recorrido acompaña la entrega.
+[Video del prototipo](https://upcedupe-my.sharepoint.com/:v:/g/personal/u202419592_upc_edu_pe/IQCKQ93AN4UkSb_cQemCCdnAAZD40-WVLJ2bjxIGyebPg5s?e=tlbtXK&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
 
-Enlace al archivo y al prototipo de Figma: [https://www.figma.com/design/8KoGtoEQuWzHgtOih3hTgF/Pozzo---UI-UX-Design--TB1-?node-id=2-5&t=dYJd3mx1D7cuoisU-1]
-
-Video del recorrido de P1, P2 y P3: [ ]
 
