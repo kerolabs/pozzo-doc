@@ -21,33 +21,37 @@ skinparam interface {
 hide empty members
 
   class MemberRecord <<Aggregate Root>> {
-    - memberId : MemberId
+    - accountId : UUID
     - entries : List<ComplianceEntry>
-    - updatedAt : LocalDateTime
-    + forMember(memberId : MemberId) : MemberRecord {static}
-    + record(entry : ComplianceEntry) : void
-    + summary() : ComplianceSummary
-    + entriesInCycle(cycleId : CycleId) : List<ComplianceEntry>
+    - summary : ComplianceSummary
+    - updatedAt : Instant
+    + forMember(accountId : UUID, now : Instant) : MemberRecord {static}
+    + record(entry : ComplianceEntry, scoring : ComplianceScoringService, now : Instant) : void
+    + entriesInCycle(cycleId : UUID) : List<ComplianceEntry>
   }
 
   class ShareLink <<Aggregate Root>> {
+    - id : UUID
     - token : ShareToken
-    - memberId : MemberId
-    - createdAt : LocalDateTime
-    - expiresAt : LocalDateTime
+    - accountId : UUID
+    - createdAt : Instant
+    - expiresAt : Instant
     - revoked : boolean
-    + issue(memberId : MemberId, validity : Duration) : ShareLink {static}
-    + isValid(now : LocalDateTime) : boolean
+    + issue(accountId : UUID, now : Instant) : ShareLink {static}
+    + isValid(now : Instant) : boolean
     + revoke() : void
   }
 
   class ComplianceEntry <<Entity>> {
-    - id : EntryId
-    - cycleId : CycleId
-    - periodId : PeriodId
+    - id : UUID
+    - cycleId : UUID
+    - groupId : UUID
+    - groupName : String
+    - periodId : UUID
     - kind : EntryKind
-    - occurredAt : LocalDateTime
+    - occurredAt : Instant
     - sourceEventId : String
+    + of(cycleId, groupId, groupName, periodId, kind, occurredAt, sourceEventId) : ComplianceEntry {static}
     + isNegative() : boolean
   }
 
@@ -55,10 +59,12 @@ hide empty members
     - onTime : int
     - late : int
     - covered : int
+    - rejected : int
     - dropouts : int
     - cyclesCompleted : int
     - level : ComplianceLevel
-    + complianceRate() : BigDecimal
+    + contributions() : int
+    + complianceRate() : Integer
   }
   class ShareToken <<Value Object>> {
     - value : String
@@ -86,7 +92,7 @@ hide empty members
   }
 
   interface MemberRecordRepository <<Repository>> {
-    + findByMemberId(memberId : MemberId) : Optional<MemberRecord>
+    + findByAccountId(accountId : UUID) : Optional<MemberRecord>
     + existsEntryBySourceEventId(sourceEventId : String) : boolean
     + save(record : MemberRecord) : MemberRecord
   }
@@ -96,7 +102,7 @@ hide empty members
   }
 
 MemberRecord "1" *-- "0..*" ComplianceEntry : entries
-MemberRecord ..> ComplianceSummary : produces
+MemberRecord "1" *-- "1" ComplianceSummary : summary
 MemberRecord "1" o-- "0..*" ShareLink : shared as >
 ShareLink "1" *-- "1" ShareToken : token
 ComplianceEntry --> EntryKind
