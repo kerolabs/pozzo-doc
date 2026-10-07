@@ -2529,7 +2529,7 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
     </tr>
     <tr>
       <td><b>Acceptance Criteria</b></td>
-      <td colspan="3"><b>Escenario 1: Solicitud de código</b><br>Dado un número de celular válido,<br>Cuando el cliente envía POST /api/v1/auth/otp con el número,<br>Entonces el servicio responde 202 Accepted, envía el código por el proveedor de SMS y guarda su vencimiento a 10 minutos.<br><br><b>Escenario 2: Verificación correcta</b><br>Dado un código vigente,<br>Cuando el cliente envía POST /api/v1/auth/otp/verify con el número y el código,<br>Entonces el servicio responde 200 OK con un token de acceso, un token de renovación y un indicador de si la cuenta es nueva.<br><br><b>Escenario 3: Código incorrecto o vencido</b><br>Dado un código incorrecto o vencido,<br>Cuando el cliente lo envía a verificar,<br>Entonces el servicio responde 401 Unauthorized con un mensaje que distingue ambos casos, y tras cinco intentos fallidos bloquea el número durante 15 minutos con 429 Too Many Requests.</td>
+      <td colspan="3"><b>Escenario 1: Solicitud de código</b><br>Dado un número de celular válido,<br>Cuando el cliente envía POST /api/v1/auth/codes con el número,<br>Entonces el servicio responde 202 Accepted, envía el código por el proveedor de SMS, guarda su vencimiento a 10 minutos e indica desde cuándo se puede pedir otro.<br><br><b>Escenario 2: Verificación correcta</b><br>Dado un código vigente,<br>Cuando el cliente envía POST /api/v1/auth/codes/verify con el número y el código,<br>Entonces el servicio responde 200 OK con un token de sesión si la cuenta existe, o con un token de registro de 15 minutos y el indicador de que falta completar el registro en POST /api/v1/auth/register.<br><br><b>Escenario 3: Código incorrecto, vencido o reenvío anticipado</b><br>Dado un código incorrecto o vencido, o un nuevo pedido antes de 30 segundos,<br>Cuando el cliente lo envía,<br>Entonces el servicio responde 401 Unauthorized con un código de error que distingue cada caso y los intentos restantes, bloquea el código al tercer intento fallido, y responde 429 Too Many Requests al reenvío anticipado.</td>
     </tr>
   </tbody>
 </table>
@@ -2560,7 +2560,7 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
     </tr>
     <tr>
       <td><b>Acceptance Criteria</b></td>
-      <td colspan="3"><b>Escenario 1: Creación</b><br>Dado un usuario autenticado,<br>Cuando envía POST /api/v1/savings-groups con nombre, aporte, periodicidad, número de integrantes, día de corte, fecha de inicio y destino de los aportes,<br>Entonces el servicio responde 201 Created con la junta en estado DRAFT, su código de invitación y al usuario como organizador.<br><br><b>Escenario 2: Consulta de las juntas del usuario</b><br>Dado un usuario autenticado,<br>Cuando envía GET /api/v1/savings-groups,<br>Entonces el servicio responde 200 OK con las juntas en las que participa, su rol en cada una, el período vigente y el estado de su aporte.<br><br><b>Escenario 3: Inicio</b><br>Dado una junta en estado DRAFT con el grupo completo y turnos confirmados,<br>Cuando el organizador envía POST /api/v1/savings-groups/{id}/start,<br>Entonces el servicio responde 200 OK con la junta en estado ACTIVE y sus períodos generados; y cuando falta algún requisito responde 409 Conflict indicando cuál.<br><br><b>Escenario 4: Actualización bloqueada</b><br>Dado una junta ACTIVE,<br>Cuando el organizador envía PUT /api/v1/savings-groups/{id} modificando aporte, periodicidad o número de integrantes,<br>Entonces el servicio responde 409 Conflict.</td>
+      <td colspan="3"><b>Escenario 1: Creación</b><br>Dado un usuario autenticado,<br>Cuando envía POST /api/v1/groups con nombre, aporte, periodicidad, número de cupos (de 2 a 50), fecha del primer aporte y, opcionalmente, el destino de los aportes (Yape o Plin y el celular),<br>Entonces el servicio responde 201 Created con la junta en estado DRAFT y al usuario como organizador.<br><br><b>Escenario 2: Consulta de las juntas del usuario</b><br>Dado un usuario autenticado,<br>Cuando envía GET /api/v1/members/me/groups,<br>Entonces el servicio responde 200 OK con las juntas en las que participa, su rol y su turno en cada una.<br><br><b>Escenario 3: Inicio</b><br>Dado una junta en estado READY, con todos los cupos ocupados y los turnos asignados,<br>Cuando el organizador envía POST /api/v1/groups/{id}/start,<br>Entonces el servicio responde 200 OK con la junta en estado STARTED y abre su ciclo; y cuando falta algún requisito responde 422 Unprocessable Entity indicando cuál.<br><br><b>Escenario 4: Actualización bloqueada</b><br>Dado una junta STARTED,<br>Cuando el organizador envía PUT /api/v1/groups/{id}/rules modificando aporte, periodicidad o cupos,<br>Entonces el servicio responde 422 Unprocessable Entity.</td>
     </tr>
   </tbody>
 </table>
@@ -2591,7 +2591,7 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
     </tr>
     <tr>
       <td><b>Acceptance Criteria</b></td>
-      <td colspan="3"><b>Escenario 1: Resolver invitación</b><br>Dado un código de invitación,<br>Cuando el cliente envía GET /api/v1/invitations/{code},<br>Entonces el servicio responde 200 OK con el resumen de la junta si está en DRAFT, o 410 Gone si ya fue iniciada o no existe.<br><br><b>Escenario 2: Unirse</b><br>Dado un usuario autenticado y una junta en DRAFT con cupo,<br>Cuando envía POST /api/v1/savings-groups/{id}/members,<br>Entonces el servicio responde 201 Created con el integrante; y cuando la junta está llena responde 409 Conflict.<br><br><b>Escenario 3: Integrante sin aplicación</b><br>Dado el organizador de una junta en DRAFT,<br>Cuando envía POST /api/v1/savings-groups/{id}/members con nombre y celular opcional y sin usuario asociado,<br>Entonces el servicio responde 201 Created con el integrante marcado como OFFLINE.<br><br><b>Escenario 4: Retiro</b><br>Dado el organizador de una junta en DRAFT,<br>Cuando envía DELETE /api/v1/savings-groups/{id}/members/{memberId} para un integrante distinto de sí mismo,<br>Entonces el servicio responde 204 No Content; y cuando la junta está ACTIVE responde 409 Conflict.</td>
+      <td colspan="3"><b>Escenario 1: Resolver invitación</b><br>Dado un código de invitación,<br>Cuando el cliente envía GET /api/v1/invitations/{code},<br>Entonces el servicio responde 200 OK con el resumen de la junta (nombre, reglas y cupos libres, sin integrantes ni destino) si la invitación sigue vigente, o 404 Not Found si la junta ya se inició o el código no existe.<br><br><b>Escenario 2: Unirse</b><br>Dado un usuario autenticado y una junta en DRAFT con cupo,<br>Cuando envía POST /api/v1/invitations/{code}/join,<br>Entonces el servicio responde 200 OK con la junta; y cuando la junta está llena o el usuario ya es integrante responde 422 Unprocessable Entity.<br><br><b>Escenario 3: Integrante sin aplicación</b><br>Dado el organizador de una junta en DRAFT,<br>Cuando envía POST /api/v1/groups/{id}/members/manual con nombre y celular opcional,<br>Entonces el servicio responde 201 Created con el integrante de tipo MANUAL.<br><br><b>Escenario 4: Retiro</b><br>Dado el organizador de una junta en DRAFT,<br>Cuando envía DELETE /api/v1/groups/{id}/members/{membershipId} para un integrante distinto de sí mismo,<br>Entonces el servicio responde 204 No Content; y cuando la junta está STARTED responde 422 Unprocessable Entity.</td>
     </tr>
   </tbody>
 </table>
@@ -2622,7 +2622,7 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
     </tr>
     <tr>
       <td><b>Acceptance Criteria</b></td>
-      <td colspan="3"><b>Escenario 1: Asignación por sorteo u orden</b><br>Dado el organizador de una junta en DRAFT,<br>Cuando envía PUT /api/v1/savings-groups/{id}/turns con el método DRAW, o con el método AGREED y la lista ordenada de integrantes,<br>Entonces el servicio responde 200 OK con el turno de cada integrante, sin repeticiones.<br><br><b>Escenario 2: Oferta en subasta</b><br>Dado un integrante que no ha cobrado y una subasta OPEN,<br>Cuando envía POST /api/v1/savings-groups/{id}/periods/{n}/bids con un monto igual o mayor al mínimo,<br>Entonces el servicio responde 201 Created reemplazando cualquier oferta previa del mismo integrante; y responde 422 Unprocessable Entity si el monto es menor al mínimo o 403 Forbidden si el integrante ya cobró.<br><br><b>Escenario 3: Cierre</b><br>Dado el organizador y una subasta OPEN con ofertas,<br>Cuando envía POST /api/v1/savings-groups/{id}/periods/{n}/close-auction,<br>Entonces el servicio responde 200 OK con el ganador, el monto a recibir y el crédito aplicado a cada integrante que aún no cobra; y sin ofertas aplica el mecanismo de respaldo configurado.</td>
+      <td colspan="3"><b>Escenario 1: Asignación por sorteo u orden</b><br>Dado el organizador de una junta con todos los cupos ocupados,<br>Cuando envía POST /api/v1/groups/{id}/turns/draw, o POST /api/v1/groups/{id}/turns/agreed con la lista ordenada de integrantes,<br>Entonces el servicio responde 200 OK con el turno y la fecha de corte de cada integrante, sin repeticiones, y en el sorteo la semilla que permite reproducirlo.<br><br><b>Escenario 2: Oferta en subasta</b><br>Dado un integrante que no ha cobrado y una subasta OPEN,<br>Cuando envía POST /api/v1/auctions/{auctionId}/bids con un monto igual o mayor al mínimo,<br>Entonces el servicio responde 201 Created reemplazando cualquier oferta previa del mismo integrante; y responde 422 Unprocessable Entity si el monto es menor al mínimo o 403 Forbidden si el integrante ya cobró.<br><br><b>Escenario 3: Cierre</b><br>Dado el organizador y una subasta OPEN con ofertas,<br>Cuando envía POST /api/v1/auctions/{auctionId}/close,<br>Entonces el servicio responde 200 OK con el ganador, el monto a recibir y el crédito aplicado a cada integrante que aún no cobra; y sin ofertas aplica el mecanismo de respaldo configurado.</td>
     </tr>
   </tbody>
 </table>
@@ -2653,7 +2653,7 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
     </tr>
     <tr>
       <td><b>Acceptance Criteria</b></td>
-      <td colspan="3"><b>Escenario 1: Registro con comprobante</b><br>Dado un integrante con aporte pendiente,<br>Cuando envía POST /api/v1/savings-groups/{id}/periods/{n}/contributions con la imagen del comprobante y los datos confirmados (monto, fecha, destinatario, número de operación),<br>Entonces el servicio guarda la imagen, compara los datos con los esperados y responde 201 Created con el estado VALIDATED o IN_REVIEW y la lista de verificaciones con su resultado.<br><br><b>Escenario 2: Comprobante duplicado</b><br>Dado un número de operación ya registrado en la junta,<br>Cuando un integrante lo envía,<br>Entonces el servicio responde 409 Conflict.<br><br><b>Escenario 3: Revisión</b><br>Dado el organizador y un aporte IN_REVIEW,<br>Cuando envía POST /api/v1/contributions/{id}/approve o /reject,<br>Entonces el servicio responde 200 OK con el aporte en VALIDATED o PENDING respectivamente.<br><br><b>Escenario 4: Efectivo</b><br>Dado el organizador,<br>Cuando envía POST /api/v1/savings-groups/{id}/periods/{n}/contributions con el integrante, el monto y la fecha y sin comprobante,<br>Entonces el servicio responde 201 Created con el estado CASH.<br><br><b>Escenario 5: Estado del período</b><br>Dado cualquier integrante,<br>Cuando envía GET /api/v1/savings-groups/{id}/periods/{n},<br>Entonces el servicio responde 200 OK con el monto reunido, el total, quién cobra y el estado del aporte de cada integrante.</td>
+      <td colspan="3"><b>Escenario 1: Registro con comprobante</b><br>Dado un integrante con aporte pendiente,<br>Cuando envía POST /api/v1/periods/{periodId}/contributions con los datos del comprobante leídos en el dispositivo y confirmados (número de operación, monto, fecha, destinatario y aplicación de origen),<br>Entonces el servicio compara los datos con los esperados y responde 201 Created con el estado VALIDATED o INCONSISTENT y la lista de campos que no cuadraron.<br><br><b>Escenario 2: Comprobante duplicado</b><br>Dado un número de operación ya registrado en la junta,<br>Cuando un integrante lo envía,<br>Entonces el servicio responde 409 Conflict.<br><br><b>Escenario 3: Revisión</b><br>Dado el organizador y un aporte INCONSISTENT,<br>Cuando envía PATCH /api/v1/contributions/{id}/review con la decisión APPROVE o REJECT,<br>Entonces el servicio responde 200 OK con el aporte en APPROVED, que cuenta como pagado, o REJECTED, que permite al integrante registrar de nuevo.<br><br><b>Escenario 4: Efectivo</b><br>Dado el organizador,<br>Cuando envía POST /api/v1/periods/{periodId}/contributions/cash con el integrante, el monto y la fecha,<br>Entonces el servicio responde 201 Created con el aporte de método CASH.<br><br><b>Escenario 5: Estado del período</b><br>Dado cualquier integrante,<br>Cuando envía GET /api/v1/cycles/{cycleId}/periods/current,<br>Entonces el servicio responde 200 OK con el monto reunido, el total, quién cobra, los días para el corte y el estado del aporte de cada integrante.</td>
     </tr>
   </tbody>
 </table>
@@ -2684,7 +2684,7 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
     </tr>
     <tr>
       <td><b>Acceptance Criteria</b></td>
-      <td colspan="3"><b>Escenario 1: Entrega</b><br>Dado el organizador y un período con todos los aportes VALIDATED o CASH y receptor asignado,<br>Cuando envía POST /api/v1/savings-groups/{id}/periods/{n}/payout con el comprobante opcional,<br>Entonces el servicio responde 200 OK, marca el período CLOSED, abre el siguiente y, si era el último, marca la junta COMPLETED.<br><br><b>Escenario 2: Entrega prematura</b><br>Dado un período con aportes pendientes,<br>Cuando el organizador intenta la entrega,<br>Entonces el servicio responde 409 Conflict con la lista de aportes que faltan.<br><br><b>Escenario 3: Cobertura y deserción</b><br>Dado el organizador,<br>Cuando envía POST /api/v1/contributions/{id}/coverage con quién cubre y el monto, o POST /api/v1/savings-groups/{id}/members/{memberId}/dropout,<br>Entonces el servicio responde 200 OK y refleja el cambio en el período y en el historial de cumplimiento.</td>
+      <td colspan="3"><b>Escenario 1: Entrega</b><br>Dado el organizador y un período con el pozo completo,<br>Cuando envía POST /api/v1/periods/{periodId}/payout,<br>Entonces el servicio responde 200 OK, marca el período DELIVERED, abre el siguiente y, si era el último, cierra el ciclo.<br><br><b>Escenario 2: Entrega prematura</b><br>Dado un período con aportes pendientes,<br>Cuando el organizador intenta la entrega,<br>Entonces el servicio responde 422 Unprocessable Entity indicando que todos deben aportar o estar cubiertos.<br><br><b>Escenario 3: Cobertura y deserción</b><br>Dado el organizador,<br>Cuando envía POST /api/v1/periods/{periodId}/contributions/coverage con el integrante cubierto y quién lo cubre, o POST /api/v1/groups/{id}/members/{membershipId}/dropout,<br>Entonces el servicio registra el cambio en el período y en el historial de cumplimiento.</td>
     </tr>
   </tbody>
 </table>
@@ -2715,7 +2715,7 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
     </tr>
     <tr>
       <td><b>Acceptance Criteria</b></td>
-      <td colspan="3"><b>Escenario 1: Registro de dispositivo</b><br>Dado un usuario autenticado,<br>Cuando envía POST /api/v1/devices con el token de notificaciones de su dispositivo,<br>Entonces el servicio responde 201 Created y asocia el token al usuario.<br><br><b>Escenario 2: Programación</b><br>Dado un período abierto,<br>Cuando el programador se ejecuta,<br>Entonces envía a cada integrante con aporte pendiente el recordatorio que corresponda a tres días antes, un día antes, el día de corte o cada día de atraso, y no envía nada a quien ya aportó ni a juntas con recordatorios desactivados.<br><br><b>Escenario 3: Avisos por evento</b><br>Dado que ocurre un aporte validado, un aporte en revisión, un pozo completo, un cierre de subasta o una entrega,<br>Cuando el servicio registra el evento,<br>Entonces envía la notificación a los destinatarios definidos para ese evento por el canal correspondiente y la guarda en su lista de avisos.</td>
+      <td colspan="3"><b>Escenario 1: Registro de dispositivo</b><br>Dado un usuario autenticado,<br>Cuando envía POST /api/v1/members/me/devices con el token de notificaciones de su dispositivo,<br>Entonces el servicio responde 201 Created y asocia el token al usuario, aunque antes perteneciera a otra cuenta.<br><br><b>Escenario 2: Programación</b><br>Dado un período que se abre,<br>Cuando el servicio recibe el evento,<br>Entonces programa para cada integrante con la aplicación los recordatorios del plan de la junta (por defecto tres días antes, un día antes y el día de corte, a las 9:00), cancela los de quien ya aportó y no programa nada en juntas con recordatorios desactivados.<br><br><b>Escenario 3: Avisos por evento</b><br>Dado que inicia una junta, se registra o cubre un aporte, un comprobante requiere revisión o se rechaza, el pozo se completa o se entrega, o el ciclo se cierra,<br>Cuando el servicio registra el evento,<br>Entonces envía la notificación a los destinatarios definidos para ese evento y la guarda en su lista de avisos, que se consulta con GET /api/v1/members/me/notifications.</td>
     </tr>
   </tbody>
 </table>
@@ -2746,7 +2746,7 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
     </tr>
     <tr>
       <td><b>Acceptance Criteria</b></td>
-      <td colspan="3"><b>Escenario 1: Historial propio</b><br>Dado un usuario autenticado,<br>Cuando envía GET /api/v1/members/me/compliance-history,<br>Entonces el servicio responde 200 OK con juntas completadas, aportes puntuales, atrasados y cubiertos, y el detalle por junta.<br><br><b>Escenario 2: Historial de otro integrante</b><br>Dado el organizador de una junta,<br>Cuando envía GET /api/v1/members/{id}/compliance-history para un integrante de su junta,<br>Entonces el servicio responde 200 OK con el resumen; y para un usuario ajeno a sus juntas responde 403 Forbidden.<br><br><b>Escenario 3: Enlace público</b><br>Dado un enlace de historial compartido,<br>Cuando cualquiera envía GET /api/v1/compliance-history/shared/{token},<br>Entonces el servicio responde 200 OK con el resumen sin montos ni nombres de juntas.</td>
+      <td colspan="3"><b>Escenario 1: Historial propio</b><br>Dado un usuario autenticado,<br>Cuando envía GET /api/v1/members/me/compliance,<br>Entonces el servicio responde 200 OK con su nivel, su tasa de cumplimiento, juntas completadas, aportes puntuales, atrasados, cubiertos y rechazados, y el detalle por junta.<br><br><b>Escenario 2: Historial de otro integrante</b><br>Dado el organizador de una junta,<br>Cuando envía GET /api/v1/members/{id}/compliance/summary para un integrante de su junta, o GET /api/v1/groups/{groupId}/compliance para todos,<br>Entonces el servicio responde 200 OK con el resumen; y para un usuario ajeno a sus juntas responde 404 Not Found, sin revelar si existe.<br><br><b>Escenario 3: Enlace público</b><br>Dado un enlace de historial compartido vigente,<br>Cuando cualquiera envía GET /api/v1/compliance/shared/{token}, sin iniciar sesión,<br>Entonces el servicio responde 200 OK con el nombre y el resumen, sin montos ni nombres de juntas; y si el enlace venció o fue revocado responde 404 Not Found.</td>
     </tr>
   </tbody>
 </table>
@@ -3537,7 +3537,7 @@ El mapa definitivo usa cuatro de los patrones de relación de Domain-Driven Desi
       <td>Identity &amp; Access</td>
       <td>Proveedor de SMS</td>
       <td>Anti-corruption Layer</td>
-      <td>Un adaptador aísla al contexto del proveedor elegido, que podrá cambiarse sin tocar las reglas de acceso.</td>
+      <td>Un adaptador aísla al contexto del proveedor elegido, Twilio Verify, que podrá cambiarse sin tocar las reglas de acceso.</td>
     </tr>
     <tr>
       <td>Notifications</td>
@@ -3581,7 +3581,7 @@ Las clases se derivan directamente de los artefactos anteriores: cada comando de
 
 ### 2.6.1. Bounded Context: Contributions
 
-Contributions es el contexto core. Registra y valida los aportes de cada período contra lo esperado, mantiene el estado del pozo, registra su entrega y cierra el ciclo. Su modelo gira en torno a tres agregados. **Cycle** es la copia congelada de la junta que Contributions necesita para operar: las reglas (aporte, periodicidad, fecha de corte, destino), el orden de turnos y el turno en curso; se crea al recibir el evento Junta iniciada de Savings Groups y desde entonces no depende de ese contexto en tiempo de ejecución. **Period** representa un turno del ciclo: sabe cuánto espera de cada integrante, quién cobra y si el pozo está completo. **Contribution** es un aporte registrado por un integrante, con el comprobante leído en el dispositivo, el resultado de su validación y, cuando corresponde, la revisión de la cabeza. Se separaron Period y Contribution en dos agregados porque tienen ciclos de vida y ritmos de cambio distintos: un período cambia pocas veces (se abre, se completa, se entrega), mientras que los aportes se registran, validan y revisan de forma independiente y concurrente.
+Contributions es el contexto core. Registra y valida los aportes de cada período contra lo esperado, mantiene el estado del pozo, registra su entrega y cierra el ciclo. Su modelo gira en torno a tres agregados. **Cycle** es la copia congelada de la junta que Contributions necesita para operar: las reglas (aporte, periodicidad, fecha de corte, destino), el orden de turnos y el turno en curso; se crea al recibir el evento Junta iniciada de Savings Groups y desde entonces no depende de ese contexto en tiempo de ejecución. **Period** representa un turno del ciclo: sabe cuánto espera de cada integrante, quién cobra y si el pozo está completo. **Contribution** es un aporte registrado por un integrante, con el comprobante leído en el dispositivo, el resultado de su validación y, cuando corresponde, la revisión de la cabeza. Se separaron Period y Contribution en dos agregados porque tienen ciclos de vida y ritmos de cambio distintos: un período cambia pocas veces (se abre, se completa, se entrega), mientras que los aportes se registran, validan y revisan de forma independiente y concurrente. Cada integrante se identifica por su membresía en la junta y, si usa la aplicación, también por su cuenta: quien no tiene la aplicación igual aporta, en efectivo o con una cobertura, así que la membresía es la única referencia que todos tienen.
 
 #### 2.6.1.1. Domain Layer
 
@@ -3600,43 +3600,43 @@ Contributions es el contexto core. Registra y valida los aportes de cada períod
       <td><b>Cycle</b></td>
       <td>Aggregate Root</td>
       <td>Copia de la junta iniciada con la que Contributions opera: reglas, turnos y turno en curso. Abre los períodos y decide cuándo el ciclo termina.</td>
-      <td>id, groupId, rules, turns, currentTurn, status, startedAt, closedAt. start(groupId, rules, turns), openFirstPeriod(), openNextPeriod(), replaceMember(dropped, replacement), hasRemainingTurns(), close(), payoutMemberForTurn(turn).</td>
+      <td>id, groupId, groupName, organizerAccountId, rules, turns, currentTurn, status, startedAt, closedAt. start(groupId, groupName, organizerAccountId, rules, turns, now), isOrganizer(accountId), participantOf(accountId), turn(turnNumber), hasRemainingTurns(), advanceToNextTurn(), replaceMember(dropped, replacement), close(now).</td>
     </tr>
     <tr>
       <td><b>Period</b></td>
       <td>Aggregate Root</td>
       <td>Un turno del ciclo. Calcula lo esperado de cada integrante al abrirse, registra qué aportes ya están cubiertos y determina cuándo el pozo está completo y cuándo se entregó.</td>
-      <td>id, cycleId, turnNumber, opensAt, cutoffDate, payoutMemberId, expected, status, deliveredAt. open(cycle, turn), expectedFor(memberId), settle(memberId, how), isPotComplete(), markPotComplete(), deliverPot(organizerId), pendingMembers().</td>
+      <td>id, cycleId, turnNumber, opensAt, cutoffDate, payoutMembershipId, expected, status, deliveredAt, deliveredBy. open(cycle, turnNumber, now), expectedFor(membershipId), settle(membershipId, how, contributionId, now), isPotComplete(), collected(), potAmount(), pendingMembers(), deliverPot(organizerAccountId, now).</td>
     </tr>
     <tr>
       <td><b>Contribution</b></td>
       <td>Aggregate Root</td>
       <td>Aporte de un integrante en un período, con su comprobante, el resultado de la validación, las inconsistencias detectadas y la revisión de la cabeza.</td>
-      <td>id, cycleId, periodId, memberId, amount, method, receipt, status, inconsistencies, coveredBy, review, registeredAt. fromReceipt(...), inCash(...), asCoverage(...), validate(expected, rules, duplicate), approve(organizerId, note), reject(organizerId, note), isValid().</td>
+      <td>id, cycleId, periodId, membershipId, accountId, amount, method, status, receipt, inconsistencies, coveredByMembershipId, registeredByAccountId, review, registeredAt. fromReceipt(...), inCash(...), asCoverage(...), isUnderReview(), isValid(), approve(organizerAccountId, note, cutoffDate, now), reject(organizerAccountId, note, now).</td>
     </tr>
     <tr>
       <td><b>ExpectedContribution</b></td>
       <td>Entity</td>
       <td>Lo que un integrante debe aportar en un período y si ya lo hizo; vive dentro de Period.</td>
-      <td>memberId, amount, status, settledBy. settle(how, by), isPending().</td>
+      <td>id, membershipId, amount, status, settledByContributionId. pendingFor(membershipId, amount), settle(how, contributionId), isPending(), isLate(today, cutoffDate).</td>
     </tr>
     <tr>
       <td><b>CycleRules</b></td>
       <td>Value Object</td>
-      <td>Reglas de la junta copiadas al iniciar: monto, periodicidad, día de corte y cuenta de destino. Calcula la siguiente fecha de corte.</td>
-      <td>contributionAmount, periodicity, cutoffDay, destinationAccount. nextCutoff(from).</td>
+      <td>Reglas de la junta copiadas al iniciar: monto, periodicidad, fecha del primer aporte, destino (Yape o Plin y su número) y el nombre que debe aparecer como destinatario en los comprobantes. Calcula la apertura y la fecha de corte de cada turno.</td>
+      <td>contribution, periodicity, firstContributionDate, destinationMethod, destinationPhone, payeeName. cutoffDateOfTurn(turnNumber), opensAtOfTurn(turnNumber), cutoffDay().</td>
     </tr>
     <tr>
-      <td><b>TurnSlot</b></td>
+      <td><b>CycleTurn</b></td>
       <td>Value Object</td>
-      <td>Posición de un integrante en el orden de cobro.</td>
-      <td>turnNumber, memberId.</td>
+      <td>Posición de un integrante en el orden de cobro, con su membresía, su cuenta si usa la aplicación y su nombre.</td>
+      <td>turnNumber, membershipId, accountId, displayName. belongsTo(accountId).</td>
     </tr>
     <tr>
       <td><b>PaymentReceipt</b></td>
       <td>Value Object</td>
       <td>Datos leídos del comprobante en el dispositivo: número de operación, quién paga, quién recibe, monto, fecha y aplicación de origen.</td>
-      <td>operationNumber, payer, payee, amount, paidAt, source. matchesPayee(destinationAccount).</td>
+      <td>operationNumber, payerName, payeeName, amount, paidAt, source. matchesPayee(expectedName), que compara los nombres sin tildes ni mayúsculas y acepta palabras de más.</td>
     </tr>
     <tr>
       <td><b>Inconsistency</b></td>
@@ -3648,37 +3648,25 @@ Contributions es el contexto core. Registra y valida los aportes de cada períod
       <td><b>Review</b></td>
       <td>Value Object</td>
       <td>Decisión de la cabeza sobre un aporte con inconsistencia.</td>
-      <td>reviewerId, note, reviewedAt.</td>
+      <td>reviewerAccountId, decision, note, reviewedAt.</td>
     </tr>
     <tr>
       <td><b>Money</b></td>
       <td>Value Object</td>
       <td>Monto con moneda; evita comparar decimales sueltos.</td>
-      <td>amount, currency. plus(other), equals(other).</td>
+      <td>amount, currency. plus(other), times(n), isSameAmountAs(other).</td>
     </tr>
     <tr>
-      <td><b>CycleId,<br>PeriodId,<br>ContributionId,<br>MemberId,<br>GroupId</b></td>
-      <td>Value Object</td>
-      <td>Identificadores tipados. MemberId y GroupId son referencias a otros contextos, nunca objetos de esos contextos.</td>
-      <td>value.</td>
-    </tr>
-    <tr>
-      <td><b>CycleStatus,<br>PeriodStatus,<br>ContributionStatus,<br>ContributionMethod,<br>ExpectedStatus,<br>Periodicity,<br>ReceiptSource</b></td>
+      <td><b>CycleStatus,<br>PeriodStatus,<br>ContributionStatus,<br>ContributionMethod,<br>ExpectedStatus,<br>ReviewDecision,<br>Periodicity,<br>ReceiptSource</b></td>
       <td>Enumeración</td>
-      <td>Estados y clasificaciones del modelo.</td>
-      <td>ACTIVE / CLOSED; OPEN / POT_COMPLETE / DELIVERED; REGISTERED / VALIDATED / INCONSISTENT / APPROVED / REJECTED; TRANSFER / CASH / COVERAGE; PENDING / PAID / COVERED / LATE; WEEKLY / BIWEEKLY / MONTHLY; YAPE / PLIN / BANK.</td>
-    </tr>
-    <tr>
-      <td><b>ContributionValidationService</b></td>
-      <td>Domain Service</td>
-      <td>Aplica las reglas de validación que cruzan agregados: compara el comprobante con lo esperado del período y con las reglas del ciclo, y consulta al repositorio si el número de operación ya se usó en la junta.</td>
-      <td>validate(contribution, period, rules).</td>
+      <td>Estados y clasificaciones del modelo. Un aporte nace validado o con inconsistencia; el atraso no es un estado guardado, se deduce de la fecha de corte.</td>
+      <td>ACTIVE / CLOSED; OPEN / POT_COMPLETE / DELIVERED; VALIDATED / INCONSISTENT / APPROVED / REJECTED; TRANSFER / CASH / COVERAGE; PENDING / PAID / COVERED; APPROVE / REJECT; WEEKLY / BIWEEKLY / MONTHLY; YAPE / PLIN / BANK.</td>
     </tr>
     <tr>
       <td><b>CycleRepository,<br>PeriodRepository,<br>ContributionRepository</b></td>
       <td>Repository (interfaz)</td>
       <td>Abstracción de persistencia de cada agregado; la implementación vive en Infrastructure Layer.</td>
-      <td>findById, findActiveByGroupId, findCurrentByCycleId, findAllByCycleId, findByPeriodId, findByMemberIdAndCycleId, existsByCycleIdAndOperationNumber, save.</td>
+      <td>findById, findByGroupId, existsByGroupId, findByCycleIdAndTurnNumber, findAllByCycleId, findAllByPeriodId, findAllByCycleIdAndMembershipId, existsByCycleIdAndOperationNumber, save.</td>
     </tr>
     <tr>
       <td><b>StartCycleCommand,<br>RegisterContributionCommand,<br>RegisterCashContributionCommand,<br>RegisterCoverageCommand,<br>ReviewContributionCommand,<br>DeliverPotCommand,<br>CloseCycleCommand</b></td>
@@ -3687,21 +3675,21 @@ Contributions es el contexto core. Registra y valida los aportes de cada períod
       <td>Los datos necesarios para ejecutar el comando: identificadores, monto, comprobante, decisión y nota.</td>
     </tr>
     <tr>
-      <td><b>GetPeriodStatusQuery,<br>GetPreviousPeriodsQuery,<br>GetPotProjectionQuery,<br>GetMemberContributionsQuery,<br>GetPendingReviewsQuery</b></td>
+      <td><b>GetCycleByGroupIdQuery,<br>GetCycleByIdQuery,<br>GetCurrentPeriodQuery,<br>GetPeriodsQuery,<br>GetPotProjectionQuery,<br>GetMemberContributionsQuery,<br>GetPendingReviewsQuery</b></td>
       <td>Query (record)</td>
-      <td>Consultas que alimentan las vistas del EventStorming: estado del pozo, períodos anteriores, proyección, mis aportes y pendientes de revisión.</td>
-      <td>periodId, cycleId, memberId según la consulta.</td>
+      <td>Consultas que alimentan las vistas del EventStorming: el ciclo de una junta, estado del pozo, períodos anteriores, proyección, mis aportes y pendientes de revisión.</td>
+      <td>groupId, cycleId o periodId, y la cuenta de quien consulta, que decide qué puede ver.</td>
     </tr>
     <tr>
-      <td><b>PeriodOpenedEvent,<br>ContributionRegisteredEvent,<br>ContributionValidatedEvent,<br>InconsistencyDetectedEvent,<br>ContributionRejectedEvent,<br>ContributionCoveredEvent,<br>PotCompletedEvent,<br>PotDeliveredEvent,<br>CycleClosedEvent</b></td>
+      <td><b>CycleStartedEvent,<br>PeriodOpenedEvent,<br>ContributionValidatedEvent,<br>InconsistencyDetectedEvent,<br>ContributionRejectedEvent,<br>ContributionCoveredEvent,<br>PotCompletedEvent,<br>PotDeliveredEvent,<br>CycleClosedEvent</b></td>
       <td>Domain Event</td>
-      <td>Hechos que el contexto publica. Notifications y Compliance History los consumen; los propios event handlers usan ContributionValidatedEvent y PotDeliveredEvent.</td>
-      <td>Identificadores del ciclo, período, aporte e integrante involucrados y la fecha del hecho.</td>
+      <td>Hechos que el contexto registra. Se traducen a eventos de integración, que son los que consumen Notifications y Compliance History.</td>
+      <td>Identificadores del ciclo, período, aporte y membresía involucrados y la fecha del hecho.</td>
     </tr>
   </tbody>
 </table>
 
-Las reglas de negocio del canvas quedan repartidas así: la validación del aporte (monto acordado, fecha dentro del corte, destinatario correcto, número de operación único) está en `Contribution.validate` con el apoyo de `ContributionValidationService` para la unicidad; la completitud del pozo en `Period.isPotComplete`; la apertura del siguiente período y el cierre tras el último turno en `Cycle.openNextPeriod` y `Cycle.close`; y la restricción de que solo la cabeza aprueba, registra efectivo y coberturas se verifica en los command services antes de invocar al agregado.
+Las reglas de negocio del canvas quedan repartidas así: la validación del comprobante (monto acordado, fecha dentro del corte, destinatario correcto) está en `Contribution.fromReceipt`, que deja el aporte validado o con sus inconsistencias; la unicidad del número de operación en la junta la verifica el command service con `ContributionRepository.existsByCycleIdAndOperationNumber` antes de crear el aporte; la completitud del pozo en `Period.settle`, que lo marca completo cuando no queda nadie pendiente; el paso al siguiente turno y el cierre tras el último en `Cycle.advanceToNextTurn` y `Cycle.close`; y la restricción de que solo la cabeza aprueba, registra efectivo y coberturas se verifica en los command services antes de invocar al agregado. Los identificadores son UUID que asigna el propio agregado al crearse; los de otros contextos (junta, cuenta, membresía) se guardan como valores, nunca como objetos de esos contextos.
 
 #### 2.6.1.2. Interface Layer
 
@@ -3719,21 +3707,26 @@ La capa de interfaz expone el contexto como recursos REST, documentados con Open
   <tbody>
     <tr>
       <td><b>ContributionsController</b></td>
-      <td>Registro y revisión de aportes. Cubre las historias de registrar con comprobante, confirmar datos leídos, revisar inconsistencias, registrar efectivo y coberturas, y consultar mis aportes.</td>
-      <td>POST /api/v1/periods/{periodId}/contributions (comprobante),<br>POST /api/v1/periods/{periodId}/contributions/cash,<br>POST /api/v1/periods/{periodId}/contributions/coverage,<br>PATCH /api/v1/contributions/{id}/review,<br>GET /api/v1/cycles/{cycleId}/members/{memberId}/contributions,<br>GET /api/v1/periods/{periodId}/contributions/pending-review.</td>
+      <td>Registro y revisión de aportes. Cubre las historias de registrar con comprobante, confirmar datos leídos, revisar inconsistencias y registrar efectivo y coberturas.</td>
+      <td>POST /api/v1/periods/{periodId}/contributions (comprobante),<br>POST /api/v1/periods/{periodId}/contributions/cash,<br>POST /api/v1/periods/{periodId}/contributions/coverage,<br>PATCH /api/v1/contributions/{contributionId}/review,<br>GET /api/v1/periods/{periodId}/contributions/pending-review.</td>
+    </tr>
+    <tr>
+      <td><b>CyclesController</b></td>
+      <td>Consulta del ciclo y del pozo. Cubre las historias de ver el estado del pozo, consultar períodos anteriores y consultar mis aportes.</td>
+      <td>GET /api/v1/groups/{groupId}/cycle,<br>GET /api/v1/cycles/{cycleId}/periods/current,<br>GET /api/v1/cycles/{cycleId}/periods,<br>GET /api/v1/cycles/{cycleId}/members/me/contributions.</td>
     </tr>
     <tr>
       <td><b>PeriodsController</b></td>
-      <td>Estado y ciclo de vida del pozo. Cubre las historias de ver el estado del pozo, saber si estará completo, consultar períodos anteriores, entregar el pozo y cerrar la junta.</td>
-      <td>GET /api/v1/cycles/{cycleId}/periods/current,<br>GET /api/v1/cycles/{cycleId}/periods,<br>GET /api/v1/periods/{periodId}/projection,<br>POST /api/v1/periods/{periodId}/payout,<br>POST /api/v1/cycles/{cycleId}/close.</td>
+      <td>Ciclo de vida del pozo. Cubre las historias de saber si el pozo estará completo, entregarlo y cerrar la junta.</td>
+      <td>POST /api/v1/periods/{periodId}/payout,<br>GET /api/v1/periods/{periodId}/projection,<br>POST /api/v1/cycles/{cycleId}/close.</td>
     </tr>
     <tr>
-      <td><b>RegisterContributionResource,<br>ReviewContributionResource,<br>ContributionResource,<br>PeriodStatusResource,<br>PotProjectionResource</b></td>
+      <td><b>RegisterContributionResource,<br>RegisterCashContributionResource,<br>RegisterCoverageResource,<br>ReviewContributionResource,<br>ContributionResource,<br>CycleResource,<br>PeriodStatusResource,<br>MyContributionsResource,<br>PotDeliveryResource,<br>PotProjectionResource</b></td>
       <td>Recursos JSON de entrada y salida.</td>
       <td>No aplica.</td>
     </tr>
     <tr>
-      <td><b>RegisterContributionCommandFromResourceAssembler,<br>ContributionResourceFromEntityAssembler,<br>PeriodStatusResourceFromEntityAssembler</b></td>
+      <td><b>ContributionCommandFromResourceAssembler,<br>ContributionResourceFromEntityAssembler,<br>CycleResourceFromEntityAssembler,<br>PeriodStatusResourceFromViewAssembler,<br>MyContributionsResourceFromViewAssembler</b></td>
       <td>Transforman recursos en comandos y agregados en recursos, para que los controllers no conozcan el modelo de dominio.</td>
       <td>No aplica.</td>
     </tr>
@@ -3757,27 +3750,22 @@ La capa de aplicación orquesta los casos de uso: recibe un comando o una consul
     <tr>
       <td><b>ContributionCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>handle(RegisterContributionCommand): crea el aporte desde el comprobante, obtiene el período y sus reglas, pide la validación al domain service, guarda y publica ContributionValidatedEvent o InconsistencyDetectedEvent. handle(RegisterCashContributionCommand) y handle(RegisterCoverageCommand): verifican que quien registra es la cabeza y liquidan lo esperado. handle(ReviewContributionCommand): aprueba o rechaza y publica el evento correspondiente.</td>
+      <td>handle(RegisterContributionCommand): verifica que quien registra participa en el ciclo, que el período sigue abierto y que el número de operación no se usó en la junta; crea el aporte desde el comprobante y, si quedó validado, liquida lo esperado en el Period, que puede completar el pozo. handle(RegisterCashContributionCommand) y handle(RegisterCoverageCommand): verifican que quien registra es la cabeza y liquidan lo esperado. handle(ReviewContributionCommand): aprueba, lo que liquida lo esperado, o rechaza, lo que permite al integrante registrar de nuevo.</td>
     </tr>
     <tr>
       <td><b>CycleCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>handle(StartCycleCommand): obtiene reglas, integrantes y turnos por la capa anticorrupción, crea el Cycle y abre el primer período. handle(DeliverPotCommand): marca el período como entregado, abre el siguiente o cierra el ciclo si era el último turno. handle(CloseCycleCommand): cierra el ciclo y publica CycleClosedEvent.</td>
-    </tr>
-    <tr>
-      <td><b>PeriodQueryServiceImpl</b></td>
-      <td>Query Service</td>
-      <td>Resuelve GetPeriodStatusQuery, GetPreviousPeriodsQuery y GetPotProjectionQuery. La proyección estima si el pozo estará completo a partir de los aportes validados y de los pendientes con recordatorio enviado.</td>
+      <td>handle(StartCycleCommand): crea el Cycle con la copia de reglas y turnos que trae el evento de inicio y abre el primer período. handle(DeliverPotCommand): marca el período como entregado y abre el siguiente, o cierra el ciclo si era el último turno. handle(CloseCycleCommand): cierra el ciclo y publica CycleClosedEvent.</td>
     </tr>
     <tr>
       <td><b>ContributionQueryServiceImpl</b></td>
       <td>Query Service</td>
-      <td>Resuelve GetMemberContributionsQuery y GetPendingReviewsQuery.</td>
+      <td>Resuelve las consultas del ciclo, del período vigente, de los períodos anteriores, de mis aportes y de los pendientes de revisión. Responde vacío a quien no participa en el ciclo, de modo que la API no revela qué ciclos existen. La proyección (GetPotProjectionQuery) estima si el pozo estará completo a partir de los aportes validados y de los pendientes con recordatorio enviado.</td>
     </tr>
     <tr>
-      <td><b>GroupStartedEventHandler</b></td>
+      <td><b>SavingsGroupStartedEventHandler</b></td>
       <td>Event Handler</td>
-      <td>Escucha Junta iniciada, de Savings Groups, y emite StartCycleCommand. Es el único punto de entrada del ciclo.</td>
+      <td>Escucha el evento de integración Junta iniciada, de Savings Groups, y emite StartCycleCommand en la misma transacción, para que una junta nunca quede iniciada sin su ciclo. Es el único punto de entrada del ciclo.</td>
     </tr>
     <tr>
       <td><b>MemberReplacedEventHandler</b></td>
@@ -3785,19 +3773,9 @@ La capa de aplicación orquesta los casos de uso: recibe un comando o una consul
       <td>Escucha Reemplazo incorporado, de Savings Groups, y actualiza el orden de turnos del Cycle.</td>
     </tr>
     <tr>
-      <td><b>ContributionValidatedEventHandler</b></td>
+      <td><b>IntegrationEventsPublisher</b></td>
       <td>Event Handler</td>
-      <td>Al validar o cubrir un aporte, liquida lo esperado en el Period y, si todos están cubiertos, publica PotCompletedEvent.</td>
-    </tr>
-    <tr>
-      <td><b>PotDeliveredEventHandler</b></td>
-      <td>Event Handler</td>
-      <td>Al entregar el pozo, pide al CycleCommandService abrir el siguiente período o cerrar el ciclo.</td>
-    </tr>
-    <tr>
-      <td><b>ExternalSavingsGroupsService</b></td>
-      <td>Outbound Service (interfaz)</td>
-      <td>Contrato de la capa anticorrupción hacia Savings Groups: fetchRules(groupId), fetchTurns(groupId), fetchMembers(groupId). Devuelve value objects de Contributions, nunca entidades del otro contexto.</td>
+      <td>Traduce los eventos de dominio a eventos de integración (aporte liquidado, revisión requerida o rechazada, período abierto, pozo completo o entregado, ciclo cerrado), con el nombre de la junta y la cuenta y el nombre de cada integrante, para que Notifications y Compliance History nunca lean el modelo de Contributions.</td>
     </tr>
   </tbody>
 </table>
@@ -3817,27 +3795,12 @@ La capa de aplicación orquesta los casos de uso: recibe un comando o una consul
     <tr>
       <td><b>CycleRepositoryImpl,<br>PeriodRepositoryImpl,<br>ContributionRepositoryImpl</b></td>
       <td>Repository (JPA)</td>
-      <td>Implementan las interfaces del dominio con Spring Data JPA sobre el esquema `contributions`. Las consultas de existencia del número de operación y de período vigente se declaran como métodos derivados o consultas JPQL.</td>
+      <td>Adaptadores que implementan las interfaces del dominio con Spring Data JPA sobre el esquema `contributions`. Copian cada agregado a sus entidades de persistencia, guardan y publican los eventos de dominio que el agregado registró con el ApplicationEventPublisher de Spring. La existencia del número de operación se declara como método derivado.</td>
     </tr>
     <tr>
-      <td><b>ContributionValidationServiceImpl</b></td>
-      <td>Domain Service (implementación)</td>
-      <td>Implementa la validación usando ContributionRepository para detectar comprobantes reutilizados.</td>
-    </tr>
-    <tr>
-      <td><b>ExternalSavingsGroupsServiceImpl</b></td>
-      <td>Anti-corruption Layer</td>
-      <td>Llama a los query services del módulo Savings Groups dentro del mismo proceso y traduce sus respuestas a CycleRules, TurnSlot y MemberId.</td>
-    </tr>
-    <tr>
-      <td><b>DomainEventPublisher</b></td>
-      <td>Adaptador de eventos</td>
-      <td>Publica los eventos de dominio con el ApplicationEventPublisher de Spring después de confirmar la transacción, de modo que Notifications y Compliance History reaccionen solo a hechos persistidos.</td>
-    </tr>
-    <tr>
-      <td><b>ContributionsJpaConfig</b></td>
-      <td>Configuración</td>
-      <td>Fija el esquema `contributions`, los convertidores de Money y de los identificadores tipados, y la auditoría de fechas.</td>
+      <td><b>CyclePersistenceEntity,<br>PeriodPersistenceEntity,<br>ExpectedContributionPersistenceEntity,<br>ContributionPersistenceEntity</b></td>
+      <td>Entidad JPA</td>
+      <td>Representan las tablas del esquema. El modelo de dominio no lleva anotaciones de JPA: los assemblers de persistencia traducen en ambos sentidos, y Money se guarda como monto y moneda en columnas propias.</td>
     </tr>
   </tbody>
 </table>
@@ -3848,7 +3811,7 @@ El diagrama de componentes descompone el contenedor de servicios RESTful en los 
 
 ![Diagrama de componentes de Contributions](images/chapter_2/c4_components_contributions.png){width=80%}
 
-Los dos controllers reciben las solicitudes de la aplicación móvil y las convierten en comandos o consultas. Los command services usan el modelo de dominio y los repositorios, y el CycleCommandService es el único que habla con ExternalSavingsGroupsService, la capa anticorrupción hacia Savings Groups. Los event handlers son la entrada reactiva del contexto: reciben Junta iniciada y Reemplazo incorporado desde Savings Groups, y Aporte validado y Pozo entregado desde el propio contexto, y disparan comandos. Los repositorios son el único componente que toca la base de datos. La lectura del comprobante con ML Kit no aparece aquí porque ocurre en la aplicación móvil: el servicio recibe los cuatro campos ya leídos y confirmados por el participante.
+Los controllers reciben las solicitudes de la aplicación móvil y las convierten en comandos o consultas. Los command services usan el modelo de dominio y los repositorios. Contributions no consulta a Savings Groups en tiempo de ejecución: el evento Junta iniciada trae una copia de las reglas y los turnos, y el event handler que lo recibe es la entrada reactiva del contexto. En la salida, IntegrationEventsPublisher traduce los eventos de dominio a eventos de integración para Notifications y Compliance History. Los repositorios son el único componente que toca la base de datos. La lectura del comprobante con ML Kit no aparece aquí porque ocurre en la aplicación móvil: el servicio recibe los cuatro campos ya leídos y confirmados por el participante.
 
 #### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -3856,13 +3819,13 @@ Los dos controllers reciben las solicitudes de la aplicación móvil y las convi
 
 ![Diagrama de clases del Domain Layer de Contributions](images/chapter_2/uml_contributions_domain.png)
 
-El diagrama muestra los tres agregados y sus relaciones de composición: un Cycle contiene sus reglas y turnos y agrupa uno o más Period; un Period contiene un ExpectedContribution por integrante y agrupa los Contribution que se registran en él; un Contribution contiene como máximo un comprobante y una revisión y cero o más inconsistencias. Las asociaciones entre agregados se expresan por identificador (cycleId, periodId), no por referencia de objeto, para que cada agregado se cargue y guarde de forma independiente. Los repositorios dependen de los agregados y el domain service depende de Contribution y de ContributionRepository.
+El diagrama muestra los tres agregados y sus relaciones de composición: un Cycle contiene sus reglas y turnos y agrupa uno o más Period; un Period contiene un ExpectedContribution por integrante y agrupa los Contribution que se registran en él; un Contribution contiene como máximo un comprobante y una revisión y cero o más inconsistencias. Las asociaciones entre agregados se expresan por identificador (cycleId, periodId), no por referencia de objeto, para que cada agregado se cargue y guarde de forma independiente. Los repositorios dependen de los agregados.
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
 ![Diagrama de base de datos de Contributions](images/chapter_2/db_contributions.png)
 
-El esquema `contributions` tiene seis tablas. `cycles` guarda el ciclo con sus reglas desnormalizadas (monto, periodicidad, día de corte, destino) porque son una copia congelada al iniciar y no deben cambiar si Savings Groups cambia; `cycle_turns` guarda el orden de cobro con clave compuesta por ciclo y turno y unicidad por integrante. `periods` tiene un período por turno del ciclo y `expected_contributions` una fila por integrante y período, con el estado y el aporte que la liquidó. `contributions` guarda el aporte con los campos del comprobante en columnas propias, el integrante que cubrió si es cobertura y la revisión de la cabeza; la restricción de unicidad sobre (cycle_id, receipt_operation_number) implementa en la base de datos la regla de que un comprobante se usa una sola vez por junta. `contribution_inconsistencies` guarda una fila por campo que no cuadró. Los identificadores de integrante y de junta son UUID sin clave foránea porque pertenecen a otros esquemas.
+El esquema `contributions` tiene seis tablas. `cycles` guarda el ciclo con sus reglas desnormalizadas (monto, periodicidad, fecha del primer aporte, destino y nombre del destinatario), el nombre de la junta y la cuenta de la cabeza, porque son una copia congelada al iniciar y no deben cambiar si Savings Groups cambia; `cycle_turns` guarda el orden de cobro con clave compuesta por ciclo y turno, y por cada turno la membresía, la cuenta si el integrante usa la aplicación y su nombre. `periods` tiene un período por turno del ciclo con la membresía que cobra, y `expected_contributions` una fila por membresía y período, con el estado y el aporte que la liquidó. `contributions` guarda el aporte con la membresía, la cuenta de quien lo registró, los campos del comprobante en columnas propias, la membresía que cubrió si es cobertura y la decisión de la cabeza; la restricción de unicidad sobre (cycle_id, receipt_operation_number) implementa en la base de datos la regla de que un comprobante se usa una sola vez por junta. `contribution_inconsistencies` guarda una fila por campo que no cuadró. Los identificadores de integrante y de junta son UUID sin clave foránea porque pertenecen a otros esquemas.
 
 ### 2.6.2. Bounded Context: Savings Groups
 
@@ -3885,13 +3848,13 @@ Savings Groups es el contexto de soporte que define la junta antes de que exista
       <td><b>SavingsGroup</b></td>
       <td>Aggregate Root</td>
       <td>La junta: reglas, integrantes, orden de turnos y estado. Aplica las condiciones de inicio y el bloqueo de reglas.</td>
-      <td>id, name, organizerId, rules, memberships, turns, turnMethod, status, createdAt, startedAt. create(organizerId, name, rules), defineDestination(account), join(memberId, displayName), addManualMember(displayName, phone), removeMember(membershipId), assignTurns(slots, method), assignTurnFromAuction(turnNumber, winner), hasFreeSeats(), canStart(), start(), registerDropout(dropped, replacement), turnCalendar().</td>
+      <td>id, name, organizerId, rules, memberships, turns, turnMethod, drawSeed, turnsAssignedAt, status, createdAt, startedAt. create(organizerId, organizerName, name, rules, now), updateRules(name, rules), defineDestination(destination), join(memberId, displayName, now), addManualMember(displayName, phone, now), removeMember(membershipId, now), assignTurns(slots, method, seed, now), assignTurnFromAuction(turnNumber, winner), hasFreeSeats(), canStart(), start(now), registerDropout(dropped, replacement), turnCalendar().</td>
     </tr>
     <tr>
       <td><b>Invitation</b></td>
       <td>Aggregate Root</td>
-      <td>Código y enlace de invitación vigentes de una junta, con vencimiento; caduca al iniciar la junta.</td>
-      <td>id, groupId, code, createdBy, createdAt, expiresAt, status. generate(groupId, organizerId), link(), isUsable(), expire().</td>
+      <td>Código de invitación vigente de una junta. Dura treinta días y caduca antes si la cabeza genera otro o si la junta se inicia.</td>
+      <td>id, groupId, code, createdBy, createdAt, expiresAt, status. generate(groupId, organizerId, code, now), isUsable(now), expire().</td>
     </tr>
     <tr>
       <td><b>Auction</b></td>
@@ -3902,8 +3865,8 @@ Savings Groups es el contexto de soporte que define la junta antes de que exista
     <tr>
       <td><b>Membership</b></td>
       <td>Entity</td>
-      <td>Un integrante dentro de una junta, con la aplicación o registrado a mano por la cabeza.</td>
-      <td>id, memberId, displayName, phone, kind, status, joinedAt. isActive(), markDropped().</td>
+      <td>Un integrante dentro de una junta, con la aplicación o registrado a mano por la cabeza; en ese caso el celular es opcional.</td>
+      <td>id, memberId, displayName, phone, kind, status, joinedAt. ofAppMember(...), ofManualMember(...), isActive(), belongsTo(accountId), remove(), markDropped().</td>
     </tr>
     <tr>
       <td><b>Bid</b></td>
@@ -3914,20 +3877,20 @@ Savings Groups es el contexto de soporte que define la junta antes de que exista
     <tr>
       <td><b>GroupRules</b></td>
       <td>Value Object</td>
-      <td>Reglas de la junta: aporte, periodicidad, día de corte, cupos y destino de los aportes.</td>
-      <td>contributionAmount, periodicity, cutoffDay, seats, destinationAccount. withDestination(account).</td>
+      <td>Reglas de la junta: aporte, periodicidad, cupos (de 2 a 50), fecha del primer aporte y destino de los aportes. El día de corte se deduce de la fecha del primer aporte.</td>
+      <td>contribution, periodicity, seats, firstContributionDate, destination. withDestination(destination), pot(), cutoffDay(), cutoffDateOfTurn(turnNumber).</td>
     </tr>
     <tr>
-      <td><b>TurnSlot,<br>InvitationCode,<br>PhoneNumber,<br>Money</b></td>
+      <td><b>TurnSlot,<br>InvitationCode,<br>Destination,<br>Money</b></td>
       <td>Value Object</td>
-      <td>Posición de cobro; código corto aleatorio de invitación; celular validado; monto con moneda.</td>
-      <td>turnNumber y memberId; value y random(); value e isValid(); amount y currency.</td>
+      <td>Posición de cobro; código corto de invitación con las iniciales de la junta, por ejemplo JB-7K4M; destino de los aportes (Yape o Plin y el celular); monto con moneda.</td>
+      <td>turnNumber, membershipId y assignedBy; value; method y phoneNumber; amount y currency.</td>
     </tr>
     <tr>
-      <td><b>GroupStatus,<br>MembershipKind,<br>MembershipStatus,<br>TurnMethod,<br>InvitationStatus,<br>AuctionStatus,<br>Periodicity</b></td>
+      <td><b>GroupStatus,<br>MembershipKind,<br>MembershipStatus,<br>TurnMethod,<br>InvitationStatus,<br>PaymentMethod,<br>AuctionStatus,<br>Periodicity</b></td>
       <td>Enumeración</td>
       <td>Estados y clasificaciones del modelo.</td>
-      <td>DRAFT / READY / STARTED / CLOSED; APP / MANUAL; ACTIVE / REMOVED / DROPPED / REPLACEMENT; DRAW / AGREED / AUCTION; ACTIVE / EXPIRED; OPEN / CLOSED; WEEKLY / BIWEEKLY / MONTHLY.</td>
+      <td>DRAFT / READY / STARTED / CLOSED; APP / MANUAL; ACTIVE / REMOVED / DROPPED / REPLACEMENT; DRAW / AGREED / AUCTION; ACTIVE / EXPIRED; YAPE / PLIN; OPEN / CLOSED; WEEKLY / BIWEEKLY / MONTHLY.</td>
     </tr>
     <tr>
       <td><b>TurnAssignmentService</b></td>
@@ -3939,30 +3902,30 @@ Savings Groups es el contexto de soporte que define la junta antes de que exista
       <td><b>SavingsGroupRepository,<br>InvitationRepository,<br>AuctionRepository</b></td>
       <td>Repository (interfaz)</td>
       <td>Persistencia de cada agregado.</td>
-      <td>findById, findByMemberId, findByCode, findActiveByGroupId, findOpenByGroupId, save.</td>
+      <td>findById, findAllByMemberId, findByCode, existsByCode, findAllActiveByGroupId, findOpenByGroupId, save.</td>
     </tr>
     <tr>
-      <td><b>CreateGroupCommand,<br>DefineDestinationCommand,<br>GenerateInvitationCommand,<br>JoinGroupCommand,<br>AddManualMemberCommand,<br>RemoveMemberCommand,<br>AssignTurnsByDrawCommand,<br>AssignTurnsAgreedCommand,<br>OpenAuctionCommand,<br>PlaceBidCommand,<br>CloseAuctionCommand,<br>StartGroupCommand,<br>RegisterDropoutCommand</b></td>
+      <td><b>CreateGroupCommand,<br>UpdateRulesCommand,<br>DefineDestinationCommand,<br>GenerateInvitationCommand,<br>JoinGroupCommand,<br>AddManualMemberCommand,<br>RemoveMemberCommand,<br>AssignTurnsByDrawCommand,<br>AssignTurnsAgreedCommand,<br>OpenAuctionCommand,<br>PlaceBidCommand,<br>CloseAuctionCommand,<br>StartGroupCommand,<br>RegisterDropoutCommand</b></td>
       <td>Command</td>
       <td>Un comando por cada comando del EventStorming en este contexto.</td>
       <td>Identificadores, reglas, nombre y celular, orden o semilla, oferta, decisión de empate.</td>
     </tr>
     <tr>
-      <td><b>GetGroupRulesQuery,<br>GetMembersQuery,<br>GetTurnCalendarQuery,<br>GetGroupPreviewQuery,<br>GetOpenBidsQuery,<br>GetMyGroupsQuery</b></td>
+      <td><b>GetGroupByIdQuery,<br>GetMembersQuery,<br>GetTurnCalendarQuery,<br>GetGroupPreviewQuery,<br>GetActiveInvitationQuery,<br>GetOpenBidsQuery,<br>GetMyGroupsQuery</b></td>
       <td>Query</td>
-      <td>Consultas de las vistas: reglas, lista de integrantes, calendario de turnos, resumen antes de unirse, ofertas vigentes y mis juntas.</td>
+      <td>Consultas de las vistas: la junta con sus reglas, lista de integrantes, calendario de turnos, resumen antes de unirse, invitación vigente, ofertas vigentes y mis juntas.</td>
       <td>groupId, invitationCode, memberId.</td>
     </tr>
     <tr>
       <td><b>GroupCreatedEvent,<br>InvitationGeneratedEvent,<br>MemberJoinedEvent,<br>ManualMemberAddedEvent,<br>MemberRemovedEvent,<br>TurnsAssignedEvent,<br>AuctionOpenedEvent,<br>BidPlacedEvent,<br>AuctionClosedEvent,<br>GroupStartedEvent,<br>MemberDroppedEvent,<br>ReplacementJoinedEvent</b></td>
       <td>Domain Event</td>
-      <td>Hechos que publica el contexto. GroupStartedEvent es el que inicia el ciclo en Contributions; MemberDroppedEvent y ReplacementJoinedEvent los consumen Contributions y Compliance History.</td>
+      <td>Hechos que publica el contexto. GroupStartedEvent se traduce al evento de integración Junta iniciada, que inicia el ciclo en Contributions; MemberDroppedEvent y ReplacementJoinedEvent los consumirán Contributions y Compliance History.</td>
       <td>Identificadores de junta e integrantes, reglas y turnos copiados al iniciar.</td>
     </tr>
   </tbody>
 </table>
 
-Las reglas del canvas quedan en `SavingsGroup.canStart` (cupos cubiertos y turnos asignados), en `SavingsGroup.start` (bloqueo de reglas y caducidad de la invitación, que se ordena publicando GroupStartedEvent), en `Auction.close` (gana la oferta mayor, el empate lo resuelve la cabeza) y en `SavingsGroup.registerDropout` (el reemplazo hereda el turno pendiente). Que un integrante sin la aplicación no pueda aportar por sí mismo se garantiza porque su Membership no tiene memberId y, por tanto, ninguna cuenta puede actuar en su nombre.
+Las reglas del canvas quedan en `SavingsGroup.canStart` (cupos cubiertos y turnos asignados), en `SavingsGroup.updateRules` (las reglas solo cambian antes de iniciar y los cupos no pueden quedar por debajo de los integrantes), en `SavingsGroup.start` (bloqueo de reglas y caducidad de la invitación, que se ordena publicando GroupStartedEvent), en `Auction.close` (gana la oferta mayor, el empate lo resuelve la cabeza) y en `SavingsGroup.registerDropout` (el reemplazo hereda el turno pendiente). Que un integrante sin la aplicación no pueda aportar por sí mismo se garantiza porque su Membership no tiene memberId y, por tanto, ninguna cuenta puede actuar en su nombre.
 
 #### 2.6.2.2. Interface Layer
 
@@ -3978,13 +3941,13 @@ Las reglas del canvas quedan en `SavingsGroup.canStart` (cupos cubiertos y turno
   <tbody>
     <tr>
       <td><b>SavingsGroupsController</b></td>
-      <td>Ciclo de vida de la junta: crear, definir destino, consultar reglas, listar mis juntas e iniciar.</td>
-      <td>POST /api/v1/groups,<br>GET /api/v1/groups/{id},<br>GET /api/v1/members/me/groups,<br>PATCH /api/v1/groups/{id}/destination,<br>POST /api/v1/groups/{id}/start.</td>
+      <td>Ciclo de vida de la junta: crear, cambiar reglas antes de iniciar, definir destino, consultar la junta, listar mis juntas e iniciar.</td>
+      <td>POST /api/v1/groups,<br>GET /api/v1/groups/{id},<br>GET /api/v1/members/me/groups,<br>PUT /api/v1/groups/{id}/rules,<br>PATCH /api/v1/groups/{id}/destination,<br>POST /api/v1/groups/{id}/start.</td>
     </tr>
     <tr>
       <td><b>MembershipsController</b></td>
       <td>Invitaciones e integrantes: generar invitación, resolver un código (resumen antes de unirse), unirse, agregar integrante sin la aplicación, retirar y registrar deserción con reemplazo.</td>
-      <td>POST /api/v1/groups/{id}/invitations,<br>GET /api/v1/invitations/{code},<br>POST /api/v1/invitations/{code}/join,<br>GET /api/v1/groups/{id}/members,<br>POST /api/v1/groups/{id}/members/manual,<br>DELETE /api/v1/groups/{id}/members/{membershipId},<br>POST /api/v1/groups/{id}/members/{membershipId}/dropout.</td>
+      <td>POST /api/v1/groups/{id}/invitations,<br>GET /api/v1/groups/{id}/invitations/active,<br>GET /api/v1/invitations/{code},<br>POST /api/v1/invitations/{code}/join,<br>GET /api/v1/groups/{id}/members,<br>POST /api/v1/groups/{id}/members/manual,<br>DELETE /api/v1/groups/{id}/members/{membershipId},<br>POST /api/v1/groups/{id}/members/{membershipId}/dropout.</td>
     </tr>
     <tr>
       <td><b>TurnsController</b></td>
@@ -3992,7 +3955,7 @@ Las reglas del canvas quedan en `SavingsGroup.canStart` (cupos cubiertos y turno
       <td>POST /api/v1/groups/{id}/turns/draw,<br>POST /api/v1/groups/{id}/turns/agreed,<br>GET /api/v1/groups/{id}/turns,<br>POST /api/v1/groups/{id}/auctions,<br>POST /api/v1/auctions/{auctionId}/bids,<br>GET /api/v1/auctions/{auctionId}/bids,<br>POST /api/v1/auctions/{auctionId}/close.</td>
     </tr>
     <tr>
-      <td><b>CreateGroupResource, GroupResource, GroupPreviewResource, MembershipResource, TurnSlotResource, BidResource</b> y sus assemblers</td>
+      <td><b>CreateGroupResource, UpdateRulesResource, DestinationResource, RulesResource, GroupResource, GroupPreviewResource, InvitationResource, MembershipResource, AddManualMemberResource, AgreedTurnsResource, TurnCalendarResource, ReadinessResource, BidResource</b> y sus assemblers</td>
       <td>Recursos JSON y transformaciones entre recursos, comandos y agregados.</td>
       <td>No aplica.</td>
     </tr>
@@ -4014,7 +3977,7 @@ Las reglas del canvas quedan en `SavingsGroup.canStart` (cupos cubiertos y turno
     <tr>
       <td><b>SavingsGroupCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>Atiende CreateGroup, DefineDestination, GenerateInvitation, JoinGroup, AddManualMember, RemoveMember, StartGroup y RegisterDropout. Verifica que quien invoca es la cabeza cuando corresponde, carga el SavingsGroup, invoca el método del agregado, guarda y publica los eventos. Al unirse por código, resuelve la Invitation y comprueba que sea usable y que haya cupos.</td>
+      <td>Atiende CreateGroup, UpdateRules, DefineDestination, GenerateInvitation, JoinGroup, AddManualMember, RemoveMember, StartGroup y RegisterDropout. Carga el SavingsGroup, invoca el método del agregado, guarda y publica los eventos. A quien no es integrante le responde que la junta no existe, igual que si no existiera, para no revelar qué juntas hay; a un integrante que no es la cabeza le niega las operaciones reservadas a ella. Al generar una invitación vence la anterior; al unirse por código, resuelve la Invitation y comprueba que sea usable y que haya cupos.</td>
     </tr>
     <tr>
       <td><b>TurnCommandServiceImpl</b></td>
@@ -4024,17 +3987,27 @@ Las reglas del canvas quedan en `SavingsGroup.canStart` (cupos cubiertos y turno
     <tr>
       <td><b>SavingsGroupQueryServiceImpl</b></td>
       <td>Query Service</td>
-      <td>Resuelve reglas, integrantes, calendario, ofertas vigentes y mis juntas. Para el resumen antes de unirse (GetGroupPreviewQuery) devuelve solo nombre, reglas y cupos libres, sin la lista de integrantes. Cuando la cabeza consulta la lista, completa cada integrante con su resumen de cumplimiento a través de ExternalComplianceHistoryService.</td>
+      <td>Resuelve la junta, integrantes, calendario, invitación vigente, ofertas vigentes y mis juntas. Para el resumen antes de unirse (GetGroupPreviewQuery) devuelve solo nombre, reglas y cupos libres, sin la lista de integrantes ni el destino. El celular de un integrante sin la aplicación solo lo ve la cabeza. El nivel de cumplimiento de cada integrante no se calcula aquí: la cabeza lo consulta directamente a Compliance History.</td>
     </tr>
     <tr>
-      <td><b>ExternalComplianceHistoryService</b></td>
-      <td>Outbound Service (interfaz)</td>
-      <td>Contrato de la capa anticorrupción hacia Compliance History: fetchSummary(memberId) devuelve un value object ComplianceBadge (nivel y juntas completadas), no el historial completo.</td>
+      <td><b>GroupStartedEventHandler</b></td>
+      <td>Event Handler</td>
+      <td>Traduce GroupStartedEvent al evento de integración Junta iniciada, con valores primitivos: reglas, destino, nombre de la cabeza y el orden de turnos con la membresía, la cuenta y el nombre de cada integrante.</td>
+    </tr>
+    <tr>
+      <td><b>SavingsGroupsContextFacadeImpl</b></td>
+      <td>Open Host Service</td>
+      <td>Lo que el contexto ofrece a los demás para autorizar solicitudes sin leer su modelo: isOrganizer(groupId, accountId), isMember(groupId, accountId), isOrganizerOfMember(organizerId, memberId) y fetchActiveMembers(groupId).</td>
+    </tr>
+    <tr>
+      <td><b>ExternalIamService</b></td>
+      <td>Outbound Service</td>
+      <td>Capa anticorrupción hacia Identity & Access: obtiene el nombre con el que se muestra quien crea la junta o se une a ella.</td>
     </tr>
   </tbody>
 </table>
 
-Este contexto no tiene event handlers entrantes: todo lo que ocurre en una junta lo inicia una persona desde la aplicación. Es, en cambio, el mayor publicador de eventos hacia Contributions y Notifications.
+Este contexto no tiene event handlers entrantes: todo lo que ocurre en una junta lo inicia una persona desde la aplicación. Es, en cambio, el que publica Junta iniciada, que lleva a Contributions y a Notifications la copia de reglas y turnos, y el que ofrece a los demás contextos la fachada para saber quién pertenece a cada junta.
 
 #### 2.6.2.4. Infrastructure Layer
 
@@ -4051,17 +4024,12 @@ Este contexto no tiene event handlers entrantes: todo lo que ocurre en una junta
     <tr>
       <td><b>SavingsGroupRepositoryImpl,<br>InvitationRepositoryImpl,<br>AuctionRepositoryImpl</b></td>
       <td>Repository (JPA)</td>
-      <td>Implementan las interfaces del dominio sobre el esquema `savings_groups`.</td>
+      <td>Implementan las interfaces del dominio sobre el esquema `savings_groups`, con entidades de persistencia y assemblers que separan el modelo de dominio de JPA.</td>
     </tr>
     <tr>
-      <td><b>TurnAssignmentServiceImpl</b></td>
+      <td><b>SeededTurnAssignmentService</b></td>
       <td>Domain Service (implementación)</td>
-      <td>Sorteo con SecureRandom sembrado con una cadena que se publica al grupo, para que cualquier integrante pueda reproducir el resultado.</td>
-    </tr>
-    <tr>
-      <td><b>ExternalComplianceHistoryServiceImpl</b></td>
-      <td>Anti-corruption Layer</td>
-      <td>Llama al query service de Compliance History dentro del mismo proceso y traduce su resumen al ComplianceBadge de este contexto.</td>
+      <td>Sorteo determinista: el resumen SHA-256 de una semilla alimenta el generador aleatorio, y la semilla se guarda con la junta para que cualquier integrante pueda reproducir el resultado.</td>
     </tr>
     <tr>
       <td><b>InvitationLinkBuilder</b></td>
@@ -4069,9 +4037,9 @@ Este contexto no tiene event handlers entrantes: todo lo que ocurre en una junta
       <td>Construye el enlace de invitación con el dominio verificado de Android App Links, para que abra la aplicación o lleve a la tienda.</td>
     </tr>
     <tr>
-      <td><b>DomainEventPublisher,<br>SavingsGroupsJpaConfig</b></td>
-      <td>Adaptador de eventos y configuración</td>
-      <td>Publicación de eventos tras confirmar la transacción; esquema, convertidores y auditoría.</td>
+      <td><b>SavingsGroupPersistenceEntity,<br>MembershipPersistenceEntity,<br>InvitationPersistenceEntity</b></td>
+      <td>Entidad JPA</td>
+      <td>Representan las tablas del esquema; los adaptadores de repositorio publican los eventos de dominio del agregado al guardarlo.</td>
     </tr>
   </tbody>
 </table>
@@ -4080,7 +4048,7 @@ Este contexto no tiene event handlers entrantes: todo lo que ocurre en una junta
 
 ![Diagrama de componentes de Savings Groups](images/chapter_2/c4_components_savings_groups.png){width=80%}
 
-Tres controllers reparten las responsabilidades de junta, integrantes y turnos. SavingsGroupCommandService y TurnCommandService comparten el modelo de dominio y los repositorios; el query service es el único que sale del contexto, a través de ExternalComplianceHistoryService, para completar la lista de integrantes con su nivel de cumplimiento. El componente ExternalSavingsGroupsService de Contributions consume a su vez el query service de este contexto, lo que se refleja en el diagrama como una dependencia entrante desde el módulo core.
+Tres controllers reparten las responsabilidades de junta, integrantes y turnos. SavingsGroupCommandService y TurnCommandService comparten el modelo de dominio y los repositorios; el command service sale del contexto solo a través de ExternalIamService, para obtener el nombre de quien crea la junta o se une. Hacia afuera, el contexto expone dos cosas: el evento Junta iniciada, que consume Contributions, y SavingsGroupsContextFacade, que Compliance History y Notifications usan para autorizar sus solicitudes.
 
 #### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -4094,7 +4062,7 @@ SavingsGroup compone sus reglas, sus integrantes y sus turnos, y agrega por iden
 
 ![Diagrama de base de datos de Savings Groups](images/chapter_2/db_savings_groups.png){width=85%}
 
-El esquema `savings_groups` tiene seis tablas. `savings_groups` guarda la junta con sus reglas en columnas; `memberships` una fila por integrante, con `member_id` nulo para los registrados sin la aplicación y una restricción que exige celular en ese caso; `invitations` los códigos, únicos en toda la base; `turn_slots` el orden de cobro con clave compuesta por junta y turno y unicidad por integrante, de modo que nadie ocupa dos turnos; `auctions` una subasta por turno y `bids` sus ofertas con índice descendente por monto para resolver rápido la mayor.
+El esquema `savings_groups` tiene seis tablas. `savings_groups` guarda la junta con sus reglas en columnas, la fecha del primer aporte, el destino separado en método (Yape o Plin) y celular, y la semilla y fecha del sorteo de turnos; `memberships` una fila por integrante, con `member_id` nulo para los registrados sin la aplicación, cuyo celular es opcional; `invitations` los códigos, únicos en toda la base; `turn_slots` el orden de cobro con clave compuesta por junta y turno y unicidad por integrante, de modo que nadie ocupa dos turnos; `auctions` una subasta por turno y `bids` sus ofertas con índice descendente por monto para resolver rápido la mayor.
 
 ### 2.6.3. Bounded Context: Compliance History
 
@@ -4116,26 +4084,26 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
     <tr>
       <td><b>MemberRecord</b></td>
       <td>Aggregate Root</td>
-      <td>Historial de un integrante a lo largo de todas sus juntas. Su identidad es el propio memberId.</td>
-      <td>memberId, entries, updatedAt. forMember(memberId), record(entry), summary(), entriesInCycle(cycleId).</td>
+      <td>Historial de un integrante a lo largo de todas sus juntas. Su identidad es la propia cuenta del integrante.</td>
+      <td>accountId, entries, summary, updatedAt. forMember(accountId, now), record(entry, scoring, now), entriesInCycle(cycleId).</td>
     </tr>
     <tr>
       <td><b>ShareLink</b></td>
       <td>Aggregate Root</td>
-      <td>Enlace verificable para compartir el historial, con vigencia y revocación.</td>
-      <td>token, memberId, createdAt, expiresAt, revoked. issue(memberId, validity), isValid(now), revoke().</td>
+      <td>Enlace verificable para compartir el historial, con vigencia de siete días y revocación.</td>
+      <td>id, token, accountId, createdAt, expiresAt, revoked. issue(accountId, now), isValid(now), revoke().</td>
     </tr>
     <tr>
       <td><b>ComplianceEntry</b></td>
       <td>Entity</td>
-      <td>Un hecho de cumplimiento, con el evento de origen que lo produjo para no registrarlo dos veces.</td>
-      <td>id, cycleId, periodId, kind, occurredAt, sourceEventId. isNegative().</td>
+      <td>Un hecho de cumplimiento, con la junta en que ocurrió y el evento de origen que lo produjo para no registrarlo dos veces.</td>
+      <td>id, cycleId, groupId, groupName, periodId, kind, occurredAt, sourceEventId. of(...), isNegative().</td>
     </tr>
     <tr>
       <td><b>ComplianceSummary</b></td>
       <td>Value Object</td>
       <td>Resumen agregado: conteos por tipo, juntas completadas y nivel. Es lo que se muestra a la cabeza y en el enlace compartido; nunca los montos ni los nombres de otras juntas.</td>
-      <td>onTime, late, covered, dropouts, cyclesCompleted, level. complianceRate().</td>
+      <td>onTime, late, covered, rejected, dropouts, cyclesCompleted, level. contributions(), complianceRate().</td>
     </tr>
     <tr>
       <td><b>ShareToken</b></td>
@@ -4152,32 +4120,32 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
     <tr>
       <td><b>ComplianceScoringService</b></td>
       <td>Domain Service</td>
-      <td>Calcula el resumen y el nivel a partir de las entradas. Un integrante sin entradas es NEW; una deserción reciente lo lleva a RISKY; más del 90 % de aportes puntuales en tres o más juntas completadas es EXCELLENT.</td>
+      <td>Calcula el resumen y el nivel a partir de las entradas. La tasa de cumplimiento es la proporción de aportes puntuales sobre los aportes liquidados. Un integrante sin aportes es NEW; una deserción o una tasa menor al 60 % lo lleva a RISKY; desde el 90 % con tres o más juntas completadas es EXCELLENT; desde el 80 %, GOOD, y el resto, REGULAR.</td>
       <td>summarize(entries).</td>
     </tr>
     <tr>
       <td><b>MemberRecordRepository,<br>ShareLinkRepository</b></td>
       <td>Repository (interfaz)</td>
       <td>Persistencia de los agregados y verificación de idempotencia por evento de origen.</td>
-      <td>findByMemberId, existsEntryBySourceEventId, findByToken, save.</td>
+      <td>findByAccountId, existsEntryBySourceEventId, findByToken, save.</td>
     </tr>
     <tr>
       <td><b>RecordComplianceEntryCommand,<br>ShareHistoryCommand,<br>RevokeShareLinkCommand</b></td>
       <td>Command</td>
       <td>Registrar un hecho (lo emiten los event handlers), compartir el historial y revocar un enlace.</td>
-      <td>memberId, cycleId, periodId, kind, sourceEventId; validity; token.</td>
+      <td>accountId, cycleId, groupId, groupName, periodId, kind, occurredAt, sourceEventId; accountId; token y accountId.</td>
     </tr>
     <tr>
-      <td><b>GetMyHistoryQuery,<br>GetMemberSummaryQuery,<br>GetSharedHistoryQuery</b></td>
+      <td><b>GetMyHistoryQuery,<br>GetGroupComplianceQuery,<br>GetMemberSummaryQuery,<br>GetSharedHistoryQuery</b></td>
       <td>Query</td>
-      <td>Historial propio con detalle, resumen de otro integrante (para la cabeza y para Savings Groups) e historial por enlace compartido.</td>
-      <td>memberId, token.</td>
+      <td>Historial propio con detalle por junta, cumplimiento de los integrantes de una junta (para su cabeza), resumen de otro integrante e historial por enlace compartido.</td>
+      <td>accountId, groupId, cuenta de quien consulta, token.</td>
     </tr>
     <tr>
       <td><b>HistoryUpdatedEvent,<br>HistorySharedEvent</b></td>
       <td>Domain Event</td>
       <td>Hechos que publica el contexto; Notifications no los consume, se conservan para auditoría.</td>
-      <td>memberId, fecha.</td>
+      <td>accountId, fecha.</td>
     </tr>
   </tbody>
 </table>
@@ -4196,11 +4164,11 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
   <tbody>
     <tr>
       <td><b>ComplianceHistoryController</b></td>
-      <td>Consulta y compartición del historial. El endpoint del resumen de otro integrante exige que quien consulta sea cabeza de una junta no iniciada a la que ese integrante se unió.</td>
-      <td>GET /api/v1/members/me/compliance,<br>GET /api/v1/members/{memberId}/compliance/summary,<br>POST /api/v1/members/me/compliance/share,<br>DELETE /api/v1/compliance/shares/{token},<br>GET /api/v1/compliance/shared/{token} (público,<br>sin token de sesión).</td>
+      <td>Consulta y compartición del historial. El cumplimiento de una junta solo lo ve su cabeza, y el resumen de otro integrante, el propio integrante o la cabeza de una junta a la que pertenece; a cualquier otro se le responde que no existe.</td>
+      <td>GET /api/v1/members/me/compliance,<br>GET /api/v1/groups/{groupId}/compliance,<br>GET /api/v1/members/{memberId}/compliance/summary,<br>POST /api/v1/members/me/compliance/share,<br>DELETE /api/v1/compliance/shares/{token},<br>GET /api/v1/compliance/shared/{token} (público,<br>sin token de sesión).</td>
     </tr>
     <tr>
-      <td><b>ComplianceHistoryResource, ComplianceSummaryResource, ShareLinkResource</b> y sus assemblers</td>
+      <td><b>MyHistoryResource, MemberComplianceResource, ComplianceSummaryResource, ShareLinkResource, SharedHistoryResource</b> y ComplianceResourceAssembler</td>
       <td>Recursos JSON y transformaciones.</td>
       <td>No aplica.</td>
     </tr>
@@ -4227,17 +4195,22 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
     <tr>
       <td><b>ComplianceQueryServiceImpl</b></td>
       <td>Query Service</td>
-      <td>Resuelve el historial propio, el resumen de otro integrante y el historial compartido; en los dos últimos devuelve solo ComplianceSummary.</td>
+      <td>Resuelve el historial propio, el cumplimiento de los integrantes de una junta, el resumen de otro integrante y el historial compartido; fuera del historial propio devuelve solo ComplianceSummary. Los integrantes sin la aplicación aparecen en la lista de la junta, pero sin resumen.</td>
     </tr>
     <tr>
       <td><b>ContributionEventsHandler</b></td>
       <td>Event Handler (ACL)</td>
-      <td>Traduce ContributionValidatedEvent a ON_TIME o LATE según la fecha de pago frente a la fecha de corte, ContributionCoveredEvent a COVERED y ContributionRejectedEvent a REJECTED.</td>
+      <td>Traduce los eventos de integración de Contributions: aporte liquidado a ON_TIME, LATE o COVERED según cómo se liquidó, comprobante rechazado a REJECTED y ciclo cerrado a CYCLE_COMPLETED para cada integrante que lo terminó.</td>
     </tr>
     <tr>
       <td><b>GroupEventsHandler</b></td>
       <td>Event Handler (ACL)</td>
-      <td>Traduce MemberDroppedEvent a DROPOUT y CycleClosedEvent a CYCLE_COMPLETED para cada integrante que terminó el ciclo.</td>
+      <td>Traducirá MemberDroppedEvent a DROPOUT cuando Savings Groups registre las deserciones con reemplazo.</td>
+    </tr>
+    <tr>
+      <td><b>ExternalContextsService</b></td>
+      <td>Outbound Service</td>
+      <td>Capa anticorrupción hacia Identity & Access y Savings Groups: el nombre que muestra un integrante, quién es cabeza de qué junta y quiénes pertenecen a ella.</td>
     </tr>
   </tbody>
 </table>
@@ -4260,9 +4233,9 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
       <td>Persistencia sobre el esquema `compliance_history`; los conteos del resumen se guardan desnormalizados en `member_records` para que la consulta de la cabeza no recorra todas las entradas.</td>
     </tr>
     <tr>
-      <td><b>ComplianceScoringServiceImpl</b></td>
+      <td><b>ThresholdComplianceScoringService</b></td>
       <td>Domain Service (implementación)</td>
-      <td>Implementa los umbrales de nivel, configurables por propiedades.</td>
+      <td>Implementa los umbrales de nivel descritos en el Domain Layer.</td>
     </tr>
     <tr>
       <td><b>SharedHistoryLinkBuilder</b></td>
@@ -4276,7 +4249,7 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
 
 ![Diagrama de componentes de Compliance History](images/chapter_2/c4_components_compliance_history.png){width=75%}
 
-El contexto tiene dos entradas: el controller, para las consultas y la compartición desde la aplicación, y los event handlers, que reciben los eventos de Contributions y Savings Groups y los convierten en comandos de registro. Ambos pasan por el command service, que es el único que escribe. Savings Groups consume el query service a través de su propia capa anticorrupción.
+El contexto tiene dos entradas: el controller, para las consultas y la compartición desde la aplicación, y los event handlers, que reciben los eventos de Contributions y Savings Groups y los convierten en comandos de registro. Ambos pasan por el command service, que es el único que escribe. Para autorizar las consultas, el query service pregunta a Savings Groups, por medio de su fachada, quién es cabeza de cada junta y quiénes pertenecen a ella.
 
 #### 2.6.3.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -4288,11 +4261,11 @@ El contexto tiene dos entradas: el controller, para las consultas y la compartic
 
 ![Diagrama de base de datos de Compliance History](images/chapter_2/db_compliance_history.png){width=75%}
 
-El esquema `compliance_history` tiene tres tablas. `member_records` usa el identificador del integrante como clave y guarda los conteos y el nivel ya calculados; `compliance_entries` guarda cada hecho con el identificador del evento que lo originó, único para garantizar que un mismo evento no se cuente dos veces aunque se vuelva a publicar; `share_links` guarda los enlaces con su vencimiento y revocación.
+El esquema `compliance_history` tiene tres tablas. `member_records` usa la cuenta del integrante como clave y guarda los conteos y el nivel ya calculados; `compliance_entries` guarda cada hecho con la junta en que ocurrió (identificador y nombre, para mostrar el detalle por junta sin consultar a Contributions) y el identificador del evento que lo originó, único para garantizar que un mismo evento no se cuente dos veces aunque se vuelva a publicar; `share_links` guarda los enlaces con un identificador propio, el token único, su vencimiento y su revocación.
 
 ### 2.6.4. Bounded Context: Notifications
 
-Notifications es un contexto genérico y reactivo: casi todo lo que hace lo dispara un evento de otro contexto. Su modelo tiene tres agregados. **Device** es un dispositivo registrado para recibir push, con su token de Firebase Cloud Messaging. **ReminderPlan** es la política de recordatorios de una junta: cuántos días antes de la fecha de corte se envían y a qué hora; existe uno por junta y por defecto es tres días, un día y el mismo día. **Notification** es un recordatorio o aviso programado o enviado a un integrante, con una clave de deduplicación que impide que un mismo hecho produzca dos avisos. El domain service ReminderSchedulingService convierte un plan y una fecha de corte en las notificaciones programadas de cada integrante pendiente, y las cancela cuando el aporte se valida.
+Notifications es un contexto genérico y reactivo: casi todo lo que hace lo dispara un evento de otro contexto. Su modelo tiene tres agregados. **Device** es un dispositivo registrado para recibir push, con su token de Firebase Cloud Messaging. **ReminderPlan** es la política de recordatorios de una junta: cuántos días antes de la fecha de corte se envían y a qué hora; existe uno por junta y por defecto es tres días, un día y el mismo día. **Notification** es un recordatorio o aviso programado o enviado a un integrante, con una clave de deduplicación que impide que un mismo hecho produzca dos avisos. El propio ReminderPlan convierte una fecha de corte en los momentos de envío, y el command service crea con ellos las notificaciones de cada integrante y las cancela cuando su aporte se liquida.
 
 #### 2.6.4.1. Domain Layer
 
@@ -4310,26 +4283,26 @@ Notifications es un contexto genérico y reactivo: casi todo lo que hace lo disp
     <tr>
       <td><b>Device</b></td>
       <td>Aggregate Root</td>
-      <td>Dispositivo de un integrante con su token push; se registra al iniciar sesión y se desactiva al cerrarla o cuando FCM informa que el token ya no es válido.</td>
-      <td>id, memberId, pushToken, platform, registeredAt, active. register(memberId, token, platform), refreshToken(token), deactivate().</td>
+      <td>Dispositivo de un integrante con su token push; se registra al iniciar sesión y se desactiva al cerrarla o cuando FCM informa que el token ya no es válido. Si otra cuenta inicia sesión en el mismo celular, el token pasa a esa cuenta.</td>
+      <td>id, accountId, pushToken, platform, registeredAt, active. register(accountId, pushToken, platform, now), assignTo(accountId, platform, now), deactivate().</td>
     </tr>
     <tr>
       <td><b>ReminderPlan</b></td>
       <td>Aggregate Root</td>
       <td>Política de recordatorios de una junta.</td>
-      <td>id, groupId, offsetsInDays, sendHour, enabled. defaultFor(groupId), configure(offsets, sendHour, enabled), scheduleFor(cutoffDate).</td>
+      <td>id, groupId, offsetsInDays, sendHour, enabled, updatedAt. defaultFor(groupId, now), configure(offsets, sendHour, enabled, now), scheduleFor(cutoffDate, zone).</td>
     </tr>
     <tr>
       <td><b>Notification</b></td>
       <td>Aggregate Root</td>
       <td>Un recordatorio o aviso con su contenido, su momento de envío, su estado y su clave de deduplicación.</td>
-      <td>id, memberId, groupId, kind, content, dedupKey, scheduledAt, sentAt, status, attempts. reminder(...), alert(...), isDue(now), markSent(), markFailed(), cancel().</td>
+      <td>id, accountId, groupId, periodId, kind, content, dedupKey, scheduledAt, sentAt, status, attempts. reminder(...), alert(...), isDue(now), markSent(now), markFailed(), cancel().</td>
     </tr>
     <tr>
-      <td><b>NotificationContent,<br>DedupKey,<br>PushToken</b></td>
+      <td><b>NotificationContent</b></td>
       <td>Value Object</td>
-      <td>Título, cuerpo y enlace profundo; clave única por tipo, integrante y referencia; token de FCM.</td>
-      <td>title, body, deepLink; of(kind, memberId, referenceId); value.</td>
+      <td>Título (hasta 80 caracteres), cuerpo (hasta 240) y enlace profundo a la pantalla que abre. La clave de deduplicación y el token push son cadenas validadas por sus agregados.</td>
+      <td>title, body, deepLink.</td>
     </tr>
     <tr>
       <td><b>NotificationKind,<br>NotificationStatus,<br>Platform</b></td>
@@ -4338,28 +4311,22 @@ Notifications es un contexto genérico y reactivo: casi todo lo que hace lo disp
       <td>REMINDER / ALERT; SCHEDULED / SENT / CANCELLED / FAILED; ANDROID / IOS.</td>
     </tr>
     <tr>
-      <td><b>ReminderSchedulingService</b></td>
-      <td>Domain Service</td>
-      <td>Programa los recordatorios de un período para los integrantes pendientes según el plan, y los cancela para un integrante cuando su aporte se valida.</td>
-      <td>scheduleReminders(plan, periodId, cutoffDate, pending), cancelReminders(periodId, memberId).</td>
-    </tr>
-    <tr>
       <td><b>DeviceRepository,<br>ReminderPlanRepository,<br>NotificationRepository</b></td>
       <td>Repository (interfaz)</td>
       <td>Persistencia; NotificationRepository expone las notificaciones vencidas para el despachador y la verificación de la clave de deduplicación.</td>
-      <td>findActiveByMemberId, findByPushToken, findByGroupId, findDue, findScheduledByPeriodAndMember, existsByDedupKey, findByMemberId, save.</td>
+      <td>findById, findActiveByAccountId, findByPushToken, findByGroupId, findDue, findScheduledRemindersByPeriodIdAndAccountId, existsByDedupKey, findSentByAccountId, save.</td>
     </tr>
     <tr>
-      <td><b>RegisterDeviceCommand,<br>DeactivateDeviceCommand,<br>ConfigureReminderPlanCommand,<br>ScheduleRemindersCommand,<br>CancelRemindersCommand,<br>CreateAlertCommand</b></td>
+      <td><b>RegisterDeviceCommand,<br>DeactivateDeviceCommand,<br>ConfigureReminderPlanCommand,<br>ScheduleRemindersCommand,<br>CancelRemindersCommand,<br>SendAlertCommand,<br>DispatchDueNotificationsCommand</b></td>
       <td>Command</td>
-      <td>Comandos de la aplicación (dispositivo y plan) y comandos internos que emiten los event handlers.</td>
-      <td>memberId, token, plataforma; groupId, offsets, hora; periodId, fecha de corte, pendientes; contenido y clave.</td>
+      <td>Comandos de la aplicación (dispositivo y plan), comandos internos que emiten los event handlers y el envío de lo que ya venció.</td>
+      <td>accountId, token, plataforma; groupId, offsets, hora; periodId, fecha de corte, monto y cuentas; contenido y clave; límite por envío.</td>
     </tr>
     <tr>
-      <td><b>GetNotificationsQuery,<br>GetReminderPlanQuery</b></td>
+      <td><b>GetMyNotificationsQuery,<br>GetReminderPlanQuery</b></td>
       <td>Query</td>
       <td>Avisos recibidos y plan de recordatorios de la junta.</td>
-      <td>memberId, groupId.</td>
+      <td>accountId y límite; groupId y cuenta de quien consulta.</td>
     </tr>
     <tr>
       <td><b>DeviceRegisteredEvent,<br>ReminderPlanConfiguredEvent,<br>ReminderSentEvent,<br>AlertSentEvent</b></td>
@@ -4389,7 +4356,7 @@ Notifications es un contexto genérico y reactivo: casi todo lo que hace lo disp
     </tr>
     <tr>
       <td><b>ReminderPlansController</b></td>
-      <td>Consulta y configuración del plan de recordatorios de la junta, solo para la cabeza.</td>
+      <td>Consulta del plan de recordatorios de la junta, para sus integrantes, y configuración, solo para la cabeza.</td>
       <td>GET /api/v1/groups/{groupId}/reminder-plan,<br>PUT /api/v1/groups/{groupId}/reminder-plan.</td>
     </tr>
     <tr>
@@ -4398,7 +4365,7 @@ Notifications es un contexto genérico y reactivo: casi todo lo que hace lo disp
       <td>GET /api/v1/members/me/notifications.</td>
     </tr>
     <tr>
-      <td><b>RegisterDeviceResource, ReminderPlanResource, NotificationResource</b> y sus assemblers</td>
+      <td><b>RegisterDeviceResource, DeviceResource, ConfigureReminderPlanResource, ReminderPlanResource, NotificationResource</b> y NotificationResourceAssembler</td>
       <td>Recursos JSON y transformaciones.</td>
       <td>No aplica.</td>
     </tr>
@@ -4420,32 +4387,27 @@ Notifications es un contexto genérico y reactivo: casi todo lo que hace lo disp
     <tr>
       <td><b>NotificationCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>Registra y da de baja dispositivos, configura el plan, programa y cancela recordatorios con ReminderSchedulingService y crea avisos descartando los que repiten una clave de deduplicación.</td>
+      <td>Registra y da de baja dispositivos, configura el plan (verificando que quien lo cambia es la cabeza), programa los recordatorios de un período según el plan sin incluir los momentos ya pasados, los cancela cuando el integrante aporta y crea avisos descartando los que repiten una clave de deduplicación. handle(DispatchDueNotificationsCommand) envía las notificaciones vencidas a los dispositivos activos del integrante por el puerto PushSender, desactiva los dispositivos cuyo token el proveedor rechaza y reintenta hasta tres veces; un integrante sin dispositivos igual encuentra el aviso en la aplicación.</td>
     </tr>
     <tr>
       <td><b>NotificationQueryServiceImpl</b></td>
       <td>Query Service</td>
-      <td>Resuelve los avisos de un integrante y el plan de una junta.</td>
+      <td>Resuelve los avisos enviados a un integrante, del más reciente al más antiguo, y el plan de una junta, o el plan por defecto si la cabeza nunca lo cambió.</td>
     </tr>
     <tr>
-      <td><b>PeriodEventsHandler</b></td>
+      <td><b>ContributionEventsHandler</b></td>
       <td>Event Handler</td>
-      <td>Al recibir PeriodOpenedEvent, obtiene el plan de la junta y programa los recordatorios de todos los integrantes; al recibir ContributionValidatedEvent o ContributionCoveredEvent, cancela los del integrante.</td>
+      <td>Al abrirse un período programa los recordatorios de todos los integrantes con la aplicación; al liquidarse un aporte cancela los del integrante y le avisa; convierte comprobante por revisar, comprobante rechazado, pozo completo, pozo entregado y ciclo cerrado en avisos para quien corresponde.</td>
     </tr>
     <tr>
-      <td><b>GroupEventsHandler</b></td>
+      <td><b>SavingsGroupEventsHandler</b></td>
       <td>Event Handler</td>
-      <td>Convierte Junta iniciada, Turnos asignados, Reemplazo incorporado, Pozo completo, Pozo entregado, Aporte rechazado y Ciclo cerrado en avisos para los integrantes correspondientes.</td>
-    </tr>
-    <tr>
-      <td><b>NotificationDispatcher</b></td>
-      <td>Tarea programada</td>
-      <td>Cada minuto toma las notificaciones vencidas, las envía a los dispositivos activos del integrante con FcmPushSender y marca el resultado; reintenta hasta tres veces y desactiva los dispositivos cuyo token FCM rechaza.</td>
+      <td>Convierte Junta iniciada en un aviso para cada integrante con la aplicación, con el turno que le tocó.</td>
     </tr>
   </tbody>
 </table>
 
-El equipo eligió un despachador con tarea programada sobre la tabla de notificaciones, en lugar de una cola con retardo, porque no añade infraestructura, sobrevive a reinicios y hace trivial cancelar un recordatorio: basta con cambiar su estado antes de que venza. Es la respuesta a la Spike Story sobre notificaciones.
+El equipo eligió un despachador con tarea programada sobre la tabla de notificaciones, en lugar de una cola con retardo, porque no añade infraestructura, sobrevive a reinicios y hace trivial cancelar un recordatorio: basta con cambiar su estado antes de que venza. Es la respuesta a la Spike Story sobre notificaciones. Los event handlers corren después de que se confirma la transacción que originó el evento y en una transacción propia, de modo que un aviso fallido nunca deshace un aporte y no se anuncia nada que no llegó a guardarse.
 
 #### 2.6.4.4. Infrastructure Layer
 
@@ -4462,22 +4424,22 @@ El equipo eligió un despachador con tarea programada sobre la tabla de notifica
     <tr>
       <td><b>DeviceRepositoryImpl,<br>ReminderPlanRepositoryImpl,<br>NotificationRepositoryImpl</b></td>
       <td>Repository (JPA)</td>
-      <td>Persistencia sobre el esquema `notifications`, con un índice por estado y fecha programada para el despachador.</td>
+      <td>Persistencia sobre el esquema `notifications`, con un índice por estado y fecha programada para el despachador. El plan guarda sus días como una lista separada por comas.</td>
     </tr>
     <tr>
-      <td><b>ReminderSchedulingServiceImpl</b></td>
-      <td>Domain Service (implementación)</td>
-      <td>Calcula las fechas de envío en la zona horaria de Lima y crea las Notification con su clave de deduplicación.</td>
+      <td><b>NotificationDispatchScheduler</b></td>
+      <td>Tarea programada</td>
+      <td>Cada minuto, o con el intervalo configurado, emite DispatchDueNotificationsCommand. El programador de tareas de Spring usa un solo hilo, lo que evita envíos duplicados.</td>
     </tr>
     <tr>
       <td><b>FcmPushSender</b></td>
       <td>Adaptador (Conformist)</td>
-      <td>Envía mensajes con el SDK de Firebase Admin y traduce sus errores a resultados de entrega.</td>
+      <td>Implementa PushSender con la API HTTP v1 de Firebase Cloud Messaging, autenticado con la cuenta de servicio del proyecto de Firebase, y traduce sus errores a resultados de entrega: entregado, token inválido o falla que se reintenta.</td>
     </tr>
     <tr>
-      <td><b>NotificationsJpaConfig,<br>SchedulingConfig</b></td>
-      <td>Configuración</td>
-      <td>Esquema y convertidores; habilitación del programador de tareas con un solo hilo para evitar envíos duplicados.</td>
+      <td><b>LoggingPushSender</b></td>
+      <td>Adaptador</td>
+      <td>Implementación de PushSender que escribe el aviso en el registro del servidor en lugar de enviarlo; se usa en desarrollo. Una variable de entorno elige entre ambas.</td>
     </tr>
   </tbody>
 </table>
@@ -4486,7 +4448,7 @@ El equipo eligió un despachador con tarea programada sobre la tabla de notifica
 
 ![Diagrama de componentes de Notifications](images/chapter_2/c4_components_notifications.png){width=80%}
 
-Los event handlers son la entrada principal del contexto y los controllers la secundaria. El despachador es el único componente que habla con Firebase Cloud Messaging, a través del adaptador FcmPushSender, lo que concentra en un punto el manejo de tokens inválidos y reintentos.
+Los event handlers son la entrada principal del contexto y los controllers la secundaria. El despachador es el único componente que habla con Firebase Cloud Messaging, a través del adaptador FcmPushSender, lo que concentra en un punto el manejo de tokens inválidos y reintentos. Para autorizar el plan de recordatorios, el contexto pregunta a Savings Groups, por medio de su fachada, quién pertenece a la junta y quién la organiza.
 
 #### 2.6.4.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -4498,11 +4460,11 @@ Los event handlers son la entrada principal del contexto y los controllers la se
 
 ![Diagrama de base de datos de Notifications](images/chapter_2/db_notifications.png){width=85%}
 
-El esquema `notifications` tiene cuatro tablas. `devices` guarda los tokens, únicos, con su plataforma y si están activos; `reminder_plans` un plan por junta; `notifications` cada recordatorio o aviso con su clave de deduplicación única, su fecha programada y su estado, más el período y el integrante para poder cancelar los recordatorios de quien ya aportó; `deliveries` registra cada intento de envío a cada dispositivo con el resultado que devolvió FCM. Las tablas no se relacionan con las de otros esquemas: `member_id`, `group_id` y `period_id` son referencias por identificador.
+El esquema `notifications` tiene tres tablas. `devices` guarda los tokens, únicos, con su plataforma y si están activos; `reminder_plans` un plan por junta; `notifications` cada recordatorio o aviso con su clave de deduplicación única, su fecha programada, su estado y la cantidad de intentos de envío, más el período y el integrante para poder cancelar los recordatorios de quien ya aportó. Los intentos se cuentan en la misma notificación en lugar de una tabla de entregas, porque al integrante solo le importa si el aviso salió. Las tablas no se relacionan con las de otros esquemas: `member_id` (la cuenta del integrante), `group_id` y `period_id` son referencias por identificador.
 
 ### 2.6.5. Bounded Context: Identity & Access
 
-Identity & Access es el contexto genérico que identifica a cada integrante por su número de celular, sin contraseña. Su modelo tiene tres agregados. **Account** es la cuenta de un integrante con su celular, su perfil y la aceptación de términos. **VerificationCode** es un código SMS emitido para un celular, con su vencimiento y sus intentos; se modela como agregado separado porque existe antes de que exista la cuenta. **Session** es una sesión abierta en un dispositivo, representada por el hash de su token, para poder revocarla. Dos servicios de dominio se definen como interfaces: la generación y comparación de códigos y la emisión y validación de tokens, cuyas implementaciones dependen de bibliotecas de infraestructura.
+Identity & Access es el contexto genérico que identifica a cada integrante por su número de celular, sin contraseña. Su modelo tiene tres agregados. **Account** es la cuenta de un integrante con su celular, su perfil y la aceptación de términos. **VerificationCode** es un código SMS emitido para un celular, con su vencimiento y sus intentos; se modela como agregado separado porque existe antes de que exista la cuenta. **Session** es una sesión abierta en un dispositivo, representada por el hash de su token, para poder revocarla. Dos servicios de dominio se definen como interfaces: la generación y comparación de códigos y la emisión y validación de tokens, cuyas implementaciones dependen de bibliotecas de infraestructura. El envío y la comprobación del código pasan por un canal intercambiable, porque con Twilio Verify es el proveedor quien genera y valida el código, y Pozzo nunca lo conoce.
 
 #### 2.6.5.1. Domain Layer
 
@@ -4521,19 +4483,19 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
       <td><b>Account</b></td>
       <td>Aggregate Root</td>
       <td>Cuenta del integrante: celular único, perfil, términos aceptados y estado.</td>
-      <td>id, phoneNumber, profile, termsAcceptedAt, status, createdAt. register(phone, profile, termsAccepted), updateProfile(profile), hasAcceptedTerms(), deactivate().</td>
+      <td>id, phoneNumber, profile, termsAcceptedAt, status. register(phoneNumber, profile, termsAccepted, now), updateProfile(profile, now), hasAcceptedTerms(), isActive(), deactivate().</td>
     </tr>
     <tr>
       <td><b>VerificationCode</b></td>
       <td>Aggregate Root</td>
-      <td>Código de seis dígitos emitido para un celular; vence a los cinco minutos y admite tres intentos, después de los cuales queda bloqueado.</td>
-      <td>id, phoneNumber, codeHash, issuedAt, expiresAt, attempts, status. issue(phone, code), verify(input, now), isExpired(now), remainingAttempts().</td>
+      <td>Código de seis dígitos emitido para un celular; vence a los diez minutos y admite tres intentos, después de los cuales queda bloqueado. Se puede pedir otro a los treinta segundos, y el nuevo reemplaza al pendiente.</td>
+      <td>id, phoneNumber, codeHash, issuedAt, expiresAt, attempts, status. issue(phoneNumber, codeHash, now), verify(input, now, matcher), invalidate(), isExpired(now), remainingAttempts(), resendAvailableAt(), canBeReplacedAt(now).</td>
     </tr>
     <tr>
       <td><b>Session</b></td>
       <td>Aggregate Root</td>
-      <td>Sesión abierta en un dispositivo; persiste hasta que el integrante la cierra o vence.</td>
-      <td>id, accountId, tokenHash, deviceLabel, issuedAt, expiresAt, revokedAt. open(accountId, tokenHash, deviceLabel), isActive(now), revoke().</td>
+      <td>Sesión abierta en un dispositivo; dura treinta días, salvo que el integrante la cierre antes.</td>
+      <td>id, accountId, tokenHash, deviceLabel, issuedAt, expiresAt, revokedAt. open(id, accountId, tokenHash, deviceLabel, now), isActive(now), revoke(now).</td>
     </tr>
     <tr>
       <td><b>PhoneNumber</b></td>
@@ -4548,10 +4510,16 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
       <td>displayName, photoUrl, theme.</td>
     </tr>
     <tr>
-      <td><b>AccountStatus,<br>VerificationStatus,<br>Theme</b></td>
+      <td><b>SessionTokenClaims</b></td>
+      <td>Value Object</td>
+      <td>Lo que lleva el token de sesión: la cuenta y la sesión, para poder revocarla.</td>
+      <td>accountId, sessionId.</td>
+    </tr>
+    <tr>
+      <td><b>AccountStatus,<br>VerificationStatus,<br>VerificationOutcome,<br>Theme</b></td>
       <td>Enumeración</td>
-      <td>Estados y tema.</td>
-      <td>ACTIVE / DEACTIVATED; PENDING / VERIFIED / EXPIRED / BLOCKED; SYSTEM / LIGHT / DARK.</td>
+      <td>Estados, resultado de un intento de verificación y tema.</td>
+      <td>ACTIVE / DEACTIVATED; PENDING / VERIFIED / EXPIRED / BLOCKED; VERIFIED / INVALID / EXPIRED / BLOCKED; SYSTEM / LIGHT / DARK.</td>
     </tr>
     <tr>
       <td><b>CodeGenerationService</b></td>
@@ -4560,16 +4528,22 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
       <td>generate(), hash(code), matches(code, hash).</td>
     </tr>
     <tr>
+      <td><b>CodeMatcher</b></td>
+      <td>Domain Service (interfaz funcional)</td>
+      <td>Decide si el código ingresado es correcto. VerificationCode lo recibe en verify y aplica sus reglas de vencimiento e intentos sin saber si la comparación la hace el servidor o el proveedor de SMS.</td>
+      <td>matches(input).</td>
+    </tr>
+    <tr>
       <td><b>TokenService</b></td>
       <td>Domain Service (interfaz)</td>
-      <td>Emite y valida los tokens de sesión que autorizan cada solicitud.</td>
-      <td>issue(accountId), hash(token), validate(token).</td>
+      <td>Emite y lee los tokens de sesión, que autorizan cada solicitud, y los tokens de registro de quince minutos, que permiten completar el registro de un celular recién verificado.</td>
+      <td>issueSessionToken(claims, issuedAt, expiresAt), issueRegistrationToken(phone, issuedAt, expiresAt), readSessionToken(token), readRegistrationToken(token), hash(token).</td>
     </tr>
     <tr>
       <td><b>AccountRepository,<br>VerificationCodeRepository,<br>SessionRepository</b></td>
       <td>Repository (interfaz)</td>
       <td>Persistencia de los agregados.</td>
-      <td>findById, findByPhoneNumber, existsByPhoneNumber, findPendingByPhoneNumber, findByTokenHash, findActiveByAccountId, save.</td>
+      <td>findById, findByPhoneNumber, existsByPhoneNumber, findLatestByPhoneNumber, findPendingByPhoneNumber, findAllPendingByPhoneNumber, findByTokenHash, save.</td>
     </tr>
     <tr>
       <td><b>RequestCodeCommand,<br>VerifyCodeCommand,<br>CompleteRegistrationCommand,<br>SignOutCommand,<br>UpdateProfileCommand</b></td>
@@ -4586,7 +4560,7 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
     <tr>
       <td><b>CodeRequestedEvent,<br>CodeVerifiedEvent,<br>AccountCreatedEvent,<br>SessionOpenedEvent,<br>SessionRevokedEvent,<br>ProfileUpdatedEvent</b></td>
       <td>Domain Event</td>
-      <td>Hechos que publica el contexto. SessionRevokedEvent lo consume Notifications para desactivar el dispositivo.</td>
+      <td>Hechos que publica el contexto. SessionRevokedEvent queda disponible para que Notifications desactive el dispositivo; mientras tanto, la aplicación da de baja su dispositivo antes de cerrar la sesión.</td>
       <td>accountId, phone, fecha.</td>
     </tr>
   </tbody>
@@ -4615,7 +4589,7 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
       <td>GET /api/v1/members/me/profile,<br>PUT /api/v1/members/me/profile.</td>
     </tr>
     <tr>
-      <td><b>RequestCodeResource, VerifyCodeResource, RegisterResource, AuthenticatedResource, ProfileResource</b> y sus assemblers</td>
+      <td><b>RequestCodeResource, CodeRequestedResource, VerifyCodeResource, VerificationResource, RegisterResource, AuthenticatedResource, ProfileResource, UpdateProfileResource</b> y sus assemblers</td>
       <td>Recursos JSON y transformaciones.</td>
       <td>No aplica.</td>
     </tr>
@@ -4637,7 +4611,12 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
     <tr>
       <td><b>AuthenticationCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>handle(RequestCodeCommand): invalida códigos pendientes, genera uno nuevo, lo guarda con hash y lo envía por SmsSender. handle(VerifyCodeCommand): verifica el código y, si el celular ya tiene cuenta, abre una Session y devuelve el token; si no, devuelve un token de registro de corta vida. handle(CompleteRegistrationCommand): crea la Account y abre la sesión. handle(SignOutCommand): revoca la sesión y publica SessionRevokedEvent.</td>
+      <td>handle(RequestCodeCommand): rechaza el pedido si no pasaron treinta segundos desde el anterior, invalida el código pendiente y envía uno nuevo por VerificationCodeChannel. handle(VerifyCodeCommand): verifica el código y, si el celular ya tiene cuenta, abre una Session y devuelve su token; si no, devuelve un token de registro de quince minutos. handle(CompleteRegistrationCommand): con ese token, crea la Account y abre la sesión. handle(SignOutCommand): revoca la sesión y publica SessionRevokedEvent.</td>
+    </tr>
+    <tr>
+      <td><b>AccountCommandServiceImpl</b></td>
+      <td>Command Service</td>
+      <td>handle(UpdateProfileCommand): cambia el nombre, la foto o el tema del integrante autenticado.</td>
     </tr>
     <tr>
       <td><b>AccountQueryServiceImpl</b></td>
@@ -4645,9 +4624,14 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
       <td>Resuelve el perfil, la existencia por celular y la validación del token (sesión activa y no revocada).</td>
     </tr>
     <tr>
-      <td><b>SmsSender</b></td>
+      <td><b>VerificationCodeChannel</b></td>
       <td>Outbound Service (interfaz)</td>
-      <td>Contrato hacia el proveedor de SMS: send(phone, message).</td>
+      <td>Contrato hacia quien entrega y comprueba el código: deliver(phone) devuelve lo que el agregado guarda (el hash del código o una marca si el proveedor lo conserva) y check(phone, input, stored) dice si el código ingresado es correcto.</td>
+    </tr>
+    <tr>
+      <td><b>IamContextFacadeImpl</b></td>
+      <td>Open Host Service</td>
+      <td>Lo que el contexto ofrece a los demás: el nombre con el que se muestra una cuenta.</td>
     </tr>
   </tbody>
 </table>
@@ -4677,22 +4661,32 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
     <tr>
       <td><b>JwtTokenService</b></td>
       <td>Domain Service (implementación)</td>
-      <td>Tokens JWT firmados con clave del servidor, con el identificador de la cuenta y la sesión como claims.</td>
+      <td>Tokens JWT firmados con HMAC y una clave del servidor: el de sesión lleva la cuenta y la sesión como claims, y el de registro, el celular verificado. De cada token de sesión se guarda solo su hash SHA-256.</td>
     </tr>
     <tr>
-      <td><b>SmsSenderImpl</b></td>
+      <td><b>TwilioVerifyCodeChannel</b></td>
       <td>Anti-corruption Layer</td>
-      <td>Adaptador al proveedor de SMS elegido en la Spike Story correspondiente; el contexto solo conoce la interfaz SmsSender.</td>
+      <td>Adaptador a Twilio Verify, el proveedor que eligió el equipo: Twilio genera el código, lo envía por SMS desde sus propios números y lo comprueba, así que Pozzo no necesita un número propio.</td>
     </tr>
     <tr>
-      <td><b>BearerAuthorizationFilter</b></td>
+      <td><b>LocalVerificationCodeChannel,<br>LoggingSmsSender,<br>TwilioSmsSender</b></td>
+      <td>Adaptador</td>
+      <td>Alternativa en la que el servidor genera el código, guarda su hash y lo envía con un SmsSender: al registro del servidor en desarrollo o por Twilio Messaging. Una variable de entorno elige el canal.</td>
+    </tr>
+    <tr>
+      <td><b>ConfiguredTestPhoneNumbers</b></td>
+      <td>Adaptador</td>
+      <td>Números de demostración que reciben siempre un código fijo y ningún SMS, para presentar y probar la aplicación sin gastar mensajes.</td>
+    </tr>
+    <tr>
+      <td><b>BearerAuthorizationRequestFilter</b></td>
       <td>Filtro de seguridad</td>
       <td>Lee el token de cada solicitud, lo valida con AccountQueryService y coloca la identidad del integrante en el contexto de seguridad, que los controllers de los demás módulos leen como principal.</td>
     </tr>
     <tr>
-      <td><b>SecurityConfig,<br>IdentityJpaConfig</b></td>
+      <td><b>WebSecurityConfiguration,<br>UnauthorizedRequestHandlerEntryPoint</b></td>
       <td>Configuración</td>
-      <td>Rutas públicas (códigos, verificación, registro, historial compartido, OpenAPI) y protegidas; esquema y convertidores.</td>
+      <td>Rutas públicas (códigos, verificación, registro, historial compartido, OpenAPI y estado del servicio) y protegidas; respuesta 401 con el mensaje en el idioma de la solicitud.</td>
     </tr>
   </tbody>
 </table>
@@ -4701,7 +4695,7 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
 
 ![Diagrama de componentes de Identity & Access](images/chapter_2/c4_components_identity_access.png){width=80%}
 
-Además de los controllers y servicios habituales, el diagrama muestra BearerAuthorizationFilter, el componente por el que Identity & Access actúa como Open Host Service para los demás módulos: valida el token de cada solicitud y expone la identidad del integrante sin que los otros contextos conozcan cuentas ni sesiones. SmsSender es el único componente que habla con el proveedor de SMS.
+Además de los controllers y servicios habituales, el diagrama muestra BearerAuthorizationFilter, el componente por el que Identity & Access actúa como Open Host Service para los demás módulos: valida el token de cada solicitud y expone la identidad del integrante sin que los otros contextos conozcan cuentas ni sesiones. VerificationCodeChannel es el único componente que habla con el proveedor de SMS, Twilio Verify.
 
 #### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
 

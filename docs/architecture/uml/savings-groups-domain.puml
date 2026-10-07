@@ -21,97 +21,107 @@ skinparam interface {
 hide empty members
 
   class SavingsGroup <<Aggregate Root>> {
-    - id : GroupId
+    - id : UUID
     - name : String
-    - organizerId : MemberId
+    - organizerId : UUID
     - rules : GroupRules
     - memberships : List<Membership>
     - turns : List<TurnSlot>
     - turnMethod : TurnMethod
+    - drawSeed : String
+    - turnsAssignedAt : Instant
     - status : GroupStatus
-    - createdAt : LocalDateTime
-    - startedAt : LocalDateTime
-    + create(organizerId, name, rules) : SavingsGroup {static}
-    + defineDestination(account : String) : void
-    + join(memberId : MemberId, displayName : String) : Membership
-    + addManualMember(displayName : String, phone : PhoneNumber) : Membership
-    + removeMember(membershipId : MembershipId) : void
-    + assignTurns(slots : List<TurnSlot>, method : TurnMethod) : void
-    + assignTurnFromAuction(turnNumber : int, winner : MemberId) : void
+    - createdAt : Instant
+    - startedAt : Instant
+    + create(organizerId, organizerName, name, rules, now) : SavingsGroup {static}
+    + updateRules(name : String, rules : GroupRules) : void
+    + defineDestination(destination : Destination) : void
+    + join(memberId : UUID, displayName : String, now : Instant) : Membership
+    + addManualMember(displayName : String, phone : String, now : Instant) : Membership
+    + removeMember(membershipId : UUID, now : Instant) : void
+    + assignTurns(slots : List<TurnSlot>, method : TurnMethod, seed : String, now : Instant) : void
+    + assignTurnFromAuction(turnNumber : int, winner : UUID) : void
     + hasFreeSeats() : boolean
     + canStart() : boolean
-    + start() : void
-    + registerDropout(dropped : MemberId, replacement : MemberId) : void
+    + start(now : Instant) : void
+    + registerDropout(dropped : UUID, replacement : UUID) : void
     + turnCalendar() : List<TurnSlot>
   }
 
   class Invitation <<Aggregate Root>> {
-    - id : InvitationId
-    - groupId : GroupId
+    - id : UUID
+    - groupId : UUID
     - code : InvitationCode
-    - createdBy : MemberId
-    - createdAt : LocalDateTime
-    - expiresAt : LocalDateTime
+    - createdBy : UUID
+    - createdAt : Instant
+    - expiresAt : Instant
     - status : InvitationStatus
-    + generate(groupId : GroupId, organizerId : MemberId) : Invitation {static}
-    + link() : String
-    + isUsable() : boolean
+    + generate(groupId : UUID, organizerId : UUID, code : InvitationCode, now : Instant) : Invitation {static}
+    + isUsable(now : Instant) : boolean
     + expire() : void
   }
 
   class Auction <<Aggregate Root>> {
-    - id : AuctionId
-    - groupId : GroupId
+    - id : UUID
+    - groupId : UUID
     - turnNumber : int
     - bids : List<Bid>
     - status : AuctionStatus
-    - openedAt : LocalDateTime
-    - closedAt : LocalDateTime
-    - winnerId : MemberId
-    + open(groupId : GroupId, turnNumber : int) : Auction {static}
-    + placeBid(memberId : MemberId, amount : Money) : Bid
+    - openedAt : Instant
+    - closedAt : Instant
+    - winnerId : UUID
+    + open(groupId : UUID, turnNumber : int) : Auction {static}
+    + placeBid(memberId : UUID, amount : Money) : Bid
     + highestBids() : List<Bid>
-    + close(tieBreakBy : MemberId) : MemberId
+    + close(tieBreakBy : UUID) : UUID
   }
 
   class Membership <<Entity>> {
-    - id : MembershipId
-    - memberId : MemberId
+    - id : UUID
+    - memberId : UUID
     - displayName : String
-    - phone : PhoneNumber
+    - phone : String
     - kind : MembershipKind
     - status : MembershipStatus
-    - joinedAt : LocalDateTime
+    - joinedAt : Instant
+    + ofAppMember(memberId, displayName, now) : Membership {static}
+    + ofManualMember(displayName, phone, now) : Membership {static}
     + isActive() : boolean
+    + belongsTo(accountId : UUID) : boolean
+    + remove() : void
     + markDropped() : void
   }
 
   class Bid <<Entity>> {
-    - id : BidId
-    - memberId : MemberId
+    - id : UUID
+    - memberId : UUID
     - amount : Money
-    - placedAt : LocalDateTime
+    - placedAt : Instant
   }
 
   class GroupRules <<Value Object>> {
-    - contributionAmount : Money
+    - contribution : Money
     - periodicity : Periodicity
-    - cutoffDay : int
     - seats : int
-    - destinationAccount : String
-    + withDestination(account : String) : GroupRules
+    - firstContributionDate : LocalDate
+    - destination : Destination
+    + withDestination(destination : Destination) : GroupRules
+    + pot() : Money
+    + cutoffDay() : int
+    + cutoffDateOfTurn(turnNumber : int) : LocalDate
   }
   class TurnSlot <<Value Object>> {
     - turnNumber : int
-    - memberId : MemberId
+    - membershipId : UUID
+    - assignedBy : TurnMethod
   }
   class InvitationCode <<Value Object>> {
     - value : String
     + random() : InvitationCode {static}
   }
-  class PhoneNumber <<Value Object>> {
-    - value : String
-    + isValid() : boolean
+  class Destination <<Value Object>> {
+    - method : PaymentMethod
+    - phoneNumber : String
   }
   class Money <<Value Object>> {
     - amount : BigDecimal
@@ -143,6 +153,10 @@ hide empty members
     ACTIVE
     EXPIRED
   }
+  enum PaymentMethod {
+    YAPE
+    PLIN
+  }
   enum AuctionStatus {
     OPEN
     CLOSED
@@ -155,22 +169,23 @@ hide empty members
 
   interface TurnAssignmentService <<Domain Service>> {
     + drawTurns(group : SavingsGroup, seed : String) : List<TurnSlot>
-    + agreedTurns(group : SavingsGroup, order : List<MemberId>) : List<TurnSlot>
+    + agreedTurns(group : SavingsGroup, order : List<UUID>) : List<TurnSlot>
   }
 
   interface SavingsGroupRepository <<Repository>> {
-    + findById(id : GroupId) : Optional<SavingsGroup>
-    + findByMemberId(memberId : MemberId) : List<SavingsGroup>
+    + findById(id : UUID) : Optional<SavingsGroup>
+    + findAllByMemberId(memberId : UUID) : List<SavingsGroup>
     + save(group : SavingsGroup) : SavingsGroup
   }
   interface InvitationRepository <<Repository>> {
     + findByCode(code : InvitationCode) : Optional<Invitation>
-    + findActiveByGroupId(groupId : GroupId) : Optional<Invitation>
+    + existsByCode(code : InvitationCode) : boolean
+    + findAllActiveByGroupId(groupId : UUID) : List<Invitation>
     + save(invitation : Invitation) : Invitation
   }
   interface AuctionRepository <<Repository>> {
-    + findById(id : AuctionId) : Optional<Auction>
-    + findOpenByGroupId(groupId : GroupId) : Optional<Auction>
+    + findById(id : UUID) : Optional<Auction>
+    + findOpenByGroupId(groupId : UUID) : Optional<Auction>
     + save(auction : Auction) : Auction
   }
 
@@ -181,7 +196,8 @@ SavingsGroup "1" o-- "0..*" Invitation : invitations >
 SavingsGroup "1" o-- "0..*" Auction : auctions >
 Auction "1" *-- "0..*" Bid : bids
 Invitation "1" *-- "1" InvitationCode : code
-Membership --> PhoneNumber
+GroupRules "1" *-- "0..1" Destination : destination
+Destination --> PaymentMethod
 Bid --> Money
 GroupRules --> Money
 GroupRules --> Periodicity

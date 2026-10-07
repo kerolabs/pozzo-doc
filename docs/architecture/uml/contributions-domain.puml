@@ -21,92 +21,109 @@ skinparam interface {
 hide empty members
 
   class Cycle <<Aggregate Root>> {
-    - id : CycleId
-    - groupId : GroupId
+    - id : UUID
+    - groupId : UUID
+    - groupName : String
+    - organizerAccountId : UUID
     - rules : CycleRules
-    - turns : List<TurnSlot>
+    - turns : List<CycleTurn>
     - currentTurn : int
     - status : CycleStatus
-    - startedAt : LocalDateTime
-    - closedAt : LocalDateTime
-    + start(groupId, rules, turns) : Cycle {static}
-    + openFirstPeriod() : Period
-    + openNextPeriod() : Period
-    + replaceMember(dropped : MemberId, replacement : MemberId) : void
+    - startedAt : Instant
+    - closedAt : Instant
+    + start(groupId, groupName, organizerAccountId, rules, turns, now) : Cycle {static}
+    + isOrganizer(accountId : UUID) : boolean
+    + participantOf(accountId : UUID) : Optional<CycleTurn>
+    + turn(turnNumber : int) : CycleTurn
     + hasRemainingTurns() : boolean
-    + close() : void
-    + payoutMemberForTurn(turn : int) : MemberId
+    + advanceToNextTurn() : int
+    + replaceMember(droppedMembershipId : UUID, replacement : CycleTurn) : void
+    + close(now : Instant) : void
   }
 
   class Period <<Aggregate Root>> {
-    - id : PeriodId
-    - cycleId : CycleId
+    - id : UUID
+    - cycleId : UUID
     - turnNumber : int
     - opensAt : LocalDate
     - cutoffDate : LocalDate
-    - payoutMemberId : MemberId
+    - payoutMembershipId : UUID
     - expected : List<ExpectedContribution>
     - status : PeriodStatus
-    - deliveredAt : LocalDateTime
-    + open(cycle : Cycle, turn : int) : Period {static}
-    + expectedFor(memberId : MemberId) : ExpectedContribution
-    + settle(memberId : MemberId, how : ContributionMethod) : void
+    - deliveredAt : Instant
+    - deliveredBy : UUID
+    + open(cycle : Cycle, turnNumber : int, now : Instant) : Period {static}
+    + expectedFor(membershipId : UUID) : Optional<ExpectedContribution>
+    + settle(membershipId : UUID, how : ExpectedStatus, contributionId : UUID, now : Instant) : void
     + isPotComplete() : boolean
-    + markPotComplete() : void
-    + deliverPot(organizerId : MemberId) : void
-    + pendingMembers() : List<MemberId>
+    + collected() : Money
+    + potAmount() : Money
+    + pendingMembers() : List<ExpectedContribution>
+    + deliverPot(organizerAccountId : UUID, now : Instant) : void
   }
 
   class Contribution <<Aggregate Root>> {
-    - id : ContributionId
-    - cycleId : CycleId
-    - periodId : PeriodId
-    - memberId : MemberId
+    - id : UUID
+    - cycleId : UUID
+    - periodId : UUID
+    - membershipId : UUID
+    - accountId : UUID
     - amount : Money
     - method : ContributionMethod
-    - receipt : PaymentReceipt
     - status : ContributionStatus
+    - receipt : PaymentReceipt
     - inconsistencies : List<Inconsistency>
-    - coveredBy : MemberId
+    - coveredByMembershipId : UUID
+    - registeredByAccountId : UUID
     - review : Review
-    - registeredAt : LocalDateTime
-    + fromReceipt(periodId, memberId, receipt) : Contribution {static}
-    + inCash(periodId, memberId, amount, organizerId) : Contribution {static}
-    + asCoverage(periodId, memberId, amount, coveredBy) : Contribution {static}
-    + validate(expected : ExpectedContribution, rules : CycleRules, duplicate : boolean) : void
-    + approve(organizerId : MemberId, note : String) : void
-    + reject(organizerId : MemberId, note : String) : void
+    - registeredAt : Instant
+    + fromReceipt(cycleId, periodId, membershipId, accountId, receipt, expectedAmount, cutoffDate, payeeName, now) : Contribution {static}
+    + inCash(cycleId, periodId, membershipId, accountId, amount, receivedOn, cutoffDate, organizerAccountId, now) : Contribution {static}
+    + asCoverage(cycleId, periodId, membershipId, accountId, coveredByMembershipId, amount, organizerAccountId, now) : Contribution {static}
+    + isUnderReview() : boolean
     + isValid() : boolean
+    + approve(organizerAccountId : UUID, note : String, cutoffDate : LocalDate, now : Instant) : void
+    + reject(organizerAccountId : UUID, note : String, now : Instant) : void
   }
 
   class ExpectedContribution <<Entity>> {
-    - memberId : MemberId
+    - id : UUID
+    - membershipId : UUID
     - amount : Money
     - status : ExpectedStatus
-    - settledBy : ContributionId
-    + settle(how : ContributionMethod, by : ContributionId) : void
+    - settledByContributionId : UUID
+    + pendingFor(membershipId : UUID, amount : Money) : ExpectedContribution {static}
+    + settle(how : ExpectedStatus, contributionId : UUID) : void
     + isPending() : boolean
+    + isLate(today : LocalDate, cutoffDate : LocalDate) : boolean
   }
 
   class CycleRules <<Value Object>> {
-    - contributionAmount : Money
+    - contribution : Money
     - periodicity : Periodicity
-    - cutoffDay : int
-    - destinationAccount : String
-    + nextCutoff(from : LocalDate) : LocalDate
+    - firstContributionDate : LocalDate
+    - destinationMethod : String
+    - destinationPhone : String
+    - payeeName : String
+    + cutoffDateOfTurn(turnNumber : int) : LocalDate
+    + opensAtOfTurn(turnNumber : int) : LocalDate
+    + cutoffDay() : int
   }
-  class TurnSlot <<Value Object>> {
+  class CycleTurn <<Value Object>> {
     - turnNumber : int
-    - memberId : MemberId
+    - membershipId : UUID
+    - accountId : UUID
+    - displayName : String
+    + belongsTo(accountId : UUID) : boolean
   }
   class PaymentReceipt <<Value Object>> {
     - operationNumber : String
-    - payer : String
-    - payee : String
+    - payerName : String
+    - payeeName : String
     - amount : Money
     - paidAt : LocalDate
     - source : ReceiptSource
-    + matchesPayee(destinationAccount : String) : boolean
+    + matchesPayee(expectedName : String) : boolean
   }
   class Inconsistency <<Value Object>> {
     - field : String
@@ -114,15 +131,17 @@ hide empty members
     - found : String
   }
   class Review <<Value Object>> {
-    - reviewerId : MemberId
+    - reviewerAccountId : UUID
+    - decision : ReviewDecision
     - note : String
-    - reviewedAt : LocalDateTime
+    - reviewedAt : Instant
   }
   class Money <<Value Object>> {
     - amount : BigDecimal
     - currency : String
     + plus(other : Money) : Money
-    + equals(other : Money) : boolean
+    + times(times : int) : Money
+    + isSameAmountAs(other : Money) : boolean
   }
 
   enum CycleStatus {
@@ -135,7 +154,6 @@ hide empty members
     DELIVERED
   }
   enum ContributionStatus {
-    REGISTERED
     VALIDATED
     INCONSISTENT
     APPROVED
@@ -150,7 +168,10 @@ hide empty members
     PENDING
     PAID
     COVERED
-    LATE
+  }
+  enum ReviewDecision {
+    APPROVE
+    REJECT
   }
   enum Periodicity {
     WEEKLY
@@ -163,31 +184,28 @@ hide empty members
     BANK
   }
 
-  interface ContributionValidationService <<Domain Service>> {
-    + validate(contribution : Contribution, period : Period, rules : CycleRules) : void
-  }
-
   interface CycleRepository <<Repository>> {
-    + findById(id : CycleId) : Optional<Cycle>
-    + findActiveByGroupId(groupId : GroupId) : Optional<Cycle>
+    + findById(id : UUID) : Optional<Cycle>
+    + findByGroupId(groupId : UUID) : Optional<Cycle>
+    + existsByGroupId(groupId : UUID) : boolean
     + save(cycle : Cycle) : Cycle
   }
   interface PeriodRepository <<Repository>> {
-    + findById(id : PeriodId) : Optional<Period>
-    + findCurrentByCycleId(cycleId : CycleId) : Optional<Period>
-    + findAllByCycleId(cycleId : CycleId) : List<Period>
+    + findById(id : UUID) : Optional<Period>
+    + findByCycleIdAndTurnNumber(cycleId : UUID, turnNumber : int) : Optional<Period>
+    + findAllByCycleId(cycleId : UUID) : List<Period>
     + save(period : Period) : Period
   }
   interface ContributionRepository <<Repository>> {
-    + findById(id : ContributionId) : Optional<Contribution>
-    + findByPeriodId(periodId : PeriodId) : List<Contribution>
-    + findByMemberIdAndCycleId(memberId : MemberId, cycleId : CycleId) : List<Contribution>
-    + existsByCycleIdAndOperationNumber(cycleId : CycleId, operationNumber : String) : boolean
+    + findById(id : UUID) : Optional<Contribution>
+    + findAllByPeriodId(periodId : UUID) : List<Contribution>
+    + findAllByCycleIdAndMembershipId(cycleId : UUID, membershipId : UUID) : List<Contribution>
+    + existsByCycleIdAndOperationNumber(cycleId : UUID, operationNumber : String) : boolean
     + save(contribution : Contribution) : Contribution
   }
 
 Cycle "1" *-- "1" CycleRules : rules
-Cycle "1" *-- "1..*" TurnSlot : turns
+Cycle "1" *-- "2..*" CycleTurn : turns
 Cycle "1" o-- "1..*" Period : periods >
 Period "1" *-- "1..*" ExpectedContribution : expected
 Period "1" o-- "0..*" Contribution : contributions >
@@ -197,8 +215,10 @@ Contribution "1" *-- "0..1" Review : review
 Contribution --> Money
 ExpectedContribution --> Money
 PaymentReceipt --> Money
+CycleRules --> Money
 CycleRules --> Periodicity
 PaymentReceipt --> ReceiptSource
+Review --> ReviewDecision
 Cycle --> CycleStatus
 Period --> PeriodStatus
 Contribution --> ContributionStatus
@@ -208,6 +228,4 @@ ExpectedContribution --> ExpectedStatus
 CycleRepository ..> Cycle : persists
 PeriodRepository ..> Period : persists
 ContributionRepository ..> Contribution : persists
-ContributionValidationService ..> Contribution : validates
-ContributionValidationService ..> ContributionRepository : checks duplicates
 @enduml

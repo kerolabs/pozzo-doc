@@ -21,6 +21,8 @@ CREATE TABLE compliance_history.compliance_entries (
     id              UUID PRIMARY KEY,
     member_id       UUID NOT NULL,
     cycle_id        UUID NOT NULL,
+    group_id        UUID NOT NULL,
+    group_name      VARCHAR(60) NOT NULL,
     period_id       UUID,
     kind            VARCHAR(16) NOT NULL,
     occurred_at     TIMESTAMP NOT NULL,
@@ -31,11 +33,13 @@ CREATE TABLE compliance_history.compliance_entries (
 );
 
 CREATE TABLE compliance_history.share_links (
-    token      VARCHAR(32) PRIMARY KEY,
+    id         UUID PRIMARY KEY,
+    token      VARCHAR(32) NOT NULL,
     member_id  UUID NOT NULL,
     created_at TIMESTAMP NOT NULL,
     expires_at TIMESTAMP NOT NULL,
     revoked    BOOLEAN NOT NULL DEFAULT FALSE,
+    CONSTRAINT uq_share_links_token UNIQUE (token),
     CONSTRAINT fk_share_links_record FOREIGN KEY (member_id) REFERENCES compliance_history.member_records (member_id)
 );
 

@@ -52,18 +52,5 @@ entity "notifications" as notifications {
   * attempts : SMALLINT
 }
 
-entity "deliveries" as deliveries {
-  * id : UUID <<PK>>
-  --
-  * notification_id : UUID <<FK>>
-  * device_id : UUID <<FK>>
-  * attempted_at : TIMESTAMP
-  * result : VARCHAR(10)
-  provider_message_id : VARCHAR(120)
-  error : VARCHAR(200)
-}
-
-notifications ||--o{ deliveries : "se intenta en"
-devices ||--o{ deliveries : "recibe"
 plans .. notifications : "programa (por group_id)"
 @enduml
