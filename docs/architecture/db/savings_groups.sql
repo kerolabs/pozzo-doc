@@ -11,17 +11,22 @@ CREATE TABLE savings_groups.savings_groups (
     contribution_amount NUMERIC(12, 2) NOT NULL,
     currency            CHAR(3) NOT NULL DEFAULT 'PEN',
     periodicity         VARCHAR(10) NOT NULL,
+    first_contribution_date DATE NOT NULL,
     cutoff_day          SMALLINT NOT NULL,
     seats               SMALLINT NOT NULL,
-    destination_account VARCHAR(120),
+    destination_method  VARCHAR(10),
+    destination_phone   VARCHAR(12),
     turn_method         VARCHAR(10),
+    draw_seed           VARCHAR(64),
+    turns_assigned_at   TIMESTAMP,
     status              VARCHAR(10) NOT NULL DEFAULT 'DRAFT',
     created_at          TIMESTAMP NOT NULL,
     started_at          TIMESTAMP,
     CONSTRAINT ck_groups_periodicity CHECK (periodicity IN ('WEEKLY', 'BIWEEKLY', 'MONTHLY')),
+    CONSTRAINT ck_groups_destination CHECK (destination_method IN ('YAPE', 'PLIN')),
     CONSTRAINT ck_groups_turn_method CHECK (turn_method IN ('DRAW', 'AGREED', 'AUCTION')),
     CONSTRAINT ck_groups_status CHECK (status IN ('DRAFT', 'READY', 'STARTED', 'CLOSED')),
-    CONSTRAINT ck_groups_seats CHECK (seats BETWEEN 2 AND 30)
+    CONSTRAINT ck_groups_seats CHECK (seats BETWEEN 2 AND 50)
 );
 
 CREATE TABLE savings_groups.memberships (
@@ -37,7 +42,7 @@ CREATE TABLE savings_groups.memberships (
     CONSTRAINT uq_memberships_member UNIQUE (group_id, member_id),
     CONSTRAINT ck_memberships_kind CHECK (kind IN ('APP', 'MANUAL')),
     CONSTRAINT ck_memberships_status CHECK (status IN ('ACTIVE', 'REMOVED', 'DROPPED', 'REPLACEMENT')),
-    CONSTRAINT ck_memberships_identity CHECK ((kind = 'APP' AND member_id IS NOT NULL) OR (kind = 'MANUAL' AND phone IS NOT NULL))
+    CONSTRAINT ck_memberships_identity CHECK ((kind = 'APP' AND member_id IS NOT NULL) OR (kind = 'MANUAL' AND member_id IS NULL))
 );
 
 CREATE TABLE savings_groups.invitations (

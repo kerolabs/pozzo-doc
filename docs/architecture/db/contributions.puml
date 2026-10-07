@@ -19,11 +19,16 @@ entity "cycles" as cycles {
   * id : UUID <<PK>>
   --
   * group_id : UUID <<UQ>>
+  * group_name : VARCHAR(60)
+  * organizer_account_id : UUID
   * contribution_amount : NUMERIC(12,2)
   * currency : CHAR(3)
   * periodicity : VARCHAR(10)
+  * first_contribution_date : DATE
   * cutoff_day : SMALLINT
-  * destination_account : VARCHAR(120)
+  * destination_method : VARCHAR(10)
+  * destination_phone : VARCHAR(9)
+  * payee_name : VARCHAR(80)
   * total_turns : SMALLINT
   * current_turn : SMALLINT
   * status : VARCHAR(10)
@@ -35,7 +40,9 @@ entity "cycle_turns" as cycle_turns {
   * cycle_id : UUID <<PK, FK>>
   * turn_number : SMALLINT <<PK>>
   --
-  * member_id : UUID <<UQ>>
+  * membership_id : UUID <<UQ>>
+  account_id : UUID
+  * display_name : VARCHAR(60)
 }
 
 entity "periods" as periods {
@@ -45,7 +52,7 @@ entity "periods" as periods {
   * turn_number : SMALLINT
   * opens_at : DATE
   * cutoff_date : DATE
-  * payout_member_id : UUID
+  * payout_membership_id : UUID
   * status : VARCHAR(15)
   delivered_at : TIMESTAMP
   delivered_by : UUID
@@ -55,8 +62,9 @@ entity "expected_contributions" as expected {
   * id : UUID <<PK>>
   --
   * period_id : UUID <<FK>>
-  * member_id : UUID
+  * membership_id : UUID
   * amount : NUMERIC(12,2)
+  * currency : CHAR(3)
   * status : VARCHAR(10)
   settled_by_contribution : UUID <<FK>>
 }
@@ -66,10 +74,13 @@ entity "contributions" as contributions {
   --
   * cycle_id : UUID <<FK>>
   * period_id : UUID <<FK>>
-  * member_id : UUID
+  * membership_id : UUID
+  account_id : UUID
   * amount : NUMERIC(12,2)
+  * currency : CHAR(3)
   * method : VARCHAR(10)
   * status : VARCHAR(15)
+  * registered_by_account_id : UUID
   * registered_at : TIMESTAMP
   receipt_operation_number : VARCHAR(40) <<UQ>>
   receipt_payer : VARCHAR(120)
@@ -77,16 +88,16 @@ entity "contributions" as contributions {
   receipt_amount : NUMERIC(12,2)
   receipt_paid_at : DATE
   receipt_source : VARCHAR(10)
-  covered_by_member_id : UUID
-  reviewed_by_member_id : UUID
+  covered_by_membership_id : UUID
+  reviewed_by_account_id : UUID
+  review_decision : VARCHAR(10)
   review_note : VARCHAR(300)
   reviewed_at : TIMESTAMP
 }
 
 entity "contribution_inconsistencies" as inconsistencies {
-  * id : UUID <<PK>>
-  --
   * contribution_id : UUID <<FK>>
+  --
   * field : VARCHAR(40)
   * expected_value : VARCHAR(120)
   * found_value : VARCHAR(120)

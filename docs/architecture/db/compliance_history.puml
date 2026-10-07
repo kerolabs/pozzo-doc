@@ -33,6 +33,8 @@ entity "compliance_entries" as entries {
   --
   * member_id : UUID <<FK>>
   * cycle_id : UUID
+  * group_id : UUID
+  * group_name : VARCHAR(60)
   period_id : UUID
   * kind : VARCHAR(16)
   * occurred_at : TIMESTAMP
@@ -40,8 +42,9 @@ entity "compliance_entries" as entries {
 }
 
 entity "share_links" as links {
-  * token : VARCHAR(32) <<PK>>
+  * id : UUID <<PK>>
   --
+  * token : VARCHAR(32) <<UQ>>
   * member_id : UUID <<FK>>
   * created_at : TIMESTAMP
   * expires_at : TIMESTAMP

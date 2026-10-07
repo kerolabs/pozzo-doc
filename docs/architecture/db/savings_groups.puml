@@ -23,10 +23,14 @@ entity "savings_groups" as groups {
   * contribution_amount : NUMERIC(12,2)
   * currency : CHAR(3)
   * periodicity : VARCHAR(10)
+  * first_contribution_date : DATE
   * cutoff_day : SMALLINT
   * seats : SMALLINT
-  destination_account : VARCHAR(120)
+  destination_method : VARCHAR(10)
+  destination_phone : VARCHAR(12)
   turn_method : VARCHAR(10)
+  draw_seed : VARCHAR(64)
+  turns_assigned_at : TIMESTAMP
   * status : VARCHAR(10)
   * created_at : TIMESTAMP
   started_at : TIMESTAMP
