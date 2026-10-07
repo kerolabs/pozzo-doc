@@ -7,7 +7,7 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
         member = person "Participante" "Se une a una junta, registra su aporte con el comprobante y consulta el estado del pozo y su historial."
         visitor = person "Visitante" "Conoce Pozzo desde el landing page y descarga la aplicación."
 
-        smsProvider = softwareSystem "Proveedor de SMS" "Envía el código de verificación al número de celular del integrante." "Externo"
+        smsProvider = softwareSystem "Twilio Verify" "Genera, envía por SMS y comprueba el código de verificación del número de celular del integrante." "Externo"
         fcm = softwareSystem "Firebase Cloud Messaging" "Entrega las notificaciones push a los dispositivos, aunque la aplicación esté cerrada." "Externo"
         wallets = softwareSystem "Yape, Plin y aplicaciones bancarias" "Donde ocurre la transferencia del aporte. Pozzo solo recibe la captura del comprobante." "Externo"
         whatsapp = softwareSystem "WhatsApp" "Canal por el que la cabeza comparte el enlace de invitación." "Externo"
@@ -20,35 +20,36 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
 
             localStore = container "Almacenamiento local" "Copia de la sesión, la junta vigente y sus períodos para consultar la junta sin conexión." "Room (SQLite)" "Base de datos"
 
-            api = container "Servicios RESTful" "Implementa los cinco bounded contexts como módulos: Identity & Access, Savings Groups, Contributions, Notifications y Compliance History. Expone la API documentada con OpenAPI." "Java 21, Spring Boot 3, Spring Security, springdoc-openapi" "API" {
+            api = container "Servicios RESTful" "Implementa los cinco bounded contexts como módulos: Identity & Access, Savings Groups, Contributions, Notifications y Compliance History. Expone la API documentada con OpenAPI." "Java 21, Spring Boot 4, Spring Security, springdoc-openapi" "API" {
 
                 # Bounded Context: Contributions
-                contributionsController = component "ContributionsController" "Endpoints para registrar un aporte con comprobante, en efectivo o como cobertura, y para aprobar o rechazar los que tienen inconsistencias." "Spring MVC REST Controller" "Contributions,Interface"
-                periodsController = component "PeriodsController" "Endpoints para consultar el estado del pozo, los períodos anteriores y la proyección, registrar la entrega del pozo y cerrar la junta." "Spring MVC REST Controller" "Contributions,Interface"
+                contributionsController = component "ContributionsController" "Endpoints para registrar un aporte con comprobante, en efectivo o como cobertura, aprobar o rechazar los que tienen inconsistencias y listar los pendientes de revisión." "Spring MVC REST Controller" "Contributions,Interface"
+                cyclesController = component "CyclesController" "Endpoints para consultar el ciclo de una junta, el estado del pozo, los períodos anteriores y los aportes del integrante." "Spring MVC REST Controller" "Contributions,Interface"
+                periodsController = component "PeriodsController" "Endpoints para registrar la entrega del pozo, consultar la proyección y cerrar la junta." "Spring MVC REST Controller" "Contributions,Interface"
                 contributionCommandService = component "ContributionCommandService" "Atiende los comandos de registro, efectivo, cobertura y revisión de aportes; coordina la validación y publica los eventos." "Spring Service" "Contributions,Application"
                 cycleCommandService = component "CycleCommandService" "Atiende los comandos de inicio del ciclo, entrega del pozo y cierre; abre el siguiente período." "Spring Service" "Contributions,Application"
-                periodQueryService = component "PeriodQueryService" "Resuelve las consultas del estado del pozo, períodos anteriores, proyección, aportes del integrante y pendientes de revisión." "Spring Service" "Contributions,Application"
-                contributionsEventHandlers = component "Contributions Event Handlers" "Reacciona a Junta iniciada y Reemplazo incorporado (Savings Groups) y a Aporte validado y Pozo entregado (propios) para abrir períodos y completar el pozo." "Spring Event Listeners" "Contributions,Application"
-                contributionsDomain = component "Contributions Domain Model" "Agregados Cycle, Period y Contribution, sus value objects y el servicio de dominio ContributionValidationService con las reglas de validación." "Java, POJOs" "Contributions,Domain"
+                periodQueryService = component "ContributionQueryService" "Resuelve las consultas del ciclo, estado del pozo, períodos anteriores, proyección, aportes del integrante y pendientes de revisión." "Spring Service" "Contributions,Application"
+                contributionsEventHandlers = component "Contributions Event Handlers" "SavingsGroupStartedEventHandler inicia el ciclo al recibir Junta iniciada; IntegrationEventsPublisher traduce los eventos de dominio a eventos de integración para los demás contextos." "Spring Event Listeners" "Contributions,Application"
+                contributionsDomain = component "Contributions Domain Model" "Agregados Cycle, Period y Contribution y sus value objects, con las reglas de validación del comprobante." "Java, POJOs" "Contributions,Domain"
                 contributionsRepositories = component "Contributions Repositories" "Implementación JPA de CycleRepository, PeriodRepository y ContributionRepository sobre el esquema contributions." "Spring Data JPA" "Contributions,Infrastructure"
-                savingsGroupsFacade = component "ExternalSavingsGroupsService" "Capa anticorrupción que traduce reglas, integrantes y turnos de Savings Groups al modelo de Contributions." "Spring Service (ACL)" "Contributions,Infrastructure"
 
                 # Bounded Context: Savings Groups
-                savingsGroupsController = component "SavingsGroupsController" "Endpoints para crear la junta, definir el destino de los aportes, consultar sus reglas e iniciarla." "Spring MVC REST Controller" "SavingsGroups,Interface"
+                savingsGroupsController = component "SavingsGroupsController" "Endpoints para crear la junta, cambiar sus reglas antes de iniciar, definir el destino de los aportes, consultarla e iniciarla." "Spring MVC REST Controller" "SavingsGroups,Interface"
                 membershipsController = component "MembershipsController" "Endpoints de invitaciones, unirse con código o enlace, agregar integrantes sin la aplicación, retirarlos y registrar deserciones." "Spring MVC REST Controller" "SavingsGroups,Interface"
                 turnsController = component "TurnsController" "Endpoints para asignar turnos por sorteo u orden acordado, abrir y cerrar subastas, ofertar y consultar el calendario." "Spring MVC REST Controller" "SavingsGroups,Interface"
                 savingsGroupCommandService = component "SavingsGroupCommandService" "Atiende los comandos de la junta, los integrantes, las invitaciones y el inicio; publica los eventos." "Spring Service" "SavingsGroups,Application"
                 turnCommandService = component "TurnCommandService" "Atiende la asignación de turnos y el ciclo de vida de las subastas con el servicio de dominio TurnAssignmentService." "Spring Service" "SavingsGroups,Application"
-                savingsGroupQueryService = component "SavingsGroupQueryService" "Resuelve reglas, lista de integrantes, calendario de turnos, resumen por invitación y ofertas vigentes." "Spring Service" "SavingsGroups,Application"
+                savingsGroupQueryService = component "SavingsGroupQueryService" "Resuelve la junta, lista de integrantes, calendario de turnos, invitación vigente, resumen por invitación y ofertas vigentes." "Spring Service" "SavingsGroups,Application"
+                groupStartedEventHandler = component "GroupStartedEventHandler" "Traduce Junta iniciada a un evento de integración con la copia de reglas y turnos." "Spring Event Listener" "SavingsGroups,Application"
                 savingsGroupsDomain = component "Savings Groups Domain Model" "Agregados SavingsGroup, Invitation y Auction, sus entidades y value objects, y el servicio de dominio TurnAssignmentService." "Java, POJOs" "SavingsGroups,Domain"
                 savingsGroupsRepositories = component "Savings Groups Repositories" "Implementación JPA de SavingsGroupRepository, InvitationRepository y AuctionRepository sobre el esquema savings_groups." "Spring Data JPA" "SavingsGroups,Infrastructure"
-                complianceHistoryFacade = component "ExternalComplianceHistoryService" "Capa anticorrupción que consulta el resumen de cumplimiento de un integrante a Compliance History." "Spring Service (ACL)" "SavingsGroups,Infrastructure"
+                savingsGroupsFacade = component "SavingsGroupsContextFacade" "Open Host Service que dice a los demás contextos quién es cabeza y quién integrante de cada junta." "Spring Service" "SavingsGroups,Application"
 
                 # Bounded Context: Compliance History
-                complianceHistoryController = component "ComplianceHistoryController" "Endpoints para consultar el historial propio, el de un integrante que se une, compartirlo y ver un historial compartido." "Spring MVC REST Controller" "ComplianceHistory,Interface"
+                complianceHistoryController = component "ComplianceHistoryController" "Endpoints para consultar el historial propio, el cumplimiento de los integrantes de una junta, el resumen de un integrante, compartirlo y ver un historial compartido." "Spring MVC REST Controller" "ComplianceHistory,Interface"
                 complianceCommandService = component "ComplianceCommandService" "Registra hechos de cumplimiento y emite enlaces para compartir el historial." "Spring Service" "ComplianceHistory,Application"
                 complianceQueryService = component "ComplianceQueryService" "Resuelve el resumen y el detalle del historial, propio, de otro integrante o por enlace compartido." "Spring Service" "ComplianceHistory,Application"
-                complianceEventHandlers = component "Compliance Event Handlers" "Traduce Aporte validado, rechazado o cubierto, Integrante desertó y Ciclo cerrado a hechos de cumplimiento (capa anticorrupción)." "Spring Event Listeners" "ComplianceHistory,Application"
+                complianceEventHandlers = component "Compliance Event Handlers" "Traduce Aporte liquidado (puntual, tardío o cubierto), Comprobante rechazado y Ciclo cerrado a hechos de cumplimiento (capa anticorrupción)." "Spring Event Listeners" "ComplianceHistory,Application"
                 complianceDomain = component "Compliance History Domain Model" "Agregados MemberRecord y ShareLink, la entidad ComplianceEntry y el servicio de dominio ComplianceScoringService." "Java, POJOs" "ComplianceHistory,Domain"
                 complianceRepositories = component "Compliance History Repositories" "Implementación JPA de MemberRecordRepository y ShareLinkRepository sobre el esquema compliance_history." "Spring Data JPA" "ComplianceHistory,Infrastructure"
 
@@ -56,13 +57,13 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
                 devicesController = component "DevicesController" "Endpoints para registrar y dar de baja el dispositivo del integrante." "Spring MVC REST Controller" "Notifications,Interface"
                 reminderPlansController = component "ReminderPlansController" "Endpoints para consultar y configurar los recordatorios de una junta." "Spring MVC REST Controller" "Notifications,Interface"
                 notificationsController = component "NotificationsController" "Endpoint para consultar los avisos recibidos por el integrante." "Spring MVC REST Controller" "Notifications,Interface"
-                notificationCommandService = component "NotificationCommandService" "Registra dispositivos, configura planes, programa y cancela recordatorios y crea avisos deduplicados." "Spring Service" "Notifications,Application"
+                notificationCommandService = component "NotificationCommandService" "Registra dispositivos, configura planes, programa y cancela recordatorios, crea avisos deduplicados y envía los vencidos." "Spring Service" "Notifications,Application"
                 notificationQueryService = component "NotificationQueryService" "Resuelve los avisos recibidos y el plan de recordatorios de una junta." "Spring Service" "Notifications,Application"
-                notificationEventHandlers = component "Notification Event Handlers" "Reacciona a Período abierto, Aporte validado, Aporte rechazado, Pozo completo, Pozo entregado, Junta iniciada, Turnos asignados y Ciclo cerrado." "Spring Event Listeners" "Notifications,Application"
-                notificationDispatcher = component "NotificationDispatcher" "Tarea programada que toma las notificaciones vencidas, las envía por FCM y registra el resultado." "Spring @Scheduled" "Notifications,Application"
-                notificationsDomain = component "Notifications Domain Model" "Agregados Device, ReminderPlan y Notification, sus value objects y el servicio de dominio ReminderSchedulingService." "Java, POJOs" "Notifications,Domain"
+                notificationEventHandlers = component "Notification Event Handlers" "Reacciona, después de confirmada la transacción, a Junta iniciada, Período abierto, Aporte liquidado, Comprobante por revisar o rechazado, Pozo completo, Pozo entregado y Ciclo cerrado." "Spring Event Listeners" "Notifications,Application"
+                notificationDispatcher = component "NotificationDispatchScheduler" "Tarea programada que cada minuto pide enviar las notificaciones vencidas." "Spring @Scheduled" "Notifications,Infrastructure"
+                notificationsDomain = component "Notifications Domain Model" "Agregados Device, ReminderPlan y Notification y sus value objects; el plan calcula los momentos de envío de cada fecha de corte." "Java, POJOs" "Notifications,Domain"
                 notificationsRepositories = component "Notifications Repositories" "Implementación JPA de DeviceRepository, ReminderPlanRepository y NotificationRepository sobre el esquema notifications." "Spring Data JPA" "Notifications,Infrastructure"
-                fcmPushSender = component "FcmPushSender" "Adaptador que envía notificaciones push con el SDK de Firebase Admin." "Firebase Admin SDK" "Notifications,Infrastructure"
+                fcmPushSender = component "FcmPushSender" "Adaptador que envía notificaciones push con la API HTTP v1 de FCM, autenticado con la cuenta de servicio de Firebase." "FCM HTTP v1, Google Auth Library" "Notifications,Infrastructure"
 
                 # Bounded Context: Identity & Access
                 authenticationController = component "AuthenticationController" "Endpoints para solicitar el código SMS, verificarlo, completar el registro y cerrar sesión." "Spring MVC REST Controller" "IdentityAccess,Interface"
@@ -71,9 +72,9 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
                 accountQueryService = component "AccountQueryService" "Resuelve el perfil, la existencia de una cuenta por celular y la validación del token." "Spring Service" "IdentityAccess,Application"
                 identityDomain = component "Identity & Access Domain Model" "Agregados Account, VerificationCode y Session, sus value objects y los servicios de dominio CodeGenerationService y TokenService." "Java, POJOs" "IdentityAccess,Domain"
                 identityRepositories = component "Identity & Access Repositories" "Implementación JPA de AccountRepository, VerificationCodeRepository y SessionRepository sobre el esquema identity_access." "Spring Data JPA" "IdentityAccess,Infrastructure"
-                smsSender = component "SmsSender" "Adaptador (capa anticorrupción) hacia el proveedor de SMS." "Spring Service (ACL)" "IdentityAccess,Infrastructure"
+                smsSender = component "TwilioVerifyCodeChannel" "Adaptador (capa anticorrupción) que pide a Twilio Verify enviar y comprobar el código." "Spring Service (ACL)" "IdentityAccess,Infrastructure"
                 jwtTokenService = component "JwtTokenService" "Implementación de TokenService con JSON Web Tokens firmados." "Spring Security, jjwt" "IdentityAccess,Infrastructure"
-                authorizationFilter = component "BearerAuthorizationFilter" "Filtro que valida el token de cada solicitud y expone la identidad del integrante a los demás módulos." "Spring Security Filter" "IdentityAccess,Infrastructure"
+                authorizationFilter = component "BearerAuthorizationRequestFilter" "Filtro que valida el token de cada solicitud y expone la identidad del integrante a los demás módulos." "Spring Security Filter" "IdentityAccess,Infrastructure"
             }
 
             db = container "Base de datos" "Persistencia de cuentas, juntas, integrantes, turnos, períodos, aportes, comprobantes, dispositivos e historial, en un esquema por bounded context." "PostgreSQL 16" "Base de datos"
@@ -96,19 +97,19 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
 
         # Contributions: componentes
         pozzo.mobile -> pozzo.api.contributionsController "Registra, revisa y consulta aportes" "JSON/HTTPS"
-        pozzo.mobile -> pozzo.api.periodsController "Consulta el pozo, entrega y cierra" "JSON/HTTPS"
+        pozzo.mobile -> pozzo.api.cyclesController "Consulta el ciclo, el pozo y sus aportes" "JSON/HTTPS"
+        pozzo.mobile -> pozzo.api.periodsController "Entrega el pozo y cierra" "JSON/HTTPS"
         pozzo.api.contributionsController -> pozzo.api.contributionCommandService "Envía comandos"
         pozzo.api.contributionsController -> pozzo.api.periodQueryService "Envía consultas"
+        pozzo.api.cyclesController -> pozzo.api.periodQueryService "Envía consultas"
         pozzo.api.periodsController -> pozzo.api.cycleCommandService "Envía comandos"
-        pozzo.api.periodsController -> pozzo.api.periodQueryService "Envía consultas"
-        pozzo.api.contributionCommandService -> pozzo.api.contributionsDomain "Usa los agregados y el servicio de validación"
+        pozzo.api.contributionCommandService -> pozzo.api.contributionsDomain "Usa los agregados"
         pozzo.api.cycleCommandService -> pozzo.api.contributionsDomain "Usa los agregados"
         pozzo.api.contributionCommandService -> pozzo.api.contributionsRepositories "Lee y guarda"
         pozzo.api.cycleCommandService -> pozzo.api.contributionsRepositories "Lee y guarda"
         pozzo.api.periodQueryService -> pozzo.api.contributionsRepositories "Lee"
-        pozzo.api.contributionsEventHandlers -> pozzo.api.cycleCommandService "Dispara inicio de ciclo y apertura de períodos"
-        pozzo.api.contributionsEventHandlers -> pozzo.api.contributionsRepositories "Lee y guarda"
-        pozzo.api.cycleCommandService -> pozzo.api.savingsGroupsFacade "Obtiene reglas, integrantes y turnos"
+        pozzo.api.contributionsEventHandlers -> pozzo.api.cycleCommandService "Dispara el inicio del ciclo"
+        pozzo.api.contributionsEventHandlers -> pozzo.api.contributionsRepositories "Lee el ciclo para enriquecer los eventos"
         pozzo.api.contributionsRepositories -> pozzo.db "Lee y escribe" "JDBC"
 
         # Savings Groups: componentes
@@ -126,10 +127,12 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
         pozzo.api.savingsGroupCommandService -> pozzo.api.savingsGroupsRepositories "Lee y guarda"
         pozzo.api.turnCommandService -> pozzo.api.savingsGroupsRepositories "Lee y guarda"
         pozzo.api.savingsGroupQueryService -> pozzo.api.savingsGroupsRepositories "Lee"
-        pozzo.api.savingsGroupQueryService -> pozzo.api.complianceHistoryFacade "Obtiene el historial de quien se une"
+        pozzo.api.groupStartedEventHandler -> pozzo.api.contributionsEventHandlers "Publica Junta iniciada" "Evento de integración"
+        pozzo.api.groupStartedEventHandler -> pozzo.api.notificationEventHandlers "Publica Junta iniciada" "Evento de integración"
+        pozzo.api.savingsGroupsFacade -> pozzo.api.savingsGroupsRepositories "Lee"
         pozzo.api.savingsGroupsRepositories -> pozzo.db "Lee y escribe" "JDBC"
-        pozzo.api.savingsGroupsFacade -> pozzo.api.savingsGroupQueryService "Consulta reglas, integrantes y turnos"
-        pozzo.api.complianceHistoryFacade -> pozzo.api.complianceQueryService "Consulta el resumen de cumplimiento"
+        pozzo.api.contributionsEventHandlers -> pozzo.api.complianceEventHandlers "Publica eventos de integración" "Evento de integración"
+        pozzo.api.contributionsEventHandlers -> pozzo.api.notificationEventHandlers "Publica eventos de integración" "Evento de integración"
 
         # Compliance History: componentes
         pozzo.mobile -> pozzo.api.complianceHistoryController "Consulta y comparte el historial" "JSON/HTTPS"
@@ -139,6 +142,7 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
         pozzo.api.complianceCommandService -> pozzo.api.complianceDomain "Usa los agregados y el servicio de puntuación"
         pozzo.api.complianceCommandService -> pozzo.api.complianceRepositories "Lee y guarda"
         pozzo.api.complianceQueryService -> pozzo.api.complianceRepositories "Lee"
+        pozzo.api.complianceQueryService -> pozzo.api.savingsGroupsFacade "Autoriza las consultas de la cabeza"
         pozzo.api.complianceRepositories -> pozzo.db "Lee y escribe" "JDBC"
 
         # Notifications: componentes
@@ -150,11 +154,12 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
         pozzo.api.reminderPlansController -> pozzo.api.notificationQueryService "Envía consultas"
         pozzo.api.notificationsController -> pozzo.api.notificationQueryService "Envía consultas"
         pozzo.api.notificationEventHandlers -> pozzo.api.notificationCommandService "Programa recordatorios y crea avisos"
-        pozzo.api.notificationCommandService -> pozzo.api.notificationsDomain "Usa los agregados y el servicio de programación"
+        pozzo.api.notificationCommandService -> pozzo.api.notificationsDomain "Usa los agregados"
         pozzo.api.notificationCommandService -> pozzo.api.notificationsRepositories "Lee y guarda"
         pozzo.api.notificationQueryService -> pozzo.api.notificationsRepositories "Lee"
-        pozzo.api.notificationDispatcher -> pozzo.api.notificationsRepositories "Toma las notificaciones vencidas y registra el resultado"
-        pozzo.api.notificationDispatcher -> pozzo.api.fcmPushSender "Envía"
+        pozzo.api.notificationDispatcher -> pozzo.api.notificationCommandService "Pide enviar las vencidas"
+        pozzo.api.notificationCommandService -> pozzo.api.fcmPushSender "Envía"
+        pozzo.api.notificationCommandService -> pozzo.api.savingsGroupsFacade "Autoriza el plan de recordatorios"
         pozzo.api.notificationsRepositories -> pozzo.db "Lee y escribe" "JDBC"
         pozzo.api.fcmPushSender -> fcm "Envía la notificación push" "HTTPS"
 
@@ -166,12 +171,12 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
         pozzo.api.profilesController -> pozzo.api.accountQueryService "Envía consultas"
         pozzo.api.authenticationCommandService -> pozzo.api.identityDomain "Usa los agregados y los servicios de dominio"
         pozzo.api.authenticationCommandService -> pozzo.api.identityRepositories "Lee y guarda"
-        pozzo.api.authenticationCommandService -> pozzo.api.smsSender "Envía el código"
+        pozzo.api.authenticationCommandService -> pozzo.api.smsSender "Envía y comprueba el código"
         pozzo.api.authenticationCommandService -> pozzo.api.jwtTokenService "Emite el token"
         pozzo.api.accountQueryService -> pozzo.api.identityRepositories "Lee"
         pozzo.api.authorizationFilter -> pozzo.api.jwtTokenService "Valida el token"
         pozzo.api.identityRepositories -> pozzo.db "Lee y escribe" "JDBC"
-        pozzo.api.smsSender -> smsProvider "Solicita el envío del SMS" "HTTPS"
+        pozzo.api.smsSender -> smsProvider "Solicita el envío y la comprobación del código" "HTTPS"
         fcm -> pozzo.mobile "Entrega la notificación push"
 
         production = deploymentEnvironment "Producción" {
@@ -184,18 +189,20 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
             deploymentNode "GitHub Pages" "" "CDN estático" {
                 containerInstance pozzo.landing
             }
-            deploymentNode "Railway" "" "Plataforma en la nube" {
+            deploymentNode "Render" "" "Plataforma en la nube" {
                 deploymentNode "Servicio web" "" "Contenedor Docker, Java 21" {
                     containerInstance pozzo.api
                 }
-                deploymentNode "PostgreSQL" "" "Servicio administrado" {
+            }
+            deploymentNode "Supabase" "" "PostgreSQL administrado" {
+                deploymentNode "PostgreSQL" "" "Conexión por session pooler" {
                     containerInstance pozzo.db
                 }
             }
             deploymentNode "Google Cloud" "" "Servicio de terceros" {
                 softwareSystemInstance fcm
             }
-            deploymentNode "Proveedor de SMS" "" "Servicio de terceros" {
+            deploymentNode "Twilio" "" "Servicio de terceros" {
                 softwareSystemInstance smsProvider
             }
         }
@@ -214,7 +221,7 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
 
         component pozzo.api "ComponentesContributions" "Componentes del bounded context Contributions dentro de los servicios RESTful." {
             include "element.tag==Contributions"
-            include pozzo.mobile pozzo.db
+            include pozzo.mobile pozzo.db pozzo.api.groupStartedEventHandler
             autoLayout tb 300 300
         }
 
@@ -226,13 +233,13 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
 
         component pozzo.api "ComponentesComplianceHistory" "Componentes del bounded context Compliance History dentro de los servicios RESTful." {
             include "element.tag==ComplianceHistory"
-            include pozzo.mobile pozzo.db
+            include pozzo.mobile pozzo.db pozzo.api.contributionsEventHandlers pozzo.api.savingsGroupsFacade
             autoLayout tb 300 300
         }
 
         component pozzo.api "ComponentesNotifications" "Componentes del bounded context Notifications dentro de los servicios RESTful." {
             include "element.tag==Notifications"
-            include pozzo.mobile pozzo.db fcm
+            include pozzo.mobile pozzo.db fcm pozzo.api.contributionsEventHandlers pozzo.api.groupStartedEventHandler pozzo.api.savingsGroupsFacade
             autoLayout tb 300 300
         }
 
