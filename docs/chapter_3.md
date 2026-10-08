@@ -1491,85 +1491,85 @@ Las 46 pantallas se agrupan en 14 láminas de dos a cinco pantallas, ordenadas p
   <tbody>
     <tr>
       <td><b>Compartido</b></td>
-      <td>1. Acceso con el número de celular</td>
+      <td>1&#46; Acceso con el número de celular</td>
       <td>A1 Bienvenida, A2 Ingresar celular, A3 Verificar código SMS, A4 Completar registro.</td>
       <td>US01, US02, US03</td>
     </tr>
     <tr>
       <td><b>Compartido</b></td>
-      <td>2. Inicio vacío, estado del pozo, calendario y perfil</td>
+      <td>2&#46; Inicio vacío, estado del pozo, calendario y perfil</td>
       <td>B3 Sin juntas todavía, F1 Estado del pozo, G2 Calendario de turnos, I1 Perfil, I2 Tema visual.</td>
       <td>US05, US06, US07, US12, US22, US29, US30</td>
     </tr>
     <tr>
       <td><b>Cabeza de junta</b></td>
-      <td>1. Inicio y creación de la junta</td>
+      <td>1&#46; Inicio y creación de la junta</td>
       <td>B1 Mis juntas (cabeza de junta), C1 Reglas, C2 Fechas y destino, C3 Resumen, C4 Invitar con código y enlace.</td>
       <td>US07, US08, US11, US26, US29</td>
     </tr>
     <tr>
       <td><b>Cabeza de junta</b></td>
-      <td>2. Preparar la junta (1 de 2)</td>
+      <td>2&#46; Preparar la junta (1 de 2)</td>
       <td>E1 Detalle de la junta por iniciar, E2 Agregar sin la aplicación, E3 Método de asignación.</td>
       <td>US14, US15, US16, US17, US18, US19</td>
     </tr>
     <tr>
       <td><b>Cabeza de junta</b></td>
-      <td>2. Preparar la junta (2 de 2)</td>
+      <td>2&#46; Preparar la junta (2 de 2)</td>
       <td>E4 Resultado del sorteo, E5 Orden acordado, E6 Iniciar la junta.</td>
       <td>US10, US17, US18</td>
     </tr>
     <tr>
       <td><b>Cabeza de junta</b></td>
-      <td>3. Reglas de la junta y avisos</td>
+      <td>3&#46; Reglas de la junta y avisos</td>
       <td>E7 Ajustar las reglas, E8 Reglas fijas con la junta iniciada, I3 Avisos y recordatorios.</td>
       <td>US09, US34, US35</td>
     </tr>
     <tr>
       <td><b>Cabeza de junta</b></td>
-      <td>4. Gestionar los aportes (1 de 2)</td>
+      <td>4&#46; Gestionar los aportes (1 de 2)</td>
       <td>H1 Aportes por revisar, H2 Revisar un aporte con inconsistencia, H3 Registrar un aporte en efectivo.</td>
       <td>US26, US27</td>
     </tr>
     <tr>
       <td><b>Cabeza de junta</b></td>
-      <td>4. Gestionar los aportes (2 de 2)</td>
+      <td>4&#46; Gestionar los aportes (2 de 2)</td>
       <td>H4 Entregar el pozo, H5 Cubrir un aporte, H6 Cierre del ciclo.</td>
       <td>US36, US37, US39</td>
     </tr>
     <tr>
       <td><b>Cabeza de junta</b></td>
-      <td>5. Historial de la junta</td>
+      <td>5&#46; Historial de la junta</td>
       <td>K1 Historial de aportes por período, K2 Integrantes e historial de cumplimiento.</td>
       <td>US29, US32, US42</td>
     </tr>
     <tr>
       <td><b>Participante</b></td>
-      <td>1. Inicio y unirse a una junta</td>
+      <td>1&#46; Inicio y unirse a una junta</td>
       <td>B2 Mis juntas (participante), D1 Ingresar el código, D2 Revisar la junta, D3 Unión confirmada.</td>
       <td>US12, US13, US23, US29</td>
     </tr>
     <tr>
       <td><b>Participante</b></td>
-      <td>2. Aportar con el comprobante (1 de 2)</td>
+      <td>2&#46; Aportar con el comprobante (1 de 2)</td>
       <td>F2 Cómo aportar, F3 Subir el comprobante, F4 Revisar los datos leídos.</td>
       <td>US08, US23, US24</td>
     </tr>
     <tr>
       <td><b>Participante</b></td>
-      <td>2. Aportar con el comprobante (2 de 2)</td>
+      <td>2&#46; Aportar con el comprobante (2 de 2)</td>
       <td>F5 Aporte validado, F6 Aporte en revisión, G1 Mis aportes y comprobantes (sin conexión).</td>
       <td>US25, US26, US28, US31</td>
     </tr>
     <tr>
       <td><b>Participante</b></td>
-      <td>3. Historial y reglas</td>
+      <td>3&#46; Historial y reglas</td>
       <td>G3 Mi historial de cumplimiento, E9 Reglas de la junta en solo lectura.</td>
       <td>US09, US40, US41</td>
     </tr>
     <tr>
       <td><b>Participante</b></td>
-      <td>4. Recordatorios</td>
+      <td>4&#46; Recordatorios</td>
       <td>J1 Recordatorios antes del corte, J2 Estado del pozo con aporte atrasado, J3 Recordatorios detenidos al aportar.</td>
       <td>US33, US35</td>
     </tr>
