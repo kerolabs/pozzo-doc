@@ -7,7 +7,7 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
         member = person "Participante" "Se une a una junta, registra su aporte con el comprobante y consulta el estado del pozo y su historial."
         visitor = person "Visitante" "Conoce Pozzo desde el landing page y descarga la aplicación."
 
-        smsProvider = softwareSystem "Twilio Verify" "Genera, envía por SMS y comprueba el código de verificación del número de celular del integrante." "Externo"
+        smsProvider = softwareSystem "SMS Gate" "Envía por SMS el código de verificación que genera Pozzo, desde un celular Android con su propio chip." "Externo"
         fcm = softwareSystem "Firebase Cloud Messaging" "Entrega las notificaciones push a los dispositivos, aunque la aplicación esté cerrada." "Externo"
         wallets = softwareSystem "Yape, Plin y aplicaciones bancarias" "Donde ocurre la transferencia del aporte. Pozzo solo recibe la captura del comprobante." "Externo"
         whatsapp = softwareSystem "WhatsApp" "Canal por el que la cabeza comparte el enlace de invitación." "Externo"
@@ -176,7 +176,7 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
         pozzo.api.accountQueryService -> pozzo.api.identityRepositories "Lee"
         pozzo.api.authorizationFilter -> pozzo.api.jwtTokenService "Valida el token"
         pozzo.api.identityRepositories -> pozzo.db "Lee y escribe" "JDBC"
-        pozzo.api.smsSender -> smsProvider "Solicita el envío y la comprobación del código" "HTTPS"
+        pozzo.api.smsSender -> smsProvider "Solicita el envío del código" "HTTPS"
         fcm -> pozzo.mobile "Entrega la notificación push"
 
         production = deploymentEnvironment "Producción" {
@@ -189,9 +189,11 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
             deploymentNode "GitHub Pages" "" "CDN estático" {
                 containerInstance pozzo.landing
             }
-            deploymentNode "Render" "" "Plataforma en la nube" {
-                deploymentNode "Servicio web" "" "Contenedor Docker, Java 21" {
-                    containerInstance pozzo.api
+            deploymentNode "Oracle Cloud Infrastructure" "" "Instancia Always Free, Ubuntu 24.04" {
+                deploymentNode "Caddy" "" "Proxy inverso con HTTPS, api-kerolabs.duckdns.org" {
+                    deploymentNode "Servicio pozzo" "" "systemd, Java 21" {
+                        containerInstance pozzo.api
+                    }
                 }
             }
             deploymentNode "Supabase" "" "PostgreSQL administrado" {
@@ -202,7 +204,7 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
             deploymentNode "Google Cloud" "" "Servicio de terceros" {
                 softwareSystemInstance fcm
             }
-            deploymentNode "Twilio" "" "Servicio de terceros" {
+            deploymentNode "SMS Gate" "" "Servicio de terceros, celular Android del equipo" {
                 softwareSystemInstance smsProvider
             }
         }
