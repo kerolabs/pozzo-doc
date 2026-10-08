@@ -170,6 +170,7 @@ pandoc $Chapters @DraftArgs `
     --lua-filter=config/html-tables.lua `
     --lua-filter=config/pdf-only.lua `
     --citeproc `
+    --lua-filter=config/table-grid.lua `
     --csl=config/apa.csl `
     --bibliography=references.bib `
     --pdf-engine=xelatex `
