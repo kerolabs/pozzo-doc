@@ -13,6 +13,7 @@ Pozzo permite centralizar la gestión de la junta sin intervenir directamente en
 La propuesta de Kerolabs está orientada principalmente a grupos de familiares, amigos, vecinos o compañeros de trabajo que ya utilizan juntas como mecanismo de ahorro y desean mantener su dinámica habitual, pero con una administración más ordenada, transparente y verificable. A través de Pozzo, la startup busca combinar la confianza social propia de las juntas con herramientas digitales que simplifiquen su operación.
 
 <table>
+  <caption>Misión y visión de Kero</caption>
   <thead>
     <tr>
       <th align="center"><b>Misión</b></th>
@@ -30,6 +31,7 @@ La propuesta de Kerolabs está orientada principalmente a grupos de familiares, 
 ### 1.1.2. Perfiles de integrantes del equipo
 
 <table>
+  <caption>Perfiles de los integrantes del equipo</caption>
   <thead>
     <tr>
       <th>Integrante</th>
@@ -318,6 +320,7 @@ y la funcionalidad que lo habilita.
 #### 1.2.2.4. Lean UX Canvas
 
 <table>
+  <caption>Lean UX Canvas de Pozzo</caption>
   <colgroup>
     <col width="16.66%">
     <col width="16.66%">
