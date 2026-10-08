@@ -19,6 +19,7 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
 #### Competitive Analysis Landscape
 
 <table>
+  <caption>Competitive Analysis Landscape de Pozzo y sus competidores</caption>
   <thead>
     <tr>
       <th>Característica</th>
@@ -97,6 +98,7 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
 ##### Pozzo
 
 <table>
+  <caption>Análisis SWOT de Pozzo</caption>
   <thead>
     <tr>
       <th>Fortalezas</th>
@@ -122,6 +124,7 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
 ##### Tandapp / MiTandita
 
 <table>
+  <caption>Análisis SWOT de Tandapp / MiTandita</caption>
   <thead>
     <tr>
       <th>Fortalezas</th>
@@ -147,6 +150,7 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
 ##### Moneypool
 
 <table>
+  <caption>Análisis SWOT de Moneypool</caption>
   <thead>
     <tr>
       <th>Fortalezas</th>
@@ -172,6 +176,7 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
 ##### Splitwise
 
 <table>
+  <caption>Análisis SWOT de Splitwise</caption>
   <thead>
     <tr>
       <th>Fortalezas</th>
@@ -324,6 +329,7 @@ Esta sección presenta el estudio cualitativo basado en entrevistas semiestructu
 - **Primera entrevista**
 
 <table>
+  <caption>Ficha de la entrevista a Shirley Romy Becerra Pinchi</caption>
   <thead>
     <tr>
       <th>Campo</th>
@@ -369,6 +375,7 @@ Shirley organiza panderos desde el colegio y lo ve como una forma de ahorrar; po
 - **Segunda entrevista**
 
 <table>
+  <caption>Ficha de la entrevista a Ariel Roberto Mendoza Blanco</caption>
   <thead>
     <tr>
       <th>Campo</th>
@@ -414,6 +421,7 @@ Ariel organiza juntas desde los 20 años como una forma de obligarse a ahorrar, 
 - **Tercera entrevista**
 
 <table>
+  <caption>Ficha de la entrevista a Jorge Chávez</caption>
   <thead>
     <tr>
       <th>Campo</th>
@@ -461,6 +469,7 @@ Jorge organiza juntas desde hace unos cinco años; empezó entre hermanos y prim
 - **Primera entrevista**
 
 <table>
+  <caption>Ficha de la entrevista a Elizabeth Díaz</caption>
   <thead>
     <tr>
       <th>Campo</th>
@@ -506,6 +515,7 @@ Elizabeth entró a su primera junta invitada por una amiga de la universidad, qu
 - **Segunda entrevista**
 
 <table>
+  <caption>Ficha de la entrevista a Mariana López</caption>
   <thead>
     <tr>
       <th>Campo</th>
@@ -551,6 +561,7 @@ Mariana entró a su primera junta invitada por una amiga del trabajo; prefirió 
 - **Tercera entrevista**
 
 <table>
+  <caption>Ficha de la entrevista a Catherine Villar</caption>
   <thead>
     <tr>
       <th>Campo</th>
@@ -684,6 +695,7 @@ Se elaboró una ficha de User Persona por cada segmento objetivo, utilizando UXP
 El User Task Matrix concentra las tareas que los User Personas realizan para cumplir sus objetivos dentro de una junta, con independencia de que exista o no una solución de software. No se trata de funcionalidades de Pozzo, sino de actividades que ambos segmentos ya ejecutan hoy con cuaderno, hoja de cálculo y mensajería.
 
 <table>
+  <caption>User Task Matrix de los segmentos objetivo</caption>
   <thead>
     <tr>
       <th>User Task Matrix</th>
@@ -875,6 +887,7 @@ Finalmente, mediante storytelling se revisó el recorrido completo y se identifi
 El siguiente glosario reúne los términos y conceptos del dominio del ahorro rotativo que el equipo utiliza de forma uniforme en todos los artefactos, en el código y en la comunicación con los interesados. Se incluyen únicamente términos del negocio, no términos técnicos de ingeniería de software. Los términos se registran en inglés, con su equivalente de uso corriente en el Perú entre paréntesis.
 
 <table>
+  <caption>Ubiquitous Language del dominio de las juntas</caption>
   <thead>
     <tr>
       <th>Término</th>
@@ -980,6 +993,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 #### Epics
 
 <table>
+  <caption>Epics del Product Backlog</caption>
   <thead>
     <tr>
       <th>Epic ID</th>
@@ -1056,6 +1070,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 ##### EP01 Acceso y cuenta
 
 <table>
+  <caption>US01. Ingresar con el número de celular</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1087,6 +1102,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US02. Verificar el código SMS</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1118,6 +1134,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US03. Completar el registro</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1149,6 +1166,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US04. Mantener la sesión en el dispositivo</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1180,6 +1198,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US05. Administrar mi perfil</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1211,6 +1230,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US06. Elegir el tema visual</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1244,6 +1264,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 ##### EP02 Configuración de la junta
 
 <table>
+  <caption>US07. Crear una junta</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1275,6 +1296,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US08. Definir el destino de los aportes</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1306,6 +1328,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US09. Consultar y ajustar las reglas de la junta</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1337,6 +1360,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US10. Iniciar la junta</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1370,6 +1394,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 ##### EP03 Incorporación de integrantes
 
 <table>
+  <caption>US11. Invitar integrantes con código y enlace</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1401,6 +1426,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US12. Unirme a una junta con código o enlace</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1432,6 +1458,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US13. Revisar la junta antes de unirme</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1463,6 +1490,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US14. Agregar un integrante sin la aplicación</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1494,6 +1522,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US15. Retirar un integrante antes de iniciar</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1525,6 +1554,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US16. Ver la lista de integrantes</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1558,6 +1588,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 ##### EP04 Asignación de turnos
 
 <table>
+  <caption>US17. Asignar turnos por sorteo</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1589,6 +1620,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US18. Asignar turnos por orden acordado</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1620,6 +1652,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US19. Configurar la junta por subasta</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1651,6 +1684,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US20. Ofertar en la subasta del turno</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1682,6 +1716,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US21. Cerrar la subasta y asignar el turno</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1713,6 +1748,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US22. Consultar el calendario de turnos</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1746,6 +1782,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 ##### EP05 Registro y validación de aportes
 
 <table>
+  <caption>US23. Registrar mi aporte con el comprobante</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1777,6 +1814,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US24. Revisar los datos leídos del comprobante</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1808,6 +1846,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US25. Validación automática del aporte</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1839,6 +1878,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US26. Revisar un aporte con inconsistencia</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1870,6 +1910,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US27. Registrar un aporte en efectivo</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1901,6 +1942,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US28. Consultar mis aportes y sus comprobantes</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1934,6 +1976,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 ##### EP06 Transparencia del pozo
 
 <table>
+  <caption>US29. Ver el estado del pozo del período vigente</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1965,6 +2008,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US30. Saber si mi pozo estará completo</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -1996,6 +2040,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US31. Consultar la junta sin conexión</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2027,6 +2072,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US32. Consultar períodos anteriores</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2060,6 +2106,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 ##### EP07 Recordatorios y avisos
 
 <table>
+  <caption>US33. Recibir recordatorios escalonados de mi aporte</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2091,6 +2138,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US34. Configurar los recordatorios de la junta</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2122,6 +2170,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US35. Recibir avisos de los hechos de la junta</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2155,6 +2204,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 ##### EP08 Entrega del pozo y cierre del ciclo
 
 <table>
+  <caption>US36. Entregar el pozo y abrir el siguiente turno</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2186,6 +2236,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US37. Registrar la cobertura de un aporte</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2217,6 +2268,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US38. Registrar una deserción y su reemplazo</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2248,6 +2300,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US39. Cerrar la junta al completar el ciclo</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2281,6 +2334,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 ##### EP09 Historial de cumplimiento
 
 <table>
+  <caption>US40. Consultar mi historial de cumplimiento</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2312,6 +2366,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US41. Compartir mi historial</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2343,6 +2398,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US42. Ver el historial de quien se une a mi junta</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2376,6 +2432,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 ##### EP10 Landing page
 
 <table>
+  <caption>US43. Entender qué resuelve Pozzo</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2407,6 +2464,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US44. Acceder a la aplicación desde el landing page</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2438,6 +2496,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US45. Conocer al equipo y contactarlo</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2469,6 +2528,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 <table>
+  <caption>US46. Navegar el landing page desde el celular</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2504,6 +2564,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 Las Technical Stories describen los servicios RESTful de desarrollo propio que sostienen la aplicación móvil. Se redactan desde el rol Developer y sus criterios de aceptación son escenarios de solicitud y respuesta.
 
 <table>
+  <caption>TS01. Servicio de autenticación por SMS</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2535,6 +2596,7 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
 </table>
 
 <table>
+  <caption>TS02. Servicio de juntas</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2566,6 +2628,7 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
 </table>
 
 <table>
+  <caption>TS03. Servicio de integrantes e invitaciones</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2597,6 +2660,7 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
 </table>
 
 <table>
+  <caption>TS04. Servicio de turnos y subastas</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2628,6 +2692,7 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
 </table>
 
 <table>
+  <caption>TS05. Servicio de aportes y comprobantes</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2659,6 +2724,7 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
 </table>
 
 <table>
+  <caption>TS06. Servicio de entrega del pozo y cierre</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2690,6 +2756,7 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
 </table>
 
 <table>
+  <caption>TS07. Servicio de recordatorios y notificaciones</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2721,6 +2788,7 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
 </table>
 
 <table>
+  <caption>TS08. Servicio de historial de cumplimiento</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2760,6 +2828,7 @@ Las Spike Stories cubren la investigación necesaria antes de implementar las hi
 **Definition of Done común a los tres spikes.** El prototipo queda registrado en una rama del repositorio; el informe de hallazgos se comparte y revisa en una reunión del equipo o sesión de refinamiento del backlog; los hallazgos se usan para crear o refinar las historias de implementación; y el spike está limitado a entre 8 y 16 horas y se completa dentro del sprint en que se planifica.
 
 <table>
+  <caption>SP01. Investigar la lectura automática de comprobantes de Yape y Plin</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2791,6 +2860,7 @@ Las Spike Stories cubren la investigación necesaria antes de implementar las hi
 </table>
 
 <table>
+  <caption>SP02. Investigar las notificaciones push y la programación de recordatorios</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2822,6 +2892,7 @@ Las Spike Stories cubren la investigación necesaria antes de implementar las hi
 </table>
 
 <table>
+  <caption>SP03. Investigar los enlaces de invitación que abren la aplicación</caption>
   <thead>
     <tr>
       <th>Story ID</th>
@@ -2859,6 +2930,7 @@ El Impact Map vincula los objetivos de negocio de Pozzo con las personas que pue
 Los objetivos de negocio se derivan de los resultados que el equipo definió en los Business Outcome Assumptions y en el Problem Statement del Lean UX Process (capítulo I, Solution Profile), formulados con los criterios SMART (específicos, medibles, alcanzables, relevantes y con plazo). El horizonte de medición son las juntas piloto que el equipo acompañará después del lanzamiento. Se seleccionaron los tres outcomes del primer ciclo de uso; el outcome de crecimiento por referidos (una de cada tres juntas nuevas formada por integrantes que ya usaron Pozzo) se medirá recién entre los meses 7 y 12, por lo que queda fuera de estos mapas y se retoma al planificar el segundo semestre.
 
 <table>
+  <caption>Business goals del Impact Mapping</caption>
   <thead>
     <tr>
       <th>Business Goal</th>
@@ -2910,6 +2982,7 @@ El orden sigue el Impact Map: primero lo que permite que una junta exista y comp
 Los sprints se alinean con los hitos de entrega del proyecto: el Sprint 1 con TB1, el Sprint 2 con AV2 y los Sprints 3 y 4 con TB2.
 
 <table>
+  <caption>Product Backlog priorizado de Pozzo</caption>
   <thead>
     <tr>
       <th align="center"># Orden</th>
@@ -3391,6 +3464,7 @@ Con el EventStorm completo, el equipo dedicó una segunda sesión de dos horas a
 El resultado son cinco Bounded Contexts, uno por integrante del equipo, clasificados según el valor que aportan al negocio.
 
 <table>
+  <caption>Bounded contexts candidatos y los epics que cubren</caption>
   <thead>
     <tr>
       <th>Bounded Context</th>
@@ -3488,6 +3562,7 @@ La primera alternativa, unir Savings Groups y Contributions en un solo contexto 
 El mapa definitivo usa cuatro de los patrones de relación de Domain-Driven Design. En cada relación la flecha va del contexto upstream (U) al downstream (D).
 
 <table>
+  <caption>Relaciones entre bounded contexts del Context Map</caption>
   <thead>
     <tr>
       <th>Upstream</th>
@@ -3586,6 +3661,7 @@ Contributions es el contexto core. Registra y valida los aportes de cada períod
 #### 2.6.1.1. Domain Layer
 
 <table>
+  <caption>Clases del Domain Layer de Contributions</caption>
   <colgroup><col width="26%"><col width="16%"><col width="26%"><col width="32%"></colgroup>
   <thead>
     <tr>
@@ -3696,6 +3772,7 @@ Las reglas de negocio del canvas quedan repartidas así: la validación del comp
 La capa de interfaz expone el contexto como recursos REST, documentados con OpenAPI, y traduce entre los recursos JSON y los comandos y consultas del dominio mediante clases assembler.
 
 <table>
+  <caption>Clases del Interface Layer de Contributions</caption>
   <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
   <thead>
     <tr>
@@ -3738,6 +3815,7 @@ La capa de interfaz expone el contexto como recursos REST, documentados con Open
 La capa de aplicación orquesta los casos de uso: recibe un comando o una consulta, carga los agregados por sus repositorios, invoca sus métodos, guarda y publica los eventos. No contiene reglas de negocio.
 
 <table>
+  <caption>Clases del Application Layer de Contributions</caption>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
   <thead>
     <tr>
@@ -3783,6 +3861,7 @@ La capa de aplicación orquesta los casos de uso: recibe un comando o una consul
 #### 2.6.1.4. Infrastructure Layer
 
 <table>
+  <caption>Clases del Infrastructure Layer de Contributions</caption>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
   <thead>
     <tr>
@@ -3834,6 +3913,7 @@ Savings Groups es el contexto de soporte que define la junta antes de que exista
 #### 2.6.2.1. Domain Layer
 
 <table>
+  <caption>Clases del Domain Layer de Savings Groups</caption>
   <colgroup><col width="26%"><col width="16%"><col width="26%"><col width="32%"></colgroup>
   <thead>
     <tr>
@@ -3930,6 +4010,7 @@ Las reglas del canvas quedan en `SavingsGroup.canStart` (cupos cubiertos y turno
 #### 2.6.2.2. Interface Layer
 
 <table>
+  <caption>Clases del Interface Layer de Savings Groups</caption>
   <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
   <thead>
     <tr>
@@ -3965,6 +4046,7 @@ Las reglas del canvas quedan en `SavingsGroup.canStart` (cupos cubiertos y turno
 #### 2.6.2.3. Application Layer
 
 <table>
+  <caption>Clases del Application Layer de Savings Groups</caption>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
   <thead>
     <tr>
@@ -4012,6 +4094,7 @@ Este contexto no tiene event handlers entrantes: todo lo que ocurre en una junta
 #### 2.6.2.4. Infrastructure Layer
 
 <table>
+  <caption>Clases del Infrastructure Layer de Savings Groups</caption>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
   <thead>
     <tr>
@@ -4071,6 +4154,7 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
 #### 2.6.3.1. Domain Layer
 
 <table>
+  <caption>Clases del Domain Layer de Compliance History</caption>
   <colgroup><col width="26%"><col width="16%"><col width="26%"><col width="32%"></colgroup>
   <thead>
     <tr>
@@ -4153,6 +4237,7 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
 #### 2.6.3.2. Interface Layer
 
 <table>
+  <caption>Clases del Interface Layer de Compliance History</caption>
   <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
   <thead>
     <tr>
@@ -4178,6 +4263,7 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
 #### 2.6.3.3. Application Layer
 
 <table>
+  <caption>Clases del Application Layer de Compliance History</caption>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
   <thead>
     <tr>
@@ -4218,6 +4304,7 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
 #### 2.6.3.4. Infrastructure Layer
 
 <table>
+  <caption>Clases del Infrastructure Layer de Compliance History</caption>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
   <thead>
     <tr>
@@ -4270,6 +4357,7 @@ Notifications es un contexto genérico y reactivo: casi todo lo que hace lo disp
 #### 2.6.4.1. Domain Layer
 
 <table>
+  <caption>Clases del Domain Layer de Notifications</caption>
   <colgroup><col width="26%"><col width="16%"><col width="26%"><col width="32%"></colgroup>
   <thead>
     <tr>
@@ -4340,6 +4428,7 @@ Notifications es un contexto genérico y reactivo: casi todo lo que hace lo disp
 #### 2.6.4.2. Interface Layer
 
 <table>
+  <caption>Clases del Interface Layer de Notifications</caption>
   <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
   <thead>
     <tr>
@@ -4375,6 +4464,7 @@ Notifications es un contexto genérico y reactivo: casi todo lo que hace lo disp
 #### 2.6.4.3. Application Layer
 
 <table>
+  <caption>Clases del Application Layer de Notifications</caption>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
   <thead>
     <tr>
@@ -4412,6 +4502,7 @@ El equipo eligió un despachador con tarea programada sobre la tabla de notifica
 #### 2.6.4.4. Infrastructure Layer
 
 <table>
+  <caption>Clases del Infrastructure Layer de Notifications</caption>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
   <thead>
     <tr>
@@ -4469,6 +4560,7 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
 #### 2.6.5.1. Domain Layer
 
 <table>
+  <caption>Clases del Domain Layer de Identity & Access</caption>
   <colgroup><col width="26%"><col width="16%"><col width="26%"><col width="32%"></colgroup>
   <thead>
     <tr>
@@ -4569,6 +4661,7 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
 #### 2.6.5.2. Interface Layer
 
 <table>
+  <caption>Clases del Interface Layer de Identity & Access</caption>
   <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
   <thead>
     <tr>
@@ -4599,6 +4692,7 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
 #### 2.6.5.3. Application Layer
 
 <table>
+  <caption>Clases del Application Layer de Identity & Access</caption>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
   <thead>
     <tr>
@@ -4639,6 +4733,7 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
 #### 2.6.5.4. Infrastructure Layer
 
 <table>
+  <caption>Clases del Infrastructure Layer de Identity & Access</caption>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
   <thead>
     <tr>
