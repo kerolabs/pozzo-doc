@@ -349,6 +349,712 @@ El diagrama de despliegue del C4 Model resume dónde corre cada contenedor de la
 
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
+En este Sprint se documentaron con OpenAPI los 54 endpoints de los servicios RESTful de Pozzo, agrupados en 11 recursos que corresponden a los cinco bounded contexts. La documentación se genera desde el código con springdoc-openapi: cada controller declara el resumen y la descripción de sus operaciones, los parámetros, el cuerpo esperado y los códigos de respuesta, incluidos los de error, que comparten el mismo cuerpo `Error` con un código y un mensaje. Los recursos describen cada campo y traen valores de ejemplo, y el documento declara el esquema de seguridad Bearer con el token JWT que emite Identity & Access.
+
+La documentación está desplegada junto con los servicios: Swagger UI en <https://api-kerolabs.duckdns.org/swagger-ui/index.html> y el documento OpenAPI 3.1 en <https://api-kerolabs.duckdns.org/v3/api-docs>. El código está en el repositorio <https://github.com/kerolabs/pozzo-backend>. La Figura 132 muestra la documentación desplegada con sus 11 recursos.
+
+![Swagger UI de los servicios RESTful desplegados](images/chapter_4/swagger_overview.png){width=85%}
+
+Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y todas requieren el token Bearer, salvo las marcadas como públicas. Las Tablas 137 a 141 presentan los endpoints de cada bounded context: el verbo HTTP, la sintaxis de la llamada, la acción con su enlace a la documentación desplegada, los parámetros y la respuesta exitosa. Los errores de cada operación están en la documentación desplegada.
+
+<table>
+  <caption>Endpoints documentados de Identity &amp; Access</caption>
+  <colgroup><col width="12%"><col width="24%"><col width="20%"><col width="18%"><col width="26%"></colgroup>
+  <thead>
+    <tr>
+      <th>Verbo</th>
+      <th>Sintaxis de llamada</th>
+      <th>Acción</th>
+      <th>Parámetros</th>
+      <th>Respuesta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>POST</td>
+      <td>/auth/codes</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Authentication/requestCode_2">Solicitar el código de verificación por SMS</a> (pública)</td>
+      <td>cuerpo: phoneNumber</td>
+      <td><b>202 Accepted</b>: el número al que se envió el código, su vencimiento a los 10 minutos y desde cuándo se puede pedir otro.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/auth/codes/verify</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Authentication/verifyCode_1">Verificar el código</a> (pública)</td>
+      <td>cuerpo: code, phoneNumber</td>
+      <td><b>200 OK</b>: la sesión si el número ya tiene cuenta; si no, un token de registro válido por 15 minutos.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/auth/register</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Authentication/register">Completar el registro</a> (pública)</td>
+      <td>cuerpo: displayName, registrationToken</td>
+      <td><b>201 Created</b>: el token de sesión, su vencimiento y el perfil de la cuenta creada.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/auth/sign-out</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Authentication/signOut">Cerrar la sesión</a></td>
+      <td>Ninguno</td>
+      <td><b>204 No Content</b>: sin cuerpo; la sesión con la que se hizo la solicitud queda revocada.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/auth/recovery/codes</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Account%20recovery/requestCode_1">Solicitar un código de recuperación al correo de respaldo</a> (pública)</td>
+      <td>cuerpo: email</td>
+      <td><b>202 Accepted</b>: la misma respuesta exista o no una cuenta con ese correo, para no revelar cuáles están registrados.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/auth/recovery/codes/verify</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Account%20recovery/verifyCode">Verificar el código de recuperación</a> (pública)</td>
+      <td>cuerpo: code, email</td>
+      <td><b>200 OK</b>: un token válido por 15 minutos para vincular un número nuevo.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/auth/recovery/phone-number</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Account%20recovery/recover">Vincular el número nuevo e iniciar sesión</a> (pública)</td>
+      <td>cuerpo: code, phoneNumber, recoveryToken</td>
+      <td><b>200 OK</b>: la sesión nueva; las sesiones del celular perdido se cierran y las juntas y el historial se conservan.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/auth/recovery/phone-number/codes</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Account%20recovery/requestPhoneCode">Solicitar el código SMS del número nuevo</a> (pública)</td>
+      <td>cuerpo: phoneNumber, recoveryToken</td>
+      <td><b>202 Accepted</b>: el número, el vencimiento del código y desde cuándo se puede pedir otro.</td>
+    </tr>
+    <tr>
+      <td>PUT</td>
+      <td>/members/me/phone-number</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Profiles/changePhoneNumber">Cambiar mi número de celular</a></td>
+      <td>cuerpo: code, phoneNumber</td>
+      <td><b>200 OK</b>: el perfil con el número nuevo; las juntas y el historial se conservan.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/members/me/phone-number/codes</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Profiles/requestCode">Solicitar el código del número nuevo</a></td>
+      <td>cuerpo: phoneNumber</td>
+      <td><b>202 Accepted</b>: el número al que se envió el código y su vencimiento.</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/members/me/profile</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Profiles/getProfile">Consultar mi perfil</a></td>
+      <td>Ninguno</td>
+      <td><b>200 OK</b>: el perfil del integrante autenticado.</td>
+    </tr>
+    <tr>
+      <td>PUT</td>
+      <td>/members/me/profile</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Profiles/updateProfile">Actualizar mi perfil</a></td>
+      <td>cuerpo: displayName, theme</td>
+      <td><b>200 OK</b>: el perfil con el nombre, el tema visual, el número de Yape o Plin y el correo de respaldo nuevos.</td>
+    </tr>
+    <tr>
+      <td>PUT</td>
+      <td>/members/me/profile/photo</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Profiles/changePhoto">Cambiar mi foto</a></td>
+      <td>archivo de imagen (multipart/form-data)</td>
+      <td><b>200 OK</b>: el perfil con la URL de la foto nueva; la anterior se borra.</td>
+    </tr>
+    <tr>
+      <td>DELETE</td>
+      <td>/members/me/profile/photo</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Profiles/removePhoto">Quitar mi foto</a></td>
+      <td>Ninguno</td>
+      <td><b>200 OK</b>: el perfil sin foto; la aplicación muestra las iniciales.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>Endpoints documentados de Savings Groups</caption>
+  <colgroup><col width="12%"><col width="24%"><col width="20%"><col width="18%"><col width="26%"></colgroup>
+  <thead>
+    <tr>
+      <th>Verbo</th>
+      <th>Sintaxis de llamada</th>
+      <th>Acción</th>
+      <th>Parámetros</th>
+      <th>Respuesta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>POST</td>
+      <td>/groups</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Savings%20Groups/createGroup">Crear una junta</a></td>
+      <td>cuerpo: contributionAmount, firstContributionDate, name, periodicity</td>
+      <td><b>201 Created</b>: la junta en estado DRAFT, con quien la crea como cabeza.</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/groups/{groupId}</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Savings%20Groups/getGroup">Consultar una junta</a></td>
+      <td>groupId (ruta)</td>
+      <td><b>200 OK</b>: la junta con sus reglas, cupos libres y lo que le falta para iniciar.</td>
+    </tr>
+    <tr>
+      <td>DELETE</td>
+      <td>/groups/{groupId}</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Savings%20Groups/deleteGroup">Eliminar la junta</a></td>
+      <td>groupId (ruta)</td>
+      <td><b>204 No Content</b>: sin cuerpo; los integrantes con la aplicación reciben un aviso.</td>
+    </tr>
+    <tr>
+      <td>PATCH</td>
+      <td>/groups/{groupId}/destination</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Savings%20Groups/defineDestination">Definir a dónde se envían los aportes</a></td>
+      <td>groupId (ruta), cuerpo: method, phoneNumber</td>
+      <td><b>200 OK</b>: la junta con el método (Yape o Plin) y el número de destino.</td>
+    </tr>
+    <tr>
+      <td>PUT</td>
+      <td>/groups/{groupId}/rules</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Savings%20Groups/updateRules">Ajustar las reglas</a></td>
+      <td>groupId (ruta), cuerpo: contributionAmount, firstContributionDate, name, periodicity</td>
+      <td><b>200 OK</b>: la junta con las reglas nuevas; no acepta menos cupos que integrantes.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/groups/{groupId}/start</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Savings%20Groups/startGroup">Iniciar la junta</a></td>
+      <td>groupId (ruta)</td>
+      <td><b>200 OK</b>: la junta en estado STARTED; las reglas ya no cambian y la invitación vence.</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/members/me/groups</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Savings%20Groups/getMyGroups">Listar mis juntas</a></td>
+      <td>Ninguno</td>
+      <td><b>200 OK</b>: las juntas en las que el integrante participa, con su rol y su turno.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/groups/{groupId}/invitations</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Memberships/generateInvitation">Generar una invitación</a></td>
+      <td>groupId (ruta)</td>
+      <td><b>201 Created</b>: el código, el enlace para compartir y su vencimiento; la invitación anterior vence.</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/groups/{groupId}/invitations/active</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Memberships/getActiveInvitation">Consultar la invitación vigente</a></td>
+      <td>groupId (ruta)</td>
+      <td><b>200 OK</b>: el código y el enlace que siguen activos.</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/groups/{groupId}/members</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Memberships/getMembers">Listar los integrantes</a></td>
+      <td>groupId (ruta)</td>
+      <td><b>200 OK</b>: los integrantes con su tipo, su turno y su foto; la cabeza va primero.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/groups/{groupId}/members/manual</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Memberships/addManualMember">Registrar un integrante sin la aplicación</a></td>
+      <td>groupId (ruta), cuerpo: displayName</td>
+      <td><b>201 Created</b>: la lista de integrantes actualizada.</td>
+    </tr>
+    <tr>
+      <td>DELETE</td>
+      <td>/groups/{groupId}/members/{membershipId}</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Memberships/removeMember">Retirar a un integrante</a></td>
+      <td>groupId (ruta), membershipId (ruta)</td>
+      <td><b>204 No Content</b>: sin cuerpo; el integrante puede volver a unirse con otra invitación.</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/invitations/{code}</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Memberships/previewGroup">Ver una junta antes de unirse</a></td>
+      <td>code (ruta)</td>
+      <td><b>200 OK</b>: el nombre, la cabeza, las reglas y los cupos libres, sin la lista de integrantes.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/invitations/{code}/join</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Memberships/joinGroup">Unirse con un código de invitación</a></td>
+      <td>code (ruta)</td>
+      <td><b>200 OK</b>: la junta a la que el integrante se unió.</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/groups/{groupId}/turns</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Turns/getTurns">Consultar el calendario de turnos</a></td>
+      <td>groupId (ruta)</td>
+      <td><b>200 OK</b>: el turno, la fecha y el integrante que cobra en cada período.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/groups/{groupId}/turns/agreed</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Turns/agreedTurns">Fijar el orden acordado</a></td>
+      <td>groupId (ruta), cuerpo: order</td>
+      <td><b>200 OK</b>: el calendario de turnos en el orden enviado.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/groups/{groupId}/turns/draw</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Turns/drawTurns">Sortear los turnos</a></td>
+      <td>groupId (ruta)</td>
+      <td><b>200 OK</b>: el calendario de turnos y la semilla que permite reproducir el sorteo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>Endpoints documentados de Contributions</caption>
+  <colgroup><col width="12%"><col width="24%"><col width="20%"><col width="18%"><col width="26%"></colgroup>
+  <thead>
+    <tr>
+      <th>Verbo</th>
+      <th>Sintaxis de llamada</th>
+      <th>Acción</th>
+      <th>Parámetros</th>
+      <th>Respuesta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GET</td>
+      <td>/contributions/{contributionId}/receipt-image</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Contributions/getReceiptImage">Ver la imagen de un comprobante</a></td>
+      <td>contributionId (ruta)</td>
+      <td><b>200 OK</b>: un enlace firmado que funciona durante 15 minutos.</td>
+    </tr>
+    <tr>
+      <td>PUT</td>
+      <td>/contributions/{contributionId}/receipt-image</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Contributions/attachReceiptImage">Guardar la imagen de mi comprobante</a></td>
+      <td>contributionId (ruta), archivo de imagen (multipart/form-data)</td>
+      <td><b>200 OK</b>: el aporte, que indica que ya tiene imagen guardada.</td>
+    </tr>
+    <tr>
+      <td>PATCH</td>
+      <td>/contributions/{contributionId}/review</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Contributions/reviewContribution">Revisar un aporte</a></td>
+      <td>contributionId (ruta), cuerpo: decision</td>
+      <td><b>200 OK</b>: el aporte en APPROVED, que cuenta como pagado, o REJECTED, que el integrante puede registrar de nuevo.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/periods/{periodId}/contributions</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Contributions/registerContribution">Registrar mi aporte con el comprobante</a></td>
+      <td>periodId (ruta), cuerpo: amount, operationNumber, paidAt, payeeName, source</td>
+      <td><b>201 Created</b>: el aporte en estado VALIDATED, o INCONSISTENT con los campos que no coinciden.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/periods/{periodId}/contributions/cash</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Contributions/registerCash">Registrar un aporte en efectivo</a></td>
+      <td>periodId (ruta), cuerpo: amount, membershipId, receivedOn</td>
+      <td><b>201 Created</b>: el aporte validado, de método CASH.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/periods/{periodId}/contributions/coverage</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Contributions/registerCoverage">Registrar una cobertura</a></td>
+      <td>periodId (ruta), cuerpo: coveredByMembershipId, membershipId</td>
+      <td><b>201 Created</b>: el aporte de método COVERAGE e indica quién puso el dinero.</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/periods/{periodId}/contributions/pending-review</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Contributions/getPendingReviews">Listar los aportes por revisar</a></td>
+      <td>periodId (ruta)</td>
+      <td><b>200 OK</b>: los aportes INCONSISTENT del período, con lo esperado y lo encontrado.</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/cycles/{cycleId}/members/me/contributions</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Cycles/getMyContributions">Listar mis aportes</a></td>
+      <td>cycleId (ruta)</td>
+      <td><b>200 OK</b>: lo aportado, lo pendiente y el estado de cada período.</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/cycles/{cycleId}/periods</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Cycles/getPeriods">Listar los períodos</a></td>
+      <td>cycleId (ruta)</td>
+      <td><b>200 OK</b>: los períodos abiertos hasta ahora, en orden de turno.</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/cycles/{cycleId}/periods/current</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Cycles/getCurrentPeriod">Consultar el estado del pozo</a></td>
+      <td>cycleId (ruta)</td>
+      <td><b>200 OK</b>: quién cobra, cuánto se reunió y cuánto falta, y el estado de cada integrante.</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/groups/{groupId}/cycle</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Cycles/getCycle">Consultar el ciclo de una junta</a></td>
+      <td>groupId (ruta)</td>
+      <td><b>200 OK</b>: el ciclo con el turno en curso, el pozo y el destino de los aportes.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/periods/{periodId}/payout</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Periods/deliverPot">Confirmar la entrega del pozo</a></td>
+      <td>periodId (ruta)</td>
+      <td><b>200 OK</b>: el período entregado; se abre el siguiente o, si era el último, se cierra el ciclo.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>Endpoints documentados de Compliance History</caption>
+  <colgroup><col width="12%"><col width="24%"><col width="20%"><col width="18%"><col width="26%"></colgroup>
+  <thead>
+    <tr>
+      <th>Verbo</th>
+      <th>Sintaxis de llamada</th>
+      <th>Acción</th>
+      <th>Parámetros</th>
+      <th>Respuesta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GET</td>
+      <td>/compliance/shared/{token}</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Compliance%20History/getSharedHistory">Abrir un historial compartido</a> (pública)</td>
+      <td>token (ruta)</td>
+      <td><b>200 OK</b>: el nombre y el resumen, sin montos ni nombres de juntas.</td>
+    </tr>
+    <tr>
+      <td>DELETE</td>
+      <td>/compliance/shares/{token}</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Compliance%20History/revokeShareLink">Revocar un enlace compartido</a></td>
+      <td>token (ruta)</td>
+      <td><b>204 No Content</b>: sin cuerpo; el enlace deja de funcionar.</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/groups/{groupId}/compliance</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Compliance%20History/getGroupCompliance">Consultar el cumplimiento de los integrantes de una junta</a></td>
+      <td>groupId (ruta)</td>
+      <td><b>200 OK</b>: el resumen de cada integrante de la junta.</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/members/me/compliance</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Compliance%20History/getMyHistory">Consultar mi historial</a></td>
+      <td>Ninguno</td>
+      <td><b>200 OK</b>: el resumen en todas las juntas y el detalle por junta.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/members/me/compliance/share</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Compliance%20History/shareHistory">Compartir mi historial</a></td>
+      <td>Ninguno</td>
+      <td><b>201 Created</b>: el enlace público y su vencimiento a los 7 días.</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/members/{memberId}/compliance/summary</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Compliance%20History/getMemberSummary">Consultar el resumen de un integrante</a></td>
+      <td>memberId (ruta)</td>
+      <td><b>200 OK</b>: el nivel, la tasa de cumplimiento y los conteos de aportes.</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <caption>Endpoints documentados de Notifications</caption>
+  <colgroup><col width="12%"><col width="24%"><col width="20%"><col width="18%"><col width="26%"></colgroup>
+  <thead>
+    <tr>
+      <th>Verbo</th>
+      <th>Sintaxis de llamada</th>
+      <th>Acción</th>
+      <th>Parámetros</th>
+      <th>Respuesta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GET</td>
+      <td>/groups/{groupId}/reminder-plan</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Notifications/getReminderPlan">Consultar los recordatorios de una junta</a></td>
+      <td>groupId (ruta)</td>
+      <td><b>200 OK</b>: los días de anticipación y la hora de envío.</td>
+    </tr>
+    <tr>
+      <td>PUT</td>
+      <td>/groups/{groupId}/reminder-plan</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Notifications/configureReminderPlan">Cambiar los recordatorios de una junta</a></td>
+      <td>groupId (ruta), cuerpo: enabled, offsetsInDays, sendHour</td>
+      <td><b>200 OK</b>: el plan nuevo, que se aplica desde el siguiente período.</td>
+    </tr>
+    <tr>
+      <td>POST</td>
+      <td>/members/me/devices</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Notifications/registerDevice">Registrar mi celular</a></td>
+      <td>cuerpo: platform, pushToken</td>
+      <td><b>201 Created</b>: el dispositivo con su token de Firebase Cloud Messaging.</td>
+    </tr>
+    <tr>
+      <td>DELETE</td>
+      <td>/members/me/devices/{deviceId}</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Notifications/deactivateDevice">Quitar mi celular</a></td>
+      <td>deviceId (ruta)</td>
+      <td><b>204 No Content</b>: sin cuerpo; el celular deja de recibir notificaciones.</td>
+    </tr>
+    <tr>
+      <td>GET</td>
+      <td>/members/me/notifications</td>
+      <td><a href="https://api-kerolabs.duckdns.org/swagger-ui/index.html#/Notifications/getMyNotifications">Consultar mis notificaciones</a></td>
+      <td>Ninguno</td>
+      <td><b>200 OK</b>: las últimas 50, de la más reciente a la más antigua.</td>
+    </tr>
+  </tbody>
+</table>
+
+La Tabla 142 muestra un ejemplo de respuesta de los recursos principales, tomado de la junta de muestra con la que se probó la documentación y reducido a los campos que explican cada recurso. La documentación desplegada tiene el esquema completo de cada uno.
+
+<table>
+  <caption>Ejemplos de respuesta de los recursos principales</caption>
+  <colgroup><col width="17%"><col width="60%"><col width="23%"></colgroup>
+  <thead>
+    <tr>
+      <th>Recurso</th>
+      <th>Ejemplo de respuesta</th>
+      <th>Explicación</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ProfileResponse</td>
+      <td><code>{<br>&nbsp;"displayName":&nbsp;"Anna&nbsp;Weber",<br>&nbsp;"phoneNumber":&nbsp;"+51987654321",<br>&nbsp;"theme":&nbsp;"SYSTEM",<br>&nbsp;"walletNumber":&nbsp;null<br>}</code></td>
+      <td>Perfil de un integrante. Lo devuelven las consultas y los cambios de perfil y de número.</td>
+    </tr>
+    <tr>
+      <td>VerificationResponse</td>
+      <td><code>{<br>&nbsp;"registrationRequired":&nbsp;null,<br>&nbsp;"session":&nbsp;null,<br>&nbsp;"registrationToken":&nbsp;null<br>}</code></td>
+      <td>Resultado de verificar el código: la sesión, o el token para completar el registro.</td>
+    </tr>
+    <tr>
+      <td>Group</td>
+      <td><code>{<br>&nbsp;"name":&nbsp;"Junta&nbsp;de&nbsp;la&nbsp;familia&nbsp;Weber",<br>&nbsp;"status":&nbsp;"STARTED",<br>&nbsp;"role":&nbsp;"ORGANIZER",<br>&nbsp;"membersCount":&nbsp;4,<br>&nbsp;"freeSeats":&nbsp;0,<br>&nbsp;"readiness":&nbsp;{<br>&nbsp;&nbsp;"groupFull":&nbsp;true,<br>&nbsp;&nbsp;"turnsAssigned":&nbsp;true,<br>&nbsp;&nbsp;"destinationDefined":&nbsp;true<br>&nbsp;}<br>}</code></td>
+      <td>Junta con sus reglas y lo que le falta para iniciar. Lo devuelven las operaciones sobre la junta.</td>
+    </tr>
+    <tr>
+      <td>Membership</td>
+      <td><code>{<br>&nbsp;"displayName":&nbsp;"Anna&nbsp;Weber",<br>&nbsp;"kind":&nbsp;"APP",<br>&nbsp;"organizer":&nbsp;true,<br>&nbsp;"turnNumber":&nbsp;4<br>}</code></td>
+      <td>Integrante de una junta: con la aplicación (APP) o registrado por la cabeza (MANUAL).</td>
+    </tr>
+    <tr>
+      <td>TurnCalendar</td>
+      <td><code>{<br>&nbsp;"method":&nbsp;"DRAW",<br>&nbsp;"drawSeed":&nbsp;"5bd6904907be3299",<br>&nbsp;"potAmount":&nbsp;800.0,<br>&nbsp;"turns":&nbsp;[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"turnNumber":&nbsp;1,<br>&nbsp;&nbsp;&nbsp;"displayName":&nbsp;"Marta&nbsp;Quispe",<br>&nbsp;&nbsp;&nbsp;"cutoffDate":&nbsp;"2026-10-20"<br>&nbsp;&nbsp;},<br>&nbsp;&nbsp;...<br>&nbsp;]<br>}</code></td>
+      <td>Calendario de turnos con el método de asignación y la semilla del sorteo.</td>
+    </tr>
+    <tr>
+      <td>Cycle</td>
+      <td><code>{<br>&nbsp;"groupName":&nbsp;"Junta&nbsp;de&nbsp;la&nbsp;familia&nbsp;Weber",<br>&nbsp;"status":&nbsp;"ACTIVE",<br>&nbsp;"currentTurn":&nbsp;1,<br>&nbsp;"totalTurns":&nbsp;4,<br>&nbsp;"potAmount":&nbsp;800.0,<br>&nbsp;"destinationMethod":&nbsp;"YAPE"<br>}</code></td>
+      <td>Ciclo de una junta iniciada: el turno en curso, el pozo y a dónde se envían los aportes.</td>
+    </tr>
+    <tr>
+      <td>PeriodStatus</td>
+      <td><code>{<br>&nbsp;"turnNumber":&nbsp;1,<br>&nbsp;"status":&nbsp;"OPEN",<br>&nbsp;"cutoffDate":&nbsp;"2026-10-20",<br>&nbsp;"payoutMemberName":&nbsp;"Marta&nbsp;Quispe",<br>&nbsp;"potAmount":&nbsp;800.0,<br>&nbsp;"collectedAmount":&nbsp;600.0,<br>&nbsp;"missingAmount":&nbsp;200.0<br>}</code></td>
+      <td>Estado del pozo de un período: quién cobra, cuánto se reunió y cuánto falta.</td>
+    </tr>
+    <tr>
+      <td>Contribution</td>
+      <td><code>{<br>&nbsp;"memberName":&nbsp;"Marta&nbsp;Quispe",<br>&nbsp;"amount":&nbsp;150.0,<br>&nbsp;"method":&nbsp;"TRANSFER",<br>&nbsp;"status":&nbsp;"INCONSISTENT",<br>&nbsp;"inconsistencies":&nbsp;[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"field":&nbsp;"AMOUNT",<br>&nbsp;&nbsp;&nbsp;"expected":&nbsp;"S/&nbsp;200.00",<br>&nbsp;&nbsp;&nbsp;"found":&nbsp;"S/&nbsp;150.00"<br>&nbsp;&nbsp;}<br>&nbsp;]<br>}</code></td>
+      <td>Aporte con su comprobante, su validación y la revisión de la cabeza.</td>
+    </tr>
+    <tr>
+      <td>MyContributions</td>
+      <td><code>{<br>&nbsp;"groupName":&nbsp;"Junta&nbsp;de&nbsp;la&nbsp;familia&nbsp;Weber",<br>&nbsp;"contributedAmount":&nbsp;200.0,<br>&nbsp;"pendingAmount":&nbsp;0.0,<br>&nbsp;"periods":&nbsp;[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"turnNumber":&nbsp;1,<br>&nbsp;&nbsp;&nbsp;"cutoffDate":&nbsp;"2026-10-20",<br>&nbsp;&nbsp;&nbsp;"amount":&nbsp;200.0<br>&nbsp;&nbsp;}<br>&nbsp;]<br>}</code></td>
+      <td>Aportes del integrante autenticado en un ciclo, período por período.</td>
+    </tr>
+    <tr>
+      <td>ComplianceSummary</td>
+      <td><code>{<br>&nbsp;"level":&nbsp;"GOOD",<br>&nbsp;"complianceRate":&nbsp;100,<br>&nbsp;"contributions":&nbsp;1,<br>&nbsp;"onTime":&nbsp;1,<br>&nbsp;"late":&nbsp;0<br>}</code></td>
+      <td>Resumen de cumplimiento de un integrante en todas sus juntas.</td>
+    </tr>
+    <tr>
+      <td>ShareLink</td>
+      <td><code>{<br>&nbsp;"url":&nbsp;"kerolabs.github.io/historial/?t=...",<br>&nbsp;"expiresAt":&nbsp;"2026-10-15T23:21:58Z"<br>}</code></td>
+      <td>Enlace público al historial, que vence a los 7 días.</td>
+    </tr>
+    <tr>
+      <td>Notification</td>
+      <td><code>{<br>&nbsp;"kind":&nbsp;"ALERT",<br>&nbsp;"title":&nbsp;"Comprobante&nbsp;por&nbsp;revisar",<br>&nbsp;"body":&nbsp;"Marta&nbsp;Quispe&nbsp;subió&nbsp;un&nbsp;compr...",<br>&nbsp;"sentAt":&nbsp;"2026-10-08T23:21:42Z"<br>}</code></td>
+      <td>Notificación enviada al integrante, tal como la muestra la aplicación.</td>
+    </tr>
+    <tr>
+      <td>ReminderPlan</td>
+      <td><code>{<br>&nbsp;"offsetsInDays":&nbsp;[<br>&nbsp;&nbsp;3,<br>&nbsp;&nbsp;...<br>&nbsp;],<br>&nbsp;"sendHour":&nbsp;9,<br>&nbsp;"enabled":&nbsp;true<br>}</code></td>
+      <td>Plan de recordatorios de una junta: los días de anticipación y la hora de envío.</td>
+    </tr>
+    <tr>
+      <td>CodeRequestedResponse</td>
+      <td><code>{<br>&nbsp;"phoneNumber":&nbsp;null,<br>&nbsp;"expiresAt":&nbsp;null,<br>&nbsp;"resendAvailableAt":&nbsp;null<br>}</code></td>
+      <td>Confirmación del envío de un código por SMS.</td>
+    </tr>
+    <tr>
+      <td>Error</td>
+      <td><code>{<br>&nbsp;"code":&nbsp;"INVITATION_NOT_FOUND",<br>&nbsp;"message":&nbsp;"El&nbsp;código&nbsp;de&nbsp;invitación&nbsp;no..."<br>}</code></td>
+      <td>Cuerpo común de todos los errores: un código estable para la aplicación y un mensaje en el idioma del integrante.</td>
+    </tr>
+  </tbody>
+</table>
+
+Para mostrar la interacción con la documentación se usó una junta de muestra de cuatro integrantes: Anna Weber como cabeza, y Sofia Gonzales, Marta Quispe y Jorge Ramos. Sofia registró un aporte que coincidía con lo esperado y Marta uno por un monto menor. Las Figuras 133 a 136 muestran cuatro llamadas hechas desde Swagger UI con el token de cada integrante, con la URL de la solicitud y la respuesta del servicio. Se hicieron sobre una instancia local de los servicios con una base de datos propia, para no mezclar los datos de muestra con los de producción.
+
+Jorge Ramos registra su aporte de S/ 200 con los datos de un comprobante de Plin. El monto, el destinatario y la fecha coinciden con lo esperado, así que el servicio responde 201 Created con el aporte en estado VALIDATED y sin inconsistencias (ver Figura 133).
+
+![Registro de un aporte desde Swagger UI](images/chapter_4/swagger_register_contribution.png){width=80%}
+
+Anna Weber, la cabeza de la junta, consulta los aportes por revisar del período. Aparece el de Marta Quispe en estado INCONSISTENT: el comprobante dice S/ 150 y se esperaban S/ 200 (ver Figura 134).
+
+![Aportes por revisar desde Swagger UI](images/chapter_4/swagger_pending_review.png){width=80%}
+
+La cabeza aprueba ese aporte con una nota. El servicio responde 200 OK con el aporte en estado APPROVED y la decisión guardada en la revisión, y el aporte pasa a contar como pagado (ver Figura 135).
+
+![Revisión de un aporte desde Swagger UI](images/chapter_4/swagger_review_contribution.png){width=80%}
+
+Con los tres aportes, el estado del pozo muestra S/ 600 reunidos de S/ 800, que en este turno cobra Marta Quispe, que solo falta el aporte de Anna Weber y el estado de cada integrante (ver Figura 136).
+
+![Estado del pozo desde Swagger UI](images/chapter_4/swagger_period_status.png){width=80%}
+
+La documentación se escribió junto con cada controller, en el mismo commit que agrega sus endpoints, de modo que ningún endpoint quedó sin documentar en el historial. La Tabla 143 relaciona los commits de los servicios RESTful que agregaron o cambiaron la documentación OpenAPI en este Sprint.
+
+<table>
+  <caption>Commits de la documentación de los servicios RESTful</caption>
+  <colgroup><col width="15%"><col width="19%"><col width="10%"><col width="34%"><col width="10%"><col width="12%"></colgroup>
+  <thead>
+    <tr>
+      <th>Repository</th>
+      <th>Branch</th>
+      <th>Commit Id</th>
+      <th>Commit Message</th>
+      <th>Commit Message Body</th>
+      <th>Committed on (Date)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/shared-kernel</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/af8a6e6">af8a6e6</a></td>
+      <td>feat(shared): add the OpenAPI, locale and message bundle configuration</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/shared-kernel</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/b3fc64c">b3fc64c</a></td>
+      <td>feat(shared): add the standard error response and global exception handler</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/iam</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/80cf2b0">80cf2b0</a></td>
+      <td>feat(iam): add the authentication and profile endpoints</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/savings-groups</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/af8d172">af8d172</a></td>
+      <td>feat(savings-groups): add the group, membership and turn endpoints</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/contributions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/0fa3b5a">0fa3b5a</a></td>
+      <td>feat(contributions): add the cycle, period and contribution endpoints</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/notifications</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/fe6fd9f">fe6fd9f</a></td>
+      <td>feat(compliance-history): add the history, group compliance and share link endpoints</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/notifications</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/937d678">937d678</a></td>
+      <td>feat(notifications): expose devices, reminder plans and the notification inbox</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/profile-contact-data</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/905057f">905057f</a></td>
+      <td>feat(iam): add the Yape or Plin number and the backup email to the profile</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/account-recovery</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/d1ac94d">d1ac94d</a></td>
+      <td>feat(iam): recover an account with the backup email and change the phone number</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/profile-photo</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/677812d">677812d</a></td>
+      <td>feat(iam): store the profile photo in Supabase Storage</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/member-photos</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/76c3eff">76c3eff</a></td>
+      <td>feat(savings-groups): include the profile photo of each member and turn</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/group-management</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/2946512">2946512</a></td>
+      <td>feat: let removed members rejoin, delete groups before they start and tell the organizer who joins</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/receipts-and-group-notices</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/5716e4f">5716e4f</a></td>
+      <td>feat: keep receipt images in a private bucket and show them through signed links</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/receipts-and-group-notices</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/3404b33">3404b33</a></td>
+      <td>feat: tell the members when the rules change or the group fills up, and expose each member's account</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
 
 #### 4.2.1.9. Team Collaboration Insights during Sprint
