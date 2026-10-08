@@ -115,9 +115,23 @@
 % Figuras y tablas donde se escriben, con el rotulo arriba.
 \usepackage{float}
 \makeatletter\def\fps@figure{H}\def\fps@table{H}\makeatother
+% Paquetes de tablas. Pandoc los carga solo si encuentra tablas en el documento,
+% pero config/table-grid.lua las convierte en LaTeX crudo antes de que pandoc las
+% cuente, asi que hay que cargarlos aqui. Cargar dos veces un paquete no molesta.
+% longtable va antes que caption: cargado despues, caption no alcanza a parchear
+% el pie de las longtable y el rotulo "Tabla N" no llega a imprimirse.
+\usepackage{longtable,booktabs,array,multirow,calc}
 \usepackage{caption}
-\captionsetup{position=above, labelfont=bf, textfont=it,
+\captionsetup{position=above, labelfont=bf, textfont=it, labelsep=newline,
               singlelinecheck=false, justification=raggedright, skip=6pt}
+
+% El pie de una longtable se compone dentro de una caja de \LTcapwidth, que por
+% omision mide 4 in: mas angosta que el texto y sin sitio para un titulo largo.
+% Igualarla al ancho del texto es lo que hace que el rotulo "Tabla N" aparezca.
+\setlength{\LTcapwidth}{\textwidth}
+\captionsetup[longtable]{position=above, labelfont=bf, textfont=it,
+                         labelsep=newline, singlelinecheck=false,
+                         justification=raggedright, skip=6pt}
 
 % En espanol babel rotula "Cuadro"; APA usa "Tabla".
 \AtBeginDocument{%
@@ -148,10 +162,6 @@
   \fi}
 \makeatother
 
-% Paquetes de tablas. Pandoc los carga solo si encuentra tablas en el documento,
-% pero config/table-grid.lua las convierte en LaTeX crudo antes de que pandoc las
-% cuente, asi que hay que cargarlos aqui. Cargar dos veces un paquete no molesta.
-\usepackage{longtable,booktabs,array,multirow,calc}
 \makeatletter
 \ifdefined\c@none\else
   \newcounter{none} % contador que pandoc usa para tablas sin numerar

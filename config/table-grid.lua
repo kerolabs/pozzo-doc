@@ -248,7 +248,19 @@ local function cuadricular(latex, tbl)
   -- paginas no hace falta: la pone la mitad del \hline en que se corto la
   -- pagina (ver lineasBajoFilas).
   if not REPETIR_CABECERA then
-    cuerpo = reemplazar(cuerpo, '\\endhead', '\\endfirsthead\n\\endhead')
+    local primera = cuerpo:find('\\endfirsthead', 1, true)
+    if primera then
+      -- La tabla tiene titulo: pandoc ya definio la cabecera inicial con el
+      -- \caption dentro y la cerro con \endfirsthead. Un segundo \endfirsthead
+      -- redefine esa cabecera y el rotulo "Tabla N" se pierde, asi que aqui
+      -- solo se vacia la cabecera que se repetiria en las paginas siguientes.
+      local repetida = cuerpo:find('\\endhead', primera, true)
+      if repetida then
+        cuerpo = cuerpo:sub(1, primera + #'\\endfirsthead' - 1) .. '\n' .. cuerpo:sub(repetida)
+      end
+    else
+      cuerpo = reemplazar(cuerpo, '\\endhead', '\\endfirsthead\n\\endhead')
+    end
   end
 
   return cabeza .. cuerpo .. cola

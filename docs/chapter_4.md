@@ -6,9 +6,10 @@ En esta sección se fijan las decisiones que mantienen consistentes los producto
 
 ### 4.1.1. Software Development Environment Configuration
 
-El equipo trabaja con las herramientas de la tabla siguiente, agrupadas por la actividad del ciclo de vida en la que se usan. Las que funcionan como servicio en la nube se indican con su ruta de referencia; las que se instalan en el computador de cada integrante, con su ruta de descarga. Todas respetan las restricciones de tecnología del curso: UXPressia para personas, journeys, empathy e impact maps; Figma para wireframes, mock-ups y prototipos; Structurizr para el C4 Model; Kotlin nativo para Android; Spring Boot para los servicios; OpenAPI con Swagger para su documentación, y Trello para la gestión del backlog.
+El equipo trabaja con las herramientas de la Tabla 133, agrupadas por la actividad del ciclo de vida en la que se usan. Las que funcionan como servicio en la nube se indican con su ruta de referencia; las que se instalan en el computador de cada integrante, con su ruta de descarga. Todas respetan las restricciones de tecnología del curso: UXPressia para personas, journeys, empathy e impact maps; Figma para wireframes, mock-ups y prototipos; Structurizr para el C4 Model; Kotlin nativo para Android; Spring Boot para los servicios; OpenAPI con Swagger para su documentación, y Trello para la gestión del backlog.
 
 <table>
+  <caption>Herramientas del entorno de desarrollo por actividad del ciclo de vida</caption>
   <colgroup><col width="17%"><col width="18%"><col width="40%"><col width="25%"></colgroup>
   <thead>
     <tr>
@@ -151,9 +152,10 @@ El equipo trabaja con las herramientas de la tabla siguiente, agrupadas por la a
 
 ### 4.1.2. Source Code Management
 
-El código de Pozzo se versiona con Git y se aloja en GitHub, en la organización `kerolabs`. Cada producto tiene su propio repositorio, de modo que se versiona, se revisa y se despliega por separado. El repositorio de los servicios RESTful incluye, junto al proyecto, sus pruebas unitarias, de integración y de aceptación.
+El código de Pozzo se versiona con Git y se aloja en GitHub, en la organización `kerolabs`. Cada producto tiene su propio repositorio, de modo que se versiona, se revisa y se despliega por separado. El repositorio de los servicios RESTful incluye, junto al proyecto, sus pruebas unitarias, de integración y de aceptación (ver Tabla 134).
 
 <table>
+  <caption>Repositorios de los productos de Pozzo en la organización kerolabs</caption>
   <colgroup><col width="28%"><col width="32%"><col width="40%"></colgroup>
   <thead>
     <tr>
@@ -191,9 +193,10 @@ El código de Pozzo se versiona con Git y se aloja en GitHub, en la organizació
   </tbody>
 </table>
 
-El flujo de trabajo sigue GitFlow [@driessen2010gitflow]. Además de la rama principal, cada repositorio tiene una rama de integración y ramas de vida corta para cada cambio:
+El flujo de trabajo sigue GitFlow [@driessen2010gitflow]. Además de la rama principal, cada repositorio tiene una rama de integración y ramas de vida corta para cada cambio (ver Tabla 135):
 
 <table>
+  <caption>Ramas de GitFlow en los repositorios de Pozzo</caption>
   <colgroup><col width="20%"><col width="18%"><col width="62%"></colgroup>
   <thead>
     <tr>
@@ -254,9 +257,10 @@ Tres mecanismos hacen que estas reglas se cumplan y no dependan de la memoria de
 
 ### 4.1.3. Source Code Style Guide & Conventions
 
-Todo el código de Pozzo se escribe en inglés: nombres de clases, funciones, variables, archivos, rutas de la API, comentarios y mensajes de commit. El español queda para los textos que ve el usuario (pantallas, notificaciones, mensajes de error de la API) y para este informe. Sobre esa base, cada lenguaje sigue una guía de referencia:
+Todo el código de Pozzo se escribe en inglés: nombres de clases, funciones, variables, archivos, rutas de la API, comentarios y mensajes de commit. El español queda para los textos que ve el usuario (pantallas, notificaciones, mensajes de error de la API) y para este informe. Sobre esa base, cada lenguaje sigue una guía de referencia (ver Tabla 136):
 
 <table>
+  <caption>Guías de estilo de referencia por lenguaje</caption>
   <colgroup><col width="17%"><col width="27%"><col width="56%"></colgroup>
   <thead>
     <tr>
@@ -323,7 +327,7 @@ El estado de los despliegues, los recursos de la instancia y el log en vivo de l
 
 **Mobile Application.** La aplicación tiene dos variantes. `cloud`, la predeterminada, apunta a los servicios desplegados; `local` apunta a los servicios corriendo en el computador del integrante y se instala aparte, para que las dos convivan en el mismo celular. El APK de entrega se genera en Android Studio con la variante `cloudRelease`, firmado con la llave de la aplicación, que se guarda fuera del repositorio. El proyecto de Firebase `kerolabs-pozzo` provee las notificaciones push y, para la entrega final, la distribución de la aplicación a quienes la prueban mediante Firebase App Distribution.
 
-El diagrama de despliegue del C4 Model resume dónde corre cada contenedor de la solución:
+El diagrama de despliegue del C4 Model resume dónde corre cada contenedor de la solución (ver Figura 131):
 
 ![Diagrama de despliegue de Pozzo en producción](images/chapter_2/c4_deployment.png){width=85%}
 
