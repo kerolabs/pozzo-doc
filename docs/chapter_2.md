@@ -3477,31 +3477,87 @@ La sección cierra con la arquitectura de software de la solución, representada
 
 La sesión de EventStorming de nivel de diseño se realizó en Miro con los cinco integrantes del equipo y duró dos horas. A diferencia del Big Picture, que describía cómo funciona hoy una junta sin Pozzo, esta sesión modeló cómo va a funcionar con Pozzo: qué comandos ejecuta cada actor desde la aplicación, qué agregado los recibe, qué eventos producen, qué políticas reaccionan a esos eventos, qué vistas consulta el usuario para decidir y con qué sistemas externos se conversa. Las User Stories sirvieron de guion: cada historia se tradujo en al menos un comando y en los eventos que su criterio de aceptación describe en la cláusula "Entonces".
 
-Se usó la notación habitual de Brandolini con un color por concepto: actor, comando, agregado, evento de dominio, política, vista (read model), sistema externo y hotspot. Los eventos se escribieron en pasado, los comandos en infinitivo y las políticas con la forma "cuando ocurre X, entonces Y". Los eventos pivotales, los que cambian el estado de la junta, se marcaron en negrita (ver Figura 31).
+Se usó la notación de Brandolini, que asigna un color de nota a cada concepto del dominio. La leyenda que acompaña al tablero recoge los ocho conceptos empleados, su color y lo que representa cada uno, de modo que los tramos se puedan leer sin conocer la convención de antemano (ver Tabla 80).
+
+<table>
+  <caption>Leyenda del EventStorming de nivel de diseño</caption>
+  <colgroup><col width="22%"><col width="18%"><col width="60%"></colgroup>
+  <thead>
+    <tr>
+      <th>Concepto</th>
+      <th>Color de la nota</th>
+      <th>Qué representa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Actor</b></td>
+      <td>Amarillo claro</td>
+      <td>Persona o rol que ejecuta el comando: la cabeza de junta, el participante o el integrante cuando la acción es de ambos.</td>
+    </tr>
+    <tr>
+      <td><b>Comando</b></td>
+      <td>Azul</td>
+      <td>Intención de cambiar el dominio. Se escribe en infinitivo: crear junta, registrar aporte, entregar pozo.</td>
+    </tr>
+    <tr>
+      <td><b>Agregado</b></td>
+      <td>Amarillo</td>
+      <td>Objeto que recibe el comando, decide si procede y produce el evento: Junta, Período, Aporte, Subasta.</td>
+    </tr>
+    <tr>
+      <td><b>Evento de dominio</b></td>
+      <td>Naranja</td>
+      <td>Hecho relevante que ya ocurrió, escrito en pasado. Los eventos pivotales, los que cambian el estado de la junta, van en negrita.</td>
+    </tr>
+    <tr>
+      <td><b>Política</b></td>
+      <td>Lila</td>
+      <td>Reacción automática a un evento, con la forma "cuando ocurre X, entonces Y": al abrir un período, avisar a los integrantes.</td>
+    </tr>
+    <tr>
+      <td><b>Vista (read model)</b></td>
+      <td>Verde</td>
+      <td>Información que el usuario consulta para decidir: el estado del pozo, el calendario de turnos, los aportes pendientes.</td>
+    </tr>
+    <tr>
+      <td><b>Sistema externo</b></td>
+      <td>Rosado</td>
+      <td>Servicio fuera de Pozzo con el que el dominio conversa: el proveedor de SMS, Firebase Cloud Messaging, ML Kit.</td>
+    </tr>
+    <tr>
+      <td><b>Hotspot</b></td>
+      <td>Rojo</td>
+      <td>Duda, riesgo o regla por confirmar que surgió durante la sesión y quedó anotada para resolverse después.</td>
+    </tr>
+  </tbody>
+</table>
+
+La Figura 31 muestra la leyenda del EventStorming de nivel de diseño.
 
 ![Leyenda del EventStorming de nivel de diseño](images/chapter_2/es_leyenda.png)
 
 Para que el resultado se pueda leer, el tablero se organizó en columnas y carriles. Cada columna es un paso del proceso y cada carril un tipo de nota, de modo que una columna se lee de arriba abajo como una frase: tal actor ejecuta tal comando sobre tal agregado y se produce tal evento, que dispara tal política. La sesión recorrió el ciclo de una junta en cuatro tramos.
 
-#### Acceso a Pozzo
+#### Tramo 1: acceso a Pozzo
 
 El primer tramo cubre la entrada de un integrante a la aplicación. Se identificó un único agregado, Cuenta, que recibe los comandos de solicitar y verificar el código SMS, completar el registro y administrar el perfil, y un agregado Sesión para el token que la aplicación guarda en el dispositivo. Dos políticas conectan este tramo con el resto: si el celular es nuevo se pide el registro, y al iniciar sesión se registra el dispositivo para recibir avisos. Los hotspots recogieron el vencimiento del código, los reintentos y la sesión en dos dispositivos a la vez (ver Figura 32).
 
 ![EventStorming: acceso a Pozzo](images/chapter_2/es_acceso.png)
 
-#### Configuración de la junta, integrantes y turnos
+#### Tramo 2: configuración de la junta, integrantes y turnos
 
 El segundo tramo va desde que la cabeza crea la junta hasta que la inicia. El agregado Junta concentra las reglas (aporte, periodicidad, cupos, fecha de corte y destino de los aportes), la lista de integrantes y los turnos; Invitación y Subasta aparecen como agregados propios porque tienen ciclo de vida independiente. El evento pivotal es Junta iniciada: a partir de él las reglas quedan bloqueadas, el código de invitación caduca y una política abre el primer período de aporte. Los hotspots de este tramo son decisiones que el prototipo dejó abiertas: si el destino de los aportes es la cuenta de la cabeza o la del integrante del turno, cómo se verifica ante el grupo que el sorteo fue justo y qué pasa con un empate en la subasta (ver Figura 33).
 
 ![EventStorming: configuración de la junta, integrantes y turnos](images/chapter_2/es_junta.png)
 
-#### Registro y validación de aportes
+#### Tramo 3: registro y validación de aportes
 
 El tercer tramo es el núcleo de Pozzo. Al abrir un período, una política calcula el aporte esperado de cada integrante; antes de la fecha de corte, otra envía recordatorios escalonados a quien no ha aportado. El participante registra su aporte con la captura del comprobante, ML Kit lee en el dispositivo el monto, la fecha, el destinatario y el número de operación, y el participante confirma esos datos. El agregado Aporte los valida contra lo esperado y produce el evento pivotal Aporte validado o, si algo no cuadra, Inconsistencia detectada, que pide a la cabeza aprobar o rechazar. Los aportes en efectivo los registra solo la cabeza, porque no tienen comprobante. Cuando todos los aportes del período están validados, el pozo está completo. Los hotspots más discutidos fueron la captura borrosa o recortada, el comprobante reutilizado en dos aportes y el hecho de que la entrega del push no está garantizada (ver Figura 34).
 
 ![EventStorming: registro y validación de aportes](images/chapter_2/es_aportes.png)
 
-#### Entrega del pozo, cierre del ciclo e historial
+#### Tramo 4: entrega del pozo, cierre del ciclo e historial
 
 El último tramo cubre las excepciones y el cierre. La cobertura de un aporte completa el pozo pero no borra la morosidad, y deja registrada la deuda del moroso con quien cubrió; la deserción incorpora un reemplazo que hereda el turno pendiente. Pozo entregado es el tercer evento pivotal: la transferencia ocurre fuera de Pozzo, por Yape, Plin o el banco, y la aplicación registra el hecho, avisa al grupo y abre el siguiente período. Tras el último turno, Ciclo cerrado cierra la junta. Una política transversal actualiza el historial de cumplimiento de cada integrante con cada aporte validado, cubierto, deserción o cierre, y el integrante puede compartirlo con la hoja de compartir del sistema. Este tramo también recoge el agregado Dispositivo y la política que envía un aviso en cada hecho relevante de la junta (ver Figura 35).
 
@@ -3511,19 +3567,19 @@ El último tramo cubre las excepciones y el cierre. La cobertura de un aporte co
 
 Con el EventStorm completo, el equipo dedicó una segunda sesión de dos horas a identificar los Bounded Contexts candidatos. Se trabajó solo con los eventos de dominio, que se copiaron a una zona aparte del tablero para poder reordenarlos sin perder la línea de tiempo original, y se aplicaron tres técnicas en secuencia.
 
-**Paso 1: look-for-pivotal-events.** Se marcaron los cuatro eventos que cambian el estado de la junta y que ya se habían resaltado durante el EventStorming: Junta iniciada, Aporte validado, Pozo entregado y Ciclo cerrado. Cada uno separa fases con reglas distintas. Antes de Junta iniciada todo puede cambiar; después, las reglas se congelan. Aporte validado convierte una intención de pago en un hecho que cuenta para el pozo y para el historial. Pozo entregado marca el momento en que el dinero sale del proceso y arranca el siguiente turno. Ciclo cerrado deja a la junta como un registro cerrado del que solo queda el historial (ver Figura 36).
+**Paso 1. Look for pivotal events.** Se marcaron los cuatro eventos que cambian el estado de la junta y que ya se habían resaltado durante el EventStorming: Junta iniciada, Aporte validado, Pozo entregado y Ciclo cerrado. Cada uno separa fases con reglas distintas. Antes de Junta iniciada todo puede cambiar; después, las reglas se congelan. Aporte validado convierte una intención de pago en un hecho que cuenta para el pozo y para el historial. Pozo entregado marca el momento en que el dinero sale del proceso y arranca el siguiente turno. Ciclo cerrado deja a la junta como un registro cerrado del que solo queda el historial (ver Figura 36).
 
 ![Candidate Context Discovery, paso 1: eventos pivotales](images/chapter_2/ccd_paso1.png)
 
-**Paso 2: start-with-simple.** Con los pivotales como cortes, la línea de tiempo se dividió en cinco segmentos secuenciales: antes de iniciar la junta; período abierto y registro; validación y completitud del pozo; entrega y siguiente turno; cierre e historial. Este paso hizo visible que el segundo, el tercero y el cuarto segmento se repiten por cada turno de la junta, mientras que el primero y el último ocurren una sola vez por ciclo, y que los eventos de acceso (código SMS, cuenta, sesión) y los de avisos (recordatorios, avisos) no pertenecen a ningún segmento en particular: aparecen en todos (ver Figura 37).
+**Paso 2. Start with simple.** Con los pivotales como cortes, la línea de tiempo se dividió en cinco segmentos secuenciales: antes de iniciar la junta; período abierto y registro; validación y completitud del pozo; entrega y siguiente turno; cierre e historial. Este paso hizo visible que el segundo, el tercero y el cuarto segmento se repiten por cada turno de la junta, mientras que el primero y el último ocurren una sola vez por ciclo, y que los eventos de acceso (código SMS, cuenta, sesión) y los de avisos (recordatorios, avisos) no pertenecen a ningún segmento en particular: aparecen en todos (ver Figura 37).
 
 ![Candidate Context Discovery, paso 2: segmentos entre eventos pivotales](images/chapter_2/ccd_paso2.png)
 
-**Paso 3: start-with-value.** Por último se preguntó qué parte del dominio sostiene la hipótesis principal de Pozzo. La respuesta fue la validación de aportes y la transparencia del pozo: es lo que ningún competidor hace y lo que las entrevistas señalaron como el mayor punto de fricción. Los eventos de los segmentos que se repiten por turno, desde Período abierto hasta Ciclo cerrado, se agruparon como el contexto core, Contributions. El resto se regrupó por afinidad: lo que ocurre antes de iniciar la junta, incluidos los turnos y las deserciones, formó Savings Groups; los eventos transversales de acceso formaron Identity & Access; los de recordatorios y avisos, Notifications; y los dos eventos del historial, Compliance History (ver Figura 38).
+**Paso 3. Start with value.** Por último se preguntó qué parte del dominio sostiene la hipótesis principal de Pozzo. La respuesta fue la validación de aportes y la transparencia del pozo: es lo que ningún competidor hace y lo que las entrevistas señalaron como el mayor punto de fricción. Los eventos de los segmentos que se repiten por turno, desde Período abierto hasta Ciclo cerrado, se agruparon como el contexto core, Contributions. El resto se regrupó por afinidad: lo que ocurre antes de iniciar la junta, incluidos los turnos y las deserciones, formó Savings Groups; los eventos transversales de acceso formaron Identity & Access; los de recordatorios y avisos, Notifications; y los dos eventos del historial, Compliance History (ver Figura 38).
 
 ![Candidate Context Discovery, paso 3: bounded contexts candidatos](images/chapter_2/ccd_paso3.png)
 
-El resultado son cinco Bounded Contexts, uno por integrante del equipo, clasificados según el valor que aportan al negocio (ver Tabla 80).
+El resultado son cinco Bounded Contexts, uno por integrante del equipo, clasificados según el valor que aportan al negocio (ver Tabla 81).
 
 <table>
   <caption>Bounded contexts candidatos y los epics que cubren</caption>
@@ -3621,7 +3677,7 @@ La primera alternativa, unir Savings Groups y Contributions en un solo contexto 
 
 ![Context Map de Pozzo](images/chapter_2/context_map.png)
 
-El mapa definitivo usa cuatro de los patrones de relación de Domain-Driven Design. En cada relación la flecha va del contexto upstream (U) al downstream (D) (ver Tabla 81).
+El mapa definitivo usa cuatro de los patrones de relación de Domain-Driven Design. En cada relación la flecha va del contexto upstream (U) al downstream (D) (ver Tabla 82).
 
 <table>
   <caption>Relaciones entre bounded contexts del Context Map</caption>
@@ -3722,7 +3778,7 @@ Contributions es el contexto core. Registra y valida los aportes de cada períod
 
 #### 2.6.1.1. Domain Layer
 
-La Tabla 82 presenta las clases del Domain Layer de Contributions.
+La Tabla 83 presenta las clases del Domain Layer de Contributions.
 
 <table>
   <caption>Clases del Domain Layer de Contributions</caption>
@@ -3833,7 +3889,7 @@ Las reglas de negocio del canvas quedan repartidas así: la validación del comp
 
 #### 2.6.1.2. Interface Layer
 
-La capa de interfaz expone el contexto como recursos REST, documentados con OpenAPI, y traduce entre los recursos JSON y los comandos y consultas del dominio mediante clases assembler (ver Tabla 83).
+La capa de interfaz expone el contexto como recursos REST, documentados con OpenAPI, y traduce entre los recursos JSON y los comandos y consultas del dominio mediante clases assembler (ver Tabla 84).
 
 <table>
   <caption>Clases del Interface Layer de Contributions</caption>
@@ -3876,7 +3932,7 @@ La capa de interfaz expone el contexto como recursos REST, documentados con Open
 
 #### 2.6.1.3. Application Layer
 
-La capa de aplicación orquesta los casos de uso: recibe un comando o una consulta, carga los agregados por sus repositorios, invoca sus métodos, guarda y publica los eventos. No contiene reglas de negocio (ver Tabla 84).
+La capa de aplicación orquesta los casos de uso: recibe un comando o una consulta, carga los agregados por sus repositorios, invoca sus métodos, guarda y publica los eventos. No contiene reglas de negocio (ver Tabla 85).
 
 <table>
   <caption>Clases del Application Layer de Contributions</caption>
@@ -3924,7 +3980,7 @@ La capa de aplicación orquesta los casos de uso: recibe un comando o una consul
 
 #### 2.6.1.4. Infrastructure Layer
 
-La Tabla 85 presenta las clases del Infrastructure Layer de Contributions.
+La Tabla 86 presenta las clases del Infrastructure Layer de Contributions.
 
 <table>
   <caption>Clases del Infrastructure Layer de Contributions</caption>
@@ -3982,7 +4038,7 @@ Savings Groups es el contexto de soporte que define la junta antes de que exista
 
 #### 2.6.2.1. Domain Layer
 
-La Tabla 86 presenta las clases del Domain Layer de Savings Groups.
+La Tabla 87 presenta las clases del Domain Layer de Savings Groups.
 
 <table>
   <caption>Clases del Domain Layer de Savings Groups</caption>
@@ -4081,7 +4137,7 @@ Las reglas del canvas quedan en `SavingsGroup.canStart` (cupos cubiertos y turno
 
 #### 2.6.2.2. Interface Layer
 
-La Tabla 87 presenta las clases del Interface Layer de Savings Groups.
+La Tabla 88 presenta las clases del Interface Layer de Savings Groups.
 
 <table>
   <caption>Clases del Interface Layer de Savings Groups</caption>
@@ -4119,7 +4175,7 @@ La Tabla 87 presenta las clases del Interface Layer de Savings Groups.
 
 #### 2.6.2.3. Application Layer
 
-La Tabla 88 presenta las clases del Application Layer de Savings Groups.
+La Tabla 89 presenta las clases del Application Layer de Savings Groups.
 
 <table>
   <caption>Clases del Application Layer de Savings Groups</caption>
@@ -4169,7 +4225,7 @@ Este contexto no tiene event handlers entrantes: todo lo que ocurre en una junta
 
 #### 2.6.2.4. Infrastructure Layer
 
-La Tabla 89 presenta las clases del Infrastructure Layer de Savings Groups.
+La Tabla 90 presenta las clases del Infrastructure Layer de Savings Groups.
 
 <table>
   <caption>Clases del Infrastructure Layer de Savings Groups</caption>
@@ -4237,7 +4293,7 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
 
 #### 2.6.3.1. Domain Layer
 
-La Tabla 90 presenta las clases del Domain Layer de Compliance History.
+La Tabla 91 presenta las clases del Domain Layer de Compliance History.
 
 <table>
   <caption>Clases del Domain Layer de Compliance History</caption>
@@ -4322,7 +4378,7 @@ La Tabla 90 presenta las clases del Domain Layer de Compliance History.
 
 #### 2.6.3.2. Interface Layer
 
-La Tabla 91 presenta las clases del Interface Layer de Compliance History.
+La Tabla 92 presenta las clases del Interface Layer de Compliance History.
 
 <table>
   <caption>Clases del Interface Layer de Compliance History</caption>
@@ -4350,7 +4406,7 @@ La Tabla 91 presenta las clases del Interface Layer de Compliance History.
 
 #### 2.6.3.3. Application Layer
 
-La Tabla 92 presenta las clases del Application Layer de Compliance History.
+La Tabla 93 presenta las clases del Application Layer de Compliance History.
 
 <table>
   <caption>Clases del Application Layer de Compliance History</caption>
@@ -4393,7 +4449,7 @@ La Tabla 92 presenta las clases del Application Layer de Compliance History.
 
 #### 2.6.3.4. Infrastructure Layer
 
-La Tabla 93 presenta las clases del Infrastructure Layer de Compliance History.
+La Tabla 94 presenta las clases del Infrastructure Layer de Compliance History.
 
 <table>
   <caption>Clases del Infrastructure Layer de Compliance History</caption>
@@ -4454,7 +4510,7 @@ Notifications es un contexto genérico y reactivo: casi todo lo que hace lo disp
 
 #### 2.6.4.1. Domain Layer
 
-La Tabla 94 presenta las clases del Domain Layer de Notifications.
+La Tabla 95 presenta las clases del Domain Layer de Notifications.
 
 <table>
   <caption>Clases del Domain Layer de Notifications</caption>
@@ -4527,7 +4583,7 @@ La Tabla 94 presenta las clases del Domain Layer de Notifications.
 
 #### 2.6.4.2. Interface Layer
 
-La Tabla 95 presenta las clases del Interface Layer de Notifications.
+La Tabla 96 presenta las clases del Interface Layer de Notifications.
 
 <table>
   <caption>Clases del Interface Layer de Notifications</caption>
@@ -4565,7 +4621,7 @@ La Tabla 95 presenta las clases del Interface Layer de Notifications.
 
 #### 2.6.4.3. Application Layer
 
-La Tabla 96 presenta las clases del Application Layer de Notifications.
+La Tabla 97 presenta las clases del Application Layer de Notifications.
 
 <table>
   <caption>Clases del Application Layer de Notifications</caption>
@@ -4605,7 +4661,7 @@ El equipo eligió un despachador con tarea programada sobre la tabla de notifica
 
 #### 2.6.4.4. Infrastructure Layer
 
-La Tabla 97 presenta las clases del Infrastructure Layer de Notifications.
+La Tabla 98 presenta las clases del Infrastructure Layer de Notifications.
 
 <table>
   <caption>Clases del Infrastructure Layer de Notifications</caption>
@@ -4671,7 +4727,7 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
 
 #### 2.6.5.1. Domain Layer
 
-La Tabla 98 presenta las clases del Domain Layer de Identity & Access.
+La Tabla 99 presenta las clases del Domain Layer de Identity & Access.
 
 <table>
   <caption>Clases del Domain Layer de Identity & Access</caption>
@@ -4774,7 +4830,7 @@ La Tabla 98 presenta las clases del Domain Layer de Identity & Access.
 
 #### 2.6.5.2. Interface Layer
 
-La Tabla 99 presenta las clases del Interface Layer de Identity & Access.
+La Tabla 100 presenta las clases del Interface Layer de Identity & Access.
 
 <table>
   <caption>Clases del Interface Layer de Identity & Access</caption>
@@ -4807,7 +4863,7 @@ La Tabla 99 presenta las clases del Interface Layer de Identity & Access.
 
 #### 2.6.5.3. Application Layer
 
-La Tabla 100 presenta las clases del Application Layer de Identity & Access.
+La Tabla 101 presenta las clases del Application Layer de Identity & Access.
 
 <table>
   <caption>Clases del Application Layer de Identity & Access</caption>
@@ -4850,7 +4906,7 @@ La Tabla 100 presenta las clases del Application Layer de Identity & Access.
 
 #### 2.6.5.4. Infrastructure Layer
 
-La Tabla 101 presenta las clases del Infrastructure Layer de Identity & Access.
+La Tabla 102 presenta las clases del Infrastructure Layer de Identity & Access.
 
 <table>
   <caption>Clases del Infrastructure Layer de Identity & Access</caption>

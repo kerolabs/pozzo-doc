@@ -18,7 +18,7 @@ Esta primera entrega cubre el descubrimiento del problema, la especificación de
 
 # Glosario
 
-Este glosario reúne los términos de metodología, diseño y desarrollo de software que se usan a lo largo del informe. Los términos propios del dominio de las juntas de ahorro (junta, pozo, turno, cabeza de junta, cobertura, historial de cumplimiento y los demás) se definen en la sección Ubiquitous Language y no se repiten aquí (ver Tabla 132).
+Este glosario reúne los términos de metodología, diseño y desarrollo de software que se usan a lo largo del informe. Los términos propios del dominio de las juntas de ahorro (junta, pozo, turno, cabeza de junta, cobertura, historial de cumplimiento y los demás) se definen en la sección Ubiquitous Language y no se repiten aquí (ver Tabla 133).
 
 <table>
   <caption>Glosario de términos del dominio de las juntas</caption>
@@ -248,7 +248,7 @@ Enlace del tablero: <https://miro.com/app/board/uXjVHm8In_g=/?share_link_id=3138
 
 ## Anexo C. Fuentes de los diagramas de arquitectura
 
-Los diagramas de arquitectura del capítulo de Requirements Development and Software Solution Design no se dibujaron a mano: se generan a partir de archivos de texto que viven en la carpeta `docs/architecture/` del repositorio del informe (<https://github.com/kerolabs/pozzo-doc/tree/develop/docs/architecture>) y se versionan junto con el texto. Los diagramas del C4 Model (contexto, contenedores, componentes y despliegue) se describen en el lenguaje de Structurizr y se renderizan con Structurizr; los diagramas de clases del Domain Layer y los de base de datos se describen en PlantUML, y cada esquema de base de datos lleva además su definición en SQL para PostgreSQL. Las imágenes resultantes son las que aparecen en el capítulo. Mantener los diagramas como texto permite revisarlos en las Pull Requests igual que cualquier otro cambio, ver quién modificó qué y regenerarlos cuando el diseño cambia sin volver a dibujarlos (ver Tabla 133).
+Los diagramas de arquitectura del capítulo de Requirements Development and Software Solution Design no se dibujaron a mano: se generan a partir de archivos de texto que viven en la carpeta `docs/architecture/` del repositorio del informe (<https://github.com/kerolabs/pozzo-doc/tree/develop/docs/architecture>) y se versionan junto con el texto. Los diagramas del C4 Model (contexto, contenedores, componentes y despliegue) se describen en el lenguaje de Structurizr y se renderizan con Structurizr; los diagramas de clases del Domain Layer y los de base de datos se describen en PlantUML, y cada esquema de base de datos lleva además su definición en SQL para PostgreSQL. Las imágenes resultantes son las que aparecen en el capítulo. Mantener los diagramas como texto permite revisarlos en las Pull Requests igual que cualquier otro cambio, ver quién modificó qué y regenerarlos cuando el diseño cambia sin volver a dibujarlos (ver Tabla 134).
 
 <table>
   <caption>Fuentes de los diagramas de arquitectura y su archivo en el repositorio</caption>
