@@ -1212,11 +1212,11 @@ Dos decisiones merecen explicarse. La primera es que no hay migas de pan (breadc
 
 El landing tampoco usa migas de pan, porque tiene un solo nivel de profundidad: una portada con anclas y cuatro páginas hoja que se vuelven a la portada con el logo.
 
-### 3.1.4. Landing Page UI Design
+### 3.1.3. Landing Page UI Design
 El landing page presenta Pozzo a quien todavía no lo conoce y recoge su interés mientras la aplicación no está publicada. Responde a las cuatro historias del epic EP10: entender qué resuelve Pozzo (US43), encontrar cómo obtenerlo o dejar un contacto (US44), conocer al equipo (US45) y poder leerlo y navegarlo desde el celular (US46). Se diseñó primero en Figma, en dos fidelidades y en dos anchos, y después se implementó como sitio estático en HTML5, CSS3 y JavaScript sin dependencias de ejecución, con textos en inglés (EN, idioma por defecto) y en español (ES). La implementación sale del diseño y lo respeta; las pocas diferencias están señaladas en cada sección.
 
 Como una página completa es demasiado alta para una figura, cada versión se presenta como un tablero de ventanas: cada recuadro es una ventana del navegador (de 1440 x 900 px en escritorio y de 360 x 800 px en celular) puesta sobre el mismo desplazamiento de la página. El escritorio ocupa ocho ventanas, dos por figura, y el celular trece ventanas en una sola figura.
-#### 3.1.3.1 Landing Page Wireframe
+#### 3.1.3.1. Landing Page Wireframe
 El wireframe define la estructura y la jerarquía visual del landing page antes de incorporar colores, imágenes y contenido final. Sigue el modo wireframe establecido en la guía de estilo de la sección 3.1.1.1, utilizando tonos grises y elementos simplificados para representar la distribución de cada sección.
 La siguiente tabla resume la estructura planteada para las versiones de escritorio y celular:
 
@@ -1285,7 +1285,7 @@ Hay una decisiones del wireframe que conviene explicar: la franja de confianza: 
 
 ![Wireframe del landing en celular de 360 px, trece ventanas](images/chapter_3/landing_wireframe_mobile.png){width=90%}
 
-#### 3.1.3.2 Landing Page Mockup
+#### 3.1.3.2. Landing Page Mockup
 El mock-up transforma el wireframe en una propuesta de alta fidelidad mediante la incorporación de los colores de la marca, tipografía, componentes visuales y pantallas reales de la aplicación. Las pantallas utilizadas corresponden a los mock-ups desarrollados en la sección 3.1.4.3, manteniendo así coherencia entre la aplicación móvil y su presentación en el landing page.
 
 Además de la versión de escritorio en modo claro, se desarrollaron variantes para el modo oscuro y para las versiones móviles en inglés y español. De esta manera, se puede evaluar cómo se adapta la interfaz a diferentes dispositivos, idiomas y preferencias visuales.
