@@ -388,7 +388,6 @@ CANVASES = [
         'saliente': [
             ('Aporte validado', 'bc', 'BC Compliance History'),
             ('Pozo completo y pozo entregado', 'bc', 'BC Notifications'),
-            ('Base de datos actualizada', 'sistema', 'MySQL'),
             ('Estado del pozo mostrado', 'frontend', 'Frontend'),
             ('Consultar reglas y turnos', 'bc', 'BC Savings Groups'),
         ],
@@ -446,7 +445,6 @@ CANVASES = [
             ('Turnos asignados', 'bc', 'BC Notifications'),
             ('Integrante desertó', 'bc', 'BC Compliance History'),
             ('Invitación generada', 'sistema', 'WhatsApp'),
-            ('Base de datos actualizada', 'sistema', 'MySQL'),
         ],
         'supuestos': [
             'Las juntas son de conocidos, entre 5 y 15 integrantes.',
@@ -498,7 +496,6 @@ CANVASES = [
             ('Historial actualizado', 'bc', 'BC Savings Groups'),
             ('Historial compartido', 'sistema', 'Hoja de compartir del sistema'),
             ('Resumen del historial mostrado', 'frontend', 'Frontend'),
-            ('Base de datos actualizada', 'sistema', 'MySQL'),
         ],
         'supuestos': [
             'Un historial visible para el grupo incentiva el cumplimiento.',
@@ -552,7 +549,6 @@ CANVASES = [
             ('Recordatorio enviado', 'sistema', 'Firebase Cloud Messaging'),
             ('Aviso enviado', 'frontend', 'Frontend'),
             ('Dispositivo registrado', 'bc', 'BC Identity & Access'),
-            ('Base de datos actualizada', 'sistema', 'MySQL'),
         ],
         'supuestos': [
             'El plan gratuito de Firebase Cloud Messaging cubre el volumen inicial.',
@@ -605,7 +601,6 @@ CANVASES = [
             ('Sesión iniciada', 'bc', 'BC Notifications'),
             ('Identidad del integrante', 'bc', 'BC Savings Groups'),
             ('Perfil mostrado', 'frontend', 'Frontend'),
-            ('Base de datos actualizada', 'sistema', 'MySQL'),
         ],
         'supuestos': [
             'Todos los integrantes tienen un número peruano que recibe SMS.',
