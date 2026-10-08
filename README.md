@@ -1,6 +1,7 @@
 # Registro de Versiones del Informe
 
 <table>
+  <caption>Registro de versiones del informe</caption>
   <thead>
     <tr>
       <th align="center">Versión</th>
@@ -44,6 +45,7 @@ El informe se elabora en el repositorio `pozzo-doc` de la organización Kerolabs
 **Aportes por integrante.** Entre el 7 y el 17 de septiembre de 2026 se integraron 26 Pull Requests y 76 commits en `develop`. El cuadro resume las secciones que cada integrante redactó y su actividad en el repositorio.
 
 <table>
+  <caption>Participación de cada integrante en la entrega AV1</caption>
   <colgroup><col width="26%"><col width="50%"><col width="12%"><col width="12%"></colgroup>
   <thead>
     <tr>
@@ -189,6 +191,7 @@ Criterio: La capacidad de adquirir y aplicar nuevos conocimientos según sea nec
 En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 7.
 
 <table>
+  <caption>Student Outcome: criterios, acciones y conclusiones</caption>
   <colgroup><col width="16%"><col width="52%"><col width="32%"></colgroup>
   <thead>
     <tr>
@@ -256,6 +259,7 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 Cada integrante formula dos objetivos para su desarrollo profesional una vez finalizada la carrera. Cada objetivo es específico, medible, alcanzable, relevante y con plazo definido.
 
 <table>
+  <caption>Objetivos SMART del proyecto</caption>
   <colgroup><col width="4%"><col width="30%"><col width="22%"><col width="24%"><col width="20%"></colgroup>
   <thead>
     <tr>
