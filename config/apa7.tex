@@ -125,6 +125,14 @@
 \captionsetup{position=above, labelfont=bf, textfont=it, labelsep=newline,
               singlelinecheck=false, justification=raggedright, skip=6pt}
 
+% El pie de una longtable se compone dentro de una caja de \LTcapwidth, que por
+% omision mide 4 in: mas angosta que el texto y sin sitio para un titulo largo.
+% Igualarla al ancho del texto es lo que hace que el rotulo "Tabla N" aparezca.
+\setlength{\LTcapwidth}{\textwidth}
+\captionsetup[longtable]{position=above, labelfont=bf, textfont=it,
+                         labelsep=newline, singlelinecheck=false,
+                         justification=raggedright, skip=6pt}
+
 % En espanol babel rotula "Cuadro"; APA usa "Tabla".
 \AtBeginDocument{%
   \renewcommand{\tablename}{Tabla}%
