@@ -1,5 +1,7 @@
 # Registro de Versiones del Informe
 
+La Tabla 1 presenta el registro de versiones del informe.
+
 <table>
   <caption>Registro de versiones del informe</caption>
   <thead>
@@ -42,7 +44,7 @@ El informe se elabora en el repositorio `pozzo-doc` de la organización Kerolabs
 
 **Coordinación.** El equipo trabajó con sesiones síncronas para las actividades colaborativas (entrevistas, EventStorming, Candidate Context Discovery, Bounded Context Canvases y Context Mapping, en Miro) y de forma asíncrona para la redacción de cada sección. Las revisiones se hicieron en las Pull Requests, donde se corrigieron errores de formato, terminología y coherencia entre secciones antes de integrar.
 
-**Aportes por integrante.** Entre el 7 y el 17 de septiembre de 2026 se integraron 26 Pull Requests y 76 commits en `develop`. El cuadro resume las secciones que cada integrante redactó y su actividad en el repositorio.
+**Aportes por integrante.** Entre el 7 y el 17 de septiembre de 2026 se integraron 26 Pull Requests y 76 commits en `develop`. El cuadro resume las secciones que cada integrante redactó y su actividad en el repositorio (ver Tabla 2).
 
 <table>
   <caption>Participación de cada integrante en la entrega AV1</caption>
@@ -91,7 +93,7 @@ El informe se elabora en el repositorio `pozzo-doc` de la organización Kerolabs
 
 La diferencia en el número de commits se explica por el trabajo de configuración: además de sus secciones, Camargo construyó y ajustó la exportación a PDF (filtros para tablas HTML con celdas combinadas, cuadrícula, control de viudas y huérfanas), lo que generó una cantidad de commits pequeños de corrección que no corresponden a contenido nuevo.
 
-**Evidencia.** Las siguientes capturas corresponden a la pestaña Insights del repositorio al cierre de la entrega.
+**Evidencia.** Las siguientes capturas corresponden a la pestaña Insights del repositorio al cierre de la entrega (ver Figuras 1 a 3).
 
 ![Contribuciones por integrante en el repositorio del informe, AV1](docs/images/insights_contributors_av1.png)
 
@@ -188,7 +190,7 @@ ABET - EAC - Student Outcome 7
 
 Criterio: La capacidad de adquirir y aplicar nuevos conocimientos según sea necesario, utilizando estrategias de aprendizaje apropiadas.
 
-En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 7.
+En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 7 (ver Tabla 3).
 
 <table>
   <caption>Student Outcome: criterios, acciones y conclusiones</caption>
@@ -256,7 +258,7 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 # Objetivos SMART
 
-Cada integrante formula dos objetivos para su desarrollo profesional una vez finalizada la carrera. Cada objetivo es específico, medible, alcanzable, relevante y con plazo definido.
+Cada integrante formula dos objetivos para su desarrollo profesional una vez finalizada la carrera. Cada objetivo es específico, medible, alcanzable, relevante y con plazo definido (ver Tabla 4).
 
 <table>
   <caption>Objetivos SMART del proyecto</caption>

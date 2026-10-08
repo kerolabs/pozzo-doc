@@ -18,6 +18,8 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
 
 #### Competitive Analysis Landscape
 
+La Tabla 8 presenta el Competitive Analysis Landscape de Pozzo y sus competidores.
+
 <table>
   <caption>Competitive Analysis Landscape de Pozzo y sus competidores</caption>
   <thead>
@@ -97,6 +99,8 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
 
 ##### Pozzo
 
+La Tabla 9 presenta el Análisis SWOT de Pozzo.
+
 <table>
   <caption>Análisis SWOT de Pozzo</caption>
   <thead>
@@ -122,6 +126,8 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
 </table>
 
 ##### Tandapp / MiTandita
+
+La Tabla 10 presenta el Análisis SWOT de Tandapp / MiTandita.
 
 <table>
   <caption>Análisis SWOT de Tandapp / MiTandita</caption>
@@ -149,6 +155,8 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
 
 ##### Moneypool
 
+La Tabla 11 presenta el Análisis SWOT de Moneypool.
+
 <table>
   <caption>Análisis SWOT de Moneypool</caption>
   <thead>
@@ -174,6 +182,8 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
 </table>
 
 ##### Splitwise
+
+La Tabla 12 presenta el Análisis SWOT de Splitwise.
 
 <table>
   <caption>Análisis SWOT de Splitwise</caption>
@@ -328,6 +338,8 @@ Esta sección presenta el estudio cualitativo basado en entrevistas semiestructu
 
 - **Primera entrevista**
 
+La Tabla 13 presenta la ficha de la entrevista a Shirley Romy Becerra Pinchi.
+
 <table>
   <caption>Ficha de la entrevista a Shirley Romy Becerra Pinchi</caption>
   <thead>
@@ -368,11 +380,15 @@ Esta sección presenta el estudio cualitativo basado en entrevistas semiestructu
   </tbody>
 </table>
 
+La Figura 4 muestra la captura de la entrevista a Shirley Romy Becerra Pinchi.
+
 ![Captura de la entrevista a Shirley Romy Becerra Pinchi](images/chapter_2/shirley_pinchi.png){width=90%}
 
 Shirley organiza panderos desde el colegio y lo ve como una forma de ahorrar; por eso suele quedarse con el último turno en vez del primero. Hoy administra, junto a su mamá, dos juntas mensuales: una de S/100 formada por maestros conocidos de su mamá y otra de S/200, con un total de 24 números, de los cuales seis participantes van a dejar el aporte en efectivo a su casa y el resto paga por Yape o Plin. Los turnos se definen por sorteo o por preferencia de meses, según la necesidad de cada quien (por ejemplo, quien necesita el dinero para la matrícula escolar pide ese mes). Lleva el control en un cuaderno y, el mismo día de corte, verifica los pagos revisando uno por uno sus movimientos de Yape; para la cobranza arma un grupo de WhatsApp donde manda un recordatorio el 25 y vuelve a insistir el 28. En cada ciclo tiene que recordarle el pago a dos o tres personas, hasta tres o cuatro veces cada una. Su peor experiencia ocurrió cuando su mamá sufrió un infarto cerebral y no quedó registro de quién había aportado: tuvieron que llamar uno por uno para reconstruir la cuenta, y hubo un reclamo de "yo sí pagué" imposible de comprobar. También recuerda un caso en pandemia en el que un integrante perdió su trabajo y dejó de aportar a mitad del ciclo, por lo que su mamá tuvo que cubrir esas cuotas; desde entonces son más cuidadosas al elegir personas responsables. No usa Excel ni aplicaciones, aunque reconoce que con más juntas un sistema le sería necesario. Usa un celular Redmi y a diario abre Yape y TikTok.
 
 - **Segunda entrevista**
+
+La Tabla 14 presenta la ficha de la entrevista a Ariel Roberto Mendoza Blanco.
 
 <table>
   <caption>Ficha de la entrevista a Ariel Roberto Mendoza Blanco</caption>
@@ -414,11 +430,15 @@ Shirley organiza panderos desde el colegio y lo ve como una forma de ahorrar; po
   </tbody>
 </table>
 
+La Figura 5 muestra la captura de la entrevista a Ariel Roberto Mendoza Blanco.
+
 ![Captura de la entrevista a Ariel Roberto Mendoza Blanco](images/chapter_2/ariel_mendoza.png){width=90%}
 
 Ariel organiza juntas desde los 20 años como una forma de obligarse a ahorrar, ya que le cuesta juntar el dinero por su cuenta. Hoy lleva dos, una familiar y una del trabajo, de hasta 12 personas para completar un año, con un cobro por mes. Los turnos se acuerdan dialogando según la urgencia de cada quien, y él siempre se deja el último turno; al principio ponía el dinero él, hasta que vio que era una mejor forma de ahorrar. Recibe los aportes en efectivo y por transferencia, y lleva un doble registro, en un cuaderno y en un Excel: cuando alguien paga por transferencia, verifica contra su estado de cuenta y le pide la captura antes de marcarlo con un check. Tiene que recordar el pago a varias personas, hasta cuatro o cinco veces en el grupo familiar y dos o tres en el del trabajo. Su incidente más claro fue un pago hecho de madrugada que el banco retuvo 24 horas: el compañero afirmaba haber pagado, le mandó la captura, pero a Ariel no le llegaba nada. En otros casos ha tenido que poner algo de su propio dinero cuando alguien se atrasa por temas de salud. Lo que menos le gusta es tener que insistir para cobrar, y le gustaría una aplicación que verifique los pagos automáticamente y le informe cuando cada persona ya pagó. Usa un iPhone 15 y la computadora para su archivo de Excel.
 
 - **Tercera entrevista**
+
+La Tabla 15 presenta la ficha de la entrevista a Jorge Chávez.
 
 <table>
   <caption>Ficha de la entrevista a Jorge Chávez</caption>
@@ -460,6 +480,8 @@ Ariel organiza juntas desde los 20 años como una forma de obligarse a ahorrar, 
   </tbody>
 </table>
 
+La Figura 6 muestra la captura de la entrevista a Jorge Chávez.
+
 ![Captura de la entrevista a Jorge Chávez](images/chapter_2/jorge_chavez.png){width=90%}
 
 Jorge organiza juntas desde hace unos cinco años; empezó entre hermanos y primos para juntar dinero para gastos comunes, y luego se sumaron amigos del trabajo y quedó él a cargo. Su junta actual es de unas diez personas, entre familia y amigos cercanos, con un aporte de S/500 al mes y un pozo de S/5000 mensual; antes de empezar arman una lista con todos y definen el orden de cobro, y él participa y aporta igual que el resto. Los turnos se deciden por urgencia, quien tiene una compra o un pago pendiente cobra primero, y un cambio de turno se acuerda conversando en el grupo. Los aportes llegan por Yape y lleva el control en un Excel de doble entrada (meses por nombres, como un checklist mensual), apoyándose también en el grupo de WhatsApp. En cada corte avisa días antes por el grupo, el día de pago compara los Yapes contra su lista (a veces alguien paga por Plin y se confunde), revisa el saldo de su cuenta, escribe a quien falta y, cuando el pozo llega a los S/5000, avisa y transfiere al que le toca. Suele recordar el pago a dos o tres personas y revisa entre 15 y 20 comprobantes por ciclo. Su incidente más claro fue hace dos meses: un integrante afirmaba haber pagado y hasta mandó una captura, pero el dinero no le llegaba; resultó que había yapeado a otra persona por equivocarse de número, y tuvieron que contactar a ese tercero para recuperarlo. Lo que menos le gusta es perseguir a la gente para que pague, algo incómodo tratándose de familia y amigos. No usa aplicaciones para gestionar la junta, solo Excel. Usa un Honor X8 y a diario abre WhatsApp, Yape e Instagram.
@@ -467,6 +489,8 @@ Jorge organiza juntas desde hace unos cinco años; empezó entre hermanos y prim
 **Segmento 2: Participantes de junta**
 
 - **Primera entrevista**
+
+La Tabla 16 presenta la ficha de la entrevista a Elizabeth Díaz.
 
 <table>
   <caption>Ficha de la entrevista a Elizabeth Díaz</caption>
@@ -508,11 +532,15 @@ Jorge organiza juntas desde hace unos cinco años; empezó entre hermanos y prim
   </tbody>
 </table>
 
+La Figura 7 muestra la captura de la entrevista a Elizabeth Díaz.
+
 ![Captura de la entrevista a Elizabeth Díaz](images/chapter_2/elizabeth_diaz.png){width=90%}
 
 Elizabeth entró a su primera junta invitada por una amiga de la universidad, que le comentó que varias amigas estaban ahorrando en grupo para recibir una cantidad más grande de dinero; al principio dudó, pero como conocía a todas, decidió entrar, y ese primer cobro lo usó para comprarse una laptop que necesitaba para estudiar. Hoy participa en una junta de ocho personas que aportan S/300 al mes durante ocho meses, con los turnos definidos por sorteo y publicados por la organizadora en el grupo de WhatsApp. Cuando toca aportar, la organizadora avisa por el grupo, ella revisa que tenga el dinero, yapea, toma la captura del comprobante y se la envía; la organizadora confirma en el grupo que el aporte se hizo. Guarda las capturas en su galería, pero mezcladas con todas las demás, sin una carpeta propia. Ya le pasó que la organizadora pensó que no había pagado y tuvo que buscar la conversación y reenviar la captura de Yape para demostrarlo; si le pidieran probar un aporte de hace tres meses, revisaría primero el chat de WhatsApp, luego la galería y, por último, sus movimientos de Yape. Antes de cobrar le preocupa que alguien se atrase, sobre todo si ya cuenta con ese dinero, aunque confía porque son amigas y la organizadora avisa quiénes ya pagaron. Para decidir entrar a una junta le importa quién la organiza y quiénes participan, porque con desconocidos sería más difícil reclamar si ocurre un problema. Usa un celular Android y hace todo lo de la junta desde el teléfono, con WhatsApp y Yape.
 
 - **Segunda entrevista**
+
+La Tabla 17 presenta la ficha de la entrevista a Mariana López.
 
 <table>
   <caption>Ficha de la entrevista a Mariana López</caption>
@@ -554,11 +582,15 @@ Elizabeth entró a su primera junta invitada por una amiga de la universidad, qu
   </tbody>
 </table>
 
+La Figura 8 muestra la captura de la entrevista a Mariana López.
+
 ![Captura de la entrevista a Mariana López](images/chapter_2/mariana_lopez.png){width=90%}
 
 Mariana entró a su primera junta invitada por una amiga del trabajo; prefirió la junta a un préstamo bancario para no pagar intereses ni endeudarse, y porque ya conocía a las personas. Ese primer cobro lo usó para comprar mercadería para su negocio de venta de ropa. Hoy participa en una junta de diez personas que aportan S/200 al mes durante diez meses, con los turnos definidos por sorteo y publicados por el organizador en el grupo de WhatsApp. Anota la fecha en su calendario y, cuando se acerca el día, revisa que tenga el dinero, aporta por Yape o en efectivo y envía la captura al grupo y al organizador; guarda los comprobantes en su galería sin ordenarlos, por lo que puede ser difícil encontrarlos. Ya le pasó que el organizador le dijo que faltaba un pago y tuvo que revisar hasta encontrar el comprobante para demostrarlo. Antes de cobrar le preocupa que alguien se atrase, y se apoya en que el organizador recuerda los pagos unos días antes, lo que en su última cobranza ayudó a que le llegara el monto completo y a tiempo. Conoció el caso de una persona que dijo que pagaría después, dejó de responder y el grupo tuvo que ponerse de acuerdo para resolverlo, algo incómodo porque no sabían cómo contactarla. Para entrar a una junta valora que el organizador sea conocido y responsable, además del tiempo que durará. Usa un celular Samsung y a diario WhatsApp, Yape, Facebook, Instagram y TikTok.
 
 - **Tercera entrevista**
+
+La Tabla 18 presenta la ficha de la entrevista a Catherine Villar.
 
 <table>
   <caption>Ficha de la entrevista a Catherine Villar</caption>
@@ -600,6 +632,8 @@ Mariana entró a su primera junta invitada por una amiga del trabajo; prefirió 
   </tbody>
 </table>
 
+La Figura 9 muestra la captura de la entrevista a Catherine Villar.
+
 ![Captura de la entrevista a Catherine Villar](images/chapter_2/catherine_villar.png){width=90%}
 
 Catherine entró a su primera junta invitada por una compañera del trabajo y ya ha estado en dos. Su primer cobro lo usó para pagar un curso que le interesaba y bajar la deuda de un crédito; prefirió la junta a un préstamo bancario para no pagar intereses. Hoy participa en una junta de ocho personas que aportan S/250 al mes durante ocho meses, con los turnos definidos por sorteo y publicados por el organizador en el grupo de WhatsApp. Cuando toca aportar, revisa que tenga el dinero, yapea al organizador, que a veces avisa porque se les pasa la fecha, toma la captura y la manda por WhatsApp para dejar constancia; luego la guarda en su galería, pero sin ningún orden. En su segunda junta le dijeron que no había pagado y, como no ordena las capturas, tuvo que buscarla y reenviarla para que la verificaran y corrigieran; reconoce que probar un aporte de hace tres meses le costaría y sería incómodo, aunque lo buscaría sí o sí por WhatsApp o por sus movimientos de Yape y del banco. Antes de cobrar no puede estar segura de que el pozo esté completo: para ella es cosa de confiar y de preguntar quién ya pagó, y sabe de casos en que el pozo no llega completo y se termina cobrando por partes. En su última cobranza el pago se le retrasó dos o tres días porque dos integrantes no habían aportado a tiempo. Ya vivió una junta en la que alguien dejó de pagar a la mitad, algo difícil e incómodo que el grupo tuvo que resolver. Para entrar a una junta le importa que quien la organiza sea de confianza y conocer a los demás participantes; con desconocidos no entra. Usa un celular Xiaomi y a diario WhatsApp, Yape, Instagram, TikTok y las aplicaciones de su trabajo.
@@ -623,19 +657,19 @@ Se realizaron 6 entrevistas semiestructuradas distribuidas en dos segmentos obje
 
 ![Prácticas y problemas comunes del segmento 1](images/chapter_2/graf_seg1_practicas.png){width=75%}
 
-El registro manual, la verificación uno por uno de los pagos, la necesidad de recordar la cuota cada ciclo y los incidentes de descuadre aparecen en el 100% del segmento, lo que los posiciona como los problemas centrales y compartidos por todas las cabezas de junta. El 67% incluso ha tenido que poner dinero propio para cubrir un atraso, lo que muestra que el costo del desorden no es solo de tiempo, sino también económico.
+El registro manual, la verificación uno por uno de los pagos, la necesidad de recordar la cuota cada ciclo y los incidentes de descuadre aparecen en el 100% del segmento, lo que los posiciona como los problemas centrales y compartidos por todas las cabezas de junta. El 67% incluso ha tenido que poner dinero propio para cubrir un atraso, lo que muestra que el costo del desorden no es solo de tiempo, sino también económico (ver Figura 10).
 
 **Herramienta de registro actual**
 
 ![Herramienta de registro del segmento 1](images/chapter_2/graf_seg1_registro.png){width=60%}
 
-El 67% del segmento ya se apoya en Excel, con o sin cuaderno, y el 33% restante lleva todo únicamente en un cuaderno; ninguno usa una aplicación dedicada. Esto indica que Pozzo no compite con un sistema digital consolidado, sino que se posiciona como la primera herramienta formal de gestión de la junta, lo que reduce la resistencia al cambio y facilita la adopción.
+El 67% del segmento ya se apoya en Excel, con o sin cuaderno, y el 33% restante lleva todo únicamente en un cuaderno; ninguno usa una aplicación dedicada. Esto indica que Pozzo no compite con un sistema digital consolidado, sino que se posiciona como la primera herramienta formal de gestión de la junta, lo que reduce la resistencia al cambio y facilita la adopción (ver Figura 11).
 
 **Canal de recepción de aportes**
 
 ![Canal de recepción de aportes del segmento 1](images/chapter_2/graf_seg1_canal.png){width=60%}
 
-El 100% recibe los aportes por billetera digital (Yape o Plin) y el 67% además maneja algo de efectivo. La preferencia por la billetera valida directamente el enfoque de Pozzo de leer los vouchers de Yape/Plin sin custodiar el dinero, ya que el pago ya ocurre por ese canal y solo falta ordenar su registro y validación.
+El 100% recibe los aportes por billetera digital (Yape o Plin) y el 67% además maneja algo de efectivo. La preferencia por la billetera valida directamente el enfoque de Pozzo de leer los vouchers de Yape/Plin sin custodiar el dinero, ya que el pago ya ocurre por ese canal y solo falta ordenar su registro y validación (ver Figura 12).
 
 **Conclusiones**
 
@@ -656,19 +690,19 @@ Las cabezas de junta administran con herramientas insuficientes: dependen del cu
 
 ![Experiencias y percepciones del segmento 2](images/chapter_2/graf_seg2_experiencias.png){width=75%}
 
-El desorden de las capturas, los reclamos de "no pagaste" cuando sí se pagó, la dificultad para probar un aporte antiguo, la incertidumbre sobre el pozo y el conocimiento de casos de incumplimiento aparecen en el 100% del segmento. Todos estos puntos apuntan al mismo vacío: la falta de una prueba de pago ordenada y de visibilidad del estado de la junta.
+El desorden de las capturas, los reclamos de "no pagaste" cuando sí se pagó, la dificultad para probar un aporte antiguo, la incertidumbre sobre el pozo y el conocimiento de casos de incumplimiento aparecen en el 100% del segmento. Todos estos puntos apuntan al mismo vacío: la falta de una prueba de pago ordenada y de visibilidad del estado de la junta (ver Figura 13).
 
 **Última cobranza**
 
 ![Resultado de la última cobranza del segmento 2](images/chapter_2/graf_seg2_cobranza.png){width=60%}
 
-El 67% del segmento tuvo un retraso en su última cobranza porque algún integrante no aportó a tiempo, frente a un 33% que cobró sin contratiempos. Esto confirma que la incertidumbre sobre completar el pozo no es solo una preocupación, sino un problema que efectivamente ocurre.
+El 67% del segmento tuvo un retraso en su última cobranza porque algún integrante no aportó a tiempo, frente a un 33% que cobró sin contratiempos. Esto confirma que la incertidumbre sobre completar el pozo no es solo una preocupación, sino un problema que efectivamente ocurre (ver Figura 14).
 
 **Factores para entrar a una junta**
 
 ![Factores para entrar a una junta del segmento 2](images/chapter_2/graf_seg2_decision.png){width=60%}
 
-El 100% decide entrar a una junta según la confianza en quien la organiza y el conocer a los demás participantes, y el 67% además la prefiere frente a un préstamo bancario para no pagar intereses. La confianza es el factor decisivo, lo que refuerza que Pozzo debe apoyarse en las redes existentes del grupo y aportar transparencia sin reemplazar esa relación.
+El 100% decide entrar a una junta según la confianza en quien la organiza y el conocer a los demás participantes, y el 67% además la prefiere frente a un préstamo bancario para no pagar intereses. La confianza es el factor decisivo, lo que refuerza que Pozzo debe apoyarse en las redes existentes del grupo y aportar transparencia sin reemplazar esa relación (ver Figura 15).
 
 **Conclusiones**
 
@@ -685,14 +719,18 @@ Se elaboró una ficha de User Persona por cada segmento objetivo, utilizando UXP
 
 #### User Persona 1: Cabeza de junta
 
+La Figura 16 muestra la Anna Weber.
+
 ![Anna Weber](images/chapter_2/anna_weber_us1.png)
 
 #### User Persona 2: Participante de junta
 
+La Figura 17 muestra la Sofia Gonzales.
+
 ![Sofia Gonzales](images/chapter_2/sofia_gonzales_us2.png)
 
 ### 2.3.2. User Task Matrix
-El User Task Matrix concentra las tareas que los User Personas realizan para cumplir sus objetivos dentro de una junta, con independencia de que exista o no una solución de software. No se trata de funcionalidades de Pozzo, sino de actividades que ambos segmentos ya ejecutan hoy con cuaderno, hoja de cálculo y mensajería.
+El User Task Matrix concentra las tareas que los User Personas realizan para cumplir sus objetivos dentro de una junta, con independencia de que exista o no una solución de software. No se trata de funcionalidades de Pozzo, sino de actividades que ambos segmentos ya ejecutan hoy con cuaderno, hoja de cálculo y mensajería (ver Tabla 19).
 
 <table>
   <caption>User Task Matrix de los segmentos objetivo</caption>
@@ -819,13 +857,13 @@ Los User Journey Maps representan el recorrido actual de los dos segmentos objet
 
 #### User Journey Map 1: Anna Weber - Cabeza de junta
 
-El journey de Anna Weber representa el recorrido de una cabeza de junta desde la conformación del grupo hasta la entrega del pozo correspondiente a cada período. El proceso se caracteriza por una alta carga administrativa: coordinación mediante WhatsApp, registro manual de aportes, revisión individual de comprobantes y seguimiento constante a los participantes atrasados. La angustia y estrés se concentran cerca de la fecha de corte, cuando Anna necesita comprobar que todos los aportes hayan sido recibidos y resolver cualquier inconsistencia antes de realizar la entrega.
+El journey de Anna Weber representa el recorrido de una cabeza de junta desde la conformación del grupo hasta la entrega del pozo correspondiente a cada período. El proceso se caracteriza por una alta carga administrativa: coordinación mediante WhatsApp, registro manual de aportes, revisión individual de comprobantes y seguimiento constante a los participantes atrasados. La angustia y estrés se concentran cerca de la fecha de corte, cuando Anna necesita comprobar que todos los aportes hayan sido recibidos y resolver cualquier inconsistencia antes de realizar la entrega (ver Figura 18).
 
 ![Anna Weber Journey Map](images/chapter_2/anna_weber_journey_map.png)
 
 #### User Journey Map 2: Sofia Gonzales - Participante de junta
 
-El journey de Sofia Gonzales representa la experiencia de una participante desde que evalúa incorporarse a una junta hasta que recibe el pozo en el turno asignado. Su decisión inicial depende principalmente de la confianza en el organizador y en los demás integrantes. Durante el ciclo realiza sus aportes mediante Yape o, eventualmente, otros medios acordados, envía comprobantes por WhatsApp y conserva las capturas como respaldo. Los principales problemas aparecen al intentar demostrar aportes anteriores y durante la espera previa a su turno, cuando no existe certeza de que todos los integrantes hayan pagado a tiempo.
+El journey de Sofia Gonzales representa la experiencia de una participante desde que evalúa incorporarse a una junta hasta que recibe el pozo en el turno asignado. Su decisión inicial depende principalmente de la confianza en el organizador y en los demás integrantes. Durante el ciclo realiza sus aportes mediante Yape o, eventualmente, otros medios acordados, envía comprobantes por WhatsApp y conserva las capturas como respaldo. Los principales problemas aparecen al intentar demostrar aportes anteriores y durante la espera previa a su turno, cuando no existe certeza de que todos los integrantes hayan pagado a tiempo (ver Figura 19).
 
 ![Sofia Gonzales Journey Map](images/chapter_2/sofia_gonzales_journey_map.png)
 
@@ -835,13 +873,13 @@ Los Empathy Maps se elaboraron en UXPressia, uno por cada User Persona, en una s
 
 #### Empathy map 1: Anna Weber - Cabeza de Junta
 
-El empathy map de Anna Weber, como administradora de juntas entre conocidos, refleja su rol clave en coordinar reglas, turnos y la entrega del pozo, enfrentando el desafío de equilibrar su confianza en el grupo con la frustración de la revisión manual de comprobantes y la incomodidad de gestionar cobranzas, lo que demuestra la necesidad de mejorar estos procesos, asegurar la transparencia de los aportes y preservar la confianza.
+El empathy map de Anna Weber, como administradora de juntas entre conocidos, refleja su rol clave en coordinar reglas, turnos y la entrega del pozo, enfrentando el desafío de equilibrar su confianza en el grupo con la frustración de la revisión manual de comprobantes y la incomodidad de gestionar cobranzas, lo que demuestra la necesidad de mejorar estos procesos, asegurar la transparencia de los aportes y preservar la confianza (ver Figura 20).
 
 ![Anna Weber Empathy Map](images/chapter_2/anna_webber_empathy_map.png)
 
 #### Empathy map 2: Sofia Gonzales - Participante de Junta
 
-El empathy map de Sofia Gonzales, como participante en una junta, está basada en la confianza donde busca cumplir puntualmente con sus aportes y recibir el pozo en su turno. Asimismo enfrenta la incomodidad de buscar comprobantes antiguos y la incertidumbre ante posibles retrasos del grupo. Esto demuestra la necesidad de evidenciar de forma organizada los pagos, el estado del pozo y así tener la tranquilidad frente al cumplimiento general.
+El empathy map de Sofia Gonzales, como participante en una junta, está basada en la confianza donde busca cumplir puntualmente con sus aportes y recibir el pozo en su turno. Asimismo enfrenta la incomodidad de buscar comprobantes antiguos y la incertidumbre ante posibles retrasos del grupo. Esto demuestra la necesidad de evidenciar de forma organizada los pagos, el estado del pozo y así tener la tranquilidad frente al cumplimiento general (ver Figura 21).
 
 ![Sofia Gonzales Empathy Map](images/chapter_2/sofia_gonzales_empathy_map.png)
 
@@ -859,32 +897,34 @@ El Big Picture EventStorming se utilizó para representar de manera colaborativa
 - **External System**: Sistema o herramienta externa que interactúa con el proceso.
 - **Comment**: Nota, pregunta o aclaración añadida durante el análisis
 
+La Figura 22 muestra la leyenda de conceptos.
+
 ![Leyenda de conceptos](images/chapter_2/leyenda.jpg)
 
 #### Identificación de eventos
-El equipo inició la sesión identificando los principales eventos que ocurren durante una junta de ahorro. Cada evento se formuló como un hecho ocurrido dentro del dominio, sin considerar todavía su orden ni posibles soluciones tecnológicas.
+El equipo inició la sesión identificando los principales eventos que ocurren durante una junta de ahorro. Cada evento se formuló como un hecho ocurrido dentro del dominio, sin considerar todavía su orden ni posibles soluciones tecnológicas (ver Figura 23).
 
 ![Identificacion de eventos](images/chapter_2/identificacion_de_eventos.jpg)
 
 #### Ordenamiento temporal
-Los eventos identificados se organizaron cronológicamente para reconstruir el recorrido completo de una junta, desde su conformación hasta la finalización del ciclo.
+Los eventos identificados se organizaron cronológicamente para reconstruir el recorrido completo de una junta, desde su conformación hasta la finalización del ciclo (ver Figura 24).
 
 ![Ordenamiento temporal](images/chapter_2/ordenamiento_temporal.jpg)
 
 #### Actores, sistemas externos y comandos
-Posteriormente se incorporaron los roles que participan en cada actividad y las herramientas utilizadas actualmente, entre ellas WhatsApp, Yape, Plin, aplicaciones bancarias y hojas de cálculo. Ademas se utilizan verbos en infinitivo para representar las acciones que se están haciendo.
+Posteriormente se incorporaron los roles que participan en cada actividad y las herramientas utilizadas actualmente, entre ellas WhatsApp, Yape, Plin, aplicaciones bancarias y hojas de cálculo. Ademas se utilizan verbos en infinitivo para representar las acciones que se están haciendo (ver Figura 25).
 
 ![Actores,sistemas externos y comandos](images/chapter_2/actores_sistemas_externos_comandos.jpg)
 
 #### Identificación de problemas y validación
 
-Finalmente, mediante storytelling se revisó el recorrido completo y se identificaron los principales puntos de fricción, como la cobranza repetitiva, la verificación manual y los aportes pendientes.
+Finalmente, mediante storytelling se revisó el recorrido completo y se identificaron los principales puntos de fricción, como la cobranza repetitiva, la verificación manual y los aportes pendientes (ver Figura 26).
 
 ![Problemas y Validación](images/chapter_2/problemas_validacion.jpg)
 
 ### 2.3.6. Ubiquitous Language
 
-El siguiente glosario reúne los términos y conceptos del dominio del ahorro rotativo que el equipo utiliza de forma uniforme en todos los artefactos, en el código y en la comunicación con los interesados. Se incluyen únicamente términos del negocio, no términos técnicos de ingeniería de software. Los términos se registran en inglés, con su equivalente de uso corriente en el Perú entre paréntesis.
+El siguiente glosario reúne los términos y conceptos del dominio del ahorro rotativo que el equipo utiliza de forma uniforme en todos los artefactos, en el código y en la comunicación con los interesados. Se incluyen únicamente términos del negocio, no términos técnicos de ingeniería de software. Los términos se registran en inglés, con su equivalente de uso corriente en el Perú entre paréntesis (ver Tabla 20).
 
 <table>
   <caption>Ubiquitous Language del dominio de las juntas</caption>
@@ -992,6 +1032,8 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 
 #### Epics
 
+La Tabla 21 presenta los epics del Product Backlog.
+
 <table>
   <caption>Epics del Product Backlog</caption>
   <thead>
@@ -1068,6 +1110,8 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 #### Historias de usuario
 
 ##### EP01 Acceso y cuenta
+
+Las Tablas 22 a 27 especifican las historias de usuario de este epic.
 
 <table>
   <caption>US01. Ingresar con el número de celular</caption>
@@ -1263,6 +1307,8 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 
 ##### EP02 Configuración de la junta
 
+Las Tablas 28 a 31 especifican las historias de usuario de este epic.
+
 <table>
   <caption>US07. Crear una junta</caption>
   <thead>
@@ -1392,6 +1438,8 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 ##### EP03 Incorporación de integrantes
+
+Las Tablas 32 a 37 especifican las historias de usuario de este epic.
 
 <table>
   <caption>US11. Invitar integrantes con código y enlace</caption>
@@ -1587,6 +1635,8 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 
 ##### EP04 Asignación de turnos
 
+Las Tablas 38 a 43 especifican las historias de usuario de este epic.
+
 <table>
   <caption>US17. Asignar turnos por sorteo</caption>
   <thead>
@@ -1780,6 +1830,8 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 ##### EP05 Registro y validación de aportes
+
+Las Tablas 44 a 49 especifican las historias de usuario de este epic.
 
 <table>
   <caption>US23. Registrar mi aporte con el comprobante</caption>
@@ -1975,6 +2027,8 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 
 ##### EP06 Transparencia del pozo
 
+Las Tablas 50 a 53 especifican las historias de usuario de este epic.
+
 <table>
   <caption>US29. Ver el estado del pozo del período vigente</caption>
   <thead>
@@ -2105,6 +2159,8 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 
 ##### EP07 Recordatorios y avisos
 
+Las Tablas 54 a 56 especifican las historias de usuario de este epic.
+
 <table>
   <caption>US33. Recibir recordatorios escalonados de mi aporte</caption>
   <thead>
@@ -2202,6 +2258,8 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 ##### EP08 Entrega del pozo y cierre del ciclo
+
+Las Tablas 57 a 60 especifican las historias de usuario de este epic.
 
 <table>
   <caption>US36. Entregar el pozo y abrir el siguiente turno</caption>
@@ -2333,6 +2391,8 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 
 ##### EP09 Historial de cumplimiento
 
+Las Tablas 61 a 63 especifican las historias de usuario de este epic.
+
 <table>
   <caption>US40. Consultar mi historial de cumplimiento</caption>
   <thead>
@@ -2430,6 +2490,8 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 </table>
 
 ##### EP10 Landing page
+
+Las Tablas 64 a 67 especifican las historias de usuario de este epic.
 
 <table>
   <caption>US43. Entender qué resuelve Pozzo</caption>
@@ -2561,7 +2623,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 
 #### Technical Stories
 
-Las Technical Stories describen los servicios RESTful de desarrollo propio que sostienen la aplicación móvil. Se redactan desde el rol Developer y sus criterios de aceptación son escenarios de solicitud y respuesta.
+Las Technical Stories describen los servicios RESTful de desarrollo propio que sostienen la aplicación móvil. Se redactan desde el rol Developer y sus criterios de aceptación son escenarios de solicitud y respuesta (ver Tablas 68 a 75).
 
 <table>
   <caption>TS01. Servicio de autenticación por SMS</caption>
@@ -2825,7 +2887,7 @@ Las Spike Stories cubren la investigación necesaria antes de implementar las hi
 
 **Contexto común.** La solución de Pozzo se compone de una aplicación móvil nativa para Android, una versión multiplataforma, un backend de servicios RESTful de desarrollo propio con enfoque Domain-Driven Design y un landing page estático. Ninguno de los tres spikes tiene precedente en el curso: la lectura de texto en imágenes, el envío de notificaciones con la aplicación cerrada y la apertura de la aplicación desde un enlace externo dependen de bibliotecas y servicios de terceros cuya selección debe justificarse y documentarse.
 
-**Definition of Done común a los tres spikes.** El prototipo queda registrado en una rama del repositorio; el informe de hallazgos se comparte y revisa en una reunión del equipo o sesión de refinamiento del backlog; los hallazgos se usan para crear o refinar las historias de implementación; y el spike está limitado a entre 8 y 16 horas y se completa dentro del sprint en que se planifica.
+**Definition of Done común a los tres spikes.** El prototipo queda registrado en una rama del repositorio; el informe de hallazgos se comparte y revisa en una reunión del equipo o sesión de refinamiento del backlog; los hallazgos se usan para crear o refinar las historias de implementación; y el spike está limitado a entre 8 y 16 horas y se completa dentro del sprint en que se planifica (ver Tablas 76 a 78).
 
 <table>
   <caption>SP01. Investigar la lectura automática de comprobantes de Yape y Plin</caption>
@@ -2927,7 +2989,7 @@ Las Spike Stories cubren la investigación necesaria antes de implementar las hi
 
 El Impact Map vincula los objetivos de negocio de Pozzo con las personas que pueden hacerlos posibles, el cambio de comportamiento que se espera de ellas, lo que el producto entrega para provocar ese cambio y las historias que lo implementan. El equipo lo elaboró en UXPressia a partir de las fichas de User Persona de Anna Weber y Sofia Gonzales, respondiendo en cada nivel las preguntas del método: quiénes ayudan a lograr la meta, qué tendrían que hacer, qué puede hacer el negocio digital para provocarlo y con qué historias. Se elaboró un mapa por cada objetivo de negocio.
 
-Los objetivos de negocio se derivan de los resultados que el equipo definió en los Business Outcome Assumptions y en el Problem Statement del Lean UX Process (capítulo I, Solution Profile), formulados con los criterios SMART (específicos, medibles, alcanzables, relevantes y con plazo). El horizonte de medición son las juntas piloto que el equipo acompañará después del lanzamiento. Se seleccionaron los tres outcomes del primer ciclo de uso; el outcome de crecimiento por referidos (una de cada tres juntas nuevas formada por integrantes que ya usaron Pozzo) se medirá recién entre los meses 7 y 12, por lo que queda fuera de estos mapas y se retoma al planificar el segundo semestre.
+Los objetivos de negocio se derivan de los resultados que el equipo definió en los Business Outcome Assumptions y en el Problem Statement del Lean UX Process (capítulo I, Solution Profile), formulados con los criterios SMART (específicos, medibles, alcanzables, relevantes y con plazo). El horizonte de medición son las juntas piloto que el equipo acompañará después del lanzamiento. Se seleccionaron los tres outcomes del primer ciclo de uso; el outcome de crecimiento por referidos (una de cada tres juntas nuevas formada por integrantes que ya usaron Pozzo) se medirá recién entre los meses 7 y 12, por lo que queda fuera de estos mapas y se retoma al planificar el segundo semestre (ver Tabla 79).
 
 <table>
   <caption>Business goals del Impact Mapping</caption>
@@ -2957,19 +3019,19 @@ Los actores son los dos User Personas del proyecto: **Anna Weber**, cabeza de ju
 
 #### Business Goal 01: ciclo completo en Pozzo
 
-Este mapa responde a la pregunta de qué tiene que pasar para que una junta que hoy se administra con cuaderno y mensajería complete un ciclo entero dentro de Pozzo. De Anna Weber se esperan tres cambios: que configure su junta con las mismas reglas que su grupo ya acordó y la inicie sin ayuda (deliverables de configuración de la junta y asignación de turnos, con las historias de crear e iniciar la junta y de repartir turnos por sorteo, orden acordado o subasta); que incorpore al grupo entero, incluidos quienes no instalan la aplicación (incorporación de integrantes, con la invitación por código y enlace, el registro de integrantes sin aplicación y la lista de integrantes); y que registre la entrega de cada pozo y avance de turno dentro de la aplicación hasta cerrar el ciclo (entrega del pozo y cierre). De Sofia Gonzales se esperan dos: que se una a la junta el mismo día que recibe la invitación, sin configurar nada (incorporación de integrantes y acceso y cuenta), y que consulte el estado del pozo y su turno en Pozzo en lugar de preguntar en el grupo de mensajería (transparencia del pozo y calendario de turnos).
+Este mapa responde a la pregunta de qué tiene que pasar para que una junta que hoy se administra con cuaderno y mensajería complete un ciclo entero dentro de Pozzo. De Anna Weber se esperan tres cambios: que configure su junta con las mismas reglas que su grupo ya acordó y la inicie sin ayuda (deliverables de configuración de la junta y asignación de turnos, con las historias de crear e iniciar la junta y de repartir turnos por sorteo, orden acordado o subasta); que incorpore al grupo entero, incluidos quienes no instalan la aplicación (incorporación de integrantes, con la invitación por código y enlace, el registro de integrantes sin aplicación y la lista de integrantes); y que registre la entrega de cada pozo y avance de turno dentro de la aplicación hasta cerrar el ciclo (entrega del pozo y cierre). De Sofia Gonzales se esperan dos: que se una a la junta el mismo día que recibe la invitación, sin configurar nada (incorporación de integrantes y acceso y cuenta), y que consulte el estado del pozo y su turno en Pozzo en lugar de preguntar en el grupo de mensajería (transparencia del pozo y calendario de turnos) (ver Figura 27).
 
 ![Impact Map del Business Goal 01](images/chapter_2/impact_map_bg01.png){width=100%}
 
 #### Business Goal 02: aportes validados y discrepancias resueltas en la aplicación
 
-El segundo mapa sostiene la hipótesis central de Pozzo: que la validación automática del comprobante reemplace la revisión manual de la cabeza y que toda discrepancia se resuelva con evidencia dentro de la aplicación. Sofia Gonzales debe registrar su aporte con el comprobante apenas transfiere, en lugar de enviar la captura al chat (registro y validación de aportes, con las historias de registrar el aporte y revisar los datos leídos); transferir el monto exacto al destinatario correcto, de modo que el comprobante coincida con lo esperado (validación automática, destino de los aportes y número de Yape o Plin en el perfil); y mostrar su comprobante desde Pozzo cuando alguien cuestione su pago (mis aportes con comprobante y consulta sin conexión). Anna Weber debe revisar únicamente los aportes con alguna inconsistencia y confiar en la validación del resto (revisión de aportes con inconsistencia); registrar en la aplicación los aportes en efectivo y las coberturas para que el registro cuadre con el dinero (aporte en efectivo y cobertura); y consultar el registro de aportes en lugar de reconstruir la cuenta de memoria o pedir capturas (estado del pozo y períodos anteriores).
+El segundo mapa sostiene la hipótesis central de Pozzo: que la validación automática del comprobante reemplace la revisión manual de la cabeza y que toda discrepancia se resuelva con evidencia dentro de la aplicación. Sofia Gonzales debe registrar su aporte con el comprobante apenas transfiere, en lugar de enviar la captura al chat (registro y validación de aportes, con las historias de registrar el aporte y revisar los datos leídos); transferir el monto exacto al destinatario correcto, de modo que el comprobante coincida con lo esperado (validación automática, destino de los aportes y número de Yape o Plin en el perfil); y mostrar su comprobante desde Pozzo cuando alguien cuestione su pago (mis aportes con comprobante y consulta sin conexión). Anna Weber debe revisar únicamente los aportes con alguna inconsistencia y confiar en la validación del resto (revisión de aportes con inconsistencia); registrar en la aplicación los aportes en efectivo y las coberturas para que el registro cuadre con el dinero (aporte en efectivo y cobertura); y consultar el registro de aportes en lugar de reconstruir la cuenta de memoria o pedir capturas (estado del pozo y períodos anteriores) (ver Figura 28).
 
 ![Impact Map del Business Goal 02](images/chapter_2/impact_map_bg02.png){width=100%}
 
 #### Business Goal 03: cero recordatorios manuales
 
-El tercer mapa es el más acotado y apunta al desgaste que las cabezas describieron en las entrevistas: escribirle a dos o tres personas hasta cinco veces por ciclo. De Sofia Gonzales se espera que aporte antes de la fecha de corte al recibir los recordatorios automáticos, sin que la cabeza le escriba (recordatorios y avisos, con los recordatorios escalonados y los avisos de la junta), y que aporte a tiempo porque el grupo entero ve quién debe (transparencia del pozo, con el estado del pozo y el indicador de cuánto falta para quien cobra). De Anna Weber se espera un solo cambio, pero decisivo para el objetivo: que deje que el sistema recuerde los aportes en nombre de la junta y no escriba a nadie por su cuenta (configuración de los recordatorios de la junta).
+El tercer mapa es el más acotado y apunta al desgaste que las cabezas describieron en las entrevistas: escribirle a dos o tres personas hasta cinco veces por ciclo. De Sofia Gonzales se espera que aporte antes de la fecha de corte al recibir los recordatorios automáticos, sin que la cabeza le escriba (recordatorios y avisos, con los recordatorios escalonados y los avisos de la junta), y que aporte a tiempo porque el grupo entero ve quién debe (transparencia del pozo, con el estado del pozo y el indicador de cuánto falta para quien cobra). De Anna Weber se espera un solo cambio, pero decisivo para el objetivo: que deje que el sistema recuerde los aportes en nombre de la junta y no escriba a nadie por su cuenta (configuración de los recordatorios de la junta) (ver Figura 29).
 
 ![Impact Map del Business Goal 03](images/chapter_2/impact_map_bg03.png){width=100%}
 
@@ -2979,7 +3041,7 @@ El Product Backlog reúne las 46 User Stories, las 8 Technical Stories y las 3 S
 
 El orden sigue el Impact Map: primero lo que permite que una junta exista y complete un ciclo (landing page, creación e invitación, turnos, estado del pozo), luego lo que sostiene la validación automática de aportes, después los recordatorios y el historial, y al final la subasta y las historias que amplían la propuesta. Las historias del landing page van en el primer sprint porque el sitio es la puerta de entrada de las cabezas de junta y no depende de que la aplicación exista. La autenticación por SMS no encabeza el backlog: se ubica en el segundo sprint, cuando el flujo principal ya existe y hace falta distinguir a los usuarios.
 
-Los sprints se alinean con los hitos de entrega del proyecto: el Sprint 1 con TB1, el Sprint 2 con AV2 y los Sprints 3 y 4 con TB2.
+Los sprints se alinean con los hitos de entrega del proyecto: el Sprint 1 con TB1, el Sprint 2 con AV2 y los Sprints 3 y 4 con TB2 (ver Tabla 80).
 
 <table>
   <caption>Product Backlog priorizado de Pozzo</caption>
@@ -3415,7 +3477,7 @@ La sección cierra con la arquitectura de software de la solución, representada
 
 La sesión de EventStorming de nivel de diseño se realizó en Miro con los cinco integrantes del equipo y duró dos horas. A diferencia del Big Picture, que describía cómo funciona hoy una junta sin Pozzo, esta sesión modeló cómo va a funcionar con Pozzo: qué comandos ejecuta cada actor desde la aplicación, qué agregado los recibe, qué eventos producen, qué políticas reaccionan a esos eventos, qué vistas consulta el usuario para decidir y con qué sistemas externos se conversa. Las User Stories sirvieron de guion: cada historia se tradujo en al menos un comando y en los eventos que su criterio de aceptación describe en la cláusula "Entonces".
 
-Se usó la notación habitual de Brandolini con un color por concepto: actor, comando, agregado, evento de dominio, política, vista (read model), sistema externo y hotspot. Los eventos se escribieron en pasado, los comandos en infinitivo y las políticas con la forma "cuando ocurre X, entonces Y". Los eventos pivotales, los que cambian el estado de la junta, se marcaron en negrita.
+Se usó la notación habitual de Brandolini con un color por concepto: actor, comando, agregado, evento de dominio, política, vista (read model), sistema externo y hotspot. Los eventos se escribieron en pasado, los comandos en infinitivo y las políticas con la forma "cuando ocurre X, entonces Y". Los eventos pivotales, los que cambian el estado de la junta, se marcaron en negrita (ver Figura 30).
 
 ![Leyenda del EventStorming de nivel de diseño](images/chapter_2/es_leyenda.png)
 
@@ -3423,25 +3485,25 @@ Para que el resultado se pueda leer, el tablero se organizó en columnas y carri
 
 #### Acceso a Pozzo
 
-El primer tramo cubre la entrada de un integrante a la aplicación. Se identificó un único agregado, Cuenta, que recibe los comandos de solicitar y verificar el código SMS, completar el registro y administrar el perfil, y un agregado Sesión para el token que la aplicación guarda en el dispositivo. Dos políticas conectan este tramo con el resto: si el celular es nuevo se pide el registro, y al iniciar sesión se registra el dispositivo para recibir avisos. Los hotspots recogieron el vencimiento del código, los reintentos y la sesión en dos dispositivos a la vez.
+El primer tramo cubre la entrada de un integrante a la aplicación. Se identificó un único agregado, Cuenta, que recibe los comandos de solicitar y verificar el código SMS, completar el registro y administrar el perfil, y un agregado Sesión para el token que la aplicación guarda en el dispositivo. Dos políticas conectan este tramo con el resto: si el celular es nuevo se pide el registro, y al iniciar sesión se registra el dispositivo para recibir avisos. Los hotspots recogieron el vencimiento del código, los reintentos y la sesión en dos dispositivos a la vez (ver Figura 31).
 
 ![EventStorming: acceso a Pozzo](images/chapter_2/es_acceso.png)
 
 #### Configuración de la junta, integrantes y turnos
 
-El segundo tramo va desde que la cabeza crea la junta hasta que la inicia. El agregado Junta concentra las reglas (aporte, periodicidad, cupos, fecha de corte y destino de los aportes), la lista de integrantes y los turnos; Invitación y Subasta aparecen como agregados propios porque tienen ciclo de vida independiente. El evento pivotal es Junta iniciada: a partir de él las reglas quedan bloqueadas, el código de invitación caduca y una política abre el primer período de aporte. Los hotspots de este tramo son decisiones que el prototipo dejó abiertas: si el destino de los aportes es la cuenta de la cabeza o la del integrante del turno, cómo se verifica ante el grupo que el sorteo fue justo y qué pasa con un empate en la subasta.
+El segundo tramo va desde que la cabeza crea la junta hasta que la inicia. El agregado Junta concentra las reglas (aporte, periodicidad, cupos, fecha de corte y destino de los aportes), la lista de integrantes y los turnos; Invitación y Subasta aparecen como agregados propios porque tienen ciclo de vida independiente. El evento pivotal es Junta iniciada: a partir de él las reglas quedan bloqueadas, el código de invitación caduca y una política abre el primer período de aporte. Los hotspots de este tramo son decisiones que el prototipo dejó abiertas: si el destino de los aportes es la cuenta de la cabeza o la del integrante del turno, cómo se verifica ante el grupo que el sorteo fue justo y qué pasa con un empate en la subasta (ver Figura 32).
 
 ![EventStorming: configuración de la junta, integrantes y turnos](images/chapter_2/es_junta.png)
 
 #### Registro y validación de aportes
 
-El tercer tramo es el núcleo de Pozzo. Al abrir un período, una política calcula el aporte esperado de cada integrante; antes de la fecha de corte, otra envía recordatorios escalonados a quien no ha aportado. El participante registra su aporte con la captura del comprobante, ML Kit lee en el dispositivo el monto, la fecha, el destinatario y el número de operación, y el participante confirma esos datos. El agregado Aporte los valida contra lo esperado y produce el evento pivotal Aporte validado o, si algo no cuadra, Inconsistencia detectada, que pide a la cabeza aprobar o rechazar. Los aportes en efectivo los registra solo la cabeza, porque no tienen comprobante. Cuando todos los aportes del período están validados, el pozo está completo. Los hotspots más discutidos fueron la captura borrosa o recortada, el comprobante reutilizado en dos aportes y el hecho de que la entrega del push no está garantizada.
+El tercer tramo es el núcleo de Pozzo. Al abrir un período, una política calcula el aporte esperado de cada integrante; antes de la fecha de corte, otra envía recordatorios escalonados a quien no ha aportado. El participante registra su aporte con la captura del comprobante, ML Kit lee en el dispositivo el monto, la fecha, el destinatario y el número de operación, y el participante confirma esos datos. El agregado Aporte los valida contra lo esperado y produce el evento pivotal Aporte validado o, si algo no cuadra, Inconsistencia detectada, que pide a la cabeza aprobar o rechazar. Los aportes en efectivo los registra solo la cabeza, porque no tienen comprobante. Cuando todos los aportes del período están validados, el pozo está completo. Los hotspots más discutidos fueron la captura borrosa o recortada, el comprobante reutilizado en dos aportes y el hecho de que la entrega del push no está garantizada (ver Figura 33).
 
 ![EventStorming: registro y validación de aportes](images/chapter_2/es_aportes.png)
 
 #### Entrega del pozo, cierre del ciclo e historial
 
-El último tramo cubre las excepciones y el cierre. La cobertura de un aporte completa el pozo pero no borra la morosidad, y deja registrada la deuda del moroso con quien cubrió; la deserción incorpora un reemplazo que hereda el turno pendiente. Pozo entregado es el tercer evento pivotal: la transferencia ocurre fuera de Pozzo, por Yape, Plin o el banco, y la aplicación registra el hecho, avisa al grupo y abre el siguiente período. Tras el último turno, Ciclo cerrado cierra la junta. Una política transversal actualiza el historial de cumplimiento de cada integrante con cada aporte validado, cubierto, deserción o cierre, y el integrante puede compartirlo con la hoja de compartir del sistema. Este tramo también recoge el agregado Dispositivo y la política que envía un aviso en cada hecho relevante de la junta.
+El último tramo cubre las excepciones y el cierre. La cobertura de un aporte completa el pozo pero no borra la morosidad, y deja registrada la deuda del moroso con quien cubrió; la deserción incorpora un reemplazo que hereda el turno pendiente. Pozo entregado es el tercer evento pivotal: la transferencia ocurre fuera de Pozzo, por Yape, Plin o el banco, y la aplicación registra el hecho, avisa al grupo y abre el siguiente período. Tras el último turno, Ciclo cerrado cierra la junta. Una política transversal actualiza el historial de cumplimiento de cada integrante con cada aporte validado, cubierto, deserción o cierre, y el integrante puede compartirlo con la hoja de compartir del sistema. Este tramo también recoge el agregado Dispositivo y la política que envía un aviso en cada hecho relevante de la junta (ver Figura 34).
 
 ![EventStorming: entrega del pozo, cierre del ciclo e historial](images/chapter_2/es_cierre.png)
 
@@ -3449,19 +3511,19 @@ El último tramo cubre las excepciones y el cierre. La cobertura de un aporte co
 
 Con el EventStorm completo, el equipo dedicó una segunda sesión de dos horas a identificar los Bounded Contexts candidatos. Se trabajó solo con los eventos de dominio, que se copiaron a una zona aparte del tablero para poder reordenarlos sin perder la línea de tiempo original, y se aplicaron tres técnicas en secuencia.
 
-**Paso 1: look-for-pivotal-events.** Se marcaron los cuatro eventos que cambian el estado de la junta y que ya se habían resaltado durante el EventStorming: Junta iniciada, Aporte validado, Pozo entregado y Ciclo cerrado. Cada uno separa fases con reglas distintas. Antes de Junta iniciada todo puede cambiar; después, las reglas se congelan. Aporte validado convierte una intención de pago en un hecho que cuenta para el pozo y para el historial. Pozo entregado marca el momento en que el dinero sale del proceso y arranca el siguiente turno. Ciclo cerrado deja a la junta como un registro cerrado del que solo queda el historial.
+**Paso 1: look-for-pivotal-events.** Se marcaron los cuatro eventos que cambian el estado de la junta y que ya se habían resaltado durante el EventStorming: Junta iniciada, Aporte validado, Pozo entregado y Ciclo cerrado. Cada uno separa fases con reglas distintas. Antes de Junta iniciada todo puede cambiar; después, las reglas se congelan. Aporte validado convierte una intención de pago en un hecho que cuenta para el pozo y para el historial. Pozo entregado marca el momento en que el dinero sale del proceso y arranca el siguiente turno. Ciclo cerrado deja a la junta como un registro cerrado del que solo queda el historial (ver Figura 35).
 
 ![Candidate Context Discovery, paso 1: eventos pivotales](images/chapter_2/ccd_paso1.png)
 
-**Paso 2: start-with-simple.** Con los pivotales como cortes, la línea de tiempo se dividió en cinco segmentos secuenciales: antes de iniciar la junta; período abierto y registro; validación y completitud del pozo; entrega y siguiente turno; cierre e historial. Este paso hizo visible que el segundo, el tercero y el cuarto segmento se repiten por cada turno de la junta, mientras que el primero y el último ocurren una sola vez por ciclo, y que los eventos de acceso (código SMS, cuenta, sesión) y los de avisos (recordatorios, avisos) no pertenecen a ningún segmento en particular: aparecen en todos.
+**Paso 2: start-with-simple.** Con los pivotales como cortes, la línea de tiempo se dividió en cinco segmentos secuenciales: antes de iniciar la junta; período abierto y registro; validación y completitud del pozo; entrega y siguiente turno; cierre e historial. Este paso hizo visible que el segundo, el tercero y el cuarto segmento se repiten por cada turno de la junta, mientras que el primero y el último ocurren una sola vez por ciclo, y que los eventos de acceso (código SMS, cuenta, sesión) y los de avisos (recordatorios, avisos) no pertenecen a ningún segmento en particular: aparecen en todos (ver Figura 36).
 
 ![Candidate Context Discovery, paso 2: segmentos entre eventos pivotales](images/chapter_2/ccd_paso2.png)
 
-**Paso 3: start-with-value.** Por último se preguntó qué parte del dominio sostiene la hipótesis principal de Pozzo. La respuesta fue la validación de aportes y la transparencia del pozo: es lo que ningún competidor hace y lo que las entrevistas señalaron como el mayor punto de fricción. Los eventos de los segmentos que se repiten por turno, desde Período abierto hasta Ciclo cerrado, se agruparon como el contexto core, Contributions. El resto se regrupó por afinidad: lo que ocurre antes de iniciar la junta, incluidos los turnos y las deserciones, formó Savings Groups; los eventos transversales de acceso formaron Identity & Access; los de recordatorios y avisos, Notifications; y los dos eventos del historial, Compliance History.
+**Paso 3: start-with-value.** Por último se preguntó qué parte del dominio sostiene la hipótesis principal de Pozzo. La respuesta fue la validación de aportes y la transparencia del pozo: es lo que ningún competidor hace y lo que las entrevistas señalaron como el mayor punto de fricción. Los eventos de los segmentos que se repiten por turno, desde Período abierto hasta Ciclo cerrado, se agruparon como el contexto core, Contributions. El resto se regrupó por afinidad: lo que ocurre antes de iniciar la junta, incluidos los turnos y las deserciones, formó Savings Groups; los eventos transversales de acceso formaron Identity & Access; los de recordatorios y avisos, Notifications; y los dos eventos del historial, Compliance History (ver Figura 37).
 
 ![Candidate Context Discovery, paso 3: bounded contexts candidatos](images/chapter_2/ccd_paso3.png)
 
-El resultado son cinco Bounded Contexts, uno por integrante del equipo, clasificados según el valor que aportan al negocio.
+El resultado son cinco Bounded Contexts, uno por integrante del equipo, clasificados según el valor que aportan al negocio (ver Tabla 81).
 
 <table>
   <caption>Bounded contexts candidatos y los epics que cubren</caption>
@@ -3513,15 +3575,15 @@ Durante el paso 3 se discutió si los turnos y la subasta merecían un contexto 
 
 Para comprobar que los cinco contextos podían resolver los casos de uso sin depender unos de otros más de lo necesario, el equipo modeló con Domain Storytelling las tres historias que concentran el valor de Pozzo. En cada diagrama los actores son círculos, los objetos de trabajo son rectángulos coloreados según el contexto al que pertenecen, las zonas de fondo delimitan los Bounded Contexts y cada flecha lleva el número del paso, de modo que la historia se lee siguiendo la numeración.
 
-**Historia 1: la cabeza crea la junta e incorpora a los integrantes.** La cabeza crea la junta con sus reglas y genera una invitación en Savings Groups, la comparte por WhatsApp y el participante que recibe el enlace verifica su celular en Identity & Access antes de unirse. Al incorporarlo, Savings Groups consulta a Compliance History el historial del nuevo integrante y se lo muestra a la cabeza. Con los turnos asignados, la cabeza inicia la junta y Notifications avisa a todos. La historia muestra que Savings Groups es el contexto que orquesta esta fase y que solo necesita de los demás una consulta (el historial) y una identidad.
+**Historia 1: la cabeza crea la junta e incorpora a los integrantes.** La cabeza crea la junta con sus reglas y genera una invitación en Savings Groups, la comparte por WhatsApp y el participante que recibe el enlace verifica su celular en Identity & Access antes de unirse. Al incorporarlo, Savings Groups consulta a Compliance History el historial del nuevo integrante y se lo muestra a la cabeza. Con los turnos asignados, la cabeza inicia la junta y Notifications avisa a todos. La historia muestra que Savings Groups es el contexto que orquesta esta fase y que solo necesita de los demás una consulta (el historial) y una identidad (ver Figura 38).
 
 ![Domain Storytelling: la cabeza crea la junta e incorpora a los integrantes](images/chapter_2/ds_historia1.png)
 
-**Historia 2: el participante registra su aporte y Pozzo lo valida.** Antes de la fecha de corte, el período vigente pide a Notifications un recordatorio para el participante. Este transfiere en Yape o Plin, captura el comprobante y ML Kit lo lee en el dispositivo; el participante confirma los datos y registra el aporte en Contributions, que lo valida contra el aporte esperado y actualiza el estado del pozo. La cabeza consulta ese estado y solo interviene si hay una inconsistencia. El aporte validado se registra en Compliance History. La historia confirma que el core no depende de Savings Groups en tiempo de ejecución: las reglas se copiaron al período cuando se abrió.
+**Historia 2: el participante registra su aporte y Pozzo lo valida.** Antes de la fecha de corte, el período vigente pide a Notifications un recordatorio para el participante. Este transfiere en Yape o Plin, captura el comprobante y ML Kit lo lee en el dispositivo; el participante confirma los datos y registra el aporte en Contributions, que lo valida contra el aporte esperado y actualiza el estado del pozo. La cabeza consulta ese estado y solo interviene si hay una inconsistencia. El aporte validado se registra en Compliance History. La historia confirma que el core no depende de Savings Groups en tiempo de ejecución: las reglas se copiaron al período cuando se abrió (ver Figura 39).
 
 ![Domain Storytelling: el participante registra su aporte y Pozzo lo valida](images/chapter_2/ds_historia2.png)
 
-**Historia 3: la cabeza entrega el pozo y cierra el ciclo.** Cuando el estado del pozo muestra el pozo completo, la cabeza transfiere fuera de Pozzo al participante del turno y registra la entrega en Contributions, que consulta el calendario de turnos en Savings Groups para abrir el siguiente período y pide a Notifications que avise al grupo. Tras el último turno la cabeza cierra la junta y Compliance History consolida el historial de todos. Esta historia expuso la única dependencia del core hacia Savings Groups, la consulta del siguiente turno, que se resolvió en el Context Map con una relación Customer/Supplier.
+**Historia 3: la cabeza entrega el pozo y cierra el ciclo.** Cuando el estado del pozo muestra el pozo completo, la cabeza transfiere fuera de Pozzo al participante del turno y registra la entrega en Contributions, que consulta el calendario de turnos en Savings Groups para abrir el siguiente período y pide a Notifications que avise al grupo. Tras el último turno la cabeza cierra la junta y Compliance History consolida el historial de todos. Esta historia expuso la única dependencia del core hacia Savings Groups, la consulta del siguiente turno, que se resolvió en el Context Map con una relación Customer/Supplier (ver Figura 40).
 
 ![Domain Storytelling: la cabeza entrega el pozo y cierra el ciclo](images/chapter_2/ds_historia3.png)
 
@@ -3529,37 +3591,37 @@ Para comprobar que los cinco contextos podían resolver los casos de uso sin dep
 
 Con los contextos validados por las historias, el equipo elaboró un Bounded Context Canvas por cada uno, en orden de importancia: Contributions, Savings Groups, Compliance History, Notifications e Identity & Access. Se siguió el proceso iterativo del canvas: primero la definición del contexto (nombre y propósito en una frase) y su clasificación estratégica en tres dimensiones, tipo de subdominio, modelo de negocio al que sirve y grado de evolución; luego la destilación de reglas de negocio y la captura del lenguaje ubicuo propio del contexto; después el análisis de capabilities, expresado como la comunicación entrante (comandos, consultas y eventos que recibe, y de quién) y la saliente (eventos que publica y quién los consume); y por último los supuestos, las métricas con las que se verificará que el contexto cumple su propósito y las preguntas abiertas. Cada canvas se sometió a una crítica de diseño en la que otro integrante buscó reglas que pertenecieran a otro contexto o dependencias que no aparecieran en las historias.
 
-**Contributions.** Es el core y el único contexto con modelo de negocio de engagement directo: si la validación funciona, la junta completa su ciclo en Pozzo. Sus reglas más importantes son las de validación (monto acordado, fecha dentro del corte, destinatario correcto y número de operación único en la junta) y la de completitud del pozo. Publica nueve eventos que consumen Notifications y Compliance History, y solo hace consultas a Savings Groups. La métrica principal es el porcentaje de aportes validados sin revisión de la cabeza, con una meta del 80 %.
+**Contributions.** Es el core y el único contexto con modelo de negocio de engagement directo: si la validación funciona, la junta completa su ciclo en Pozzo. Sus reglas más importantes son las de validación (monto acordado, fecha dentro del corte, destinatario correcto y número de operación único en la junta) y la de completitud del pozo. Publica nueve eventos que consumen Notifications y Compliance History, y solo hace consultas a Savings Groups. La métrica principal es el porcentaje de aportes validados sin revisión de la cabeza, con una meta del 80 % (ver Figura 41).
 
 ![Bounded Context Canvas: Contributions](images/chapter_2/bcc_contributions.png)
 
-**Savings Groups.** Contexto de soporte con rol de especificación: fija las reglas que Contributions ejecuta. Sus reglas de negocio son las condiciones para iniciar la junta (cupos cubiertos y turnos asignados), el bloqueo de reglas al iniciar, el tratamiento del integrante sin la aplicación y la resolución de la subasta. Es el contexto con más comandos entrantes, todos de la cabeza salvo unirse y ofertar.
+**Savings Groups.** Contexto de soporte con rol de especificación: fija las reglas que Contributions ejecuta. Sus reglas de negocio son las condiciones para iniciar la junta (cupos cubiertos y turnos asignados), el bloqueo de reglas al iniciar, el tratamiento del integrante sin la aplicación y la resolución de la subasta. Es el contexto con más comandos entrantes, todos de la cabeza salvo unirse y ofertar (ver Figura 42).
 
 ![Bounded Context Canvas: Savings Groups](images/chapter_2/bcc_savings_groups.png)
 
-**Compliance History.** Contexto de análisis: un modelo de lectura derivado de los eventos del core y de Savings Groups. Sus reglas protegen la privacidad, porque el historial se muestra agregado, sin montos ni nombres de otras juntas, y la verificabilidad, porque compartirlo genera un enlace con vigencia limitada. La crítica de diseño confirmó que ninguna regla de este contexto modifica una junta, lo que justifica mantenerlo separado del core.
+**Compliance History.** Contexto de análisis: un modelo de lectura derivado de los eventos del core y de Savings Groups. Sus reglas protegen la privacidad, porque el historial se muestra agregado, sin montos ni nombres de otras juntas, y la verificabilidad, porque compartirlo genera un enlace con vigencia limitada. La crítica de diseño confirmó que ninguna regla de este contexto modifica una junta, lo que justifica mantenerlo separado del core (ver Figura 43).
 
 ![Bounded Context Canvas: Compliance History](images/chapter_2/bcc_compliance_history.png)
 
-**Notifications.** Contexto genérico que reacciona a los eventos de los demás. Lo específico de Pozzo está en su política de escalonamiento (tres días, un día y el mismo día de la fecha de corte, solo a quien tiene aporte pendiente) y en la regla de detener los recordatorios al validar el aporte. Es el único contexto que conoce a Firebase Cloud Messaging. Una de sus preguntas abiertas, programador de tareas o cola con retardo, corresponde a una Spike Story ya planificada.
+**Notifications.** Contexto genérico que reacciona a los eventos de los demás. Lo específico de Pozzo está en su política de escalonamiento (tres días, un día y el mismo día de la fecha de corte, solo a quien tiene aporte pendiente) y en la regla de detener los recordatorios al validar el aporte. Es el único contexto que conoce a Firebase Cloud Messaging. Una de sus preguntas abiertas, programador de tareas o cola con retardo, corresponde a una Spike Story ya planificada (ver Figura 44).
 
 ![Bounded Context Canvas: Notifications](images/chapter_2/bcc_notifications.png)
 
-**Identity & Access.** Contexto genérico y commodity: la verificación por SMS se contrata a un proveedor. Sus reglas son las de cualquier acceso sin contraseña (un celular por cuenta, código de seis dígitos con vigencia y reintentos limitados, sesión persistente en el dispositivo). Provee la identidad que los demás contextos usan para referirse a un integrante y el token que autoriza cada solicitud a los servicios RESTful.
+**Identity & Access.** Contexto genérico y commodity: la verificación por SMS se contrata a un proveedor. Sus reglas son las de cualquier acceso sin contraseña (un celular por cuenta, código de seis dígitos con vigencia y reintentos limitados, sesión persistente en el dispositivo). Provee la identidad que los demás contextos usan para referirse a un integrante y el token que autoriza cada solicitud a los servicios RESTful (ver Figura 45).
 
 ![Bounded Context Canvas: Identity & Access](images/chapter_2/bcc_identity_access.png)
 
 ### 2.5.2. Context Mapping
 
-El Context Map define cómo se relacionan los cinco Bounded Contexts y, en particular, quién se adapta a quién cuando dos contextos necesitan comunicarse. Antes de fijarlo, el equipo discutió cuatro alternativas de partición, siguiendo las preguntas que propone el proceso de Context Mapping: qué pasaría si se unen dos contextos, si se parte uno, si se mueve una capability a otro contexto o si se crea un shared service.
+El Context Map define cómo se relacionan los cinco Bounded Contexts y, en particular, quién se adapta a quién cuando dos contextos necesitan comunicarse. Antes de fijarlo, el equipo discutió cuatro alternativas de partición, siguiendo las preguntas que propone el proceso de Context Mapping: qué pasaría si se unen dos contextos, si se parte uno, si se mueve una capability a otro contexto o si se crea un shared service (ver Figura 46).
 
 ![Alternativas de context mapping evaluadas](images/chapter_2/context_map_alternativas.png)
 
-La primera alternativa, unir Savings Groups y Contributions en un solo contexto Junta, simplificaría las llamadas entre servicios pero mezclaría el core con la configuración y las invitaciones, y dejaría un agregado Junta que crecería con todos los aportes de todos los períodos; se descartó para mantener el core aislado. La segunda, extraer los turnos y la subasta a un contexto Turn Allocation, se descartó porque los tres métodos de reparto operan sobre la misma lista de integrantes y los mismos cupos, y separarlos duplicaría ese modelo para un equipo de cinco personas; si la subasta crece, se extraerá después. La tercera, dejar el historial dentro de Contributions, se descartó porque el historial cruza juntas y se modela por persona, no por período, y exponerlo desde el core filtraría montos y nombres de otras juntas. La cuarta, que cada contexto envíe sus propias notificaciones, se descartó porque tres contextos hablarían con Firebase Cloud Messaging y repetirían el registro de dispositivos, el escalonamiento y la deduplicación; Notifications quedó como un shared service que reacciona a los eventos publicados.
+La primera alternativa, unir Savings Groups y Contributions en un solo contexto Junta, simplificaría las llamadas entre servicios pero mezclaría el core con la configuración y las invitaciones, y dejaría un agregado Junta que crecería con todos los aportes de todos los períodos; se descartó para mantener el core aislado. La segunda, extraer los turnos y la subasta a un contexto Turn Allocation, se descartó porque los tres métodos de reparto operan sobre la misma lista de integrantes y los mismos cupos, y separarlos duplicaría ese modelo para un equipo de cinco personas; si la subasta crece, se extraerá después. La tercera, dejar el historial dentro de Contributions, se descartó porque el historial cruza juntas y se modela por persona, no por período, y exponerlo desde el core filtraría montos y nombres de otras juntas. La cuarta, que cada contexto envíe sus propias notificaciones, se descartó porque tres contextos hablarían con Firebase Cloud Messaging y repetirían el registro de dispositivos, el escalonamiento y la deduplicación; Notifications quedó como un shared service que reacciona a los eventos publicados (ver Figura 47).
 
 ![Context Map de Pozzo](images/chapter_2/context_map.png)
 
-El mapa definitivo usa cuatro de los patrones de relación de Domain-Driven Design. En cada relación la flecha va del contexto upstream (U) al downstream (D).
+El mapa definitivo usa cuatro de los patrones de relación de Domain-Driven Design. En cada relación la flecha va del contexto upstream (U) al downstream (D) (ver Tabla 82).
 
 <table>
   <caption>Relaciones entre bounded contexts del Context Map</caption>
@@ -3632,19 +3694,19 @@ La arquitectura de software de Pozzo se representa con el C4 Model [@brown2018c4
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
-El diagrama de contexto representa la visión de más alto nivel de Pozzo. Establece las fronteras del sistema y muestra las relaciones con los actores humanos (cabeza de junta, participante y visitante) y los ecosistemas externos que habilitan la operación del servicio.
+El diagrama de contexto representa la visión de más alto nivel de Pozzo. Establece las fronteras del sistema y muestra las relaciones con los actores humanos (cabeza de junta, participante y visitante) y los ecosistemas externos que habilitan la operación del servicio (ver Figura 48).
 
 ![Diagrama de contexto del sistema Pozzo](images/chapter_2/c4_context.png)
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
-El diagrama de contenedores descompone el sistema Pozzo en sus unidades de software ejecutables y de almacenamiento de datos, definiendo la tecnología empleada por cada contenedor y los límites de comunicación entre ellos.
+El diagrama de contenedores descompone el sistema Pozzo en sus unidades de software ejecutables y de almacenamiento de datos, definiendo la tecnología empleada por cada contenedor y los límites de comunicación entre ellos (ver Figura 49).
 
 ![Diagrama de contenedores del sistema Pozzo](images/chapter_2/c4_container.png)
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
-El diagrama de despliegue mapea los contenedores de software sobre los nodos de infraestructura física y en la nube en el entorno de producción, detallando los entornos de ejecución, la distribución de componentes y los mecanismos de conectividad.
+El diagrama de despliegue mapea los contenedores de software sobre los nodos de infraestructura física y en la nube en el entorno de producción, detallando los entornos de ejecución, la distribución de componentes y los mecanismos de conectividad (ver Figura 50).
 
 ![Diagrama de despliegue en producción del sistema Pozzo](images/chapter_2/c4_deployment.png)
 
@@ -3659,6 +3721,8 @@ Las clases se derivan directamente de los artefactos anteriores: cada comando de
 Contributions es el contexto core. Registra y valida los aportes de cada período contra lo esperado, mantiene el estado del pozo, registra su entrega y cierra el ciclo. Su modelo gira en torno a tres agregados. **Cycle** es la copia congelada de la junta que Contributions necesita para operar: las reglas (aporte, periodicidad, fecha de corte, destino), el orden de turnos y el turno en curso; se crea al recibir el evento Junta iniciada de Savings Groups y desde entonces no depende de ese contexto en tiempo de ejecución. **Period** representa un turno del ciclo: sabe cuánto espera de cada integrante, quién cobra y si el pozo está completo. **Contribution** es un aporte registrado por un integrante, con el comprobante leído en el dispositivo, el resultado de su validación y, cuando corresponde, la revisión de la cabeza. Se separaron Period y Contribution en dos agregados porque tienen ciclos de vida y ritmos de cambio distintos: un período cambia pocas veces (se abre, se completa, se entrega), mientras que los aportes se registran, validan y revisan de forma independiente y concurrente. Cada integrante se identifica por su membresía en la junta y, si usa la aplicación, también por su cuenta: quien no tiene la aplicación igual aporta, en efectivo o con una cobertura, así que la membresía es la única referencia que todos tienen.
 
 #### 2.6.1.1. Domain Layer
+
+La Tabla 83 presenta las clases del Domain Layer de Contributions.
 
 <table>
   <caption>Clases del Domain Layer de Contributions</caption>
@@ -3769,7 +3833,7 @@ Las reglas de negocio del canvas quedan repartidas así: la validación del comp
 
 #### 2.6.1.2. Interface Layer
 
-La capa de interfaz expone el contexto como recursos REST, documentados con OpenAPI, y traduce entre los recursos JSON y los comandos y consultas del dominio mediante clases assembler.
+La capa de interfaz expone el contexto como recursos REST, documentados con OpenAPI, y traduce entre los recursos JSON y los comandos y consultas del dominio mediante clases assembler (ver Tabla 84).
 
 <table>
   <caption>Clases del Interface Layer de Contributions</caption>
@@ -3812,7 +3876,7 @@ La capa de interfaz expone el contexto como recursos REST, documentados con Open
 
 #### 2.6.1.3. Application Layer
 
-La capa de aplicación orquesta los casos de uso: recibe un comando o una consulta, carga los agregados por sus repositorios, invoca sus métodos, guarda y publica los eventos. No contiene reglas de negocio.
+La capa de aplicación orquesta los casos de uso: recibe un comando o una consulta, carga los agregados por sus repositorios, invoca sus métodos, guarda y publica los eventos. No contiene reglas de negocio (ver Tabla 85).
 
 <table>
   <caption>Clases del Application Layer de Contributions</caption>
@@ -3860,6 +3924,8 @@ La capa de aplicación orquesta los casos de uso: recibe un comando o una consul
 
 #### 2.6.1.4. Infrastructure Layer
 
+La Tabla 86 presenta las clases del Infrastructure Layer de Contributions.
+
 <table>
   <caption>Clases del Infrastructure Layer de Contributions</caption>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
@@ -3886,7 +3952,7 @@ La capa de aplicación orquesta los casos de uso: recibe un comando o una consul
 
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
-El diagrama de componentes descompone el contenedor de servicios RESTful en los componentes de Contributions y muestra cómo se comunican entre sí, con la aplicación móvil y con la base de datos.
+El diagrama de componentes descompone el contenedor de servicios RESTful en los componentes de Contributions y muestra cómo se comunican entre sí, con la aplicación móvil y con la base de datos (ver Figura 51).
 
 ![Diagrama de componentes de Contributions](images/chapter_2/c4_components_contributions.png){width=80%}
 
@@ -3896,11 +3962,15 @@ Los controllers reciben las solicitudes de la aplicación móvil y las convierte
 
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
 
+La Figura 52 muestra el diagrama de clases del Domain Layer de Contributions.
+
 ![Diagrama de clases del Domain Layer de Contributions](images/chapter_2/uml_contributions_domain.png)
 
 El diagrama muestra los tres agregados y sus relaciones de composición: un Cycle contiene sus reglas y turnos y agrupa uno o más Period; un Period contiene un ExpectedContribution por integrante y agrupa los Contribution que se registran en él; un Contribution contiene como máximo un comprobante y una revisión y cero o más inconsistencias. Las asociaciones entre agregados se expresan por identificador (cycleId, periodId), no por referencia de objeto, para que cada agregado se cargue y guarde de forma independiente. Los repositorios dependen de los agregados.
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
+
+La Figura 53 muestra el diagrama de base de datos de Contributions.
 
 ![Diagrama de base de datos de Contributions](images/chapter_2/db_contributions.png)
 
@@ -3911,6 +3981,8 @@ El esquema `contributions` tiene seis tablas. `cycles` guarda el ciclo con sus r
 Savings Groups es el contexto de soporte que define la junta antes de que exista un ciclo: sus reglas, sus integrantes, la invitación con la que se incorporan y el orden de turnos. Su modelo tiene tres agregados. **SavingsGroup** es la junta con sus reglas, la lista de integrantes y los turnos; concentra las condiciones para iniciar y el bloqueo de reglas posterior. **Invitation** es el código y enlace vigentes de una junta, con su vencimiento; se modela aparte porque una junta puede regenerar invitaciones sin cambiar. **Auction** es la subasta de un turno con sus ofertas; tiene ciclo de vida propio (abierta, cerrada) y termina asignando el turno a la junta. Los integrantes son entidades dentro de SavingsGroup porque no tienen sentido fuera de ella: un mismo celular es un Membership distinto en cada junta, y los integrantes sin la aplicación existen solo como Membership de tipo manual.
 
 #### 2.6.2.1. Domain Layer
+
+La Tabla 87 presenta las clases del Domain Layer de Savings Groups.
 
 <table>
   <caption>Clases del Domain Layer de Savings Groups</caption>
@@ -4009,6 +4081,8 @@ Las reglas del canvas quedan en `SavingsGroup.canStart` (cupos cubiertos y turno
 
 #### 2.6.2.2. Interface Layer
 
+La Tabla 88 presenta las clases del Interface Layer de Savings Groups.
+
 <table>
   <caption>Clases del Interface Layer de Savings Groups</caption>
   <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
@@ -4044,6 +4118,8 @@ Las reglas del canvas quedan en `SavingsGroup.canStart` (cupos cubiertos y turno
 </table>
 
 #### 2.6.2.3. Application Layer
+
+La Tabla 89 presenta las clases del Application Layer de Savings Groups.
 
 <table>
   <caption>Clases del Application Layer de Savings Groups</caption>
@@ -4093,6 +4169,8 @@ Este contexto no tiene event handlers entrantes: todo lo que ocurre en una junta
 
 #### 2.6.2.4. Infrastructure Layer
 
+La Tabla 90 presenta las clases del Infrastructure Layer de Savings Groups.
+
 <table>
   <caption>Clases del Infrastructure Layer de Savings Groups</caption>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
@@ -4129,6 +4207,8 @@ Este contexto no tiene event handlers entrantes: todo lo que ocurre en una junta
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
+La Figura 54 muestra el diagrama de componentes de Savings Groups.
+
 ![Diagrama de componentes de Savings Groups](images/chapter_2/c4_components_savings_groups.png){width=80%}
 
 Tres controllers reparten las responsabilidades de junta, integrantes y turnos. SavingsGroupCommandService y TurnCommandService comparten el modelo de dominio y los repositorios; el command service sale del contexto solo a través de ExternalIamService, para obtener el nombre de quien crea la junta o se une. Hacia afuera, el contexto expone dos cosas: el evento Junta iniciada, que consume Contributions, y SavingsGroupsContextFacade, que Compliance History y Notifications usan para autorizar sus solicitudes.
@@ -4137,11 +4217,15 @@ Tres controllers reparten las responsabilidades de junta, integrantes y turnos. 
 
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
+La Figura 55 muestra el diagrama de clases del Domain Layer de Savings Groups.
+
 ![Diagrama de clases del Domain Layer de Savings Groups](images/chapter_2/uml_savings_groups_domain.png)
 
 SavingsGroup compone sus reglas, sus integrantes y sus turnos, y agrega por identificador las invitaciones y subastas que le pertenecen. Auction compone sus ofertas. El domain service TurnAssignmentService opera sobre SavingsGroup y devuelve la lista de TurnSlot que el agregado acepta con `assignTurns`.
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
+
+La Figura 56 muestra el diagrama de base de datos de Savings Groups.
 
 ![Diagrama de base de datos de Savings Groups](images/chapter_2/db_savings_groups.png){width=85%}
 
@@ -4152,6 +4236,8 @@ El esquema `savings_groups` tiene seis tablas. `savings_groups` guarda la junta 
 Compliance History es un contexto de análisis: no toma decisiones sobre la junta, solo acumula hechos de cumplimiento por persona y los resume. Su modelo tiene dos agregados. **MemberRecord** es el historial de un integrante, con una entrada por cada hecho relevante recibido de otros contextos; produce un resumen agregado que es lo único que se muestra fuera. **ShareLink** es un enlace con vigencia limitada que permite mostrar ese resumen a alguien que no es integrante de Pozzo. La capa anticorrupción está en los event handlers: reciben eventos de Contributions y Savings Groups expresados en términos de aportes y períodos, y los traducen a entradas de cumplimiento (puntual, tardío, cubierto, rechazado, deserción, ciclo completado).
 
 #### 2.6.3.1. Domain Layer
+
+La Tabla 91 presenta las clases del Domain Layer de Compliance History.
 
 <table>
   <caption>Clases del Domain Layer de Compliance History</caption>
@@ -4236,6 +4322,8 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
 
 #### 2.6.3.2. Interface Layer
 
+La Tabla 92 presenta las clases del Interface Layer de Compliance History.
+
 <table>
   <caption>Clases del Interface Layer de Compliance History</caption>
   <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
@@ -4261,6 +4349,8 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
 </table>
 
 #### 2.6.3.3. Application Layer
+
+La Tabla 93 presenta las clases del Application Layer de Compliance History.
 
 <table>
   <caption>Clases del Application Layer de Compliance History</caption>
@@ -4303,6 +4393,8 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
 
 #### 2.6.3.4. Infrastructure Layer
 
+La Tabla 94 presenta las clases del Infrastructure Layer de Compliance History.
+
 <table>
   <caption>Clases del Infrastructure Layer de Compliance History</caption>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
@@ -4334,6 +4426,8 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
+La Figura 57 muestra el diagrama de componentes de Compliance History.
+
 ![Diagrama de componentes de Compliance History](images/chapter_2/c4_components_compliance_history.png){width=75%}
 
 El contexto tiene dos entradas: el controller, para las consultas y la compartición desde la aplicación, y los event handlers, que reciben los eventos de Contributions y Savings Groups y los convierten en comandos de registro. Ambos pasan por el command service, que es el único que escribe. Para autorizar las consultas, el query service pregunta a Savings Groups, por medio de su fachada, quién es cabeza de cada junta y quiénes pertenecen a ella.
@@ -4342,9 +4436,13 @@ El contexto tiene dos entradas: el controller, para las consultas y la compartic
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
+La Figura 58 muestra el diagrama de clases del Domain Layer de Compliance History.
+
 ![Diagrama de clases del Domain Layer de Compliance History](images/chapter_2/uml_compliance_history_domain.png){width=80%}
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
+
+La Figura 59 muestra el diagrama de base de datos de Compliance History.
 
 ![Diagrama de base de datos de Compliance History](images/chapter_2/db_compliance_history.png){width=75%}
 
@@ -4355,6 +4453,8 @@ El esquema `compliance_history` tiene tres tablas. `member_records` usa la cuent
 Notifications es un contexto genérico y reactivo: casi todo lo que hace lo dispara un evento de otro contexto. Su modelo tiene tres agregados. **Device** es un dispositivo registrado para recibir push, con su token de Firebase Cloud Messaging. **ReminderPlan** es la política de recordatorios de una junta: cuántos días antes de la fecha de corte se envían y a qué hora; existe uno por junta y por defecto es tres días, un día y el mismo día. **Notification** es un recordatorio o aviso programado o enviado a un integrante, con una clave de deduplicación que impide que un mismo hecho produzca dos avisos. El propio ReminderPlan convierte una fecha de corte en los momentos de envío, y el command service crea con ellos las notificaciones de cada integrante y las cancela cuando su aporte se liquida.
 
 #### 2.6.4.1. Domain Layer
+
+La Tabla 95 presenta las clases del Domain Layer de Notifications.
 
 <table>
   <caption>Clases del Domain Layer de Notifications</caption>
@@ -4427,6 +4527,8 @@ Notifications es un contexto genérico y reactivo: casi todo lo que hace lo disp
 
 #### 2.6.4.2. Interface Layer
 
+La Tabla 96 presenta las clases del Interface Layer de Notifications.
+
 <table>
   <caption>Clases del Interface Layer de Notifications</caption>
   <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
@@ -4462,6 +4564,8 @@ Notifications es un contexto genérico y reactivo: casi todo lo que hace lo disp
 </table>
 
 #### 2.6.4.3. Application Layer
+
+La Tabla 97 presenta las clases del Application Layer de Notifications.
 
 <table>
   <caption>Clases del Application Layer de Notifications</caption>
@@ -4501,6 +4605,8 @@ El equipo eligió un despachador con tarea programada sobre la tabla de notifica
 
 #### 2.6.4.4. Infrastructure Layer
 
+La Tabla 98 presenta las clases del Infrastructure Layer de Notifications.
+
 <table>
   <caption>Clases del Infrastructure Layer de Notifications</caption>
   <colgroup><col width="26%"><col width="16%"><col width="58%"></colgroup>
@@ -4537,6 +4643,8 @@ El equipo eligió un despachador con tarea programada sobre la tabla de notifica
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
+La Figura 60 muestra el diagrama de componentes de Notifications.
+
 ![Diagrama de componentes de Notifications](images/chapter_2/c4_components_notifications.png){width=80%}
 
 Los event handlers son la entrada principal del contexto y los controllers la secundaria. El despachador es el único componente que habla con Firebase Cloud Messaging, a través del adaptador FcmPushSender, lo que concentra en un punto el manejo de tokens inválidos y reintentos. Para autorizar el plan de recordatorios, el contexto pregunta a Savings Groups, por medio de su fachada, quién pertenece a la junta y quién la organiza.
@@ -4545,9 +4653,13 @@ Los event handlers son la entrada principal del contexto y los controllers la se
 
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
+La Figura 61 muestra el diagrama de clases del Domain Layer de Notifications.
+
 ![Diagrama de clases del Domain Layer de Notifications](images/chapter_2/uml_notifications_domain.png){width=90%}
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
+
+La Figura 62 muestra el diagrama de base de datos de Notifications.
 
 ![Diagrama de base de datos de Notifications](images/chapter_2/db_notifications.png){width=85%}
 
@@ -4558,6 +4670,8 @@ El esquema `notifications` tiene tres tablas. `devices` guarda los tokens, únic
 Identity & Access es el contexto genérico que identifica a cada integrante por su número de celular, sin contraseña. Su modelo tiene tres agregados. **Account** es la cuenta de un integrante con su celular, su perfil y la aceptación de términos. **VerificationCode** es un código SMS emitido para un celular, con su vencimiento y sus intentos; se modela como agregado separado porque existe antes de que exista la cuenta. **Session** es una sesión abierta en un dispositivo, representada por el hash de su token, para poder revocarla. Dos servicios de dominio se definen como interfaces: la generación y comparación de códigos y la emisión y validación de tokens, cuyas implementaciones dependen de bibliotecas de infraestructura. El envío y la comprobación del código pasan por un canal intercambiable, porque con Twilio Verify es el proveedor quien genera y valida el código, y Pozzo nunca lo conoce.
 
 #### 2.6.5.1. Domain Layer
+
+La Tabla 99 presenta las clases del Domain Layer de Identity & Access.
 
 <table>
   <caption>Clases del Domain Layer de Identity & Access</caption>
@@ -4660,6 +4774,8 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
 
 #### 2.6.5.2. Interface Layer
 
+La Tabla 100 presenta las clases del Interface Layer de Identity & Access.
+
 <table>
   <caption>Clases del Interface Layer de Identity & Access</caption>
   <colgroup><col width="24%"><col width="34%"><col width="42%"></colgroup>
@@ -4690,6 +4806,8 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
 </table>
 
 #### 2.6.5.3. Application Layer
+
+La Tabla 101 presenta las clases del Application Layer de Identity & Access.
 
 <table>
   <caption>Clases del Application Layer de Identity & Access</caption>
@@ -4731,6 +4849,8 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
 </table>
 
 #### 2.6.5.4. Infrastructure Layer
+
+La Tabla 102 presenta las clases del Infrastructure Layer de Identity & Access.
 
 <table>
   <caption>Clases del Infrastructure Layer de Identity & Access</caption>
@@ -4788,6 +4908,8 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
+La Figura 63 muestra el diagrama de componentes de Identity & Access.
+
 ![Diagrama de componentes de Identity & Access](images/chapter_2/c4_components_identity_access.png){width=80%}
 
 Además de los controllers y servicios habituales, el diagrama muestra BearerAuthorizationFilter, el componente por el que Identity & Access actúa como Open Host Service para los demás módulos: valida el token de cada solicitud y expone la identidad del integrante sin que los otros contextos conozcan cuentas ni sesiones. VerificationCodeChannel es el único componente que habla con el proveedor de SMS, Twilio Verify.
@@ -4796,9 +4918,13 @@ Además de los controllers y servicios habituales, el diagrama muestra BearerAut
 
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
+La Figura 64 muestra el diagrama de clases del Domain Layer de Identity & Access.
+
 ![Diagrama de clases del Domain Layer de Identity & Access](images/chapter_2/uml_identity_access_domain.png){width=90%}
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
+
+La Figura 65 muestra el diagrama de base de datos de Identity & Access.
 
 ![Diagrama de base de datos de Identity & Access](images/chapter_2/db_identity_access.png){width=75%}
 
