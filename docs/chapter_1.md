@@ -40,23 +40,23 @@ La propuesta de Kerolabs está orientada principalmente a grupos de familiares, 
   </thead>
   <tbody>
     <tr>
-      <td><img src="images/chapter_1/leonardo_sanchez_benavente.jpg" alt="Leonardo Sanchez Benavente"></td>
+      <td><img src="images/chapter_1/leonardo_sanchez_benavente.png" alt="Leonardo Sanchez Benavente" width="150"></td>
       <td><b>Leonardo Matias Sanchez Benavente</b><br><b>Código de estudiante:</b> U20241b184<br><b>Carrera:</b> Ingeniería de Software<br><br>Estudiante de Ingeniería de Software con base en desarrollo web full-stack: Angular y TypeScript en el cliente, Java con Spring Boot y APIs REST bajo enfoque DDD en el servidor.<br><br></td>
     </tr>
     <tr>
-      <td><img src="images/chapter_1/gabriela_tirado_carrera.jpeg" alt="Gabriela Tirado Carrera"></td>
+      <td><img src="images/chapter_1/gabriela_tirado_carrera.png" alt="Gabriela Tirado Carrera" width="150"></td>
       <td><b>Gabriela Luciana Tirado Carrera</b><br><b>Código de estudiante:</b> U202419592<br><b>Carrera:</b> Ingeniería de Software<br><br>Estudiante de Ingeniería de Software con conocimientos en desarrollo Full Stack, incluyendo Angular, Vue, HTML, CSS, C#, Java, JavaScript y SQL. Hábil en trabajo de equipos y desarrollo de interfaces.<br><br></td>
     </tr>
     <tr>
-      <td><img src="images/chapter_1/julius_camargo.png" alt="Joseph Julius Camargo Briceño"></td>
+      <td><img src="images/chapter_1/julius_camargo.png" alt="Joseph Julius Camargo Briceño" width="150"></td>
       <td><b>Joseph Julius Camargo Briceño</b><br><b>Código de estudiante:</b> U20241D992<br><b>Carrera:</b> Ingeniería de Software<br><br>Estudiante de Ingeniería de Software especializado en C++ y en desarrollo backend con Java y C#, con conocimientos de HTML, CSS básico y frameworks frontend como Vue y Angular. Orientado a resultados, tanto a nivel de equipo como individual, con capacidad para potenciar el rendimiento del grupo. Abierto a las ideas y opiniones ajenas, y promotor del diálogo y el debate constructivo ante perspectivas en conflicto.<br><br></td>
     </tr>
     <tr>
-      <td><img src="images/chapter_1/fernando_flores.png" alt="Jose Fernando Flores Pinchi"></td>
+      <td><img src="images/chapter_1/fernando_flores.png" alt="Jose Fernando Flores Pinchi" width="150"></td>
       <td><b>Jose Fernando Flores Pinchi</b><br><b>Código de estudiante:</b> U20241A290<br><b>Carrera:</b> Ingeniería de Software<br><br>Estudiante de Ingeniería de Software de cuarto ciclo, con conocimientos en bases de datos, HTML, CSS y frameworks como Vue y Angular, con orientación hacia la ciberseguridad. Responsable y adaptable, con interés en el aprendizaje continuo y la innovación tecnológica. Aplica sus conocimientos en proyectos prácticos que aporten valor y mejoren la vida cotidiana, fortaleciendo sus competencias mediante la colaboración con otros desarrolladores.<br><br></td>
     </tr>
     <tr>
-      <td><img src="images/chapter_1/estefano_solis_campos.png" alt="Estefano Sebastian Solis Campos"></td>
+      <td><img src="images/chapter_1/estefano_solis_campos.png" alt="Estefano Sebastian Solis Campos" width="150"></td>
       <td><b>Estefano Sebastian Solis Campos</b><br><b>Código de estudiante:</b> U202314354<br><b>Carrera:</b> Ingeniería de Software<br><br>Estudiante apasionado de la carrera de Ingeniería de Software, enfocado en aplicar sus conocimientos para el desarrollo de soluciones tecnológicas innovadoras y en constante búsqueda de oportunidades de aprendizaje y crecimiento profesional en el sector tecnológico.</td>
     </tr>
   </tbody>
