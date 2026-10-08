@@ -81,6 +81,18 @@ def main():
         for n in inexistentes:
             problemas.append(f'  el texto cita la {etiqueta} {n}, pero solo hay {total}')
 
+    # Un caracter de control invisible aborta la compilacion con el mensaje
+    # "Text line contains an invalid character", que no dice en que archivo esta.
+    for nombre in ORDEN:
+        ruta = RAIZ / nombre
+        if not ruta.exists():
+            continue
+        for n, linea in enumerate(ruta.read_text(encoding='utf-8').splitlines(), 1):
+            sucios = [c for c in linea if ord(c) < 32 and c != '\t']
+            if sucios:
+                problemas.append(f'  {nombre}:{n} tiene un caracter de control '
+                                 f'invisible ({ascii(sucios[0])})')
+
     if problemas:
         print('\nProblemas:')
         print('\n'.join(problemas))
