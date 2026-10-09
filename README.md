@@ -113,7 +113,7 @@ La diferencia en el número de commits se explica por el trabajo de configuraci�
 
 **Coordinación.** La reunión de Sprint Planning del 1 de octubre de 2026, por Discord y con los cinco integrantes, fijó el alcance del Sprint 1 y quién lideraba cada parte del informe y de los productos. La redacción siguió siendo asíncrona, y las revisiones se hicieron en las Pull Requests.
 
-**Aportes por integrante.** Entre el 18 de septiembre y el 9 de octubre de 2026 se integraron 16 Pull Requests y 58 commits en `develop`, sin contar la que agrega este cierre. El cuadro resume las secciones que cada integrante redactó o corrigió y su actividad en el repositorio del informe (ver Tabla 3).
+**Aportes por integrante.** Entre el 18 de septiembre y el 9 de octubre de 2026 se integraron 19 Pull Requests y 63 commits en `develop`. El cuadro resume las secciones que cada integrante redactó o corrigió y su actividad en el repositorio del informe (ver Tabla 3).
 
 <table>
   <caption>Participación de cada integrante en la entrega TB1</caption>
@@ -129,9 +129,9 @@ La diferencia en el número de commits se explica por el trabajo de configuraci�
   <tbody>
     <tr>
       <td>Camargo Briceño, Joseph Julius</td>
-      <td>Capítulo IV: Software Configuration Management y Sprint 1 (planificación, backlog, evidencias de desarrollo, pruebas, ejecución, documentación de servicios, despliegue e insights del equipo); alineación del Capítulo II con los servicios desplegados; papers Q1 y bibliografía por categorías; ajustes del PDF; Collaboration Insights, Student Outcome y Conclusiones de esta entrega.</td>
-      <td align="center">9</td>
-      <td align="center">18</td>
+      <td>Capítulo IV: Software Configuration Management y Sprint 1 (planificación, backlog, evidencias de desarrollo, pruebas, ejecución, documentación de servicios, despliegue e insights del equipo); alineación del Capítulo II con los servicios desplegados; papers Q1 y bibliografía por categorías; ajustes del PDF; Collaboration Insights, Student Outcome y Conclusiones de esta entrega; figura del video del Sprint 1.</td>
+      <td align="center">11</td>
+      <td align="center">22</td>
     </tr>
     <tr>
       <td>Flores Pinchi, Jose Fernando</td>
@@ -147,9 +147,9 @@ La diferencia en el número de commits se explica por el trabajo de configuraci�
     </tr>
     <tr>
       <td>Solis Campos, Estefano Sebastian</td>
-      <td>No redactó secciones del informe en esta entrega. Su aporte se concentró en la documentación de los repositorios de código, que se detalla en el capítulo de implementación, en la sección Team Collaboration Insights during Sprint.</td>
-      <td align="center">0</td>
-      <td align="center">0</td>
+      <td>Video de la navegación de la aplicación en Execution Evidence for Sprint Review. El resto de su aporte se concentró en la documentación de los repositorios de código, que se detalla en el capítulo de implementación, en la sección Team Collaboration Insights during Sprint.</td>
+      <td align="center">1</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td>Tirado Carrera, Gabriela Luciana</td>
@@ -160,7 +160,7 @@ La diferencia en el número de commits se explica por el trabajo de configuraci�
   </tbody>
 </table>
 
-El número de commits no mide el tamaño de cada aporte. Sanchez integró el diseño de la aplicación móvil en pocos commits grandes, mientras que la numeración de Flores pasó por muchas correcciones pequeñas a medida que otras secciones agregaban tablas y figuras. La participación en el informe también fue desigual: Solis no tuvo secciones propias en esta entrega, y para la AV2 se propone que cada integrante redacte las secciones del Sprint 2 que correspondan a lo que implemente.
+El número de commits no mide el tamaño de cada aporte. Sanchez integró el diseño de la aplicación móvil en pocos commits grandes, mientras que la numeración de Flores pasó por muchas correcciones pequeñas a medida que otras secciones agregaban tablas y figuras. La participación en el informe también fue desigual: el aporte de Solis al informe se limitó al video del Sprint, y para la AV2 se propone que cada integrante redacte las secciones del Sprint 2 que correspondan a lo que implemente.
 
 **Evidencia.** La siguiente captura muestra las Pull Requests integradas en `develop` durante la entrega (ver Figura 4).
 
@@ -285,7 +285,7 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
     </tr>
     <tr>
       <td></td>
-      <td><b>Solis Campos, Estefano Sebastian</b><br><i>AV1:</i> Describió los segmentos objetivo con sustento estadístico, realizó el análisis competitivo con el landscape, el SWOT de cada competidor y las estrategias frente a ellos, y modeló la arquitectura de software con el C4 Model en Structurizr en sus niveles de contexto, contenedores y despliegue.<br><br><i>TB1:</i> Documentó el código de los tres productos: guías de contribución con el flujo de Pull Requests, Javadoc de los controladores, servicios y configuración de los servicios RESTful, KDoc de la navegación, las pantallas, los view models y los repositorios de la aplicación, y comentarios y README del landing page.</td>
+      <td><b>Solis Campos, Estefano Sebastian</b><br><i>AV1:</i> Describió los segmentos objetivo con sustento estadístico, realizó el análisis competitivo con el landscape, el SWOT de cada competidor y las estrategias frente a ellos, y modeló la arquitectura de software con el C4 Model en Structurizr en sus niveles de contexto, contenedores y despliegue.<br><br><i>TB1:</i> Documentó el código de los tres productos: guías de contribución con el flujo de Pull Requests, Javadoc de los controladores, servicios y configuración de los servicios RESTful, KDoc de la navegación, las pantallas, los view models y los repositorios de la aplicación, y comentarios y README del landing page. Además llevó al informe el video de la navegación de la aplicación del Sprint 1.</td>
       <td></td>
     </tr>
     <tr>
