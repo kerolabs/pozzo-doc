@@ -163,6 +163,10 @@ Write-Host ('Building {0} from {1} files...' -f $Delivery, $Chapters.Count) -For
 foreach ($file in $Chapters) { Write-Host ('  {0}' -f $file) -ForegroundColor DarkGray }
 Write-Host ''
 
+# Pandoc escribe los avisos de LaTeX en stderr. Con 'Stop', Windows PowerShell
+# los trata como error y corta el build aunque el PDF salga bien; el resultado
+# real lo da $LASTEXITCODE, que se revisa abajo.
+$ErrorActionPreference = 'Continue'
 pandoc $Chapters @DraftArgs `
     --from=markdown-yaml_metadata_block `
     --metadata-file=config/format.yaml `
@@ -181,6 +185,7 @@ pandoc $Chapters @DraftArgs `
     "--resource-path=$ResourcePath" `
     --syntax-highlighting=tango `
     -o $output
+$ErrorActionPreference = 'Stop'
 
 if ($LASTEXITCODE -ne 0) {
     Write-Host ''
