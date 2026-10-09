@@ -166,6 +166,7 @@ Write-Host ''
 pandoc $Chapters @DraftArgs `
     --from=markdown-yaml_metadata_block `
     --metadata-file=config/format.yaml `
+    "--metadata=entrega:$Delivery" `
     --include-in-header=config/apa7.tex `
     --include-before-body=config/cover.tex `
     --lua-filter=config/html-tables.lua `
