@@ -34,6 +34,7 @@ La Tabla 6 presenta los perfiles de los integrantes del equipo.
 
 <table>
   <caption>Perfiles de los integrantes del equipo</caption>
+  <colgroup><col width="28%"><col width="72%"></colgroup>
   <thead>
     <tr>
       <th>Integrante</th>

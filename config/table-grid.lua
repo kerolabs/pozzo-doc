@@ -281,9 +281,17 @@ local function registrarImagenes(tbl)
   })
 end
 
+-- Las celdas de la cabecera van en una minipage propia, no en la columna, asi
+-- que no reciben el espacio nulo que apa7.tex agrega al inicio de cada celda.
+-- Sin el, la primera palabra del titulo de una columna angosta ("Estimation",
+-- "Collaborator") no se separa en silabas y se sale por el borde.
+local function cabeceraDivisible(latex)
+  return (latex:gsub('(\\begin{minipage}%[b%]{\\linewidth}\\raggedright)', '%1\\hspace{0pt}\\ignorespaces'))
+end
+
 function Table(tbl)
   if not FORMAT:match('latex') then return nil end
   registrarImagenes(tbl)
   local latex = pandoc.write(pandoc.Pandoc({ tbl }), 'latex')
-  return pandoc.RawBlock('latex', cuadricular(latex, tbl))
+  return pandoc.RawBlock('latex', cuadricular(cabeceraDivisible(latex), tbl))
 end

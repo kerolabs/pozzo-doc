@@ -2130,7 +2130,7 @@ El prototipo permite recorrer la aplicación con el dedo antes de escribir códi
 
 <table>
   <caption>Caminos navegables del prototipo</caption>
-  <colgroup><col width="8%"><col width="22%"><col width="40%"><col width="30%"></colgroup>
+  <colgroup><col width="11%"><col width="22%"><col width="37%"><col width="30%"></colgroup>
   <thead>
     <tr>
       <th align="center">Camino</th>
