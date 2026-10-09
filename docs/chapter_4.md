@@ -342,11 +342,1760 @@ El diagrama de despliegue del C4 Model resume dónde corre cada contenedor de la
 
 #### 4.2.1.1. Sprint Planning 1
 
+El Sprint 1 cubre la entrega TB1. Al cierre de la AV1, el 18 de septiembre de 2026, el Product Backlog ya priorizado se repartió en cuatro sprints en el tablero de Trello, según la prioridad y la dependencia de las historias, y el Sprint 1 recibió las historias del landing page, de la creación de la junta, de las invitaciones, de los turnos y del estado del pozo, junto con la Spike Story de lectura de comprobantes. La reunión de Sprint Planning se realizó el 1 de octubre de 2026 por Discord con los cinco integrantes: el equipo confirmó ese alcance, acordó el Sprint Goal, redactado con la plantilla de Scrum.org que recomienda el enunciado, y repartió el liderazgo de cada aspecto del Sprint. La Tabla 137 resume la planificación.
+
+<table>
+  <caption>Resumen del Sprint Planning 1</caption>
+  <colgroup><col width="32%"><col width="68%"></colgroup>
+  <thead>
+    <tr>
+      <th>Sprint #</th>
+      <th>Sprint 1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Sprint Planning Background</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td>2026-10-01</td>
+    </tr>
+    <tr>
+      <td>Time</td>
+      <td>05:00 PM</td>
+    </tr>
+    <tr>
+      <td>Location</td>
+      <td>Reunión virtual por Discord. El alcance se tomó del tablero "Pozzo - Product Backlog" en Trello: <a href="https://trello.com/b/fRocSVZA/pozzo-product-backlog">https://trello.com/b/fRocSVZA/pozzo-product-backlog</a></td>
+    </tr>
+    <tr>
+      <td>Prepared By</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+    </tr>
+    <tr>
+      <td>Attendees (to planning meeting)</td>
+      <td>Camargo Briceño, Joseph Julius / Flores Pinchi, Jose Fernando / Sanchez Benavente, Leonardo Matias / Solis Campos, Estefano Sebastian / Tirado Carrera, Gabriela Luciana</td>
+    </tr>
+    <tr>
+      <td>Sprint 0 Review Summary</td>
+      <td>No aplica: es el primer Sprint. Parte de la AV1, que entregó los capítulos I y II con el Product Backlog de 46 User Stories, 8 Technical Stories y 3 Spike Stories priorizado y estimado en Story Points.</td>
+    </tr>
+    <tr>
+      <td>Sprint 0 Retrospective Summary</td>
+      <td>No aplica: es el primer Sprint.</td>
+    </tr>
+    <tr>
+      <td><b>Sprint Goal &amp; User Stories</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Sprint 1 Goal</td>
+      <td><b>Our focus is on</b> que la cabeza de junta cree su junta en Pozzo, invite a los integrantes con un código o un enlace, asigne los turnos e inicie la junta, y que todos vean el mismo estado del pozo, junto con un landing page que explique Pozzo a quien no lo conoce. <b>We believe it delivers</b> un registro único y compartido de quién está en la junta y cuándo cobra cada uno <b>to</b> las cabezas de junta y los participantes. <b>This will be confirmed when</b> una cabeza de junta cree una junta desde la aplicación, al menos tres integrantes se unan con la invitación y todos vean el mismo calendario de turnos y el mismo estado del pozo.</td>
+    </tr>
+    <tr>
+      <td>Sprint 1 Velocity</td>
+      <td>55 Story Points, la capacidad que el equipo asignó al Sprint 1 al repartir el backlog y confirmó en la reunión.</td>
+    </tr>
+    <tr>
+      <td>Sum of Story Points</td>
+      <td>55 Story Points: 17 User Stories y Technical Stories y la Spike Story SP01.</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 4.2.1.2. Aspect Leaders and Collaborators
+
+Los aspectos del Sprint 1 son los productos que entrega la TB1 y el informe que los documenta: el landing page, el diseño de la interfaz del Capítulo III, la aplicación móvil, los servicios RESTful con su despliegue, y el informe con su formato APA. Cada aspecto tiene un líder, que responde por su avance y su calidad, y colaboradores que trabajan en él. La matriz se acordó en la reunión de Sprint Planning (ver Tabla 138).
+
+<table>
+  <caption>Leadership-and-Collaboration Matrix del Sprint 1</caption>
+  <colgroup><col width="24%"><col width="16%"><col width="12%"><col width="12%"><col width="12%"><col width="12%"><col width="12%"></colgroup>
+  <thead>
+    <tr>
+      <th>Team Member (Last Name, First Name)</th>
+      <th>GitHub Username</th>
+      <th>Landing Page Leader (L) / Collaborator (C)</th>
+      <th>Diseño UI/UX (Capítulo III) Leader (L) / Collaborator (C)</th>
+      <th>Aplicación móvil Leader (L) / Collaborator (C)</th>
+      <th>Servicios RESTful y despliegue Leader (L) / Collaborator (C)</th>
+      <th>Informe y formato APA Leader (L) / Collaborator (C)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Juyens</td>
+      <td>C</td>
+      <td></td>
+      <td><b>L</b></td>
+      <td><b>L</b></td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>Flores Pinchi, Jose Fernando</td>
+      <td>Ferdinant12-ops</td>
+      <td>C</td>
+      <td>C</td>
+      <td>C</td>
+      <td>C</td>
+      <td><b>L</b></td>
+    </tr>
+    <tr>
+      <td>Sanchez Benavente, Leonardo Matias</td>
+      <td>Matiassb06</td>
+      <td><b>L</b></td>
+      <td>C</td>
+      <td></td>
+      <td>C</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <td>Solis Campos, Estefano Sebastian</td>
+      <td>Estefano-Solis-C</td>
+      <td>C</td>
+      <td></td>
+      <td>C</td>
+      <td>C</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Tirado Carrera, Gabriela Luciana</td>
+      <td>Gaby0443</td>
+      <td>C</td>
+      <td><b>L</b></td>
+      <td>C</td>
+      <td>C</td>
+      <td>C</td>
+    </tr>
+  </tbody>
+</table>
 
 #### 4.2.1.3. Sprint Backlog 1
 
+El objetivo del Sprint 1 es que una cabeza de junta pueda crear su junta, invitar a los integrantes, asignar los turnos, iniciarla y ver el estado del pozo, con un landing page que presente Pozzo. La Figura 139 muestra el tablero del Sprint en Trello, con la lista "Sprint 1 (TB1)" y sus 55 Story Points. Enlace público del tablero: <https://trello.com/b/fRocSVZA/pozzo-product-backlog>.
+
+![Tablero del Product Backlog con la lista del Sprint 1 en Trello](images/closing/product_backlog_trello.png){width=90%}
+
+La Tabla 139 relaciona cada historia del Sprint con las tareas en que se descompuso, su responsable y su estado. Las tareas se obtuvieron de los commits y pull requests de cada repositorio. El equipo no estimó horas por tarea; su estimación está en los Story Points de cada historia.
+
+<table>
+  <caption>Sprint Backlog del Sprint 1</caption>
+  <colgroup><col width="7%"><col width="12%"><col width="6%"><col width="13%"><col width="27%"><col width="10%"><col width="16%"><col width="9%"></colgroup>
+  <thead>
+    <tr>
+      <th>User Story Id</th>
+      <th>User Story Title</th>
+      <th>Task Id</th>
+      <th>Task Title</th>
+      <th>Description</th>
+      <th>Estimation (Hours)</th>
+      <th>Assigned To</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>US43</td>
+      <td>Entender qué resuelve Pozzo</td>
+      <td>T01</td>
+      <td>Contenido del landing</td>
+      <td>Hero con el problema, la solución y la aclaración de que Pozzo no maneja el dinero, y las secciones de cómo funciona y funcionalidades.</td>
+      <td>Sin estimar</td>
+      <td>Tirado Carrera, Gabriela Luciana</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>T02</td>
+      <td>Ajuste del hero</td>
+      <td>Retirar la insignia de círculos de ahorro para dejar el mensaje principal.</td>
+      <td>Sin estimar</td>
+      <td>Flores Pinchi, Jose Fernando</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US44</td>
+      <td>Acceder a la aplicación desde el landing page</td>
+      <td>T03</td>
+      <td>Llamadas a la acción</td>
+      <td>Botones a la lista de espera y a la sección de cómo funciona, y el formulario de la lista de espera.</td>
+      <td>Sin estimar</td>
+      <td>Tirado Carrera, Gabriela Luciana</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US46</td>
+      <td>Navegar el landing page desde el celular</td>
+      <td>T04</td>
+      <td>Estilos y comportamiento</td>
+      <td>Hoja de estilos responsiva, menú móvil, tema claro y oscuro, e idioma inglés y español.</td>
+      <td>Sin estimar</td>
+      <td>Sanchez Benavente, Leonardo Matias</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US45</td>
+      <td>Conocer al equipo y contactarlo</td>
+      <td>T05</td>
+      <td>Equipo, contacto y privacidad</td>
+      <td>Sección del equipo, contacto y Política de Privacidad.</td>
+      <td>Sin estimar</td>
+      <td>Tirado Carrera, Gabriela Luciana</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>T06</td>
+      <td>Términos y Condiciones</td>
+      <td>Página de Términos y Condiciones enlazada desde el pie del landing.</td>
+      <td>Sin estimar</td>
+      <td>Sanchez Benavente, Leonardo Matias</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US07</td>
+      <td>Crear una junta</td>
+      <td>T07</td>
+      <td>Creación de la junta en la aplicación</td>
+      <td>Formulario de tres pasos con nombre, aporte, periodicidad, cupos y fecha del primer aporte.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US08</td>
+      <td>Definir el destino de los aportes</td>
+      <td>T08</td>
+      <td>Destino de los aportes</td>
+      <td>Yape o Plin y el celular de destino, al crear la junta o antes de iniciarla.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>TS02</td>
+      <td>Servicio de juntas</td>
+      <td>T09</td>
+      <td>Dominio y endpoints de Savings Groups</td>
+      <td>Agregado SavingsGroup, persistencia y endpoints para crear, consultar, ajustar reglas e iniciar.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>T10</td>
+      <td>Pruebas del servicio</td>
+      <td>Pruebas unitarias del agregado y escenarios de aceptación de TS02.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US11</td>
+      <td>Invitar integrantes con código y enlace</td>
+      <td>T11</td>
+      <td>Invitación por código y enlace</td>
+      <td>Código de seis caracteres, enlace para compartir y página pública que abre la aplicación.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US12</td>
+      <td>Unirme a una junta con código o enlace</td>
+      <td>T12</td>
+      <td>Unirse con la invitación</td>
+      <td>Pantalla para escribir el código o abrir el enlace y unirse.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US13</td>
+      <td>Revisar la junta antes de unirme</td>
+      <td>T13</td>
+      <td>Vista previa de la junta</td>
+      <td>Nombre, reglas y cupos libres antes de confirmar la unión.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>TS03</td>
+      <td>Servicio de integrantes e invitaciones</td>
+      <td>T14</td>
+      <td>Endpoints de invitaciones e integrantes</td>
+      <td>Generar y resolver invitaciones, unirse, registrar integrantes sin la aplicación y retirarlos.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>T15</td>
+      <td>Pruebas del servicio</td>
+      <td>Escenarios de aceptación de TS03.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US16</td>
+      <td>Ver la lista de integrantes</td>
+      <td>T16</td>
+      <td>Detalle de la junta</td>
+      <td>Lista de integrantes con su tipo, su turno y su foto.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US17</td>
+      <td>Asignar turnos por sorteo</td>
+      <td>T17</td>
+      <td>Sorteo reproducible</td>
+      <td>Sorteo con semilla publicada en el servicio y en la aplicación.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US18</td>
+      <td>Asignar turnos por orden acordado</td>
+      <td>T18</td>
+      <td>Orden acordado</td>
+      <td>Pantalla para ordenar a los integrantes y endpoint del orden acordado.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US10</td>
+      <td>Iniciar la junta</td>
+      <td>T19</td>
+      <td>Inicio de la junta</td>
+      <td>Validación de cupos, turnos y destino, inicio del ciclo y aviso a los integrantes.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US22</td>
+      <td>Consultar el calendario de turnos</td>
+      <td>T20</td>
+      <td>Calendario de turnos</td>
+      <td>Turno, fecha de corte e integrante que cobra en cada período.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US29</td>
+      <td>Ver el estado del pozo del período vigente</td>
+      <td>T21</td>
+      <td>Estado del pozo</td>
+      <td>Endpoint del período vigente y pantalla con lo reunido, lo que falta y el estado de cada integrante.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>SP01</td>
+      <td>Investigar la lectura automática de comprobantes de Yape y Plin</td>
+      <td>T22</td>
+      <td>Lectura en el dispositivo</td>
+      <td>Prueba de ML Kit Text Recognition sobre capturas de Yape y Plin y extracción de monto, fecha, destinatario y número de operación.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+  </tbody>
+</table>
+
+Además de lo planificado, el equipo adelantó trabajo de los sprints siguientes en los servicios RESTful y en la aplicación: el acceso con el código SMS (TS01), el registro y la validación de aportes (TS05), la entrega del pozo (TS06), los recordatorios y avisos (TS07) y el historial de cumplimiento (TS08). Esas historias siguen en sus sprints del tablero y se documentarán en ellos.
+
 #### 4.2.1.4. Development Evidence for Sprint Review
+
+En el Sprint 1 se implementaron los cuatro productos de la entrega: el landing page, las páginas públicas que abren los enlaces de invitación y de historial compartido, los servicios RESTful y la aplicación móvil. El landing page quedó publicado en GitHub Pages; los servicios RESTful, con sus cinco bounded contexts, quedaron desplegados en Oracle Cloud con su documentación OpenAPI; y la aplicación móvil cubre las historias del Sprint y adelanta las de los siguientes. Las tablas siguientes relacionan, por repositorio, los commits de implementación integrados en `develop`. Los commits de pruebas se presentan en la sección de Testing Suite Evidence.
+
+**Landing Page.** La Tabla 140 lista los 14 commits de `kerolabs/pozzo-landing-page`.
+
+<table>
+  <caption>Commits de implementación de pozzo-landing-page</caption>
+  <colgroup><col width="13%"><col width="14%"><col width="9%"><col width="26%"><col width="26%"><col width="12%"></colgroup>
+  <thead>
+    <tr>
+      <th>Repository</th>
+      <th>Branch</th>
+      <th>Commit Id</th>
+      <th>Commit Message</th>
+      <th>Commit Message Body</th>
+      <th>Committed on (Date)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>kerolabs/pozzo-landing-page</td>
+      <td>develop</td>
+      <td><a href="https://github.com/kerolabs/pozzo-landing-page/commit/1e7ae4a">1e7ae4a</a></td>
+      <td>feat: add Pozzo landing page</td>
+      <td>Sin cuerpo</td>
+      <td>02/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-landing-page</td>
+      <td>develop</td>
+      <td><a href="https://github.com/kerolabs/pozzo-landing-page/commit/0e5eef4">0e5eef4</a></td>
+      <td>add Readme</td>
+      <td>Added README.md with project details and instructions.</td>
+      <td>02/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-landing-page</td>
+      <td>develop</td>
+      <td><a href="https://github.com/kerolabs/pozzo-landing-page/commit/c1127d4">c1127d4</a></td>
+      <td>feat: include idex context and privacy content</td>
+      <td>Sin cuerpo</td>
+      <td>02/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-landing-page</td>
+      <td>develop</td>
+      <td><a href="https://github.com/kerolabs/pozzo-landing-page/commit/40947e6">40947e6</a></td>
+      <td>ci: check the commit messages of every push and pull request</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-landing-page</td>
+      <td>feature/new-logo</td>
+      <td><a href="https://github.com/kerolabs/pozzo-landing-page/commit/000c3e5">000c3e5</a></td>
+      <td>feat: use the terracotta Pozzo logo of the app</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-landing-page</td>
+      <td>feature/hero-cleanup</td>
+      <td><a href="https://github.com/kerolabs/pozzo-landing-page/commit/816374d">816374d</a></td>
+      <td>feat: remove the savings circles badge from the hero</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-landing-page</td>
+      <td>feature/hero-cleanup</td>
+      <td><a href="https://github.com/kerolabs/pozzo-landing-page/commit/66ab48c">66ab48c</a></td>
+      <td>docs: comment the main sections of the landing script</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-landing-page</td>
+      <td>docs/code-comments-and-guidelines</td>
+      <td><a href="https://github.com/kerolabs/pozzo-landing-page/commit/cfa448d">cfa448d</a></td>
+      <td>docs: add CONTRIBUTING.md guide with pull request workflow</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-landing-page</td>
+      <td>docs/code-comments-and-guidelines</td>
+      <td><a href="https://github.com/kerolabs/pozzo-landing-page/commit/c62468b">c62468b</a></td>
+      <td>docs: add section structural comments in index.html</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-landing-page</td>
+      <td>docs/code-comments-and-guidelines</td>
+      <td><a href="https://github.com/kerolabs/pozzo-landing-page/commit/11fe05b">11fe05b</a></td>
+      <td>docs: add functional documentation comments to main.js</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-landing-page</td>
+      <td>docs/code-comments-and-guidelines</td>
+      <td><a href="https://github.com/kerolabs/pozzo-landing-page/commit/025cfa9">025cfa9</a></td>
+      <td>docs: add comments to legal pages structure</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-landing-page</td>
+      <td>docs/code-comments-and-guidelines</td>
+      <td><a href="https://github.com/kerolabs/pozzo-landing-page/commit/b8144f1">b8144f1</a></td>
+      <td>docs: update README with local preview and localization instructions</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-landing-page</td>
+      <td>chore/commit-msg-hook</td>
+      <td><a href="https://github.com/kerolabs/pozzo-landing-page/commit/c2e9824">c2e9824</a></td>
+      <td>chore: check commit messages locally with a commit-msg hook</td>
+      <td>The same Conventional Commits rule as the commit-policy workflow, before the commit is created. The README says how to enable it.</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-landing-page</td>
+      <td>chore/commit-msg-hook</td>
+      <td><a href="https://github.com/kerolabs/pozzo-landing-page/commit/3a61c92">3a61c92</a></td>
+      <td>chore: keep the git hooks with LF line endings</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+  </tbody>
+</table>
+
+**Páginas públicas de los enlaces.** La Tabla 141 lista los 9 commits de `kerolabs/kerolabs.github.io`.
+
+<table>
+  <caption>Commits de implementación de kerolabs.github.io</caption>
+  <colgroup><col width="13%"><col width="14%"><col width="9%"><col width="26%"><col width="26%"><col width="12%"></colgroup>
+  <thead>
+    <tr>
+      <th>Repository</th>
+      <th>Branch</th>
+      <th>Commit Id</th>
+      <th>Commit Message</th>
+      <th>Commit Message Body</th>
+      <th>Committed on (Date)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>kerolabs/kerolabs.github.io</td>
+      <td>develop</td>
+      <td><a href="https://github.com/kerolabs/kerolabs.github.io/commit/dd12426">dd12426</a></td>
+      <td>chore: set up the repository and the commit policy</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/kerolabs.github.io</td>
+      <td>feature/shared-link-pages</td>
+      <td><a href="https://github.com/kerolabs/kerolabs.github.io/commit/fc02f2c">fc02f2c</a></td>
+      <td>feat: add the stylesheet, fonts and logo of the Pozzo landing page</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/kerolabs.github.io</td>
+      <td>feature/shared-link-pages</td>
+      <td><a href="https://github.com/kerolabs/kerolabs.github.io/commit/800b641">800b641</a></td>
+      <td>feat: add the page that opens an invitation to a group</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/kerolabs.github.io</td>
+      <td>feature/shared-link-pages</td>
+      <td><a href="https://github.com/kerolabs/kerolabs.github.io/commit/6093e52">6093e52</a></td>
+      <td>feat: add the page that shows a shared compliance history</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/kerolabs.github.io</td>
+      <td>feature/shared-link-pages</td>
+      <td><a href="https://github.com/kerolabs/kerolabs.github.io/commit/55ba287">55ba287</a></td>
+      <td>feat: redirect the root to the landing page and add a not found page</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/kerolabs.github.io</td>
+      <td>feature/shared-link-pages</td>
+      <td><a href="https://github.com/kerolabs/kerolabs.github.io/commit/c86a0de">c86a0de</a></td>
+      <td>fix: use the terracotta Pozzo logo of the app</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/kerolabs.github.io</td>
+      <td>chore/oracle-backend</td>
+      <td><a href="https://github.com/kerolabs/kerolabs.github.io/commit/fdbcd1c">fdbcd1c</a></td>
+      <td>chore: read shared histories from the Oracle Cloud backend</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/kerolabs.github.io</td>
+      <td>chore/commit-msg-hook</td>
+      <td><a href="https://github.com/kerolabs/kerolabs.github.io/commit/2e8306f">2e8306f</a></td>
+      <td>chore: check commit messages locally with a commit-msg hook</td>
+      <td>The same Conventional Commits rule as the commit-policy workflow, before the commit is created. The README says how to enable it.</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/kerolabs.github.io</td>
+      <td>chore/commit-msg-hook</td>
+      <td><a href="https://github.com/kerolabs/kerolabs.github.io/commit/0b95ad0">0b95ad0</a></td>
+      <td>chore: keep the git hooks with LF line endings</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+  </tbody>
+</table>
+
+**Servicios RESTful.** La Tabla 142 lista los 98 commits de `kerolabs/pozzo-backend`.
+
+<table>
+  <caption>Commits de implementación de pozzo-backend</caption>
+  <colgroup><col width="13%"><col width="14%"><col width="9%"><col width="26%"><col width="26%"><col width="12%"></colgroup>
+  <thead>
+    <tr>
+      <th>Repository</th>
+      <th>Branch</th>
+      <th>Commit Id</th>
+      <th>Commit Message</th>
+      <th>Commit Message Body</th>
+      <th>Committed on (Date)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>develop</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/d7c456e">d7c456e</a></td>
+      <td>chore: initialize the Spring Boot project</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>chore/datasource-config</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/3e3038e">3e3038e</a></td>
+      <td>chore: configure gitignore, gitattributes and editorconfig for the team</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>chore/datasource-config</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/3e4fc29">3e4fc29</a></td>
+      <td>ci: enforce conventional commits and block tool trailers</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>chore/datasource-config</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/b75726c">b75726c</a></td>
+      <td>chore: read the datasource credentials from the environment</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/shared-kernel</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/23ead29">23ead29</a></td>
+      <td>build: add lombok and the pluralize library</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/shared-kernel</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/9d3b6d4">9d3b6d4</a></td>
+      <td>feat(shared): add the result and application error types</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/shared-kernel</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/cfc9219">cfc9219</a></td>
+      <td>feat(shared): add the domain aggregate root base class</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/shared-kernel</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/922262f">922262f</a></td>
+      <td>feat(shared): add the auditable persistence entity and the naming strategy</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/shared-kernel</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/af8a6e6">af8a6e6</a></td>
+      <td>feat(shared): add the OpenAPI, locale and message bundle configuration</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/shared-kernel</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/b3fc64c">b3fc64c</a></td>
+      <td>feat(shared): add the standard error response and global exception handler</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/iam</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/0048840">0048840</a></td>
+      <td>build: add spring security and jjwt</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/iam</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/616a0b0">616a0b0</a></td>
+      <td>refactor(shared): classify application errors by type</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/iam</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/4ff2410">4ff2410</a></td>
+      <td>refactor(shared): let the domain assign the UUID identity of persisted aggregates</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/iam</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/e1eebf9">e1eebf9</a></td>
+      <td>feat(shared): provide an injectable clock</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/iam</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/0cbc980">0cbc980</a></td>
+      <td>feat(iam): add the value objects and domain events</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/iam</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/4dd9e5b">4dd9e5b</a></td>
+      <td>feat(iam): add the account, verification code and session aggregates</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/iam</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/23a5e67">23a5e67</a></td>
+      <td>feat(iam): add the commands, queries and repository ports</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/iam</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/d949b12">d949b12</a></td>
+      <td>feat(iam): add the JPA persistence of accounts, verification codes and sessions</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/iam</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/fca7a16">fca7a16</a></td>
+      <td>feat(iam): add the code generation, JWT token and logging SMS services</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/iam</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/a6eca65">a6eca65</a></td>
+      <td>feat(iam): add the authentication and account application services</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/iam</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/7686c69">7686c69</a></td>
+      <td>feat(iam): authenticate requests with the bearer session token</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/iam</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/6083461">6083461</a></td>
+      <td>feat(shared): map a result to a response without body</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/iam</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/80cf2b0">80cf2b0</a></td>
+      <td>feat(iam): add the authentication and profile endpoints</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>chore/render-deployment</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/5436516">5436516</a></td>
+      <td>feat: expose a public health check for the hosting platform</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>chore/render-deployment</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/868ba2a">868ba2a</a></td>
+      <td>build: add the Dockerfile for the Render deployment</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/savings-groups</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/57e97f0">57e97f0</a></td>
+      <td>feat(shared): map business rule violations raised by aggregates to 422</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/savings-groups</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/9e7c855">9e7c855</a></td>
+      <td>feat(iam): expose the display name of an account to other contexts</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/savings-groups</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/d4a2d7e">d4a2d7e</a></td>
+      <td>feat(savings-groups): add the value objects and domain events</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/savings-groups</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/f4c0881">f4c0881</a></td>
+      <td>feat(savings-groups): add the savings group and invitation aggregates</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/savings-groups</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/dccb8c7">dccb8c7</a></td>
+      <td>feat(savings-groups): add the commands, queries and repository ports</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/savings-groups</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/14f8e0d">14f8e0d</a></td>
+      <td>feat(savings-groups): add the JPA persistence of groups, members, turns and invitations</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/savings-groups</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/c7e8e4f">c7e8e4f</a></td>
+      <td>feat(savings-groups): draw the turns with a published seed</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/savings-groups</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/9191da9">9191da9</a></td>
+      <td>feat(savings-groups): add the group, turn and query application services</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/savings-groups</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/7ae2676">7ae2676</a></td>
+      <td>feat(savings-groups): build the invitation link from a configurable base URL</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/savings-groups</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/af8d172">af8d172</a></td>
+      <td>feat(savings-groups): add the group, membership and turn endpoints</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>fix/security-error-locale</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/7b4ad81">7b4ad81</a></td>
+      <td>fix(iam): localize authentication errors with the request locale</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/sms-delivery</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/7c310e7">7c310e7</a></td>
+      <td>feat(shared): map failures of external services to 503</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/sms-delivery</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/f3e87e4">f3e87e4</a></td>
+      <td>feat(iam): give demo phone numbers a fixed code without sending an SMS</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/sms-delivery</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/574237e">574237e</a></td>
+      <td>feat(iam): send the verification code through Twilio</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/twilio-verify</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/f834adc">f834adc</a></td>
+      <td>refactor(iam): let the verification code be checked by any matcher</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/twilio-verify</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/2ed3aea">2ed3aea</a></td>
+      <td>feat(iam): deliver and check verification codes with Twilio Verify</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/contributions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/38fe66a">38fe66a</a></td>
+      <td>feat(savings-groups): publish an integration event when a group starts</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/contributions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/07caed4">07caed4</a></td>
+      <td>feat(contributions): add the value objects and domain events</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/contributions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/18467ca">18467ca</a></td>
+      <td>feat(contributions): add the cycle, period and contribution aggregates</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/contributions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/9ab4071">9ab4071</a></td>
+      <td>feat(contributions): add the commands, queries and repository ports</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/contributions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/90fdf32">90fdf32</a></td>
+      <td>feat(contributions): add the JPA persistence of cycles, periods and contributions</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/contributions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/aa1a9f4">aa1a9f4</a></td>
+      <td>feat(contributions): add the cycle and contribution application services</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/contributions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/deac60e">deac60e</a></td>
+      <td>feat(contributions): query a cycle by id for its members</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/contributions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/0fa3b5a">0fa3b5a</a></td>
+      <td>feat(contributions): add the cycle, period and contribution endpoints</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/contributions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/1a03c2a">1a03c2a</a></td>
+      <td>fix(contributions): report the plain cutoff date in date inconsistencies</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/notifications</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/3ff9f97">3ff9f97</a></td>
+      <td>feat(contributions): publish integration events for the other contexts</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/notifications</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/3fe6a3b">3fe6a3b</a></td>
+      <td>feat(savings-groups): expose membership checks to other contexts</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/notifications</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/aca8a91">aca8a91</a></td>
+      <td>feat(compliance-history): add the member record and share link aggregates</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/notifications</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/9221379">9221379</a></td>
+      <td>feat(compliance-history): add the commands, queries and repository ports</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/notifications</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/c599f3e">c599f3e</a></td>
+      <td>feat(compliance-history): add the JPA persistence and the scoring of the level</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/notifications</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/194e888">194e888</a></td>
+      <td>feat(compliance-history): record facts from contribution events and add the query services</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/notifications</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/fe6fd9f">fe6fd9f</a></td>
+      <td>feat(compliance-history): add the history, group compliance and share link endpoints</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/notifications</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/2b19f00">2b19f00</a></td>
+      <td>feat(notifications): add the device, reminder plan and notification aggregates</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/notifications</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/b939217">b939217</a></td>
+      <td>feat(notifications): add the JPA persistence of devices, reminder plans and notifications</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/notifications</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/1abb02b">1abb02b</a></td>
+      <td>feat(notifications): schedule reminders and alerts from the contribution and group events</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/notifications</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/a80b8b7">a80b8b7</a></td>
+      <td>feat(notifications): dispatch due notifications through Firebase Cloud Messaging or the log</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/notifications</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/937d678">937d678</a></td>
+      <td>feat(notifications): expose devices, reminder plans and the notification inbox</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>fix/close-group-on-cycle-end</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/b8bd9b6">b8bd9b6</a></td>
+      <td>fix(savings-groups): close the group when its cycle is over</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/profile-contact-data</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/905057f">905057f</a></td>
+      <td>feat(iam): add the Yape or Plin number and the backup email to the profile</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/sms-gate</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/a263b3c">a263b3c</a></td>
+      <td>feat(iam): send the verification codes through SMS Gate instead of Twilio</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/account-recovery</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/d1ac94d">d1ac94d</a></td>
+      <td>feat(iam): recover an account with the backup email and change the phone number</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/profile-photo</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/677812d">677812d</a></td>
+      <td>feat(iam): store the profile photo in Supabase Storage</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/member-photos</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/76c3eff">76c3eff</a></td>
+      <td>feat(savings-groups): include the profile photo of each member and turn</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>fix/shared-link-urls</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/cb10f9d">cb10f9d</a></td>
+      <td>fix: build the invitation and shared history links on kerolabs.github.io</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/group-management</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/98386f7">98386f7</a></td>
+      <td>fix: send alerts as soon as they are created instead of at the next dispatch</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/group-management</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/2946512">2946512</a></td>
+      <td>feat: let removed members rejoin, delete groups before they start and tell the organizer who joins</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/receipts-and-group-notices</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/5716e4f">5716e4f</a></td>
+      <td>feat: keep receipt images in a private bucket and show them through signed links</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/receipts-and-group-notices</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/3404b33">3404b33</a></td>
+      <td>feat: tell the members when the rules change or the group fills up, and expose each member's account</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/receipts-and-group-notices</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/a78ab32">a78ab32</a></td>
+      <td>docs: say where the receipt image is kept</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>ci/deploy-oracle</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/7d180aa">7d180aa</a></td>
+      <td>ci: deploy main to the Oracle Cloud instance through a restricted SSH key</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>ci/deploy-progress</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/7daac01">7daac01</a></td>
+      <td>ci: show the start log, a summary and a deployments history for each deploy</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/status-page</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/1a23ba4">1a23ba4</a></td>
+      <td>feat: add a status page with deploys, resources and the live log of the backend</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/status-login-redesign</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/d606c33">d606c33</a></td>
+      <td>feat: log in to the status page once with a session cookie and redesign it as a dashboard</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>fix/quiet-client-disconnects</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/09428e8">09428e8</a></td>
+      <td>fix: ignore clients that disconnect before the response instead of logging them as errors</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>fix/forwarded-headers</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/11045ce">11045ce</a></td>
+      <td>fix: honour the forwarded headers of the proxy so links say https</td>
+      <td>(cherry picked from commit 000ee334e401012e173623ef79c2dddb2643979b)</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>fix/device-registration-race</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/a3b311f">a3b311f</a></td>
+      <td>fix: retry a device registration that collided with a simultaneous one</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>fix/db-connection-keepalive</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/6e1827c">6e1827c</a></td>
+      <td>fix: keep idle database connections alive so requests do not wait for a new one</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>docs/code-comments</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/e7e907f">e7e907f</a></td>
+      <td>docs: describe the share link repository methods</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>docs/code-comments</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/4d68928">4d68928</a></td>
+      <td>docs: document the compliance scoring contract</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>docs/compliance-queries</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/b21b32a">b21b32a</a></td>
+      <td>docs: explain when the summary and shared history queries return empty</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>docs/compliance-queries</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/178daa7">178daa7</a></td>
+      <td>docs: describe the member record repository methods</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>docs/readme</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/8ca8946">8ca8946</a></td>
+      <td>docs: add project README</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>docs/code-comments-and-guidelines</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/001a08b">001a08b</a></td>
+      <td>docs: document testing, Docker setup and environment details in README</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>docs/code-comments-and-guidelines</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/8e478ce">8e478ce</a></td>
+      <td>docs: add CONTRIBUTING.md with branch and pull request standards</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>docs/code-comments-and-guidelines</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/dac73fc">dac73fc</a></td>
+      <td>docs: add Javadoc comments to core controller endpoints</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>docs/code-comments-and-guidelines</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/40e3b2f">40e3b2f</a></td>
+      <td>docs: add descriptive Javadoc to domain services and ports</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>docs/code-comments-and-guidelines</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/c56eabf">c56eabf</a></td>
+      <td>docs: document configuration beans and application properties</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>docs/domain-valueobjects-javadoc</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/b65abe5">b65abe5</a></td>
+      <td>docs: clarify contribution money operations</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>docs/domain-valueobjects-javadoc</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/96c9c32">96c9c32</a></td>
+      <td>docs: document savings group money rules</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/testing-suite</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/de8a9d4">de8a9d4</a></td>
+      <td>ci: run the test suite on every pull request</td>
+      <td>The deploy builds without tests, so this workflow runs them on every pull request and on every push to develop and main, and keeps the Cucumber and Surefire reports.</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/testing-suite</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/6d18d17">6d18d17</a></td>
+      <td>docs: describe the test suite in the README and fix its code blocks</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/testing-suite</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/c520f48">c520f48</a></td>
+      <td>ci: move the test workflow to the actions that run on Node 24</td>
+      <td>checkout v4 and setup-java v4 run on Node 20, which GitHub deprecated.</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>ci/deploy-actions-node24</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/80317f4">80317f4</a></td>
+      <td>ci: move the deploy and commit policy workflows to the actions that run on Node 24</td>
+      <td>checkout v4 and setup-java v4 run on Node 20, which GitHub deprecated; the Tests workflow already uses the new versions.</td>
+      <td>08/10/2026</td>
+    </tr>
+  </tbody>
+</table>
+
+**Aplicación móvil.** La Tabla 143 lista los 41 commits de `kerolabs/pozzo-mobile`.
+
+<table>
+  <caption>Commits de implementación de pozzo-mobile</caption>
+  <colgroup><col width="13%"><col width="14%"><col width="9%"><col width="26%"><col width="26%"><col width="12%"></colgroup>
+  <thead>
+    <tr>
+      <th>Repository</th>
+      <th>Branch</th>
+      <th>Commit Id</th>
+      <th>Commit Message</th>
+      <th>Commit Message Body</th>
+      <th>Committed on (Date)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>develop</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/c0f6b67">c0f6b67</a></td>
+      <td>chore: initialize the Android project with Jetpack Compose</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/app-foundation</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/17078f0">17078f0</a></td>
+      <td>chore: configure gitignore, gitattributes and editorconfig for the team</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/app-foundation</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/b8b2a48">b8b2a48</a></td>
+      <td>ci: enforce conventional commits and block tool trailers</td>
+      <td>Sin cuerpo</td>
+      <td>06/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/app-foundation</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/6c0a8a1">6c0a8a1</a></td>
+      <td>build: add Hilt, Retrofit, Room, DataStore and type-safe navigation</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/app-foundation</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/590ca81">590ca81</a></td>
+      <td>feat: add the design system from the style guide</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/app-foundation</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/b95d706">b95d706</a></td>
+      <td>feat: add the network layer for the Pozzo RESTful services</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/app-foundation</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/aa58852">aa58852</a></td>
+      <td>feat(iam): add the access flow with the phone number and the SMS code</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/app-foundation</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/615f79a">615f79a</a></td>
+      <td>feat(savings-groups): list the groups of the member with a local copy in Room</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/app-foundation</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/8df399b">8df399b</a></td>
+      <td>feat: open the welcome or the groups depending on the session</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/create-and-join-group</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/dc3cc94">dc3cc94</a></td>
+      <td>feat: use Plus Jakarta Sans, the type family of the style guide</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/create-and-join-group</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/795bad0">795bad0</a></td>
+      <td>feat(savings-groups): create a group in three steps and share its invitation</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/create-and-join-group</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/18502fa">18502fa</a></td>
+      <td>feat(savings-groups): join a group with an invitation code</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/group-detail-and-turns</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/816beaf">816beaf</a></td>
+      <td>feat(savings-groups): show the detail of a group with its members, turns and rules</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/group-detail-and-turns</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/2d276fc">2d276fc</a></td>
+      <td>feat(savings-groups): assign the turns by draw or agreed order and start the group</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/contributions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/1b4b50b">1b4b50b</a></td>
+      <td>feat(contributions): add the contributions data layer and on-device receipt reading</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/contributions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/1ecdaf1">1ecdaf1</a></td>
+      <td>feat(contributions): add the pot, contribution and organizer screens</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/history-and-profile</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/57515d1">57515d1</a></td>
+      <td>feat(contributions): add my contributions with an offline copy and the turn calendar</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/history-and-profile</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/f1411f9">f1411f9</a></td>
+      <td>feat(iam): add the profile and the visual theme</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/history-and-profile</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/c7520d0">c7520d0</a></td>
+      <td>feat(compliance-history): add the history destination and the bottom navigation bar</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/profile-contact-data</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/58f1680">58f1680</a></td>
+      <td>feat(iam): add the Yape or Plin number and the backup email to the profile</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>chore/agp-9.3</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/5b21c1e">5b21c1e</a></td>
+      <td>chore: use AGP 9.3.0, the latest supported by stable Android Studio</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>chore/backend-flavors</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/de3191b">de3191b</a></td>
+      <td>chore: switch between the deployed and the local backend with product flavors</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/account-recovery</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/76b3517">76b3517</a></td>
+      <td>feat(iam): recover the account with the backup email and change the phone number</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/notifications</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/de2e68a">de2e68a</a></td>
+      <td>feat(notifications): add the notices destination, the reminder settings and push notifications</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/new-logo-and-profile-photo</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/a795c36">a795c36</a></td>
+      <td>feat: use the new Pozzo logo in terracotta and gold, and let members set a profile photo</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/member-photos</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/be3bf70">be3bf70</a></td>
+      <td>feat: show the profile photo of the other members</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>chore/release-signing</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/999624f">999624f</a></td>
+      <td>chore: sign the release build with the keystore set in local.properties</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/group-management</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/798a41f">798a41f</a></td>
+      <td>fix: keep the tab labels on one line with large fonts</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/group-management</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/c9b96a3">c9b96a3</a></td>
+      <td>feat: edit and delete a group before it starts and refresh it live as members join</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/receipts-and-profiles</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/5378bf1">5378bf1</a></td>
+      <td>fix: center the loading of the contribution flow</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/receipts-and-profiles</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/c7967c7">c7967c7</a></td>
+      <td>feat: keep and show receipt images, open member profiles and refresh the groups list live</td>
+      <td>Sin cuerpo</td>
+      <td>07/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>chore/oracle-backend</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/c851ffe">c851ffe</a></td>
+      <td>chore: point the deployed build to the Oracle Cloud backend</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>chore/oracle-backend</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/d462ed6">d462ed6</a></td>
+      <td>fix: register the phone one call at a time</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>docs/code-comments</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/28b417a">28b417a</a></td>
+      <td>docs: explain error handling, auth header rules and amount format</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>fix/accessibility-improvements</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/d43a268">d43a268</a></td>
+      <td>fix: improve text field accessibility labels</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>fix/accessibility-improvements</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/8b13260">8b13260</a></td>
+      <td>fix: announce button loading state to screen readers</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>docs/code-comments-and-guidelines</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/c609b94">c609b94</a></td>
+      <td>docs: add project README.md with Android build instructions and architecture overview</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>docs/code-comments-and-guidelines</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/8c0104a">8c0104a</a></td>
+      <td>docs: add CONTRIBUTING.md guidelines for mobile development</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>docs/code-comments-and-guidelines</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/c6c87b4">c6c87b4</a></td>
+      <td>docs: add KDoc comments to primary navigation and screen composables</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>docs/code-comments-and-guidelines</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/c3c84b3">c3c84b3</a></td>
+      <td>docs: add KDoc comments to viewmodels and state management classes</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>docs/code-comments-and-guidelines</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/55c4df6">55c4df6</a></td>
+      <td>docs: document data repositories and API client contracts</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+  </tbody>
+</table>
 
 #### 4.2.1.5. Testing Suite Evidence for Sprint Review
 
@@ -358,7 +2107,7 @@ Las pruebas están en el repositorio de los servicios, en la carpeta `src/test`:
 
 La aplicación móvil, en cambio, solo tiene por ahora pruebas unitarias del lector de comprobantes. Es la carencia más común en el desarrollo Android: un estudio sobre 2965 aplicaciones Android de código abierto y una encuesta a sus desarrolladores encontró poca adopción de pruebas automatizadas, pocas herramientas en uso y baja cobertura de código y de API [@mahmud2025androidtesting]. Ampliar las pruebas de la aplicación queda para el siguiente Sprint.
 
-**Unit Tests.** Prueban las reglas del dominio sin Spring ni base de datos: los aggregates, los value objects y los domain services de los cinco bounded contexts. La Tabla 137 indica la clase y los comportamientos que verifica cada clase de prueba.
+**Unit Tests.** Prueban las reglas del dominio sin Spring ni base de datos: los aggregates, los value objects y los domain services de los cinco bounded contexts. La Tabla 144 indica la clase y los comportamientos que verifica cada clase de prueba.
 
 <table>
   <caption>Pruebas unitarias del dominio</caption>
@@ -444,7 +2193,7 @@ La aplicación móvil, en cambio, solo tiene por ahora pruebas unitarias del lec
   </tbody>
 </table>
 
-**Integration Tests.** Prueban que las capas y los bounded contexts funcionen juntos: la seguridad, los controllers, la persistencia en PostgreSQL y los eventos que llevan un aporte de Contributions a Compliance History y a Notifications después de confirmar la transacción. La Tabla 138 los detalla.
+**Integration Tests.** Prueban que las capas y los bounded contexts funcionen juntos: la seguridad, los controllers, la persistencia en PostgreSQL y los eventos que llevan un aporte de Contributions a Compliance History y a Notifications después de confirmar la transacción. La Tabla 145 los detalla.
 
 <table>
   <caption>Pruebas de integración del API REST</caption>
@@ -480,7 +2229,7 @@ La aplicación móvil, en cambio, solo tiene por ahora pruebas unitarias del lec
   </tbody>
 </table>
 
-**Acceptance Tests.** Siguen el enfoque BDD: cada Technical Story tiene un archivo `.feature` en `src/test/resources/features`, con su identificador en el nombre, y sus escenarios repiten los criterios de aceptación de la historia en Gherkin, en inglés, como lo fija la guía de estilo. Los archivos Steps están en Java, en el paquete `pe.kerolabs.pozzo.acceptance`: una clase por grupo de historias y `CommonSteps` con los pasos que comparten, como crear la cuenta de un integrante o comprobar el código de la respuesta. La Tabla 139 relaciona cada archivo con su Technical Story y su clase de Steps.
+**Acceptance Tests.** Siguen el enfoque BDD: cada Technical Story tiene un archivo `.feature` en `src/test/resources/features`, con su identificador en el nombre, y sus escenarios repiten los criterios de aceptación de la historia en Gherkin, en inglés, como lo fija la guía de estilo. Los archivos Steps están en Java, en el paquete `pe.kerolabs.pozzo.acceptance`: una clase por grupo de historias y `CommonSteps` con los pasos que comparten, como crear la cuenta de un integrante o comprobar el código de la respuesta. La Tabla 146 relaciona cada archivo con su Technical Story y su clase de Steps.
 
 <table>
   <caption>Archivos .feature de las pruebas de aceptación</caption>
@@ -963,13 +2712,13 @@ Feature: TS08 Compliance history service
     Then the service responds 404 Not Found
 ```
 
-La Figura 139 muestra el reporte de Cucumber de una ejecución local, con los 52 escenarios aprobados, y la Figura 140 la ejecución del workflow `Tests` en el pull request que agregó la suite, que en GitHub Actions corrió las 170 pruebas sin fallas.
+La Figura 140 muestra el reporte de Cucumber de una ejecución local, con los 52 escenarios aprobados, y la Figura 141 la ejecución del workflow `Tests` en el pull request que agregó la suite, que en GitHub Actions corrió las 170 pruebas sin fallas.
 
 ![Reporte de Cucumber de las pruebas de aceptación](images/chapter_4/cucumber_report.png){width=80%}
 
 ![Ejecución del workflow Tests en GitHub Actions](images/chapter_4/tests_workflow_run.png){width=90%}
 
-La Tabla 140 relaciona los commits de los avances en Testing de este Sprint.
+La Tabla 147 relaciona los commits de los avances en Testing de este Sprint.
 
 <table>
   <caption>Commits de las pruebas de los servicios RESTful</caption>
@@ -1046,15 +2795,31 @@ La Tabla 140 relaciona los commits de los avances en Testing de este Sprint.
 
 #### 4.2.1.6. Execution Evidence for Sprint Review
 
+En el Sprint 1 la aplicación móvil alcanzó el flujo completo de una junta: el ingreso con el número de celular y el código SMS, la creación de la junta con sus reglas y su destino, la invitación por código y enlace, la asignación de turnos, el inicio de la junta y el estado del pozo del período en curso. También adelantó el registro del aporte con el comprobante leído en el dispositivo, la revisión de los aportes que no coinciden, el historial, los avisos y el perfil. Las capturas se tomaron en un emulador Android con una junta de muestra de cuatro integrantes, conectado a una instancia local de los servicios RESTful.
+
+La Figura 142 muestra la bienvenida, el ingreso con el número de celular, la lista de juntas del integrante con su rol y su turno, y el perfil.
+
+![Bienvenida, ingreso, mis juntas y perfil en la aplicación móvil](images/chapter_4/app_access_groups.png){width=100%}
+
+La Figura 143 muestra una junta por iniciar con lo que le falta para empezar, la invitación con su código y su enlace, y una junta en curso con el estado del pozo de su período y el calendario de turnos.
+
+![Junta por iniciar, invitación, estado del pozo y calendario de turnos](images/chapter_4/app_group_setup.png){width=100%}
+
+La Figura 144 muestra el registro del aporte, con el destino al que se transfiere; la revisión de un comprobante que no coincide, campo por campo; el historial de aportes de la junta; y los avisos que recibe la cabeza de junta.
+
+![Registro del aporte, revisión de un comprobante, historial y avisos](images/chapter_4/app_contributions.png){width=100%}
+
+<!-- Falta el enlace al video de la navegación de este Sprint, que pide el enunciado. -->
+
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
 En este Sprint se documentaron con OpenAPI los 54 endpoints de los servicios RESTful de Pozzo, agrupados en 11 recursos que corresponden a los cinco bounded contexts. La documentación se genera desde el código con springdoc-openapi: cada controller declara el resumen y la descripción de sus operaciones, los parámetros, el cuerpo esperado y los códigos de respuesta, incluidos los de error, que comparten el mismo cuerpo `Error` con un código y un mensaje. Los recursos describen cada campo y traen valores de ejemplo, y el documento declara el esquema de seguridad Bearer con el token JWT que emite Identity & Access.
 
-La documentación está desplegada junto con los servicios: Swagger UI en <https://api-kerolabs.duckdns.org/swagger-ui/index.html> y el documento OpenAPI 3.1 en <https://api-kerolabs.duckdns.org/v3/api-docs>. El código está en el repositorio <https://github.com/kerolabs/pozzo-backend>. La Figura 141 muestra la documentación desplegada con sus 11 recursos.
+La documentación está desplegada junto con los servicios: Swagger UI en <https://api-kerolabs.duckdns.org/swagger-ui/index.html> y el documento OpenAPI 3.1 en <https://api-kerolabs.duckdns.org/v3/api-docs>. El código está en el repositorio <https://github.com/kerolabs/pozzo-backend>. La Figura 145 muestra la documentación desplegada con sus 11 recursos.
 
 ![Swagger UI de los servicios RESTful desplegados](images/chapter_4/swagger_overview.png){width=85%}
 
-Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y todas requieren el token Bearer, salvo las marcadas como públicas. Las Tablas 141 a 145 presentan los endpoints de cada bounded context: el verbo HTTP, la sintaxis de la llamada, la acción con su enlace a la documentación desplegada, los parámetros y la respuesta exitosa. Los errores de cada operación están en la documentación desplegada.
+Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y todas requieren el token Bearer, salvo las marcadas como públicas. Las Tablas 148 a 152 presentan los endpoints de cada bounded context: el verbo HTTP, la sintaxis de la llamada, la acción con su enlace a la documentación desplegada, los parámetros y la respuesta exitosa. Los errores de cada operación están en la documentación desplegada.
 
 <table>
   <caption>Endpoints documentados de Identity &amp; Access</caption>
@@ -1514,7 +3279,7 @@ Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y todas requieren 
   </tbody>
 </table>
 
-La Tabla 146 muestra un ejemplo de respuesta de los recursos principales, tomado de la junta de muestra con la que se probó la documentación y reducido a los campos que explican cada recurso. La documentación desplegada tiene el esquema completo de cada uno.
+La Tabla 153 muestra un ejemplo de respuesta de los recursos principales, tomado de la junta de muestra con la que se probó la documentación y reducido a los campos que explican cada recurso. La documentación desplegada tiene el esquema completo de cada uno.
 
 <table>
   <caption>Ejemplos de respuesta de los recursos principales</caption>
@@ -1605,25 +3370,25 @@ La Tabla 146 muestra un ejemplo de respuesta de los recursos principales, tomado
   </tbody>
 </table>
 
-Para mostrar la interacción con la documentación se usó una junta de muestra de cuatro integrantes: Anna Weber como cabeza, y Sofia Gonzales, Marta Quispe y Jorge Ramos. Sofia registró un aporte que coincidía con lo esperado y Marta uno por un monto menor. Las Figuras 142 a 145 muestran cuatro llamadas hechas desde Swagger UI con el token de cada integrante, con la URL de la solicitud y la respuesta del servicio. Se hicieron sobre una instancia local de los servicios con una base de datos propia, para no mezclar los datos de muestra con los de producción.
+Para mostrar la interacción con la documentación se usó una junta de muestra de cuatro integrantes: Anna Weber como cabeza, y Sofia Gonzales, Marta Quispe y Jorge Ramos. Sofia registró un aporte que coincidía con lo esperado y Marta uno por un monto menor. Las Figuras 146 a 149 muestran cuatro llamadas hechas desde Swagger UI con el token de cada integrante, con la URL de la solicitud y la respuesta del servicio. Se hicieron sobre una instancia local de los servicios con una base de datos propia, para no mezclar los datos de muestra con los de producción.
 
-Jorge Ramos registra su aporte de S/ 200 con los datos de un comprobante de Plin. El monto, el destinatario y la fecha coinciden con lo esperado, así que el servicio responde 201 Created con el aporte en estado VALIDATED y sin inconsistencias (ver Figura 142).
+Jorge Ramos registra su aporte de S/ 200 con los datos de un comprobante de Plin. El monto, el destinatario y la fecha coinciden con lo esperado, así que el servicio responde 201 Created con el aporte en estado VALIDATED y sin inconsistencias (ver Figura 146).
 
 ![Registro de un aporte desde Swagger UI](images/chapter_4/swagger_register_contribution.png){width=80%}
 
-Anna Weber, la cabeza de la junta, consulta los aportes por revisar del período. Aparece el de Marta Quispe en estado INCONSISTENT: el comprobante dice S/ 150 y se esperaban S/ 200 (ver Figura 143).
+Anna Weber, la cabeza de la junta, consulta los aportes por revisar del período. Aparece el de Marta Quispe en estado INCONSISTENT: el comprobante dice S/ 150 y se esperaban S/ 200 (ver Figura 147).
 
 ![Aportes por revisar desde Swagger UI](images/chapter_4/swagger_pending_review.png){width=80%}
 
-La cabeza aprueba ese aporte con una nota. El servicio responde 200 OK con el aporte en estado APPROVED y la decisión guardada en la revisión, y el aporte pasa a contar como pagado (ver Figura 144).
+La cabeza aprueba ese aporte con una nota. El servicio responde 200 OK con el aporte en estado APPROVED y la decisión guardada en la revisión, y el aporte pasa a contar como pagado (ver Figura 148).
 
 ![Revisión de un aporte desde Swagger UI](images/chapter_4/swagger_review_contribution.png){width=80%}
 
-Con los tres aportes, el estado del pozo muestra S/ 600 reunidos de S/ 800, que en este turno cobra Marta Quispe, que solo falta el aporte de Anna Weber y el estado de cada integrante (ver Figura 145).
+Con los tres aportes, el estado del pozo muestra S/ 600 reunidos de S/ 800, que en este turno cobra Marta Quispe, que solo falta el aporte de Anna Weber y el estado de cada integrante (ver Figura 149).
 
 ![Estado del pozo desde Swagger UI](images/chapter_4/swagger_period_status.png){width=80%}
 
-La documentación se escribió junto con cada controller, en el mismo commit que agrega sus endpoints, de modo que ningún endpoint quedó sin documentar en el historial. La Tabla 147 relaciona los commits de los servicios RESTful que agregaron o cambiaron la documentación OpenAPI en este Sprint.
+La documentación se escribió junto con cada controller, en el mismo commit que agrega sus endpoints, de modo que ningún endpoint quedó sin documentar en el historial. La Tabla 154 relaciona los commits de los servicios RESTful que agregaron o cambiaron la documentación OpenAPI en este Sprint.
 
 <table>
   <caption>Commits de la documentación de los servicios RESTful</caption>
@@ -1756,7 +3521,90 @@ La documentación se escribió junto con cada controller, en el mismo commit que
 
 #### 4.2.1.8. Software Deployment Evidence for Sprint Review
 
+En el Sprint 1 se desplegaron los cuatro productos digitales. Cada uno se publica desde la rama `main` de su repositorio, de modo que lo desplegado es siempre lo que pasó por un pull request revisado.
+
+**Landing Page.** Se publica con GitHub Pages desde la rama `main` de `kerolabs/pozzo-landing-page`, sin paso de compilación, en <https://kerolabs.github.io/pozzo-landing-page/>. Durante el Sprint se configuró el repositorio con su rama `develop`, la protección de ramas que solo acepta cambios por pull request y el workflow `commit-policy`, y se publicó la versión con el logo actual (ver Figura 150).
+
+![Landing page publicado en GitHub Pages](images/chapter_4/landing_live.png){width=85%}
+
+**Páginas públicas de los enlaces.** El repositorio `kerolabs/kerolabs.github.io` publica, también con GitHub Pages, las páginas que abren los enlaces de invitación (`/unirme`) y de historial compartido (`/historial`). Reemplazan al dominio que se había previsto para estos enlaces, que no se compró.
+
+**Servicios RESTful.** Se desplegaron en una instancia Always Free de Oracle Cloud con Ubuntu 24.04. Los pasos fueron: crear la instancia y abrir los puertos 80 y 443 en su lista de seguridad; registrar el dominio `api-kerolabs.duckdns.org` en DuckDNS apuntando a la IP pública; preparar el servidor con `deploy/oracle-setup.sh`, que instala Java 21 y Caddy, crea los usuarios sin privilegios `pozzo` y `deploy` y registra el servicio de systemd; y configurar en GitHub los secretos del workflow `Deploy` con una llave SSH que solo puede ejecutar el script de despliegue. Desde entonces, cada push a `main` compila el jar en GitHub Actions, lo envía al servidor, reinicia el servicio y espera a que `/actuator/health` responda; si la versión nueva no arranca, el servidor vuelve a la anterior. Caddy obtiene el certificado HTTPS automáticamente. La Figura 151 muestra los despliegues del Sprint, todos exitosos. La base de datos PostgreSQL y el almacenamiento de las fotos y los comprobantes están en Supabase.
+
+![Despliegues de los servicios RESTful con el workflow Deploy de GitHub Actions](images/chapter_4/deploy_runs.png){width=90%}
+
+**Aplicación móvil.** El APK se genera en Android Studio con la variante `cloudRelease`, que apunta a los servicios desplegados, firmado con la llave de la aplicación que se guarda fuera del repositorio. El proyecto de Firebase `kerolabs-pozzo` provee las notificaciones push; la distribución con Firebase App Distribution queda para la entrega final.
+
 #### 4.2.1.9. Team Collaboration Insights during Sprint
+
+La implementación se organizó con GitFlow en cada repositorio: cada cambio se trabajó en una rama `feature/*`, `fix/*`, `docs/*` o `ci/*`, entró a `develop` por pull request con el check `commit-policy` y llegó a `main` en un pull request de integración. La Tabla 155 muestra los commits de cada integrante por repositorio durante el Sprint, y las Figuras 152 a 154 la pestaña Insights de los tres repositorios de código.
+
+<table>
+  <caption>Commits de cada integrante por repositorio en el Sprint 1</caption>
+  <colgroup><col width="30%"><col width="13%"><col width="13%"><col width="13%"><col width="13%"><col width="18%"></colgroup>
+  <thead>
+    <tr>
+      <th>Integrante</th>
+      <th>Landing page</th>
+      <th>Páginas de enlaces</th>
+      <th>Servicios RESTful</th>
+      <th>Aplicación móvil</th>
+      <th>Informe</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>4</td>
+      <td>9</td>
+      <td>90</td>
+      <td>33</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>Flores Pinchi, Jose Fernando</td>
+      <td>2</td>
+      <td>0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>25</td>
+    </tr>
+    <tr>
+      <td>Sanchez Benavente, Leonardo Matias</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Solis Campos, Estefano Sebastian</td>
+      <td>5</td>
+      <td>0</td>
+      <td>5</td>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Tirado Carrera, Gabriela Luciana</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+
+![Contribuciones al repositorio de los servicios RESTful](images/chapter_4/insights_pozzo-backend.png){width=85%}
+
+![Contribuciones al repositorio de la aplicación móvil](images/chapter_4/insights_pozzo-mobile.png){width=85%}
+
+![Contribuciones al repositorio del landing page](images/chapter_4/insights_pozzo-landing-page.png){width=85%}
+
+Los analíticos muestran una participación desigual en el código. Camargo concentró la implementación de los servicios RESTful y de la aplicación móvil, que se construyeron en pocos días sobre el diseño táctico del Capítulo II. El landing page tuvo la participación de los cinco integrantes: Tirado escribió su contenido y Sanchez sus estilos, su comportamiento y sus traducciones. En los repositorios de la aplicación y de los servicios, el aporte del resto del equipo se concentró en la documentación del código (README, guías de contribución y comentarios) y en la accesibilidad de la aplicación. En el informe ocurrió lo contrario: Flores fue el integrante con más commits, con la numeración APA de tablas y figuras y los canvases del Capítulo II, y Tirado y Sanchez redactaron el Capítulo III.
+
+El enunciado pide que todos participen en la implementación de cada producto, y en la aplicación y los servicios eso no se cumplió en este Sprint. Para el Sprint 2 se propone que cada integrante lidere las historias de un bounded context en la aplicación y en los servicios, con sus pruebas de aceptación, para repartir la implementación.
 
 ## 4.3. Validation Interviews
 
