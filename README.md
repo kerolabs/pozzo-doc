@@ -271,7 +271,7 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
 
 <table>
   <caption>Student Outcome: criterios, acciones y conclusiones</caption>
-  <colgroup><col width="16%"><col width="52%"><col width="32%"></colgroup>
+  <colgroup><col width="16%"><col width="46%"><col width="38%"></colgroup>
   <thead>
     <tr>
       <th>Criterio específico</th>
@@ -282,52 +282,102 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
   <tbody>
     <tr>
       <td>Actualiza conceptos y conocimientos necesarios para su desarrollo profesional y en especial para su proyecto en soluciones de software.</td>
-      <td><b>Camargo Briceño, Joseph Julius</b><br><i>AV1:</i> Especificó las 46 User Stories, las 8 Technical Stories y las 3 Spike Stories con criterios de aceptación en Gherkin, elaboró el Impact Map en UXPressia y el Product Backlog en Trello, y diseñó el nivel táctico de los Bounded Contexts Compliance History, Notifications e Identity & Access con sus diagramas de clases y de base de datos. Configuró la exportación del informe a PDF con Pandoc y XeLaTeX bajo las normas APA 7.<br><br><i>TB1:</i> Implementó los servicios RESTful en Spring Boot con los cinco Bounded Contexts del diseño táctico, sobre PostgreSQL, con 54 endpoints documentados en OpenAPI y 170 pruebas automatizadas entre unitarias, de integración y de aceptación en Gherkin; los desplegó en Oracle Cloud con despliegue continuo desde GitHub Actions; construyó la aplicación Android nativa en Kotlin y Jetpack Compose con el flujo completo de una junta; y redactó el capítulo de implementación con la evidencia del Sprint 1.</td>
-      <td><i>AV1:</i> El equipo actualizó conceptos de Lean UX, Domain-Driven Design estratégico y táctico, EventStorming y C4 Model, y los aplicó sobre un dominio real, las juntas de ahorro, hasta obtener una especificación de requisitos y un diseño de solución coherentes entre sí: cada Bounded Context nace de un evento pivotal del EventStorming, cada User Story de un hallazgo de las entrevistas y cada objetivo de negocio de una hipótesis del Lean UX Process.<br><br><i>TB1:</i> El equipo pasó del diseño a la implementación y comprobó que el diseño de la AV1 se sostiene: los cinco Bounded Contexts se convirtieron en módulos de los servicios y los ajustes que pidió el código se llevaron de vuelta al Capítulo II. El Capítulo III aplicó Material Design 3 y arquitectura de información sobre las mismas User Stories, de modo que el diseño de las pantallas y el de los servicios parten de la misma especificación.</td>
+      <td><b>Camargo Briceño, Joseph Julius</b><br><i>AV1:</i> Especificó las 46 User Stories, las 8 Technical Stories y las 3 Spike Stories con criterios de aceptación en Gherkin, elaboró el Impact Map en UXPressia y el Product Backlog en Trello, y diseñó el nivel táctico de los Bounded Contexts Compliance History, Notifications e Identity & Access con sus diagramas de clases y de base de datos. Configuró la exportación del informe a PDF con Pandoc y XeLaTeX bajo las normas APA 7.</td>
+      <td><i>AV1:</i> El equipo actualizó conceptos de Lean UX, Domain-Driven Design estratégico y táctico, EventStorming y C4 Model, y los aplicó sobre un dominio real, las juntas de ahorro, hasta obtener una especificación de requisitos y un diseño de solución coherentes entre sí: cada Bounded Context nace de un evento pivotal del EventStorming, cada User Story de un hallazgo de las entrevistas y cada objetivo de negocio de una hipótesis del Lean UX Process.</td>
     </tr>
     <tr>
       <td></td>
-      <td><b>Flores Pinchi, Jose Fernando</b><br><i>AV1:</i> Aplicó el Lean UX Process para redactar el Problem Statement, los cinco tipos de Assumptions, los Hypothesis Statements y el Lean UX Canvas; diseñó, registró y analizó las entrevistas a cabezas de junta y participantes con sustento estadístico; y diseñó el nivel táctico de los Bounded Contexts Contributions y Savings Groups en sus cuatro capas.<br><br><i>TB1:</i> Aplicó las normas APA 7 a la numeración y la referencia de todas las tablas y figuras del informe, trajo al Capítulo II los diagramas del diseño estratégico y táctico desde el tablero del equipo, y documentó en los servicios RESTful los repositorios y el contrato de puntuación de Compliance History.</td>
-      <td></td>
+      <td><b>Camargo Briceño, Joseph Julius</b><br><i>TB1:</i> Implementó los servicios RESTful en Spring Boot con los cinco Bounded Contexts del diseño táctico, sobre PostgreSQL, con 54 endpoints documentados en OpenAPI y 170 pruebas automatizadas entre unitarias, de integración y de aceptación en Gherkin; los desplegó en Oracle Cloud con despliegue continuo desde GitHub Actions; construyó la aplicación Android nativa en Kotlin y Jetpack Compose con el flujo completo de una junta; y redactó el capítulo de implementación con la evidencia del Sprint 1.</td>
+      <td><i>TB1:</i> El equipo pasó del diseño a la implementación y comprobó que el diseño de la AV1 se sostiene: los cinco Bounded Contexts se convirtieron en módulos de los servicios y los ajustes que pidió el código se llevaron de vuelta al Capítulo II. El Capítulo III aplicó Material Design 3 y arquitectura de información sobre las mismas User Stories, de modo que el diseño de las pantallas y el de los servicios parten de la misma especificación.</td>
     </tr>
     <tr>
       <td></td>
-      <td><b>Sanchez Benavente, Leonardo Matias</b><br><i>AV1:</i> Redactó los antecedentes y la problemática con la técnica 5W2H, elaboró los User Personas y el User Task Matrix, consolidó el Ubiquitous Language y condujo en Miro el EventStorming de nivel de diseño, el Candidate Context Discovery y el Domain Storytelling que identificaron los cinco Bounded Contexts.<br><br><i>TB1:</i> Elaboró la guía de estilo sobre Material Design 3 (principios, color, tipografía, espaciado, componentes y modos claro y oscuro) y el diseño UX/UI de la aplicación móvil en wireframes, wireflows, mock-ups, user flows y un prototipo navegable en Figma; además construyó la primera versión del landing page.</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Solis Campos, Estefano Sebastian</b><br><i>AV1:</i> Describió los segmentos objetivo con sustento estadístico, realizó el análisis competitivo con el landscape, el SWOT de cada competidor y las estrategias frente a ellos, y modeló la arquitectura de software con el C4 Model en Structurizr en sus niveles de contexto, contenedores y despliegue.<br><br><i>TB1:</i> Documentó el código de los tres productos: guías de contribución con el flujo de Pull Requests, Javadoc de los controladores, servicios y configuración de los servicios RESTful, KDoc de la navegación, las pantallas, los view models y los repositorios de la aplicación, y comentarios y README del landing page. Además llevó al informe el video de la navegación de la aplicación del Sprint 1.</td>
+      <td><b>Flores Pinchi, Jose Fernando</b><br><i>AV1:</i> Aplicó el Lean UX Process para redactar el Problem Statement, los cinco tipos de Assumptions, los Hypothesis Statements y el Lean UX Canvas; diseñó, registró y analizó las entrevistas a cabezas de junta y participantes con sustento estadístico; y diseñó el nivel táctico de los Bounded Contexts Contributions y Savings Groups en sus cuatro capas.</td>
       <td></td>
     </tr>
     <tr>
       <td></td>
-      <td><b>Tirado Carrera, Gabriela Luciana</b><br><i>AV1:</i> Redactó la descripción de la startup y los perfiles del equipo, elaboró los User Journey Maps y los Empathy Maps en UXPressia, facilitó el Big Picture EventStorming y diseñó los cinco Bounded Context Canvases y el Context Mapping con los patrones de relación entre contextos.<br><br><i>TB1:</i> Diseñó la arquitectura de información del landing page y de la aplicación (sistemas de organización, etiquetado, búsqueda, navegación, SEO y meta tags) y el wireframe y el mock-up del landing page; escribió su contenido y la política de privacidad, y mejoró la accesibilidad de la aplicación para lectores de pantalla.</td>
+      <td><b>Flores Pinchi, Jose Fernando</b><br><i>TB1:</i> Aplicó las normas APA 7 a la numeración y la referencia de todas las tablas y figuras del informe, trajo al Capítulo II los diagramas del diseño estratégico y táctico desde el tablero del equipo, y documentó en los servicios RESTful los repositorios y el contrato de puntuación de Compliance History.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Sanchez Benavente, Leonardo Matias</b><br><i>AV1:</i> Redactó los antecedentes y la problemática con la técnica 5W2H, elaboró los User Personas y el User Task Matrix, consolidó el Ubiquitous Language y condujo en Miro el EventStorming de nivel de diseño, el Candidate Context Discovery y el Domain Storytelling que identificaron los cinco Bounded Contexts.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Sanchez Benavente, Leonardo Matias</b><br><i>TB1:</i> Elaboró la guía de estilo sobre Material Design 3 (principios, color, tipografía, espaciado, componentes y modos claro y oscuro) y el diseño UX/UI de la aplicación móvil en wireframes, wireflows, mock-ups, user flows y un prototipo navegable en Figma; además construyó la primera versión del landing page.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Solis Campos, Estefano Sebastian</b><br><i>AV1:</i> Describió los segmentos objetivo con sustento estadístico, realizó el análisis competitivo con el landscape, el SWOT de cada competidor y las estrategias frente a ellos, y modeló la arquitectura de software con el C4 Model en Structurizr en sus niveles de contexto, contenedores y despliegue.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Solis Campos, Estefano Sebastian</b><br><i>TB1:</i> Documentó el código de los tres productos: guías de contribución con el flujo de Pull Requests, Javadoc de los controladores, servicios y configuración de los servicios RESTful, KDoc de la navegación, las pantallas, los view models y los repositorios de la aplicación, y comentarios y README del landing page. Además llevó al informe el video de la navegación de la aplicación del Sprint 1.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Tirado Carrera, Gabriela Luciana</b><br><i>AV1:</i> Redactó la descripción de la startup y los perfiles del equipo, elaboró los User Journey Maps y los Empathy Maps en UXPressia, facilitó el Big Picture EventStorming y diseñó los cinco Bounded Context Canvases y el Context Mapping con los patrones de relación entre contextos.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Tirado Carrera, Gabriela Luciana</b><br><i>TB1:</i> Diseñó la arquitectura de información del landing page y de la aplicación (sistemas de organización, etiquetado, búsqueda, navegación, SEO y meta tags) y el wireframe y el mock-up del landing page; escribió su contenido y la política de privacidad, y mejoró la accesibilidad de la aplicación para lectores de pantalla.</td>
       <td></td>
     </tr>
     <tr>
       <td>Reconoce la necesidad del aprendizaje permanente para el desempeño profesional y el desarrollo de proyectos en soluciones de software.</td>
-      <td><b>Camargo Briceño, Joseph Julius</b><br><i>AV1:</i> Estudió por su cuenta el diseño táctico de Domain-Driven Design (agregados, value objects, command handlers y repositorios) y el formato Gherkin para redactar criterios comprobables; aprendió Pandoc, filtros Lua y XeLaTeX para automatizar el PDF del informe, y la API de Trello para cargar el backlog desde la especificación.<br><br><i>TB1:</i> Aprendió durante el Sprint lo que la AV1 había anticipado: Spring Boot con Spring Security y JWT, Testcontainers y Cucumber para las pruebas, Jetpack Compose y ML Kit para leer comprobantes en el dispositivo, y la administración de un servidor Linux con systemd y Caddy al que se despliega por SSH desde GitHub Actions.</td>
-      <td><i>AV1:</i> Ninguna de las técnicas del proyecto se dominaba al inicio del ciclo. Cada integrante tuvo que estudiar por su cuenta libros, documentación y herramientas para producir su sección, y el equipo comprobó que ese aprendizaje se transfiere: lo que uno aprendió se revisó en Pull Requests y quedó disponible para los demás. El equipo reconoce que las entregas siguientes exigirán lo mismo con Kotlin, Jetpack Compose, ML Kit y Spring Boot.<br><br><i>TB1:</i> Kotlin, Jetpack Compose, ML Kit y Spring Boot, que la AV1 señalaba como el aprendizaje pendiente, se aprendieron en este Sprint, pero ese aprendizaje se concentró en un integrante. El equipo reconoce que para la AV2 cada integrante debe implementar las historias de un Bounded Context, en la aplicación y en los servicios, para que el conocimiento técnico se reparta como se repartió el de diseño.</td>
+      <td><b>Camargo Briceño, Joseph Julius</b><br><i>AV1:</i> Estudió por su cuenta el diseño táctico de Domain-Driven Design (agregados, value objects, command handlers y repositorios) y el formato Gherkin para redactar criterios comprobables; aprendió Pandoc, filtros Lua y XeLaTeX para automatizar el PDF del informe, y la API de Trello para cargar el backlog desde la especificación.</td>
+      <td><i>AV1:</i> Ninguna de las técnicas del proyecto se dominaba al inicio del ciclo. Cada integrante tuvo que estudiar por su cuenta libros, documentación y herramientas para producir su sección, y el equipo comprobó que ese aprendizaje se transfiere: lo que uno aprendió se revisó en Pull Requests y quedó disponible para los demás. El equipo reconoce que las entregas siguientes exigirán lo mismo con Kotlin, Jetpack Compose, ML Kit y Spring Boot.</td>
     </tr>
     <tr>
       <td></td>
-      <td><b>Flores Pinchi, Jose Fernando</b><br><i>AV1:</i> Revisó el libro Lean UX de Gothelf y Seiden para distinguir los cinco tipos de assumptions y formular hipótesis comprobables, investigó buenas prácticas de diseño de entrevistas para construir arquetipos, y se familiarizó con el modelo por capas de Domain-Driven Design para diseñar el contexto core de la solución.<br><br><i>TB1:</i> Profundizó en las reglas de APA 7 para tablas y figuras, en la numeración automática que exige un informe que cambia en cada entrega, y en la documentación de código con Javadoc y KDoc.</td>
-      <td></td>
+      <td><b>Camargo Briceño, Joseph Julius</b><br><i>TB1:</i> Aprendió durante el Sprint lo que la AV1 había anticipado: Spring Boot con Spring Security y JWT, Testcontainers y Cucumber para las pruebas, Jetpack Compose y ML Kit para leer comprobantes en el dispositivo, y la administración de un servidor Linux con systemd y Caddy al que se despliega por SSH desde GitHub Actions.</td>
+      <td><i>TB1:</i> Kotlin, Jetpack Compose, ML Kit y Spring Boot, que la AV1 señalaba como el aprendizaje pendiente, se aprendieron en este Sprint, pero ese aprendizaje se concentró en un integrante. El equipo reconoce que para la AV2 cada integrante debe implementar las historias de un Bounded Context, en la aplicación y en los servicios, para que el conocimiento técnico se reparta como se repartió el de diseño.</td>
     </tr>
     <tr>
       <td></td>
-      <td><b>Sanchez Benavente, Leonardo Matias</b><br><i>AV1:</i> Estudió EventStorming de Brandolini y Domain Storytelling de Hofer y Schwentner para modelar el dominio y sus flujos de mensajes, aprendió a construir arquetipos en UXPressia y a documentar un Ubiquitous Language libre de términos técnicos.<br><br><i>TB1:</i> Estudió Material Design 3 y su sistema de roles de color, el diseño de wireflows y user flows, y el prototipado navegable en Figma para traducir las User Stories en pantallas.</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td><b>Solis Campos, Estefano Sebastian</b><br><i>AV1:</i> Aprendió el C4 Model y el DSL de Structurizr para describir la arquitectura como código versionable, e investigó las fuentes estadísticas del INEI y la SBS y la oferta de los competidores para sustentar los segmentos y el análisis competitivo.<br><br><i>TB1:</i> Aprendió las convenciones de Javadoc y KDoc y a documentar proyectos Spring Boot y Android para que otro integrante pueda construirlos y contribuir sin ayuda.</td>
+      <td><b>Flores Pinchi, Jose Fernando</b><br><i>AV1:</i> Revisó el libro Lean UX de Gothelf y Seiden para distinguir los cinco tipos de assumptions y formular hipótesis comprobables, investigó buenas prácticas de diseño de entrevistas para construir arquetipos, y se familiarizó con el modelo por capas de Domain-Driven Design para diseñar el contexto core de la solución.</td>
       <td></td>
     </tr>
     <tr>
       <td></td>
-      <td><b>Tirado Carrera, Gabriela Luciana</b><br><i>AV1:</i> Investigó el proceso iterativo del Bounded Context Canvas y los patrones de Context Mapping (Customer/Supplier, Conformist, Anti-corruption Layer y Shared Kernel), y aprendió a facilitar sesiones de EventStorming y a elaborar Empathy Maps y Journey Maps en UXPressia.<br><br><i>TB1:</i> Estudió arquitectura de información, posicionamiento en buscadores con meta tags y hreflang, y las pautas de accesibilidad de Android para que los lectores de pantalla anuncien etiquetas y estados.</td>
+      <td><b>Flores Pinchi, Jose Fernando</b><br><i>TB1:</i> Profundizó en las reglas de APA 7 para tablas y figuras, en la numeración automática que exige un informe que cambia en cada entrega, y en la documentación de código con Javadoc y KDoc.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Sanchez Benavente, Leonardo Matias</b><br><i>AV1:</i> Estudió EventStorming de Brandolini y Domain Storytelling de Hofer y Schwentner para modelar el dominio y sus flujos de mensajes, aprendió a construir arquetipos en UXPressia y a documentar un Ubiquitous Language libre de términos técnicos.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Sanchez Benavente, Leonardo Matias</b><br><i>TB1:</i> Estudió Material Design 3 y su sistema de roles de color, el diseño de wireflows y user flows, y el prototipado navegable en Figma para traducir las User Stories en pantallas.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Solis Campos, Estefano Sebastian</b><br><i>AV1:</i> Aprendió el C4 Model y el DSL de Structurizr para describir la arquitectura como código versionable, e investigó las fuentes estadísticas del INEI y la SBS y la oferta de los competidores para sustentar los segmentos y el análisis competitivo.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Solis Campos, Estefano Sebastian</b><br><i>TB1:</i> Aprendió las convenciones de Javadoc y KDoc y a documentar proyectos Spring Boot y Android para que otro integrante pueda construirlos y contribuir sin ayuda.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Tirado Carrera, Gabriela Luciana</b><br><i>AV1:</i> Investigó el proceso iterativo del Bounded Context Canvas y los patrones de Context Mapping (Customer/Supplier, Conformist, Anti-corruption Layer y Shared Kernel), y aprendió a facilitar sesiones de EventStorming y a elaborar Empathy Maps y Journey Maps en UXPressia.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Tirado Carrera, Gabriela Luciana</b><br><i>TB1:</i> Estudió arquitectura de información, posicionamiento en buscadores con meta tags y hreflang, y las pautas de accesibilidad de Android para que los lectores de pantalla anuncien etiquetas y estados.</td>
       <td></td>
     </tr>
   </tbody>
