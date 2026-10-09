@@ -79,7 +79,7 @@ Antes de elegir colores o componentes, el equipo fijó siete principios. Cada un
 
 El logo de Pozzo son dos anillos abiertos que se entrelazan, uno terracota y uno dorado: cada anillo gira hacia el otro, como el dinero que pasa de mano en mano en cada turno, y juntos forman el pozo que el grupo reúne y se reparte. Junto a la marca va la palabra POZZO en mayúsculas, en el mismo terracota. La marca sola se usa en espacios pequeños (icono de la aplicación, avatar y favicon del landing) y el logo completo en cabeceras y portadas. Tiene cuatro variantes: sobre fondo claro, solo la marca, sobre fondo oscuro (con los anillos invertidos y el texto en el tono primary del modo oscuro) y sobre el terracota de la marca, donde todo el logo pasa a crema.
 
-La zona de respeto alrededor del logo es igual a x, la mitad de la altura de la marca, y dentro de ella no se coloca texto, borde ni otra figura. Por debajo de 32 px de altura de marca se usa solo la marca, nunca el logo completo ni una versión estirada, y la marca sola no baja de 24 px (ver Figura 77).
+La zona de respeto alrededor del logo es igual a x, la mitad de la altura de la marca, y dentro de ella no se coloca texto, borde ni otra figura. Por debajo de 32 px de altura de marca se usa solo la marca, nunca el logo completo ni una versión estirada, y la marca sola no baja de 24 px (ver Figura 74).
 
 ![Guía de estilo: marca, zona de respeto, roles de color en modo claro y oscuro y los tres modos de visualización](images/chapter_3/style_guide_marca_color.png){width=85%}
 
@@ -493,7 +493,7 @@ Además de esas familias, la guía fija las medidas que se repiten en todas las 
   </tbody>
 </table>
 
-La Figura 78 muestra la guía de estilo: escala tipográfica, espaciado, radios, elevación y medidas clave.
+La Figura 75 muestra la guía de estilo: escala tipográfica, espaciado, radios, elevación y medidas clave.
 
 ![Guía de estilo: escala tipográfica, espaciado, radios, elevación y medidas clave](images/chapter_3/style_guide_tipografia_forma.png){width=90%}
 
@@ -575,7 +575,7 @@ El catálogo reúne los componentes que aparecen en las cuarenta y seis pantalla
   </tbody>
 </table>
 
-Las Figuras 79 y 80 muestran el detalle correspondiente.
+Las Figuras 76 y 77 muestran el detalle correspondiente.
 
 ![Catálogo de componentes en modo claro](images/chapter_3/style_guide_componentes_1.png){width=90%}
 
@@ -677,7 +677,7 @@ Un sistema de organización combina un esquema, que decide cómo se agrupan los 
 
 La estructura utiliza una jerarquía poco profunda centrada en cada junta. La navegación inferior contiene cuatro destinos principales: Juntas, Historial, Avisos y Perfil. Desde Juntas, cada junta funciona como punto central para acceder a sus acciones y al calendario de turnos.
 
-La profundidad máxima es de tres niveles: destino principal, detalle de la junta y acción específica. Los modales y los pasos internos de un flujo no se consideran niveles adicionales. Esta estructura reduce la cantidad de toques necesarios para completar tareas frecuentes, especialmente realizar aportes. El primer ingreso funciona como un flujo lineal previo a la navegación principal y, si el usuario aún no pertenece a una junta, se muestra un estado vacío con las opciones de crear una o unirse mediante un código (ver Figura 81).
+La profundidad máxima es de tres niveles: destino principal, detalle de la junta y acción específica. Los modales y los pasos internos de un flujo no se consideran niveles adicionales. Esta estructura reduce la cantidad de toques necesarios para completar tareas frecuentes, especialmente realizar aportes. El primer ingreso funciona como un flujo lineal previo a la navegación principal y, si el usuario aún no pertenece a una junta, se muestra un estado vacío con las opciones de crear una o unirse mediante un código (ver Figura 78).
 
 ![Arquitectura de información de la aplicación: cuatro destinos, grupos de pantallas por segmento y por tarea, y máximo tres niveles](images/chapter_3/ia_mapa_app.png){width=95%}
 
@@ -748,7 +748,7 @@ El landing se organiza por tema y por tarea en una sola página de recorrido ver
   </tbody>
 </table>
 
-La Figura 82 muestra la arquitectura de información del landing: dos idiomas con las mismas secciones, páginas legales y barra superior fija.
+La Figura 79 muestra la arquitectura de información del landing: dos idiomas con las mismas secciones, páginas legales y barra superior fija.
 
 ![Arquitectura de información del landing: dos idiomas con las mismas secciones, páginas legales y barra superior fija](images/chapter_3/ia_mapa_landing.png){width=95%}
 
@@ -1304,7 +1304,7 @@ La siguiente tabla resume la estructura planteada para las versiones de escritor
   </tbody>
 </table>
 
-Hay una decisiones del wireframe que conviene explicar: la franja de confianza: se separó del hero y se le dio una banda propia, de ancho completo, porque la aclaración de que Pozzo no maneja el dinero responde a la duda más probable de un visitante y no debía depender de que lea el recuadro del hero (ver Figuras 83 a 87).
+Hay una decisiones del wireframe que conviene explicar: la franja de confianza: se separó del hero y se le dio una banda propia, de ancho completo, porque la aclaración de que Pozzo no maneja el dinero responde a la duda más probable de un visitante y no debía depender de que lea el recuadro del hero (ver Figuras 80 a 84).
 
 ![Wireframe del landing en escritorio, ventanas 1 y 2 de 8](images/chapter_3/landing_wireframe_desktop_1.png){width=90%}
 
@@ -1323,7 +1323,7 @@ Además de la versión de escritorio en modo claro, se desarrollaron variantes p
 
 Las pantallas de la aplicación se presentan en español incluso dentro de la versión en inglés del landing, debido a que el producto se encuentra orientado inicialmente al mercado peruano. Esta decisión se comunica dentro de la sección de funcionalidades para evitar confusión.
 
-En el mock-up, las fotografías de los integrantes del equipo se representan mediante elementos gráficos temporales. Las fotografías reales se incorporan posteriormente en la implementación del sitio (ver Figuras 88 a 94).
+En el mock-up, las fotografías de los integrantes del equipo se representan mediante elementos gráficos temporales. Las fotografías reales se incorporan posteriormente en la implementación del sitio (ver Figuras 85 a 91).
 
 ![Mock-up del landing en escritorio, ventanas 1 y 2 de 8](images/chapter_3/landing_mockup_desktop_1.png){width=90%}
 
@@ -1647,7 +1647,7 @@ Las historias de la tabla salen del pie de cada pantalla, no de un reparto aprox
   </tbody>
 </table>
 
-Las Figuras 95 a 108 muestran el detalle correspondiente.
+Las Figuras 92 a 105 muestran el detalle correspondiente.
 
 ![Wireframe de la lámina Compartido 1, acceso con el número de celular](images/chapter_3/wireframe_compartido_1_acceso.png){width=90%}
 
@@ -1859,7 +1859,7 @@ Lo más útil de los wireflows son las ramas, porque son los momentos en que un 
   </tbody>
 </table>
 
-Las Figuras 109 a 120 muestran el detalle correspondiente.
+Las Figuras 106 a 117 muestran el detalle correspondiente.
 
 ![Wireflow 1 (Compartido), registrarse e ingresar](images/chapter_3/wireflow_01_registro.png){width=90%}
 
@@ -1999,7 +1999,7 @@ Los estados de un aporte y de un turno se repiten en varias pantallas, así que 
   </tbody>
 </table>
 
-Las Figuras 121 a 134 muestran el detalle correspondiente.
+Las Figuras 118 a 131 muestran el detalle correspondiente.
 
 ![Mock-up de la lámina Compartido 1, acceso con el número de celular](images/chapter_3/mockup_compartido_1_acceso.png){width=90%}
 
@@ -2031,7 +2031,7 @@ Las Figuras 121 a 134 muestran el detalle correspondiente.
 
 ##### Modo oscuro
 
-La historia US06 pide poder elegir el tema visual, y la pantalla I2 ofrece tres opciones: usar el del sistema, claro u oscuro. Para comprobar que los roles de color de la guía se invierten sin perder información, se dibujaron en modo oscuro cuatro pantallas con muchos estados a la vez: Mis juntas de la cabeza (B1), el estado del pozo (F1), el aporte validado (F5) y el historial de aportes de la cabeza (K1). Son los mismos componentes y la misma estructura; solo cambian los roles (ver Figura 135).
+La historia US06 pide poder elegir el tema visual, y la pantalla I2 ofrece tres opciones: usar el del sistema, claro u oscuro. Para comprobar que los roles de color de la guía se invierten sin perder información, se dibujaron en modo oscuro cuatro pantallas con muchos estados a la vez: Mis juntas de la cabeza (B1), el estado del pozo (F1), el aporte validado (F5) y el historial de aportes de la cabeza (K1). Son los mismos componentes y la misma estructura; solo cambian los roles (ver Figura 132).
 
 ![Mock-up en modo oscuro de las pantallas B1, F1, F5 y K1](images/chapter_3/mockup_modo_oscuro.png){width=90%}
 
@@ -2113,7 +2113,7 @@ Los diagramas comparten una misma notación: una píldora para el inicio y el fi
   </tbody>
 </table>
 
-Dos decisiones de forma merecen una explicación. El flujo 3 es el único con carriles: se dibujó con tres (Participante, Pozzo y Cabeza de junta) porque la pregunta que responde es quién hace qué. El participante sube el comprobante, Pozzo lo lee y lo valida, y la cabeza solo interviene cuando algo no coincide; ese reparto es la propuesta de valor de Pozzo y se ve de un vistazo en los carriles. El flujo 4 encierra en un recuadro "Se repite en cada período" los pasos que se repiten, para no dibujar ocho veces el mismo ciclo (ver Figuras 136 a 139).
+Dos decisiones de forma merecen una explicación. El flujo 3 es el único con carriles: se dibujó con tres (Participante, Pozzo y Cabeza de junta) porque la pregunta que responde es quién hace qué. El participante sube el comprobante, Pozzo lo lee y lo valida, y la cabeza solo interviene cuando algo no coincide; ese reparto es la propuesta de valor de Pozzo y se ve de un vistazo en los carriles. El flujo 4 encierra en un recuadro "Se repite en cada período" los pasos que se repiten, para no dibujar ocho veces el mismo ciclo (ver Figuras 133 a 136).
 
 ![User flow 1, ingreso con celular](images/chapter_3/userflow_01_ingreso.png){width=90%}
 
@@ -2227,7 +2227,7 @@ El prototipo permite recorrer la aplicación con el dedo antes de escribir códi
   </tbody>
 </table>
 
-El mapa de flujos resume los tres caminos: las pantallas con interacción tienen borde rojo, el punto de inicio borde verde, la pantalla final borde punteado, y cada flecha lleva el nombre del botón que se toca (ver Figura 140).
+El mapa de flujos resume los tres caminos: las pantallas con interacción tienen borde rojo, el punto de inicio borde verde, la pantalla final borde punteado, y cada flecha lleva el nombre del botón que se toca (ver Figura 137).
 
 ![Mapa de flujos del prototipo, caminos P1, P2 y P3](images/chapter_3/prototype_mapa_de_flujos.png){width=95%}
 

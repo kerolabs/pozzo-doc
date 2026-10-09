@@ -3645,9 +3645,9 @@ Durante el paso 3 se discutió si los turnos y la subasta merecían un contexto 
 
 #### 2.5.1.2. Domain Message Flows Modeling
 
-Para comprobar que los cinco contextos podían resolver los casos de uso sin depender unos de otros más de lo necesario, el equipo modeló el flujo de mensajes de los tres escenarios que concentran el valor de Pozzo. Un Domain Message Flow Diagram muestra, para un solo escenario, los mensajes que viajan entre los actores, los Bounded Contexts y los sistemas: los actores se dibujan como círculos con su nombre dentro, los Bounded Contexts como nubes y los sistemas externos con su propio icono, y cada flecha punteada lleva el mensaje con su nombre, los datos relevantes que transporta y su número de orden. El color distingue el tipo de mensaje: comando, evento o consulta, donde la consulta representa la pregunta y su respuesta como una sola unidad. Siguiendo la recomendación del método, cada diagrama se mantuvo entre cinco y nueve mensajes para que el escenario se lea de un vistazo.
+Para comprobar que los cinco contextos podían resolver los casos de uso sin depender unos de otros más de lo necesario, el equipo modeló los mensajes que cruzan cada frontera. Un Domain Message Flow Diagram muestra los datos que viajan entre los actores, los Bounded Contexts y los sistemas con los que se integran: el actor se dibuja como una silueta, cada Bounded Context como una nube, y los sistemas externos y las bases de datos como un engranaje. Las cajas verdes sobre las flechas negras son los datos que pasan de un contexto a otro; las flechas punteadas bajan a los sistemas externos y al esquema propio de cada contexto. Se dibujaron dos vistas complementarias.
 
-Antes de entrar en los escenarios, el equipo dibujó dos vistas de conjunto. La primera pone los cinco contextos en un solo diagrama, junto con los sistemas externos de los que dependen y los datos que se mueven entre ellos. El integrante entra siempre por la aplicación y el gateway, que reparte hacia el contexto que corresponde; las cajas verdes sobre las flechas negras son los datos que viajan de un contexto a otro, y las flechas punteadas bajan a los sistemas externos y a la base de datos. La vista deja ver dos cosas: que Contributions es el contexto al que llegan datos de más vecinos, y que cada contexto guarda su propio esquema en PostgreSQL, sin tablas compartidas (ver Figura 43).
+La primera pone los cinco contextos en un solo diagrama, junto con los sistemas externos de los que dependen y los datos que se mueven entre ellos. El integrante entra siempre por la aplicación y el gateway, que reparte hacia el contexto que corresponde; las cajas verdes sobre las flechas negras son los datos que viajan de un contexto a otro, y las flechas punteadas bajan a los sistemas externos y a la base de datos. La vista deja ver dos cosas: que Contributions es el contexto al que llegan datos de más vecinos, y que cada contexto guarda su propio esquema en PostgreSQL, sin tablas compartidas (ver Figura 43).
 
 ![Flujo completo entre los cinco bounded contexts de Pozzo](images/chapter_2/dmf_completo.png){width=100%}
 
@@ -3673,49 +3673,37 @@ La segunda vista descompone ese diagrama en uno por contexto, para leer cada fro
 
 ![Flujo de mensajes del bounded context Compliance History](images/chapter_2/dmf_compliance_history.png){width=100%}
 
-**Escenario 1: la cabeza crea la junta e incorpora a los integrantes.** La cabeza crea la junta con sus reglas y genera una invitación en Savings Groups; el participante que recibe el enlace verifica su celular en Identity & Access y se une con el código. Al incorporarlo, Savings Groups consulta a Compliance History el historial del nuevo integrante. Con los turnos asignados, la cabeza inicia la junta y Savings Groups publica Junta iniciada, que Notifications consume para avisar a todos. El escenario muestra que Savings Groups orquesta esta fase y que solo necesita de los demás una consulta, el historial, y una identidad (ver Figura 49).
-
-![Domain Message Flow del escenario en que la cabeza crea la junta e incorpora a los integrantes](images/chapter_2/dmf_historia1.png){width=100%}
-
-**Escenario 2: el participante registra su aporte y Pozzo lo valida.** Antes de la fecha de corte, Contributions pide a Notifications un recordatorio para quien no ha aportado. El participante transfiere por Yape o Plin, captura el comprobante, confirma los datos que ML Kit leyó en el dispositivo y registra el aporte en Contributions, que lo valida contra el aporte esperado y actualiza el estado del pozo. El aporte validado se publica como evento y lo consumen Notifications y Compliance History. La cabeza consulta el estado del pozo y solo interviene si hay una inconsistencia. El escenario confirma que el core no depende de Savings Groups en tiempo de ejecución: las reglas se copiaron al período cuando se abrió (ver Figura 50).
-
-![Domain Message Flow del escenario en que el participante registra su aporte y Pozzo lo valida](images/chapter_2/dmf_historia2.png){width=100%}
-
-**Escenario 3: la cabeza entrega el pozo y cierra el ciclo.** Cuando el pozo se completa, Contributions lo publica y Notifications avisa al grupo. La cabeza transfiere fuera de Pozzo al participante del turno y registra la entrega, y Contributions consulta el calendario de turnos en Savings Groups para abrir el siguiente período. Tras el último turno la cabeza cierra la junta y Compliance History consolida el historial de todos. Este escenario expuso la única dependencia del core hacia Savings Groups, la consulta del siguiente turno, que se resolvió en el Context Map con una relación Customer/Supplier (ver Figura 51).
-
-![Domain Message Flow del escenario en que la cabeza entrega el pozo y cierra el ciclo](images/chapter_2/dmf_historia3.png){width=100%}
-
 #### 2.5.1.3. Bounded Context Canvases
 
-Con los contextos validados por las historias, el equipo elaboró un Bounded Context Canvas por cada uno [@dddcrew2021canvas], en la versión 5 de la plantilla y en orden de importancia: Contributions, Savings Groups, Compliance History, Notifications e Identity & Access. Se siguió el proceso iterativo del canvas: primero la definición del contexto (nombre y propósito en una frase) y su clasificación estratégica en tres dimensiones, tipo de subdominio, modelo de negocio al que sirve y grado de evolución; luego la destilación de reglas de negocio y la captura del lenguaje ubicuo propio del contexto; después el análisis de capabilities, expresado como la comunicación entrante (comandos, consultas y eventos que recibe, y de quién) y la saliente (eventos que publica y quién los consume); y por último los supuestos, las métricas con las que se verificará que el contexto cumple su propósito y las preguntas abiertas. La plantilla ordena el contexto en once casillas: nombre y propósito; clasificación estratégica y roles del dominio; comunicación entrante y saliente; lenguaje ubicuo y decisiones de negocio, que son dos casillas distintas porque los términos del dominio y las reglas que los gobiernan se revisan por separado; y, al pie, supuestos, métricas de verificación y preguntas abiertas. Cada canvas se sometió a una crítica de diseño en la que otro integrante buscó reglas que pertenecieran a otro contexto o dependencias que no aparecieran en las historias.
+Con los contextos y sus fronteras validados por los flujos de mensajes, el equipo elaboró un Bounded Context Canvas por cada uno [@dddcrew2021canvas], en la versión 5 de la plantilla y en orden de importancia: Contributions, Savings Groups, Compliance History, Notifications e Identity & Access. Se siguió el proceso iterativo del canvas: primero la definición del contexto (nombre y propósito en una frase) y su clasificación estratégica en tres dimensiones, tipo de subdominio, modelo de negocio al que sirve y grado de evolución; luego la destilación de reglas de negocio y la captura del lenguaje ubicuo propio del contexto; después el análisis de capabilities, expresado como la comunicación entrante (comandos, consultas y eventos que recibe, y de quién) y la saliente (eventos que publica y quién los consume); y por último los supuestos, las métricas con las que se verificará que el contexto cumple su propósito y las preguntas abiertas. La plantilla ordena el contexto en once casillas: nombre y propósito; clasificación estratégica y roles del dominio; comunicación entrante y saliente; lenguaje ubicuo y decisiones de negocio, que son dos casillas distintas porque los términos del dominio y las reglas que los gobiernan se revisan por separado; y, al pie, supuestos, métricas de verificación y preguntas abiertas. Cada canvas se sometió a una crítica de diseño en la que otro integrante buscó reglas que pertenecieran a otro contexto o dependencias que no aparecieran en las historias.
 
-**Contributions.** Es el core y el único contexto con modelo de negocio de engagement directo: si la validación funciona, la junta completa su ciclo en Pozzo. Sus reglas más importantes son las de validación (monto acordado, fecha dentro del corte, destinatario correcto y número de operación único en la junta) y la de completitud del pozo. Publica nueve eventos que consumen Notifications y Compliance History, y solo hace consultas a Savings Groups. La métrica principal es el porcentaje de aportes validados sin revisión de la cabeza, con una meta del 80 % (ver Figura 52).
+**Contributions.** Es el core y el único contexto con modelo de negocio de engagement directo: si la validación funciona, la junta completa su ciclo en Pozzo. Sus reglas más importantes son las de validación (monto acordado, fecha dentro del corte, destinatario correcto y número de operación único en la junta) y la de completitud del pozo. Publica nueve eventos que consumen Notifications y Compliance History, y solo hace consultas a Savings Groups. La métrica principal es el porcentaje de aportes validados sin revisión de la cabeza, con una meta del 80 % (ver Figura 49).
 
 ![Bounded Context Canvas: Contributions](images/chapter_2/bcc_contributions.png)
 
-**Savings Groups.** Contexto de soporte con rol de especificación: fija las reglas que Contributions ejecuta. Sus reglas de negocio son las condiciones para iniciar la junta (cupos cubiertos y turnos asignados), el bloqueo de reglas al iniciar, el tratamiento del integrante sin la aplicación y la resolución de la subasta. Es el contexto con más comandos entrantes, todos de la cabeza salvo unirse y ofertar (ver Figura 53).
+**Savings Groups.** Contexto de soporte con rol de especificación: fija las reglas que Contributions ejecuta. Sus reglas de negocio son las condiciones para iniciar la junta (cupos cubiertos y turnos asignados), el bloqueo de reglas al iniciar, el tratamiento del integrante sin la aplicación y la resolución de la subasta. Es el contexto con más comandos entrantes, todos de la cabeza salvo unirse y ofertar (ver Figura 50).
 
 ![Bounded Context Canvas: Savings Groups](images/chapter_2/bcc_savings_groups.png)
 
-**Compliance History.** Contexto de análisis: un modelo de lectura derivado de los eventos del core y de Savings Groups. Sus reglas protegen la privacidad, porque el historial se muestra agregado, sin montos ni nombres de otras juntas, y la verificabilidad, porque compartirlo genera un enlace con vigencia limitada. La crítica de diseño confirmó que ninguna regla de este contexto modifica una junta, lo que justifica mantenerlo separado del core (ver Figura 54).
+**Compliance History.** Contexto de análisis: un modelo de lectura derivado de los eventos del core y de Savings Groups. Sus reglas protegen la privacidad, porque el historial se muestra agregado, sin montos ni nombres de otras juntas, y la verificabilidad, porque compartirlo genera un enlace con vigencia limitada. La crítica de diseño confirmó que ninguna regla de este contexto modifica una junta, lo que justifica mantenerlo separado del core (ver Figura 51).
 
 ![Bounded Context Canvas: Compliance History](images/chapter_2/bcc_compliance_history.png)
 
-**Notifications.** Contexto genérico que reacciona a los eventos de los demás. Lo específico de Pozzo está en su política de escalonamiento (tres días, un día y el mismo día de la fecha de corte, solo a quien tiene aporte pendiente) y en la regla de detener los recordatorios al validar el aporte. Es el único contexto que conoce a Firebase Cloud Messaging. Una de sus preguntas abiertas, programador de tareas o cola con retardo, corresponde a una Spike Story ya planificada (ver Figura 55).
+**Notifications.** Contexto genérico que reacciona a los eventos de los demás. Lo específico de Pozzo está en su política de escalonamiento (tres días, un día y el mismo día de la fecha de corte, solo a quien tiene aporte pendiente) y en la regla de detener los recordatorios al validar el aporte. Es el único contexto que conoce a Firebase Cloud Messaging. Una de sus preguntas abiertas, programador de tareas o cola con retardo, corresponde a una Spike Story ya planificada (ver Figura 52).
 
 ![Bounded Context Canvas: Notifications](images/chapter_2/bcc_notifications.png)
 
-**Identity & Access.** Contexto genérico y commodity: la verificación por SMS se contrata a un proveedor. Sus reglas son las de cualquier acceso sin contraseña (un celular por cuenta, código de seis dígitos con vigencia y reintentos limitados, sesión persistente en el dispositivo). Provee la identidad que los demás contextos usan para referirse a un integrante y el token que autoriza cada solicitud a los servicios RESTful (ver Figura 56).
+**Identity & Access.** Contexto genérico y commodity: la verificación por SMS se contrata a un proveedor. Sus reglas son las de cualquier acceso sin contraseña (un celular por cuenta, código de seis dígitos con vigencia y reintentos limitados, sesión persistente en el dispositivo). Provee la identidad que los demás contextos usan para referirse a un integrante y el token que autoriza cada solicitud a los servicios RESTful (ver Figura 53).
 
 ![Bounded Context Canvas: Identity & Access](images/chapter_2/bcc_identity_access.png)
 
 ### 2.5.2. Context Mapping
 
-El Context Map define cómo se relacionan los cinco Bounded Contexts y, en particular, quién se adapta a quién cuando dos contextos necesitan comunicarse. Antes de fijarlo, el equipo discutió cuatro alternativas de partición, siguiendo las preguntas que propone el proceso de Context Mapping [@dddcrew2021contextmapping]: qué pasaría si se unen dos contextos, si se parte uno, si se mueve una capability a otro contexto o si se crea un shared service (ver Figura 57).
+El Context Map define cómo se relacionan los cinco Bounded Contexts y, en particular, quién se adapta a quién cuando dos contextos necesitan comunicarse. Antes de fijarlo, el equipo discutió cuatro alternativas de partición, siguiendo las preguntas que propone el proceso de Context Mapping [@dddcrew2021contextmapping]: qué pasaría si se unen dos contextos, si se parte uno, si se mueve una capability a otro contexto o si se crea un shared service (ver Figura 54).
 
 ![Alternativas de context mapping evaluadas](images/chapter_2/context_map_alternativas.png)
 
-La primera alternativa, unir Savings Groups y Contributions en un solo contexto Junta, simplificaría las llamadas entre servicios pero mezclaría el core con la configuración y las invitaciones, y dejaría un agregado Junta que crecería con todos los aportes de todos los períodos; se descartó para mantener el core aislado. La segunda, extraer los turnos y la subasta a un contexto Turn Allocation, se descartó porque los tres métodos de reparto operan sobre la misma lista de integrantes y los mismos cupos, y separarlos duplicaría ese modelo para un equipo de cinco personas; si la subasta crece, se extraerá después. La tercera, dejar el historial dentro de Contributions, se descartó porque el historial cruza juntas y se modela por persona, no por período, y exponerlo desde el core filtraría montos y nombres de otras juntas. La cuarta, que cada contexto envíe sus propias notificaciones, se descartó porque tres contextos hablarían con Firebase Cloud Messaging y repetirían el registro de dispositivos, el escalonamiento y la deduplicación; Notifications quedó como un shared service que reacciona a los eventos publicados (ver Figura 58).
+La primera alternativa, unir Savings Groups y Contributions en un solo contexto Junta, simplificaría las llamadas entre servicios pero mezclaría el core con la configuración y las invitaciones, y dejaría un agregado Junta que crecería con todos los aportes de todos los períodos; se descartó para mantener el core aislado. La segunda, extraer los turnos y la subasta a un contexto Turn Allocation, se descartó porque los tres métodos de reparto operan sobre la misma lista de integrantes y los mismos cupos, y separarlos duplicaría ese modelo para un equipo de cinco personas; si la subasta crece, se extraerá después. La tercera, dejar el historial dentro de Contributions, se descartó porque el historial cruza juntas y se modela por persona, no por período, y exponerlo desde el core filtraría montos y nombres de otras juntas. La cuarta, que cada contexto envíe sus propias notificaciones, se descartó porque tres contextos hablarían con Firebase Cloud Messaging y repetirían el registro de dispositivos, el escalonamiento y la deduplicación; Notifications quedó como un shared service que reacciona a los eventos publicados (ver Figura 55).
 
 ![Context Map de Pozzo](images/chapter_2/context_map.png)
 
@@ -3792,19 +3780,19 @@ La arquitectura de software de Pozzo se representa con el C4 Model [@brown2018c4
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
-El diagrama de contexto representa la visión de más alto nivel de Pozzo. Establece las fronteras del sistema y muestra las relaciones con los actores humanos (cabeza de junta, participante y visitante) y los ecosistemas externos que habilitan la operación del servicio (ver Figura 59).
+El diagrama de contexto representa la visión de más alto nivel de Pozzo. Establece las fronteras del sistema y muestra las relaciones con los actores humanos (cabeza de junta, participante y visitante) y los ecosistemas externos que habilitan la operación del servicio (ver Figura 56).
 
 ![Diagrama de contexto del sistema Pozzo](images/chapter_2/c4_context.png)
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
-El diagrama de contenedores descompone el sistema Pozzo en sus unidades de software ejecutables y de almacenamiento de datos, definiendo la tecnología empleada por cada contenedor y los límites de comunicación entre ellos (ver Figura 60).
+El diagrama de contenedores descompone el sistema Pozzo en sus unidades de software ejecutables y de almacenamiento de datos, definiendo la tecnología empleada por cada contenedor y los límites de comunicación entre ellos (ver Figura 57).
 
 ![Diagrama de contenedores del sistema Pozzo](images/chapter_2/c4_container.png)
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
-El diagrama de despliegue mapea los contenedores de software sobre los nodos de infraestructura física y en la nube en el entorno de producción, detallando los entornos de ejecución, la distribución de componentes y los mecanismos de conectividad (ver Figura 61).
+El diagrama de despliegue mapea los contenedores de software sobre los nodos de infraestructura física y en la nube en el entorno de producción, detallando los entornos de ejecución, la distribución de componentes y los mecanismos de conectividad (ver Figura 58).
 
 ![Diagrama de despliegue en producción del sistema Pozzo](images/chapter_2/c4_deployment.png)
 
@@ -4050,7 +4038,7 @@ La Tabla 86 presenta las clases del Infrastructure Layer de Contributions.
 
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
-El diagrama de componentes descompone el contenedor de servicios RESTful en los componentes de Contributions y muestra cómo se comunican entre sí, con la aplicación móvil y con la base de datos (ver Figura 62).
+El diagrama de componentes descompone el contenedor de servicios RESTful en los componentes de Contributions y muestra cómo se comunican entre sí, con la aplicación móvil y con la base de datos (ver Figura 59).
 
 ![Diagrama de componentes de Contributions](images/chapter_2/c4_components_contributions.png){width=80%}
 
@@ -4060,7 +4048,7 @@ Los controllers reciben las solicitudes de la aplicación móvil y las convierte
 
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
 
-La Figura 63 muestra el diagrama de clases del Domain Layer de Contributions.
+La Figura 60 muestra el diagrama de clases del Domain Layer de Contributions.
 
 ![Diagrama de clases del Domain Layer de Contributions](images/chapter_2/uml_contributions_domain.png)
 
@@ -4068,7 +4056,7 @@ El diagrama muestra los tres agregados y sus relaciones de composición: un Cycl
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
-La Figura 64 muestra el diagrama de base de datos de Contributions.
+La Figura 61 muestra el diagrama de base de datos de Contributions.
 
 ![Diagrama de base de datos de Contributions](images/chapter_2/db_contributions.png)
 
@@ -4305,7 +4293,7 @@ La Tabla 90 presenta las clases del Infrastructure Layer de Savings Groups.
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 65 muestra el diagrama de componentes de Savings Groups.
+La Figura 62 muestra el diagrama de componentes de Savings Groups.
 
 ![Diagrama de componentes de Savings Groups](images/chapter_2/c4_components_savings_groups.png){width=80%}
 
@@ -4315,7 +4303,7 @@ Tres controllers reparten las responsabilidades de junta, integrantes y turnos. 
 
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-La Figura 66 muestra el diagrama de clases del Domain Layer de Savings Groups.
+La Figura 63 muestra el diagrama de clases del Domain Layer de Savings Groups.
 
 ![Diagrama de clases del Domain Layer de Savings Groups](images/chapter_2/uml_savings_groups_domain.png)
 
@@ -4323,7 +4311,7 @@ SavingsGroup compone sus reglas, sus integrantes y sus turnos, y agrega por iden
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
-La Figura 67 muestra el diagrama de base de datos de Savings Groups.
+La Figura 64 muestra el diagrama de base de datos de Savings Groups.
 
 ![Diagrama de base de datos de Savings Groups](images/chapter_2/db_savings_groups.png){width=85%}
 
@@ -4524,7 +4512,7 @@ La Tabla 94 presenta las clases del Infrastructure Layer de Compliance History.
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 68 muestra el diagrama de componentes de Compliance History.
+La Figura 65 muestra el diagrama de componentes de Compliance History.
 
 ![Diagrama de componentes de Compliance History](images/chapter_2/c4_components_compliance_history.png){width=75%}
 
@@ -4534,13 +4522,13 @@ El contexto tiene dos entradas: el controller, para las consultas y la compartic
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-La Figura 69 muestra el diagrama de clases del Domain Layer de Compliance History.
+La Figura 66 muestra el diagrama de clases del Domain Layer de Compliance History.
 
 ![Diagrama de clases del Domain Layer de Compliance History](images/chapter_2/uml_compliance_history_domain.png){width=80%}
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-La Figura 70 muestra el diagrama de base de datos de Compliance History.
+La Figura 67 muestra el diagrama de base de datos de Compliance History.
 
 ![Diagrama de base de datos de Compliance History](images/chapter_2/db_compliance_history.png){width=75%}
 
@@ -4741,7 +4729,7 @@ La Tabla 98 presenta las clases del Infrastructure Layer de Notifications.
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 71 muestra el diagrama de componentes de Notifications.
+La Figura 68 muestra el diagrama de componentes de Notifications.
 
 ![Diagrama de componentes de Notifications](images/chapter_2/c4_components_notifications.png){width=80%}
 
@@ -4751,13 +4739,13 @@ Los event handlers son la entrada principal del contexto y los controllers la se
 
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
-La Figura 72 muestra el diagrama de clases del Domain Layer de Notifications.
+La Figura 69 muestra el diagrama de clases del Domain Layer de Notifications.
 
 ![Diagrama de clases del Domain Layer de Notifications](images/chapter_2/uml_notifications_domain.png){width=90%}
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
-La Figura 73 muestra el diagrama de base de datos de Notifications.
+La Figura 70 muestra el diagrama de base de datos de Notifications.
 
 ![Diagrama de base de datos de Notifications](images/chapter_2/db_notifications.png){width=85%}
 
@@ -5006,7 +4994,7 @@ La Tabla 102 presenta las clases del Infrastructure Layer de Identity & Access.
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 74 muestra el diagrama de componentes de Identity & Access.
+La Figura 71 muestra el diagrama de componentes de Identity & Access.
 
 ![Diagrama de componentes de Identity & Access](images/chapter_2/c4_components_identity_access.png){width=80%}
 
@@ -5016,13 +5004,13 @@ Además de los controllers y servicios habituales, el diagrama muestra BearerAut
 
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
-La Figura 75 muestra el diagrama de clases del Domain Layer de Identity & Access.
+La Figura 72 muestra el diagrama de clases del Domain Layer de Identity & Access.
 
 ![Diagrama de clases del Domain Layer de Identity & Access](images/chapter_2/uml_identity_access_domain.png){width=90%}
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-La Figura 76 muestra el diagrama de base de datos de Identity & Access.
+La Figura 73 muestra el diagrama de base de datos de Identity & Access.
 
 ![Diagrama de base de datos de Identity & Access](images/chapter_2/db_identity_access.png){width=75%}
 
