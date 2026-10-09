@@ -3535,7 +3535,7 @@ Se usó la notación de Brandolini, que asigna un color de nota a cada concepto 
 
 La Figura 34 muestra la leyenda del EventStorming de nivel de diseño.
 
-![Leyenda del EventStorming de nivel de diseño](images/chapter_2/es_leyenda.png)
+![Leyenda del EventStorming de nivel de diseño](images/chapter_2/es_leyenda.png){width=75%}
 
 Para que el resultado se pueda leer, el tablero se organizó en columnas y carriles. Cada columna es un paso del proceso y cada carril un tipo de nota, de modo que una columna se lee de arriba abajo como una frase: tal actor ejecuta tal comando sobre tal agregado y se produce tal evento, que dispara tal política. La sesión recorrió el ciclo de una junta en cuatro tramos.
 
@@ -3776,7 +3776,7 @@ No se usa Shared Kernel: ningún contexto comparte código de dominio con otro. 
 
 ### 2.5.3. Software Architecture
 
-La arquitectura de software de Pozzo se representa con el C4 Model [@brown2018c4], que describe un sistema en niveles de abstracción sucesivos: el contexto, que muestra al sistema como una caja rodeada de sus usuarios y de los sistemas externos con los que conversa; los contenedores, que descomponen el sistema en las unidades que se ejecutan o almacenan datos por separado y fijan la tecnología de cada una; los componentes, que abren cada contenedor en sus bloques internos; y el código. Esta sección presenta los tres primeros niveles para la solución completa: la aplicación móvil, los servicios RESTful de desarrollo propio y el landing page, más un diagrama de despliegue que ubica cada contenedor en la infraestructura donde corre. Los diagramas de componentes se presentan por Bounded Context en la sección Tactical-Level Domain-Driven Design. Todos se describen en el lenguaje de Structurizr, en el archivo `docs/architecture/workspace.dsl` del repositorio, y se renderizan con Structurizr, de modo que la arquitectura se versiona y se revisa junto con el texto del informe.
+La arquitectura de software de Pozzo se representa con el C4 Model [@brown2018c4], que describe un sistema en niveles de abstracción sucesivos: el contexto, que muestra al sistema como una caja rodeada de sus usuarios y de los sistemas externos con los que conversa; los contenedores, que descomponen el sistema en las unidades que se ejecutan o almacenan datos por separado y fijan la tecnología de cada una; los componentes, que abren cada contenedor en sus bloques internos; y el código. Esta sección presenta los tres primeros niveles para la solución completa: la aplicación móvil, los servicios RESTful de desarrollo propio y el landing page, más un diagrama de despliegue que ubica cada contenedor en la infraestructura donde corre. Los diagramas de componentes se presentan por Bounded Context en la sección Tactical-Level Domain-Driven Design. Todos se describen en el lenguaje de Structurizr, en el archivo `docs/architecture/workspace.dsl` del repositorio, y se renderizan con Structurizr, de modo que la arquitectura se versiona y se revisa junto con el texto del informe. El Anexo C, Fuentes de los diagramas de arquitectura, indica el archivo del que sale cada diagrama.
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
