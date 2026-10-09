@@ -85,14 +85,19 @@ El equipo trabaja con las herramientas de la Tabla 133, agrupadas por la activid
       <td><a href="https://supabase.com/dashboard">supabase.com/dashboard</a></td>
     </tr>
     <tr>
-      <td rowspan="3">Software Testing</td>
-      <td>JUnit 5 y Spring Boot Test</td>
+      <td rowspan="4">Software Testing</td>
+      <td>JUnit 6 y Spring Boot Test</td>
       <td>Pruebas unitarias del dominio y pruebas de integración de los servicios.</td>
-      <td><a href="https://junit.org/junit5">junit.org/junit5</a></td>
+      <td><a href="https://junit.org">junit.org</a></td>
+    </tr>
+    <tr>
+      <td>Testcontainers</td>
+      <td>Levanta PostgreSQL en un contenedor de Docker para las pruebas de integración y de aceptación, con el mismo motor de producción.</td>
+      <td><a href="https://testcontainers.com">testcontainers.com</a></td>
     </tr>
     <tr>
       <td>Cucumber</td>
-      <td>Pruebas de aceptación escritas en Gherkin a partir de los criterios de aceptación de las User Stories.</td>
+      <td>Pruebas de aceptación escritas en Gherkin a partir de los criterios de aceptación de las Technical Stories.</td>
       <td><a href="https://cucumber.io/docs/installation/java">cucumber.io</a></td>
     </tr>
     <tr>
@@ -345,17 +350,709 @@ El diagrama de despliegue del C4 Model resume dónde corre cada contenedor de la
 
 #### 4.2.1.5. Testing Suite Evidence for Sprint Review
 
+En este Sprint se construyó la suite de pruebas automatizadas de los servicios RESTful en tres niveles: pruebas unitarias del dominio, pruebas de integración del API REST y pruebas de aceptación escritas en Gherkin con el enfoque BDD. Las pruebas de aceptación se relacionan con las Technical Stories TS01 a TS08, que son las historias de los servicios: cada una tiene un archivo `.feature` con los escenarios de request y response de sus criterios de aceptación. La suite suma 14 clases de pruebas unitarias con 72 métodos, 3 clases de integración con 15 métodos y 52 escenarios de aceptación, y todas pasan.
+
+Las pruebas usan JUnit 6 y AssertJ; las de aceptación, Cucumber. Las de integración y las de aceptación arrancan la aplicación completa contra PostgreSQL 16, el mismo motor de producción, que Testcontainers levanta en un contenedor para cada ejecución, y llaman a los endpoints con MockMvc, así que cada solicitud pasa por la seguridad, la validación, los controllers y la base de datos. Ninguna prueba envía SMS, correos ni notificaciones reales: el correo y las notificaciones push quedan en el registro de la aplicación, y el envío de SMS se reemplaza por uno que guarda el mensaje, del que la prueba lee el código como lo leería el integrante en su celular. Un reloj que la prueba adelanta permite comprobar las reglas de 30 segundos y de 10 minutos sin esperar.
+
+Las pruebas están en el repositorio de los servicios, en la carpeta `src/test`: <https://github.com/kerolabs/pozzo-backend/tree/develop/src/test>. Se ejecutan con `./mvnw test`, y el workflow `Tests` de GitHub Actions las corre en cada pull request y en cada push a `develop` y `main`.
+
+**Unit Tests.** Prueban las reglas del dominio sin Spring ni base de datos: los aggregates, los value objects y los domain services de los cinco bounded contexts. La Tabla 137 indica la clase y los comportamientos que verifica cada clase de prueba.
+
+<table>
+  <caption>Pruebas unitarias del dominio</caption>
+  <colgroup><col width="24%"><col width="22%"><col width="54%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase de prueba</th>
+      <th>Clase probada</th>
+      <th>Comportamientos verificados</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>ContributionTest</code></td>
+      <td>Contribution (Contributions)</td>
+      <td>Valida en el acto un comprobante que coincide en monto, destinatario y fecha; marca como INCONSISTENT el que no coincide e indica cada campo; acepta el pago hecho el mismo día de corte; la aprobación de la cabeza salda el aporte y el rechazo permite registrarlo de nuevo; solo se revisa un aporte que está en revisión; el efectivo es válido sin comprobante; la cobertura registra quién puso el dinero y nadie se cubre a sí mismo; solo una transferencia guarda la imagen de su comprobante.</td>
+    </tr>
+    <tr>
+      <td><code>PeriodTest</code></td>
+      <td>Period (Contributions)</td>
+      <td>Cada integrante debe el aporte, incluido quien cobra; la fecha de corte de cada turno; el pozo se completa con el último aporte; nadie salda dos veces el mismo período ni salda quien no es del ciclo; el pozo no se entrega incompleto y se entrega una sola vez.</td>
+    </tr>
+    <tr>
+      <td><code>CycleTest</code></td>
+      <td>Cycle (Contributions)</td>
+      <td>Empieza activo en el turno 1; necesita al menos dos integrantes; no se cierra antes del último turno y se cierra cuando todos cobraron.</td>
+    </tr>
+    <tr>
+      <td><code>MoneyTest</code></td>
+      <td>Money (Contributions)</td>
+      <td>Guarda dos decimales y se muestra en soles; suma y resta sin bajar de cero; rechaza montos negativos, más de dos decimales y la mezcla de monedas.</td>
+    </tr>
+    <tr>
+      <td><code>PaymentReceiptTest</code></td>
+      <td>PaymentReceipt (Contributions)</td>
+      <td>Reconoce al destinatario sin importar mayúsculas, tildes ni el apellido enmascarado que muestran Yape y Plin, y no lo confunde con otra persona.</td>
+    </tr>
+    <tr>
+      <td><code>SavingsGroupTest</code></td>
+      <td>SavingsGroup (Savings Groups)</td>
+      <td>Nace en DRAFT con quien la crea como cabeza; avisa cuando se ocupa el último cupo; rechaza unirse sin cupo o dos veces; un integrante retirado vuelve con la misma membresía; la cabeza no puede retirarse; un integrante sin la aplicación ocupa un cupo; los cupos no bajan de los integrantes; el cambio de reglas se avisa; los turnos dan uno a cada integrante; no inicia sin estar llena, con turnos y con destino; una vez iniciada ya no cambia.</td>
+    </tr>
+    <tr>
+      <td><code>GroupRulesTest</code></td>
+      <td>GroupRules, Destination (Savings Groups)</td>
+      <td>Acepta de 2 a 50 cupos; el pozo es el aporte por los cupos; la fecha de corte de cada turno según la periodicidad; el destino es un celular peruano.</td>
+    </tr>
+    <tr>
+      <td><code>InvitationCodeTest</code></td>
+      <td>InvitationCode (Savings Groups)</td>
+      <td>El código empieza con las iniciales de la junta y no usa caracteres que se confunden, en 20 repeticiones; usa las primeras letras cuando el nombre tiene una palabra; lee un código escrito sin guion o en minúsculas; rechaza el largo incorrecto.</td>
+    </tr>
+    <tr>
+      <td><code>SeededTurnAssignmentServiceTest</code></td>
+      <td>SeededTurnAssignmentService (Savings Groups)</td>
+      <td>Da a cada integrante un turno del 1 al número de integrantes; la misma semilla da siempre el mismo orden y otra semilla, otro; el orden acordado respeta el que envió la cabeza.</td>
+    </tr>
+    <tr>
+      <td><code>VerificationCodeTest</code></td>
+      <td>VerificationCode (Identity &amp; Access)</td>
+      <td>Dura diez minutos y se puede reemplazar a los 30 segundos; el código correcto verifica el celular; uno incorrecto resta intentos y el tercero lo bloquea; no acepta un código vencido ni uno reemplazado.</td>
+    </tr>
+    <tr>
+      <td><code>PhoneNumberTest</code></td>
+      <td>PhoneNumber (Identity &amp; Access)</td>
+      <td>Acepta un celular peruano de nueve dígitos con o sin espacios y rechaza los que no lo son o son de otro país.</td>
+    </tr>
+    <tr>
+      <td><code>ThresholdComplianceScoringServiceTest</code></td>
+      <td>ThresholdComplianceScoringService (Compliance History)</td>
+      <td>Sin aportes el nivel es NEW; los aportes atrasados y cubiertos bajan la tasa; EXCELLENT pide 90 % y tres ciclos completados; bajo 60 % es RISKY y desde 60 % es REGULAR; una deserción lo vuelve RISKY.</td>
+    </tr>
+    <tr>
+      <td><code>ShareLinkTest</code></td>
+      <td>ShareLink (Compliance History)</td>
+      <td>El enlace funciona siete días, deja de funcionar al revocarlo y cada uno tiene su propio token.</td>
+    </tr>
+    <tr>
+      <td><code>ReminderPlanTest</code></td>
+      <td>ReminderPlan (Notifications)</td>
+      <td>Recuerda tres días antes, un día antes y el día de corte a las 9:00; la cabeza elige los días y la hora; un plan desactivado no programa nada; rechaza días repetidos o fuera de rango y horas inválidas.</td>
+    </tr>
+  </tbody>
+</table>
+
+**Integration Tests.** Prueban que las capas y los bounded contexts funcionen juntos: la seguridad, los controllers, la persistencia en PostgreSQL y los eventos que llevan un aporte de Contributions a Compliance History y a Notifications después de confirmar la transacción. La Tabla 138 los detalla.
+
+<table>
+  <caption>Pruebas de integración del API REST</caption>
+  <colgroup><col width="26%"><col width="24%"><col width="50%"></colgroup>
+  <thead>
+    <tr>
+      <th>Clase de prueba</th>
+      <th>Qué integra</th>
+      <th>Comportamientos verificados</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>AuthenticationIntegrationTest</code></td>
+      <td>Seguridad, Identity &amp; Access y PostgreSQL</td>
+      <td>Un endpoint protegido sin token responde 401 con el cuerpo de error común; el integrante registrado lee su perfil con su token; verificar el código de una cuenta que ya existe abre una sesión; un código incorrecto se rechaza y el tercero lo bloquea; no se envía otro código antes de 30 segundos; tras cerrar sesión el token deja de servir.</td>
+    </tr>
+    <tr>
+      <td><code>SavingsGroupsIntegrationTest</code></td>
+      <td>Savings Groups, Contributions y PostgreSQL</td>
+      <td>La junta creada se guarda y aparece en las juntas de su cabeza; un integrante se une con el código y aparece en la lista; alguien ajeno a la junta no la ve; los cupos no bajan de los integrantes; iniciar la junta la congela y abre el primer período en Contributions.</td>
+    </tr>
+    <tr>
+      <td><code>ContributionsIntegrationTest</code></td>
+      <td>Contributions, Compliance History, Notifications y PostgreSQL</td>
+      <td>Un aporte validado suma al pozo; un comprobante no se usa dos veces en la junta; el aporte validado entra al historial de cumplimiento del integrante; un comprobante con diferencias avisa a la cabeza de la junta.</td>
+    </tr>
+    <tr>
+      <td><code>PozzoApplicationTests</code></td>
+      <td>Toda la aplicación</td>
+      <td>El contexto de Spring arranca con todos sus componentes contra PostgreSQL.</td>
+    </tr>
+  </tbody>
+</table>
+
+**Acceptance Tests.** Siguen el enfoque BDD: cada Technical Story tiene un archivo `.feature` en `src/test/resources/features`, con su identificador en el nombre, y sus escenarios repiten los criterios de aceptación de la historia en Gherkin, en inglés, como lo fija la guía de estilo. Los archivos Steps están en Java, en el paquete `pe.kerolabs.pozzo.acceptance`: una clase por grupo de historias y `CommonSteps` con los pasos que comparten, como crear la cuenta de un integrante o comprobar el código de la respuesta. La Tabla 139 relaciona cada archivo con su Technical Story y su clase de Steps.
+
+<table>
+  <caption>Archivos .feature de las pruebas de aceptación</caption>
+  <colgroup><col width="36%"><col width="32%"><col width="21%"><col width="11%"></colgroup>
+  <thead>
+    <tr>
+      <th>Archivo .feature</th>
+      <th>Technical Story</th>
+      <th>Steps</th>
+      <th>Escenarios</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ts01-sms-authentication.feature</td>
+      <td>TS01. Servicio de autenticación por SMS</td>
+      <td>AuthenticationSteps</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>ts02-savings-groups.feature</td>
+      <td>TS02. Servicio de juntas</td>
+      <td>SavingsGroupSteps</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>ts03-members-and-invitations.feature</td>
+      <td>TS03. Servicio de integrantes e invitaciones</td>
+      <td>SavingsGroupSteps</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>ts04-turns.feature</td>
+      <td>TS04. Servicio de turnos y subastas</td>
+      <td>SavingsGroupSteps</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>ts05-contributions-and-receipts.feature</td>
+      <td>TS05. Servicio de aportes y comprobantes</td>
+      <td>ContributionSteps</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>ts06-pot-delivery-and-closing.feature</td>
+      <td>TS06. Servicio de entrega del pozo y cierre</td>
+      <td>ContributionSteps</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>ts07-reminders-and-notifications.feature</td>
+      <td>TS07. Servicio de recordatorios y notificaciones</td>
+      <td>NotificationSteps</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>ts08-compliance-history.feature</td>
+      <td>TS08. Servicio de historial de cumplimiento</td>
+      <td>ComplianceSteps</td>
+      <td>6</td>
+    </tr>
+  </tbody>
+</table>
+
+Dos criterios de aceptación todavía no tienen escenario porque su endpoint no existe en los servicios: la subasta de turnos de TS04 (ofertas y cierre) y la deserción de TS06. Quedan para el siguiente Sprint. El escenario 2 de TS07, la programación de los recordatorios, se prueba en la prueba unitaria de `ReminderPlan`, porque el envío depende de la hora y no de una solicitud.
+
+A continuación se presenta el código de cada archivo `.feature`.
+
+`ts01-sms-authentication.feature` corresponde a TS01. Servicio de autenticación por SMS y cubre solicitar el código, verificarlo con y sin cuenta, completar el registro, y los casos de código incorrecto, bloqueado, vencido y pedido antes de tiempo.
+
+```
+Feature: TS01 SMS authentication service
+  As a developer
+  I want endpoints to request and verify SMS codes and to issue session tokens
+  So that the mobile application signs members in without a password
+
+  Scenario: Request a verification code
+    Given a phone number without an account
+    When the client requests a verification code for the number
+    Then the service responds 202 Accepted
+    And an SMS with a six-digit code reaches the number
+    And the code expires 10 minutes after the request
+    And another code can be requested 30 seconds after the request
+
+  Scenario: Verify the code of a number without an account
+    Given a phone number without an account received a verification code
+    When the client verifies the number with the code it received
+    Then the service responds 200 OK
+    And the response asks to complete the registration with a registration token
+
+  Scenario: Complete the registration
+    Given a phone number without an account was verified
+    When the client completes the registration as "Anna Weber" accepting the terms
+    Then the service responds 201 Created
+    And the response contains a session token for "Anna Weber"
+
+  Scenario: Verify the code of a number with an account
+    Given "Anna Weber" has a Pozzo account
+    And 30 seconds have passed
+    And "Anna Weber" received a new verification code
+    When the client verifies the number of "Anna Weber" with the code it received
+    Then the service responds 200 OK
+    And the response contains a session token
+
+  Scenario: A wrong code
+    Given a phone number without an account received a verification code
+    When the client verifies the number with the code "000000"
+    Then the service responds 401 Unauthorized
+    And the error code is "INVALID_VERIFICATION_CODE"
+    And the error says "2 attempts left"
+
+  Scenario: The third wrong code blocks the code
+    Given a phone number without an account received a verification code
+    And the client verified the number with the code "000000" 2 times
+    When the client verifies the number with the code "000000"
+    Then the service responds 401 Unauthorized
+    And the error code is "BLOCKED_VERIFICATION_CODE"
+
+  Scenario: An expired code
+    Given a phone number without an account received a verification code
+    And 10 minutes have passed
+    When the client verifies the number with the code it received
+    Then the service responds 401 Unauthorized
+    And the error code is "EXPIRED_VERIFICATION_CODE"
+
+  Scenario: Another code requested too soon
+    Given a phone number without an account received a verification code
+    When the client requests a verification code for the number
+    Then the service responds 429 Too Many Requests
+    And the error code is "VERIFICATION_CODE_RESEND_TOO_SOON"
+```
+
+`ts02-savings-groups.feature` corresponde a TS02. Servicio de juntas y cubre crear la junta, el rango de cupos, listar las juntas del integrante, iniciar una junta lista y una que no lo está, y el bloqueo de las reglas después del inicio.
+
+```
+Feature: TS02 Savings groups service
+  As a developer
+  I want endpoints to create, read, update and start savings groups
+  So that the mobile application manages the life cycle of each group
+
+  Background:
+    Given "Anna Weber" has a Pozzo account
+
+  Scenario: Create a savings group
+    When "Anna Weber" creates a monthly group "Junta de la familia Weber" of S/ 200 with 4 seats and Yape as destination
+    Then the service responds 201 Created
+    And the group is in status "DRAFT"
+    And "Anna Weber" is its organizer
+
+  Scenario Outline: The number of seats goes from 2 to 50
+    When "Anna Weber" creates a monthly group "Junta de la familia Weber" of S/ 200 with <seats> seats and Yape as destination
+    Then the service responds 400 Bad Request
+    And the error code is "VALIDATION_ERROR"
+
+    Examples:
+      | seats |
+      | 1     |
+      | 51    |
+
+  Scenario: List the groups of the member
+    Given "Sofia Gonzales" has a Pozzo account
+    And "Anna Weber" started a group with "Sofia Gonzales"
+    When "Sofia Gonzales" lists the groups
+    Then the service responds 200 OK
+    And the list has the group with the role "PARTICIPANT" and a turn
+
+  Scenario: Start a group that is ready
+    Given "Sofia Gonzales" has a Pozzo account
+    And "Anna Weber" has a group of 2 seats where "Sofia Gonzales" joined
+    And "Anna Weber" drew the turns
+    When "Anna Weber" starts the group
+    Then the service responds 200 OK
+    And the group is in status "STARTED"
+    And the cycle of the group is open on turn 1
+
+  Scenario: Start a group that is not ready
+    Given "Anna Weber" has a group of 2 seats
+    When "Anna Weber" starts the group
+    Then the service responds 422 Unprocessable Entity
+    And the error code is "SAVINGS_GROUP_NOT_READY"
+
+  Scenario: The rules of a started group cannot change
+    Given "Sofia Gonzales" has a Pozzo account
+    And "Anna Weber" started a group with "Sofia Gonzales"
+    When "Anna Weber" changes the contribution of the group to S/ 300
+    Then the service responds 422 Unprocessable Entity
+    And the error code is "SAVINGS_GROUP_ALREADY_STARTED"
+```
+
+`ts03-members-and-invitations.feature` corresponde a TS03. Servicio de integrantes e invitaciones y cubre resolver una invitación válida, inexistente o de una junta iniciada, unirse con cupo, sin cupo o dos veces, el integrante sin la aplicación y el retiro antes y después del inicio.
+
+```
+Feature: TS03 Members and invitations service
+  As a developer
+  I want endpoints to resolve an invitation code, add a member to a group and manage its members
+  So that joining works by code, by link and by manual registration
+
+  Background:
+    Given "Anna Weber" has a Pozzo account
+    And "Sofia Gonzales" has a Pozzo account
+
+  Scenario: Resolve a valid invitation
+    Given "Anna Weber" has a group of 3 seats with an invitation
+    When "Sofia Gonzales" opens the invitation
+    Then the service responds 200 OK
+    And the preview shows the name, the rules and 2 free seats
+    And the preview does not show the members or the destination
+
+  Scenario: Resolve an invitation that does not exist
+    When "Sofia Gonzales" opens the invitation "ZZ-2222"
+    Then the service responds 404 Not Found
+
+  Scenario: Resolve the invitation of a group that already started
+    Given "Anna Weber" started a group with "Sofia Gonzales"
+    When "Sofia Gonzales" opens the invitation
+    Then the service responds 404 Not Found
+
+  Scenario: Join a group with free seats
+    Given "Anna Weber" has a group of 3 seats with an invitation
+    When "Sofia Gonzales" joins with the invitation
+    Then the service responds 200 OK
+    And "Sofia Gonzales" is a member of the group
+
+  Scenario: Join a full group
+    Given "Jorge Ramos" has a Pozzo account
+    And "Anna Weber" has a group of 2 seats where "Sofia Gonzales" joined
+    When "Jorge Ramos" joins with the invitation
+    Then the service responds 422 Unprocessable Entity
+    And the error code is "SAVINGS_GROUP_FULL"
+
+  Scenario: Join a group twice
+    Given "Anna Weber" has a group of 3 seats where "Sofia Gonzales" joined
+    When "Sofia Gonzales" joins with the invitation
+    Then the service responds 422 Unprocessable Entity
+    And the error code is "ALREADY_A_MEMBER"
+
+  Scenario: Register a member without the application
+    Given "Anna Weber" has a group of 3 seats with an invitation
+    When "Anna Weber" registers "Marta Quispe" without the application with the number 923456789
+    Then the service responds 201 Created
+    And "Marta Quispe" is a member of kind "MANUAL"
+
+  Scenario: Remove a member before the group starts
+    Given "Anna Weber" has a group of 3 seats where "Sofia Gonzales" joined
+    When "Anna Weber" removes "Sofia Gonzales" from the group
+    Then the service responds 204 No Content
+    And "Sofia Gonzales" is no longer a member of the group
+
+  Scenario: Remove a member after the group started
+    Given "Anna Weber" started a group with "Sofia Gonzales"
+    When "Anna Weber" removes "Sofia Gonzales" from the group
+    Then the service responds 422 Unprocessable Entity
+    And the error code is "SAVINGS_GROUP_ALREADY_STARTED"
+```
+
+`ts04-turns.feature` corresponde a TS04. Servicio de turnos y subastas y cubre el sorteo con su semilla, el orden acordado y la regla de que los turnos necesitan todos los cupos ocupados.
+
+```
+Feature: TS04 Turns service
+  As a developer
+  I want endpoints to assign the turns by draw or by an agreed order
+  So that the mobile application supports the ways a group decides who collects first
+
+  Background:
+    Given "Anna Weber" has a Pozzo account
+    And "Sofia Gonzales" has a Pozzo account
+    And "Jorge Ramos" has a Pozzo account
+    And "Anna Weber" has a group of 3 seats where "Sofia Gonzales" and "Jorge Ramos" joined
+
+  Scenario: Assign the turns by draw
+    When "Anna Weber" draws the turns
+    Then the service responds 200 OK
+    And every member has one turn from 1 to 3 with its cutoff date
+    And the calendar shows the seed of the draw
+
+  Scenario: Assign the turns in an agreed order
+    When "Anna Weber" sets the order "Jorge Ramos", "Anna Weber", "Sofia Gonzales"
+    Then the service responds 200 OK
+    And the turns follow the order "Jorge Ramos", "Anna Weber", "Sofia Gonzales"
+
+  Scenario: The turns need every seat taken
+    Given "Anna Weber" removed "Jorge Ramos" from the group
+    When "Anna Weber" draws the turns
+    Then the service responds 422 Unprocessable Entity
+    And the error code is "SAVINGS_GROUP_NOT_FULL"
+```
+
+`ts05-contributions-and-receipts.feature` corresponde a TS05. Servicio de aportes y comprobantes y cubre el comprobante que coincide, el que no coincide en monto o destinatario, el comprobante repetido, la aprobación, el rechazo, el efectivo y el estado del período.
+
+```
+Feature: TS05 Contributions and receipts service
+  As a developer
+  I want endpoints to register a contribution with its receipt, validate it, review it and register cash
+  So that the state of the pot is computed on the server
+
+  Background:
+    Given "Anna Weber" has a Pozzo account
+    And "Sofia Gonzales" has a Pozzo account
+    And "Anna Weber" started a group with "Sofia Gonzales" that sends the contributions to Yape
+
+  Scenario: Register a receipt that matches
+    When "Sofia Gonzales" registers a receipt of S/ 200 paid to "Anna Weber" with the operation "04581273"
+    Then the service responds 201 Created
+    And the contribution is in status "VALIDATED" without inconsistencies
+
+  Scenario Outline: Register a receipt that does not match
+    When "Sofia Gonzales" registers a receipt of S/ <amount> paid to "<payee>" with the operation "04581273"
+    Then the service responds 201 Created
+    And the contribution is in status "INCONSISTENT"
+    And the field "<field>" did not match
+
+    Examples:
+      | amount | payee      | field  |
+      | 150    | Anna Weber | AMOUNT |
+      | 200    | Carla Vega | PAYEE  |
+
+  Scenario: Register a receipt already used in the group
+    Given "Sofia Gonzales" registered a receipt of S/ 200 paid to "Anna Weber" with the operation "04581273"
+    When "Anna Weber" registers a receipt of S/ 200 paid to "Anna Weber" with the operation "04581273"
+    Then the service responds 409 Conflict
+    And the error code is "RECEIPT_CONFLICT"
+
+  Scenario: Approve a contribution that did not match
+    Given "Sofia Gonzales" registered a receipt of S/ 150 paid to "Anna Weber" with the operation "04581273"
+    When "Anna Weber" approves the contribution of "Sofia Gonzales"
+    Then the service responds 200 OK
+    And the contribution is in status "APPROVED"
+    And "Sofia Gonzales" appears as paid in the pot
+
+  Scenario: Reject a contribution that did not match
+    Given "Sofia Gonzales" registered a receipt of S/ 150 paid to "Anna Weber" with the operation "04581273"
+    When "Anna Weber" rejects the contribution of "Sofia Gonzales"
+    Then the service responds 200 OK
+    And the contribution is in status "REJECTED"
+    And "Sofia Gonzales" can register a receipt of S/ 200 paid to "Anna Weber" with the operation "05230918"
+
+  Scenario: Register a cash contribution
+    When "Anna Weber" registers S/ 200 in cash for "Sofia Gonzales"
+    Then the service responds 201 Created
+    And the contribution has the method "CASH" and the status "VALIDATED"
+
+  Scenario: State of the period
+    Given "Sofia Gonzales" registered a receipt of S/ 200 paid to "Anna Weber" with the operation "04581273"
+    When "Sofia Gonzales" checks the state of the pot
+    Then the service responds 200 OK
+    And the pot has S/ 200 collected of S/ 400 and S/ 200 missing
+    And the pot shows who collects, the days to the cutoff and the state of each member
+```
+
+`ts06-pot-delivery-and-closing.feature` corresponde a TS06. Servicio de entrega del pozo y cierre y cubre la entrega del pozo completo, la del último turno que cierra el ciclo, la entrega prematura y la cobertura con su efecto en el historial.
+
+```
+Feature: TS06 Pot delivery and closing service
+  As a developer
+  I want endpoints to record the delivery of the pot, the coverages and the closing of the cycle
+  So that the progress of the group is recorded consistently
+
+  Background:
+    Given "Anna Weber" has a Pozzo account
+    And "Sofia Gonzales" has a Pozzo account
+    And "Anna Weber" started a group with "Sofia Gonzales" that sends the contributions to Yape
+
+  Scenario: Deliver a complete pot
+    Given every member paid the current period
+    When "Anna Weber" confirms the delivery of the pot
+    Then the service responds 200 OK
+    And the period was delivered and turn 2 is open
+
+  Scenario: Deliver the pot of the last turn
+    Given every member paid the current period
+    And "Anna Weber" confirmed the delivery of the pot
+    And every member paid the current period
+    When "Anna Weber" confirms the delivery of the pot
+    Then the service responds 200 OK
+    And the cycle is "CLOSED"
+
+  Scenario: Deliver the pot before everyone paid
+    Given "Sofia Gonzales" registered a receipt of S/ 200 paid to "Anna Weber" with the operation "04581273"
+    When "Anna Weber" confirms the delivery of the pot
+    Then the service responds 422 Unprocessable Entity
+    And the error code is "POT_NOT_COMPLETE"
+
+  Scenario: Cover the contribution of a member
+    When "Anna Weber" covers the contribution of "Sofia Gonzales"
+    Then the service responds 201 Created
+    And "Sofia Gonzales" appears as covered in the pot
+    And the history of "Sofia Gonzales" counts 1 covered contribution
+```
+
+`ts07-reminders-and-notifications.feature` corresponde a TS07. Servicio de recordatorios y notificaciones y cubre el registro del dispositivo, el token que pasa a otra cuenta, el plan de recordatorios por defecto y los avisos que generan los eventos.
+
+```
+Feature: TS07 Reminders and notifications service
+  As a developer
+  I want the registration of devices and a reminder plan on the server
+  So that the notifications are sent even when the application is closed
+
+  Background:
+    Given "Anna Weber" has a Pozzo account
+    And "Sofia Gonzales" has a Pozzo account
+
+  Scenario: Register a device
+    When "Anna Weber" registers a phone with the push token "fcm-token-of-the-phone"
+    Then the service responds 201 Created
+    And the device is active
+
+  Scenario: A push token moves to the account that registers it
+    Given "Anna Weber" registered a phone with the push token "fcm-shared-phone"
+    When "Sofia Gonzales" registers a phone with the push token "fcm-shared-phone"
+    Then the service responds 201 Created
+    And the device is active
+
+  Scenario: Default reminder plan of a group
+    Given "Anna Weber" started a group with "Sofia Gonzales"
+    When "Sofia Gonzales" checks the reminders of the group
+    Then the service responds 200 OK
+    And the reminders are sent 3, 1 and 0 days before the cutoff at 9:00
+
+  Scenario Outline: Notices by event
+    Given "Anna Weber" started a group with "Sofia Gonzales" that sends the contributions to Yape
+    When <event>
+    Then "<recipient>" has the notice "<title>"
+
+    Examples:
+      | event                                                                                             | recipient      | title                   |
+      | "Sofia Gonzales" registers a receipt of S/ 200 paid to "Anna Weber" with the operation "04581273" | Sofia Gonzales | Aporte registrado       |
+      | "Sofia Gonzales" registers a receipt of S/ 150 paid to "Anna Weber" with the operation "04581273" | Anna Weber     | Comprobante por revisar |
+      | "Anna Weber" covers the contribution of "Sofia Gonzales"                                          | Sofia Gonzales | Aporte cubierto         |
+
+  Scenario: Notice when the group starts
+    When "Anna Weber" started a group with "Sofia Gonzales"
+    Then "Sofia Gonzales" has the notice "La junta inició"
+```
+
+`ts08-compliance-history.feature` corresponde a TS08. Servicio de historial de cumplimiento y cubre el historial propio, el de un integrante de la junta, el de todos los integrantes, el de alguien ajeno y el enlace público vigente y revocado.
+
+```
+Feature: TS08 Compliance history service
+  As a developer
+  I want an endpoint that computes the compliance history of a member from their contributions
+  So that the application shows it and shares it in a verifiable way
+
+  Background:
+    Given "Anna Weber" has a Pozzo account
+    And "Sofia Gonzales" has a Pozzo account
+    And "Anna Weber" started a group with "Sofia Gonzales" that sends the contributions to Yape
+    And "Sofia Gonzales" registered a receipt of S/ 200 paid to "Anna Weber" with the operation "04581273"
+
+  Scenario: Own history
+    When "Sofia Gonzales" checks the compliance history
+    Then the service responds 200 OK
+    And the history has the level "GOOD", 100 % compliance and 1 contribution on time
+    And the history has the detail of the group
+
+  Scenario: History of a member of my group
+    When "Anna Weber" checks the summary of "Sofia Gonzales"
+    Then the service responds 200 OK
+    And the summary has 1 contribution on time
+
+  Scenario: Compliance of every member of my group
+    When "Anna Weber" checks the compliance of the group
+    Then the service responds 200 OK
+    And the compliance lists "Anna Weber" and "Sofia Gonzales"
+
+  Scenario: History of someone outside my groups
+    Given "Carla Vega" has a Pozzo account
+    When "Carla Vega" checks the summary of "Sofia Gonzales"
+    Then the service responds 404 Not Found
+
+  Scenario: Open a shared history without signing in
+    Given "Sofia Gonzales" shared the history
+    When anyone opens the shared link without signing in
+    Then the service responds 200 OK
+    And the shared history shows "Sofia Gonzales" and the summary without amounts or group names
+
+  Scenario: Open a revoked link
+    Given "Sofia Gonzales" shared the history
+    And "Sofia Gonzales" revoked the link
+    When anyone opens the shared link without signing in
+    Then the service responds 404 Not Found
+```
+
+La Figura 132 muestra el reporte de Cucumber de una ejecución local, con los 52 escenarios aprobados, y la Figura 133 la ejecución del workflow `Tests` en el pull request que agregó la suite, que en GitHub Actions corrió las 170 pruebas sin fallas.
+
+![Reporte de Cucumber de las pruebas de aceptación](images/chapter_4/cucumber_report.png){width=80%}
+
+![Ejecución del workflow Tests en GitHub Actions](images/chapter_4/tests_workflow_run.png){width=90%}
+
+La Tabla 140 relaciona los commits de los avances en Testing de este Sprint.
+
+<table>
+  <caption>Commits de las pruebas de los servicios RESTful</caption>
+  <colgroup><col width="13%"><col width="13%"><col width="10%"><col width="24%"><col width="27%"><col width="13%"></colgroup>
+  <thead>
+    <tr>
+      <th>Repository</th>
+      <th>Branch</th>
+      <th>Commit Id</th>
+      <th>Commit Message</th>
+      <th>Commit Message Body</th>
+      <th>Committed on (Date)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/testing-suite</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/9c4aa4a">9c4aa4a</a></td>
+      <td>test: add the test infrastructure with Testcontainers and Cucumber</td>
+      <td>The integration and acceptance tests start the whole application against PostgreSQL 16 in a container, call the API through MockMvc and read the SMS codes from a recording sender, with a clock the tests can move forward. Surefire also runs the Cucumber suite.</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/testing-suite</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/1b0c52e">1b0c52e</a></td>
+      <td>test: add unit tests for the domain of the five bounded contexts</td>
+      <td>Cover the aggregates, value objects and domain services without Spring or a database: receipt validation and review, the pot of a period, the setup of a savings group, the turn draw, the SMS code, the compliance level and the reminder plan.</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/testing-suite</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/1d65858">1d65858</a></td>
+      <td>test: add integration tests of the REST API against PostgreSQL</td>
+      <td>Check security, the standard error body, persistence and the events that carry a contribution to Compliance History and Notifications.</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/testing-suite</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/884bf11">884bf11</a></td>
+      <td>test: add the acceptance tests of the technical stories in Gherkin</td>
+      <td>One .feature file per Technical Story, TS01 to TS08, with the request and response scenarios of its acceptance criteria and their steps in Java.</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/testing-suite</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/de8a9d4">de8a9d4</a></td>
+      <td>ci: run the test suite on every pull request</td>
+      <td>The deploy builds without tests, so this workflow runs them on every pull request and on every push to develop and main, and keeps the Cucumber and Surefire reports.</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/testing-suite</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/6d18d17">6d18d17</a></td>
+      <td>docs: describe the test suite in the README and fix its code blocks</td>
+      <td>Sin cuerpo</td>
+      <td>08/10/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/testing-suite</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/c520f48">c520f48</a></td>
+      <td>ci: move the test workflow to the actions that run on Node 24</td>
+      <td>checkout v4 and setup-java v4 run on Node 20, which GitHub deprecated.</td>
+      <td>08/10/2026</td>
+    </tr>
+  </tbody>
+</table>
+
 #### 4.2.1.6. Execution Evidence for Sprint Review
 
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
 En este Sprint se documentaron con OpenAPI los 54 endpoints de los servicios RESTful de Pozzo, agrupados en 11 recursos que corresponden a los cinco bounded contexts. La documentación se genera desde el código con springdoc-openapi: cada controller declara el resumen y la descripción de sus operaciones, los parámetros, el cuerpo esperado y los códigos de respuesta, incluidos los de error, que comparten el mismo cuerpo `Error` con un código y un mensaje. Los recursos describen cada campo y traen valores de ejemplo, y el documento declara el esquema de seguridad Bearer con el token JWT que emite Identity & Access.
 
-La documentación está desplegada junto con los servicios: Swagger UI en <https://api-kerolabs.duckdns.org/swagger-ui/index.html> y el documento OpenAPI 3.1 en <https://api-kerolabs.duckdns.org/v3/api-docs>. El código está en el repositorio <https://github.com/kerolabs/pozzo-backend>. La Figura 132 muestra la documentación desplegada con sus 11 recursos.
+La documentación está desplegada junto con los servicios: Swagger UI en <https://api-kerolabs.duckdns.org/swagger-ui/index.html> y el documento OpenAPI 3.1 en <https://api-kerolabs.duckdns.org/v3/api-docs>. El código está en el repositorio <https://github.com/kerolabs/pozzo-backend>. La Figura 134 muestra la documentación desplegada con sus 11 recursos.
 
 ![Swagger UI de los servicios RESTful desplegados](images/chapter_4/swagger_overview.png){width=85%}
 
-Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y todas requieren el token Bearer, salvo las marcadas como públicas. Las Tablas 137 a 141 presentan los endpoints de cada bounded context: el verbo HTTP, la sintaxis de la llamada, la acción con su enlace a la documentación desplegada, los parámetros y la respuesta exitosa. Los errores de cada operación están en la documentación desplegada.
+Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y todas requieren el token Bearer, salvo las marcadas como públicas. Las Tablas 141 a 145 presentan los endpoints de cada bounded context: el verbo HTTP, la sintaxis de la llamada, la acción con su enlace a la documentación desplegada, los parámetros y la respuesta exitosa. Los errores de cada operación están en la documentación desplegada.
 
 <table>
   <caption>Endpoints documentados de Identity &amp; Access</caption>
@@ -815,7 +1512,7 @@ Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y todas requieren 
   </tbody>
 </table>
 
-La Tabla 142 muestra un ejemplo de respuesta de los recursos principales, tomado de la junta de muestra con la que se probó la documentación y reducido a los campos que explican cada recurso. La documentación desplegada tiene el esquema completo de cada uno.
+La Tabla 146 muestra un ejemplo de respuesta de los recursos principales, tomado de la junta de muestra con la que se probó la documentación y reducido a los campos que explican cada recurso. La documentación desplegada tiene el esquema completo de cada uno.
 
 <table>
   <caption>Ejemplos de respuesta de los recursos principales</caption>
@@ -906,25 +1603,25 @@ La Tabla 142 muestra un ejemplo de respuesta de los recursos principales, tomado
   </tbody>
 </table>
 
-Para mostrar la interacción con la documentación se usó una junta de muestra de cuatro integrantes: Anna Weber como cabeza, y Sofia Gonzales, Marta Quispe y Jorge Ramos. Sofia registró un aporte que coincidía con lo esperado y Marta uno por un monto menor. Las Figuras 133 a 136 muestran cuatro llamadas hechas desde Swagger UI con el token de cada integrante, con la URL de la solicitud y la respuesta del servicio. Se hicieron sobre una instancia local de los servicios con una base de datos propia, para no mezclar los datos de muestra con los de producción.
+Para mostrar la interacción con la documentación se usó una junta de muestra de cuatro integrantes: Anna Weber como cabeza, y Sofia Gonzales, Marta Quispe y Jorge Ramos. Sofia registró un aporte que coincidía con lo esperado y Marta uno por un monto menor. Las Figuras 135 a 138 muestran cuatro llamadas hechas desde Swagger UI con el token de cada integrante, con la URL de la solicitud y la respuesta del servicio. Se hicieron sobre una instancia local de los servicios con una base de datos propia, para no mezclar los datos de muestra con los de producción.
 
-Jorge Ramos registra su aporte de S/ 200 con los datos de un comprobante de Plin. El monto, el destinatario y la fecha coinciden con lo esperado, así que el servicio responde 201 Created con el aporte en estado VALIDATED y sin inconsistencias (ver Figura 133).
+Jorge Ramos registra su aporte de S/ 200 con los datos de un comprobante de Plin. El monto, el destinatario y la fecha coinciden con lo esperado, así que el servicio responde 201 Created con el aporte en estado VALIDATED y sin inconsistencias (ver Figura 135).
 
 ![Registro de un aporte desde Swagger UI](images/chapter_4/swagger_register_contribution.png){width=80%}
 
-Anna Weber, la cabeza de la junta, consulta los aportes por revisar del período. Aparece el de Marta Quispe en estado INCONSISTENT: el comprobante dice S/ 150 y se esperaban S/ 200 (ver Figura 134).
+Anna Weber, la cabeza de la junta, consulta los aportes por revisar del período. Aparece el de Marta Quispe en estado INCONSISTENT: el comprobante dice S/ 150 y se esperaban S/ 200 (ver Figura 136).
 
 ![Aportes por revisar desde Swagger UI](images/chapter_4/swagger_pending_review.png){width=80%}
 
-La cabeza aprueba ese aporte con una nota. El servicio responde 200 OK con el aporte en estado APPROVED y la decisión guardada en la revisión, y el aporte pasa a contar como pagado (ver Figura 135).
+La cabeza aprueba ese aporte con una nota. El servicio responde 200 OK con el aporte en estado APPROVED y la decisión guardada en la revisión, y el aporte pasa a contar como pagado (ver Figura 137).
 
 ![Revisión de un aporte desde Swagger UI](images/chapter_4/swagger_review_contribution.png){width=80%}
 
-Con los tres aportes, el estado del pozo muestra S/ 600 reunidos de S/ 800, que en este turno cobra Marta Quispe, que solo falta el aporte de Anna Weber y el estado de cada integrante (ver Figura 136).
+Con los tres aportes, el estado del pozo muestra S/ 600 reunidos de S/ 800, que en este turno cobra Marta Quispe, que solo falta el aporte de Anna Weber y el estado de cada integrante (ver Figura 138).
 
 ![Estado del pozo desde Swagger UI](images/chapter_4/swagger_period_status.png){width=80%}
 
-La documentación se escribió junto con cada controller, en el mismo commit que agrega sus endpoints, de modo que ningún endpoint quedó sin documentar en el historial. La Tabla 143 relaciona los commits de los servicios RESTful que agregaron o cambiaron la documentación OpenAPI en este Sprint.
+La documentación se escribió junto con cada controller, en el mismo commit que agrega sus endpoints, de modo que ningún endpoint quedó sin documentar en el historial. La Tabla 147 relaciona los commits de los servicios RESTful que agregaron o cambiaron la documentación OpenAPI en este Sprint.
 
 <table>
   <caption>Commits de la documentación de los servicios RESTful</caption>

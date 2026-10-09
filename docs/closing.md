@@ -18,7 +18,7 @@ Esta primera entrega cubre el descubrimiento del problema, la especificación de
 
 # Glosario
 
-Este glosario reúne los términos de metodología, diseño y desarrollo de software que se usan a lo largo del informe. Los términos propios del dominio de las juntas de ahorro (junta, pozo, turno, cabeza de junta, cobertura, historial de cumplimiento y los demás) se definen en la sección Ubiquitous Language y no se repiten aquí (ver Tabla 144).
+Este glosario reúne los términos de metodología, diseño y desarrollo de software que se usan a lo largo del informe. Los términos propios del dominio de las juntas de ahorro (junta, pozo, turno, cabeza de junta, cobertura, historial de cumplimiento y los demás) se definen en la sección Ubiquitous Language y no se repiten aquí (ver Tabla 148).
 
 <table>
   <caption>Glosario de términos del dominio de las juntas</caption>
@@ -226,7 +226,7 @@ Este glosario reúne los términos de metodología, diseño y desarrollo de soft
 
 El Product Backlog se administra en Trello, en el tablero público "Pozzo - Product Backlog". El tablero tiene una lista por sprint y una tarjeta por historia, en el mismo orden de la tabla del Product Backlog: las 46 User Stories, las 8 Technical Stories y las 3 Spike Stories. El título de cada tarjeta lleva el código, el título y los Story Points de la historia; la descripción reproduce la posición en el backlog, la épica, el rol, la historia en el formato "Como... deseo... para..." y los criterios de aceptación en Gherkin. El nombre de cada lista indica el sprint, la entrega del curso a la que corresponde y la suma de Story Points planificados.
 
-Enlace público del tablero: <https://trello.com/b/fRocSVZA/pozzo-product-backlog> (ver Figura 137)
+Enlace público del tablero: <https://trello.com/b/fRocSVZA/pozzo-product-backlog> (ver Figura 139)
 
 ![Product Backlog de Pozzo en Trello](images/closing/product_backlog_trello.png)
 
@@ -238,7 +238,7 @@ Enlace público del tablero: <https://trello.com/b/fRocSVZA/pozzo-product-backlo
 
 Los artefactos del Strategic-Level Domain-Driven Design se elaboraron en un único tablero de Miro, organizado en filas de frames que siguen el orden del proceso: el EventStorming de nivel de diseño en cuatro tramos (acceso, configuración de la junta, registro y validación de aportes, entrega y cierre), los tres pasos del Candidate Context Discovery, las tres historias de Domain Storytelling, los cinco Bounded Context Canvases y el Context Map con sus alternativas. Las capturas que ilustran el capítulo de Requirements Development and Software Solution Design provienen de ese tablero.
 
-Enlace del tablero: <https://miro.com/app/board/uXjVHm8In_g=/?share_link_id=3138613697> (ver Figura 138)
+Enlace del tablero: <https://miro.com/app/board/uXjVHm8In_g=/?share_link_id=3138613697> (ver Figura 140)
 
 ![Tablero de Miro del diseño estratégico de Pozzo](images/closing/miro_eventstorming.png)
 
@@ -248,7 +248,7 @@ Enlace del tablero: <https://miro.com/app/board/uXjVHm8In_g=/?share_link_id=3138
 
 ## Anexo C. Fuentes de los diagramas de arquitectura
 
-Los diagramas de arquitectura del capítulo de Requirements Development and Software Solution Design no se dibujaron a mano: se generan a partir de archivos de texto que viven en la carpeta `docs/architecture/` del repositorio del informe (<https://github.com/kerolabs/pozzo-doc/tree/develop/docs/architecture>) y se versionan junto con el texto. Los diagramas del C4 Model (contexto, contenedores, componentes y despliegue) se describen en el lenguaje de Structurizr y se renderizan con Structurizr; los diagramas de clases del Domain Layer y los de base de datos se describen en PlantUML, y cada esquema de base de datos lleva además su definición en SQL para PostgreSQL. Las imágenes resultantes son las que aparecen en el capítulo. Mantener los diagramas como texto permite revisarlos en las Pull Requests igual que cualquier otro cambio, ver quién modificó qué y regenerarlos cuando el diseño cambia sin volver a dibujarlos (ver Tabla 145).
+Los diagramas de arquitectura del capítulo de Requirements Development and Software Solution Design no se dibujaron a mano: se generan a partir de archivos de texto que viven en la carpeta `docs/architecture/` del repositorio del informe (<https://github.com/kerolabs/pozzo-doc/tree/develop/docs/architecture>) y se versionan junto con el texto. Los diagramas del C4 Model (contexto, contenedores, componentes y despliegue) se describen en el lenguaje de Structurizr y se renderizan con Structurizr; los diagramas de clases del Domain Layer y los de base de datos se describen en PlantUML, y cada esquema de base de datos lleva además su definición en SQL para PostgreSQL. Las imágenes resultantes son las que aparecen en el capítulo. Mantener los diagramas como texto permite revisarlos en las Pull Requests igual que cualquier otro cambio, ver quién modificó qué y regenerarlos cuando el diseño cambia sin volver a dibujarlos (ver Tabla 149).
 
 <table>
   <caption>Fuentes de los diagramas de arquitectura y su archivo en el repositorio</caption>
