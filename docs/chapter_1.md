@@ -322,7 +322,7 @@ y la funcionalidad que lo habilita.
 
 #### 1.2.2.4. Lean UX Canvas
 
-El Lean UX Canvas recoge, en una sola lámina, los ocho recuadros del proceso: el problema de negocio, los resultados comerciales esperados, los usuarios y sus beneficios, las soluciones propuestas, las hipótesis que de ellas se desprenden, el aprendizaje más urgente y el experimento mínimo para obtenerlo (ver Figura 5).
+El Lean UX Canvas recoge, en una sola lámina, los ocho recuadros del proceso: el problema de negocio, los resultados comerciales esperados, los usuarios y sus beneficios, las soluciones propuestas, las hipótesis que de ellas se desprenden, el aprendizaje más urgente y el experimento mínimo para obtenerlo (ver Figura 7).
 
 ![Lean UX Canvas de Pozzo](images/chapter_1/lean_ux_canvas.png){width=100%}
 
