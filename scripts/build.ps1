@@ -51,6 +51,7 @@ $ConfigFiles = @(
     'config/html-tables.lua'
     'config/pdf-only.lua'
     'config/table-grid.lua'
+    'config/bib-categories.lua'
     'config/cover.tex'
     'config/draft.tex'
     'config/apa.csl'
@@ -170,6 +171,7 @@ pandoc $Chapters @DraftArgs `
     --lua-filter=config/html-tables.lua `
     --lua-filter=config/pdf-only.lua `
     --citeproc `
+    --lua-filter=config/bib-categories.lua `
     --lua-filter=config/table-grid.lua `
     --csl=config/apa.csl `
     --bibliography=references.bib `
