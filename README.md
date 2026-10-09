@@ -97,8 +97,6 @@ El informe se elabora en el repositorio `pozzo-doc` de la organización Kerolabs
   </tbody>
 </table>
 
-La diferencia en el número de commits se explica por el trabajo de configuración: además de sus secciones, Camargo construyó y ajustó la exportación a PDF (filtros para tablas HTML con celdas combinadas, cuadrícula, control de viudas y huérfanas), lo que generó una cantidad de commits pequeños de corrección que no corresponden a contenido nuevo.
-
 **Evidencia.** Las siguientes capturas corresponden a la pestaña Insights del repositorio al cierre de la entrega (ver Figuras 1 a 3).
 
 ![Contribuciones por integrante en el repositorio del informe, AV1](docs/images/insights_contributors_av1.png)
@@ -159,8 +157,6 @@ La diferencia en el número de commits se explica por el trabajo de configuraci�
     </tr>
   </tbody>
 </table>
-
-El número de commits no mide el tamaño de cada aporte. Sanchez integró el diseño de la aplicación móvil en pocos commits grandes, mientras que la numeración de Flores pasó por muchas correcciones pequeñas a medida que otras secciones agregaban tablas y figuras. La participación en el informe también fue desigual: el aporte de Solis al informe se limitó al video del Sprint, y para la AV2 se propone que cada integrante redacte las secciones del Sprint 2 que correspondan a lo que implemente.
 
 **Evidencia.** Las siguientes capturas corresponden a la pestaña Insights del repositorio al integrar la entrega en `main`: las contribuciones por integrante entre el 18 de septiembre y el 9 de octubre, la actividad de commits y las Pull Requests integradas en `develop` (ver Figuras 4 a 6).
 
@@ -261,10 +257,8 @@ El número de commits no mide el tamaño de cada aporte. Sanchez integró el dis
 
 # Student Outcome
 
-El curso contribuye al cumplimiento del Student Outcome ABET:
-
-ABET - EAC - Student Outcome 7
-
+El curso contribuye al cumplimiento del Student Outcome ABET:\
+ABET - EAC - Student Outcome 7\
 Criterio: La capacidad de adquirir y aplicar nuevos conocimientos según sea necesario, utilizando estrategias de aprendizaje apropiadas.
 
 En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 7 (ver Tabla 4).

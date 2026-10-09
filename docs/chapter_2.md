@@ -733,7 +733,7 @@ Se elaboró una ficha de User Persona por cada segmento objetivo, utilizando UXP
 
 La Figura 20 muestra la Anna Weber.
 
-![Anna Weber](images/chapter_2/anna_weber_us1.png)
+![Anna Weber](images/chapter_2/anna_weber_us1.png){width=48%}
 
 *Nota.* Elaborado por el equipo en UXPressia con su plantilla de User Persona, a partir de las entrevistas a las cabezas de junta.
 
@@ -741,7 +741,7 @@ La Figura 20 muestra la Anna Weber.
 
 La Figura 21 muestra la Sofia Gonzales.
 
-![Sofia Gonzales](images/chapter_2/sofia_gonzales_us2.png)
+![Sofia Gonzales](images/chapter_2/sofia_gonzales_us2.png){width=48%}
 
 *Nota.* Elaborado por el equipo en UXPressia con su plantilla de User Persona, a partir de las entrevistas a los participantes.
 

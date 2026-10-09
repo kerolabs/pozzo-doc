@@ -165,7 +165,11 @@ local function insertarLineas(cuerpo, lineas)
       local sig = cuerpo:sub(i + 1, i + 1)
       if sig == '\\' and llaves == 0 and entornos == 0 then
         fila = fila + 1
-        table.insert(salida, '\\\\ ' .. (lineas[fila] or '\\hline'))
+        -- El \\ de la ultima fila tambien es un punto de corte: si la tabla
+        -- llega justo al pie, TeX corta ahi y la regla de cierre queda sola
+        -- arriba de la pagina siguiente. Con \\* esa fila no admite corte.
+        local fin = (fila == #lineas) and '\\\\* ' or '\\\\ '
+        table.insert(salida, fin .. (lineas[fila] or '\\hline'))
         i = i + 2
       else
         if cuerpo:sub(i, i + 6) == '\\begin{' then entornos = entornos + 1 end
@@ -289,9 +293,75 @@ local function cabeceraDivisible(latex)
   return (latex:gsub('(\\begin{minipage}%[b%]{\\linewidth}\\raggedright)', '%1\\hspace{0pt}\\ignorespaces'))
 end
 
+-- Una tabla que cabe en una pagina no deberia partirse: con longtable, si no
+-- entra en lo que queda de la pagina, TeX deja el titulo y las primeras filas
+-- al pie y el resto en la pagina siguiente, y una User Story termina con su
+-- cabecera en una hoja y sus criterios de aceptacion en otra. Se estima su
+-- alto en lineas (cada celda se escribe en texto plano al ancho de su columna)
+-- y, si ocupa hasta dos tercios de pagina, se reserva ese alto antes de la
+-- tabla: cuando no alcanza, la tabla entera empieza en la pagina siguiente.
+-- Una tabla mas alta igual se partiria, y moverla entera dejaria casi una
+-- pagina vacia; a esas solo se les reserva el titulo, la cabecera y las dos
+-- primeras filas, para que el titulo no quede solo al pie.
+local CARACTERES_POR_LINEA = 88   -- texto de 6.5 in en Times de 12 pt
+local LINEAS_ENTERA = 19          -- dos tercios de 9 in con interlineado 1.5
+local LINEAS_INICIO_MAXIMO = 12
+
+local function lineasEstimadas(tbl)
+  -- Ancho de cada columna como fraccion del texto; las que pandoc deja sin
+  -- ancho se reparten lo que sobra.
+  local ncol = #tbl.colspecs
+  local anchos, suma, sinAncho = {}, 0, 0
+  for i, cs in ipairs(tbl.colspecs) do
+    local w = cs[2]
+    if type(w) == 'number' and w > 0 then
+      anchos[i] = w
+      suma = suma + w
+    else
+      sinAncho = sinAncho + 1
+    end
+  end
+  for i = 1, ncol do
+    anchos[i] = anchos[i] or math.max(1 - suma, 0.1 * sinAncho) / sinAncho
+  end
+
+  local filas = pandoc.List()
+  filas:extend(tbl.head.rows)
+  for _, cuerpo in ipairs(tbl.bodies) do
+    filas:extend(cuerpo.head)
+    filas:extend(cuerpo.body)
+  end
+  filas:extend(tbl.foot.rows)
+
+  local total = 3 -- rotulo "Tabla N", titulo y espacio
+  local inicio = total
+  for i, fila in ipairs(filas) do
+    local alto, c = 1, 1
+    for _, celda in ipairs(fila.cells) do
+      local w = 0
+      for k = c, c + celda.col_span - 1 do w = w + (anchos[k] or 1 / ncol) end
+      c = c + celda.col_span
+      local columnas = math.max(8, math.floor(w * CARACTERES_POR_LINEA) - 2)
+      local texto = pandoc.write(pandoc.Pandoc(celda.contents), 'plain', { columns = columnas })
+      local lineas = 0
+      for _ in texto:gmatch('[^\n]*\n?') do lineas = lineas + 1 end
+      alto = math.max(alto, lineas - 1)
+    end
+    total = total + alto + 0.3
+    if i <= 3 then inicio = total end
+  end
+  return total, inicio
+end
+
 function Table(tbl)
   if not FORMAT:match('latex') then return nil end
   registrarImagenes(tbl)
+  local alto, inicio = lineasEstimadas(tbl)
   local latex = pandoc.write(pandoc.Pandoc({ tbl }), 'latex')
-  return pandoc.RawBlock('latex', cuadricular(cabeceraDivisible(latex), tbl))
+  local bloque = pandoc.RawBlock('latex', cuadricular(cabeceraDivisible(latex), tbl))
+  local reserva = alto <= LINEAS_ENTERA and alto or math.min(inicio, LINEAS_INICIO_MAXIMO)
+  return {
+    pandoc.RawBlock('latex', string.format('\\Needspace*{%d\\baselineskip}', math.ceil(reserva) + 1)),
+    bloque,
+  }
 end
