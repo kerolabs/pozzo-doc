@@ -326,6 +326,8 @@ El Lean UX Canvas recoge, en una sola lámina, los ocho recuadros del proceso: e
 
 ![Lean UX Canvas de Pozzo](images/chapter_1/lean_ux_canvas.png){width=100%}
 
+*Nota.* Adaptado de la plantilla Lean UX Canvas, versión 2, de Jeff Gothelf [@gothelf2021leanux]. El número de cada casilla indica el orden en que se completa. Elaborado por el equipo.
+
 ## 1.3. Segmentos objetivo
 
 - **La Cabeza o Administrador(a) de Junta (Organizador/a)**
