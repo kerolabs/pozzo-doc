@@ -2809,7 +2809,16 @@ La Figura 145 muestra el registro del aporte, con el destino al que se transfier
 
 ![Registro del aporte, revisión de un comprobante, historial y avisos](images/chapter_4/app_contributions.png){width=100%}
 
-<!-- Falta el enlace al video de la navegación de este Sprint, que pide el enunciado. -->
+Para complementar la evidencia de ejecución del Sprint 1, se presenta el video explicativo del flujo de navegación y funcionamiento de la aplicación móvil desarrollado para la Sprint Review, disponible en YouTube:
+
+<div align="center">
+
+[![Video explicativo del flujo de la aplicación móvil - Sprint 1](images/chapter_4/app_flow_video.png){width=85%}](https://youtu.be/rGwVmdaVSMA)
+
+**Video explicativo del flujo de la aplicación móvil (Sprint Review):**  
+<https://youtu.be/rGwVmdaVSMA>
+
+</div>
 
 #### 4.2.1.7. Services Documentation Evidence for Sprint Review
 
