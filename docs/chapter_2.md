@@ -3579,6 +3579,28 @@ Con el EventStorm completo, el equipo dedicó una segunda sesión de dos horas a
 
 ![Candidate Context Discovery, paso 3: bounded contexts candidatos](images/chapter_2/ccd_paso3.png)
 
+Con los cinco grupos definidos, cada integrante tomó el suyo y reconstruyó su flujo completo con la notación del EventStorming: los comandos que disparan cada evento, el actor que los ejecuta, las políticas que los gobiernan, los agregados sobre los que operan, los sistemas externos que intervienen y los riesgos detectados. Cada flujo se lee por columnas, de izquierda a derecha, y deja ver el alcance real del contexto antes de llevarlo al canvas.
+
+**Contributions, el contexto core.** El flujo recorre un período completo. Con el período abierto se calculan los aportes esperados de cada integrante; el participante registra su aporte con la captura del comprobante, ML Kit lo lee y el participante confirma los datos antes de que el aporte quede registrado. La política de validación compara monto, fecha, destinatario y número de operación, que debe ser único en la junta, y produce Aporte validado. De ahí salen dos ramas: la de inconsistencias, donde la cabeza revisa y el aporte termina aprobado o rechazado, y la del efectivo y las coberturas, que la cabeza registra a mano hasta llegar a Aporte cubierto. Cuando todos los aportes esperados están validados o cubiertos, el pozo se completa, la cabeza lo entrega al integrante del turno, se abre el siguiente período y, tras el último turno, cerrar la junta produce Ciclo cerrado (ver Figura 39).
+
+![Flujo del bounded context Contributions](images/chapter_2/ccd_bc_contributions.png){width=100%}
+
+**Savings Groups.** El flujo empieza cuando la cabeza crea la junta con su aporte, periodicidad, cupos y fecha de corte, define el destino de los aportes y genera la invitación con código y enlace. Desde la invitación salen las dos formas de incorporar gente: unirse con el código o el enlace, que produce Integrante incorporado, y agregar a mano al integrante que no usa la aplicación. Mientras la junta no ha iniciado, la cabeza puede retirar a un integrante. Después asigna los turnos por sorteo u orden acordado o, si la junta lo acordó, abre la subasta del turno, donde los integrantes ofertan hasta que la cabeza la cierra y el turno queda adjudicado. Con los turnos asignados, iniciar la junta produce Junta iniciada. Una rama aparte recoge la deserción y el reemplazo de un integrante durante el ciclo (ver Figura 40).
+
+![Flujo del bounded context Savings Groups](images/chapter_2/ccd_bc_savings_groups.png){width=100%}
+
+**Compliance History.** Es el flujo más corto porque el contexto no tiene iniciativa propia: reacciona. Una política actualiza el historial de cada integrante cada vez que un aporte se valida o se cubre, alguien deserta o un ciclo se cierra, y produce Historial actualizado. Desde ahí el integrante puede compartir su historial, que sale por la hoja de compartir del sistema con la restricción de ser verificable sin exponer datos de otras juntas. Al cerrar la junta se genera además el resumen final (ver Figura 41).
+
+![Flujo del bounded context Compliance History](images/chapter_2/ccd_bc_compliance_history.png){width=100%}
+
+**Notifications.** El integrante registra su dispositivo para avisos contra Firebase Cloud Messaging y la cabeza configura los recordatorios de la junta. A partir de ahí trabajan dos políticas: la que recuerda de forma escalonada a quien no ha aportado conforme se acerca la fecha de corte, que produce Recordatorio enviado, y la que avisa a todos los integrantes en cada hecho relevante de la junta, que produce Aviso enviado. El flujo deja anotados sus dos riesgos: la entrega del push no está garantizada y los integrantes sin la aplicación no reciben avisos (ver Figura 42).
+
+![Flujo del bounded context Notifications](images/chapter_2/ccd_bc_notifications.png){width=100%}
+
+**Identity & Access.** Es una secuencia lineal de acceso sin contraseña: solicitar el código SMS con el número de celular, verificarlo, completar el registro con nombre y foto, lo que crea la cuenta, iniciar sesión, que queda guardada en el dispositivo, y administrar el perfil y el tema visual. El proveedor de SMS aparece como sistema externo en el primer paso. Los riesgos anotados son el código vencido o con demasiados reintentos y la sesión abierta en dos dispositivos a la vez (ver Figura 43).
+
+![Flujo del bounded context Identity & Access](images/chapter_2/ccd_bc_identity_access.png){width=100%}
+
 El resultado son cinco Bounded Contexts, uno por integrante del equipo, clasificados según el valor que aportan al negocio (ver Tabla 81).
 
 <table>
