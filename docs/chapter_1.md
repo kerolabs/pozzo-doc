@@ -10,7 +10,7 @@ Kerolabs es una startup peruana de tecnología financiera comunitaria enfocada e
 
 Pozzo permite centralizar la gestión de la junta sin intervenir directamente en el movimiento del dinero. La cabeza de junta puede configurar el monto, número de participantes, periodicidad y asignación de turnos, mientras que los participantes pueden consultar su calendario, registrar sus aportes mediante vouchers y conocer en tiempo real el estado del pozo. De esta manera, la aplicación busca reducir errores de conteo, facilitar la verificación de pagos y disminuir la carga de seguimiento que actualmente recae sobre el organizador.
 
-La propuesta de Kerolabs está orientada principalmente a grupos de familiares, amigos, vecinos o compañeros de trabajo que ya utilizan juntas como mecanismo de ahorro y desean mantener su dinámica habitual, pero con una administración más ordenada, transparente y verificable. A través de Pozzo, la startup busca combinar la confianza social propia de las juntas con herramientas digitales que simplifiquen su operación (ver Tabla 5).
+La propuesta de Kerolabs está orientada principalmente a grupos de familiares, amigos, vecinos o compañeros de trabajo que ya utilizan juntas como mecanismo de ahorro y desean mantener su dinámica habitual, pero con una administración más ordenada, transparente y verificable. A través de Pozzo, la startup busca combinar la confianza social propia de las juntas con herramientas digitales que simplifiquen su operación (ver Tabla 6).
 
 <table>
   <caption>Misión y visión de Kero</caption>
@@ -30,7 +30,7 @@ La propuesta de Kerolabs está orientada principalmente a grupos de familiares, 
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
-La Tabla 6 presenta los perfiles de los integrantes del equipo.
+La Tabla 7 presenta los perfiles de los integrantes del equipo.
 
 <table>
   <caption>Perfiles de los integrantes del equipo</caption>
@@ -322,7 +322,7 @@ y la funcionalidad que lo habilita.
 
 #### 1.2.2.4. Lean UX Canvas
 
-El Lean UX Canvas recoge, en una sola lámina, los ocho recuadros del proceso: el problema de negocio, los resultados comerciales esperados, los usuarios y sus beneficios, las soluciones propuestas, las hipótesis que de ellas se desprenden, el aprendizaje más urgente y el experimento mínimo para obtenerlo (ver Figura 4).
+El Lean UX Canvas recoge, en una sola lámina, los ocho recuadros del proceso: el problema de negocio, los resultados comerciales esperados, los usuarios y sus beneficios, las soluciones propuestas, las hipótesis que de ellas se desprenden, el aprendizaje más urgente y el experimento mínimo para obtenerlo (ver Figura 5).
 
 ![Lean UX Canvas de Pozzo](images/chapter_1/lean_ux_canvas.png){width=100%}
 
