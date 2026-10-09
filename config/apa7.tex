@@ -114,7 +114,26 @@
 
 % Figuras y tablas donde se escriben, con el rotulo arriba.
 \usepackage{float}
-\makeatletter\def\fps@figure{H}\def\fps@table{H}\makeatother
+% Las figuras flotan: si una no cabe en lo que queda de la pagina, el texto que
+% sigue llena ese hueco y la figura sale arriba de la pagina siguiente. Con [H]
+% la pagina se quedaba a medias, con la frase que presenta la figura sola al
+% pie. Para que una figura no se aleje de su seccion, placeins las vacia antes
+% de cada capitulo y de cada seccion de segundo y tercer nivel.
+\makeatletter\def\fps@figure{!htbp}\def\fps@table{H}\makeatother
+\usepackage[section]{placeins}
+\usepackage{etoolbox}
+\AtBeginDocument{%
+  \pretocmd{\subsection}{\FloatBarrier}{}{}%
+  \pretocmd{\subsubsection}{\FloatBarrier}{}{}}
+% Menos restricciones para colocar figuras arriba o abajo de una pagina de
+% texto, en lugar de mandarlas a paginas solo de figuras.
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
 % Paquetes de tablas. Pandoc los carga solo si encuentra tablas en el documento,
 % pero config/table-grid.lua las convierte en LaTeX crudo antes de que pandoc las
 % cuente, asi que hay que cargarlos aqui. Cargar dos veces un paquete no molesta.
@@ -188,14 +207,15 @@
 % solo si ve imagenes fuera de las tablas, asi que aqui se garantiza; y se
 % redefine para que el tope de alto deje sitio al titulo que la precede y a su
 % rotulo: con la imagen a pagina completa, esos dos no entraban y LaTeX
-% metia paginas en blanco alrededor.
+% metia paginas en blanco alrededor. La reserva tambien cubre la nota APA que
+% puede ir debajo de la imagen.
 \ifdefined\pandocbounded\else
   \newsavebox\pandoc@box
   \newcommand*\pandocbounded{}%
 \fi
 \renewcommand*\pandocbounded[1]{%
   \sbox\pandoc@box{#1}%
-  \Gscale@div\@tempa{\dimexpr\textheight-6\baselineskip\relax}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempa{\dimexpr\textheight-10\baselineskip\relax}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
   \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
   \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi
   \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%

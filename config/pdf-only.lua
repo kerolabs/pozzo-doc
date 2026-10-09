@@ -156,24 +156,43 @@ end
 -- *Nota.* y que en el Markdown se escribe justo despues de la imagen. Entra en
 -- la figura para que no se separe de ella en otra pagina, alineado a la
 -- izquierda y sin sangria, como lo pide APA.
+-- Largo maximo, en caracteres, del parrafo que presenta una figura y que se
+-- mantiene en la misma pagina que ella.
+local FRASE_QUE_PRESENTA = 200
+
 local function esNota(b)
   return b and b.t == 'Para' and #b.content > 0 and b.content[1].t == 'Emph'
     and pandoc.utils.stringify(b.content[1]) == 'Nota.'
 end
 
-local function figuraConTitulo(fig, nota)
+local function figuraConTitulo(fig, nota, fija)
   local titulo = pandoc.utils.blocks_to_inlines(fig.caption.long)
   if #titulo == 0 then return nil end
   local etiqueta = fig.identifier ~= '' and ('\\label{' .. fig.identifier .. '}') or ''
   local caption = pandoc.List({ pandoc.RawInline('latex', '\\caption{') })
   caption:extend(titulo)
   caption:insert(pandoc.RawInline('latex', '}' .. etiqueta))
-  local salida = pandoc.List({ pandoc.RawBlock('latex', '\\begin{figure}\n\\centering') })
+  local abrir = fija and '\\begin{figure}[H]\n\\centering' or '\\begin{figure}\n\\centering'
+  local salida = pandoc.List({ pandoc.RawBlock('latex', abrir) })
   salida:insert(pandoc.Plain(caption))
   -- Tras el titulo la imagen abre un parrafo nuevo, que toma la sangria de 0.5 in
   -- del texto y empuja la imagen fuera del margen derecho.
   for _, bloque in ipairs(fig.content) do
     if bloque.t == 'Plain' or bloque.t == 'Para' then
+      -- Con un ancho fijo ({width=85%}) pandoc limita el alto a \textheight y no
+      -- usa \pandocbounded, que es el que deja sitio al titulo y a la nota; una
+      -- imagen alta se salia de la pagina. Se envuelve igual que las demas.
+      local contenido = pandoc.List()
+      for _, el in ipairs(bloque.content) do
+        if el.t == 'Image' and el.attributes.width then
+          contenido:insert(pandoc.RawInline('latex', '\\pandocbounded{'))
+          contenido:insert(el)
+          contenido:insert(pandoc.RawInline('latex', '}'))
+        else
+          contenido:insert(el)
+        end
+      end
+      bloque.content = contenido
       bloque.content:insert(1, pandoc.RawInline('latex', '\\noindent'))
     end
   end
@@ -187,8 +206,55 @@ local function figuraConTitulo(fig, nota)
   return salida
 end
 
+-- En una User Story, todos los escenarios de Acceptance Criteria van en una sola
+-- celda, que puede ocupar media pagina. Una fila de tabla no se parte entre
+-- paginas, asi que si esa celda no entraba la tabla dejaba su cabecera en una
+-- hoja y los criterios en la siguiente, con media pagina en blanco entre ambas.
+-- En el PDF cada escenario pasa a ser una fila propia, con la etiqueta
+-- abarcandolas a todas, y la tabla puede cortarse entre un escenario y otro.
+local function escenariosEnFilas(tbl)
+  for _, cuerpo in ipairs(tbl.bodies) do
+    local filas = pandoc.List()
+    for _, fila in ipairs(cuerpo.body) do
+      local celdas = fila.cells
+      local partes = nil
+      if #celdas == 2 and pandoc.utils.stringify(celdas[1].contents) == 'Acceptance Criteria'
+          and #celdas[2].contents == 1 and celdas[2].contents[1].content then
+        partes = pandoc.List()
+        local actual = pandoc.List()
+        for _, el in ipairs(celdas[2].contents[1].content) do
+          if el.t == 'Strong' and pandoc.utils.stringify(el):match('^Escenario') and #actual > 0 then
+            while #actual > 0 and actual[#actual].t == 'LineBreak' do actual:remove(#actual) end
+            partes:insert(actual)
+            actual = pandoc.List()
+          end
+          actual:insert(el)
+        end
+        partes:insert(actual)
+      end
+      if partes and #partes > 1 then
+        local etiqueta = celdas[1]
+        etiqueta.row_span = #partes
+        for k, inlines in ipairs(partes) do
+          local contenido = pandoc.Cell({ pandoc.Plain(inlines) }, celdas[2].alignment, 1, celdas[2].col_span)
+          if k == 1 then
+            filas:insert(pandoc.Row({ etiqueta, contenido }, fila.attr))
+          else
+            filas:insert(pandoc.Row({ contenido }, fila.attr))
+          end
+        end
+      else
+        filas:insert(fila)
+      end
+    end
+    cuerpo.body = filas
+  end
+  return tbl
+end
+
 function Table(tbl)
   if not FORMAT:match('latex') then return nil end
+  tbl = escenariosEnFilas(tbl)
   return pandoc.walk_block(tbl, {
     Str = conCortes,
     Inlines = function(inlines)
@@ -233,8 +299,33 @@ function Blocks(bloques)
     if b == notaUsada then goto siguiente end
     if b.t == 'Figure' then
       local nota = esNota(bloques[i + 1]) and bloques[i + 1] or nil
-      local figura = figuraConTitulo(b, nota)
+      local previo = bloques[i - 1]
+      local presentada = previo and previo.t == 'Para'
+        and utf8.len(pandoc.utils.stringify(previo)) <= FRASE_QUE_PRESENTA
+      local figura = figuraConTitulo(b, nota, presentada)
       if figura then
+        if presentada then
+          -- La frase corta que presenta la figura ("La Figura 20 muestra...")
+          -- viaja con ella: se mide la imagen y, si la frase, el titulo, la
+          -- imagen y la nota no caben en lo que queda, todo pasa a la pagina
+          -- siguiente. Si no, la frase quedaba sola al pie y la figura arriba
+          -- de la otra hoja.
+          local imagen = pandoc.write(pandoc.Pandoc({ b.content[1] }), 'latex')
+          local lineasNota = nota and (math.ceil(utf8.len(pandoc.utils.stringify(nota)) / 88) + 1) or 0
+          local donde = #salida
+          while donde > 1 and salida[donde] ~= previo do donde = donde - 1 end
+          -- Un titulo en linea (#### y #####) se imprime recien cuando empieza
+          -- el parrafo siguiente; medir entre los dos abriria un parrafo dentro
+          -- de la caja de medida y el titulo se perderia en ella. La medida va
+          -- antes del titulo, que asi tambien viaja con la figura.
+          while salida[donde - 1] and salida[donde - 1].t == 'Header' and salida[donde - 1].level >= 4 do
+            donde = donde - 1
+          end
+          salida:insert(donde, pandoc.RawBlock('latex', string.format(
+            '\\begingroup\\setbox0=\\vbox{\\hsize=\\linewidth %s}' ..
+            '\\Needspace*{\\dimexpr\\ht0+\\dp0+%d\\baselineskip\\relax}\\endgroup',
+            imagen, 6 + lineasNota)))
+        end
         salida:extend(figura)
         notaUsada = nota
         goto siguiente
