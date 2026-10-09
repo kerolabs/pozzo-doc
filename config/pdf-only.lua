@@ -145,8 +145,17 @@ end
 -- espacio que deja caption (skip) va del lado de la imagen solo cuando el titulo
 -- esta arriba; abajo, "Figura N" quedaba pegado al borde de la imagen. Se arma la
 -- figura a mano con el titulo primero.
-function Figure(fig)
-  if not FORMAT:match('latex') then return nil end
+--
+-- Debajo de la imagen puede ir la nota de APA 7: un parrafo que empieza con
+-- *Nota.* y que en el Markdown se escribe justo despues de la imagen. Entra en
+-- la figura para que no se separe de ella en otra pagina, alineado a la
+-- izquierda y sin sangria, como lo pide APA.
+local function esNota(b)
+  return b and b.t == 'Para' and #b.content > 0 and b.content[1].t == 'Emph'
+    and pandoc.utils.stringify(b.content[1]) == 'Nota.'
+end
+
+local function figuraConTitulo(fig, nota)
   local titulo = pandoc.utils.blocks_to_inlines(fig.caption.long)
   if #titulo == 0 then return nil end
   local etiqueta = fig.identifier ~= '' and ('\\label{' .. fig.identifier .. '}') or ''
@@ -163,6 +172,11 @@ function Figure(fig)
     end
   end
   salida:extend(fig.content)
+  if nota then
+    local texto = pandoc.List({ pandoc.RawInline('latex', '\\par\\vspace{6pt}\\raggedright\\noindent ') })
+    texto:extend(nota.content)
+    salida:insert(pandoc.Plain(texto))
+  end
   salida:insert(pandoc.RawBlock('latex', '\\end{figure}'))
   return salida
 end
@@ -208,7 +222,18 @@ end
 function Blocks(bloques)
   if not FORMAT:match('latex') then return nil end
   local salida = pandoc.List()
+  local notaUsada = nil
   for i, b in ipairs(bloques) do
+    if b == notaUsada then goto siguiente end
+    if b.t == 'Figure' then
+      local nota = esNota(bloques[i + 1]) and bloques[i + 1] or nil
+      local figura = figuraConTitulo(b, nota)
+      if figura then
+        salida:extend(figura)
+        notaUsada = nota
+        goto siguiente
+      end
+    end
     if b.t == 'Header' and bloques[i + 1] and bloques[i + 1].t == 'Table' then
       salida:insert(pandoc.RawBlock(
         'latex', '\\reservarAntesDeTabla{' .. RESERVA_ANTES_DE_TABLA .. '}'))
@@ -223,6 +248,7 @@ function Blocks(bloques)
     else
       salida:insert(b)
     end
+    ::siguiente::
   end
   return salida
 end
