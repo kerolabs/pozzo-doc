@@ -72,7 +72,7 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
                 accountQueryService = component "AccountQueryService" "Resuelve el perfil, la existencia de una cuenta por celular y la validación del token." "Spring Service" "IdentityAccess,Application"
                 identityDomain = component "Identity & Access Domain Model" "Agregados Account, VerificationCode y Session, sus value objects y los servicios de dominio CodeGenerationService y TokenService." "Java, POJOs" "IdentityAccess,Domain"
                 identityRepositories = component "Identity & Access Repositories" "Implementación JPA de AccountRepository, VerificationCodeRepository y SessionRepository sobre el esquema identity_access." "Spring Data JPA" "IdentityAccess,Infrastructure"
-                smsSender = component "TwilioVerifyCodeChannel" "Adaptador (capa anticorrupción) que pide a Twilio Verify enviar y comprobar el código." "Spring Service (ACL)" "IdentityAccess,Infrastructure"
+                smsSender = component "SmsGateSmsSender" "Adaptador (capa anticorrupción) que entrega el SMS con el código a SMS Gate, que lo envía desde un celular Android del equipo." "Spring Service (ACL)" "IdentityAccess,Infrastructure"
                 jwtTokenService = component "JwtTokenService" "Implementación de TokenService con JSON Web Tokens firmados." "Spring Security, jjwt" "IdentityAccess,Infrastructure"
                 authorizationFilter = component "BearerAuthorizationRequestFilter" "Filtro que valida el token de cada solicitud y expone la identidad del integrante a los demás módulos." "Spring Security Filter" "IdentityAccess,Infrastructure"
             }
@@ -171,7 +171,7 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
         pozzo.api.profilesController -> pozzo.api.accountQueryService "Envía consultas"
         pozzo.api.authenticationCommandService -> pozzo.api.identityDomain "Usa los agregados y los servicios de dominio"
         pozzo.api.authenticationCommandService -> pozzo.api.identityRepositories "Lee y guarda"
-        pozzo.api.authenticationCommandService -> pozzo.api.smsSender "Envía y comprueba el código"
+        pozzo.api.authenticationCommandService -> pozzo.api.smsSender "Envía el código generado"
         pozzo.api.authenticationCommandService -> pozzo.api.jwtTokenService "Emite el token"
         pozzo.api.accountQueryService -> pozzo.api.identityRepositories "Lee"
         pozzo.api.authorizationFilter -> pozzo.api.jwtTokenService "Valida el token"
