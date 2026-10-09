@@ -115,9 +115,26 @@
 % Figuras y tablas donde se escriben, con el rotulo arriba.
 \usepackage{float}
 \makeatletter\def\fps@figure{H}\def\fps@table{H}\makeatother
+% Paquetes de tablas. Pandoc los carga solo si encuentra tablas en el documento,
+% pero config/table-grid.lua las convierte en LaTeX crudo antes de que pandoc las
+% cuente, asi que hay que cargarlos aqui. Cargar dos veces un paquete no molesta.
+% longtable va antes que caption: cargado despues, caption no alcanza a parchear
+% el pie de las longtable y el rotulo "Tabla N" no llega a imprimirse.
+\usepackage{longtable,booktabs,array,multirow,calc}
 \usepackage{caption}
-\captionsetup{position=above, labelfont=bf, textfont=it,
+\captionsetup{position=above, labelfont=bf, textfont=it, labelsep=newline,
               singlelinecheck=false, justification=raggedright, skip=6pt}
+% Entre el titulo de una figura y la imagen, algo mas de aire que en las tablas:
+% una captura con borde oscuro arriba se lee como parte del titulo si va pegada.
+\captionsetup[figure]{skip=12pt}
+
+% El pie de una longtable se compone dentro de una caja de \LTcapwidth, que por
+% omision mide 4 in: mas angosta que el texto y sin sitio para un titulo largo.
+% Igualarla al ancho del texto es lo que hace que el rotulo "Tabla N" aparezca.
+\setlength{\LTcapwidth}{\textwidth}
+\captionsetup[longtable]{position=above, labelfont=bf, textfont=it,
+                         labelsep=newline, singlelinecheck=false,
+                         justification=raggedright, skip=6pt}
 
 % En espanol babel rotula "Cuadro"; APA usa "Tabla".
 \AtBeginDocument{%
@@ -132,10 +149,21 @@
     \setlength{\csllabelwidth}{0pt}%
   \fi}
 
+% TeX no separa en silabas la primera palabra de un parrafo, y en una celda la
+% primera palabra suele ser la unica (contributions, pozzo-backend): en una
+% columna angosta se sale del borde. Un espacio nulo al inicio de cada celda la
+% vuelve divisible. \arraybackslash lo usan todas las columnas que arma pandoc.
+\let\apaArrayBackslash\arraybackslash
+\renewcommand{\arraybackslash}{\apaArrayBackslash\hspace{0pt}\ignorespaces}
+
 % Bloques de codigo que se parten en vez de salirse del margen.
 \usepackage{fvextra}
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{%
   breaklines,breaknonspaceingroup,breakanywhere,commandchars=\\\{\}}
+
+% Los bloques sin lenguaje (por ejemplo los archivos .feature) salen como verbatim;
+% tambien se parten, para que una linea larga no se corte en el margen.
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere}
 
 % Celdas combinadas en vertical (rowspan). multirow centra el texto entre las
 % filas que abarca calculando que todas miden lo mismo, y en una tabla con
@@ -148,10 +176,6 @@
   \fi}
 \makeatother
 
-% Paquetes de tablas. Pandoc los carga solo si encuentra tablas en el documento,
-% pero config/table-grid.lua las convierte en LaTeX crudo antes de que pandoc las
-% cuente, asi que hay que cargarlos aqui. Cargar dos veces un paquete no molesta.
-\usepackage{longtable,booktabs,array,multirow,calc}
 \makeatletter
 \ifdefined\c@none\else
   \newcounter{none} % contador que pandoc usa para tablas sin numerar

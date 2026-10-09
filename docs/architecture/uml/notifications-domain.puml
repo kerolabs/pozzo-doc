@@ -21,43 +21,45 @@ skinparam interface {
 hide empty members
 
   class Device <<Aggregate Root>> {
-    - id : DeviceId
-    - memberId : MemberId
-    - pushToken : PushToken
+    - id : UUID
+    - accountId : UUID
+    - pushToken : String
     - platform : Platform
-    - registeredAt : LocalDateTime
+    - registeredAt : Instant
     - active : boolean
-    + register(memberId : MemberId, token : PushToken, platform : Platform) : Device {static}
-    + refreshToken(token : PushToken) : void
+    + register(accountId : UUID, pushToken : String, platform : Platform, now : Instant) : Device {static}
+    + assignTo(accountId : UUID, platform : Platform, now : Instant) : void
     + deactivate() : void
   }
 
   class ReminderPlan <<Aggregate Root>> {
-    - id : ReminderPlanId
-    - groupId : GroupId
+    - id : UUID
+    - groupId : UUID
     - offsetsInDays : List<Integer>
     - sendHour : int
     - enabled : boolean
-    + defaultFor(groupId : GroupId) : ReminderPlan {static}
-    + configure(offsets : List<Integer>, sendHour : int, enabled : boolean) : void
-    + scheduleFor(cutoffDate : LocalDate) : List<LocalDateTime>
+    - updatedAt : Instant
+    + defaultFor(groupId : UUID, now : Instant) : ReminderPlan {static}
+    + configure(offsets : List<Integer>, sendHour : int, enabled : boolean, now : Instant) : void
+    + scheduleFor(cutoffDate : LocalDate, zone : ZoneId) : Map<Integer, Instant>
   }
 
   class Notification <<Aggregate Root>> {
-    - id : NotificationId
-    - memberId : MemberId
-    - groupId : GroupId
+    - id : UUID
+    - accountId : UUID
+    - groupId : UUID
+    - periodId : UUID
     - kind : NotificationKind
     - content : NotificationContent
-    - dedupKey : DedupKey
-    - scheduledAt : LocalDateTime
-    - sentAt : LocalDateTime
+    - dedupKey : String
+    - scheduledAt : Instant
+    - sentAt : Instant
     - status : NotificationStatus
     - attempts : int
-    + reminder(memberId, groupId, periodId, when, content) : Notification {static}
-    + alert(memberId, groupId, content, dedupKey) : Notification {static}
-    + isDue(now : LocalDateTime) : boolean
-    + markSent() : void
+    + reminder(accountId, groupId, periodId, content, dedupKey, scheduledAt) : Notification {static}
+    + alert(accountId, groupId, periodId, content, dedupKey, now) : Notification {static}
+    + isDue(now : Instant) : boolean
+    + markSent(now : Instant) : void
     + markFailed() : void
     + cancel() : void
   }
@@ -66,13 +68,6 @@ hide empty members
     - title : String
     - body : String
     - deepLink : String
-  }
-  class DedupKey <<Value Object>> {
-    - value : String
-    + of(kind : NotificationKind, memberId : MemberId, referenceId : String) : DedupKey {static}
-  }
-  class PushToken <<Value Object>> {
-    - value : String
   }
 
   enum NotificationKind {
@@ -90,37 +85,29 @@ hide empty members
     IOS
   }
 
-  interface ReminderSchedulingService <<Domain Service>> {
-    + scheduleReminders(plan : ReminderPlan, periodId : PeriodId, cutoffDate : LocalDate, pending : List<MemberId>) : List<Notification>
-    + cancelReminders(periodId : PeriodId, memberId : MemberId) : void
-  }
-
   interface DeviceRepository <<Repository>> {
-    + findActiveByMemberId(memberId : MemberId) : List<Device>
-    + findByPushToken(token : PushToken) : Optional<Device>
+    + findById(id : UUID) : Optional<Device>
+    + findByPushToken(pushToken : String) : Optional<Device>
+    + findActiveByAccountId(accountId : UUID) : List<Device>
     + save(device : Device) : Device
   }
   interface ReminderPlanRepository <<Repository>> {
-    + findByGroupId(groupId : GroupId) : Optional<ReminderPlan>
+    + findByGroupId(groupId : UUID) : Optional<ReminderPlan>
     + save(plan : ReminderPlan) : ReminderPlan
   }
   interface NotificationRepository <<Repository>> {
-    + findDue(now : LocalDateTime) : List<Notification>
-    + findScheduledByPeriodAndMember(periodId : PeriodId, memberId : MemberId) : List<Notification>
-    + existsByDedupKey(key : DedupKey) : boolean
-    + findByMemberId(memberId : MemberId) : List<Notification>
+    + findDue(now : Instant, limit : int) : List<Notification>
+    + findScheduledRemindersByPeriodIdAndAccountId(periodId : UUID, accountId : UUID) : List<Notification>
+    + existsByDedupKey(dedupKey : String) : boolean
+    + findSentByAccountId(accountId : UUID, limit : int) : List<Notification>
     + save(notification : Notification) : Notification
   }
 
-Device "1" *-- "1" PushToken : pushToken
 Device --> Platform
 Notification "1" *-- "1" NotificationContent : content
-Notification "1" *-- "1" DedupKey : dedupKey
 Notification --> NotificationKind
 Notification --> NotificationStatus
 ReminderPlan ..> Notification : schedules
-ReminderSchedulingService ..> ReminderPlan : uses
-ReminderSchedulingService ..> Notification : creates
 DeviceRepository ..> Device : persists
 ReminderPlanRepository ..> ReminderPlan : persists
 NotificationRepository ..> Notification : persists

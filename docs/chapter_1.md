@@ -10,9 +10,10 @@ Kerolabs es una startup peruana de tecnología financiera comunitaria enfocada e
 
 Pozzo permite centralizar la gestión de la junta sin intervenir directamente en el movimiento del dinero. La cabeza de junta puede configurar el monto, número de participantes, periodicidad y asignación de turnos, mientras que los participantes pueden consultar su calendario, registrar sus aportes mediante vouchers y conocer en tiempo real el estado del pozo. De esta manera, la aplicación busca reducir errores de conteo, facilitar la verificación de pagos y disminuir la carga de seguimiento que actualmente recae sobre el organizador.
 
-La propuesta de Kerolabs está orientada principalmente a grupos de familiares, amigos, vecinos o compañeros de trabajo que ya utilizan juntas como mecanismo de ahorro y desean mantener su dinámica habitual, pero con una administración más ordenada, transparente y verificable. A través de Pozzo, la startup busca combinar la confianza social propia de las juntas con herramientas digitales que simplifiquen su operación.
+La propuesta de Kerolabs está orientada principalmente a grupos de familiares, amigos, vecinos o compañeros de trabajo que ya utilizan juntas como mecanismo de ahorro y desean mantener su dinámica habitual, pero con una administración más ordenada, transparente y verificable. A través de Pozzo, la startup busca combinar la confianza social propia de las juntas con herramientas digitales que simplifiquen su operación (ver Tabla 6).
 
 <table>
+  <caption>Misión y visión de Kero</caption>
   <thead>
     <tr>
       <th align="center"><b>Misión</b></th>
@@ -29,7 +30,11 @@ La propuesta de Kerolabs está orientada principalmente a grupos de familiares, 
 
 ### 1.1.2. Perfiles de integrantes del equipo
 
+La Tabla 7 presenta los perfiles de los integrantes del equipo.
+
 <table>
+  <caption>Perfiles de los integrantes del equipo</caption>
+  <colgroup><col width="28%"><col width="72%"></colgroup>
   <thead>
     <tr>
       <th>Integrante</th>
@@ -38,23 +43,23 @@ La propuesta de Kerolabs está orientada principalmente a grupos de familiares, 
   </thead>
   <tbody>
     <tr>
-      <td><img src="images/chapter_1/leonardo_sanchez_benavente.jpg" alt="Leonardo Sanchez Benavente"></td>
+      <td><img src="images/chapter_1/leonardo_sanchez_benavente.png" alt="Leonardo Sanchez Benavente" width="150"></td>
       <td><b>Leonardo Matias Sanchez Benavente</b><br><b>Código de estudiante:</b> U20241b184<br><b>Carrera:</b> Ingeniería de Software<br><br>Estudiante de Ingeniería de Software con base en desarrollo web full-stack: Angular y TypeScript en el cliente, Java con Spring Boot y APIs REST bajo enfoque DDD en el servidor.<br><br></td>
     </tr>
     <tr>
-      <td><img src="images/chapter_1/gabriela_tirado_carrera.jpeg" alt="Gabriela Tirado Carrera"></td>
+      <td><img src="images/chapter_1/gabriela_tirado_carrera.png" alt="Gabriela Tirado Carrera" width="150"></td>
       <td><b>Gabriela Luciana Tirado Carrera</b><br><b>Código de estudiante:</b> U202419592<br><b>Carrera:</b> Ingeniería de Software<br><br>Estudiante de Ingeniería de Software con conocimientos en desarrollo Full Stack, incluyendo Angular, Vue, HTML, CSS, C#, Java, JavaScript y SQL. Hábil en trabajo de equipos y desarrollo de interfaces.<br><br></td>
     </tr>
     <tr>
-      <td><img src="images/chapter_1/julius_camargo.png" alt="Joseph Julius Camargo Briceño"></td>
+      <td><img src="images/chapter_1/julius_camargo.png" alt="Joseph Julius Camargo Briceño" width="150"></td>
       <td><b>Joseph Julius Camargo Briceño</b><br><b>Código de estudiante:</b> U20241D992<br><b>Carrera:</b> Ingeniería de Software<br><br>Estudiante de Ingeniería de Software especializado en C++ y en desarrollo backend con Java y C#, con conocimientos de HTML, CSS básico y frameworks frontend como Vue y Angular. Orientado a resultados, tanto a nivel de equipo como individual, con capacidad para potenciar el rendimiento del grupo. Abierto a las ideas y opiniones ajenas, y promotor del diálogo y el debate constructivo ante perspectivas en conflicto.<br><br></td>
     </tr>
     <tr>
-      <td><img src="images/chapter_1/fernando_flores.png" alt="Jose Fernando Flores Pinchi"></td>
+      <td><img src="images/chapter_1/fernando_flores.png" alt="Jose Fernando Flores Pinchi" width="150"></td>
       <td><b>Jose Fernando Flores Pinchi</b><br><b>Código de estudiante:</b> U20241A290<br><b>Carrera:</b> Ingeniería de Software<br><br>Estudiante de Ingeniería de Software de cuarto ciclo, con conocimientos en bases de datos, HTML, CSS y frameworks como Vue y Angular, con orientación hacia la ciberseguridad. Responsable y adaptable, con interés en el aprendizaje continuo y la innovación tecnológica. Aplica sus conocimientos en proyectos prácticos que aporten valor y mejoren la vida cotidiana, fortaleciendo sus competencias mediante la colaboración con otros desarrolladores.<br><br></td>
     </tr>
     <tr>
-      <td><img src="images/chapter_1/estefano_solis_campos.png" alt="Estefano Sebastian Solis Campos"></td>
+      <td><img src="images/chapter_1/estefano_solis_campos.png" alt="Estefano Sebastian Solis Campos" width="150"></td>
       <td><b>Estefano Sebastian Solis Campos</b><br><b>Código de estudiante:</b> U202314354<br><b>Carrera:</b> Ingeniería de Software<br><br>Estudiante apasionado de la carrera de Ingeniería de Software, enfocado en aplicar sus conocimientos para el desarrollo de soluciones tecnológicas innovadoras y en constante búsqueda de oportunidades de aprendizaje y crecimiento profesional en el sector tecnológico.</td>
     </tr>
   </tbody>
@@ -66,7 +71,7 @@ Kerolabs es una iniciativa de tecnología financiera comunitaria orientada a dig
 
 ### 1.2.1. Antecedentes y problemática
 
-La junta, denominada también pandero o tanomoshi, es una asociación rotativa de ahorro y crédito en la que un grupo de personas conocidas entre sí aporta un monto fijo con periodicidad acordada, y el fondo acumulado en cada período se entrega íntegro a un integrante distinto hasta que todos han cobrado una vez. La literatura académica estudia esta figura bajo la denominación de **ROSCA** (*Rotating Savings and Credit Association*), presente con nombres propios en prácticamente todo el mundo en desarrollo: *tanda* en México, *susu* en África Occidental, *chit fund* en la India y *pasanaku* en Bolivia.
+La junta, denominada también pandero o tanomoshi, es una asociación rotativa de ahorro y crédito en la que un grupo de personas conocidas entre sí aporta un monto fijo con periodicidad acordada, y el fondo acumulado en cada período se entrega íntegro a un integrante distinto hasta que todos han cobrado una vez. La literatura académica estudia esta figura bajo la denominación de **ROSCA** (*Rotating Savings and Credit Association*), presente con nombres propios en prácticamente todo el mundo en desarrollo: *tanda* en México, *susu* en África Occidental, *chit fund* en la India y *pasanaku* en Bolivia. Una revisión bibliométrica de cincuenta años de investigación sobre ROSCAs agrupa esa literatura en cuatro líneas: las prácticas de ahorro informal, el capital social y el empoderamiento de las mujeres, las finanzas para el desarrollo en economías de bajos ingresos y los mecanismos de confianza, reciprocidad y cumplimiento dentro del grupo; también registra el paso reciente de la descripción etnográfica a la inclusión financiera digital, y propone integrar estas asociaciones a la banca móvil [@zafar2026roscas]. Su vigencia no es solo cultural: con datos de 9328 grupos de ahorro de cinco países de África subsahariana, un estudio encontró que estas asociaciones, que dependen del capital de sus propios integrantes, aumentan sus préstamos cuando una sequía golpea a la comunidad, sobre todo si ya acumularon capital en el ciclo [@vanhemert2026savingsgroups]. Es decir, funcionan como red de apoyo financiero justamente cuando la banca formal no llega, siempre que el grupo sepa con certeza cuánto ha reunido.
 
 Su uso en el Perú sigue siendo extendido: los estudios sobre ahorro voluntario ubican a las juntas y panderos como la principal forma de ahorro informal después del dinero guardado en casa, con el 7 % de la población que ahorra a través de ellas [@sbs2020ahorro]. La razón predominante para preferir este mecanismo, según la misma fuente, no es la ausencia de oferta financiera sino la desconfianza hacia las entidades formales.
 
@@ -317,48 +322,9 @@ y la funcionalidad que lo habilita.
 
 #### 1.2.2.4. Lean UX Canvas
 
-<table>
-  <colgroup>
-    <col width="16.66%">
-    <col width="16.66%">
-    <col width="16.66%">
-    <col width="16.66%">
-    <col width="16.66%">
-    <col width="16.66%">
-  </colgroup>
-  <thead>
-    <tr>
-      <th colspan="2"><b>1. Problema de negocio</b></th>
-      <th colspan="2"><b>5. Ideas de soluciones</b></th>
-      <th colspan="2"><b>2. Resultados comerciales</b></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="2">Muchas juntas informales se administran a mano, con el dinero moviéndose por Yape pero las cuentas en un cuaderno y en capturas de WhatsApp. Esto genera errores de conteo, falta de prueba de pago y poca visibilidad sobre cuánto falta para el pozo. En ese contexto, Pozzo busca responder: ¿cómo administrar una junta que ya existe, validando los aportes y mostrando el avance en tiempo real, sin mover el dinero por la plataforma?</td>
-      <td colspan="2">Lector de vouchers de Yape que valida monto, fecha y destinatario.<br>Calendario de turnos con el estado de los aportes en tiempo real.<br>Recordatorios automáticos que suben de tono.<br>Asignación de turnos por sorteo, orden acordado o subasta.<br>Historial de cumplimiento portable entre juntas.<br>Incorporación por enlace de invitación o desde la propia aplicación.</td>
-      <td colspan="2">Todas las juntas piloto terminan su ciclo en la aplicación sin volver al cuaderno.<br>Al menos el 80 % de los aportes se validan sin revisión manual de la cabeza.<br>Cero recordatorios de cobranza enviados a mano por la cabeza durante el ciclo.<br>Ninguna discrepancia sin comprobante localizable en la aplicación.<br>Al menos una de cada tres juntas nuevas llega por integrantes que ya usaron Pozzo.</td>
-    </tr>
-    <tr>
-      <td colspan="3"><b>3. Usuarios y clientes</b></td>
-      <td colspan="3"><b>4. Beneficios del usuario</b></td>
-    </tr>
-    <tr>
-      <td colspan="3">La cabeza de junta arma el grupo y hoy lleva las cuentas a mano. Los participantes aportan con la periodicidad que el grupo haya pactado y esperan su turno para cobrar. El participante al que le toca cobrar necesita ver quién ya depositó y quién falta. Todos ya usan Yape y WhatsApp.</td>
-      <td colspan="3">La cabeza deja de perseguir gente y de equivocarse en el conteo.<br>El participante tiene una prueba clara de su aporte.<br>El que va a cobrar sabe en tiempo real cuánto falta para el pozo.<br>Los recordatorios evitan que alguien haga de cobrador.<br>El historial de cumplimiento abre la puerta a nuevas juntas.</td>
-    </tr>
-    <tr>
-      <td colspan="2"><b>6. Hipótesis</b></td>
-      <td colspan="2"><b>7. ¿Qué es lo más importante que necesitamos aprender primero?</b></td>
-      <td colspan="2"><b>8. ¿Cuál es la menor cantidad de trabajo que necesitamos hacer para aprenderlo?</b></td>
-    </tr>
-    <tr>
-      <td colspan="2">La validación automática del voucher reduce el tiempo que la cabeza dedica a administrar la junta.<br>El calendario en tiempo real traslada a la aplicación las discrepancias sobre un aporte.<br>Los recordatorios automáticos evitan que el organizador tenga que cobrar uno por uno.<br>El reparto por sorteo, orden acordado o subasta permite adoptar Pozzo sin cambiar la costumbre del grupo.<br>El historial de cumplimiento lleva participantes hacia juntas nuevas.<br>La invitación desde la aplicación permite registrar el primer aporte sin configurar nada.</td>
-      <td colspan="2">Lo primero que debemos validar es si las cabezas y los participantes confían en que la validación del voucher de Yape basta para dar por registrado un aporte, sin revisarlo a mano. Toda la propuesta de valor depende de esa confianza.</td>
-      <td colspan="2">Un experimento sin código: acompañar 2 o 3 juntas reales durante un ciclo, recibiendo las capturas de Yape por WhatsApp y respondiendo a cada participante "aporte registrado" tras validarlas a mano, como si lo hiciera el sistema. Al cierre, medir si la cabeza dejó de revisar sus movimientos por su cuenta y cuántos reclamos surgieron. Si la confianza se sostiene, recién entonces construir el lector de vouchers, el calendario y los recordatorios.</td>
-    </tr>
-  </tbody>
-</table>
+El Lean UX Canvas recoge, en una sola lámina, los ocho recuadros del proceso: el problema de negocio, los resultados comerciales esperados, los usuarios y sus beneficios, las soluciones propuestas, las hipótesis que de ellas se desprenden, el aprendizaje más urgente y el experimento mínimo para obtenerlo (ver Figura 5).
+
+![Lean UX Canvas de Pozzo](images/chapter_1/lean_ux_canvas.png){width=100%}
 
 ## 1.3. Segmentos objetivo
 

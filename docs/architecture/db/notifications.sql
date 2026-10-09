@@ -45,19 +45,6 @@ CREATE TABLE notifications.notifications (
     CONSTRAINT ck_notifications_status CHECK (status IN ('SCHEDULED', 'SENT', 'CANCELLED', 'FAILED'))
 );
 
-CREATE TABLE notifications.deliveries (
-    id              UUID PRIMARY KEY,
-    notification_id UUID NOT NULL,
-    device_id       UUID NOT NULL,
-    attempted_at    TIMESTAMP NOT NULL,
-    result          VARCHAR(10) NOT NULL,
-    provider_message_id VARCHAR(120),
-    error           VARCHAR(200),
-    CONSTRAINT fk_deliveries_notification FOREIGN KEY (notification_id) REFERENCES notifications.notifications (id),
-    CONSTRAINT fk_deliveries_device FOREIGN KEY (device_id) REFERENCES notifications.devices (id),
-    CONSTRAINT ck_deliveries_result CHECK (result IN ('DELIVERED', 'FAILED'))
-);
-
 CREATE INDEX ix_notifications_due ON notifications.notifications (status, scheduled_at);
 CREATE INDEX ix_notifications_period_member ON notifications.notifications (period_id, member_id, status);
 CREATE INDEX ix_devices_member ON notifications.devices (member_id, active);

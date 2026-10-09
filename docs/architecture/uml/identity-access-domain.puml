@@ -21,43 +21,46 @@ skinparam interface {
 hide empty members
 
   class Account <<Aggregate Root>> {
-    - id : AccountId
+    - id : UUID
     - phoneNumber : PhoneNumber
     - profile : Profile
-    - termsAcceptedAt : LocalDateTime
+    - termsAcceptedAt : Instant
     - status : AccountStatus
-    - createdAt : LocalDateTime
-    + register(phone : PhoneNumber, profile : Profile, termsAccepted : boolean) : Account {static}
-    + updateProfile(profile : Profile) : void
+    + register(phoneNumber : PhoneNumber, profile : Profile, termsAccepted : boolean, now : Instant) : Account {static}
+    + updateProfile(profile : Profile, now : Instant) : void
     + hasAcceptedTerms() : boolean
+    + isActive() : boolean
     + deactivate() : void
   }
 
   class VerificationCode <<Aggregate Root>> {
-    - id : VerificationId
+    - id : UUID
     - phoneNumber : PhoneNumber
     - codeHash : String
-    - issuedAt : LocalDateTime
-    - expiresAt : LocalDateTime
+    - issuedAt : Instant
+    - expiresAt : Instant
     - attempts : int
     - status : VerificationStatus
-    + issue(phone : PhoneNumber, code : String) : VerificationCode {static}
-    + verify(input : String, now : LocalDateTime) : boolean
-    + isExpired(now : LocalDateTime) : boolean
+    + issue(phoneNumber : PhoneNumber, codeHash : String, now : Instant) : VerificationCode {static}
+    + verify(input : String, now : Instant, matcher : CodeMatcher) : VerificationOutcome
+    + invalidate() : void
+    + isExpired(now : Instant) : boolean
     + remainingAttempts() : int
+    + resendAvailableAt() : Instant
+    + canBeReplacedAt(now : Instant) : boolean
   }
 
   class Session <<Aggregate Root>> {
-    - id : SessionId
-    - accountId : AccountId
+    - id : UUID
+    - accountId : UUID
     - tokenHash : String
     - deviceLabel : String
-    - issuedAt : LocalDateTime
-    - expiresAt : LocalDateTime
-    - revokedAt : LocalDateTime
-    + open(accountId : AccountId, tokenHash : String, deviceLabel : String) : Session {static}
-    + isActive(now : LocalDateTime) : boolean
-    + revoke() : void
+    - issuedAt : Instant
+    - expiresAt : Instant
+    - revokedAt : Instant
+    + open(id : UUID, accountId : UUID, tokenHash : String, deviceLabel : String, now : Instant) : Session {static}
+    + isActive(now : Instant) : boolean
+    + revoke(now : Instant) : void
   }
 
   class PhoneNumber <<Value Object>> {
@@ -71,6 +74,10 @@ hide empty members
     - photoUrl : String
     - theme : Theme
   }
+  class SessionTokenClaims <<Value Object>> {
+    - accountId : UUID
+    - sessionId : UUID
+  }
 
   enum AccountStatus {
     ACTIVE
@@ -79,6 +86,12 @@ hide empty members
   enum VerificationStatus {
     PENDING
     VERIFIED
+    EXPIRED
+    BLOCKED
+  }
+  enum VerificationOutcome {
+    VERIFIED
+    INVALID
     EXPIRED
     BLOCKED
   }
@@ -93,25 +106,32 @@ hide empty members
     + hash(code : String) : String
     + matches(code : String, hash : String) : boolean
   }
+  interface CodeMatcher <<Domain Service>> {
+    + matches(input : String) : boolean
+  }
   interface TokenService <<Domain Service>> {
-    + issue(accountId : AccountId) : String
+    + issueSessionToken(claims : SessionTokenClaims, issuedAt : Instant, expiresAt : Instant) : String
+    + issueRegistrationToken(phoneNumber : PhoneNumber, issuedAt : Instant, expiresAt : Instant) : String
+    + readSessionToken(token : String) : Optional<SessionTokenClaims>
+    + readRegistrationToken(token : String) : Optional<PhoneNumber>
     + hash(token : String) : String
-    + validate(token : String) : Optional<AccountId>
   }
 
   interface AccountRepository <<Repository>> {
-    + findById(id : AccountId) : Optional<Account>
-    + findByPhoneNumber(phone : PhoneNumber) : Optional<Account>
-    + existsByPhoneNumber(phone : PhoneNumber) : boolean
+    + findById(id : UUID) : Optional<Account>
+    + findByPhoneNumber(phoneNumber : PhoneNumber) : Optional<Account>
+    + existsByPhoneNumber(phoneNumber : PhoneNumber) : boolean
     + save(account : Account) : Account
   }
   interface VerificationCodeRepository <<Repository>> {
-    + findPendingByPhoneNumber(phone : PhoneNumber) : Optional<VerificationCode>
-    + save(code : VerificationCode) : VerificationCode
+    + findLatestByPhoneNumber(phoneNumber : PhoneNumber) : Optional<VerificationCode>
+    + findPendingByPhoneNumber(phoneNumber : PhoneNumber) : Optional<VerificationCode>
+    + findAllPendingByPhoneNumber(phoneNumber : PhoneNumber) : List<VerificationCode>
+    + save(verificationCode : VerificationCode) : VerificationCode
   }
   interface SessionRepository <<Repository>> {
-    + findByTokenHash(hash : String) : Optional<Session>
-    + findActiveByAccountId(accountId : AccountId) : List<Session>
+    + findById(id : UUID) : Optional<Session>
+    + findByTokenHash(tokenHash : String) : Optional<Session>
     + save(session : Session) : Session
   }
 
@@ -121,8 +141,11 @@ Account "1" o-- "0..*" Session : sessions >
 VerificationCode "1" *-- "1" PhoneNumber : phoneNumber
 Account --> AccountStatus
 VerificationCode --> VerificationStatus
+VerificationCode ..> VerificationOutcome : returns
+VerificationCode ..> CodeMatcher : uses
 Profile --> Theme
 CodeGenerationService ..> VerificationCode : issues and checks
+TokenService ..> SessionTokenClaims : reads and writes
 TokenService ..> Session : issues tokens
 AccountRepository ..> Account : persists
 VerificationCodeRepository ..> VerificationCode : persists
