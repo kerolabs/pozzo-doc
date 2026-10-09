@@ -151,6 +151,10 @@
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{%
   breaklines,breaknonspaceingroup,breakanywhere,commandchars=\\\{\}}
 
+% Los bloques sin lenguaje (por ejemplo los archivos .feature) salen como verbatim;
+% tambien se parten, para que una linea larga no se corte en el margen.
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere}
+
 % Celdas combinadas en vertical (rowspan). multirow centra el texto entre las
 % filas que abarca calculando que todas miden lo mismo, y en una tabla con
 % parrafos nunca es asi: el texto queda flotando entre lineas de la fila vecina.
