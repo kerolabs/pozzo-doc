@@ -3651,7 +3651,33 @@ Durante el paso 3 se discutió si los turnos y la subasta merecían un contexto 
 
 #### 2.5.1.2. Domain Message Flows Modeling
 
-Para comprobar que los cinco contextos podían resolver los casos de uso sin depender unos de otros más de lo necesario, el equipo modeló el flujo de mensajes de los tres escenarios que concentran el valor de Pozzo. Un Domain Message Flow Diagram muestra, para un solo escenario, los mensajes que viajan entre los actores, los Bounded Contexts y los sistemas: los actores se dibujan con la figura de una persona, los contextos como elipses y los sistemas externos con borde punteado, y cada flecha punteada lleva el mensaje con su nombre, los datos relevantes que transporta y su número de orden. El color distingue el tipo de mensaje: comando, evento o consulta, donde la consulta representa la pregunta y su respuesta como una sola unidad. Siguiendo la recomendación del método, cada diagrama se mantuvo entre cinco y nueve mensajes para que el escenario se lea de un vistazo.
+Para comprobar que los cinco contextos podían resolver los casos de uso sin depender unos de otros más de lo necesario, el equipo modeló el flujo de mensajes de los tres escenarios que concentran el valor de Pozzo. Un Domain Message Flow Diagram muestra, para un solo escenario, los mensajes que viajan entre los actores, los Bounded Contexts y los sistemas: los actores se dibujan como círculos con su nombre dentro, los Bounded Contexts como nubes y los sistemas externos con su propio icono, y cada flecha punteada lleva el mensaje con su nombre, los datos relevantes que transporta y su número de orden. El color distingue el tipo de mensaje: comando, evento o consulta, donde la consulta representa la pregunta y su respuesta como una sola unidad. Siguiendo la recomendación del método, cada diagrama se mantuvo entre cinco y nueve mensajes para que el escenario se lea de un vistazo.
+
+Antes de entrar en los escenarios, el equipo dibujó dos vistas de conjunto. La primera pone los cinco contextos en un solo diagrama, junto con los sistemas externos de los que dependen y los datos que se mueven entre ellos. El integrante entra siempre por la aplicación y el gateway, que reparte hacia el contexto que corresponde; las cajas verdes sobre las flechas negras son los datos que viajan de un contexto a otro, y las flechas punteadas bajan a los sistemas externos y a la base de datos. La vista deja ver dos cosas: que Contributions es el contexto al que llegan datos de más vecinos, y que cada contexto guarda su propio esquema en PostgreSQL, sin tablas compartidas (ver Figura 44).
+
+![Flujo completo entre los cinco bounded contexts de Pozzo](images/chapter_2/dmf_completo.png){width=100%}
+
+La segunda vista descompone ese diagrama en uno por contexto, para leer cada frontera por separado: quién entra, qué datos recibe de sus vecinos, qué datos les entrega y de qué sistemas externos depende.
+
+**Identity & Access.** Es el punto de entrada y no recibe datos de dominio de ningún vecino. Entrega la identidad del integrante a Savings Groups y recibe de Notifications el dispositivo registrado. Fuera de Pozzo se apoya en el proveedor de SMS para enviar el código de verificación (ver Figura 45).
+
+![Flujo de mensajes del bounded context Identity & Access](images/chapter_2/dmf_identity_access.png){width=100%}
+
+**Savings Groups.** Recibe de Identity & Access la identidad del integrante y entrega a Contributions las reglas de la junta y los turnos, y a Notifications los eventos de la junta. WhatsApp aparece como sistema externo porque es por donde se comparte el enlace de invitación (ver Figura 46).
+
+![Flujo de mensajes del bounded context Savings Groups](images/chapter_2/dmf_savings_groups.png){width=100%}
+
+**Contributions.** Recibe de Savings Groups las reglas de la junta y los turnos, entrega a Compliance History el cumplimiento del integrante y a Notifications el estado del pozo. Es el contexto con más sistemas externos: ML Kit Text Recognition para leer el comprobante y Yape, Plin o el banco como origen de la transferencia que se registra (ver Figura 47).
+
+![Flujo de mensajes del bounded context Contributions](images/chapter_2/dmf_contributions.png){width=100%}
+
+**Notifications.** Solo recibe: los eventos de la junta desde Savings Groups y el estado del pozo desde Contributions. No entrega datos de dominio a ningún contexto; su salida va a Firebase Cloud Messaging, que es quien entrega el push al dispositivo (ver Figura 48).
+
+![Flujo de mensajes del bounded context Notifications](images/chapter_2/dmf_notifications.png){width=100%}
+
+**Compliance History.** También solo recibe: el cumplimiento del integrante desde Contributions y las deserciones y reemplazos desde Savings Groups. Su única salida fuera de Pozzo es la hoja de compartir del sistema, con la que el integrante comparte su historial (ver Figura 49).
+
+![Flujo de mensajes del bounded context Compliance History](images/chapter_2/dmf_compliance_history.png){width=100%}
 
 **Escenario 1: la cabeza crea la junta e incorpora a los integrantes.** La cabeza crea la junta con sus reglas y genera una invitación en Savings Groups; el participante que recibe el enlace verifica su celular en Identity & Access y se une con el código. Al incorporarlo, Savings Groups consulta a Compliance History el historial del nuevo integrante. Con los turnos asignados, la cabeza inicia la junta y Savings Groups publica Junta iniciada, que Notifications consume para avisar a todos. El escenario muestra que Savings Groups orquesta esta fase y que solo necesita de los demás una consulta, el historial, y una identidad (ver Figura 50).
 
