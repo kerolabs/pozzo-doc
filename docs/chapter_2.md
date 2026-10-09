@@ -3730,7 +3730,7 @@ El mapa definitivo usa cuatro de los patrones de relación de Domain-Driven Desi
       <td>Identity &amp; Access</td>
       <td>Proveedor de SMS</td>
       <td>Anti-corruption Layer</td>
-      <td>Un adaptador aísla al contexto del proveedor elegido, Twilio Verify, que podrá cambiarse sin tocar las reglas de acceso.</td>
+      <td>Un adaptador aísla al contexto del proveedor elegido, SMS Gate, que podrá cambiarse sin tocar las reglas de acceso.</td>
     </tr>
     <tr>
       <td>Notifications</td>
@@ -4723,7 +4723,7 @@ El esquema `notifications` tiene tres tablas. `devices` guarda los tokens, únic
 
 ### 2.6.5. Bounded Context: Identity & Access
 
-Identity & Access es el contexto genérico que identifica a cada integrante por su número de celular, sin contraseña. Su modelo tiene tres agregados. **Account** es la cuenta de un integrante con su celular, su perfil y la aceptación de términos. **VerificationCode** es un código SMS emitido para un celular, con su vencimiento y sus intentos; se modela como agregado separado porque existe antes de que exista la cuenta. **Session** es una sesión abierta en un dispositivo, representada por el hash de su token, para poder revocarla. Dos servicios de dominio se definen como interfaces: la generación y comparación de códigos y la emisión y validación de tokens, cuyas implementaciones dependen de bibliotecas de infraestructura. El envío y la comprobación del código pasan por un canal intercambiable, porque con Twilio Verify es el proveedor quien genera y valida el código, y Pozzo nunca lo conoce.
+Identity & Access es el contexto genérico que identifica a cada integrante por su número de celular, sin contraseña. Su modelo tiene tres agregados. **Account** es la cuenta de un integrante con su celular, su perfil y la aceptación de términos. **VerificationCode** es un código SMS emitido para un celular, con su vencimiento y sus intentos; se modela como agregado separado porque existe antes de que exista la cuenta. **Session** es una sesión abierta en un dispositivo, representada por el hash de su token, para poder revocarla. Dos servicios de dominio se definen como interfaces: la generación y comparación de códigos y la emisión y validación de tokens, cuyas implementaciones dependen de bibliotecas de infraestructura. El envío y la comprobación del código pasan por un canal intercambiable: el servidor genera el código, guarda solo su hash y entrega el mensaje a un proveedor de SMS que puede cambiarse sin tocar el dominio.
 
 #### 2.6.5.1. Domain Layer
 
@@ -4935,14 +4935,14 @@ La Tabla 102 presenta las clases del Infrastructure Layer de Identity & Access.
       <td>Tokens JWT firmados con HMAC y una clave del servidor: el de sesión lleva la cuenta y la sesión como claims, y el de registro, el celular verificado. De cada token de sesión se guarda solo su hash SHA-256.</td>
     </tr>
     <tr>
-      <td><b>TwilioVerifyCodeChannel</b></td>
-      <td>Anti-corruption Layer</td>
-      <td>Adaptador a Twilio Verify, el proveedor que eligió el equipo: Twilio genera el código, lo envía por SMS desde sus propios números y lo comprueba, así que Pozzo no necesita un número propio.</td>
+      <td><b>LocalVerificationCodeChannel</b></td>
+      <td>Adaptador</td>
+      <td>Genera el código de seis dígitos, guarda solo su hash y entrega el mensaje a un SmsSender; al verificar, compara lo que escribe el integrante con ese hash.</td>
     </tr>
     <tr>
-      <td><b>LocalVerificationCodeChannel,<br>LoggingSmsSender,<br>TwilioSmsSender</b></td>
-      <td>Adaptador</td>
-      <td>Alternativa en la que el servidor genera el código, guarda su hash y lo envía con un SmsSender: al registro del servidor en desarrollo o por Twilio Messaging. Una variable de entorno elige el canal.</td>
+      <td><b>SmsGateSmsSender,<br>LoggingSmsSender</b></td>
+      <td>Anti-corruption Layer</td>
+      <td>SmsGateSmsSender envía el SMS por la API de SMS Gate, una aplicación que convierte un celular Android del equipo en pasarela de mensajes con su propio chip; el mensaje vence junto con el código, para que un celular sin conexión no envíe después un código vencido. LoggingSmsSender escribe el mensaje en el registro del servidor durante el desarrollo. La variable de entorno <code>SMS_PROVIDER</code> elige cuál se usa.</td>
     </tr>
     <tr>
       <td><b>ConfiguredTestPhoneNumbers</b></td>
@@ -4968,7 +4968,7 @@ La Figura 64 muestra el diagrama de componentes de Identity & Access.
 
 ![Diagrama de componentes de Identity & Access](images/chapter_2/c4_components_identity_access.png){width=80%}
 
-Además de los controllers y servicios habituales, el diagrama muestra BearerAuthorizationFilter, el componente por el que Identity & Access actúa como Open Host Service para los demás módulos: valida el token de cada solicitud y expone la identidad del integrante sin que los otros contextos conozcan cuentas ni sesiones. VerificationCodeChannel es el único componente que habla con el proveedor de SMS, Twilio Verify.
+Además de los controllers y servicios habituales, el diagrama muestra BearerAuthorizationFilter, el componente por el que Identity & Access actúa como Open Host Service para los demás módulos: valida el token de cada solicitud y expone la identidad del integrante sin que los otros contextos conozcan cuentas ni sesiones. SmsGateSmsSender es el único componente que habla con el proveedor de SMS, SMS Gate.
 
 #### 2.6.5.6. Bounded Context Software Architecture Code Level Diagrams
 
