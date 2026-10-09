@@ -8,6 +8,12 @@
 --   -->
 --        No se ve en GitHub (es un comentario HTML), se inyecta como LaTeX
 --        en el PDF.
+--
+--   <!-- pdf:desde av2 -->  ... <!-- pdf:desde-fin -->
+--        Se ve siempre en GitHub, pero entra al PDF solo desde esa entrega.
+--        Sirve para las secciones de la plantilla que todavia no tocan, como
+--        las entrevistas de validacion antes de la AV2. scripts/build.ps1 pasa
+--        la entrega en el metadato "entrega"; sin el, no se descarta nada.
 
 -- Los <br> dentro de una celda de tabla se pierden al pasar a LaTeX, y el
 -- contenido de la celda queda todo pegado. Convertirlos en saltos de linea de
@@ -253,9 +259,13 @@ function Blocks(bloques)
   return salida
 end
 
+local ORDEN_ENTREGAS = { av1 = 1, tb1 = 2, av2 = 3, tb2 = 4 }
+
 function Pandoc(doc)
   local out = {}
   local omit = false
+  local entrega = doc.meta.entrega and ORDEN_ENTREGAS[pandoc.utils.stringify(doc.meta.entrega)]
+  local antesDeSuEntrega = false
 
   for _, block in ipairs(doc.blocks) do
     local raw = nil
@@ -263,7 +273,14 @@ function Pandoc(doc)
       raw = block.text
     end
 
-    if raw and raw:match('pdf:omit%-start') then
+    if raw and raw:match('pdf:desde%-fin') then
+      antesDeSuEntrega = false
+    elseif raw and raw:match('pdf:desde%s+%w+') then
+      local desde = ORDEN_ENTREGAS[raw:match('pdf:desde%s+(%w+)')]
+      antesDeSuEntrega = entrega ~= nil and desde ~= nil and entrega < desde
+    elseif antesDeSuEntrega then
+      -- La seccion todavia no corresponde a esta entrega.
+    elseif raw and raw:match('pdf:omit%-start') then
       omit = true
     elseif raw and raw:match('pdf:omit%-end') then
       omit = false

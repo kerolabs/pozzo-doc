@@ -3608,6 +3608,8 @@ Los analíticos muestran una participación desigual en el código. Camargo conc
 
 El enunciado pide que todos participen en la implementación de cada producto, y en la aplicación y los servicios eso no se cumplió en este Sprint. Para el Sprint 2 se propone que cada integrante lidere las historias de un bounded context en la aplicación y en los servicios, con sus pruebas de aceptación, para repartir la implementación.
 
+<!-- pdf:desde av2 -->
+
 ## 4.3. Validation Interviews
 
 ### 4.3.1. Diseño de Entrevistas
@@ -3615,3 +3617,5 @@ El enunciado pide que todos participen en la implementación de cada producto, y
 ### 4.3.2. Registro de Entrevistas
 
 ### 4.3.3. Evaluaciones según heurísticas
+
+<!-- pdf:desde-fin -->
