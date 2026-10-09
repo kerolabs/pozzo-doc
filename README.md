@@ -174,6 +174,14 @@ El número de commits no mide el tamaño de cada aporte. Sanchez integró el dis
 
 # Contenido
 
+### [Registro de Versiones del Informe](#registro-de-versiones-del-informe)
+
+### [Project Report Collaboration Insights](#project-report-collaboration-insights)
+
+### [Student Outcome](#student-outcome)
+
+### [Objetivos SMART](#objetivos-smart)
+
 ### [Capítulo I: Presentación](docs/chapter_1.md#capítulo-i-presentación)
 - [1.1. Startup Profile](docs/chapter_1.md#11-startup-profile)
   - [1.1.1. Descripción de la Startup](docs/chapter_1.md#111-descripción-de-la-startup)
