@@ -155,6 +155,13 @@ function Figure(fig)
   caption:insert(pandoc.RawInline('latex', '}' .. etiqueta))
   local salida = pandoc.List({ pandoc.RawBlock('latex', '\\begin{figure}\n\\centering') })
   salida:insert(pandoc.Plain(caption))
+  -- Tras el titulo la imagen abre un parrafo nuevo, que toma la sangria de 0.5 in
+  -- del texto y empuja la imagen fuera del margen derecho.
+  for _, bloque in ipairs(fig.content) do
+    if bloque.t == 'Plain' or bloque.t == 'Para' then
+      bloque.content:insert(1, pandoc.RawInline('latex', '\\noindent'))
+    end
+  end
   salida:extend(fig.content)
   salida:insert(pandoc.RawBlock('latex', '\\end{figure}'))
   return salida

@@ -16,7 +16,7 @@ Los valores de esta sección se leyeron del archivo de diseño (estilos de texto
 
 ##### Principios de diseño
 
-Antes de elegir colores o componentes, el equipo fijó siete principios. Cada uno responde a un hallazgo del Capítulo II y se contrastó con las heurísticas de usabilidad de Nielsen [@nielsen1994heuristics], para poder justificar una decisión de interfaz con algo más que gusto personal (ver Tabla 103).
+Antes de elegir colores o componentes, el equipo fijó siete principios. Cada uno responde a un hallazgo del Capítulo II y se contrastó con las heurísticas de usabilidad de Nielsen [@nielsen1994heuristics], para poder justificar una decisión de interfaz con algo más que gusto personal (ver Tabla 104).
 
 <table>
   <caption>Principios de diseño de Pozzo y los hallazgos que los respaldan</caption>
@@ -79,13 +79,13 @@ Antes de elegir colores o componentes, el equipo fijó siete principios. Cada un
 
 El logo de Pozzo son dos anillos abiertos que se entrelazan, uno terracota y uno dorado: cada anillo gira hacia el otro, como el dinero que pasa de mano en mano en cada turno, y juntos forman el pozo que el grupo reúne y se reparte. Junto a la marca va la palabra POZZO en mayúsculas, en el mismo terracota. La marca sola se usa en espacios pequeños (icono de la aplicación, avatar y favicon del landing) y el logo completo en cabeceras y portadas. Tiene cuatro variantes: sobre fondo claro, solo la marca, sobre fondo oscuro (con los anillos invertidos y el texto en el tono primary del modo oscuro) y sobre el terracota de la marca, donde todo el logo pasa a crema.
 
-La zona de respeto alrededor del logo es igual a x, la mitad de la altura de la marca, y dentro de ella no se coloca texto, borde ni otra figura. Por debajo de 32 px de altura de marca se usa solo la marca, nunca el logo completo ni una versión estirada, y la marca sola no baja de 24 px (ver Figura 74).
+La zona de respeto alrededor del logo es igual a x, la mitad de la altura de la marca, y dentro de ella no se coloca texto, borde ni otra figura. Por debajo de 32 px de altura de marca se usa solo la marca, nunca el logo completo ni una versión estirada, y la marca sola no baja de 24 px (ver Figura 75).
 
 ![Guía de estilo: marca, zona de respeto, roles de color en modo claro y oscuro y los tres modos de visualización](images/chapter_3/style_guide_marca_color.png){width=85%}
 
 ##### Color
 
-La paleta nace de un terracota cálido (#B5472A) como color semilla y un dorado (#C9A845) como acento. El terracota da cercanía a una herramienta pensada para grupos de familiares, amigos y compañeros, y el dorado se reserva para lo que tiene valor de reconocimiento, como la insignia de puntualidad. A partir de la semilla se definieron los roles de Material 3 para el modo claro y para el modo oscuro. La siguiente tabla lista los quince roles que usan los componentes de la aplicación; el archivo de tokens completo añade las variantes on-color, los contenedores de error, de advertencia y de éxito y los niveles de superficie (ver Tabla 104).
+La paleta nace de un terracota cálido (#B5472A) como color semilla y un dorado (#C9A845) como acento. El terracota da cercanía a una herramienta pensada para grupos de familiares, amigos y compañeros, y el dorado se reserva para lo que tiene valor de reconocimiento, como la insignia de puntualidad. A partir de la semilla se definieron los roles de Material 3 para el modo claro y para el modo oscuro. La siguiente tabla lista los quince roles que usan los componentes de la aplicación; el archivo de tokens completo añade las variantes on-color, los contenedores de error, de advertencia y de éxito y los niveles de superficie (ver Tabla 105).
 
 <table>
   <caption>Paleta de color en modo claro y modo oscuro</caption>
@@ -194,7 +194,7 @@ La paleta nace de un terracota cálido (#B5472A) como color semilla y un dorado 
 
 Los estados de un aporte tienen un color fijo en toda la aplicación. Validado va en verde (success). En revisión va en naranja (warning). Monto distinto usa el rojo del rol error en su texto y su icono. Pendiente va en naranja cuando es el aporte propio que todavía falta (pantallas B2 y G1) y en neutro cuando es el de otro integrante dentro de una lista (F1 y G2). El color nunca es el único canal: cada estado lleva además un icono (marca de verificación, reloj de arena, reloj o triángulo de advertencia) y una palabra, de modo que una persona que no distingue los tonos lee lo mismo que las demás.
 
-Para comprobar que cada combinación de texto y fondo se lee bien, se calculó la razón de contraste con la fórmula de WCAG 2.2, que exige 4.5:1 para texto normal (criterio 1.4.3) y 3:1 para bordes e indicadores de componentes (criterio 1.4.11) [@w3c2024wcag22]. El cálculo lo hace un script del landing sobre las 29 combinaciones que el sitio usa, en los dos modos, y las 58 resultaron válidas. La tabla muestra las más representativas (ver Tabla 105).
+Para comprobar que cada combinación de texto y fondo se lee bien, se calculó la razón de contraste con la fórmula de WCAG 2.2, que exige 4.5:1 para texto normal (criterio 1.4.3) y 3:1 para bordes e indicadores de componentes (criterio 1.4.11) [@w3c2024wcag22]. El cálculo lo hace un script del landing sobre las 29 combinaciones que el sitio usa, en los dos modos, y las 58 resultaron válidas. La tabla muestra las más representativas (ver Tabla 106).
 
 <table>
   <caption>Combinaciones de color y su uso en la interfaz</caption>
@@ -302,7 +302,7 @@ Las combinaciones entre 4.5 y 4.6 pasan por poco. Si más adelante se cambia un 
 
 Pozzo usa una sola familia, Plus Jakarta Sans, publicada con licencia SIL Open Font License. Es una sans serif geométrica con caracteres claros a tamaños pequeños, que es donde más se lee en una aplicación de cifras y fechas. En el landing las fuentes se sirven desde el propio sitio, en formato WOFF2 y en los pesos 400, 500, 600 y 700, de modo que la página no hace pedidos a servicios externos de fuentes.
 
-La escala tiene quince estilos, agrupados como en Material 3 en display, headline, title, body y label. Cada uno se definió como estilo de texto en Figma, y las pantallas usan solo estos estilos (ver Tabla 106).
+La escala tiene quince estilos, agrupados como en Material 3 en display, headline, title, body y label. Cada uno se definió como estilo de texto en Figma, y las pantallas usan solo estos estilos (ver Tabla 107).
 
 <table>
   <caption>Escala tipográfica de la guía de estilos</caption>
@@ -411,7 +411,7 @@ La escala tiene quince estilos, agrupados como en Material 3 en display, headlin
 
 ##### Espaciado, forma y elevación
 
-Todas las medidas salen de una cuadrícula de 4 px. El espaciado tiene ocho valores (4, 8, 12, 16, 24, 32, 48 y 64 px), los radios de esquina seis (4, 8, 12, 16, 28 px y pill) y la elevación tres niveles de sombra suave con un tinte terracota. Se guardaron como variables en la colección Spacing and Shape del archivo de Figma, así que cambiar un valor cambia todas las pantallas que lo usan (ver Tabla 107).
+Todas las medidas salen de una cuadrícula de 4 px. El espaciado tiene ocho valores (4, 8, 12, 16, 24, 32, 48 y 64 px), los radios de esquina seis (4, 8, 12, 16, 28 px y pill) y la elevación tres niveles de sombra suave con un tinte terracota. Se guardaron como variables en la colección Spacing and Shape del archivo de Figma, así que cambiar un valor cambia todas las pantallas que lo usan (ver Tabla 108).
 
 <table>
   <caption>Familias de espaciado, forma y elevación</caption>
@@ -452,7 +452,7 @@ Todas las medidas salen de una cuadrícula de 4 px. El espaciado tiene ocho valo
   </tbody>
 </table>
 
-Además de esas familias, la guía fija las medidas que se repiten en todas las pantallas: (ver Tabla 108)
+Además de esas familias, la guía fija las medidas que se repiten en todas las pantallas: (ver Tabla 109)
 
 <table>
   <caption>Medidas de referencia y su justificación</caption>
@@ -493,13 +493,13 @@ Además de esas familias, la guía fija las medidas que se repiten en todas las 
   </tbody>
 </table>
 
-La Figura 75 muestra la guía de estilo: escala tipográfica, espaciado, radios, elevación y medidas clave.
+La Figura 76 muestra la guía de estilo: escala tipográfica, espaciado, radios, elevación y medidas clave.
 
 ![Guía de estilo: escala tipográfica, espaciado, radios, elevación y medidas clave](images/chapter_3/style_guide_tipografia_forma.png){width=90%}
 
 ##### Componentes
 
-El catálogo reúne los componentes que aparecen en las cuarenta y seis pantallas de la aplicación. Cada uno se construyó una vez en Figma y se reutiliza en todas las pantallas, tanto en modo claro como en modo oscuro; lo único que cambia entre los modos es el rol de color que cada componente resuelve (ver Tabla 109).
+El catálogo reúne los componentes que aparecen en las cuarenta y seis pantallas de la aplicación. Cada uno se construyó una vez en Figma y se reutiliza en todas las pantallas, tanto en modo claro como en modo oscuro; lo único que cambia entre los modos es el rol de color que cada componente resuelve (ver Tabla 110).
 
 <table>
   <caption>Componentes de la interfaz, sus variantes y estados</caption>
@@ -575,7 +575,7 @@ El catálogo reúne los componentes que aparecen en las cuarenta y seis pantalla
   </tbody>
 </table>
 
-Las Figuras 76 y 77 muestran el detalle correspondiente.
+Las Figuras 77 y 78 muestran el detalle correspondiente.
 
 ![Catálogo de componentes en modo claro](images/chapter_3/style_guide_componentes_1.png){width=90%}
 
@@ -597,7 +597,7 @@ Los textos de la interfaz siguen cinco reglas, que valen igual para la aplicaci�
 
 ##### Adaptación de la guía al landing page
 
-El landing aplica la misma guía con las mismas tres clases de ancho de ventana que usa la aplicación (compacta, mediana y expandida) [@android2026wsc], y cambia de composición en esos puntos: (ver Tabla 110)
+El landing aplica la misma guía con las mismas tres clases de ancho de ventana que usa la aplicación (compacta, mediana y expandida) [@android2026wsc], y cambia de composición en esos puntos: (ver Tabla 111)
 
 <table>
   <caption>Adaptación de la guía de estilos al landing page según el ancho de ventana</caption>
@@ -639,7 +639,7 @@ La arquitectura de información define dónde se ubica cada contenido, cómo se 
 
 En los dos productos el punto de partida es el mismo. La persona que usa Pozzo no explora un catálogo: llega con una tarea concreta (aportar, revisar un aporte, saber cuándo cobra, decidir si le interesa) y la arquitectura debe llevarla a ella con el menor número de toques posible.
 #### 3.1.2.1. Organization Systems
-Un sistema de organización combina un esquema, que decide cómo se agrupan los elementos, y una estructura, que decide cómo se relacionan entre sí. En Pozzo el esquema cambia según el producto, porque la aplicación se usa muchas veces con una tarea distinta cada vez y el landing se recorre una sola vez de arriba abajo (ver Tabla 111).
+Un sistema de organización combina un esquema, que decide cómo se agrupan los elementos, y una estructura, que decide cómo se relacionan entre sí. En Pozzo el esquema cambia según el producto, porque la aplicación se usa muchas veces con una tarea distinta cada vez y el landing se recorre una sola vez de arriba abajo (ver Tabla 112).
 
 <table>
   <caption>Esquemas de organización aplicados en Pozzo</caption>
@@ -677,13 +677,13 @@ Un sistema de organización combina un esquema, que decide cómo se agrupan los 
 
 La estructura utiliza una jerarquía poco profunda centrada en cada junta. La navegación inferior contiene cuatro destinos principales: Juntas, Historial, Avisos y Perfil. Desde Juntas, cada junta funciona como punto central para acceder a sus acciones y al calendario de turnos.
 
-La profundidad máxima es de tres niveles: destino principal, detalle de la junta y acción específica. Los modales y los pasos internos de un flujo no se consideran niveles adicionales. Esta estructura reduce la cantidad de toques necesarios para completar tareas frecuentes, especialmente realizar aportes. El primer ingreso funciona como un flujo lineal previo a la navegación principal y, si el usuario aún no pertenece a una junta, se muestra un estado vacío con las opciones de crear una o unirse mediante un código (ver Figura 78).
+La profundidad máxima es de tres niveles: destino principal, detalle de la junta y acción específica. Los modales y los pasos internos de un flujo no se consideran niveles adicionales. Esta estructura reduce la cantidad de toques necesarios para completar tareas frecuentes, especialmente realizar aportes. El primer ingreso funciona como un flujo lineal previo a la navegación principal y, si el usuario aún no pertenece a una junta, se muestra un estado vacío con las opciones de crear una o unirse mediante un código (ver Figura 79).
 
 ![Arquitectura de información de la aplicación: cuatro destinos, grupos de pantallas por segmento y por tarea, y máximo tres niveles](images/chapter_3/ia_mapa_app.png){width=95%}
 
 ##### Landing page
 
-El landing se organiza por tema y por tarea en una sola página de recorrido vertical, con la estructura lineal de un relato: primero qué es Pozzo y qué problema resuelve, luego cómo funciona, por qué confiar, qué incluye, quién lo hace, cómo registrarse y cómo contactar. Es el orden en que las historias US43 a US45 plantean las preguntas de un visitante. La barra superior fija y los enlaces ancla convierten ese recorrido en una estructura de hipertexto interno, de modo que se puede saltar a cualquier sección desde cualquier punto de la página (ver Tabla 112).
+El landing se organiza por tema y por tarea en una sola página de recorrido vertical, con la estructura lineal de un relato: primero qué es Pozzo y qué problema resuelve, luego cómo funciona, por qué confiar, qué incluye, quién lo hace, cómo registrarse y cómo contactar. Es el orden en que las historias US43 a US45 plantean las preguntas de un visitante. La barra superior fija y los enlaces ancla convierten ese recorrido en una estructura de hipertexto interno, de modo que se puede saltar a cualquier sección desde cualquier punto de la página (ver Tabla 113).
 
 <table>
   <caption>Secciones del landing page y la historia que atienden</caption>
@@ -748,7 +748,7 @@ El landing se organiza por tema y por tarea en una sola página de recorrido ver
   </tbody>
 </table>
 
-La Figura 79 muestra la arquitectura de información del landing: dos idiomas con las mismas secciones, páginas legales y barra superior fija.
+La Figura 80 muestra la arquitectura de información del landing: dos idiomas con las mismas secciones, páginas legales y barra superior fija.
 
 ![Arquitectura de información del landing: dos idiomas con las mismas secciones, páginas legales y barra superior fija](images/chapter_3/ia_mapa_landing.png){width=95%}
 
@@ -763,7 +763,7 @@ Las etiquetas son la manera en que el sistema habla: el nombre de un destino, el
 
 ##### Etiquetas de la aplicación
 
-La Tabla 113 presenta la correspondencia entre el Ubiquitous Language y las etiquetas de la interfaz.
+La Tabla 114 presenta la correspondencia entre el Ubiquitous Language y las etiquetas de la interfaz.
 
 <table>
   <caption>Correspondencia entre el Ubiquitous Language y las etiquetas de la interfaz</caption>
@@ -849,7 +849,7 @@ La Tabla 113 presenta la correspondencia entre el Ubiquitous Language y las etiq
   </tbody>
 </table>
 
-Los estados de un aporte y de una junta también son etiquetas, y se escriben siempre igual y con el mismo tono de color (sección 3.1.1.1): (ver Tabla 114)
+Los estados de un aporte y de una junta también son etiquetas, y se escriben siempre igual y con el mismo tono de color (sección 3.1.1.1): (ver Tabla 115)
 
 <table>
   <caption>Tono y significado de las etiquetas de estado</caption>
@@ -907,7 +907,7 @@ Los estados de un aporte y de una junta también son etiquetas, y se escriben si
 
 ##### Etiquetas del landing
 
-El landing tiene dos conjuntos de etiquetas, uno por idioma, que se mantienen en archivos separados y con las mismas claves. Los nombres de los idiomas se escriben en su propio idioma (English y Español) y no se traducen. Las etiquetas de navegación son sustantivos cortos que repiten el título de la sección a la que llevan (ver Tabla 115).
+El landing tiene dos conjuntos de etiquetas, uno por idioma, que se mantienen en archivos separados y con las mismas claves. Los nombres de los idiomas se escriben en su propio idioma (English y Español) y no se traducen. Las etiquetas de navegación son sustantivos cortos que repiten el título de la sección a la que llevan (ver Tabla 116).
 
 <table>
   <caption>Etiquetas del landing page en inglés y español</caption>
@@ -977,7 +977,7 @@ En el texto del landing, la cabeza de junta se nombra con el mismo término del 
 
 #### 3.1.2.3. SEO Tags and Meta Tags
 
-El landing page es el principal contenido de Pozzo accesible para los motores de búsqueda. El landing page es el principal contenido de Pozzo accesible para los motores de búsqueda. Por ello, sus etiquetas SEO y metadatos forman parte de la arquitectura del sitio y se incorporan de manera consistente en las páginas correspondientes (ver Tabla 116).
+El landing page es el principal contenido de Pozzo accesible para los motores de búsqueda. El landing page es el principal contenido de Pozzo accesible para los motores de búsqueda. Por ello, sus etiquetas SEO y metadatos forman parte de la arquitectura del sitio y se incorporan de manera consistente en las páginas correspondientes (ver Tabla 117).
 <table>
   <caption>Etiquetas SEO y meta tags aplicadas en Pozzo</caption>
   <colgroup><col width="22%"><col width="48%"><col width="30%"></colgroup>
@@ -1053,7 +1053,7 @@ El sitio también emplea una estructura semántica clara, con un único h1 por p
 
 ##### Ficha de Google Play
 
-La ficha de Google Play cumple una función similar a los metadatos del landing, ya que permite presentar y posicionar la aplicación dentro de la tienda. El equipo propone inicialmente los siguientes contenidos: (ver Tabla 117)
+La ficha de Google Play cumple una función similar a los metadatos del landing, ya que permite presentar y posicionar la aplicación dentro de la tienda. El equipo propone inicialmente los siguientes contenidos: (ver Tabla 118)
 
 <table>
   <caption>Ficha de la aplicación en Google Play</caption>
@@ -1082,7 +1082,7 @@ La ficha de Google Play cumple una función similar a los metadatos del landing,
 
 #### 3.1.2.4. Searching Systems
 
-Un sistema de búsqueda se justifica cuando hay tanto contenido que navegar deja de alcanzar . En Pozzo no ocurre: una persona tiene unas pocas juntas, cada una con un grupo de integrantes que se conocen entre sí y un período activo a la vez. Por eso esta versión no incluye un buscador global dentro de la aplicación. El componente de barra superior del catálogo prevé un icono de búsqueda para cuando el volumen lo justifique, pero ninguna pantalla de esta versión lo usa. En su lugar, cada lugar donde la persona necesita encontrar algo tiene un mecanismo propio, más corto que escribir una consulta: (ver Tabla 118)
+Un sistema de búsqueda se justifica cuando hay tanto contenido que navegar deja de alcanzar . En Pozzo no ocurre: una persona tiene unas pocas juntas, cada una con un grupo de integrantes que se conocen entre sí y un período activo a la vez. Por eso esta versión no incluye un buscador global dentro de la aplicación. El componente de barra superior del catálogo prevé un icono de búsqueda para cuando el volumen lo justifique, pero ninguna pantalla de esta versión lo usa. En su lugar, cada lugar donde la persona necesita encontrar algo tiene un mecanismo propio, más corto que escribir una consulta: (ver Tabla 119)
 
 <table>
   <caption>Mecanismos de búsqueda y filtrado por pantalla</caption>
@@ -1139,7 +1139,7 @@ Un sistema de navegación responde tres preguntas: dónde estoy, adónde puedo i
 
 ##### Aplicación móvil
 
-La Tabla 119 presenta los sistemas de navegación de la aplicación móvil.
+La Tabla 120 presenta los sistemas de navegación de la aplicación móvil.
 
 <table>
   <caption>Sistemas de navegación de la aplicación móvil</caption>
@@ -1184,7 +1184,7 @@ Dos decisiones merecen explicarse. La primera es que no hay migas de pan (breadc
 
 ##### Landing page
 
-La Tabla 120 presenta los sistemas de navegación del landing page.
+La Tabla 121 presenta los sistemas de navegación del landing page.
 
 <table>
   <caption>Sistemas de navegación del landing page</caption>
@@ -1248,7 +1248,7 @@ El landing page presenta Pozzo a quien todavía no lo conoce y recoge su interé
 Como una página completa es demasiado alta para una figura, cada versión se presenta como un tablero de ventanas: cada recuadro es una ventana del navegador (de 1440 x 900 px en escritorio y de 360 x 800 px en celular) puesta sobre el mismo desplazamiento de la página. El escritorio ocupa ocho ventanas, dos por figura, y el celular trece ventanas en una sola figura.
 #### 3.1.3.1. Landing Page Wireframe
 El wireframe define la estructura y la jerarquía visual del landing page antes de incorporar colores, imágenes y contenido final. Sigue el modo wireframe establecido en la guía de estilo de la sección 3.1.1.1, utilizando tonos grises y elementos simplificados para representar la distribución de cada sección.
-La siguiente tabla resume la estructura planteada para las versiones de escritorio y celular: (ver Tabla 121)
+La siguiente tabla resume la estructura planteada para las versiones de escritorio y celular: (ver Tabla 122)
 
 <table>
   <caption>Secciones del wireframe del landing page en escritorio y celular</caption>
@@ -1304,7 +1304,7 @@ La siguiente tabla resume la estructura planteada para las versiones de escritor
   </tbody>
 </table>
 
-Hay una decisiones del wireframe que conviene explicar: la franja de confianza: se separó del hero y se le dio una banda propia, de ancho completo, porque la aclaración de que Pozzo no maneja el dinero responde a la duda más probable de un visitante y no debía depender de que lea el recuadro del hero (ver Figuras 80 a 84).
+Hay una decisiones del wireframe que conviene explicar: la franja de confianza: se separó del hero y se le dio una banda propia, de ancho completo, porque la aclaración de que Pozzo no maneja el dinero responde a la duda más probable de un visitante y no debía depender de que lea el recuadro del hero (ver Figuras 81 a 85).
 
 ![Wireframe del landing en escritorio, ventanas 1 y 2 de 8](images/chapter_3/landing_wireframe_desktop_1.png){width=90%}
 
@@ -1323,7 +1323,7 @@ Además de la versión de escritorio en modo claro, se desarrollaron variantes p
 
 Las pantallas de la aplicación se presentan en español incluso dentro de la versión en inglés del landing, debido a que el producto se encuentra orientado inicialmente al mercado peruano. Esta decisión se comunica dentro de la sección de funcionalidades para evitar confusión.
 
-En el mock-up, las fotografías de los integrantes del equipo se representan mediante elementos gráficos temporales. Las fotografías reales se incorporan posteriormente en la implementación del sitio (ver Figuras 85 a 91).
+En el mock-up, las fotografías de los integrantes del equipo se representan mediante elementos gráficos temporales. Las fotografías reales se incorporan posteriormente en la implementación del sitio (ver Figuras 86 a 92).
 
 ![Mock-up del landing en escritorio, ventanas 1 y 2 de 8](images/chapter_3/landing_mockup_desktop_1.png){width=90%}
 
@@ -1347,7 +1347,7 @@ El sitio se publica mediante GitHub Pages desde un repositorio independiente del
 
 Las pantallas de la aplicación utilizadas en el landing fueron obtenidas a partir de los mismos mock-ups elaborados en Figma y se presentan en formatos adecuados para su visualización en la web.
 
-La implementación mantiene la propuesta definida en el mock-up, aunque incorpora algunas diferencias intencionales derivadas del funcionamiento real del sitio: (ver Tabla 122)
+La implementación mantiene la propuesta definida en el mock-up, aunque incorpora algunas diferencias intencionales derivadas del funcionamiento real del sitio: (ver Tabla 123)
 
 <table>
   <caption>Diferencias entre el mock-up y el sitio implementado</caption>
@@ -1394,7 +1394,7 @@ La aplicación móvil es donde Pozzo cumple su promesa: que el grupo sepa, sin c
 
 Son 46 pantallas de 360 x 800 px, la clase compacta de la guía de estilo (sección 3.1.1.1), repartidas en once flujos que se nombran con una letra (A a K). Cada pantalla lleva un código (la letra del flujo y un número, por ejemplo F4) que se conserva en todos los artefactos, de modo que una pantalla se puede seguir del wireframe al mock-up, al wireflow, al user flow y al prototipo sin perderla. El pie de cada pantalla indica las User Stories de la sección 2.4.1 que cubre.
 
-Además de la letra, cada pantalla pertenece a un segmento objetivo, que es como la lee cada persona: Compartido (lo que ven la cabeza y el participante), Cabeza de junta y Participante. Los wireframes, los mock-ups y los wireflows siguen ese corte: cada lámina y cada wireflow pertenece a un solo segmento, de modo que cada persona puede leer solo el suyo de principio a fin. Una pantalla que sirve a los dos, como el estado del pozo (F1), se dibuja una vez en Compartido y se reutiliza en los recorridos de ambos (ver Tabla 123).
+Además de la letra, cada pantalla pertenece a un segmento objetivo, que es como la lee cada persona: Compartido (lo que ven la cabeza y el participante), Cabeza de junta y Participante. Los wireframes, los mock-ups y los wireflows siguen ese corte: cada lámina y cada wireflow pertenece a un solo segmento, de modo que cada persona puede leer solo el suyo de principio a fin. Una pantalla que sirve a los dos, como el estado del pozo (F1), se dibuja una vez en Compartido y se reutiliza en los recorridos de ambos (ver Tabla 124).
 
 <table>
   <caption>Flujos de la aplicación móvil por segmento</caption>
@@ -1487,7 +1487,7 @@ Todas las pantallas comparten los mismos datos de ejemplo, de modo que cada pant
 
 Los wireframes fijan qué hay en cada pantalla y en qué orden, sin color y sin imágenes, para discutir la estructura antes de discutir la apariencia. Están en el modo wireframe de la guía de estilo (sección 3.1.1.1): grises, un solo tono oscuro para la acción principal y para lo que más pesa, y recuadros con una X donde irá una imagen o una foto. Los textos se escriben en gris, con el contenido real de cada pantalla, de modo que se lee qué dice cada título, botón y etiqueta y cuánto espacio ocupa, sin que el color lleve la discusión. Los íconos se conservan, porque dicen qué es cada fila o cada botón. Además, cada lámina lleva su título y cada pantalla un pie con su código, su nombre y sus User Stories, que son la referencia con la que se sigue cada pantalla en los demás artefactos.
 
-Las 46 pantallas se agrupan en 14 láminas de dos a cinco pantallas, ordenadas por segmento: dos de Compartido, siete de Cabeza de junta y cinco de Participante. Cuando un grupo de tareas tiene más de tres pantallas se parte en varias láminas (preparar la junta en dos, gestionar los aportes en dos y aportar en dos), para que cada pantalla se lea al tamaño que tendrá en el celular. Los wireframes y los mock-ups salen de la misma especificación de pantallas y se generan en el archivo de Figma con los mismos componentes, así que tienen exactamente la misma estructura y solo cambia la fidelidad (ver Tabla 124).
+Las 46 pantallas se agrupan en 14 láminas de dos a cinco pantallas, ordenadas por segmento: dos de Compartido, siete de Cabeza de junta y cinco de Participante. Cuando un grupo de tareas tiene más de tres pantallas se parte en varias láminas (preparar la junta en dos, gestionar los aportes en dos y aportar en dos), para que cada pantalla se lea al tamaño que tendrá en el celular. Los wireframes y los mock-ups salen de la misma especificación de pantallas y se generan en el archivo de Figma con los mismos componentes, así que tienen exactamente la misma estructura y solo cambia la fidelidad (ver Tabla 125).
 
 <table>
   <caption>Láminas de wireframes y las user stories que cubren</caption>
@@ -1588,7 +1588,7 @@ Las 46 pantallas se agrupan en 14 láminas de dos a cinco pantallas, ordenadas p
   </tbody>
 </table>
 
-Las historias de la tabla salen del pie de cada pantalla, no de un reparto aproximado por lámina. Cada flujo se resolvió con una decisión de estructura que se puede defender con lo que se ve en pantalla: (ver Tabla 125)
+Las historias de la tabla salen del pie de cada pantalla, no de un reparto aproximado por lámina. Cada flujo se resolvió con una decisión de estructura que se puede defender con lo que se ve en pantalla: (ver Tabla 126)
 
 <table>
   <caption>Decisiones de estructura de cada flujo</caption>
@@ -1647,7 +1647,7 @@ Las historias de la tabla salen del pie de cada pantalla, no de un reparto aprox
   </tbody>
 </table>
 
-Las Figuras 92 a 105 muestran el detalle correspondiente.
+Las Figuras 93 a 106 muestran el detalle correspondiente.
 
 ![Wireframe de la lámina Compartido 1, acceso con el número de celular](images/chapter_3/wireframe_compartido_1_acceso.png){width=90%}
 
@@ -1681,7 +1681,7 @@ Las Figuras 92 a 105 muestran el detalle correspondiente.
 
 Un wireflow combina wireframes con un diagrama de flujo: miniaturas de baja fidelidad unidas por flechas que indican qué hace la persona para pasar de una pantalla a la siguiente [@laubheimer2016wireflows]. Sirve para comprobar que un recorrido funciona como secuencia, y no solo que cada pantalla se vea bien: una pantalla bien resuelta puede estar en un lugar equivocado del camino.
 
-Los doce wireflows siguen las tareas de la sección 3.1.2.1 y, como las láminas de wireframes, se separan por segmento: uno de Compartido, siete de Cabeza de junta y cuatro de Participante. Cada wireflow tiene una sola persona, de modo que Anna Weber y Sofia Gonzales pueden leer solo el recorrido que les toca. Usan las mismas miniaturas del wireframe, al 50 %. Cada uno lleva, en su encabezado, la persona, el objetivo y las historias que cubre. Debajo de cada miniatura van el código, el nombre y las historias de la pantalla. Cada flecha lleva una etiqueta con la acción que la dispara, por ejemplo "Toca Registrar mi aporte de S/ 300". La línea continua es el camino principal y la línea punteada es una alternativa, un error o un retorno; cuando una pantalla tiene una decisión, salen dos flechas con etiquetas distintas (ver Tabla 126).
+Los doce wireflows siguen las tareas de la sección 3.1.2.1 y, como las láminas de wireframes, se separan por segmento: uno de Compartido, siete de Cabeza de junta y cuatro de Participante. Cada wireflow tiene una sola persona, de modo que Anna Weber y Sofia Gonzales pueden leer solo el recorrido que les toca. Usan las mismas miniaturas del wireframe, al 50 %. Cada uno lleva, en su encabezado, la persona, el objetivo y las historias que cubre. Debajo de cada miniatura van el código, el nombre y las historias de la pantalla. Cada flecha lleva una etiqueta con la acción que la dispara, por ejemplo "Toca Registrar mi aporte de S/ 300". La línea continua es el camino principal y la línea punteada es una alternativa, un error o un retorno; cuando una pantalla tiene una decisión, salen dos flechas con etiquetas distintas (ver Tabla 127).
 
 <table>
   <caption>Wireflows de la aplicación móvil por segmento</caption>
@@ -1796,7 +1796,7 @@ Los doce wireflows siguen las tareas de la sección 3.1.2.1 y, como las láminas
   </tbody>
 </table>
 
-Lo más útil de los wireflows son las ramas, porque son los momentos en que un recorrido puede romperse. Estas son las que se dibujaron: (ver Tabla 127)
+Lo más útil de los wireflows son las ramas, porque son los momentos en que un recorrido puede romperse. Estas son las que se dibujaron: (ver Tabla 128)
 
 <table>
   <caption>Ramas y desvíos de cada wireflow</caption>
@@ -1859,7 +1859,7 @@ Lo más útil de los wireflows son las ramas, porque son los momentos en que un 
   </tbody>
 </table>
 
-Las Figuras 106 a 117 muestran el detalle correspondiente.
+Las Figuras 107 a 118 muestran el detalle correspondiente.
 
 ![Wireflow 1 (Compartido), registrarse e ingresar](images/chapter_3/wireflow_01_registro.png){width=90%}
 
@@ -1889,7 +1889,7 @@ Las Figuras 106 a 117 muestran el detalle correspondiente.
 
 Los mock-ups son las mismas 46 pantallas en alta fidelidad, en las mismas 14 láminas separadas por segmento que los wireframes: los roles de color de la guía en modo claro, la tipografía Plus Jakarta Sans, los íconos Material y los datos de ejemplo. En los mock-ups sí aparecen todos los textos. Son también la fuente de las pantallas que se ven dentro de los teléfonos del landing (sección 3.1.3.2), por eso lo que se promete en el sitio es exactamente lo que se diseñó aquí.
 
-Para que cada pantalla continúe la historia de la anterior, todo el diseño usa un único conjunto de datos de ejemplo. Un mismo número, una misma persona o un mismo estado aparecen igual en cualquier pantalla donde se muestren (ver Tabla 128).
+Para que cada pantalla continúe la historia de la anterior, todo el diseño usa un único conjunto de datos de ejemplo. Un mismo número, una misma persona o un mismo estado aparecen igual en cualquier pantalla donde se muestren (ver Tabla 129).
 
 <table>
   <caption>Valores de diseño aplicados en los mock-ups</caption>
@@ -1948,7 +1948,7 @@ Para que cada pantalla continúe la historia de la anterior, todo el diseño usa
   </tbody>
 </table>
 
-Los estados de un aporte y de un turno se repiten en varias pantallas, así que se resolvieron una sola vez como chips de la guía y se reutilizan. Cada chip combina texto, ícono y color, de modo que el estado se entiende sin depender solo del color (ver Tabla 129).
+Los estados de un aporte y de un turno se repiten en varias pantallas, así que se resolvieron una sola vez como chips de la guía y se reutilizan. Cada chip combina texto, ícono y color, de modo que el estado se entiende sin depender solo del color (ver Tabla 130).
 
 <table>
   <caption>Estados de la interfaz y su representación</caption>
@@ -1999,7 +1999,7 @@ Los estados de un aporte y de un turno se repiten en varias pantallas, así que 
   </tbody>
 </table>
 
-Las Figuras 118 a 131 muestran el detalle correspondiente.
+Las Figuras 119 a 132 muestran el detalle correspondiente.
 
 ![Mock-up de la lámina Compartido 1, acceso con el número de celular](images/chapter_3/mockup_compartido_1_acceso.png){width=90%}
 
@@ -2031,13 +2031,13 @@ Las Figuras 118 a 131 muestran el detalle correspondiente.
 
 ##### Modo oscuro
 
-La historia US06 pide poder elegir el tema visual, y la pantalla I2 ofrece tres opciones: usar el del sistema, claro u oscuro. Para comprobar que los roles de color de la guía se invierten sin perder información, se dibujaron en modo oscuro cuatro pantallas con muchos estados a la vez: Mis juntas de la cabeza (B1), el estado del pozo (F1), el aporte validado (F5) y el historial de aportes de la cabeza (K1). Son los mismos componentes y la misma estructura; solo cambian los roles (ver Figura 132).
+La historia US06 pide poder elegir el tema visual, y la pantalla I2 ofrece tres opciones: usar el del sistema, claro u oscuro. Para comprobar que los roles de color de la guía se invierten sin perder información, se dibujaron en modo oscuro cuatro pantallas con muchos estados a la vez: Mis juntas de la cabeza (B1), el estado del pozo (F1), el aporte validado (F5) y el historial de aportes de la cabeza (K1). Son los mismos componentes y la misma estructura; solo cambian los roles (ver Figura 133).
 
 ![Mock-up en modo oscuro de las pantallas B1, F1, F5 y K1](images/chapter_3/mockup_modo_oscuro.png){width=90%}
 
 ##### Cobertura de las User Stories
 
-Las 46 pantallas cubren 38 de las 42 historias de la aplicación (US01 a US42; las cuatro restantes, US43 a US46, son del landing y se cubren en la sección 3.1.3.2). Se contó una historia como cubierta cuando alguna pantalla resuelve lo que su objetivo pide; los caminos de error se ven en las ramas de los wireflows y en los user flows de la sección 3.1.4.4. La subasta (US19) aparece solo como una opción marcada "Próximamente" en E3. No tienen pantalla en esta entrega cuatro historias: (ver Tabla 130)
+Las 46 pantallas cubren 38 de las 42 historias de la aplicación (US01 a US42; las cuatro restantes, US43 a US46, son del landing y se cubren en la sección 3.1.3.2). Se contó una historia como cubierta cuando alguna pantalla resuelve lo que su objetivo pide; los caminos de error se ven en las ramas de los wireflows y en los user flows de la sección 3.1.4.4. La subasta (US19) aparece solo como una opción marcada "Próximamente" en E3. No tienen pantalla en esta entrega cuatro historias: (ver Tabla 131)
 
 <table>
   <caption>Cobertura de las user stories en los mock-ups</caption>
@@ -2072,7 +2072,7 @@ US32 y US42 se contaron como cubiertas con el historial de la cabeza, pero con u
 
 Un user flow es un diagrama de flujo de lo que hace la persona y lo que hace el sistema para lograr una tarea, con las decisiones y los errores que hay en el camino. Se diferencia del wireflow en que no dibuja pantallas sino pasos: muestra por qué un recorrido se desvía y adónde vuelve, y deja ver cuáles son los puntos donde el diseño debe tener un mensaje de error o una salida. Cada paso lleva una etiqueta roja con el código de la pantalla en la que ocurre.
 
-Los diagramas comparten una misma notación: una píldora para el inicio y el final, un rectángulo redondeado para un paso, un rombo para una decisión, una etiqueta "Pozzo" para lo que hace el sistema sin una pantalla propia y una píldora punteada para "vuelve a un paso". El camino feliz va con flechas continuas y pasos verdes; los caminos alternos, con flechas punteadas y pasos ámbar; y los errores, con flechas punteadas y pasos rojos. Cada diagrama trae su leyenda. El camino feliz se distingue de los demás también por el trazo, y los alternos de los errores por el texto del paso, de modo que no dependen solo del color (ver Tabla 131).
+Los diagramas comparten una misma notación: una píldora para el inicio y el final, un rectángulo redondeado para un paso, un rombo para una decisión, una etiqueta "Pozzo" para lo que hace el sistema sin una pantalla propia y una píldora punteada para "vuelve a un paso". El camino feliz va con flechas continuas y pasos verdes; los caminos alternos, con flechas punteadas y pasos ámbar; y los errores, con flechas punteadas y pasos rojos. Cada diagrama trae su leyenda. El camino feliz se distingue de los demás también por el trazo, y los alternos de los errores por el texto del paso, de modo que no dependen solo del color (ver Tabla 132).
 
 <table>
   <caption>User flows y sus caminos alternativos</caption>
@@ -2113,7 +2113,7 @@ Los diagramas comparten una misma notación: una píldora para el inicio y el fi
   </tbody>
 </table>
 
-Dos decisiones de forma merecen una explicación. El flujo 3 es el único con carriles: se dibujó con tres (Participante, Pozzo y Cabeza de junta) porque la pregunta que responde es quién hace qué. El participante sube el comprobante, Pozzo lo lee y lo valida, y la cabeza solo interviene cuando algo no coincide; ese reparto es la propuesta de valor de Pozzo y se ve de un vistazo en los carriles. El flujo 4 encierra en un recuadro "Se repite en cada período" los pasos que se repiten, para no dibujar ocho veces el mismo ciclo (ver Figuras 133 a 136).
+Dos decisiones de forma merecen una explicación. El flujo 3 es el único con carriles: se dibujó con tres (Participante, Pozzo y Cabeza de junta) porque la pregunta que responde es quién hace qué. El participante sube el comprobante, Pozzo lo lee y lo valida, y la cabeza solo interviene cuando algo no coincide; ese reparto es la propuesta de valor de Pozzo y se ve de un vistazo en los carriles. El flujo 4 encierra en un recuadro "Se repite en cada período" los pasos que se repiten, para no dibujar ocho veces el mismo ciclo (ver Figuras 134 a 137).
 
 ![User flow 1, ingreso con celular](images/chapter_3/userflow_01_ingreso.png){width=90%}
 
@@ -2125,7 +2125,7 @@ Dos decisiones de forma merecen una explicación. El flujo 3 es el único con ca
 
 #### 3.1.4.5. Mobile Applications Prototyping
 
-El prototipo permite recorrer la aplicación con el dedo antes de escribir código. Se armó en Figma con las pantallas del mock-up en modo claro y reproduce los tres caminos que sostienen la promesa de Pozzo: entrar con el celular (P1), crear una junta e invitar (P2) y aportar con comprobante (P3). Los dos primeros son los que hace Anna para empezar y el tercero es el que hace Sofia cada mes. El resto de las pantallas existe como mock-up, pero todavía no está enlazado (ver Tabla 132).
+El prototipo permite recorrer la aplicación con el dedo antes de escribir código. Se armó en Figma con las pantallas del mock-up en modo claro y reproduce los tres caminos que sostienen la promesa de Pozzo: entrar con el celular (P1), crear una junta e invitar (P2) y aportar con comprobante (P3). Los dos primeros son los que hace Anna para empezar y el tercero es el que hace Sofia cada mes. El resto de las pantallas existe como mock-up, pero todavía no está enlazado (ver Tabla 133).
 
 
 <table>
@@ -2227,7 +2227,7 @@ El prototipo permite recorrer la aplicación con el dedo antes de escribir códi
   </tbody>
 </table>
 
-El mapa de flujos resume los tres caminos: las pantallas con interacción tienen borde rojo, el punto de inicio borde verde, la pantalla final borde punteado, y cada flecha lleva el nombre del botón que se toca (ver Figura 137).
+El mapa de flujos resume los tres caminos: las pantallas con interacción tienen borde rojo, el punto de inicio borde verde, la pantalla final borde punteado, y cada flecha lleva el nombre del botón que se toca (ver Figura 138).
 
 ![Mapa de flujos del prototipo, caminos P1, P2 y P3](images/chapter_3/prototype_mapa_de_flujos.png){width=95%}
 
