@@ -729,7 +729,7 @@ En el Sprint 1 se implementaron los cuatro productos de la entrega: el landing p
 
 <table>
   <caption>Commits de implementación de pozzo-landing-page</caption>
-  <colgroup><col width="13%"><col width="14%"><col width="9%"><col width="26%"><col width="26%"><col width="12%"></colgroup>
+  <colgroup><col width="13%"><col width="17%"><col width="11%"><col width="23%"><col width="21%"><col width="15%"></colgroup>
   <thead>
     <tr>
       <th>Repository</th>
@@ -860,7 +860,7 @@ En el Sprint 1 se implementaron los cuatro productos de la entrega: el landing p
 
 <table>
   <caption>Commits de implementación de kerolabs.github.io</caption>
-  <colgroup><col width="13%"><col width="14%"><col width="9%"><col width="26%"><col width="26%"><col width="12%"></colgroup>
+  <colgroup><col width="13%"><col width="17%"><col width="11%"><col width="23%"><col width="21%"><col width="15%"></colgroup>
   <thead>
     <tr>
       <th>Repository</th>
@@ -951,7 +951,7 @@ En el Sprint 1 se implementaron los cuatro productos de la entrega: el landing p
 
 <table>
   <caption>Commits de implementación de pozzo-backend</caption>
-  <colgroup><col width="13%"><col width="14%"><col width="9%"><col width="26%"><col width="26%"><col width="12%"></colgroup>
+  <colgroup><col width="13%"><col width="17%"><col width="11%"><col width="23%"><col width="21%"><col width="15%"></colgroup>
   <thead>
     <tr>
       <th>Repository</th>
@@ -1754,7 +1754,7 @@ En el Sprint 1 se implementaron los cuatro productos de la entrega: el landing p
 
 <table>
   <caption>Commits de implementación de pozzo-mobile</caption>
-  <colgroup><col width="13%"><col width="14%"><col width="9%"><col width="26%"><col width="26%"><col width="12%"></colgroup>
+  <colgroup><col width="13%"><col width="17%"><col width="11%"><col width="23%"><col width="21%"><col width="15%"></colgroup>
   <thead>
     <tr>
       <th>Repository</th>
@@ -2722,7 +2722,7 @@ La Tabla 147 relaciona los commits de los avances en Testing de este Sprint.
 
 <table>
   <caption>Commits de las pruebas de los servicios RESTful</caption>
-  <colgroup><col width="13%"><col width="13%"><col width="10%"><col width="24%"><col width="27%"><col width="13%"></colgroup>
+  <colgroup><col width="13%"><col width="13%"><col width="11%"><col width="24%"><col width="24%"><col width="15%"></colgroup>
   <thead>
     <tr>
       <th>Repository</th>
@@ -3392,7 +3392,7 @@ La documentación se escribió junto con cada controller, en el mismo commit que
 
 <table>
   <caption>Commits de la documentación de los servicios RESTful</caption>
-  <colgroup><col width="15%"><col width="19%"><col width="10%"><col width="34%"><col width="10%"><col width="12%"></colgroup>
+  <colgroup><col width="14%"><col width="18%"><col width="11%"><col width="33%"><col width="9%"><col width="15%"></colgroup>
   <thead>
     <tr>
       <th>Repository</th>
