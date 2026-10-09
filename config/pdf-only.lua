@@ -54,9 +54,14 @@ end
 -- no tiene guiones ni espacios donde LaTeX pueda cortar, y en una columna
 -- estrecha se sale de la celda. Se le abren puntos de corte opcionales donde
 -- una persona los pondria: entre una minuscula y una mayuscula (CamelCase) y
--- despues de una barra o un punto. Solo se tocan palabras largas dentro de
--- tablas; el resto del texto se compone como siempre.
+-- despues de una barra, un punto o un guion. Solo se tocan palabras largas
+-- dentro de tablas; el resto del texto se compone como siempre.
 local LARGO_MINIMO = 14
+
+-- El corte va seguido de un espacio nulo: sin el, TeX no separa en silabas la
+-- palabra que viene despues de la barra (feature/contributions) y, si no cabe
+-- entera en la columna, se sale igual.
+local CORTE = [[\allowbreak\hspace{0pt}]]
 
 local function conCortes(str)
   local texto = str.text
@@ -73,19 +78,85 @@ local function conCortes(str)
       actual = ''
     end
     actual = actual .. c
-    if c == '/' or c == '.' then
+    if c == '/' or c == '.' or c == '-' then
       table.insert(partes, actual)
       actual = ''
     end
     previo = c
   end
   if actual ~= '' then table.insert(partes, actual) end
+  -- Un hash de commit completo (40 caracteres) no tiene mayusculas ni barras:
+  -- se parte en trozos fijos para que quepa en una columna de commits. Lo mismo
+  -- con cualquier otro tramo que siga siendo mas largo que eso.
+  local trozos = {}
+  for _, parte in ipairs(partes) do
+    if #parte > 20 then
+      for i = 1, #parte, 10 do table.insert(trozos, parte:sub(i, i + 9)) end
+    else
+      table.insert(trozos, parte)
+    end
+  end
+  partes = trozos
   if #partes < 2 then return nil end
   local salida = pandoc.List()
   for i, parte in ipairs(partes) do
-    if i > 1 then salida:insert(pandoc.RawInline('latex', [[\allowbreak{}]])) end
+    if i > 1 then salida:insert(pandoc.RawInline('latex', CORTE)) end
     salida:insert(pandoc.Str(parte))
   end
+  return salida
+end
+
+-- El codigo en linea (`ContributionRepository.existsByCycleIdAndOperationNumber`)
+-- tiene el mismo problema, y no solo en las tablas: en un parrafo se sale del
+-- margen derecho. Se compone a mano como \texttt con los mismos puntos de corte,
+-- mas el guion bajo, que separa palabras en los nombres de tablas y columnas.
+local ESPECIALES_LATEX = {
+  ['\\'] = '\\textbackslash{}', ['{'] = '\\{', ['}'] = '\\}', ['#'] = '\\#',
+  ['$'] = '\\$', ['%'] = '\\%', ['&'] = '\\&', ['_'] = '\\_',
+  ['^'] = '\\textasciicircum{}', ['~'] = '\\textasciitilde{}',
+}
+
+local function codigoConCortes(code)
+  local texto = code.text
+  if utf8.len(texto) == nil or #texto < LARGO_MINIMO then return nil end
+  local salida = {}
+  local previo = ''
+  for _, cp in utf8.codes(texto) do
+    local c = utf8.char(cp)
+    if c:match('^%u$') and previo:match('^[%l%d]$') then
+      table.insert(salida, '\\allowbreak{}')
+    end
+    table.insert(salida, ESPECIALES_LATEX[c] or c)
+    if c == '/' or c == '.' or c == '_' or c == '-' then
+      table.insert(salida, '\\allowbreak{}')
+    end
+    previo = c
+  end
+  return pandoc.RawInline('latex', '\\texttt{' .. table.concat(salida) .. '}')
+end
+
+function Code(code)
+  if not FORMAT:match('latex') then return nil end
+  return codigoConCortes(code)
+end
+
+-- APA 7 pone el numero y el titulo de la figura encima de la imagen, igual que
+-- en las tablas, pero pandoc escribe el \caption despues de la imagen. Ademas el
+-- espacio que deja caption (skip) va del lado de la imagen solo cuando el titulo
+-- esta arriba; abajo, "Figura N" quedaba pegado al borde de la imagen. Se arma la
+-- figura a mano con el titulo primero.
+function Figure(fig)
+  if not FORMAT:match('latex') then return nil end
+  local titulo = pandoc.utils.blocks_to_inlines(fig.caption.long)
+  if #titulo == 0 then return nil end
+  local etiqueta = fig.identifier ~= '' and ('\\label{' .. fig.identifier .. '}') or ''
+  local caption = pandoc.List({ pandoc.RawInline('latex', '\\caption{') })
+  caption:extend(titulo)
+  caption:insert(pandoc.RawInline('latex', '}' .. etiqueta))
+  local salida = pandoc.List({ pandoc.RawBlock('latex', '\\begin{figure}\n\\centering') })
+  salida:insert(pandoc.Plain(caption))
+  salida:extend(fig.content)
+  salida:insert(pandoc.RawBlock('latex', '\\end{figure}'))
   return salida
 end
 

@@ -124,6 +124,9 @@
 \usepackage{caption}
 \captionsetup{position=above, labelfont=bf, textfont=it, labelsep=newline,
               singlelinecheck=false, justification=raggedright, skip=6pt}
+% Entre el titulo de una figura y la imagen, algo mas de aire que en las tablas:
+% una captura con borde oscuro arriba se lee como parte del titulo si va pegada.
+\captionsetup[figure]{skip=12pt}
 
 % El pie de una longtable se compone dentro de una caja de \LTcapwidth, que por
 % omision mide 4 in: mas angosta que el texto y sin sitio para un titulo largo.
@@ -145,6 +148,13 @@
     \setlength{\cslhangindent}{0.5in}%
     \setlength{\csllabelwidth}{0pt}%
   \fi}
+
+% TeX no separa en silabas la primera palabra de un parrafo, y en una celda la
+% primera palabra suele ser la unica (contributions, pozzo-backend): en una
+% columna angosta se sale del borde. Un espacio nulo al inicio de cada celda la
+% vuelve divisible. \arraybackslash lo usan todas las columnas que arma pandoc.
+\let\apaArrayBackslash\arraybackslash
+\renewcommand{\arraybackslash}{\apaArrayBackslash\hspace{0pt}\ignorespaces}
 
 % Bloques de codigo que se parten en vez de salirse del margen.
 \usepackage{fvextra}
