@@ -31,7 +31,7 @@ CAJAS = [
      'En ese contexto, Pozzo busca responder: ¿cómo administrar una junta que ya existe, '
      'validando los aportes y mostrando el avance en tiempo real, sin mover el dinero por '
      'la plataforma?',
-     AZUL, 0.00, 0.62, 0.34, 0.38),
+     AZUL, 0.00, 0.67, 0.34, 0.33),
 
     (5, 'Soluciones propuestas',
      'Cómo resolver los problemas del negocio satisfaciendo a los usuarios.',
@@ -41,7 +41,7 @@ CAJAS = [
      '• Asignación de turnos por sorteo, orden acordado o subasta.\n'
      '• Historial de cumplimiento portable entre juntas.\n'
      '• Incorporación por enlace de invitación o desde la propia aplicación.',
-     VERDE, 0.345, 0.32, 0.31, 0.68),
+     VERDE, 0.345, 0.375, 0.31, 0.625),
 
     (2, 'Resultados comerciales',
      'Beneficios para el negocio al resolver los problemas.',
@@ -50,7 +50,7 @@ CAJAS = [
      '• Cero recordatorios de cobranza enviados a mano por la cabeza durante el ciclo.\n'
      '• Ninguna discrepancia sin comprobante localizable en la aplicación.\n'
      '• Al menos una de cada tres juntas nuevas llega por integrantes que ya usaron Pozzo.',
-     AZUL, 0.66, 0.62, 0.34, 0.38),
+     AZUL, 0.66, 0.67, 0.34, 0.33),
 
     (3, 'Usuarios & Clientes',
      'Tipos de usuarios y clientes en los que nos enfocamos.',
@@ -58,7 +58,7 @@ CAJAS = [
      'aportan con la periodicidad que el grupo haya pactado y esperan su turno para cobrar. '
      'El participante al que le toca cobrar necesita ver quién ya depositó y quién falta. '
      'Todos ya usan Yape y WhatsApp.',
-     ROSA, 0.00, 0.32, 0.34, 0.29),
+     ROSA, 0.00, 0.375, 0.34, 0.285),
 
     (4, 'Beneficios para el usuario',
      'Beneficios que busca el usuario y sus motivantes.',
@@ -67,7 +67,7 @@ CAJAS = [
      '• El que va a cobrar sabe en tiempo real cuánto falta para el pozo.\n'
      '• Los recordatorios evitan que alguien haga de cobrador.\n'
      '• El historial de cumplimiento abre la puerta a nuevas juntas.',
-     ROSA, 0.66, 0.32, 0.34, 0.29),
+     ROSA, 0.66, 0.375, 0.34, 0.285),
 
     (6, 'Hipótesis',
      'Creemos que [resultado] se logrará si [usuario] obtiene [beneficio] con [solución].',
@@ -77,14 +77,14 @@ CAJAS = [
      '• El reparto por sorteo, orden acordado o subasta permite adoptar Pozzo sin cambiar la costumbre del grupo.\n'
      '• El historial de cumplimiento lleva participantes hacia juntas nuevas.\n'
      '• La invitación desde la aplicación permite registrar el primer aporte sin configurar nada.',
-     VERDE, 0.00, 0.00, 0.34, 0.305),
+     VERDE, 0.00, 0.00, 0.34, 0.365),
 
     (7, '¿Qué es lo más importante que necesitamos aprender primero?',
      'La suposición más riesgosa, la que podría llevar el proyecto al fracaso.',
      'Si las cabezas y los participantes confían en que la validación del voucher de Yape '
      'basta para dar por registrado un aporte, sin revisarlo a mano. Toda la propuesta de '
      'valor depende de esa confianza.',
-     VERDE, 0.345, 0.00, 0.31, 0.305),
+     VERDE, 0.345, 0.00, 0.31, 0.365),
 
     (8, '¿Cuál es la menor cantidad de trabajo para aprenderlo?',
      'El experimento más pequeño que valida o descarta ese riesgo.',
@@ -94,7 +94,7 @@ CAJAS = [
      'Al cierre, medir si la cabeza dejó de revisar sus movimientos por su cuenta y cuántos '
      'reclamos surgieron. Si la confianza se sostiene, recién entonces construir el lector '
      'de vouchers, el calendario y los recordatorios.',
-     VERDE, 0.66, 0.00, 0.34, 0.305),
+     VERDE, 0.66, 0.00, 0.34, 0.365),
 ]
 
 
