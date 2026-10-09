@@ -77,7 +77,7 @@ Antes de elegir colores o componentes, el equipo fijó siete principios. Cada un
 
 ##### Identidad de marca
 
-El logo de Pozzo es un cuadrado de esquinas redondeadas en terracota con un anillo crema y una moneda dorada al centro: la moneda representa el pozo, que es lo que el grupo reúne y se reparte, y el anillo la rueda de turnos que lo hace rotar. La palabra Pozzo se compone en Plus Jakarta Sans Bold. La marca sola se usa en espacios pequeños (icono de la aplicación, avatar y favicon del landing) y el logo completo en cabeceras y portadas. Tiene cuatro variantes: sobre fondo claro, solo la marca, sobre fondo oscuro (con el texto en el tono primary del modo oscuro) y sobre el terracota de la marca, donde la marca se invierte.
+El logo de Pozzo son dos anillos abiertos que se entrelazan, uno terracota y uno dorado: cada anillo gira hacia el otro, como el dinero que pasa de mano en mano en cada turno, y juntos forman el pozo que el grupo reúne y se reparte. Junto a la marca va la palabra POZZO en mayúsculas, en el mismo terracota. La marca sola se usa en espacios pequeños (icono de la aplicación, avatar y favicon del landing) y el logo completo en cabeceras y portadas. Tiene cuatro variantes: sobre fondo claro, solo la marca, sobre fondo oscuro (con los anillos invertidos y el texto en el tono primary del modo oscuro) y sobre el terracota de la marca, donde todo el logo pasa a crema.
 
 La zona de respeto alrededor del logo es igual a x, la mitad de la altura de la marca, y dentro de ella no se coloca texto, borde ni otra figura. Por debajo de 32 px de altura de marca se usa solo la marca, nunca el logo completo ni una versión estirada, y la marca sola no baja de 24 px (ver Figura 67).
 
