@@ -37,6 +37,12 @@ La Tabla 1 presenta el registro de versiones del informe.
       <td align="center">Todo el equipo</td>
       <td align="center">Versión para TB1: Capítulo III (Solution UI/UX Design) y Capítulo IV con el Sprint 1; Capítulo II alineado con los servicios desplegados y con los diagramas DDD del tablero del equipo; numeración APA de tablas y figuras; cuatro papers Q1 recientes en la bibliografía; Collaboration Insights, Student Outcome y Conclusiones actualizados</td>
     </tr>
+    <tr>
+      <td align="center">2.1</td>
+      <td align="center">09/11/2026</td>
+      <td align="center">Camargo Briceño, Joseph Julius</td>
+      <td align="center">Corrección del Sprint 1: el Sprint Planning 1, el Sprint Backlog 1 y el Product Backlog incluyen todas las historias implementadas en el Sprint (141 Story Points), y el Sprint 2 reúne las 58 restantes</td>
+    </tr>
   </tbody>
 </table>
 
