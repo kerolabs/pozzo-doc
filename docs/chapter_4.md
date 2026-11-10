@@ -3890,7 +3890,165 @@ El enunciado pide que todos participen en la implementación de cada producto, y
 
 ## 4.3. Validation Interviews
 
+Las entrevistas del Capítulo II sirvieron para descubrir el problema: cómo se administran hoy las juntas y dónde duele. Estas sirven para lo contrario, comprobar si lo construido en el Sprint 1 resuelve ese dolor. Se entrevista a los mismos dos segmentos, cabezas de junta y participantes, pero ahora con el producto delante: el landing page publicado y la aplicación móvil instalada en un celular Android. La diferencia de método es que el peso no está en lo que la persona dice, sino en lo que hace: cada entrevista incluye tareas que el entrevistado intenta completar sin ayuda mientras el entrevistador observa dónde duda, dónde se equivoca y qué entiende de lo que ve.
+
 ### 4.3.1. Diseño de Entrevistas
+
+Antes de iniciar la entrevista se brinda un saludo cordial y una breve presentación del entrevistador, explicando que el propósito de la conversación es probar una aplicación que el equipo construyó para administrar juntas de ahorro. Se aclara que lo que se evalúa es la aplicación y no a la persona, que no hay respuestas correctas ni incorrectas y que, si algo no se entiende, el problema es del diseño. Se aclara también que la información recopilada será utilizada únicamente con fines académicos para el desarrollo del proyecto Pozzo y se mantendrá en estricta confidencialidad, y se solicita autorización para grabar la sesión.
+
+La entrevista dura entre veinte y treinta minutos y se realiza de forma presencial o por videollamada compartiendo pantalla. La aplicación corre en un dispositivo Android con la variante `cloud` del APK, apuntando a los servicios desplegados, con datos de prueba cargados de antemano para que el entrevistado encuentre una junta en curso y no tenga que crearla desde cero cuando la tarea no lo pide. El landing page se abre desde el celular del entrevistado, en `kerolabs.github.io`, para reproducir la situación real de quien recibe el enlace por WhatsApp.
+
+La sesión se estructura en cinco momentos: saludo y consentimiento; preguntas de contexto para situar a la persona y su junta actual; las tareas guiadas, que son el centro de la entrevista; las preguntas posteriores, que recogen lo que la persona entendió y lo que le faltó; y el cierre. Durante las tareas el entrevistador no guía ni corrige: solo enuncia la tarea y pide a la persona que piense en voz alta. Si la persona se bloquea más de un minuto, se anota el bloqueo y se da la pista mínima para continuar.
+
+De cada tarea se registran cuatro datos: si la completó sin ayuda, con ayuda o no la completó; cuánto tardó; en qué pantalla dudó; y qué dijo mientras la hacía. La Tabla 157 reúne las tareas de cada segmento, la pantalla en la que ocurren, lo que cada una valida y el criterio con el que se considera superada.
+
+<table>
+  <caption>Tareas de validación por segmento</caption>
+  <colgroup><col width="10%"><col width="26%"><col width="18%"><col width="24%"><col width="22%"></colgroup>
+  <thead>
+    <tr>
+      <th>Segmento</th>
+      <th>Tarea</th>
+      <th>Pantalla</th>
+      <th>Qué valida</th>
+      <th>Criterio de éxito</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="6"><b>Cabeza de junta</b></td>
+      <td>Crear una junta de S/200 mensuales, con cuatro cupos y corte el día 20</td>
+      <td>Crear junta</td>
+      <td>EP02. Que las reglas de la junta se puedan expresar en la aplicación tal como se acuerdan en el grupo</td>
+      <td>Completa el formulario sin preguntar qué significa ningún campo</td>
+    </tr>
+    <tr>
+      <td>Conseguir que un integrante se una a esa junta</td>
+      <td>Invitación</td>
+      <td>EP03. Que la incorporación por código y enlace reemplace el registro manual</td>
+      <td>Comparte el código o el enlace sin buscar una opción de registrar a mano</td>
+    </tr>
+    <tr>
+      <td>Repartir los turnos e iniciar la junta</td>
+      <td>Junta por iniciar y Turnos</td>
+      <td>EP04. Que el reparto de turnos de la aplicación cubra el que la persona usa hoy</td>
+      <td>Elige un método de reparto e inicia la junta sin ayuda</td>
+    </tr>
+    <tr>
+      <td>Resolver un comprobante cuyo monto no coincide con lo esperado</td>
+      <td>Revisar aporte</td>
+      <td>EP05. Que la validación automática reduzca la revisión manual sin quitarle la última palabra a la cabeza</td>
+      <td>Identifica cuál es el campo que no coincide y decide aprobar o rechazar</td>
+    </tr>
+    <tr>
+      <td>Decir cuánto falta para completar el pozo y quién no ha aportado</td>
+      <td>Estado del pozo</td>
+      <td>EP06. Que el estado del pozo se lea de un vistazo</td>
+      <td>Responde ambas cosas en menos de quince segundos, sin abrir otra pantalla</td>
+    </tr>
+    <tr>
+      <td>Averiguar cómo se avisa a quien no ha aportado y cuándo se envía</td>
+      <td>Avisos</td>
+      <td>EP07. Que los recordatorios automáticos sustituyan la cobranza por WhatsApp</td>
+      <td>Encuentra los recordatorios y enuncia en qué momentos se envían</td>
+    </tr>
+    <tr>
+      <td rowspan="6"><b>Participante</b></td>
+      <td>Entrar a Pozzo con su número de celular</td>
+      <td>Ingreso</td>
+      <td>EP01. Que el ingreso sin contraseña no genere desconfianza</td>
+      <td>Entra sin ayuda y sin buscar dónde crear una contraseña</td>
+    </tr>
+    <tr>
+      <td>Unirse a una junta con el código que le compartieron</td>
+      <td>Unirme con un código</td>
+      <td>EP03. Que unirse a una junta no requiera explicación</td>
+      <td>Encuentra la opción y entra a la junta al primer intento</td>
+    </tr>
+    <tr>
+      <td>Registrar el aporte del período con su comprobante</td>
+      <td>Aportar al pozo</td>
+      <td>EP05. Que el registro del aporte sea más corto que mandar la captura por WhatsApp</td>
+      <td>Identifica a quién transferir y sube el comprobante sin ayuda</td>
+    </tr>
+    <tr>
+      <td>Decir cuándo le toca cobrar y cuánto recibirá</td>
+      <td>Calendario de turnos</td>
+      <td>EP04 y EP06. Que el turno propio sea evidente sin preguntarle a la cabeza</td>
+      <td>Responde ambas cosas señalando la pantalla</td>
+    </tr>
+    <tr>
+      <td>Comprobar si su aporte del período quedó validado</td>
+      <td>Historial</td>
+      <td>EP09. Que el participante pueda demostrar que pagó sin depender de nadie</td>
+      <td>Encuentra el estado de su aporte y distingue validado de pendiente</td>
+    </tr>
+    <tr>
+      <td>Explicar, después de usar la aplicación, dónde queda su dinero</td>
+      <td>Aportar al pozo y landing page</td>
+      <td>Riesgo de confianza. Que quede claro que Pozzo no recibe ni retiene el dinero</td>
+      <td>Responde que el dinero va directo a la cabeza de junta y no a Pozzo</td>
+    </tr>
+  </tbody>
+</table>
+
+**Preguntas de contexto (ambos segmentos)**
+
+-   ¿Cuál es su nombre completo?
+
+1. ¿Qué edad tienes, en qué distrito vives y a qué te dedicas?
+
+2. ¿En cuántas juntas estás ahora y qué rol tienes en cada una?
+
+3. ¿Cómo llevan hoy la cuenta de esa junta?
+
+4. ¿Qué celular usas y qué aplicaciones abres todos los días?
+
+**Segmento 1: Cabezas de junta (organizadores)**
+
+1. Cuando viste la primera pantalla, antes de tocar nada, ¿qué entendiste que hace Pozzo?
+
+2. Al crear la junta, ¿hubo algún dato que no supieras qué poner o que tu junta no use?
+
+3. Las palabras aporte, pozo, turno, fecha de corte y cabeza de junta, ¿significan en la aplicación lo mismo que en tu junta?
+
+4. ¿Mandarías la invitación por código o por enlace? ¿Por qué?
+
+5. Cuando el comprobante no coincidía, ¿qué miraste para decidir? ¿Qué te faltó para decidir con más seguridad?
+
+6. ¿Aceptarías como bueno un aporte que la aplicación marcó validado, sin revisarlo tú?
+
+7. En tu junta hay gente que no usaría una aplicación. ¿Qué harías con ellos?
+
+8. Si usaras Pozzo en tu junta actual, ¿qué dejarías de hacer a mano?
+
+9. ¿Qué le falta a la aplicación para que la uses el próximo ciclo?
+
+10. ¿Qué parte te pareció más difícil o más confusa?
+
+**Segmento 2: Participantes de junta**
+
+1. Cuando viste la primera pantalla, antes de tocar nada, ¿qué entendiste que hace Pozzo?
+
+2. Entrar con tu número y un código, sin contraseña, ¿te dio confianza o desconfianza?
+
+3. Al registrar el aporte, ¿quedó claro a quién le estabas transfiriendo?
+
+4. Después de subir el comprobante, ¿qué creíste que pasaba con él?
+
+5. ¿Dónde te enteraste de que tu aporte había quedado validado?
+
+6. Si la aplicación dijera que no pagaste y tú sí lo hiciste, ¿qué harías?
+
+7. ¿Entendiste cuándo te toca cobrar y cuánto vas a recibir?
+
+8. Cuando usas Pozzo, ¿dónde queda tu dinero?
+
+9. ¿Le pedirías a la cabeza de tu junta que la usen? ¿Por qué sí o por qué no?
+
+10. ¿Qué parte te pareció más difícil o más confusa?
+
+Al cerrar se agradece la participación, se pregunta si la persona quiere añadir algo que no se haya tocado y se le pide autorización para volver a contactarla cuando el producto avance.
 
 ### 4.3.2. Registro de Entrevistas
 
