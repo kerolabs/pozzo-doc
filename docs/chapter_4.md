@@ -3980,7 +3980,7 @@ De cada tarea se registran cuatro datos: si la completó sin ayuda, con ayuda o 
     <tr>
       <td>Comprobar si su aporte del período quedó validado</td>
       <td>Historial</td>
-      <td>EP09. Que el participante pueda demostrar que pagó sin depender de nadie</td>
+      <td>EP06. Que el participante pueda comprobar por sí mismo que su aporte quedó registrado</td>
       <td>Encuentra el estado de su aporte y distingue validado de pendiente</td>
     </tr>
     <tr>
@@ -4400,7 +4400,7 @@ La Tabla 163 presenta la ficha de la tercera entrevista de validación al segmen
 
 ### 4.3.3. Evaluaciones según heurísticas
 
-El equipo realizó una evaluación heurística del producto del Sprint 1. Es una inspección hecha por el propio equipo, sin usuarios, en la que cada integrante recorre las tareas del apartado anterior buscando dónde la interfaz incumple un principio de usabilidad. No sustituye a las entrevistas, porque un equipo no puede sorprenderse con su propio producto, pero encuentra antes los problemas que no hace falta un usuario para detectar. Los hallazgos se contrastaron con las diez heurísticas de Nielsen [@nielsen1994heuristics], las mismas con las que se justificaron los principios de diseño del Capítulo III. La Tabla 164 presenta la cabecera de la evaluación.
+El equipo realizó una evaluación heurística del producto del Sprint 1. Es una inspección hecha por el propio equipo, sin usuarios, en la que cada integrante recorre las tareas de la Tabla 157 buscando dónde la interfaz incumple un principio de usabilidad. No sustituye a las entrevistas, porque un equipo no puede sorprenderse con su propio producto, pero encuentra antes los problemas que no hace falta un usuario para detectar. Los hallazgos se contrastaron con las diez heurísticas de Nielsen [@nielsen1994heuristics], las mismas con las que se justificaron los principios de diseño del Capítulo III. La Tabla 164 presenta la cabecera de la evaluación.
 
 <table>
   <caption>Cabecera de la evaluación heurística</caption>
@@ -4442,7 +4442,7 @@ El equipo realizó una evaluación heurística del producto del Sprint 1. Es una
     </tr>
     <tr>
       <td><b>Alcance</b></td>
-      <td>Las doce tareas de la Tabla 157, que cubren el ingreso, la creación de la junta, la invitación, el reparto de turnos, el registro y la revisión del aporte, el estado del pozo, el calendario de turnos, el historial y los avisos. Quedan fuera las pantallas que el Sprint 1 no construyó: la subasta del turno, el registro de la cobertura y el historial de cumplimiento entre juntas</td>
+      <td>Las doce tareas de la Tabla 157, que cubren el ingreso, la creación de la junta, la invitación, el reparto de turnos, el registro y la revisión del aporte, el estado del pozo, el calendario de turnos, el historial y los avisos. Quedan fuera la subasta del turno y la deserción de un integrante, que el Sprint 1 dejó para el siguiente por no tener endpoint en los servicios</td>
     </tr>
     <tr>
       <td><b>Fecha</b></td>
@@ -4510,14 +4510,6 @@ La inspección encontró nueve problemas, ninguno catastrófico. La Tabla 166 lo
   <tbody>
     <tr>
       <td>1</td>
-      <td>La lista «Para iniciar la junta» solo exige grupo completo y turnos definidos. El destino de los aportes, que en el perfil aparece como un dato opcional, no figura, de modo que una junta puede iniciarse sin número al que transferir y el participante llega a «Aportar al pozo» sin saber a quién pagar</td>
-      <td>Junta por iniciar y Perfil</td>
-      <td>Error prevention</td>
-      <td>3</td>
-      <td>Añadir el destino de los aportes como tercer requisito de la lista y bloquear el inicio de la junta mientras falte</td>
-    </tr>
-    <tr>
-      <td>2</td>
       <td>En «Revisar aporte» la acción con más peso visual es «Aprobar igual», sobre un aporte que el propio sistema acaba de marcar como no coincidente. «Rechazar» queda como acción secundaria</td>
       <td>Revisar aporte</td>
       <td>Error prevention</td>
@@ -4525,12 +4517,20 @@ La inspección encontró nueve problemas, ninguno catastrófico. La Tabla 166 lo
       <td>Igualar el peso de ambas acciones y pedir una confirmación corta al aprobar un aporte con diferencias</td>
     </tr>
     <tr>
-      <td>3</td>
+      <td>2</td>
       <td>La decisión de aprobar o rechazar un comprobante no ofrece una vía visible para deshacerse. Si la cabeza se equivoca, la pantalla no dice qué hacer</td>
       <td>Revisar aporte</td>
       <td>User control and freedom</td>
       <td>3</td>
       <td>Permitir revertir la decisión mientras el período siga abierto y dejar constancia del cambio en el historial</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>La lista «Para iniciar la junta» muestra dos requisitos, grupo completo y turnos definidos, pero el inicio valida además el destino de los aportes. Si falta el destino, la cabeza no se entera por la lista</td>
+      <td>Junta por iniciar</td>
+      <td>Visibility of system status</td>
+      <td>2</td>
+      <td>Mostrar el destino de los aportes como tercer requisito de la lista, con su estado, igual que los otros dos</td>
     </tr>
     <tr>
       <td>4</td>
@@ -4583,7 +4583,7 @@ La inspección encontró nueve problemas, ninguno catastrófico. La Tabla 166 lo
   </tbody>
 </table>
 
-Tres de los nueve problemas son de severidad mayor y los tres se concentran en el núcleo del producto: el inicio de la junta sin destino de los aportes y las dos decisiones de la pantalla de revisión. Los tres se incorporan al Sprint Backlog del Sprint 2 como corrección previa a las entrevistas con usuarios, porque son precisamente los puntos donde una persona podría equivocarse con consecuencias sobre el dinero del grupo. Los seis restantes, de severidad menor y cosmética, se atienden dentro del Sprint 2 junto a las historias del bounded context al que pertenecen.
+Dos de los nueve problemas son de severidad mayor y los dos caen en la misma pantalla, la de revisión del comprobante: aprobar un aporte que no coincide es la acción con más peso visual, y ninguna de las dos decisiones se puede deshacer. Los dos se incorporan al Sprint Backlog del Sprint 2 como corrección previa a las entrevistas con usuarios, porque son el punto donde una persona podría equivocarse con consecuencias sobre el dinero del grupo. Los siete restantes, de severidad menor y cosmética, se atienden dentro del Sprint 2 junto a las historias del bounded context al que pertenecen.
 
 La inspección también confirmó tres decisiones del Capítulo III que se sostienen en el producto construido: el lenguaje de la interfaz usa los términos del Ubiquitous Language sin introducir vocabulario financiero ajeno al grupo, el aviso de que Pozzo no recibe ni retiene el dinero aparece tanto en el landing page como en la pantalla de aporte, y la pantalla de revisión explica en texto llano la consecuencia de cada decisión antes de tomarla.
 
