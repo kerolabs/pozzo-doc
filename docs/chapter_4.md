@@ -4168,4 +4168,191 @@ Las seis fichas con sus datos, sus capturas y sus resúmenes se incorporan a est
 
 ### 4.3.3. Evaluaciones según heurísticas
 
+Mientras se coordinan las entrevistas con usuarios, el equipo realizó una evaluación heurística del producto del Sprint 1. Es una inspección hecha por el propio equipo, sin usuarios, en la que cada integrante recorre las tareas del apartado anterior buscando dónde la interfaz incumple un principio de usabilidad. No sustituye a las entrevistas, porque un equipo no puede sorprenderse con su propio producto, pero encuentra antes los problemas que no hace falta un usuario para detectar. Los hallazgos se contrastaron con las diez heurísticas de Nielsen [@nielsen1994heuristics], las mismas con las que se justificaron los principios de diseño del Capítulo III. La Tabla 160 presenta la cabecera de la evaluación.
+
+<table>
+  <caption>Cabecera de la evaluación heurística</caption>
+  <colgroup><col width="28%"><col width="72%"></colgroup>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Detalle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Universidad</b></td>
+      <td>Universidad Peruana de Ciencias Aplicadas</td>
+    </tr>
+    <tr>
+      <td><b>Carrera</b></td>
+      <td>Ingeniería de Software</td>
+    </tr>
+    <tr>
+      <td><b>Curso</b></td>
+      <td>1ACC0238, Aplicaciones a Dispositivos Móviles. NRC 13980</td>
+    </tr>
+    <tr>
+      <td><b>Docente</b></td>
+      <td>Mayta Guillermo, Jorge Luis</td>
+    </tr>
+    <tr>
+      <td><b>Equipo y producto</b></td>
+      <td>Kerolabs. Pozzo</td>
+    </tr>
+    <tr>
+      <td><b>Auditores</b></td>
+      <td>Camargo Briceño, Joseph Julius; Flores Pinchi, José Fernando; Sanchez Benavente, Leonardo Matias; Solis Campos, Estefano Sebastian; Tirado Carrera, Gabriela Luciana</td>
+    </tr>
+    <tr>
+      <td><b>Productos evaluados</b></td>
+      <td>Aplicación móvil Android, variante <code>cloud</code> del Sprint 1, y landing page publicado en <code>kerolabs.github.io</code></td>
+    </tr>
+    <tr>
+      <td><b>Alcance</b></td>
+      <td>Las doce tareas de la Tabla 157, que cubren el ingreso, la creación de la junta, la invitación, el reparto de turnos, el registro y la revisión del aporte, el estado del pozo, el calendario de turnos, el historial y los avisos. Quedan fuera las pantallas que el Sprint 1 no construyó: la subasta del turno, el registro de la cobertura y el historial de cumplimiento entre juntas</td>
+    </tr>
+    <tr>
+      <td><b>Fecha</b></td>
+      <td>10 de noviembre de 2026</td>
+    </tr>
+  </tbody>
+</table>
+
+Cada problema se puntúa con la escala de severidad de Nielsen, que combina la frecuencia con la que ocurre, el impacto que tiene cuando ocurre y la persistencia con la que vuelve a aparecer. La Tabla 161 presenta la escala y lo que significa cada grado para este producto.
+
+<table>
+  <caption>Escala de severidad de los problemas de usabilidad</caption>
+  <colgroup><col width="12%"><col width="28%"><col width="60%"></colgroup>
+  <thead>
+    <tr>
+      <th>Grado</th>
+      <th>Nombre</th>
+      <th>Qué significa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>No es un problema</td>
+      <td>El equipo discrepa sobre si es un problema; no se corrige</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Cosmético</td>
+      <td>Solo se corrige si sobra tiempo en el Sprint</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Menor</td>
+      <td>La persona completa la tarea, pero pierde tiempo o duda. Prioridad baja</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Mayor</td>
+      <td>La persona no completa la tarea o la completa mal. Prioridad alta en el Sprint 2</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Catastrófico</td>
+      <td>Impide usar el producto o pone en riesgo el dinero o la confianza del grupo. Se corrige antes de cualquier prueba con usuarios</td>
+    </tr>
+  </tbody>
+</table>
+
+La inspección encontró nueve problemas, ninguno catastrófico. La Tabla 162 los recoge ordenados por severidad, con la heurística que incumplen, la pantalla donde aparecen y la corrección propuesta. Las pantallas referidas son las de las Figuras 145, 146 y 147 para la aplicación móvil y la Figura 154 para el landing page.
+
+<table>
+  <caption>Problemas encontrados en la evaluación heurística</caption>
+  <colgroup><col width="5%"><col width="26%"><col width="14%"><col width="18%"><col width="8%"><col width="29%"></colgroup>
+  <thead>
+    <tr>
+      <th>N.º</th>
+      <th>Problema</th>
+      <th>Pantalla</th>
+      <th>Heurística incumplida</th>
+      <th>Severidad</th>
+      <th>Corrección propuesta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>La lista «Para iniciar la junta» solo exige grupo completo y turnos definidos. El destino de los aportes, que en el perfil aparece como un dato opcional, no figura, de modo que una junta puede iniciarse sin número al que transferir y el participante llega a «Aportar al pozo» sin saber a quién pagar</td>
+      <td>Junta por iniciar y Perfil</td>
+      <td>Error prevention</td>
+      <td>3</td>
+      <td>Añadir el destino de los aportes como tercer requisito de la lista y bloquear el inicio de la junta mientras falte</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>En «Revisar aporte» la acción con más peso visual es «Aprobar igual», sobre un aporte que el propio sistema acaba de marcar como no coincidente. «Rechazar» queda como acción secundaria</td>
+      <td>Revisar aporte</td>
+      <td>Error prevention</td>
+      <td>3</td>
+      <td>Igualar el peso de ambas acciones y pedir una confirmación corta al aprobar un aporte con diferencias</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>La decisión de aprobar o rechazar un comprobante no ofrece una vía visible para deshacerse. Si la cabeza se equivoca, la pantalla no dice qué hacer</td>
+      <td>Revisar aporte</td>
+      <td>User control and freedom</td>
+      <td>3</td>
+      <td>Permitir revertir la decisión mientras el período siga abierto y dejar constancia del cambio en el historial</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>La leyenda de estados del historial se corta en el borde derecho de la pantalla: el último estado no llega a leerse, de modo que un icono de la cuadrícula queda sin explicación</td>
+      <td>Historial</td>
+      <td>Recognition rather than recall</td>
+      <td>2</td>
+      <td>Repartir la leyenda en dos filas o permitir que se desplace, de modo que todos los estados se lean en pantallas de 360 px</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>El estado «En revisión» de un aporte no indica a quién le toca actuar ni desde cuándo está así. El participante no sabe si debe esperar o volver a registrar</td>
+      <td>Estado del pozo</td>
+      <td>Visibility of system status</td>
+      <td>2</td>
+      <td>Añadir al estado quién lo tiene que revisar y desde qué fecha, como ya se hace con la fecha de corte</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>En la lista de avisos, los que piden una acción («Comprobante por revisar») tienen el mismo peso visual que los informativos («Nuevo integrante»), y todos llevan el mismo punto de no leído</td>
+      <td>Avisos</td>
+      <td>Aesthetic and minimalist design</td>
+      <td>2</td>
+      <td>Separar los avisos que piden acción, con una llamada a la acción propia, de los que solo informan</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>La tarjeta de la lista de juntas dice «Faltan integrantes para iniciar» sin decir cuántos, mientras que el detalle de la junta sí muestra «2 de 6 integrantes»</td>
+      <td>Mis juntas</td>
+      <td>Visibility of system status</td>
+      <td>1</td>
+      <td>Mostrar en la tarjeta el mismo conteo que el detalle</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>El campo del número de celular no indica el formato esperado ni cuántos dígitos tiene; el texto de ayuda explica para qué se usa el número, pero no cómo escribirlo</td>
+      <td>Ingreso</td>
+      <td>Help users recognize, diagnose, and recover from errors</td>
+      <td>1</td>
+      <td>Indicar los nueve dígitos esperados y validar la longitud antes de habilitar «Enviar código»</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>En el landing page, el conmutador de tema visual es un icono sin etiqueta ni texto alternativo visible, junto a un conmutador de idioma que sí está etiquetado</td>
+      <td>Landing page</td>
+      <td>Consistency and standards</td>
+      <td>1</td>
+      <td>Etiquetar el conmutador de tema igual que el de idioma, o añadirle una etiqueta accesible</td>
+    </tr>
+  </tbody>
+</table>
+
+Tres de los nueve problemas son de severidad mayor y los tres se concentran en el núcleo del producto: el inicio de la junta sin destino de los aportes y las dos decisiones de la pantalla de revisión. Los tres se incorporan al Sprint Backlog del Sprint 2 como corrección previa a las entrevistas con usuarios, porque son precisamente los puntos donde una persona podría equivocarse con consecuencias sobre el dinero del grupo. Los seis restantes, de severidad menor y cosmética, se atienden dentro del Sprint 2 junto a las historias del bounded context al que pertenecen.
+
+La inspección también confirmó tres decisiones del Capítulo III que se sostienen en el producto construido: el lenguaje de la interfaz usa los términos del Ubiquitous Language sin introducir vocabulario financiero ajeno al grupo, el aviso de que Pozzo no recibe ni retiene el dinero aparece tanto en el landing page como en la pantalla de aporte, y la pantalla de revisión explica en texto llano la consecuencia de cada decisión antes de tomarla.
+
 <!-- pdf:desde-fin -->
