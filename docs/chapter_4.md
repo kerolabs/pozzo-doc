@@ -4052,6 +4052,120 @@ Al cerrar se agradece la participación, se pregunta si la persona quiere añadi
 
 ### 4.3.2. Registro de Entrevistas
 
+Las entrevistas de validación se realizan sobre el producto del Sprint 1 y están planificadas según la Tabla 158. Son seis, tres por segmento, con los mismos perfiles que el Capítulo II: cabezas de junta que administran al menos una junta en curso y participantes que aporten en una junta activa. A diferencia del Capítulo II, donde las seis entrevistas las condujo un solo integrante, aquí cada integrante conduce al menos una, que es lo que el equipo se propuso en las conclusiones de la entrega anterior para repartir el trabajo de campo.
+
+<table>
+  <caption>Plan de las entrevistas de validación</caption>
+  <colgroup><col width="8%"><col width="22%"><col width="42%"><col width="28%"></colgroup>
+  <thead>
+    <tr>
+      <th>N.º</th>
+      <th>Segmento</th>
+      <th>Perfil buscado</th>
+      <th>Entrevistador</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Cabeza de junta</td>
+      <td>Organiza una junta en curso de entre 5 y 15 integrantes y cobra por Yape o Plin</td>
+      <td>Flores Pinchi, José Fernando</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Cabeza de junta</td>
+      <td>Administra más de una junta a la vez y lleva la cuenta en cuaderno o Excel</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Cabeza de junta</td>
+      <td>Ha tenido al menos una discrepancia de pago en un ciclo anterior</td>
+      <td>Sanchez Benavente, Leonardo Matias</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Participante</td>
+      <td>Aporta en una junta activa y guarda sus comprobantes en la galería</td>
+      <td>Tirado Carrera, Gabriela Luciana</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Participante</td>
+      <td>Entró a su junta por invitación de un conocido y aún no le ha tocado cobrar</td>
+      <td>Solis Campos, Estefano Sebastian</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Participante</td>
+      <td>Ya vivió que le dijeran que no había pagado cuando sí lo había hecho</td>
+      <td>Flores Pinchi, José Fernando</td>
+    </tr>
+  </tbody>
+</table>
+
+Cada entrevista se registra con la ficha de la Tabla 159, que recoge los datos del entrevistado y del entrevistador, el enlace a la grabación alojada en el OneDrive institucional, el resultado de cada una de las seis tareas y las observaciones del moderador. A continuación de la ficha se publican la captura de la grabación y un resumen de lo que la persona hizo y dijo, con el mismo formato que las fichas del Capítulo II.
+
+<table>
+  <caption>Ficha de registro de una entrevista de validación</caption>
+  <colgroup><col width="30%"><col width="70%"></colgroup>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Detalle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Entrevistado(a)</b></td>
+      <td>Nombre completo de la persona entrevistada</td>
+    </tr>
+    <tr>
+      <td><b>Género</b></td>
+      <td>Femenino o masculino</td>
+    </tr>
+    <tr>
+      <td><b>Edad</b></td>
+      <td>Edad en años</td>
+    </tr>
+    <tr>
+      <td><b>Lugar de residencia</b></td>
+      <td>Distrito y ciudad</td>
+    </tr>
+    <tr>
+      <td><b>Segmento</b></td>
+      <td>Cabeza de junta o participante</td>
+    </tr>
+    <tr>
+      <td><b>Entrevistador(a)</b></td>
+      <td>Integrante del equipo que condujo la sesión</td>
+    </tr>
+    <tr>
+      <td><b>Fecha</b></td>
+      <td>Día en que se realizó la entrevista</td>
+    </tr>
+    <tr>
+      <td><b>Duración</b></td>
+      <td>Duración de la grabación en minutos y segundos</td>
+    </tr>
+    <tr>
+      <td><b>Link de la entrevista</b></td>
+      <td>Enlace a la grabación en el OneDrive institucional</td>
+    </tr>
+    <tr>
+      <td><b>Resultado de las tareas</b></td>
+      <td>Por cada una de las seis tareas del segmento: completada sin ayuda, completada con ayuda o no completada, con el tiempo empleado</td>
+    </tr>
+    <tr>
+      <td><b>Observaciones</b></td>
+      <td>Pantallas donde dudó, errores cometidos y frases textuales relevantes</td>
+    </tr>
+  </tbody>
+</table>
+
+Las seis fichas con sus datos, sus capturas y sus resúmenes se incorporan a esta sección conforme se realicen las entrevistas. A la fecha de cierre de esta versión del informe, las sesiones están planificadas y el material de la prueba está listo (el APK de la variante `cloud`, los datos de prueba cargados y el landing page publicado), pero las entrevistas no se han llevado a cabo, de modo que esta sección publica el plan y el formato de registro, no resultados.
+
 ### 4.3.3. Evaluaciones según heurísticas
 
 <!-- pdf:desde-fin -->
