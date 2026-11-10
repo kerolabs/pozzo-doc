@@ -342,7 +342,7 @@ El diagrama de despliegue del C4 Model resume dónde corre cada contenedor de la
 
 #### 4.2.1.1. Sprint Planning 1
 
-El Sprint 1 cubre la entrega TB1. Al cierre de la AV1, el 18 de septiembre de 2026, el Product Backlog ya priorizado se repartió en cuatro sprints en el tablero de Trello, según la prioridad y la dependencia de las historias, y el Sprint 1 recibió las historias del landing page, de la creación de la junta, de las invitaciones, de los turnos y del estado del pozo, junto con la Spike Story de lectura de comprobantes. La reunión de Sprint Planning se realizó el 1 de octubre de 2026 por Discord con los cinco integrantes: el equipo confirmó ese alcance, acordó el Sprint Goal, redactado con la plantilla de Scrum.org que recomienda el enunciado, y repartió el liderazgo de cada aspecto del Sprint. La Tabla 138 resume la planificación.
+El Sprint 1 cubre la entrega TB1. Reúne las historias que se implementaron en él: las del landing page, de la creación de la junta, de las invitaciones, de los turnos y del estado del pozo, junto con las del acceso con el código SMS, el registro y la validación de aportes, los recordatorios y avisos, y el historial de cumplimiento, además de las Spike Stories de lectura de comprobantes y de notificaciones push. La reunión de Sprint Planning se realizó el 1 de octubre de 2026 por Discord con los cinco integrantes: el equipo acordó el Sprint Goal, redactado con la plantilla de Scrum.org que recomienda el enunciado, y repartió el liderazgo de cada aspecto del Sprint. La Tabla 138 resume la planificación.
 
 <table>
   <caption>Resumen del Sprint Planning 1</caption>
@@ -396,11 +396,11 @@ El Sprint 1 cubre la entrega TB1. Al cierre de la AV1, el 18 de septiembre de 20
     </tr>
     <tr>
       <td>Sprint 1 Velocity</td>
-      <td>55 Story Points, la capacidad que el equipo asignó al Sprint 1 al repartir el backlog y confirmó en la reunión.</td>
+      <td>141 Story Points, los de las historias completadas en el Sprint 1.</td>
     </tr>
     <tr>
       <td>Sum of Story Points</td>
-      <td>55 Story Points: 17 User Stories y Technical Stories y la Spike Story SP01.</td>
+      <td>141 Story Points: 34 User Stories, 6 Technical Stories y las Spike Stories SP01 y SP02.</td>
     </tr>
   </tbody>
 </table>
@@ -474,7 +474,7 @@ Los aspectos del Sprint 1 son los productos que entrega la TB1 y el informe que 
 
 #### 4.2.1.3. Sprint Backlog 1
 
-El objetivo del Sprint 1 es que una cabeza de junta pueda crear su junta, invitar a los integrantes, asignar los turnos, iniciarla y ver el estado del pozo, con un landing page que presente Pozzo. La Figura 142 muestra el tablero del Sprint en Trello, con la lista "Sprint 1 (TB1)" y sus 55 Story Points. Enlace público del tablero: <https://trello.com/b/fRocSVZA/pozzo-product-backlog>.
+El objetivo del Sprint 1 es que una cabeza de junta pueda crear su junta, invitar a los integrantes, asignar los turnos, iniciarla y ver el estado del pozo, con un landing page que presente Pozzo. La Figura 142 muestra el tablero del Sprint en Trello, con la lista "Sprint 1 (TB1)" y sus 141 Story Points. Enlace público del tablero: <https://trello.com/b/fRocSVZA/pozzo-product-backlog>.
 
 ![Tablero del Product Backlog con la lista del Sprint 1 en Trello](images/closing/product_backlog_trello.png){width=90%}
 
@@ -716,14 +716,292 @@ La Tabla 140 relaciona cada historia del Sprint con las tareas en que se descomp
       <td>Camargo Briceño, Joseph Julius</td>
       <td>Done</td>
     </tr>
+    <tr>
+      <td>US01</td>
+      <td>Ingresar con el número de celular</td>
+      <td>T23</td>
+      <td>Solicitud del código SMS</td>
+      <td>Pantalla del número de celular con validación de nueve dígitos y endpoint que emite el código, con una espera de 30 segundos para el reenvío.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US02</td>
+      <td>Verificar el código SMS</td>
+      <td>T24</td>
+      <td>Verificación del código</td>
+      <td>Ingreso del código de seis dígitos con vigencia de 10 minutos y tres intentos, y paso al registro cuando el número es nuevo.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US03</td>
+      <td>Completar el registro</td>
+      <td>T25</td>
+      <td>Registro con términos</td>
+      <td>Formulario de nombre y apellido con la aceptación de los Términos y Condiciones y de la Política de Privacidad.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>TS01</td>
+      <td>Servicio de autenticación por SMS</td>
+      <td>T26</td>
+      <td>Endpoints de autenticación</td>
+      <td>Agregados de Identity &amp; Access y endpoints para solicitar y verificar el código, registrar la cuenta y cerrar la sesión, con el envío por SMS Gate.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>T27</td>
+      <td>Pruebas del servicio</td>
+      <td>Escenarios de aceptación de TS01.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US04</td>
+      <td>Mantener la sesión en el dispositivo</td>
+      <td>T28</td>
+      <td>Sesión persistente</td>
+      <td>Token de sesión de 30 días guardado en el dispositivo y cierre de sesión que lo revoca.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US23</td>
+      <td>Registrar mi aporte con el comprobante</td>
+      <td>T29</td>
+      <td>Registro del aporte</td>
+      <td>Captura del comprobante desde la cámara o la galería y envío del aporte con su imagen.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US24</td>
+      <td>Revisar los datos leídos del comprobante</td>
+      <td>T30</td>
+      <td>Lectura y corrección de datos</td>
+      <td>Lectura con ML Kit en el dispositivo, comparación de cada dato con lo esperado e ingreso manual cuando la imagen es ilegible.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US25</td>
+      <td>Validación automática del aporte</td>
+      <td>T31</td>
+      <td>Validación en el servicio</td>
+      <td>Comparación del monto, el destinatario, la fecha y el número de operación con lo esperado, y rechazo de los comprobantes repetidos.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>TS05</td>
+      <td>Servicio de aportes y comprobantes</td>
+      <td>T32</td>
+      <td>Dominio y endpoints de Contributions</td>
+      <td>Ciclos, períodos y aportes, con endpoints para registrar, revisar y consultar los aportes y sus comprobantes.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>T33</td>
+      <td>Pruebas del servicio</td>
+      <td>Escenarios de aceptación de TS05.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US26</td>
+      <td>Revisar un aporte con inconsistencia</td>
+      <td>T34</td>
+      <td>Revisión de inconsistencias</td>
+      <td>Lista de aportes en revisión para la cabeza, detalle campo por campo, y aprobación o rechazo.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US30</td>
+      <td>Saber si mi pozo estará completo</td>
+      <td>T35</td>
+      <td>Indicador para quien cobra</td>
+      <td>Aviso destacado para quien cobra con el monto que recibe, lo que falta reunir y el pozo completo.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>SP02</td>
+      <td>Investigar las notificaciones push y la programación de recordatorios</td>
+      <td>T36</td>
+      <td>Notificaciones push</td>
+      <td>Integración de Firebase Cloud Messaging en la aplicación y de un programador de recordatorios en el servicio.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US35</td>
+      <td>Recibir avisos de los hechos de la junta</td>
+      <td>T37</td>
+      <td>Avisos de la junta</td>
+      <td>Avisos por los hechos de la junta y centro de avisos ordenado del más reciente al más antiguo.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US34</td>
+      <td>Configurar los recordatorios de la junta</td>
+      <td>T38</td>
+      <td>Configuración de recordatorios</td>
+      <td>Consulta de la cadencia y desactivación de los recordatorios de la junta.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>TS07</td>
+      <td>Servicio de recordatorios y notificaciones</td>
+      <td>T39</td>
+      <td>Dominio y endpoints de Notifications</td>
+      <td>Registro de dispositivos, planes de recordatorio, programador de envíos y avisos por evento.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>T40</td>
+      <td>Pruebas del servicio</td>
+      <td>Escenarios de aceptación de TS07.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US09</td>
+      <td>Consultar y ajustar las reglas de la junta</td>
+      <td>T41</td>
+      <td>Ajuste de reglas</td>
+      <td>Edición de las reglas antes de iniciar la junta y vista de solo lectura para los participantes.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US05</td>
+      <td>Administrar mi perfil</td>
+      <td>T42</td>
+      <td>Perfil del integrante</td>
+      <td>Número de Yape o Plin, correo de respaldo, foto de perfil, recuperación de la cuenta por correo y cambio de número.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US31</td>
+      <td>Consultar la junta sin conexión</td>
+      <td>T43</td>
+      <td>Consulta sin conexión</td>
+      <td>Copia local de las juntas y de los aportes con Room, y aviso de cuándo se actualizó por última vez.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US40</td>
+      <td>Consultar mi historial de cumplimiento</td>
+      <td>T44</td>
+      <td>Historial de cumplimiento</td>
+      <td>Resumen y detalle por junta del historial del integrante.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US42</td>
+      <td>Ver el historial de quien se une a mi junta</td>
+      <td>T45</td>
+      <td>Historial en el perfil del integrante</td>
+      <td>Resumen del historial de cada integrante, visible para la cabeza desde la lista de integrantes.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>TS08</td>
+      <td>Servicio de historial de cumplimiento</td>
+      <td>T46</td>
+      <td>Dominio y endpoints de Compliance History</td>
+      <td>Registro de cumplimiento por integrante, consultas del historial y enlaces compartidos.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>T47</td>
+      <td>Pruebas del servicio</td>
+      <td>Escenarios de aceptación de TS08.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US37</td>
+      <td>Registrar la cobertura de un aporte</td>
+      <td>T48</td>
+      <td>Cobertura de un aporte</td>
+      <td>Registro de quién cubre un aporte atrasado y por cuánto, con su efecto en el historial.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US41</td>
+      <td>Compartir mi historial</td>
+      <td>T49</td>
+      <td>Historial compartido</td>
+      <td>Enlace verificable y página pública en kerolabs.github.io con el resumen del historial sin montos.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
+    <tr>
+      <td>US06</td>
+      <td>Elegir el tema visual</td>
+      <td>T50</td>
+      <td>Tema visual</td>
+      <td>Elección entre el tema del sistema, claro u oscuro, guardada en el dispositivo.</td>
+      <td>Sin estimar</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
+    </tr>
   </tbody>
 </table>
 
-Además de lo planificado, el equipo adelantó trabajo de los sprints siguientes en los servicios RESTful y en la aplicación: el acceso con el código SMS (TS01), el registro y la validación de aportes (TS05), la entrega del pozo (TS06), los recordatorios y avisos (TS07) y el historial de cumplimiento (TS08). Esas historias siguen en sus sprints del tablero y se documentarán en ellos.
-
 #### 4.2.1.4. Development Evidence for Sprint Review
 
-En el Sprint 1 se implementaron los cuatro productos de la entrega: el landing page, las páginas públicas que abren los enlaces de invitación y de historial compartido, los servicios RESTful y la aplicación móvil. El landing page quedó publicado en GitHub Pages; los servicios RESTful, con sus cinco bounded contexts, quedaron desplegados en Oracle Cloud con su documentación OpenAPI; y la aplicación móvil cubre las historias del Sprint y adelanta las de los siguientes. Las tablas siguientes relacionan, por repositorio, los commits de implementación integrados en `develop`. Los commits de pruebas se presentan en la sección de Testing Suite Evidence.
+En el Sprint 1 se implementaron los cuatro productos de la entrega: el landing page, las páginas públicas que abren los enlaces de invitación y de historial compartido, los servicios RESTful y la aplicación móvil. El landing page quedó publicado en GitHub Pages; los servicios RESTful, con sus cinco bounded contexts, quedaron desplegados en Oracle Cloud con su documentación OpenAPI; y la aplicación móvil cubre las historias del Sprint. Las tablas siguientes relacionan, por repositorio, los commits de implementación integrados en `develop`. Los commits de pruebas se presentan en la sección de Testing Suite Evidence.
 
 **Landing Page.** La Tabla 141 lista los 14 commits de `kerolabs/pozzo-landing-page`.
 
@@ -2795,7 +3073,7 @@ La Tabla 148 relaciona los commits de los avances en Testing de este Sprint.
 
 #### 4.2.1.6. Execution Evidence for Sprint Review
 
-En el Sprint 1 la aplicación móvil alcanzó el flujo completo de una junta: el ingreso con el número de celular y el código SMS, la creación de la junta con sus reglas y su destino, la invitación por código y enlace, la asignación de turnos, el inicio de la junta y el estado del pozo del período en curso. También adelantó el registro del aporte con el comprobante leído en el dispositivo, la revisión de los aportes que no coinciden, el historial, los avisos y el perfil. Las capturas se tomaron en un emulador Android con una junta de muestra de cuatro integrantes, conectado a una instancia local de los servicios RESTful.
+En el Sprint 1 la aplicación móvil alcanzó el flujo completo de una junta: el ingreso con el número de celular y el código SMS, la creación de la junta con sus reglas y su destino, la invitación por código y enlace, la asignación de turnos, el inicio de la junta y el estado del pozo del período en curso, junto con el registro del aporte con el comprobante leído en el dispositivo, la revisión de los aportes que no coinciden, el historial, los avisos y el perfil. Las capturas se tomaron en un emulador Android con una junta de muestra de cuatro integrantes, conectado a una instancia local de los servicios RESTful.
 
 La Figura 145 muestra la bienvenida, el ingreso con el número de celular, la lista de juntas del integrante con su rol y su turno, y el perfil.
 

@@ -3079,9 +3079,9 @@ El tercer mapa es el más acotado y apunta al desgaste que las cabezas describie
 
 El Product Backlog reúne las 46 User Stories, las 8 Technical Stories y las 3 Spike Stories de la especificación, estimadas en Story Points con la escala 1, 2, 3, 5 y 8 y ordenadas por el valor que aportan al negocio. La estimación la hizo el equipo por consenso, comparando cada historia con una de referencia (crear una junta, US07, en 3 puntos) y considerando la incertidumbre técnica: las historias que dependen de la lectura de comprobantes, de las notificaciones o de los enlaces de invitación cargan puntos adicionales hasta que sus spikes las reduzcan.
 
-El orden sigue el Impact Map: primero lo que permite que una junta exista y complete un ciclo (landing page, creación e invitación, turnos, estado del pozo), luego lo que sostiene la validación automática de aportes, después los recordatorios y el historial, y al final la subasta y las historias que amplían la propuesta. Las historias del landing page van en el primer sprint porque el sitio es la puerta de entrada de las cabezas de junta y no depende de que la aplicación exista. La autenticación por SMS no encabeza el backlog: se ubica en el segundo sprint, cuando el flujo principal ya existe y hace falta distinguir a los usuarios.
+El orden sigue el Impact Map: primero lo que permite que una junta exista y complete un ciclo (landing page, creación e invitación, turnos, estado del pozo), luego lo que sostiene la validación automática de aportes, después los recordatorios y el historial, y al final la subasta y las historias que amplían la propuesta. Las historias del landing page van en el primer sprint porque el sitio es la puerta de entrada de las cabezas de junta y no depende de que la aplicación exista. La autenticación por SMS no encabeza el backlog: se ubica después del flujo principal de la junta, cuando ya hace falta distinguir a los usuarios.
 
-Los sprints se alinean con los hitos de entrega del proyecto: el Sprint 1 con TB1, el Sprint 2 con AV2 y los Sprints 3 y 4 con TB2 (ver Tabla 80).
+Los sprints se alinean con los hitos de entrega del proyecto: el Sprint 1 con TB1, el Sprint 2 con AV2 y el Sprint 3 con TB2 (ver Tabla 80).
 
 <table>
   <caption>Product Backlog priorizado de Pozzo</caption>
@@ -3226,70 +3226,70 @@ Los sprints se alinean con los hitos de entrega del proyecto: el Sprint 1 con TB
       <td>US01</td>
       <td>Ingresar con el número de celular</td>
       <td align="center">2</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">20</td>
       <td>US02</td>
       <td>Verificar el código SMS</td>
       <td align="center">2</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">21</td>
       <td>US03</td>
       <td>Completar el registro</td>
       <td align="center">2</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">22</td>
       <td>TS01</td>
       <td>Servicio de autenticación por SMS</td>
       <td align="center">5</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">23</td>
       <td>US04</td>
       <td>Mantener la sesión en el dispositivo</td>
       <td align="center">2</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">24</td>
       <td>US23</td>
       <td>Registrar mi aporte con el comprobante</td>
       <td align="center">5</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">25</td>
       <td>US24</td>
       <td>Revisar los datos leídos del comprobante</td>
       <td align="center">5</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">26</td>
       <td>US25</td>
       <td>Validación automática del aporte</td>
       <td align="center">8</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">27</td>
       <td>TS05</td>
       <td>Servicio de aportes y comprobantes</td>
       <td align="center">8</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">28</td>
       <td>US26</td>
       <td>Revisar un aporte con inconsistencia</td>
       <td align="center">3</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">29</td>
@@ -3310,7 +3310,7 @@ Los sprints se alinean con los hitos de entrega del proyecto: el Sprint 1 con TB
       <td>US30</td>
       <td>Saber si mi pozo estará completo</td>
       <td align="center">2</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">32</td>
@@ -3338,166 +3338,166 @@ Los sprints se alinean con los hitos de entrega del proyecto: el Sprint 1 con TB
       <td>SP02</td>
       <td>Investigar las notificaciones push y la programación de recordatorios</td>
       <td align="center">5</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">36</td>
       <td>US33</td>
       <td>Recibir recordatorios escalonados de mi aporte</td>
       <td align="center">5</td>
-      <td align="center">3</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">37</td>
       <td>US35</td>
       <td>Recibir avisos de los hechos de la junta</td>
       <td align="center">3</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">38</td>
       <td>US34</td>
       <td>Configurar los recordatorios de la junta</td>
       <td align="center">2</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">39</td>
       <td>TS07</td>
       <td>Servicio de recordatorios y notificaciones</td>
       <td align="center">8</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">40</td>
       <td>US14</td>
       <td>Agregar un integrante sin la aplicación</td>
       <td align="center">3</td>
-      <td align="center">3</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">41</td>
       <td>US15</td>
       <td>Retirar un integrante antes de iniciar</td>
       <td align="center">1</td>
-      <td align="center">3</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">42</td>
       <td>US09</td>
       <td>Consultar y ajustar las reglas de la junta</td>
       <td align="center">2</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">43</td>
       <td>US05</td>
       <td>Administrar mi perfil</td>
       <td align="center">3</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">44</td>
       <td>US31</td>
       <td>Consultar la junta sin conexión</td>
       <td align="center">5</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">45</td>
       <td>US32</td>
       <td>Consultar períodos anteriores</td>
       <td align="center">2</td>
-      <td align="center">3</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">46</td>
       <td>US40</td>
       <td>Consultar mi historial de cumplimiento</td>
       <td align="center">3</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">47</td>
       <td>US42</td>
       <td>Ver el historial de quien se une a mi junta</td>
       <td align="center">2</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">48</td>
       <td>TS08</td>
       <td>Servicio de historial de cumplimiento</td>
       <td align="center">3</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">49</td>
       <td>SP03</td>
       <td>Investigar los enlaces de invitación que abren la aplicación</td>
       <td align="center">5</td>
-      <td align="center">3</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">50</td>
       <td>US19</td>
       <td>Configurar la junta por subasta</td>
       <td align="center">3</td>
-      <td align="center">4</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">51</td>
       <td>US20</td>
       <td>Ofertar en la subasta del turno</td>
       <td align="center">5</td>
-      <td align="center">4</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">52</td>
       <td>US21</td>
       <td>Cerrar la subasta y asignar el turno</td>
       <td align="center">5</td>
-      <td align="center">4</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">53</td>
       <td>TS04</td>
       <td>Servicio de turnos y subastas</td>
       <td align="center">8</td>
-      <td align="center">4</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">54</td>
       <td>US37</td>
       <td>Registrar la cobertura de un aporte</td>
       <td align="center">3</td>
-      <td align="center">4</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">55</td>
       <td>US38</td>
       <td>Registrar una deserción y su reemplazo</td>
       <td align="center">3</td>
-      <td align="center">4</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">56</td>
       <td>US41</td>
       <td>Compartir mi historial</td>
       <td align="center">2</td>
-      <td align="center">4</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">57</td>
       <td>US06</td>
       <td>Elegir el tema visual</td>
       <td align="center">1</td>
-      <td align="center">4</td>
+      <td align="center">1</td>
     </tr>
   </tbody>
 </table>
 
-El total es de 199 Story Points: 55 en el Sprint 1, 67 en el Sprint 2, 47 en el Sprint 3 y 30 en el Sprint 4. Los dos primeros sprints concentran la carga porque en ellos se construye el ciclo completo de la junta y la validación de aportes, que son las dos hipótesis con mayor valor; el cuarto sprint queda deliberadamente liviano para absorber lo que se desplace de los anteriores y para las validaciones con usuarios.
+El total es de 199 Story Points: 141 en el Sprint 1 y 58 en el Sprint 2. El Sprint 1 reúne las historias que se implementaron en ese sprint: el ciclo completo de la junta, el acceso con el código SMS, el registro y la validación de aportes, los recordatorios y avisos, y el historial de cumplimiento. El Sprint 2 reúne lo que falta para completar el producto: la subasta, la deserción con su reemplazo, los enlaces que abren la aplicación y los escenarios pendientes de la entrega del pozo, el cierre del ciclo y los recordatorios por atraso.
 
 El backlog se administra en Trello, en un tablero público con una lista por sprint: <https://trello.com/b/fRocSVZA/pozzo-product-backlog>. Cada historia es una tarjeta con su código, título y Story Points, en el mismo orden de esta tabla, y su descripción reproduce la historia y los criterios de aceptación para que el equipo trabaje desde el tablero sin volver al informe. La captura del tablero se incluye en el Anexo A, Product Backlog en Trello.
 
