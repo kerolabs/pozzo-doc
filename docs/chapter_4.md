@@ -3890,10 +3890,701 @@ El enunciado pide que todos participen en la implementación de cada producto, y
 
 ## 4.3. Validation Interviews
 
+Las entrevistas del Capítulo II sirvieron para descubrir el problema: cómo se administran hoy las juntas y dónde duele. Estas sirven para lo contrario, comprobar si lo construido en el Sprint 1 resuelve ese dolor. Se entrevista a los mismos dos segmentos, cabezas de junta y participantes, pero ahora con el producto delante: el landing page publicado y la aplicación móvil instalada en un celular Android. La diferencia de método es que el peso no está en lo que la persona dice, sino en lo que hace: cada entrevista incluye tareas que el entrevistado intenta completar sin ayuda mientras el entrevistador observa dónde duda, dónde se equivoca y qué entiende de lo que ve.
+
 ### 4.3.1. Diseño de Entrevistas
+
+Antes de iniciar la entrevista se brinda un saludo cordial y una breve presentación del entrevistador, explicando que el propósito de la conversación es probar una aplicación que el equipo construyó para administrar juntas de ahorro. Se aclara que lo que se evalúa es la aplicación y no a la persona, que no hay respuestas correctas ni incorrectas y que, si algo no se entiende, el problema es del diseño. Se aclara también que la información recopilada será utilizada únicamente con fines académicos para el desarrollo del proyecto Pozzo y se mantendrá en estricta confidencialidad, y se solicita autorización para grabar la sesión.
+
+La entrevista dura entre veinte y treinta minutos y se realiza de forma presencial o por videollamada compartiendo pantalla. La aplicación corre en un dispositivo Android con la variante `cloud` del APK, apuntando a los servicios desplegados, con datos de prueba cargados de antemano para que el entrevistado encuentre una junta en curso y no tenga que crearla desde cero cuando la tarea no lo pide. El landing page se abre desde el celular del entrevistado, en `kerolabs.github.io`, para reproducir la situación real de quien recibe el enlace por WhatsApp.
+
+La sesión se estructura en cinco momentos: saludo y consentimiento; preguntas de contexto para situar a la persona y su junta actual; las tareas guiadas, que son el centro de la entrevista; las preguntas posteriores, que recogen lo que la persona entendió y lo que le faltó; y el cierre. Durante las tareas el entrevistador no guía ni corrige: solo enuncia la tarea y pide a la persona que piense en voz alta. Si la persona se bloquea más de un minuto, se anota el bloqueo y se da la pista mínima para continuar.
+
+De cada tarea se registran cuatro datos: si la completó sin ayuda, con ayuda o no la completó; cuánto tardó; en qué pantalla dudó; y qué dijo mientras la hacía. La Tabla 157 reúne las tareas de cada segmento, la pantalla en la que ocurren, lo que cada una valida y el criterio con el que se considera superada.
+
+<table>
+  <caption>Tareas de validación por segmento</caption>
+  <colgroup><col width="10%"><col width="26%"><col width="18%"><col width="24%"><col width="22%"></colgroup>
+  <thead>
+    <tr>
+      <th>Segmento</th>
+      <th>Tarea</th>
+      <th>Pantalla</th>
+      <th>Qué valida</th>
+      <th>Criterio de éxito</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="6"><b>Cabeza de junta</b></td>
+      <td>Crear una junta de S/200 mensuales, con cuatro cupos y corte el día 20</td>
+      <td>Crear junta</td>
+      <td>EP02. Que las reglas de la junta se puedan expresar en la aplicación tal como se acuerdan en el grupo</td>
+      <td>Completa el formulario sin preguntar qué significa ningún campo</td>
+    </tr>
+    <tr>
+      <td>Conseguir que un integrante se una a esa junta</td>
+      <td>Invitación</td>
+      <td>EP03. Que la incorporación por código y enlace reemplace el registro manual</td>
+      <td>Comparte el código o el enlace sin buscar una opción de registrar a mano</td>
+    </tr>
+    <tr>
+      <td>Repartir los turnos e iniciar la junta</td>
+      <td>Junta por iniciar y Turnos</td>
+      <td>EP04. Que el reparto de turnos de la aplicación cubra el que la persona usa hoy</td>
+      <td>Elige un método de reparto e inicia la junta sin ayuda</td>
+    </tr>
+    <tr>
+      <td>Resolver un comprobante cuyo monto no coincide con lo esperado</td>
+      <td>Revisar aporte</td>
+      <td>EP05. Que la validación automática reduzca la revisión manual sin quitarle la última palabra a la cabeza</td>
+      <td>Identifica cuál es el campo que no coincide y decide aprobar o rechazar</td>
+    </tr>
+    <tr>
+      <td>Decir cuánto falta para completar el pozo y quién no ha aportado</td>
+      <td>Estado del pozo</td>
+      <td>EP06. Que el estado del pozo se lea de un vistazo</td>
+      <td>Responde ambas cosas en menos de quince segundos, sin abrir otra pantalla</td>
+    </tr>
+    <tr>
+      <td>Averiguar cómo se avisa a quien no ha aportado y cuándo se envía</td>
+      <td>Avisos</td>
+      <td>EP07. Que los recordatorios automáticos sustituyan la cobranza por WhatsApp</td>
+      <td>Encuentra los recordatorios y enuncia en qué momentos se envían</td>
+    </tr>
+    <tr>
+      <td rowspan="6"><b>Participante</b></td>
+      <td>Entrar a Pozzo con su número de celular</td>
+      <td>Ingreso</td>
+      <td>EP01. Que el ingreso sin contraseña no genere desconfianza</td>
+      <td>Entra sin ayuda y sin buscar dónde crear una contraseña</td>
+    </tr>
+    <tr>
+      <td>Unirse a una junta con el código que le compartieron</td>
+      <td>Unirme con un código</td>
+      <td>EP03. Que unirse a una junta no requiera explicación</td>
+      <td>Encuentra la opción y entra a la junta al primer intento</td>
+    </tr>
+    <tr>
+      <td>Registrar el aporte del período con su comprobante</td>
+      <td>Aportar al pozo</td>
+      <td>EP05. Que el registro del aporte sea más corto que mandar la captura por WhatsApp</td>
+      <td>Identifica a quién transferir y sube el comprobante sin ayuda</td>
+    </tr>
+    <tr>
+      <td>Decir cuándo le toca cobrar y cuánto recibirá</td>
+      <td>Calendario de turnos</td>
+      <td>EP04 y EP06. Que el turno propio sea evidente sin preguntarle a la cabeza</td>
+      <td>Responde ambas cosas señalando la pantalla</td>
+    </tr>
+    <tr>
+      <td>Comprobar si su aporte del período quedó validado</td>
+      <td>Historial</td>
+      <td>EP06. Que el participante pueda comprobar por sí mismo que su aporte quedó registrado</td>
+      <td>Encuentra el estado de su aporte y distingue validado de pendiente</td>
+    </tr>
+    <tr>
+      <td>Explicar, después de usar la aplicación, dónde queda su dinero</td>
+      <td>Aportar al pozo y landing page</td>
+      <td>Riesgo de confianza. Que quede claro que Pozzo no recibe ni retiene el dinero</td>
+      <td>Responde que el dinero va directo a la cabeza de junta y no a Pozzo</td>
+    </tr>
+  </tbody>
+</table>
+
+**Preguntas de contexto (ambos segmentos)**
+
+-   ¿Cuál es su nombre completo?
+
+1. ¿Qué edad tienes, en qué distrito vives y a qué te dedicas?
+
+2. ¿En cuántas juntas estás ahora y qué rol tienes en cada una?
+
+3. ¿Cómo llevan hoy la cuenta de esa junta?
+
+4. ¿Qué celular usas y qué aplicaciones abres todos los días?
+
+**Segmento 1: Cabezas de junta (organizadores)**
+
+1. Cuando viste la primera pantalla, antes de tocar nada, ¿qué entendiste que hace Pozzo?
+
+2. Al crear la junta, ¿hubo algún dato que no supieras qué poner o que tu junta no use?
+
+3. Las palabras aporte, pozo, turno, fecha de corte y cabeza de junta, ¿significan en la aplicación lo mismo que en tu junta?
+
+4. ¿Mandarías la invitación por código o por enlace? ¿Por qué?
+
+5. Cuando el comprobante no coincidía, ¿qué miraste para decidir? ¿Qué te faltó para decidir con más seguridad?
+
+6. ¿Aceptarías como bueno un aporte que la aplicación marcó validado, sin revisarlo tú?
+
+7. En tu junta hay gente que no usaría una aplicación. ¿Qué harías con ellos?
+
+8. Si usaras Pozzo en tu junta actual, ¿qué dejarías de hacer a mano?
+
+9. ¿Qué le falta a la aplicación para que la uses el próximo ciclo?
+
+10. ¿Qué parte te pareció más difícil o más confusa?
+
+**Segmento 2: Participantes de junta**
+
+1. Cuando viste la primera pantalla, antes de tocar nada, ¿qué entendiste que hace Pozzo?
+
+2. Entrar con tu número y un código, sin contraseña, ¿te dio confianza o desconfianza?
+
+3. Al registrar el aporte, ¿quedó claro a quién le estabas transfiriendo?
+
+4. Después de subir el comprobante, ¿qué creíste que pasaba con él?
+
+5. ¿Dónde te enteraste de que tu aporte había quedado validado?
+
+6. Si la aplicación dijera que no pagaste y tú sí lo hiciste, ¿qué harías?
+
+7. ¿Entendiste cuándo te toca cobrar y cuánto vas a recibir?
+
+8. Cuando usas Pozzo, ¿dónde queda tu dinero?
+
+9. ¿Le pedirías a la cabeza de tu junta que la usen? ¿Por qué sí o por qué no?
+
+10. ¿Qué parte te pareció más difícil o más confusa?
+
+Al cerrar se agradece la participación, se pregunta si la persona quiere añadir algo que no se haya tocado y se le pide autorización para volver a contactarla cuando el producto avance.
 
 ### 4.3.2. Registro de Entrevistas
 
+**Segmento 1: Cabezas de junta (organizadores)**
+
+- **Primera entrevista**
+
+La Tabla 158 presenta la ficha de la primera entrevista de validación al segmento de cabezas de junta.
+
+<table>
+  <caption>Ficha de la primera entrevista de validación al segmento de cabezas de junta</caption>
+  <colgroup><col width="30%"><col width="70%"></colgroup>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Detalle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Entrevistado(a)</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Género</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Edad</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Lugar de residencia</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Entrevistador(a)</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Fecha</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Duración</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Link de la entrevista</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Resultado de las tareas</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Observaciones</b></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+- **Segunda entrevista**
+
+La Tabla 159 presenta la ficha de la segunda entrevista de validación al segmento de cabezas de junta.
+
+<table>
+  <caption>Ficha de la segunda entrevista de validación al segmento de cabezas de junta</caption>
+  <colgroup><col width="30%"><col width="70%"></colgroup>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Detalle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Entrevistado(a)</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Género</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Edad</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Lugar de residencia</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Entrevistador(a)</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Fecha</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Duración</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Link de la entrevista</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Resultado de las tareas</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Observaciones</b></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+- **Tercera entrevista**
+
+La Tabla 160 presenta la ficha de la tercera entrevista de validación al segmento de cabezas de junta.
+
+<table>
+  <caption>Ficha de la tercera entrevista de validación al segmento de cabezas de junta</caption>
+  <colgroup><col width="30%"><col width="70%"></colgroup>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Detalle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Entrevistado(a)</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Género</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Edad</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Lugar de residencia</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Entrevistador(a)</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Fecha</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Duración</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Link de la entrevista</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Resultado de las tareas</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Observaciones</b></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+**Segmento 2: Participantes de junta**
+
+- **Primera entrevista**
+
+La Tabla 161 presenta la ficha de la primera entrevista de validación al segmento de participantes.
+
+<table>
+  <caption>Ficha de la primera entrevista de validación al segmento de participantes</caption>
+  <colgroup><col width="30%"><col width="70%"></colgroup>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Detalle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Entrevistado(a)</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Género</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Edad</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Lugar de residencia</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Entrevistador(a)</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Fecha</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Duración</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Link de la entrevista</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Resultado de las tareas</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Observaciones</b></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+- **Segunda entrevista**
+
+La Tabla 162 presenta la ficha de la segunda entrevista de validación al segmento de participantes.
+
+<table>
+  <caption>Ficha de la segunda entrevista de validación al segmento de participantes</caption>
+  <colgroup><col width="30%"><col width="70%"></colgroup>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Detalle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Entrevistado(a)</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Género</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Edad</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Lugar de residencia</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Entrevistador(a)</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Fecha</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Duración</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Link de la entrevista</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Resultado de las tareas</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Observaciones</b></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+- **Tercera entrevista**
+
+La Tabla 163 presenta la ficha de la tercera entrevista de validación al segmento de participantes.
+
+<table>
+  <caption>Ficha de la tercera entrevista de validación al segmento de participantes</caption>
+  <colgroup><col width="30%"><col width="70%"></colgroup>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Detalle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Entrevistado(a)</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Género</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Edad</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Lugar de residencia</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Entrevistador(a)</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Fecha</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Duración</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Link de la entrevista</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Resultado de las tareas</b></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><b>Observaciones</b></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
 ### 4.3.3. Evaluaciones según heurísticas
+
+El equipo realizó una evaluación heurística del producto del Sprint 1. Es una inspección hecha por el propio equipo, sin usuarios, en la que cada integrante recorre las tareas de la Tabla 157 buscando dónde la interfaz incumple un principio de usabilidad. No sustituye a las entrevistas, porque un equipo no puede sorprenderse con su propio producto, pero encuentra antes los problemas que no hace falta un usuario para detectar. Los hallazgos se contrastaron con las diez heurísticas de Nielsen [@nielsen1994heuristics], las mismas con las que se justificaron los principios de diseño del Capítulo III. La Tabla 164 presenta la cabecera de la evaluación.
+
+<table>
+  <caption>Cabecera de la evaluación heurística</caption>
+  <colgroup><col width="28%"><col width="72%"></colgroup>
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Detalle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Universidad</b></td>
+      <td>Universidad Peruana de Ciencias Aplicadas</td>
+    </tr>
+    <tr>
+      <td><b>Carrera</b></td>
+      <td>Ingeniería de Software</td>
+    </tr>
+    <tr>
+      <td><b>Curso</b></td>
+      <td>1ACC0238, Aplicaciones a Dispositivos Móviles. NRC 13980</td>
+    </tr>
+    <tr>
+      <td><b>Docente</b></td>
+      <td>Mayta Guillermo, Jorge Luis</td>
+    </tr>
+    <tr>
+      <td><b>Equipo y producto</b></td>
+      <td>Kerolabs. Pozzo</td>
+    </tr>
+    <tr>
+      <td><b>Auditores</b></td>
+      <td>Camargo Briceño, Joseph Julius; Flores Pinchi, José Fernando; Sanchez Benavente, Leonardo Matias; Solis Campos, Estefano Sebastian; Tirado Carrera, Gabriela Luciana</td>
+    </tr>
+    <tr>
+      <td><b>Productos evaluados</b></td>
+      <td>Aplicación móvil Android, variante <code>cloud</code> del Sprint 1, y landing page publicado en <code>kerolabs.github.io</code></td>
+    </tr>
+    <tr>
+      <td><b>Alcance</b></td>
+      <td>Las doce tareas de la Tabla 157, que cubren el ingreso, la creación de la junta, la invitación, el reparto de turnos, el registro y la revisión del aporte, el estado del pozo, el calendario de turnos, el historial y los avisos. Quedan fuera la subasta del turno y la deserción de un integrante, que el Sprint 1 dejó para el siguiente por no tener endpoint en los servicios</td>
+    </tr>
+    <tr>
+      <td><b>Fecha</b></td>
+      <td>10 de noviembre de 2026</td>
+    </tr>
+  </tbody>
+</table>
+
+Cada problema se puntúa con la escala de severidad de Nielsen, que combina la frecuencia con la que ocurre, el impacto que tiene cuando ocurre y la persistencia con la que vuelve a aparecer. La Tabla 165 presenta la escala y lo que significa cada grado para este producto.
+
+<table>
+  <caption>Escala de severidad de los problemas de usabilidad</caption>
+  <colgroup><col width="12%"><col width="28%"><col width="60%"></colgroup>
+  <thead>
+    <tr>
+      <th>Grado</th>
+      <th>Nombre</th>
+      <th>Qué significa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>No es un problema</td>
+      <td>El equipo discrepa sobre si es un problema; no se corrige</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Cosmético</td>
+      <td>Solo se corrige si sobra tiempo en el Sprint</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Menor</td>
+      <td>La persona completa la tarea, pero pierde tiempo o duda. Prioridad baja</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Mayor</td>
+      <td>La persona no completa la tarea o la completa mal. Prioridad alta en el Sprint 2</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Catastrófico</td>
+      <td>Impide usar el producto o pone en riesgo el dinero o la confianza del grupo. Se corrige antes de cualquier prueba con usuarios</td>
+    </tr>
+  </tbody>
+</table>
+
+La inspección encontró nueve problemas, ninguno catastrófico. La Tabla 166 los recoge ordenados por severidad, con la heurística que incumplen, la pantalla donde aparecen y la corrección propuesta. Las pantallas referidas son las de las Figuras 145, 146 y 147 para la aplicación móvil y la Figura 154 para el landing page.
+
+<table>
+  <caption>Problemas encontrados en la evaluación heurística</caption>
+  <colgroup><col width="5%"><col width="26%"><col width="14%"><col width="18%"><col width="8%"><col width="29%"></colgroup>
+  <thead>
+    <tr>
+      <th>N.º</th>
+      <th>Problema</th>
+      <th>Pantalla</th>
+      <th>Heurística incumplida</th>
+      <th>Severidad</th>
+      <th>Corrección propuesta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>En «Revisar aporte» la acción con más peso visual es «Aprobar igual», sobre un aporte que el propio sistema acaba de marcar como no coincidente. «Rechazar» queda como acción secundaria</td>
+      <td>Revisar aporte</td>
+      <td>Error prevention</td>
+      <td>3</td>
+      <td>Igualar el peso de ambas acciones y pedir una confirmación corta al aprobar un aporte con diferencias</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>La decisión de aprobar o rechazar un comprobante no ofrece una vía visible para deshacerse. Si la cabeza se equivoca, la pantalla no dice qué hacer</td>
+      <td>Revisar aporte</td>
+      <td>User control and freedom</td>
+      <td>3</td>
+      <td>Permitir revertir la decisión mientras el período siga abierto y dejar constancia del cambio en el historial</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>La lista «Para iniciar la junta» muestra dos requisitos, grupo completo y turnos definidos, pero el inicio valida además el destino de los aportes. Si falta el destino, la cabeza no se entera por la lista</td>
+      <td>Junta por iniciar</td>
+      <td>Visibility of system status</td>
+      <td>2</td>
+      <td>Mostrar el destino de los aportes como tercer requisito de la lista, con su estado, igual que los otros dos</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>La leyenda de estados del historial se corta en el borde derecho de la pantalla: el último estado no llega a leerse, de modo que un icono de la cuadrícula queda sin explicación</td>
+      <td>Historial</td>
+      <td>Recognition rather than recall</td>
+      <td>2</td>
+      <td>Repartir la leyenda en dos filas o permitir que se desplace, de modo que todos los estados se lean en pantallas de 360 px</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>El estado «En revisión» de un aporte no indica a quién le toca actuar ni desde cuándo está así. El participante no sabe si debe esperar o volver a registrar</td>
+      <td>Estado del pozo</td>
+      <td>Visibility of system status</td>
+      <td>2</td>
+      <td>Añadir al estado quién lo tiene que revisar y desde qué fecha, como ya se hace con la fecha de corte</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>En la lista de avisos, los que piden una acción («Comprobante por revisar») tienen el mismo peso visual que los informativos («Nuevo integrante»), y todos llevan el mismo punto de no leído</td>
+      <td>Avisos</td>
+      <td>Aesthetic and minimalist design</td>
+      <td>2</td>
+      <td>Separar los avisos que piden acción, con una llamada a la acción propia, de los que solo informan</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>La tarjeta de la lista de juntas dice «Faltan integrantes para iniciar» sin decir cuántos, mientras que el detalle de la junta sí muestra «2 de 6 integrantes»</td>
+      <td>Mis juntas</td>
+      <td>Visibility of system status</td>
+      <td>1</td>
+      <td>Mostrar en la tarjeta el mismo conteo que el detalle</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>El campo del número de celular no indica el formato esperado ni cuántos dígitos tiene; el texto de ayuda explica para qué se usa el número, pero no cómo escribirlo</td>
+      <td>Ingreso</td>
+      <td>Help users recognize, diagnose, and recover from errors</td>
+      <td>1</td>
+      <td>Indicar los nueve dígitos esperados y validar la longitud antes de habilitar «Enviar código»</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>En el landing page, el conmutador de tema visual es un icono sin etiqueta ni texto alternativo visible, junto a un conmutador de idioma que sí está etiquetado</td>
+      <td>Landing page</td>
+      <td>Consistency and standards</td>
+      <td>1</td>
+      <td>Etiquetar el conmutador de tema igual que el de idioma, o añadirle una etiqueta accesible</td>
+    </tr>
+  </tbody>
+</table>
+
+Dos de los nueve problemas son de severidad mayor y los dos caen en la misma pantalla, la de revisión del comprobante: aprobar un aporte que no coincide es la acción con más peso visual, y ninguna de las dos decisiones se puede deshacer. Los dos se incorporan al Sprint Backlog del Sprint 2 como corrección previa a las entrevistas con usuarios, porque son el punto donde una persona podría equivocarse con consecuencias sobre el dinero del grupo. Los siete restantes, de severidad menor y cosmética, se atienden dentro del Sprint 2 junto a las historias del bounded context al que pertenecen.
+
+La inspección también confirmó tres decisiones del Capítulo III que se sostienen en el producto construido: el lenguaje de la interfaz usa los términos del Ubiquitous Language sin introducir vocabulario financiero ajeno al grupo, el aviso de que Pozzo no recibe ni retiene el dinero aparece tanto en el landing page como en la pantalla de aporte, y la pantalla de revisión explica en texto llano la consecuencia de cada decisión antes de tomarla.
 
 <!-- pdf:desde-fin -->
