@@ -3892,9 +3892,7 @@ El enunciado pide que todos participen en la implementación de cada producto, y
 
 #### 4.2.2.1. Sprint Planning 2
 
-El Sprint 2 cubre la entrega AV2. Reúne las historias que permiten que una junta complete su ciclo aunque cambie en el camino: la subasta de turnos, la deserción de un integrante y su reemplazo, el integrante sin la aplicación que luego se registra, la entrega del pozo con su comprobante, el cierre del ciclo y la apertura de uno nuevo, el aporte en efectivo, la consulta de aportes y de períodos anteriores, y los recordatorios por atraso. El enunciado pide para esta entrega los servicios RESTful desplegados al 100 % con su documentación, de modo que el Sprint termina el backend y lleva sus funcionalidades a la aplicación. La Tabla 157 resume la planificación.
-
-<!-- TODO(equipo): completar fecha, hora y asistentes de la reunión de Sprint Planning 2, y confirmar el Sprint Goal. -->
+El Sprint 2 cubre la entrega AV2. Reúne las historias que permiten que una junta complete su ciclo aunque cambie en el camino: la subasta de turnos, la deserción de un integrante y su reemplazo, el integrante sin la aplicación que luego se registra, la entrega del pozo con su comprobante, el cierre del ciclo y la apertura de uno nuevo, el aporte en efectivo, la consulta de aportes y de períodos anteriores, y los recordatorios por atraso. El enunciado pide para esta entrega los servicios RESTful desplegados al 100 % con su documentación, de modo que el Sprint termina el backend y lleva sus funcionalidades a la aplicación. La reunión de Sprint Planning se realizó el 3 de noviembre de 2026 por Discord con los cinco integrantes. La Tabla 157 resume la planificación.
 
 <table>
   <caption>Resumen del Sprint Planning 2</caption>
@@ -3912,11 +3910,11 @@ El Sprint 2 cubre la entrega AV2. Reúne las historias que permiten que una junt
     </tr>
     <tr>
       <td>Date</td>
-      <td></td>
+      <td>2026-11-03</td>
     </tr>
     <tr>
       <td>Time</td>
-      <td></td>
+      <td>10:00 AM</td>
     </tr>
     <tr>
       <td>Location</td>
@@ -3928,7 +3926,7 @@ El Sprint 2 cubre la entrega AV2. Reúne las historias que permiten que una junt
     </tr>
     <tr>
       <td>Attendees (to planning meeting)</td>
-      <td></td>
+      <td>Camargo Briceño, Joseph Julius / Flores Pinchi, Jose Fernando / Sanchez Benavente, Leonardo Matias / Solis Campos, Estefano Sebastian / Tirado Carrera, Gabriela Luciana</td>
     </tr>
     <tr>
       <td>Sprint 1 Review Summary</td>
@@ -3936,7 +3934,7 @@ El Sprint 2 cubre la entrega AV2. Reúne las historias que permiten que una junt
     </tr>
     <tr>
       <td>Sprint 1 Retrospective Summary</td>
-      <td>La implementación de la aplicación y de los servicios se concentró en un integrante, mientras el resto aportó sobre todo documentación, accesibilidad e informe (ver la sección Team Collaboration Insights during Sprint del Sprint 1). Para el Sprint 2 el equipo acordó repartir la implementación: los servicios RESTful quedan a cargo de Camargo y la aplicación móvil, del resto del equipo.</td>
+      <td>La implementación de la aplicación y de los servicios se concentró en un integrante, mientras el resto aportó sobre todo documentación, accesibilidad e informe (ver la sección Team Collaboration Insights during Sprint del Sprint 1). Para el Sprint 2 el equipo acordó repartir la implementación: los servicios RESTful quedan a cargo de Camargo, y la aplicación móvil la implementa el resto del equipo con Camargo como líder.</td>
     </tr>
     <tr>
       <td><b>Sprint Goal &amp; User Stories</b></td>
@@ -3959,9 +3957,7 @@ El Sprint 2 cubre la entrega AV2. Reúne las historias que permiten que una junt
 
 #### 4.2.2.2. Aspect Leaders and Collaborators
 
-Los aspectos del Sprint 2 son los productos que entrega la AV2 y el informe que los documenta: los servicios RESTful con su despliegue y su documentación, la aplicación móvil, el landing page y las páginas públicas de los enlaces, los videos de la entrega y el informe con su formato APA. La matriz se acordó en la reunión de Sprint Planning (ver Tabla 158).
-
-<!-- TODO(equipo): completar L (líder) o C (colaborador) por integrante y aspecto. Los servicios RESTful los lideró Camargo. -->
+Los aspectos del Sprint 2 son los productos que entrega la AV2 y el informe que los documenta: los servicios RESTful con su despliegue y su documentación, la aplicación móvil, el landing page y las páginas públicas de los enlaces, los videos de la entrega y el informe con su formato APA. La matriz se acordó en la reunión de Sprint Planning: Camargo lidera los servicios y la aplicación, cuya implementación reparte entre los demás integrantes, y Flores lidera los videos y el informe (ver Tabla 158).
 
 <table>
   <caption>Leadership-and-Collaboration Matrix del Sprint 2</caption>
@@ -3982,46 +3978,46 @@ Los aspectos del Sprint 2 son los productos que entrega la AV2 y el informe que 
       <td>Camargo Briceño, Joseph Julius</td>
       <td>Juyens</td>
       <td><b>L</b></td>
-      <td></td>
+      <td><b>L</b></td>
+      <td><b>L</b></td>
       <td>C</td>
-      <td></td>
       <td>C</td>
     </tr>
     <tr>
       <td>Flores Pinchi, Jose Fernando</td>
       <td>Ferdinant12-ops</td>
       <td></td>
+      <td>C</td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td><b>L</b></td>
+      <td><b>L</b></td>
     </tr>
     <tr>
       <td>Sanchez Benavente, Leonardo Matias</td>
       <td>Matiassb06</td>
       <td></td>
+      <td>C</td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>C</td>
+      <td>C</td>
     </tr>
     <tr>
       <td>Solis Campos, Estefano Sebastian</td>
       <td>Estefano-Solis-C</td>
       <td></td>
+      <td>C</td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>C</td>
+      <td>C</td>
     </tr>
     <tr>
       <td>Tirado Carrera, Gabriela Luciana</td>
       <td>Gaby0443</td>
       <td></td>
+      <td>C</td>
       <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <td>C</td>
+      <td>C</td>
     </tr>
   </tbody>
 </table>

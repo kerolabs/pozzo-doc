@@ -49,6 +49,12 @@ La Tabla 1 presenta el registro de versiones del informe.
       <td align="center">Camargo Briceño, Joseph Julius</td>
       <td align="center">Capítulo II alineado con el backend del Sprint 2: rutas de TS04, diseño táctico de Contributions y Savings Groups con la subasta en Contributions, y DDL, diagramas de clases, de base de datos y de componentes con las nuevas columnas y tablas</td>
     </tr>
+    <tr>
+      <td align="center">2.3</td>
+      <td align="center">10/11/2026</td>
+      <td align="center">Camargo Briceño, Joseph Julius</td>
+      <td align="center">Capítulo IV con el Sprint 2: planificación, Sprint Backlog y evidencias de desarrollo, pruebas, documentación y despliegue de los servicios RESTful completos; diagramas de clases, de base de datos y de componentes de Contributions y Savings Groups regenerados; Student Outcome de la AV2</td>
+    </tr>
   </tbody>
 </table>
 
@@ -298,6 +304,11 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
     </tr>
     <tr>
       <td></td>
+      <td><b>Camargo Briceño, Joseph Julius</b><br><i>AV2:</i> Completó los servicios RESTful con las historias del Sprint 2: la subasta de turnos con el reparto del descuento, la deserción y el reemplazo de un integrante, el vínculo de quien no tenía la aplicación al registrarse, el intercambio de turnos, el comprobante de la entrega del pozo, el aporte compartido con un enlace verificable, los recordatorios por atraso y el nuevo ciclo. Sumó 12 endpoints documentados en OpenAPI, para un total de 66, y llevó la suite a 217 pruebas; trabajó cada historia en su propia rama y pull request, y desplegó la versión <code>v0.2.0</code>. Alineó el diseño táctico del Capítulo II con lo implementado, regeneró sus diagramas y redactó la evidencia del Sprint 2.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
       <td><b>Flores Pinchi, Jose Fernando</b><br><i>AV1:</i> Aplicó el Lean UX Process para redactar el Problem Statement, los cinco tipos de Assumptions, los Hypothesis Statements y el Lean UX Canvas; diseñó, registró y analizó las entrevistas a cabezas de junta y participantes con sustento estadístico; y diseñó el nivel táctico de los Bounded Contexts Contributions y Savings Groups en sus cuatro capas.</td>
       <td></td>
     </tr>
@@ -345,6 +356,11 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
       <td></td>
       <td><b>Camargo Briceño, Joseph Julius</b><br><i>TB1:</i> Aprendió durante el Sprint lo que la AV1 había anticipado: Spring Boot con Spring Security y JWT, Testcontainers y Cucumber para las pruebas, Jetpack Compose y ML Kit para leer comprobantes en el dispositivo, y la administración de un servidor Linux con systemd y Caddy al que se despliega por SSH desde GitHub Actions.</td>
       <td><i>TB1:</i> Kotlin, Jetpack Compose, ML Kit y Spring Boot, que la AV1 señalaba como el aprendizaje pendiente, se aprendieron en este Sprint, pero ese aprendizaje se concentró en un integrante. El equipo reconoce que para la AV2 cada integrante debe implementar las historias de un Bounded Context, en la aplicación y en los servicios, para que el conocimiento técnico se reparta como se repartió el de diseño.</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Camargo Briceño, Joseph Julius</b><br><i>AV2:</i> Profundizó en la consistencia entre Bounded Contexts con eventos de integración: qué cambios deben guardarse en la misma transacción, como el intercambio de turnos o el reemplazo de un integrante, y cuáles corren después de confirmada, como el vínculo de una cuenta nueva o los avisos. Aprendió a regenerar los diagramas de PlantUML y Structurizr sin Docker, con sus distribuciones de Java y el Graphviz que trae PlantUML, y a revisar las ramas integradas en busca de pruebas que compilan sin ejecutarse.</td>
+      <td></td>
     </tr>
     <tr>
       <td></td>
