@@ -4647,7 +4647,11 @@ La integración de las ramas dejó dos fallas en la suite que se corrigieron den
 
 En este Sprint se documentaron con OpenAPI 12 endpoints nuevos, con lo que los servicios suman 66 endpoints en 12 recursos. El recurso nuevo es Auctions, con la subasta de cada período; los demás endpoints se agregaron a recursos que ya existían. La documentación sigue generándose desde el código con springdoc-openapi y está desplegada junto con los servicios: Swagger UI en <https://api-kerolabs.duckdns.org/swagger-ui/index.html> y el documento OpenAPI en <https://api-kerolabs.duckdns.org/v3/api-docs>.
 
-Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y requieren el token Bearer, salvo la marcada como pública. La Tabla 165 presenta los endpoints nuevos con el verbo HTTP, la sintaxis de la llamada, la acción con su enlace a la documentación desplegada, los parámetros y la respuesta exitosa.
+Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y requieren el token Bearer, salvo la marcada como pública. La Figura 159 muestra la documentación desplegada con el recurso nuevo Auctions y los endpoints que se sumaron a Periods y Turns.
+
+![Swagger UI con los endpoints del Sprint 2](images/chapter_4/swagger_sprint2.png){width=85%}
+
+La Tabla 165 presenta los endpoints nuevos con el verbo HTTP, la sintaxis de la llamada, la acción con su enlace a la documentación desplegada, los parámetros y la respuesta exitosa.
 
 <table>
   <caption>Endpoints documentados en el Sprint 2</caption>
@@ -4753,7 +4757,9 @@ Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y requieren el tok
 
 En el Sprint 2 se desplegaron de nuevo los servicios RESTful y las páginas públicas de los enlaces. Como en el Sprint 1, cada producto se publica desde la rama `main` de su repositorio.
 
-**Servicios RESTful.** El despliegue no cambió de infraestructura: la instancia de Oracle Cloud, el dominio `api-kerolabs.duckdns.org` y el workflow `Deploy`, que compila el jar, lo envía al servidor y espera a que responda antes de dar el despliegue por bueno. El Sprint llegó a `main` en dos pull requests de integración. El primero, pozzo-backend#59, llevó las historias del Sprint y se desplegó el 10 de noviembre (<https://github.com/kerolabs/pozzo-backend/actions/runs/42919507445>). El segundo, pozzo-backend#61, llevó la corrección de los escenarios de subasta y se desplegó el mismo día (<https://github.com/kerolabs/pozzo-backend/actions/runs/42938822170>). Su commit quedó marcado como la versión `v0.2.0`: <https://github.com/kerolabs/pozzo-backend/tree/v0.2.0>. Las columnas y tablas nuevas las creó Hibernate al arrancar, sin variables de entorno nuevas, porque las propiedades agregadas tienen un valor por defecto.
+**Servicios RESTful.** El despliegue no cambió de infraestructura: la instancia de Oracle Cloud, el dominio `api-kerolabs.duckdns.org` y el workflow `Deploy`, que compila el jar, lo envía al servidor y espera a que responda antes de dar el despliegue por bueno. El Sprint llegó a `main` en dos pull requests de integración. El primero, pozzo-backend#59, llevó las historias del Sprint y se desplegó el 10 de noviembre (<https://github.com/kerolabs/pozzo-backend/actions/runs/42919507445>). El segundo, pozzo-backend#61, llevó la corrección de los escenarios de subasta y se desplegó el mismo día (<https://github.com/kerolabs/pozzo-backend/actions/runs/42938822170>). Su commit quedó marcado como la versión `v0.2.0`: <https://github.com/kerolabs/pozzo-backend/tree/v0.2.0>. La Figura 160 muestra las ejecuciones del workflow `Deploy`, con las dos del Sprint 2 al inicio de la lista.
+
+![Despliegues de los servicios RESTful del Sprint 2 con el workflow Deploy](images/chapter_4/deploy_runs_sprint2.png){width=90%} Las columnas y tablas nuevas las creó Hibernate al arrancar, sin variables de entorno nuevas, porque las propiedades agregadas tienen un valor por defecto.
 
 **Páginas públicas de los enlaces.** La página del aporte compartido llegó a `main` de `kerolabs/kerolabs.github.io` en kerolabs.github.io#8 y quedó publicada en <https://kerolabs.github.io/aporte/>, junto a las de invitación e historial.
 
