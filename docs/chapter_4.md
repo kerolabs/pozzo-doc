@@ -3892,9 +3892,7 @@ El enunciado pide que todos participen en la implementación de cada producto, y
 
 #### 4.2.2.1. Sprint Planning 2
 
-El Sprint 2 cubre la entrega AV2. Reúne las historias que permiten que una junta complete su ciclo aunque cambie en el camino: la subasta de turnos, la deserción de un integrante y su reemplazo, el integrante sin la aplicación que luego se registra, la entrega del pozo con su comprobante, el cierre del ciclo y la apertura de uno nuevo, el aporte en efectivo, la consulta de aportes y de períodos anteriores, y los recordatorios por atraso. El enunciado pide para esta entrega los servicios RESTful desplegados al 100 % con su documentación, de modo que el Sprint termina el backend y lleva sus funcionalidades a la aplicación. La reunión de Sprint Planning se realizó el 3 de noviembre de 2026 con los cinco integrantes. La Tabla 157 resume la planificación.
-
-<!-- TODO(equipo): completar la hora de la reunión de Sprint Planning 2 y confirmar si fue por Discord. -->
+El Sprint 2 cubre la entrega AV2. Reúne las historias que permiten que una junta complete su ciclo aunque cambie en el camino: la subasta de turnos, la deserción de un integrante y su reemplazo, el integrante sin la aplicación que luego se registra, la entrega del pozo con su comprobante, el cierre del ciclo y la apertura de uno nuevo, el aporte en efectivo, la consulta de aportes y de períodos anteriores, y los recordatorios por atraso. El enunciado pide para esta entrega los servicios RESTful desplegados al 100 % con su documentación, de modo que el Sprint termina el backend y lleva sus funcionalidades a la aplicación. La reunión de Sprint Planning se realizó el 3 de noviembre de 2026 por Discord con los cinco integrantes. La Tabla 157 resume la planificación.
 
 <table>
   <caption>Resumen del Sprint Planning 2</caption>
@@ -3916,11 +3914,11 @@ El Sprint 2 cubre la entrega AV2. Reúne las historias que permiten que una junt
     </tr>
     <tr>
       <td>Time</td>
-      <td></td>
+      <td>10:00 AM</td>
     </tr>
     <tr>
       <td>Location</td>
-      <td>El alcance se tomó de la lista "Sprint 2 (AV2) - 58 SP" del tablero "Pozzo - Product Backlog" en Trello: <a href="https://trello.com/b/fRocSVZA/pozzo-product-backlog">https://trello.com/b/fRocSVZA/pozzo-product-backlog</a></td>
+      <td>Reunión virtual por Discord. El alcance se tomó de la lista "Sprint 2 (AV2) - 58 SP" del tablero "Pozzo - Product Backlog" en Trello: <a href="https://trello.com/b/fRocSVZA/pozzo-product-backlog">https://trello.com/b/fRocSVZA/pozzo-product-backlog</a></td>
     </tr>
     <tr>
       <td>Prepared By</td>
