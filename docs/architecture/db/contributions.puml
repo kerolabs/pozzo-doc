@@ -34,6 +34,9 @@ entity "cycles" as cycles {
   * status : VARCHAR(10)
   * started_at : TIMESTAMP
   closed_at : TIMESTAMP
+  auction_closes_days_before : SMALLINT
+  auction_minimum_bid : NUMERIC(12,2)
+  auction_fallback : VARCHAR(10)
 }
 
 entity "cycle_turns" as cycle_turns {
@@ -56,6 +59,8 @@ entity "periods" as periods {
   * status : VARCHAR(15)
   delivered_at : TIMESTAMP
   delivered_by : UUID
+  payout_proof_path : VARCHAR(200)
+  discount_amount : NUMERIC(12,2)
 }
 
 entity "expected_contributions" as expected {
@@ -83,11 +88,14 @@ entity "contributions" as contributions {
   * registered_by_account_id : UUID
   * registered_at : TIMESTAMP
   receipt_operation_number : VARCHAR(40) <<UQ>>
+  receipt_image_path : VARCHAR(200)
   receipt_payer : VARCHAR(120)
   receipt_payee : VARCHAR(120)
   receipt_amount : NUMERIC(12,2)
   receipt_paid_at : DATE
   receipt_source : VARCHAR(10)
+  received_on : DATE
+  verification_token : VARCHAR(40) <<UQ>>
   covered_by_membership_id : UUID
   reviewed_by_account_id : UUID
   review_decision : VARCHAR(10)
@@ -103,6 +111,33 @@ entity "contribution_inconsistencies" as inconsistencies {
   * found_value : VARCHAR(120)
 }
 
+entity "auctions" as auctions {
+  * id : UUID <<PK>>
+  --
+  * cycle_id : UUID <<FK>>
+  * period_id : UUID <<FK, UQ>>
+  * turn_number : SMALLINT
+  * closes_on : DATE
+  * currency : CHAR(3)
+  * minimum_bid : NUMERIC(12,2)
+  * pot_amount : NUMERIC(12,2)
+  * fallback : VARCHAR(10)
+  * status : VARCHAR(10)
+  winner_membership_id : UUID
+  discount : NUMERIC(12,2)
+  credit_per_member : NUMERIC(12,2)
+  resolution : VARCHAR(10)
+  closed_at : TIMESTAMP
+}
+
+entity "auction_bids" as bids {
+  * auction_id : UUID <<FK>>
+  --
+  * membership_id : UUID <<UQ>>
+  * amount : NUMERIC(12,2)
+  * placed_at : TIMESTAMP
+}
+
 cycles ||--|{ cycle_turns : "tiene turnos"
 cycles ||--|{ periods : "abre"
 cycles ||--o{ contributions : "recibe"
@@ -110,4 +145,7 @@ periods ||--|{ expected : "espera"
 periods ||--o{ contributions : "registra"
 contributions ||--o{ inconsistencies : "detecta"
 contributions |o--o| expected : "liquida"
+cycles ||--o{ auctions : "subasta"
+periods ||--o| auctions : "se subasta en"
+auctions ||--o{ bids : "recibe"
 @enduml

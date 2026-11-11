@@ -31,6 +31,9 @@ entity "savings_groups" as groups {
   turn_method : VARCHAR(10)
   draw_seed : VARCHAR(64)
   turns_assigned_at : TIMESTAMP
+  auction_closes_days_before : SMALLINT
+  auction_minimum_bid : NUMERIC(12,2)
+  auction_fallback : VARCHAR(10)
   * status : VARCHAR(10)
   * created_at : TIMESTAMP
   started_at : TIMESTAMP
@@ -67,32 +70,8 @@ entity "turn_slots" as turn_slots {
   * assigned_by : VARCHAR(10)
 }
 
-entity "auctions" as auctions {
-  * id : UUID <<PK>>
-  --
-  * group_id : UUID <<FK>>
-  * turn_number : SMALLINT
-  * status : VARCHAR(10)
-  * opened_at : TIMESTAMP
-  closed_at : TIMESTAMP
-  winner_id : UUID <<FK>>
-}
-
-entity "bids" as bids {
-  * id : UUID <<PK>>
-  --
-  * auction_id : UUID <<FK>>
-  * membership_id : UUID <<FK>>
-  * amount : NUMERIC(12,2)
-  * placed_at : TIMESTAMP
-}
-
 groups ||--|{ memberships : "tiene"
 groups ||--o{ invitations : "invita con"
 groups ||--o{ turn_slots : "ordena"
-groups ||--o{ auctions : "subasta"
 memberships ||--o| turn_slots : "ocupa"
-memberships ||--o{ bids : "oferta"
-memberships |o--o{ auctions : "gana"
-auctions ||--o{ bids : "recibe"
 @enduml
