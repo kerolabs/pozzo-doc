@@ -2778,11 +2778,11 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
     </tr>
     <tr>
       <td><b>Description</b></td>
-      <td colspan="3">Como desarrollador, deseo contar con endpoints para asignar turnos por sorteo u orden acordado, y para registrar y cerrar subastas, para que la aplicación móvil soporte los tres métodos de reparto.</td>
+      <td colspan="3">Como desarrollador, deseo contar con endpoints para asignar turnos por sorteo, orden acordado o subasta, y para ofertar y cerrar la subasta de cada período, para que la aplicación móvil soporte los tres métodos de reparto.</td>
     </tr>
     <tr>
       <td><b>Acceptance Criteria</b></td>
-      <td colspan="3"><b>Escenario 1: Asignación por sorteo u orden</b><br>Dado el organizador de una junta con todos los cupos ocupados,<br>Cuando envía POST /api/v1/groups/{id}/turns/draw, o POST /api/v1/groups/{id}/turns/agreed con la lista ordenada de integrantes,<br>Entonces el servicio responde 200 OK con el turno y la fecha de corte de cada integrante, sin repeticiones, y en el sorteo la semilla que permite reproducirlo.<br><br><b>Escenario 2: Oferta en subasta</b><br>Dado un integrante que no ha cobrado y una subasta OPEN,<br>Cuando envía POST /api/v1/auctions/{auctionId}/bids con un monto igual o mayor al mínimo,<br>Entonces el servicio responde 201 Created reemplazando cualquier oferta previa del mismo integrante; y responde 422 Unprocessable Entity si el monto es menor al mínimo o 403 Forbidden si el integrante ya cobró.<br><br><b>Escenario 3: Cierre</b><br>Dado el organizador y una subasta OPEN con ofertas,<br>Cuando envía POST /api/v1/auctions/{auctionId}/close,<br>Entonces el servicio responde 200 OK con el ganador, el monto a recibir y el crédito aplicado a cada integrante que aún no cobra; y sin ofertas aplica el mecanismo de respaldo configurado.</td>
+      <td colspan="3"><b>Escenario 1: Asignación por sorteo u orden</b><br>Dado el organizador de una junta con todos los cupos ocupados,<br>Cuando envía POST /api/v1/groups/{id}/turns/draw, POST /api/v1/groups/{id}/turns/agreed con la lista ordenada de integrantes, o POST /api/v1/groups/{id}/turns/auction con los días de anticipación al corte, la oferta mínima y el respaldo,<br>Entonces el servicio responde 200 OK con el turno y la fecha de corte de cada integrante, sin repeticiones; en el sorteo, con la semilla que permite reproducirlo, y en la subasta, con un orden provisional que cada subasta corrige.<br><br><b>Escenario 2: Oferta en subasta</b><br>Dado un integrante que no ha cobrado y la subasta OPEN del período en curso,<br>Cuando envía POST /api/v1/periods/{periodId}/auction/bids con un monto igual o mayor al mínimo y menor al pozo,<br>Entonces el servicio responde 200 OK con la subasta, en la que su oferta reemplaza a cualquier oferta previa suya; y responde 422 Unprocessable Entity si el monto es menor al mínimo, si el integrante ya cobró o si la subasta cerró.<br><br><b>Escenario 3: Cierre</b><br>Dado el organizador y una subasta OPEN,<br>Cuando envía POST /api/v1/periods/{periodId}/auction/close,<br>Entonces el servicio responde 200 OK con el ganador, el descuento, el monto a recibir y cómo se resolvió; con ofertas gana la mayor, y sin ofertas aplica el respaldo configurado: un sorteo, o el integrante que la cabeza envía en el cuerpo. Las subastas cuyo día de cierre pasó se cierran solas.</td>
     </tr>
   </tbody>
 </table>
@@ -3900,7 +3900,7 @@ Las clases se derivan directamente de los artefactos anteriores: cada comando de
 
 ### 2.6.1. Bounded Context: Contributions
 
-Contributions es el contexto core. Registra y valida los aportes de cada período contra lo esperado, mantiene el estado del pozo, registra su entrega y cierra el ciclo. Su modelo gira en torno a tres agregados. **Cycle** es la copia congelada de la junta que Contributions necesita para operar: las reglas (aporte, periodicidad, fecha de corte, destino), el orden de turnos y el turno en curso; se crea al recibir el evento Junta iniciada de Savings Groups y desde entonces no depende de ese contexto en tiempo de ejecución. **Period** representa un turno del ciclo: sabe cuánto espera de cada integrante, quién cobra y si el pozo está completo. **Contribution** es un aporte registrado por un integrante, con el comprobante leído en el dispositivo, el resultado de su validación y, cuando corresponde, la revisión de la cabeza. Se separaron Period y Contribution en dos agregados porque tienen ciclos de vida y ritmos de cambio distintos: un período cambia pocas veces (se abre, se completa, se entrega), mientras que los aportes se registran, validan y revisan de forma independiente y concurrente. Cada integrante se identifica por su membresía en la junta y, si usa la aplicación, también por su cuenta: quien no tiene la aplicación igual aporta, en efectivo o con una cobertura, así que la membresía es la única referencia que todos tienen.
+Contributions es el contexto core. Registra y valida los aportes de cada período contra lo esperado, mantiene el estado del pozo, registra su entrega y cierra el ciclo. Su modelo gira en torno a cuatro agregados. **Cycle** es la copia congelada de la junta que Contributions necesita para operar: las reglas (aporte, periodicidad, fecha de corte, destino), el orden de turnos y el turno en curso; se crea al recibir el evento Junta iniciada de Savings Groups y desde entonces no depende de ese contexto en tiempo de ejecución. **Period** representa un turno del ciclo: sabe cuánto espera de cada integrante, quién cobra y si el pozo está completo. **Contribution** es un aporte registrado por un integrante, con el comprobante leído en el dispositivo, el resultado de su validación y, cuando corresponde, la revisión de la cabeza. **Auction** es la subasta del turno de un período en las juntas que reparten sus turnos así: recibe las ofertas de quienes aún no cobran y, al cerrarse, decide quién cobra y con cuánto descuento. Vive en Contributions y no en Savings Groups porque cada subasta pertenece a un período, que solo existe una vez iniciado el ciclo; Savings Groups guarda únicamente las reglas de la subasta y las copia al ciclo al iniciar. Se separaron Period y Contribution en dos agregados porque tienen ciclos de vida y ritmos de cambio distintos: un período cambia pocas veces (se abre, se completa, se entrega), mientras que los aportes se registran, validan y revisan de forma independiente y concurrente. Cada integrante se identifica por su membresía en la junta y, si usa la aplicación, también por su cuenta: quien no tiene la aplicación igual aporta, en efectivo o con una cobertura, así que la membresía es la única referencia que todos tienen.
 
 #### 2.6.1.1. Domain Layer
 
@@ -3922,25 +3922,31 @@ La Tabla 84 presenta las clases del Domain Layer de Contributions.
       <td><b>Cycle</b></td>
       <td>Aggregate Root</td>
       <td>Copia de la junta iniciada con la que Contributions opera: reglas, turnos y turno en curso. Abre los períodos y decide cuándo el ciclo termina.</td>
-      <td>id, groupId, groupName, organizerAccountId, rules, turns, currentTurn, status, startedAt, closedAt. start(groupId, groupName, organizerAccountId, rules, turns, now), isOrganizer(accountId), participantOf(accountId), turn(turnNumber), hasRemainingTurns(), advanceToNextTurn(), replaceMember(dropped, replacement), close(now).</td>
+      <td>id, groupId, groupName, organizerAccountId, rules, turns, currentTurn, status, startedAt, closedAt, auctionSettings. start(groupId, groupName, organizerAccountId, rules, turns, auctionSettings, now), isOrganizer(accountId), participantOf(accountId), turn(turnNumber), hasRemainingTurns(), advanceToNextTurn(), linkAccount(membershipId, accountId, now), swapTurns(first, second, now), registerDropout(membershipId, now), replaceMember(dropped, replacement, accountId, displayName, currentPotDelivered), isAuction(), stillToCollect(), giveCurrentTurnTo(winner), close(now).</td>
     </tr>
     <tr>
       <td><b>Period</b></td>
       <td>Aggregate Root</td>
-      <td>Un turno del ciclo. Calcula lo esperado de cada integrante al abrirse, registra qué aportes ya están cubiertos y determina cuándo el pozo está completo y cuándo se entregó.</td>
-      <td>id, cycleId, turnNumber, opensAt, cutoffDate, payoutMembershipId, expected, status, deliveredAt, deliveredBy. open(cycle, turnNumber, now), expectedFor(membershipId), settle(membershipId, how, contributionId, now), isPotComplete(), collected(), potAmount(), pendingMembers(), deliverPot(organizerAccountId, now).</td>
+      <td>Un turno del ciclo. Calcula lo esperado de cada integrante al abrirse, descontando el crédito que le dejó la subasta anterior, registra qué aportes ya están cubiertos y determina cuándo el pozo está completo, cuánto recibe quien cobra y cuándo se entregó.</td>
+      <td>id, cycleId, turnNumber, opensAt, cutoffDate, payoutMembershipId, expected, status, deliveredAt, deliveredBy, payoutProofPath, discount. open(cycle, turnNumber, credits, now), expectedFor(membershipId), settle(membershipId, how, contributionId, now), isPotComplete(), collected(), potAmount(), payoutAmount(), pendingMembers(), deliverPot(organizerAccountId, now), attachPayoutProof(path), reassignMember(dropped, replacement), applyAuctionResult(winner, discount).</td>
     </tr>
     <tr>
       <td><b>Contribution</b></td>
       <td>Aggregate Root</td>
       <td>Aporte de un integrante en un período, con su comprobante, el resultado de la validación, las inconsistencias detectadas y la revisión de la cabeza.</td>
-      <td>id, cycleId, periodId, membershipId, accountId, amount, method, status, receipt, inconsistencies, coveredByMembershipId, registeredByAccountId, review, registeredAt. fromReceipt(...), inCash(...), asCoverage(...), isUnderReview(), isValid(), approve(organizerAccountId, note, cutoffDate, now), reject(organizerAccountId, note, now).</td>
+      <td>id, cycleId, periodId, membershipId, accountId, amount, method, status, receipt, inconsistencies, coveredByMembershipId, registeredByAccountId, review, receiptImagePath, receivedOn, verificationToken, registeredAt. fromReceipt(...), inCash(...), asCoverage(...), isUnderReview(), isValid(), isSettled(), arrivedBy(cutoffDate, zone), approve(organizerAccountId, note, cutoffDate, now), reject(organizerAccountId, note, now), attachReceiptImage(path), shareVerifiably().</td>
+    </tr>
+    <tr>
+      <td><b>Auction</b></td>
+      <td>Aggregate Root</td>
+      <td>Subasta del turno de un período. Recibe una oferta por integrante que no ha cobrado, ordena las ofertas y, al cerrarse, registra al ganador, el descuento y el crédito que ese descuento deja a cada integrante que aún no cobra.</td>
+      <td>id, cycleId, periodId, turnNumber, closesOn, minimumBid, potAmount, fallback, status, bids, winnerMembershipId, discount, creditPerMember, resolution, closedAt. open(cycle, period, now), placeBid(membershipId, amount, eligible, today, now), highestBid(), rankedBids(), close(winner, resolution, othersStillToCollect, now), isDue(today).</td>
     </tr>
     <tr>
       <td><b>ExpectedContribution</b></td>
       <td>Entity</td>
       <td>Lo que un integrante debe aportar en un período y si ya lo hizo; vive dentro de Period.</td>
-      <td>id, membershipId, amount, status, settledByContributionId. pendingFor(membershipId, amount), settle(how, contributionId), isPending(), isLate(today, cutoffDate).</td>
+      <td>id, membershipId, amount, status, settledByContributionId. pendingFor(membershipId, amount), settle(how, contributionId), transferTo(membershipId), isPending(), isLate(today, cutoffDate).</td>
     </tr>
     <tr>
       <td><b>CycleRules</b></td>
@@ -3953,6 +3959,12 @@ La Tabla 84 presenta las clases del Domain Layer de Contributions.
       <td>Value Object</td>
       <td>Posición de un integrante en el orden de cobro, con su membresía, su cuenta si usa la aplicación y su nombre.</td>
       <td>turnNumber, membershipId, accountId, displayName. belongsTo(accountId).</td>
+    </tr>
+    <tr>
+      <td><b>AuctionSettings,<br>Bid,<br>VerificationToken</b></td>
+      <td>Value Object</td>
+      <td>Reglas de la subasta copiadas al iniciar; una oferta de un integrante; el código aleatorio con el que se comparte un aporte.</td>
+      <td>closesDaysBeforeCutoff, minimumBid y fallback; membershipId, amount y placedAt; value y random().</td>
     </tr>
     <tr>
       <td><b>PaymentReceipt</b></td>
@@ -3979,31 +3991,31 @@ La Tabla 84 presenta las clases del Domain Layer de Contributions.
       <td>amount, currency. plus(other), times(n), isSameAmountAs(other).</td>
     </tr>
     <tr>
-      <td><b>CycleStatus,<br>PeriodStatus,<br>ContributionStatus,<br>ContributionMethod,<br>ExpectedStatus,<br>ReviewDecision,<br>Periodicity,<br>ReceiptSource</b></td>
+      <td><b>CycleStatus,<br>PeriodStatus,<br>ContributionStatus,<br>ContributionMethod,<br>ExpectedStatus,<br>ReviewDecision,<br>Periodicity,<br>ReceiptSource,<br>AuctionStatus,<br>AuctionFallback,<br>AuctionResolution</b></td>
       <td>Enumeración</td>
       <td>Estados y clasificaciones del modelo. Un aporte nace validado o con inconsistencia; el atraso no es un estado guardado, se deduce de la fecha de corte.</td>
-      <td>ACTIVE / CLOSED; OPEN / POT_COMPLETE / DELIVERED; VALIDATED / INCONSISTENT / APPROVED / REJECTED; TRANSFER / CASH / COVERAGE; PENDING / PAID / COVERED; APPROVE / REJECT; WEEKLY / BIWEEKLY / MONTHLY; YAPE / PLIN / BANK.</td>
+      <td>ACTIVE / CLOSED; OPEN / POT_COMPLETE / DELIVERED; VALIDATED / INCONSISTENT / APPROVED / REJECTED; TRANSFER / CASH / COVERAGE; PENDING / PAID / COVERED; APPROVE / REJECT; WEEKLY / BIWEEKLY / MONTHLY; YAPE / PLIN / BANK; OPEN / CLOSED; DRAW / ORGANIZER; BID / DRAW / ORGANIZER.</td>
     </tr>
     <tr>
-      <td><b>CycleRepository,<br>PeriodRepository,<br>ContributionRepository</b></td>
+      <td><b>CycleRepository,<br>PeriodRepository,<br>ContributionRepository,<br>AuctionRepository</b></td>
       <td>Repository (interfaz)</td>
       <td>Abstracción de persistencia de cada agregado; la implementación vive en Infrastructure Layer.</td>
-      <td>findById, findByGroupId, existsByGroupId, findByCycleIdAndTurnNumber, findAllByCycleId, findAllByPeriodId, findAllByCycleIdAndMembershipId, existsByCycleIdAndOperationNumber, save.</td>
+      <td>findById, findByGroupId, existsByGroupId, findByCycleIdAndTurnNumber, findAllByCycleId, findAllByPeriodId, findAllByCycleIdAndMembershipId, existsByCycleIdAndOperationNumber, findByVerificationToken, findByPeriodId, findAllOpen, save.</td>
     </tr>
     <tr>
-      <td><b>StartCycleCommand,<br>RegisterContributionCommand,<br>RegisterCashContributionCommand,<br>RegisterCoverageCommand,<br>ReviewContributionCommand,<br>DeliverPotCommand,<br>CloseCycleCommand</b></td>
+      <td><b>StartCycleCommand,<br>RegisterContributionCommand,<br>RegisterCashContributionCommand,<br>RegisterCoverageCommand,<br>ReviewContributionCommand,<br>AttachReceiptImageCommand,<br>ShareContributionCommand,<br>DeliverPotCommand,<br>AttachPayoutProofCommand,<br>SwapTurnsCommand,<br>LinkCycleMemberCommand,<br>RegisterCycleDropoutCommand,<br>ReplaceCycleMemberCommand,<br>PlaceBidCommand,<br>CloseAuctionCommand,<br>CloseDueAuctionsCommand,<br>CloseCycleCommand</b></td>
       <td>Command (record)</td>
       <td>Intenciones de cambio, una por comando del EventStorming. Son inmutables y no contienen lógica.</td>
-      <td>Los datos necesarios para ejecutar el comando: identificadores, monto, comprobante, decisión y nota.</td>
+      <td>Los datos necesarios para ejecutar el comando: identificadores, monto, comprobante, decisión y nota, imagen, turnos a intercambiar, oferta o ganador elegido.</td>
     </tr>
     <tr>
-      <td><b>GetCycleByGroupIdQuery,<br>GetCycleByIdQuery,<br>GetCurrentPeriodQuery,<br>GetPeriodsQuery,<br>GetPotProjectionQuery,<br>GetMemberContributionsQuery,<br>GetPendingReviewsQuery</b></td>
+      <td><b>GetCycleByGroupIdQuery,<br>GetCycleByIdQuery,<br>GetCurrentPeriodQuery,<br>GetPeriodsQuery,<br>GetPotProjectionQuery,<br>GetMemberContributionsQuery,<br>GetPendingReviewsQuery,<br>GetReceiptImageQuery,<br>GetPayoutProofQuery,<br>GetAuctionQuery,<br>GetVerifiedContributionQuery</b></td>
       <td>Query (record)</td>
-      <td>Consultas que alimentan las vistas del EventStorming: el ciclo de una junta, estado del pozo, períodos anteriores, proyección, mis aportes y pendientes de revisión.</td>
-      <td>groupId, cycleId o periodId, y la cuenta de quien consulta, que decide qué puede ver.</td>
+      <td>Consultas que alimentan las vistas del EventStorming: el ciclo de una junta, estado del pozo, períodos anteriores, proyección, mis aportes, pendientes de revisión, imágenes del comprobante y de la entrega, subasta del período y aporte compartido.</td>
+      <td>groupId, cycleId, periodId o contributionId, y la cuenta de quien consulta, que decide qué puede ver; el aporte compartido se consulta solo con su código.</td>
     </tr>
     <tr>
-      <td><b>CycleStartedEvent,<br>PeriodOpenedEvent,<br>ContributionValidatedEvent,<br>InconsistencyDetectedEvent,<br>ContributionRejectedEvent,<br>ContributionCoveredEvent,<br>PotCompletedEvent,<br>PotDeliveredEvent,<br>CycleClosedEvent</b></td>
+      <td><b>CycleStartedEvent,<br>PeriodOpenedEvent,<br>ContributionValidatedEvent,<br>InconsistencyDetectedEvent,<br>ContributionRejectedEvent,<br>ContributionCoveredEvent,<br>PotCompletedEvent,<br>PotDeliveredEvent,<br>CycleClosedEvent,<br>TurnsSwappedEvent,<br>CycleMemberLinkedEvent,<br>CycleMemberDroppedEvent,<br>AuctionOpenedEvent,<br>AuctionClosedEvent</b></td>
       <td>Domain Event</td>
       <td>Hechos que el contexto registra. Se traducen a eventos de integración, que son los que consumen Notifications y Compliance History.</td>
       <td>Identificadores del ciclo, período, aporte y membresía involucrados y la fecha del hecho.</td>
@@ -4011,7 +4023,7 @@ La Tabla 84 presenta las clases del Domain Layer de Contributions.
   </tbody>
 </table>
 
-Las reglas de negocio del canvas quedan repartidas así: la validación del comprobante (monto acordado, fecha dentro del corte, destinatario correcto) está en `Contribution.fromReceipt`, que deja el aporte validado o con sus inconsistencias; la unicidad del número de operación en la junta la verifica el command service con `ContributionRepository.existsByCycleIdAndOperationNumber` antes de crear el aporte; la completitud del pozo en `Period.settle`, que lo marca completo cuando no queda nadie pendiente; el paso al siguiente turno y el cierre tras el último en `Cycle.advanceToNextTurn` y `Cycle.close`; y la restricción de que solo la cabeza aprueba, registra efectivo y coberturas se verifica en los command services antes de invocar al agregado. Los identificadores son UUID que asigna el propio agregado al crearse; los de otros contextos (junta, cuenta, membresía) se guardan como valores, nunca como objetos de esos contextos.
+Las reglas de negocio del canvas quedan repartidas así: la validación del comprobante (monto acordado, fecha dentro del corte, destinatario correcto) está en `Contribution.fromReceipt`, que deja el aporte validado o con sus inconsistencias; la unicidad del número de operación en la junta la verifica el command service con `ContributionRepository.existsByCycleIdAndOperationNumber` antes de crear el aporte; la completitud del pozo en `Period.settle`, que lo marca completo cuando no queda nadie pendiente; el paso al siguiente turno y el cierre tras el último en `Cycle.advanceToNextTurn` y `Cycle.close`; el intercambio de turnos en `Cycle.swapTurns`, que solo acepta turnos cuyo período no ha empezado; el reemplazo de quien desertó en `Cycle.replaceMember`, que le da su turno si aún no cobró, y en `Period.reassignMember`, que le pasa lo que el desertor debía en el período en curso; las reglas de la subasta en `Auction.placeBid` (solo ofertan quienes no han cobrado, desde la oferta mínima y por debajo del pozo, y cuenta la última oferta de cada uno) y en `Auction.close`, donde gana la mayor oferta, en un empate la que se registró primero, y el descuento se reparte como crédito entre quienes aún no cobran, que `Period.open` resta de lo que deben en el siguiente período; y la restricción de que solo la cabeza aprueba, registra efectivo y coberturas, intercambia turnos y cierra subastas se verifica en los command services antes de invocar al agregado. Los identificadores son UUID que asigna el propio agregado al crearse; los de otros contextos (junta, cuenta, membresía) se guardan como valores, nunca como objetos de esos contextos.
 
 #### 2.6.1.2. Interface Layer
 
@@ -4030,26 +4042,31 @@ La capa de interfaz expone el contexto como recursos REST, documentados con Open
   <tbody>
     <tr>
       <td><b>ContributionsController</b></td>
-      <td>Registro y revisión de aportes. Cubre las historias de registrar con comprobante, confirmar datos leídos, revisar inconsistencias y registrar efectivo y coberturas.</td>
-      <td>POST /api/v1/periods/{periodId}/contributions (comprobante),<br>POST /api/v1/periods/{periodId}/contributions/cash,<br>POST /api/v1/periods/{periodId}/contributions/coverage,<br>PATCH /api/v1/contributions/{contributionId}/review,<br>GET /api/v1/periods/{periodId}/contributions/pending-review.</td>
+      <td>Registro y revisión de aportes. Cubre las historias de registrar con comprobante, confirmar datos leídos, revisar inconsistencias, registrar efectivo y coberturas y compartir un aporte con un enlace verificable.</td>
+      <td>POST /api/v1/periods/{periodId}/contributions (comprobante),<br>POST /api/v1/periods/{periodId}/contributions/cash,<br>POST /api/v1/periods/{periodId}/contributions/coverage,<br>PATCH /api/v1/contributions/{contributionId}/review,<br>PUT /api/v1/contributions/{contributionId}/receipt-image,<br>GET /api/v1/contributions/{contributionId}/receipt-image,<br>POST /api/v1/contributions/{contributionId}/share,<br>GET /api/v1/contributions/shared/{token} (público),<br>GET /api/v1/periods/{periodId}/contributions/pending-review.</td>
     </tr>
     <tr>
       <td><b>CyclesController</b></td>
-      <td>Consulta del ciclo y del pozo. Cubre las historias de ver el estado del pozo, consultar períodos anteriores y consultar mis aportes.</td>
-      <td>GET /api/v1/groups/{groupId}/cycle,<br>GET /api/v1/cycles/{cycleId}/periods/current,<br>GET /api/v1/cycles/{cycleId}/periods,<br>GET /api/v1/cycles/{cycleId}/members/me/contributions.</td>
+      <td>Consulta del ciclo y del pozo, e intercambio de turnos. Cubre las historias de ver el estado del pozo, consultar períodos anteriores, consultar mis aportes e intercambiar turnos.</td>
+      <td>GET /api/v1/groups/{groupId}/cycle,<br>GET /api/v1/cycles/{cycleId}/periods/current,<br>GET /api/v1/cycles/{cycleId}/periods,<br>GET /api/v1/cycles/{cycleId}/members/me/contributions,<br>POST /api/v1/cycles/{cycleId}/turns/swap.</td>
     </tr>
     <tr>
       <td><b>PeriodsController</b></td>
-      <td>Ciclo de vida del pozo. Cubre las historias de saber si el pozo estará completo, entregarlo y cerrar la junta.</td>
-      <td>POST /api/v1/periods/{periodId}/payout,<br>GET /api/v1/periods/{periodId}/projection,<br>POST /api/v1/cycles/{cycleId}/close.</td>
+      <td>Ciclo de vida del pozo. Cubre las historias de saber si el pozo estará completo, entregarlo con la imagen de la transferencia y cerrar la junta.</td>
+      <td>POST /api/v1/periods/{periodId}/payout,<br>PUT /api/v1/periods/{periodId}/payout/proof,<br>GET /api/v1/periods/{periodId}/payout/proof,<br>GET /api/v1/periods/{periodId}/projection,<br>POST /api/v1/cycles/{cycleId}/close.</td>
     </tr>
     <tr>
-      <td><b>RegisterContributionResource,<br>RegisterCashContributionResource,<br>RegisterCoverageResource,<br>ReviewContributionResource,<br>ContributionResource,<br>CycleResource,<br>PeriodStatusResource,<br>MyContributionsResource,<br>PotDeliveryResource,<br>PotProjectionResource</b></td>
+      <td><b>AuctionsController</b></td>
+      <td>Subasta del turno de un período. Cubre las historias de ofertar en la subasta y cerrarla.</td>
+      <td>GET /api/v1/periods/{periodId}/auction,<br>POST /api/v1/periods/{periodId}/auction/bids,<br>POST /api/v1/periods/{periodId}/auction/close.</td>
+    </tr>
+    <tr>
+      <td><b>RegisterContributionResource,<br>RegisterCashContributionResource,<br>RegisterCoverageResource,<br>ReviewContributionResource,<br>ContributionResource,<br>CycleResource,<br>PeriodStatusResource,<br>MyContributionsResource,<br>PotDeliveryResource,<br>PotProjectionResource,<br>ReceiptImageResource,<br>PayoutProofResource,<br>ContributionShareLinkResource,<br>VerifiedContributionResource,<br>SwapTurnsResource,<br>PlaceBidResource,<br>CloseAuctionResource,<br>AuctionResource</b></td>
       <td>Recursos JSON de entrada y salida.</td>
       <td>No aplica.</td>
     </tr>
     <tr>
-      <td><b>ContributionCommandFromResourceAssembler,<br>ContributionResourceFromEntityAssembler,<br>CycleResourceFromEntityAssembler,<br>PeriodStatusResourceFromViewAssembler,<br>MyContributionsResourceFromViewAssembler</b></td>
+      <td><b>ContributionCommandFromResourceAssembler,<br>ContributionResourceFromEntityAssembler,<br>CycleResourceFromEntityAssembler,<br>PeriodStatusResourceFromViewAssembler,<br>MyContributionsResourceFromViewAssembler,<br>VerifiedContributionResourceFromViewAssembler,<br>AuctionResourceFromViewAssembler</b></td>
       <td>Transforman recursos en comandos y agregados en recursos, para que los controllers no conozcan el modelo de dominio.</td>
       <td>No aplica.</td>
     </tr>
@@ -4074,17 +4091,22 @@ La capa de aplicación orquesta los casos de uso: recibe un comando o una consul
     <tr>
       <td><b>ContributionCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>handle(RegisterContributionCommand): verifica que quien registra participa en el ciclo, que el período sigue abierto y que el número de operación no se usó en la junta; crea el aporte desde el comprobante y, si quedó validado, liquida lo esperado en el Period, que puede completar el pozo. handle(RegisterCashContributionCommand) y handle(RegisterCoverageCommand): verifican que quien registra es la cabeza y liquidan lo esperado. handle(ReviewContributionCommand): aprueba, lo que liquida lo esperado, o rechaza, lo que permite al integrante registrar de nuevo.</td>
+      <td>handle(RegisterContributionCommand): verifica que quien registra participa en el ciclo, que el período sigue abierto y que el número de operación no se usó en la junta; crea el aporte desde el comprobante y, si quedó validado, liquida lo esperado en el Period, que puede completar el pozo. handle(RegisterCashContributionCommand) y handle(RegisterCoverageCommand): verifican que quien registra es la cabeza y liquidan lo esperado. handle(ReviewContributionCommand): aprueba, lo que liquida lo esperado, o rechaza, lo que permite al integrante registrar de nuevo. handle(AttachReceiptImageCommand) guarda la imagen del comprobante en un bucket privado, y handle(ShareContributionCommand), pedido por el integrante del aporte o por la cabeza, le asigna un código y devuelve el enlace público con el que cualquiera verifica el aporte sin iniciar sesión.</td>
     </tr>
     <tr>
       <td><b>CycleCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>handle(StartCycleCommand): crea el Cycle con la copia de reglas y turnos que trae el evento de inicio y abre el primer período. handle(DeliverPotCommand): marca el período como entregado y abre el siguiente, o cierra el ciclo si era el último turno. handle(CloseCycleCommand): cierra el ciclo y publica CycleClosedEvent.</td>
+      <td>handle(StartCycleCommand): crea el Cycle con la copia de reglas, turnos y, si los turnos se subastan, reglas de la subasta que trae el evento de inicio, y abre el primer período con su subasta. handle(DeliverPotCommand): marca el período como entregado y abre el siguiente, con el crédito que dejó la subasta y su propia subasta, o cierra el ciclo si era el último turno. handle(AttachPayoutProofCommand): guarda la imagen de la transferencia con la que se entregó el pozo. handle(SwapTurnsCommand): intercambia dos turnos que no han empezado. handle(LinkCycleMemberCommand), handle(RegisterCycleDropoutCommand) y handle(ReplaceCycleMemberCommand): mantienen el ciclo al día cuando Savings Groups vincula una cuenta o registra una deserción o un reemplazo. handle(CloseCycleCommand): cierra el ciclo y publica CycleClosedEvent.</td>
+    </tr>
+    <tr>
+      <td><b>AuctionCommandServiceImpl</b></td>
+      <td>Command Service</td>
+      <td>handle(PlaceBidCommand): verifica que quien oferta participa en el ciclo y registra su oferta en la subasta del período. handle(CloseAuctionCommand): verifica que quien cierra es la cabeza y da el turno a la mayor oferta; sin ofertas, lo sortea entre quienes no han cobrado o se lo da al integrante que eligió la cabeza, según el respaldo. Al dar el turno actualiza el Cycle y el Period con el ganador y el descuento. handle(CloseDueAuctionsCommand): cierra del mismo modo las subastas cuyo día de cierre pasó; si el respaldo es la elección de la cabeza, las deja abiertas hasta que ella elija.</td>
     </tr>
     <tr>
       <td><b>ContributionQueryServiceImpl</b></td>
       <td>Query Service</td>
-      <td>Resuelve las consultas del ciclo, del período vigente, de los períodos anteriores, de mis aportes y de los pendientes de revisión. Responde vacío a quien no participa en el ciclo, de modo que la API no revela qué ciclos existen. La proyección (GetPotProjectionQuery) estima si el pozo estará completo a partir de los aportes validados y de los pendientes con recordatorio enviado.</td>
+      <td>Resuelve las consultas del ciclo, del período vigente, de los períodos anteriores, de mis aportes, de los pendientes de revisión, de la subasta del período, del aporte compartido y de los enlaces temporales a las imágenes de comprobantes y entregas. Responde vacío a quien no participa en el ciclo, de modo que la API no revela qué ciclos existen. La proyección (GetPotProjectionQuery) estima si el pozo estará completo a partir de los aportes validados y de los pendientes con recordatorio enviado.</td>
     </tr>
     <tr>
       <td><b>SavingsGroupStartedEventHandler</b></td>
@@ -4092,14 +4114,14 @@ La capa de aplicación orquesta los casos de uso: recibe un comando o una consul
       <td>Escucha el evento de integración Junta iniciada, de Savings Groups, y emite StartCycleCommand en la misma transacción, para que una junta nunca quede iniciada sin su ciclo. Es el único punto de entrada del ciclo.</td>
     </tr>
     <tr>
-      <td><b>MemberReplacedEventHandler</b></td>
+      <td><b>SavingsGroupMemberLinkedEventHandler,<br>SavingsGroupMembershipEventsHandler</b></td>
       <td>Event Handler</td>
-      <td>Escucha Reemplazo incorporado, de Savings Groups, y actualiza el orden de turnos del Cycle.</td>
+      <td>Capas anticorrupción hacia Savings Groups. La primera escucha Integrante vinculado y le da al integrante que se registró en la aplicación su turno en el ciclo. La segunda escucha Deserción registrada y Reemplazo incorporado y actualiza el Cycle y el período en curso; corre en la misma transacción que el cambio en la junta, de modo que un reemplazo que el ciclo rechaza se deshace también en la junta.</td>
     </tr>
     <tr>
       <td><b>IntegrationEventsPublisher</b></td>
       <td>Event Handler</td>
-      <td>Traduce los eventos de dominio a eventos de integración (aporte liquidado, revisión requerida o rechazada, período abierto, pozo completo o entregado, ciclo cerrado), con el nombre de la junta y la cuenta y el nombre de cada integrante, para que Notifications y Compliance History nunca lean el modelo de Contributions.</td>
+      <td>Traduce los eventos de dominio a eventos de integración (aporte liquidado, revisión requerida o rechazada, período abierto, pozo completo o entregado, ciclo cerrado, turnos intercambiados, integrante vinculado o retirado del ciclo, subasta abierta o cerrada), con el nombre de la junta y la cuenta y el nombre de cada integrante, para que Notifications y Compliance History nunca lean el modelo de Contributions.</td>
     </tr>
   </tbody>
 </table>
@@ -4120,14 +4142,24 @@ La Tabla 87 presenta las clases del Infrastructure Layer de Contributions.
   </thead>
   <tbody>
     <tr>
-      <td><b>CycleRepositoryImpl,<br>PeriodRepositoryImpl,<br>ContributionRepositoryImpl</b></td>
+      <td><b>CycleRepositoryImpl,<br>PeriodRepositoryImpl,<br>ContributionRepositoryImpl,<br>AuctionRepositoryImpl</b></td>
       <td>Repository (JPA)</td>
       <td>Adaptadores que implementan las interfaces del dominio con Spring Data JPA sobre el esquema `contributions`. Copian cada agregado a sus entidades de persistencia, guardan y publican los eventos de dominio que el agregado registró con el ApplicationEventPublisher de Spring. La existencia del número de operación se declara como método derivado.</td>
     </tr>
     <tr>
-      <td><b>CyclePersistenceEntity,<br>PeriodPersistenceEntity,<br>ExpectedContributionPersistenceEntity,<br>ContributionPersistenceEntity</b></td>
+      <td><b>CyclePersistenceEntity,<br>PeriodPersistenceEntity,<br>ExpectedContributionPersistenceEntity,<br>ContributionPersistenceEntity,<br>AuctionPersistenceEntity</b></td>
       <td>Entidad JPA</td>
       <td>Representan las tablas del esquema. El modelo de dominio no lleva anotaciones de JPA: los assemblers de persistencia traducen en ambos sentidos, y Money se guarda como monto y moneda en columnas propias.</td>
+    </tr>
+    <tr>
+      <td><b>AuctionClosingScheduler</b></td>
+      <td>Tarea programada</td>
+      <td>Cada hora, por defecto, envía CloseDueAuctionsCommand para cerrar las subastas cuyo día de cierre pasó.</td>
+    </tr>
+    <tr>
+      <td><b>SupabaseReceiptImageStorage,<br>VerifiedContributionLinkBuilder</b></td>
+      <td>Adaptador</td>
+      <td>Guarda las imágenes de comprobantes y entregas en un bucket privado de Supabase Storage y las muestra con enlaces firmados de quince minutos; construye el enlace público de un aporte compartido, que abre la página de verificación del sitio de Kerolabs.</td>
     </tr>
   </tbody>
 </table>
@@ -4140,7 +4172,7 @@ El diagrama de componentes descompone el contenedor de servicios RESTful en los 
 
 *Nota.* Notación del C4 Model [@brown2018c4]. Los componentes del contenedor Servicios RESTful van dentro de su recuadro; cada flecha punteada indica quién llama a quién, con la tecnología entre corchetes cuando corresponde. Generado con Structurizr a partir del archivo `docs/architecture/workspace.dsl` (ver Anexo C).
 
-Los controllers reciben las solicitudes de la aplicación móvil y las convierten en comandos o consultas. Los command services usan el modelo de dominio y los repositorios. Contributions no consulta a Savings Groups en tiempo de ejecución: el evento Junta iniciada trae una copia de las reglas y los turnos, y el event handler que lo recibe es la entrada reactiva del contexto. En la salida, IntegrationEventsPublisher traduce los eventos de dominio a eventos de integración para Notifications y Compliance History. Los repositorios son el único componente que toca la base de datos. La lectura del comprobante con ML Kit no aparece aquí porque ocurre en la aplicación móvil: el servicio recibe los cuatro campos ya leídos y confirmados por el participante.
+Los controllers reciben las solicitudes de la aplicación móvil y las convierten en comandos o consultas. Los command services usan el modelo de dominio y los repositorios, y una tarea programada cierra las subastas vencidas a través de AuctionCommandService. Contributions no consulta a Savings Groups en tiempo de ejecución: el evento Junta iniciada trae una copia de las reglas y los turnos, y los event handlers que lo reciben, junto con los vínculos, deserciones y reemplazos, son la entrada reactiva del contexto. A su vez, Contributions le avisa a Savings Groups cuando intercambia turnos o cierra el ciclo. En la salida, IntegrationEventsPublisher traduce los eventos de dominio a eventos de integración para Notifications y Compliance History. Los repositorios son el único componente que toca la base de datos. La lectura del comprobante con ML Kit no aparece aquí porque ocurre en la aplicación móvil: el servicio recibe los cuatro campos ya leídos y confirmados por el participante.
 
 #### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -4152,7 +4184,7 @@ La Figura 63 muestra el diagrama de clases del Domain Layer de Contributions.
 
 *Nota.* Diagrama de clases en UML. Los estereotipos «Aggregate Root», «Entity», «Value Object» y «Repository» corresponden a los elementos del diseño táctico de Domain-Driven Design; la letra E marca una enumeración y la I una interfaz. El rombo relleno indica composición y la flecha punteada, la dependencia entre el repositorio y el agregado que persiste. Generado con PlantUML (ver Anexo C).
 
-El diagrama muestra los tres agregados y sus relaciones de composición: un Cycle contiene sus reglas y turnos y agrupa uno o más Period; un Period contiene un ExpectedContribution por integrante y agrupa los Contribution que se registran en él; un Contribution contiene como máximo un comprobante y una revisión y cero o más inconsistencias. Las asociaciones entre agregados se expresan por identificador (cycleId, periodId), no por referencia de objeto, para que cada agregado se cargue y guarde de forma independiente. Los repositorios dependen de los agregados.
+El diagrama muestra los cuatro agregados y sus relaciones de composición: un Cycle contiene sus reglas, sus turnos y, si los subasta, las reglas de la subasta, y agrupa uno o más Period; un Period contiene un ExpectedContribution por integrante y agrupa los Contribution que se registran en él y, en las juntas por subasta, una Auction con sus ofertas; un Contribution contiene como máximo un comprobante, una revisión y un código de verificación, y cero o más inconsistencias. Las asociaciones entre agregados se expresan por identificador (cycleId, periodId), no por referencia de objeto, para que cada agregado se cargue y guarde de forma independiente. Los repositorios dependen de los agregados.
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
@@ -4162,11 +4194,11 @@ La Figura 64 muestra el diagrama de base de datos de Contributions.
 
 *Nota.* Diagrama entidad-relación del esquema en PostgreSQL. PK, FK y UQ marcan la clave primaria, las claves foráneas y los valores únicos; el punto negro indica una columna obligatoria, y los extremos de las líneas, la cardinalidad de cada relación. Generado con PlantUML a partir de la definición en SQL (ver Anexo C).
 
-El esquema `contributions` tiene seis tablas. `cycles` guarda el ciclo con sus reglas desnormalizadas (monto, periodicidad, fecha del primer aporte, destino y nombre del destinatario), el nombre de la junta y la cuenta de la cabeza, porque son una copia congelada al iniciar y no deben cambiar si Savings Groups cambia; `cycle_turns` guarda el orden de cobro con clave compuesta por ciclo y turno, y por cada turno la membresía, la cuenta si el integrante usa la aplicación y su nombre. `periods` tiene un período por turno del ciclo con la membresía que cobra, y `expected_contributions` una fila por membresía y período, con el estado y el aporte que la liquidó. `contributions` guarda el aporte con la membresía, la cuenta de quien lo registró, los campos del comprobante en columnas propias, la membresía que cubrió si es cobertura y la decisión de la cabeza; la restricción de unicidad sobre (cycle_id, receipt_operation_number) implementa en la base de datos la regla de que un comprobante se usa una sola vez por junta. `contribution_inconsistencies` guarda una fila por campo que no cuadró. Los identificadores de integrante y de junta son UUID sin clave foránea porque pertenecen a otros esquemas.
+El esquema `contributions` tiene ocho tablas. `cycles` guarda el ciclo con sus reglas desnormalizadas (monto, periodicidad, fecha del primer aporte, destino, nombre del destinatario y, si los turnos se subastan, las reglas de la subasta), el nombre de la junta y la cuenta de la cabeza, porque son una copia congelada al iniciar y no deben cambiar si Savings Groups cambia; `cycle_turns` guarda el orden de cobro con clave compuesta por ciclo y turno, y por cada turno la membresía, la cuenta si el integrante usa la aplicación y su nombre. `periods` tiene un período por turno del ciclo con la membresía que cobra, la ruta de la imagen de la entrega y el descuento de la subasta, y `expected_contributions` una fila por membresía y período, con el estado y el aporte que la liquidó. `contributions` guarda el aporte con la membresía, la cuenta de quien lo registró, los campos del comprobante en columnas propias, la ruta de su imagen, la fecha en que la cabeza recibió el efectivo, la membresía que cubrió si es cobertura, la decisión de la cabeza y el código único con el que se comparte; la restricción de unicidad sobre (cycle_id, receipt_operation_number) implementa en la base de datos la regla de que un comprobante se usa una sola vez por junta. `contribution_inconsistencies` guarda una fila por campo que no cuadró. `auctions` tiene una subasta por período, con su cierre, la oferta mínima, el respaldo y el resultado, y `auction_bids` una oferta por integrante. Los identificadores de integrante y de junta son UUID sin clave foránea porque pertenecen a otros esquemas.
 
 ### 2.6.2. Bounded Context: Savings Groups
 
-Savings Groups es el contexto de soporte que define la junta antes de que exista un ciclo: sus reglas, sus integrantes, la invitación con la que se incorporan y el orden de turnos. Su modelo tiene tres agregados. **SavingsGroup** es la junta con sus reglas, la lista de integrantes y los turnos; concentra las condiciones para iniciar y el bloqueo de reglas posterior. **Invitation** es el código y enlace vigentes de una junta, con su vencimiento; se modela aparte porque una junta puede regenerar invitaciones sin cambiar. **Auction** es la subasta de un turno con sus ofertas; tiene ciclo de vida propio (abierta, cerrada) y termina asignando el turno a la junta. Los integrantes son entidades dentro de SavingsGroup porque no tienen sentido fuera de ella: un mismo celular es un Membership distinto en cada junta, y los integrantes sin la aplicación existen solo como Membership de tipo manual.
+Savings Groups es el contexto de soporte que define la junta antes de que exista un ciclo: sus reglas, sus integrantes, la invitación con la que se incorporan y el orden de turnos. Su modelo tiene dos agregados. **SavingsGroup** es la junta con sus reglas, la lista de integrantes y los turnos; concentra las condiciones para iniciar, el bloqueo de reglas posterior, las deserciones con su reemplazo y la apertura de un nuevo ciclo. **Invitation** es el código y enlace vigentes de una junta, con su vencimiento; se modela aparte porque una junta puede regenerar invitaciones sin cambiar. Cuando los turnos se subastan, la junta solo guarda las reglas de la subasta: cada subasta se abre y se cierra en Contributions, junto al período al que pertenece. Los integrantes son entidades dentro de SavingsGroup porque no tienen sentido fuera de ella: un mismo celular es un Membership distinto en cada junta, y los integrantes sin la aplicación existen solo como Membership de tipo manual.
 
 #### 2.6.2.1. Domain Layer
 
@@ -4188,7 +4220,7 @@ La Tabla 88 presenta las clases del Domain Layer de Savings Groups.
       <td><b>SavingsGroup</b></td>
       <td>Aggregate Root</td>
       <td>La junta: reglas, integrantes, orden de turnos y estado. Aplica las condiciones de inicio y el bloqueo de reglas.</td>
-      <td>id, name, organizerId, rules, memberships, turns, turnMethod, drawSeed, turnsAssignedAt, status, createdAt, startedAt. create(organizerId, organizerName, name, rules, now), updateRules(name, rules), defineDestination(destination), join(memberId, displayName, now), addManualMember(displayName, phone, now), removeMember(membershipId, now), assignTurns(slots, method, seed, now), assignTurnFromAuction(turnNumber, winner), hasFreeSeats(), canStart(), start(now), registerDropout(dropped, replacement), turnCalendar().</td>
+      <td>id, name, organizerId, rules, memberships, turns, turnMethod, drawSeed, turnsAssignedAt, auctionRules, status, createdAt, startedAt. create(organizerId, organizerName, name, rules, now), updateRules(name, rules), defineDestination(destination), join(memberId, displayName, now), addManualMember(displayName, phone, now), removeMember(membershipId, now), assignTurns(slots, method, seed, now), assignTurnsByAuction(auctionRules, now), hasFreeSeats(), canStart(), start(now), linkManualMember(phone, accountId, now), applySwappedTurns(first, firstTurn, second, secondTurn), registerDropout(membershipId, now), replaceDroppedMember(dropped, accountId, displayName, phone, now), openNewCycle(firstContributionDate, now), turnCalendar().</td>
     </tr>
     <tr>
       <td><b>Invitation</b></td>
@@ -4197,22 +4229,10 @@ La Tabla 88 presenta las clases del Domain Layer de Savings Groups.
       <td>id, groupId, code, createdBy, createdAt, expiresAt, status. generate(groupId, organizerId, code, now), isUsable(now), expire().</td>
     </tr>
     <tr>
-      <td><b>Auction</b></td>
-      <td>Aggregate Root</td>
-      <td>Subasta de un turno: recibe ofertas, determina la mayor y resuelve el empate con la decisión de la cabeza.</td>
-      <td>id, groupId, turnNumber, bids, status, openedAt, closedAt, winnerId. open(groupId, turnNumber), placeBid(memberId, amount), highestBids(), close(tieBreakBy).</td>
-    </tr>
-    <tr>
       <td><b>Membership</b></td>
       <td>Entity</td>
       <td>Un integrante dentro de una junta, con la aplicación o registrado a mano por la cabeza; en ese caso el celular es opcional.</td>
-      <td>id, memberId, displayName, phone, kind, status, joinedAt. ofAppMember(...), ofManualMember(...), isActive(), belongsTo(accountId), remove(), markDropped().</td>
-    </tr>
-    <tr>
-      <td><b>Bid</b></td>
-      <td>Entity</td>
-      <td>Una oferta en la subasta.</td>
-      <td>id, memberId, amount, placedAt.</td>
+      <td>id, memberId, displayName, phone, kind, status, joinedAt. ofAppMember(...), ofManualMember(...), ofReplacement(...), isActive(), belongsTo(accountId), linkAccount(accountId), remove(), markDropped().</td>
     </tr>
     <tr>
       <td><b>GroupRules</b></td>
@@ -4221,16 +4241,16 @@ La Tabla 88 presenta las clases del Domain Layer de Savings Groups.
       <td>contribution, periodicity, seats, firstContributionDate, destination. withDestination(destination), pot(), cutoffDay(), cutoffDateOfTurn(turnNumber).</td>
     </tr>
     <tr>
-      <td><b>TurnSlot,<br>InvitationCode,<br>Destination,<br>Money</b></td>
+      <td><b>TurnSlot,<br>InvitationCode,<br>Destination,<br>AuctionRules,<br>Money</b></td>
       <td>Value Object</td>
-      <td>Posición de cobro; código corto de invitación con las iniciales de la junta, por ejemplo JB-7K4M; destino de los aportes (Yape o Plin y el celular); monto con moneda.</td>
-      <td>turnNumber, membershipId y assignedBy; value; method y phoneNumber; amount y currency.</td>
+      <td>Posición de cobro; código corto de invitación con las iniciales de la junta, por ejemplo JB-7K4M; destino de los aportes (Yape o Plin y el celular); reglas de la subasta (con cuántos días de anticipación al corte cierra, la oferta mínima y el respaldo si nadie oferta); monto con moneda.</td>
+      <td>turnNumber, membershipId y assignedBy; value; method y phoneNumber; closesDaysBeforeCutoff, minimumBid y fallback; amount y currency.</td>
     </tr>
     <tr>
-      <td><b>GroupStatus,<br>MembershipKind,<br>MembershipStatus,<br>TurnMethod,<br>InvitationStatus,<br>PaymentMethod,<br>AuctionStatus,<br>Periodicity</b></td>
+      <td><b>GroupStatus,<br>MembershipKind,<br>MembershipStatus,<br>TurnMethod,<br>InvitationStatus,<br>PaymentMethod,<br>AuctionFallback,<br>Periodicity</b></td>
       <td>Enumeración</td>
       <td>Estados y clasificaciones del modelo.</td>
-      <td>DRAFT / READY / STARTED / CLOSED; APP / MANUAL; ACTIVE / REMOVED / DROPPED / REPLACEMENT; DRAW / AGREED / AUCTION; ACTIVE / EXPIRED; YAPE / PLIN; OPEN / CLOSED; WEEKLY / BIWEEKLY / MONTHLY.</td>
+      <td>DRAFT / READY / STARTED / CLOSED; APP / MANUAL; ACTIVE / REMOVED / DROPPED / REPLACEMENT; DRAW / AGREED / AUCTION; ACTIVE / EXPIRED; YAPE / PLIN; DRAW / ORGANIZER; WEEKLY / BIWEEKLY / MONTHLY.</td>
     </tr>
     <tr>
       <td><b>TurnAssignmentService</b></td>
@@ -4239,33 +4259,33 @@ La Tabla 88 presenta las clases del Domain Layer de Savings Groups.
       <td>drawTurns(group, seed), agreedTurns(group, order).</td>
     </tr>
     <tr>
-      <td><b>SavingsGroupRepository,<br>InvitationRepository,<br>AuctionRepository</b></td>
+      <td><b>SavingsGroupRepository,<br>InvitationRepository</b></td>
       <td>Repository (interfaz)</td>
       <td>Persistencia de cada agregado.</td>
-      <td>findById, findAllByMemberId, findByCode, existsByCode, findAllActiveByGroupId, findOpenByGroupId, save.</td>
+      <td>findById, findAllByMemberId, findAllWithUnlinkedManualMember, findByCode, existsByCode, findAllActiveByGroupId, save.</td>
     </tr>
     <tr>
-      <td><b>CreateGroupCommand,<br>UpdateRulesCommand,<br>DefineDestinationCommand,<br>GenerateInvitationCommand,<br>JoinGroupCommand,<br>AddManualMemberCommand,<br>RemoveMemberCommand,<br>AssignTurnsByDrawCommand,<br>AssignTurnsAgreedCommand,<br>OpenAuctionCommand,<br>PlaceBidCommand,<br>CloseAuctionCommand,<br>StartGroupCommand,<br>RegisterDropoutCommand</b></td>
+      <td><b>CreateGroupCommand,<br>UpdateRulesCommand,<br>DefineDestinationCommand,<br>GenerateInvitationCommand,<br>JoinGroupCommand,<br>AddManualMemberCommand,<br>RemoveMemberCommand,<br>LinkManualMembersCommand,<br>AssignTurnsByDrawCommand,<br>AssignTurnsAgreedCommand,<br>AssignTurnsByAuctionCommand,<br>ApplySwappedTurnsCommand,<br>StartGroupCommand,<br>RegisterDropoutCommand,<br>ReplaceMemberCommand,<br>CloseGroupCommand,<br>OpenNewCycleCommand</b></td>
       <td>Command</td>
       <td>Un comando por cada comando del EventStorming en este contexto.</td>
-      <td>Identificadores, reglas, nombre y celular, orden o semilla, oferta, decisión de empate.</td>
+      <td>Identificadores, reglas, nombre y celular, orden o semilla, reglas de la subasta, fecha del primer aporte del nuevo ciclo.</td>
     </tr>
     <tr>
-      <td><b>GetGroupByIdQuery,<br>GetMembersQuery,<br>GetTurnCalendarQuery,<br>GetGroupPreviewQuery,<br>GetActiveInvitationQuery,<br>GetOpenBidsQuery,<br>GetMyGroupsQuery</b></td>
+      <td><b>GetGroupByIdQuery,<br>GetMembersQuery,<br>GetTurnCalendarQuery,<br>GetGroupPreviewQuery,<br>GetActiveInvitationQuery,<br>GetMyGroupsQuery</b></td>
       <td>Query</td>
-      <td>Consultas de las vistas: la junta con sus reglas, lista de integrantes, calendario de turnos, resumen antes de unirse, invitación vigente, ofertas vigentes y mis juntas.</td>
+      <td>Consultas de las vistas: la junta con sus reglas, lista de integrantes, calendario de turnos, resumen antes de unirse, invitación vigente y mis juntas.</td>
       <td>groupId, invitationCode, memberId.</td>
     </tr>
     <tr>
-      <td><b>GroupCreatedEvent,<br>InvitationGeneratedEvent,<br>MemberJoinedEvent,<br>ManualMemberAddedEvent,<br>MemberRemovedEvent,<br>TurnsAssignedEvent,<br>AuctionOpenedEvent,<br>BidPlacedEvent,<br>AuctionClosedEvent,<br>GroupStartedEvent,<br>MemberDroppedEvent,<br>ReplacementJoinedEvent</b></td>
+      <td><b>GroupCreatedEvent,<br>InvitationGeneratedEvent,<br>MemberJoinedEvent,<br>ManualMemberAddedEvent,<br>MemberRemovedEvent,<br>MemberLinkedEvent,<br>TurnsAssignedEvent,<br>GroupStartedEvent,<br>MemberDroppedEvent,<br>MemberReplacedEvent,<br>NewCycleOpenedEvent</b></td>
       <td>Domain Event</td>
-      <td>Hechos que publica el contexto. GroupStartedEvent se traduce al evento de integración Junta iniciada, que inicia el ciclo en Contributions; MemberDroppedEvent y ReplacementJoinedEvent los consumirán Contributions y Compliance History.</td>
+      <td>Hechos que publica el contexto. GroupStartedEvent se traduce al evento de integración Junta iniciada, que inicia el ciclo en Contributions; MemberLinkedEvent, MemberDroppedEvent y MemberReplacedEvent los consumen Contributions y Notifications, y la deserción también Compliance History.</td>
       <td>Identificadores de junta e integrantes, reglas y turnos copiados al iniciar.</td>
     </tr>
   </tbody>
 </table>
 
-Las reglas del canvas quedan en `SavingsGroup.canStart` (cupos cubiertos y turnos asignados), en `SavingsGroup.updateRules` (las reglas solo cambian antes de iniciar y los cupos no pueden quedar por debajo de los integrantes), en `SavingsGroup.start` (bloqueo de reglas y caducidad de la invitación, que se ordena publicando GroupStartedEvent), en `Auction.close` (gana la oferta mayor, el empate lo resuelve la cabeza) y en `SavingsGroup.registerDropout` (el reemplazo hereda el turno pendiente). Que un integrante sin la aplicación no pueda aportar por sí mismo se garantiza porque su Membership no tiene memberId y, por tanto, ninguna cuenta puede actuar en su nombre.
+Las reglas del canvas quedan en `SavingsGroup.canStart` (cupos cubiertos y turnos asignados), en `SavingsGroup.updateRules` (las reglas solo cambian antes de iniciar y los cupos no pueden quedar por debajo de los integrantes), en `SavingsGroup.start` (bloqueo de reglas y caducidad de la invitación, que se ordena publicando GroupStartedEvent), en `SavingsGroup.assignTurnsByAuction` (guarda las reglas de la subasta y un orden provisional), en `SavingsGroup.registerDropout` y `SavingsGroup.replaceDroppedMember` (solo en una junta iniciada; el reemplazo, con la aplicación o sin ella, hereda el turno de quien desertó) y en `SavingsGroup.openNewCycle` (una junta cerrada vuelve a empezar con las mismas reglas e integrantes y una nueva fecha de primer aporte). Que un integrante sin la aplicación no pueda aportar por sí mismo se garantiza porque su Membership no tiene memberId y, por tanto, ninguna cuenta puede actuar en su nombre, hasta que esa persona se registra con el celular que la cabeza anotó y `SavingsGroup.linkManualMember` le asigna su cuenta.
 
 #### 2.6.2.2. Interface Layer
 
@@ -4284,21 +4304,21 @@ La Tabla 89 presenta las clases del Interface Layer de Savings Groups.
   <tbody>
     <tr>
       <td><b>SavingsGroupsController</b></td>
-      <td>Ciclo de vida de la junta: crear, cambiar reglas antes de iniciar, definir destino, consultar la junta, listar mis juntas e iniciar.</td>
-      <td>POST /api/v1/groups,<br>GET /api/v1/groups/{id},<br>GET /api/v1/members/me/groups,<br>PUT /api/v1/groups/{id}/rules,<br>PATCH /api/v1/groups/{id}/destination,<br>POST /api/v1/groups/{id}/start.</td>
+      <td>Ciclo de vida de la junta: crear, cambiar reglas antes de iniciar, definir destino, consultar la junta, listar mis juntas, iniciar y abrir un nuevo ciclo al terminar.</td>
+      <td>POST /api/v1/groups,<br>GET /api/v1/groups/{id},<br>GET /api/v1/members/me/groups,<br>PUT /api/v1/groups/{id}/rules,<br>PATCH /api/v1/groups/{id}/destination,<br>POST /api/v1/groups/{id}/start,<br>POST /api/v1/groups/{id}/new-cycle.</td>
     </tr>
     <tr>
       <td><b>MembershipsController</b></td>
-      <td>Invitaciones e integrantes: generar invitación, resolver un código (resumen antes de unirse), unirse, agregar integrante sin la aplicación, retirar y registrar deserción con reemplazo.</td>
-      <td>POST /api/v1/groups/{id}/invitations,<br>GET /api/v1/groups/{id}/invitations/active,<br>GET /api/v1/invitations/{code},<br>POST /api/v1/invitations/{code}/join,<br>GET /api/v1/groups/{id}/members,<br>POST /api/v1/groups/{id}/members/manual,<br>DELETE /api/v1/groups/{id}/members/{membershipId},<br>POST /api/v1/groups/{id}/members/{membershipId}/dropout.</td>
+      <td>Invitaciones e integrantes: generar invitación, resolver un código (resumen antes de unirse), unirse, agregar integrante sin la aplicación, retirar, registrar una deserción y asignar un reemplazo.</td>
+      <td>POST /api/v1/groups/{id}/invitations,<br>GET /api/v1/groups/{id}/invitations/active,<br>GET /api/v1/invitations/{code},<br>POST /api/v1/invitations/{code}/join,<br>GET /api/v1/groups/{id}/members,<br>POST /api/v1/groups/{id}/members/manual,<br>DELETE /api/v1/groups/{id}/members/{membershipId},<br>POST /api/v1/groups/{id}/members/{membershipId}/dropout,<br>POST /api/v1/groups/{id}/members/{membershipId}/replacement.</td>
     </tr>
     <tr>
       <td><b>TurnsController</b></td>
-      <td>Asignación de turnos: sorteo, orden acordado, subasta (abrir, ofertar, cerrar) y calendario.</td>
-      <td>POST /api/v1/groups/{id}/turns/draw,<br>POST /api/v1/groups/{id}/turns/agreed,<br>GET /api/v1/groups/{id}/turns,<br>POST /api/v1/groups/{id}/auctions,<br>POST /api/v1/auctions/{auctionId}/bids,<br>GET /api/v1/auctions/{auctionId}/bids,<br>POST /api/v1/auctions/{auctionId}/close.</td>
+      <td>Asignación de turnos por sorteo, orden acordado o subasta, y calendario. Las ofertas y el cierre de cada subasta están en AuctionsController, de Contributions.</td>
+      <td>POST /api/v1/groups/{id}/turns/draw,<br>POST /api/v1/groups/{id}/turns/agreed,<br>POST /api/v1/groups/{id}/turns/auction,<br>GET /api/v1/groups/{id}/turns.</td>
     </tr>
     <tr>
-      <td><b>CreateGroupResource, UpdateRulesResource, DestinationResource, RulesResource, GroupResource, GroupPreviewResource, InvitationResource, MembershipResource, AddManualMemberResource, AgreedTurnsResource, TurnCalendarResource, ReadinessResource, BidResource</b> y sus assemblers</td>
+      <td><b>CreateGroupResource, UpdateRulesResource, DestinationResource, RulesResource, GroupResource, GroupPreviewResource, InvitationResource, MembershipResource, AddManualMemberResource, AgreedTurnsResource, AuctionTurnsResource, TurnCalendarResource, ReadinessResource, ReplaceMemberResource, OpenNewCycleResource</b> y sus assemblers</td>
       <td>Recursos JSON y transformaciones entre recursos, comandos y agregados.</td>
       <td>No aplica.</td>
     </tr>
@@ -4323,22 +4343,32 @@ La Tabla 90 presenta las clases del Application Layer de Savings Groups.
     <tr>
       <td><b>SavingsGroupCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>Atiende CreateGroup, UpdateRules, DefineDestination, GenerateInvitation, JoinGroup, AddManualMember, RemoveMember, StartGroup y RegisterDropout. Carga el SavingsGroup, invoca el método del agregado, guarda y publica los eventos. A quien no es integrante le responde que la junta no existe, igual que si no existiera, para no revelar qué juntas hay; a un integrante que no es la cabeza le niega las operaciones reservadas a ella. Al generar una invitación vence la anterior; al unirse por código, resuelve la Invitation y comprueba que sea usable y que haya cupos.</td>
+      <td>Atiende CreateGroup, UpdateRules, DefineDestination, GenerateInvitation, JoinGroup, AddManualMember, RemoveMember, StartGroup, RegisterDropout, ReplaceMember, OpenNewCycle, LinkManualMembers y CloseGroup. Carga el SavingsGroup, invoca el método del agregado, guarda y publica los eventos. A quien no es integrante le responde que la junta no existe, igual que si no existiera, para no revelar qué juntas hay; a un integrante que no es la cabeza le niega las operaciones reservadas a ella. Al generar una invitación vence la anterior; al unirse por código, resuelve la Invitation y comprueba que sea usable y que haya cupos.</td>
     </tr>
     <tr>
       <td><b>TurnCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>Atiende AssignTurnsByDraw y AssignTurnsAgreed con TurnAssignmentService, y OpenAuction, PlaceBid y CloseAuction; al cerrar la subasta asigna el turno en el SavingsGroup.</td>
+      <td>Atiende AssignTurnsByDraw y AssignTurnsAgreed con TurnAssignmentService, AssignTurnsByAuction, que guarda las reglas de la subasta, y ApplySwappedTurns, que sigue en el calendario el intercambio hecho en Contributions.</td>
     </tr>
     <tr>
       <td><b>SavingsGroupQueryServiceImpl</b></td>
       <td>Query Service</td>
-      <td>Resuelve la junta, integrantes, calendario, invitación vigente, ofertas vigentes y mis juntas. Para el resumen antes de unirse (GetGroupPreviewQuery) devuelve solo nombre, reglas y cupos libres, sin la lista de integrantes ni el destino. El celular de un integrante sin la aplicación solo lo ve la cabeza. El nivel de cumplimiento de cada integrante no se calcula aquí: la cabeza lo consulta directamente a Compliance History.</td>
+      <td>Resuelve la junta, integrantes, calendario, invitación vigente y mis juntas. Para el resumen antes de unirse (GetGroupPreviewQuery) devuelve solo nombre, reglas y cupos libres, sin la lista de integrantes ni el destino. El celular de un integrante sin la aplicación solo lo ve la cabeza. El nivel de cumplimiento de cada integrante no se calcula aquí: la cabeza lo consulta directamente a Compliance History.</td>
     </tr>
     <tr>
       <td><b>GroupStartedEventHandler</b></td>
       <td>Event Handler</td>
-      <td>Traduce GroupStartedEvent al evento de integración Junta iniciada, con valores primitivos: reglas, destino, nombre de la cabeza y el orden de turnos con la membresía, la cuenta y el nombre de cada integrante.</td>
+      <td>Traduce GroupStartedEvent al evento de integración Junta iniciada, con valores primitivos: reglas, destino, reglas de la subasta si las hay, nombre de la cabeza y el orden de turnos con la membresía, la cuenta y el nombre de cada integrante.</td>
+    </tr>
+    <tr>
+      <td><b>MembershipEventsHandler</b></td>
+      <td>Event Handler</td>
+      <td>Traduce a eventos de integración las uniones, los vínculos de cuenta, las deserciones, los reemplazos, los cambios de reglas, la junta completa o eliminada y el nuevo ciclo, para Contributions, Notifications y Compliance History.</td>
+    </tr>
+    <tr>
+      <td><b>AccountEventsHandler,<br>TurnsSwappedEventHandler,<br>CycleClosedEventHandler</b></td>
+      <td>Event Handler</td>
+      <td>Entradas reactivas del contexto. La primera escucha Cuenta registrada, de Identity & Access, y vincula la cuenta nueva a los integrantes registrados sin la aplicación con ese celular, después de confirmado el registro y en su propia transacción. Las otras dos escuchan Turnos intercambiados y Ciclo cerrado, de Contributions, y actualizan el calendario o cierran la junta en la misma transacción que el cambio del ciclo.</td>
     </tr>
     <tr>
       <td><b>SavingsGroupsContextFacadeImpl</b></td>
@@ -4353,7 +4383,7 @@ La Tabla 90 presenta las clases del Application Layer de Savings Groups.
   </tbody>
 </table>
 
-Este contexto no tiene event handlers entrantes: todo lo que ocurre en una junta lo inicia una persona desde la aplicación. Es, en cambio, el que publica Junta iniciada, que lleva a Contributions y a Notifications la copia de reglas y turnos, y el que ofrece a los demás contextos la fachada para saber quién pertenece a cada junta.
+Casi todo lo que ocurre en una junta lo inicia una persona desde la aplicación; las únicas entradas reactivas son el registro de una cuenta, el intercambio de turnos y el cierre del ciclo. El contexto es, sobre todo, el que publica Junta iniciada, que lleva a Contributions y a Notifications la copia de reglas y turnos, y el que ofrece a los demás contextos la fachada para saber quién pertenece a cada junta.
 
 #### 2.6.2.4. Infrastructure Layer
 
@@ -4371,7 +4401,7 @@ La Tabla 91 presenta las clases del Infrastructure Layer de Savings Groups.
   </thead>
   <tbody>
     <tr>
-      <td><b>SavingsGroupRepositoryImpl,<br>InvitationRepositoryImpl,<br>AuctionRepositoryImpl</b></td>
+      <td><b>SavingsGroupRepositoryImpl,<br>InvitationRepositoryImpl</b></td>
       <td>Repository (JPA)</td>
       <td>Implementan las interfaces del dominio sobre el esquema `savings_groups`, con entidades de persistencia y assemblers que separan el modelo de dominio de JPA.</td>
     </tr>
@@ -4401,7 +4431,7 @@ La Figura 65 muestra el diagrama de componentes de Savings Groups.
 
 *Nota.* Notación del C4 Model [@brown2018c4]. Los componentes del contenedor Servicios RESTful van dentro de su recuadro; cada flecha punteada indica quién llama a quién, con la tecnología entre corchetes cuando corresponde. Generado con Structurizr a partir del archivo `docs/architecture/workspace.dsl` (ver Anexo C).
 
-Tres controllers reparten las responsabilidades de junta, integrantes y turnos. SavingsGroupCommandService y TurnCommandService comparten el modelo de dominio y los repositorios; el command service sale del contexto solo a través de ExternalIamService, para obtener el nombre de quien crea la junta o se une. Hacia afuera, el contexto expone dos cosas: el evento Junta iniciada, que consume Contributions, y SavingsGroupsContextFacade, que Compliance History y Notifications usan para autorizar sus solicitudes.
+Tres controllers reparten las responsabilidades de junta, integrantes y turnos. SavingsGroupCommandService y TurnCommandService comparten el modelo de dominio y los repositorios; el command service sale del contexto solo a través de ExternalIamService, para obtener el nombre de quien crea la junta o se une. Hacia afuera, el contexto expone el evento Junta iniciada y los de vínculos, deserciones y reemplazos, que consume Contributions, y SavingsGroupsContextFacade, que Compliance History y Notifications usan para autorizar sus solicitudes. Sus event handlers reciben de Contributions el intercambio de turnos y el cierre del ciclo.
 
 #### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 
@@ -4413,7 +4443,7 @@ La Figura 66 muestra el diagrama de clases del Domain Layer de Savings Groups.
 
 *Nota.* Diagrama de clases en UML. Los estereotipos «Aggregate Root», «Entity», «Value Object» y «Repository» corresponden a los elementos del diseño táctico de Domain-Driven Design; la letra E marca una enumeración y la I una interfaz. El rombo relleno indica composición y la flecha punteada, la dependencia entre el repositorio y el agregado que persiste. Generado con PlantUML (ver Anexo C).
 
-SavingsGroup compone sus reglas, sus integrantes y sus turnos, y agrega por identificador las invitaciones y subastas que le pertenecen. Auction compone sus ofertas. El domain service TurnAssignmentService opera sobre SavingsGroup y devuelve la lista de TurnSlot que el agregado acepta con `assignTurns`.
+SavingsGroup compone sus reglas, sus integrantes, sus turnos y, si los subasta, las reglas de la subasta, y agrega por identificador las invitaciones que le pertenecen. El domain service TurnAssignmentService opera sobre SavingsGroup y devuelve la lista de TurnSlot que el agregado acepta con `assignTurns`.
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
@@ -4423,7 +4453,7 @@ La Figura 67 muestra el diagrama de base de datos de Savings Groups.
 
 *Nota.* Diagrama entidad-relación del esquema en PostgreSQL. PK, FK y UQ marcan la clave primaria, las claves foráneas y los valores únicos; el punto negro indica una columna obligatoria, y los extremos de las líneas, la cardinalidad de cada relación. Generado con PlantUML a partir de la definición en SQL (ver Anexo C).
 
-El esquema `savings_groups` tiene seis tablas. `savings_groups` guarda la junta con sus reglas en columnas, la fecha del primer aporte, el destino separado en método (Yape o Plin) y celular, y la semilla y fecha del sorteo de turnos; `memberships` una fila por integrante, con `member_id` nulo para los registrados sin la aplicación, cuyo celular es opcional; `invitations` los códigos, únicos en toda la base; `turn_slots` el orden de cobro con clave compuesta por junta y turno y unicidad por integrante, de modo que nadie ocupa dos turnos; `auctions` una subasta por turno y `bids` sus ofertas con índice descendente por monto para resolver rápido la mayor.
+El esquema `savings_groups` tiene cuatro tablas. `savings_groups` guarda la junta con sus reglas en columnas, la fecha del primer aporte, el destino separado en método (Yape o Plin) y celular, la semilla y fecha del sorteo de turnos y, si los turnos se subastan, las reglas de la subasta; `memberships` una fila por integrante, con `member_id` nulo para los registrados sin la aplicación, cuyo celular es opcional; `invitations` los códigos, únicos en toda la base; `turn_slots` el orden de cobro con clave compuesta por junta y turno y unicidad por integrante, de modo que nadie ocupa dos turnos. Las subastas y sus ofertas no están en este esquema sino en `contributions`.
 
 ### 2.6.3. Bounded Context: Compliance History
 
