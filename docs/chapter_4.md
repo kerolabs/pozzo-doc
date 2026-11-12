@@ -5027,125 +5027,11 @@ La Figura 161 muestra la captura de la entrevista a Lionel Chávez.
 
 Lionel es el único entrevistado del segmento de cabezas de junta y el único que recorrió el ciclo entero, desde crear la junta hasta cerrarla. Administra la suya con una hoja a mano, que es el escenario que describió el Capítulo II, y completó las ocho tareas sin que el entrevistador interviniera. Dos observaciones suyas se recogen como problemas en la evaluación heurística: el error que devolvió el primer intento de registrar la entrega del pozo y la espera sin indicador al iniciar la junta.
 
-- **Segunda entrevista**
-
-La Tabla 168 presenta la ficha de la segunda entrevista de validación al segmento de cabezas de junta.
-
-<table>
-  <caption>Ficha de la segunda entrevista de validación al segmento de cabezas de junta</caption>
-  <colgroup><col width="30%"><col width="70%"></colgroup>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Detalle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>Entrevistado(a)</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Género</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Edad</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Lugar de residencia</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Entrevistador(a)</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Fecha</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Duración</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Link de la entrevista</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Resultado de las tareas</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Observaciones</b></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-- **Tercera entrevista**
-
-La Tabla 169 presenta la ficha de la tercera entrevista de validación al segmento de cabezas de junta.
-
-<table>
-  <caption>Ficha de la tercera entrevista de validación al segmento de cabezas de junta</caption>
-  <colgroup><col width="30%"><col width="70%"></colgroup>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Detalle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>Entrevistado(a)</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Género</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Edad</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Lugar de residencia</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Entrevistador(a)</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Fecha</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Duración</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Link de la entrevista</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Resultado de las tareas</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Observaciones</b></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
 **Segmento 2: Participantes de junta**
 
 - **Primera entrevista**
 
-La Tabla 170 presenta la ficha de la entrevista de validación a Elizabeth Díaz.
+La Tabla 168 presenta la ficha de la entrevista de validación a Elizabeth Díaz.
 
 <table>
   <caption>Ficha de la entrevista de validación a Elizabeth Díaz</caption>
@@ -5208,7 +5094,7 @@ Elizabeth completó las ocho tareas sin ayuda y sin preguntar una sola vez dónd
 
 - **Segunda entrevista**
 
-La Tabla 171 presenta la ficha de la entrevista de validación a Mariana López.
+La Tabla 169 presenta la ficha de la entrevista de validación a Mariana López.
 
 <table>
   <caption>Ficha de la entrevista de validación a Mariana López</caption>
@@ -5271,7 +5157,7 @@ Mariana completó las ocho tareas sin ayuda. Su sesión aporta el contraste sobr
 
 - **Tercera entrevista**
 
-La Tabla 172 presenta la ficha de la tercera entrevista de validación al segmento de participantes.
+La Tabla 170 presenta la ficha de la tercera entrevista de validación al segmento de participantes.
 
 <table>
   <caption>Ficha de la tercera entrevista de validación al segmento de participantes</caption>
@@ -5328,7 +5214,7 @@ La Tabla 172 presenta la ficha de la tercera entrevista de validación al segmen
 
 ### 4.3.3. Evaluaciones según heurísticas
 
-El equipo realizó una evaluación heurística del producto construido. Es una inspección hecha por el propio equipo, sin usuarios, en la que cada integrante recorre las tareas de la Tabla 166 buscando dónde la interfaz incumple un principio de usabilidad. No sustituye a las entrevistas, porque un equipo no puede sorprenderse con su propio producto, pero encuentra antes los problemas que no hace falta un usuario para detectar. Los hallazgos se contrastaron con las diez heurísticas de Nielsen [@nielsen1994heuristics], las mismas con las que se justificaron los principios de diseño del Capítulo III. La Tabla 173 presenta la cabecera de la evaluación.
+El equipo realizó una evaluación heurística del producto construido. Es una inspección hecha por el propio equipo, sin usuarios, en la que cada integrante recorre las tareas de la Tabla 166 buscando dónde la interfaz incumple un principio de usabilidad. No sustituye a las entrevistas, porque un equipo no puede sorprenderse con su propio producto, pero encuentra antes los problemas que no hace falta un usuario para detectar. Los hallazgos se contrastaron con las diez heurísticas de Nielsen [@nielsen1994heuristics], las mismas con las que se justificaron los principios de diseño del Capítulo III. La Tabla 171 presenta la cabecera de la evaluación.
 
 <table>
   <caption>Cabecera de la evaluación heurística</caption>
@@ -5379,7 +5265,7 @@ El equipo realizó una evaluación heurística del producto construido. Es una i
   </tbody>
 </table>
 
-Cada problema se puntúa con la escala de severidad de Nielsen, que combina la frecuencia con la que ocurre, el impacto que tiene cuando ocurre y la persistencia con la que vuelve a aparecer. La Tabla 174 presenta la escala y lo que significa cada grado para este producto.
+Cada problema se puntúa con la escala de severidad de Nielsen, que combina la frecuencia con la que ocurre, el impacto que tiene cuando ocurre y la persistencia con la que vuelve a aparecer. La Tabla 172 presenta la escala y lo que significa cada grado para este producto.
 
 <table>
   <caption>Escala de severidad de los problemas de usabilidad</caption>
@@ -5420,7 +5306,7 @@ Cada problema se puntúa con la escala de severidad de Nielsen, que combina la f
   </tbody>
 </table>
 
-La inspección del equipo encontró nueve problemas y las tres entrevistas de validación añadieron cuatro más, ninguno catastrófico. La Tabla 175 recoge los trece ordenados por severidad, con la heurística que incumplen, la pantalla donde aparecen, el origen del hallazgo y la corrección propuesta. Las pantallas referidas son las de las Figuras 145, 146 y 147 para la aplicación móvil y la Figura 154 para el landing page.
+La inspección del equipo encontró nueve problemas y las tres entrevistas de validación añadieron cuatro más, ninguno catastrófico. La Tabla 173 recoge los trece ordenados por severidad, con la heurística que incumplen, la pantalla donde aparecen, el origen del hallazgo y la corrección propuesta. Las pantallas referidas son las de las Figuras 145, 146 y 147 para la aplicación móvil y la Figura 154 para el landing page.
 
 <table>
   <caption>Problemas encontrados en la evaluación heurística</caption>
