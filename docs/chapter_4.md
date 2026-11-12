@@ -4637,7 +4637,11 @@ La integración de las ramas dejó dos fallas en la suite que se corrigieron den
 
 #### 4.2.2.6. Execution Evidence for Sprint Review
 
-<!-- TODO(equipo): describir y mostrar con capturas las pantallas de la aplicación del Sprint 2 (subasta, deserción y reemplazo, entrega del pozo con su comprobante, cierre y nuevo ciclo, mis aportes y compartir, períodos anteriores), y enlazar el video de navegación del Sprint. -->
+En el Sprint 2 la aplicación móvil incorporó la gestión dinámica del ciclo de vida de la junta y las modalidades avanzadas de asignación de turnos. Se implementó la configuración y ejecución de subastas de turnos con ofertas en vivo bajo el pozo, el recálculo dinámico de las cuotas tras el descuento de la oferta ganadora, el intercambio de turnos no iniciados desde el calendario y el registro directo de aportes en efectivo. Asimismo, la aplicación sumó el flujo de deserción de integrantes con asignación de reemplazos en marcha, la entrega del pozo con comprobante de transferencia bancaria, la consulta de períodos anteriores y la apertura de un nuevo ciclo conservando las reglas de la junta. Por último, se integró la generación de enlaces públicos para compartir constancias de aportes verificables en la web sin exponer el comprobante original.
+
+Para complementar la evidencia de ejecución del Sprint 2, se presenta el video explicativo del flujo de navegación y funcionamiento de la aplicación móvil desarrollado para la Sprint Review, disponible en YouTube: <https://youtu.be/YW2H3MOr3kE>.
+
+<!-- TODO(equipo): describir y mostrar con capturas las pantallas de la aplicación del Sprint 2 (subasta, deserción y reemplazo, entrega del pozo con su comprobante, cierre y nuevo ciclo, mis aportes y compartir, períodos anteriores) -->
 
 #### 4.2.2.7. Services Documentation Evidence for Sprint Review
 
