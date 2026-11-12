@@ -4028,7 +4028,7 @@ El objetivo del Sprint 2 es que una junta complete su ciclo en Pozzo aunque camb
 
 La Tabla 159 relaciona cada historia con sus tareas, su responsable y su estado. Como en el Sprint 1, las tareas de los servicios se obtuvieron de sus pull requests y no se estimaron en horas. Dos tareas completan escenarios de historias del Sprint 1 que necesitaban un endpoint nuevo: el intercambio de turnos de US18 y la desactivación de los recordatorios ya programados de US34.
 
-<!-- TODO(equipo): completar las tareas de la aplicación móvil con su responsable y su estado al cierre del Sprint. -->
+Las tareas de la aplicación se repartieron entre los cinco integrantes, y cada uno llevó la suya a `develop` en un pull request propio de `kerolabs/pozzo-mobile`; el intercambio de turnos en el calendario entró junto con el cierre de la subasta. Al cierre del Sprint quedan dos tareas abiertas. En el registro en efectivo (T61) falta pedir confirmación cuando el monto difiere del esperado: la aplicación propone lo que debe el integrante y los servicios rechazan un monto distinto. La investigación de Android App Links (T78) no se inició.
 
 <table>
   <caption>Sprint Backlog del Sprint 2</caption>
@@ -4063,18 +4063,18 @@ La Tabla 159 relaciona cada historia con sus tareas, su responsable y su estado.
       <td>Pantalla del integrante sin la aplicación</td>
       <td>Aplicación: agregarlo con nombre y celular opcional, y mostrarlo como tal en la lista de integrantes.</td>
       <td>Sin estimar</td>
-      <td></td>
-      <td>To-do</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
     </tr>
     <tr>
       <td>US15</td>
       <td>Retirar un integrante antes de iniciar</td>
       <td>T53</td>
       <td>Retiro con opción de deshacer</td>
-      <td>Aplicación: retirar a un integrante antes de iniciar, con cinco segundos para deshacer, y remitir a la deserción si la junta ya inició.</td>
+      <td>Aplicación: retirar a un integrante antes de iniciar, con cinco segundos para deshacer, y remitir a la deserción si la junta ya inició (pozzo-mobile#26).</td>
       <td>Sin estimar</td>
-      <td></td>
-      <td>To-do</td>
+      <td>Tirado Carrera, Gabriela Luciana</td>
+      <td>Done</td>
     </tr>
     <tr>
       <td>US18</td>
@@ -4101,10 +4101,10 @@ La Tabla 159 relaciona cada historia con sus tareas, su responsable y su estado.
       <td></td>
       <td>T56</td>
       <td>Configuración de la subasta</td>
-      <td>Aplicación: elegir la subasta como método de turnos y definir sus reglas.</td>
+      <td>Aplicación: elegir la subasta como método de turnos y definir sus reglas (pozzo-mobile#27).</td>
       <td>Sin estimar</td>
-      <td></td>
-      <td>To-do</td>
+      <td>Sanchez Benavente, Leonardo Matias</td>
+      <td>Done</td>
     </tr>
     <tr>
       <td>US20</td>
@@ -4121,17 +4121,17 @@ La Tabla 159 relaciona cada historia con sus tareas, su responsable y su estado.
       <td></td>
       <td>T58</td>
       <td>Pantalla de la subasta</td>
-      <td>Aplicación: ver la subasta del período, ofertar y saber si la oferta propia es la mayor.</td>
+      <td>Aplicación: ver la subasta del período, ofertar y saber si la oferta propia es la mayor (pozzo-mobile#27).</td>
       <td>Sin estimar</td>
-      <td></td>
-      <td>To-do</td>
+      <td>Sanchez Benavente, Leonardo Matias</td>
+      <td>Done</td>
     </tr>
     <tr>
       <td>US21</td>
       <td>Cerrar la subasta y asignar el turno</td>
       <td>T59</td>
       <td>Cierre y reparto del descuento</td>
-      <td>Servicios: cerrar la subasta por la cabeza o al pasar su día de cierre, dar el turno a la mayor oferta o por el respaldo, y repartir el descuento como crédito del siguiente aporte (pozzo-backend#56).</td>
+      <td>Servicios: cerrar la subasta por la cabeza o al pasar su día de cierre, dar el turno a la mayor oferta o por el respaldo, y repartir el descuento como crédito del siguiente aporte (pozzo-backend#56 y #63).</td>
       <td>Sin estimar</td>
       <td>Camargo Briceño, Joseph Julius</td>
       <td>Done</td>
@@ -4141,20 +4141,20 @@ La Tabla 159 relaciona cada historia con sus tareas, su responsable y su estado.
       <td></td>
       <td>T60</td>
       <td>Cierre de la subasta</td>
-      <td>Aplicación: cerrar la subasta, elegir al ganador cuando el respaldo es la cabeza y mostrar el resultado.</td>
+      <td>Aplicación: cerrar la subasta, elegir al ganador cuando el respaldo es la cabeza y mostrar el resultado (pozzo-mobile#28).</td>
       <td>Sin estimar</td>
-      <td></td>
-      <td>To-do</td>
+      <td>Solis Campos, Estefano Sebastian</td>
+      <td>Done</td>
     </tr>
     <tr>
       <td>US27</td>
       <td>Registrar un aporte en efectivo</td>
       <td>T61</td>
       <td>Registro en efectivo</td>
-      <td>Aplicación: registrar el aporte en efectivo con el monto y la fecha, y confirmar un monto distinto al esperado.</td>
+      <td>Aplicación: registrar el aporte en efectivo con el monto y la fecha, y confirmar un monto distinto al esperado (pozzo-mobile#27).</td>
       <td>Sin estimar</td>
-      <td></td>
-      <td>To-do</td>
+      <td>Sanchez Benavente, Leonardo Matias</td>
+      <td>In Progress</td>
     </tr>
     <tr>
       <td>US28</td>
@@ -4181,20 +4181,20 @@ La Tabla 159 relaciona cada historia con sus tareas, su responsable y su estado.
       <td></td>
       <td>T64</td>
       <td>Mis aportes y compartir</td>
-      <td>Aplicación: lista de aportes por período con su estado, detalle del comprobante y botón para compartir el enlace verificable.</td>
+      <td>Aplicación: lista de aportes por período con su estado, detalle del comprobante y botón para compartir el enlace verificable (pozzo-mobile#24).</td>
       <td>Sin estimar</td>
-      <td></td>
-      <td>To-do</td>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Done</td>
     </tr>
     <tr>
       <td>US32</td>
       <td>Consultar períodos anteriores</td>
       <td>T65</td>
       <td>Períodos anteriores</td>
-      <td>Aplicación: consultar un período cerrado con quién cobró, el monto entregado, la fecha y el estado de cada aporte.</td>
+      <td>Aplicación: consultar un período cerrado con quién cobró, el monto entregado, la fecha y el estado de cada aporte (pozzo-mobile#25).</td>
       <td>Sin estimar</td>
-      <td></td>
-      <td>To-do</td>
+      <td>Flores Pinchi, Jose Fernando</td>
+      <td>Done</td>
     </tr>
     <tr>
       <td>US33</td>
@@ -4221,7 +4221,7 @@ La Tabla 159 relaciona cada historia con sus tareas, su responsable y su estado.
       <td>Entregar el pozo y abrir el siguiente turno</td>
       <td>T68</td>
       <td>Comprobante de la entrega</td>
-      <td>Servicios: tras entregar el pozo, la cabeza adjunta la imagen de la transferencia y los integrantes la ven con un enlace firmado; el monto entregado descuenta la subasta (pozzo-backend#51 y #56).</td>
+      <td>Servicios: tras entregar el pozo, la cabeza adjunta la imagen de la transferencia y los integrantes la ven con un enlace firmado; el monto entregado descuenta la subasta (pozzo-backend#51, #56 y #62).</td>
       <td>Sin estimar</td>
       <td>Camargo Briceño, Joseph Julius</td>
       <td>Done</td>
@@ -4231,17 +4231,17 @@ La Tabla 159 relaciona cada historia con sus tareas, su responsable y su estado.
       <td></td>
       <td>T69</td>
       <td>Entrega del pozo</td>
-      <td>Aplicación: marcar el pozo como entregado, adjuntar la imagen de la transferencia y mostrar el monto con el descuento de la subasta.</td>
+      <td>Aplicación: marcar el pozo como entregado, adjuntar la imagen de la transferencia y mostrar el monto con el descuento de la subasta (pozzo-mobile#25).</td>
       <td>Sin estimar</td>
-      <td></td>
-      <td>To-do</td>
+      <td>Flores Pinchi, Jose Fernando</td>
+      <td>Done</td>
     </tr>
     <tr>
       <td>US38</td>
       <td>Registrar una deserción y su reemplazo</td>
       <td>T70</td>
       <td>Deserción y reemplazo</td>
-      <td>Servicios: registrar la deserción de un integrante de una junta iniciada y asignar su lugar a un reemplazo, con la aplicación o sin ella (pozzo-backend#55).</td>
+      <td>Servicios: registrar la deserción de un integrante de una junta iniciada y asignar su lugar a un reemplazo, con la aplicación o sin ella (pozzo-backend#55 y #65).</td>
       <td>Sin estimar</td>
       <td>Camargo Briceño, Joseph Julius</td>
       <td>Done</td>
@@ -4251,10 +4251,10 @@ La Tabla 159 relaciona cada historia con sus tareas, su responsable y su estado.
       <td></td>
       <td>T71</td>
       <td>Pantalla de deserción y reemplazo</td>
-      <td>Aplicación: registrar la deserción y asignar el reemplazo por nombre o por celular.</td>
+      <td>Aplicación: registrar la deserción y asignar el reemplazo por nombre o por celular (pozzo-mobile#26).</td>
       <td>Sin estimar</td>
-      <td></td>
-      <td>To-do</td>
+      <td>Tirado Carrera, Gabriela Luciana</td>
+      <td>Done</td>
     </tr>
     <tr>
       <td>US39</td>
@@ -4271,17 +4271,17 @@ La Tabla 159 relaciona cada historia con sus tareas, su responsable y su estado.
       <td></td>
       <td>T73</td>
       <td>Resumen del ciclo y nuevo ciclo</td>
-      <td>Aplicación: mostrar el resumen al cerrar el ciclo y abrir uno nuevo.</td>
+      <td>Aplicación: mostrar el resumen al cerrar el ciclo y abrir uno nuevo (pozzo-mobile#25).</td>
       <td>Sin estimar</td>
-      <td></td>
-      <td>To-do</td>
+      <td>Flores Pinchi, Jose Fernando</td>
+      <td>Done</td>
     </tr>
     <tr>
       <td>TS04</td>
       <td>Servicio de turnos y subastas</td>
       <td>T74</td>
       <td>Escenarios de turnos y subastas</td>
-      <td>Escenarios de intercambio y de subasta en <code>ts04-turns.feature</code>, y corrección del paso que inicia la junta para que guarde el ciclo (pozzo-backend#52, #56 y #60).</td>
+      <td>Escenarios de intercambio y de subasta en <code>ts04-turns.feature</code>, y corrección del paso que inicia la junta para que guarde el ciclo (pozzo-backend#52, #56, #60 y #63).</td>
       <td>Sin estimar</td>
       <td>Camargo Briceño, Joseph Julius</td>
       <td>Done</td>
@@ -4311,7 +4311,7 @@ La Tabla 159 relaciona cada historia con sus tareas, su responsable y su estado.
       <td></td>
       <td>T77</td>
       <td>Release y despliegue</td>
-      <td>Llevar <code>develop</code> a <code>main</code>, desplegar en Oracle Cloud y marcar la versión <code>v0.2.0</code> (pozzo-backend#59 y #61).</td>
+      <td>Llevar <code>develop</code> a <code>main</code>, desplegar en Oracle Cloud y marcar las versiones <code>v0.2.0</code> a <code>v0.2.2</code> (pozzo-backend#59, #61, #64 y #66), y llevar la aplicación a <code>main</code> como <code>v0.2.0</code> (pozzo-mobile#29).</td>
       <td>Sin estimar</td>
       <td>Camargo Briceño, Joseph Julius</td>
       <td>Done</td>
@@ -4331,9 +4331,9 @@ La Tabla 159 relaciona cada historia con sus tareas, su responsable y su estado.
 
 #### 4.2.2.4. Development Evidence for Sprint Review
 
-En el Sprint 2 se completaron los servicios RESTful: cada historia que necesitaba un endpoint nuevo se implementó en su propia rama, entró a `develop` por pull request con las pruebas en verde y llegó a `main` en dos pull requests de integración, desplegados en Oracle Cloud como la versión `v0.2.0`. Se sumó además la página pública que abre el enlace de un aporte compartido.
+En el Sprint 2 se completaron los servicios RESTful: cada historia que necesitaba un endpoint nuevo se implementó en su propia rama, entró a `develop` por pull request con las pruebas en verde y llegó a `main` en dos pull requests de integración, desplegados en Oracle Cloud como la versión `v0.2.0`. Al probar la aplicación contra esos servicios aparecieron tres fallas, que se corrigieron con su prueba y se desplegaron como `v0.2.1` y `v0.2.2`: los enlaces firmados de las imágenes de comprobantes y transferencias no abrían, el estado del período no decía cuánto debía cada integrante después del descuento de una subasta, y los períodos de un ciclo fallaban después de un reemplazo. Se sumaron además la página pública que abre el enlace de un aporte compartido y, en la aplicación móvil, las pantallas de las historias del Sprint.
 
-**Servicios RESTful.** La Tabla 160 lista los 14 commits de `kerolabs/pozzo-backend` del Sprint, con la rama en la que se hicieron.
+**Servicios RESTful.** La Tabla 160 lista los 17 commits de `kerolabs/pozzo-backend` del Sprint, con la rama en la que se hicieron.
 
 <table>
   <caption>Commits de implementación de pozzo-backend en el Sprint 2</caption>
@@ -4461,6 +4461,30 @@ En el Sprint 2 se completaron los servicios RESTful: cada historia que necesitab
       <td>The auction scenarios start the group with the step that only keeps the response, so reading the current period found no cycle and the three scenarios stopped before bidding. The step now keeps the cycle whenever the start succeeds.</td>
       <td>10/11/2026</td>
     </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>fix/signed-image-links</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/95f86b6">95f86b6</a></td>
+      <td>fix(contributions): sign the image links with the path Supabase stored</td>
+      <td>The image of a receipt or of the transfer of a pot was uploaded and its link signed with the path encoded as a single segment, so Supabase signed a key that does not exist and every link answered InvalidSignature. The path now goes to Supabase as it is stored, in the upload and in the signature.</td>
+      <td>10/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>feature/member-expected-amount</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/8841e0f">8841e0f</a></td>
+      <td>feat(contributions): show what each member owes in the period</td>
+      <td>After an auction the members still to collect owe less in the next period, but the state of the period only gave the contribution of the group, so the application proposed the full amount in cash and the backend rejected it. Each member of the period now carries what they owe.</td>
+      <td>11/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-backend</td>
+      <td>fix/periods-after-replacement</td>
+      <td><a href="https://github.com/kerolabs/pozzo-backend/commit/a78a0c8">a78a0c8</a></td>
+      <td>fix: list the periods a replacement joined after without failing</td>
+      <td>A member who replaces a dropout holds a turn of the cycle but owes nothing in the periods opened before they joined. The period status and the contributions of the member looked up that expected contribution and threw, so GET /cycles/{id}/periods and the history of the replacement answered 500. Both now keep only the members and periods that expected a contribution.</td>
+      <td>11/11/2026</td>
+    </tr>
   </tbody>
 </table>
 
@@ -4491,13 +4515,158 @@ En el Sprint 2 se completaron los servicios RESTful: cada historia que necesitab
   </tbody>
 </table>
 
-<!-- TODO(equipo): agregar la tabla de commits de kerolabs/pozzo-mobile del Sprint 2, con el mismo formato. -->
+**Aplicación móvil.** La Tabla 162 lista los 16 commits de `kerolabs/pozzo-mobile` del Sprint, con la rama en la que se hicieron. Cada integrante llevó su parte a `develop` en un pull request propio (pozzo-mobile#24 a #28) y la aplicación llegó a `main` en pozzo-mobile#29. La tabla no incluye los dos merges de `develop` con los que se resolvieron los conflictos entre las ramas de la subasta y de la entrega del pozo.
+
+<table>
+  <caption>Commits de implementación de pozzo-mobile en el Sprint 2</caption>
+  <colgroup><col width="13%"><col width="17%"><col width="11%"><col width="23%"><col width="21%"><col width="15%"></colgroup>
+  <thead>
+    <tr>
+      <th>Repository</th>
+      <th>Branch</th>
+      <th>Commit Id</th>
+      <th>Commit Message</th>
+      <th>Commit Message Body</th>
+      <th>Committed on (Date)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/share-contribution</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/974a8ed">974a8ed</a></td>
+      <td>feat(contributions): share a contribution with a link anyone can verify</td>
+      <td>A member who was told they had not paid could only forward a screenshot. A settled contribution now has a button in its receipt to share a public link to it through the share sheet; whoever opens it sees the group, the period, the amount and the end of the operation number, without the receipt image.</td>
+      <td>10/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/turn-auction</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/2a1c606">2a1c606</a></td>
+      <td>feat(contributions): add turn auction with bidding and member payment proposal</td>
+      <td>Sin cuerpo</td>
+      <td>11/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feat/turn-auctions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/076ef4c">076ef4c</a></td>
+      <td>feat(savings-groups): auction the turns of a group</td>
+      <td>The auction option was shown but disabled. The organizer can now choose it and set how many days before each cutoff the auction closes, the smallest discount accepted and whether a draw or the organizer decides when nobody bids. Nothing is assigned in advance: each period opens its own auction.</td>
+      <td>11/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feat/turn-auctions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/927a564">927a564</a></td>
+      <td>feat(contributions): bid in the auction of the turn</td>
+      <td>Groups whose turns are auctioned now show the auction of the period under the pot. Every member sees the bids from the highest to the lowest with what each bidder would receive, and a member who has not collected places or improves a bid.</td>
+      <td>11/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feat/turn-auctions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/bc9e4cc">bc9e4cc</a></td>
+      <td>fix(contributions): leave who collects to the auction and propose what each member owes</td>
+      <td>Testing on the emulator, the pot and the start of a group named the provisional holder of a turn whose auction was still open, and the cash screen proposed the full contribution although an auction had lowered what the members still to collect owe, so the backend rejected it. While the auction is open the pot now says the turn goes to its winner, the start says the turn is auctioned, and the cash screen and the button to contribute use what each member owes.</td>
+      <td>11/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feat/turn-auctions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/64c28eb">64c28eb</a></td>
+      <td>feat(contributions): close the auction of the turn</td>
+      <td>The organizer can close an open auction before its closing day. With bids the highest one collects; without bids the turn goes by draw, or to the member the organizer picks among those who have not collected when the group chose that.</td>
+      <td>11/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feat/turn-auctions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/e8c50d6">e8c50d6</a></td>
+      <td>feat(contributions): swap turns and show the turns still to auction</td>
+      <td>Once a group started its turns could not change. The organizer can now swap two turns whose periods have not started from the calendar, and both members get a notice. In groups whose turns are auctioned, the calendar shows the periods to come as pending auction instead of the provisional order.</td>
+      <td>11/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feat/turn-auctions</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/f0b6caa">f0b6caa</a></td>
+      <td>fix(contributions): show the closed auction and the real winners in the calendar</td>
+      <td>Testing on the emulator, closing an auction left the screen showing it open until it was opened again, and in a group whose turns are auctioned the calendar named the provisional holder of each turn instead of who won it. The organizer's action now hands back the closed auction, and the calendar takes who collected each decided turn from the periods of the cycle, showing the turn in progress as being auctioned while its auction is open.</td>
+      <td>11/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feat/saving-group</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/16dee9e">16dee9e</a></td>
+      <td>feat(savingsgroups): add member dropout and replacement contracts to domain</td>
+      <td>Sin cuerpo</td>
+      <td>11/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feat/saving-group</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/a36dbc1">a36dbc1</a></td>
+      <td>feat(savingsgroups): add member dropout and replacement use cases</td>
+      <td>Sin cuerpo</td>
+      <td>11/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feat/saving-group</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/f8f0172">f8f0172</a></td>
+      <td>feat(savingsgroups): implement member dropout and replacement endpoints in repository</td>
+      <td>Sin cuerpo</td>
+      <td>11/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feat/saving-group</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/2cd17c9">2cd17c9</a></td>
+      <td>feat(savingsgroups): add undoable member removal and dropout replacement flow in group detail</td>
+      <td>Sin cuerpo</td>
+      <td>11/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/cycle-close-and-reopen</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/29190fb">29190fb</a></td>
+      <td>feat(savings-groups): open a new cycle with the same group</td>
+      <td>When a cycle ended, a group that wanted to go again had to be created from scratch. The organizer of a closed group can now open the next cycle from its detail, choosing the date of the first contribution: a new group with the same rules, destination and members, still to start.</td>
+      <td>11/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/cycle-close-and-reopen</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/ceb274e">ceb274e</a></td>
+      <td>feat(contributions): attach the transfer of the pot and see past periods</td>
+      <td>Delivering the pot only recorded it. The organizer can now attach the screenshot of the transfer right after delivering, also for the last turn, and the amount to deliver shows the discount of an auction. Every member can see the periods already closed, with who collected, how much and when, the final state of each contribution and the transfer of the pot.</td>
+      <td>11/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/cycle-close-and-reopen</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/3bf7f21">3bf7f21</a></td>
+      <td>fix(contributions): word the closed cycle for groups that auctioned their turns</td>
+      <td>The closed cycle said every member received the full pot, which is not true when a winner of an auction received the pot less their discount. It now says every member collected their turn.</td>
+      <td>11/11/2026</td>
+    </tr>
+    <tr>
+      <td>kerolabs/pozzo-mobile</td>
+      <td>feature/cycle-close-and-reopen</td>
+      <td><a href="https://github.com/kerolabs/pozzo-mobile/commit/f4556e6">f4556e6</a></td>
+      <td>feat(savings-groups): see the periods of a closed group</td>
+      <td>A closed group opens its detail, which has no pot, so its periods could no longer be read although they stay readable after the cycle ends. The detail of a closed group now offers its periods to every member, and the organizer still opens a new cycle from there.</td>
+      <td>11/11/2026</td>
+    </tr>
+  </tbody>
+</table>
 
 #### 4.2.2.5. Testing Suite Evidence for Sprint Review
 
-En este Sprint la suite de los servicios creció con cada historia: cada pull request agregó las pruebas unitarias de las reglas nuevas del dominio y los escenarios de aceptación de su Technical Story. Se sumaron una clase y 25 métodos de pruebas unitarias y 22 escenarios de aceptación, con lo que la suite llega a 15 clases de pruebas unitarias con 97 métodos, 3 clases de integración con 15 métodos y 74 escenarios de aceptación. Quedan cubiertos los dos criterios que el Sprint 1 había dejado sin escenario: la subasta de turnos de TS04 y la deserción de TS06. Las herramientas y la forma de ejecución no cambiaron: JUnit 6, AssertJ y Cucumber, con PostgreSQL 16 en Testcontainers, y el workflow `Tests` de GitHub Actions las corre en cada pull request y en cada push a `develop` y `main`. En `main`, tras la versión `v0.2.0`, corrió las 217 pruebas sin fallas: <https://github.com/kerolabs/pozzo-backend/actions/runs/42938822056>.
+En este Sprint la suite de los servicios creció con cada historia: cada pull request agregó las pruebas unitarias de las reglas nuevas del dominio y los escenarios de aceptación de su Technical Story. Se sumaron dos clases y 28 métodos de pruebas unitarias y 23 escenarios de aceptación, con lo que la suite llega a 16 clases de pruebas unitarias con 100 métodos, 3 clases de integración con 15 métodos y 75 escenarios de aceptación. Quedan cubiertos los dos criterios que el Sprint 1 había dejado sin escenario: la subasta de turnos de TS04 y la deserción de TS06. Las herramientas y la forma de ejecución no cambiaron: JUnit 6, AssertJ y Cucumber, con PostgreSQL 16 en Testcontainers, y el workflow `Tests` de GitHub Actions las corre en cada pull request y en cada push a `develop` y `main`. En `main`, tras la versión `v0.2.2`, corrió las 221 pruebas sin fallas: <https://github.com/kerolabs/pozzo-backend/actions/runs/42982329670>.
 
-**Unit Tests.** La Tabla 162 indica las clases de prueba que cambiaron en el Sprint y los comportamientos que agregaron.
+**Unit Tests.** La Tabla 163 indica las clases de prueba que cambiaron en el Sprint y los comportamientos que agregaron.
 
 <table>
   <caption>Pruebas unitarias agregadas en el Sprint 2</caption>
@@ -4526,6 +4695,11 @@ En este Sprint la suite de los servicios creció con cada historia: cada pull re
       <td>El integrante sin la aplicación recibe su turno para la cuenta con la que se registró; la cabeza intercambia dos turnos que no empezaron, y no los que empezaron ni el de un integrante consigo mismo; el reemplazo toma un turno que no se cobró; el ganador de una subasta toma el turno en curso de quien lo tenía de forma provisional.</td>
     </tr>
     <tr>
+      <td>PeriodStatusResourceFromViewAssemblerTest (nueva)</td>
+      <td>PeriodStatusResourceFromViewAssembler, MyContributionsResourceFromViewAssembler</td>
+      <td>Un período abierto antes de un reemplazo muestra solo a los integrantes que debían aportar en él; el reemplazo puede leer un período que no lo esperaba; los aportes del reemplazo empiezan en el período en que entró.</td>
+    </tr>
+    <tr>
       <td>PeriodTest</td>
       <td>Period</td>
       <td>La transferencia del pozo solo se guarda una vez entregado; el reemplazo debe lo que el desertor aún debía; un crédito reduce lo que debe un integrante y el ganador recibe el pozo menos el descuento.</td>
@@ -4543,7 +4717,7 @@ En este Sprint la suite de los servicios creció con cada historia: cada pull re
   </tbody>
 </table>
 
-**Acceptance Tests.** La Tabla 163 lista los escenarios que se agregaron a cada archivo `.feature`. Los archivos completos están en <https://github.com/kerolabs/pozzo-backend/tree/develop/src/test/resources/features>.
+**Acceptance Tests.** La Tabla 164 lista los escenarios que se agregaron a cada archivo `.feature`. Los archivos completos están en <https://github.com/kerolabs/pozzo-backend/tree/develop/src/test/resources/features>.
 
 <table>
   <caption>Escenarios de aceptación agregados en el Sprint 2</caption>
@@ -4563,8 +4737,8 @@ En este Sprint la suite de los servicios creció con cada historia: cada pull re
     </tr>
     <tr>
       <td>ts04-turns.feature</td>
-      <td>3 a 10</td>
-      <td>Swap two turns whose periods have not started; A turn whose period started cannot be swapped; Only the organizer swaps turns; Auction the turns; The highest bid collects the turn; A bid below the minimum; Without bids the turn goes by draw without discount.</td>
+      <td>3 a 11</td>
+      <td>Swap two turns whose periods have not started; A turn whose period started cannot be swapped; Only the organizer swaps turns; Auction the turns; The highest bid collects the turn; A bid below the minimum; Without bids the turn goes by draw without discount; The members still to collect owe less in the next period.</td>
     </tr>
     <tr>
       <td>ts05-contributions-and-receipts.feature</td>
@@ -4584,7 +4758,7 @@ En este Sprint la suite de los servicios creció con cada historia: cada pull re
   </tbody>
 </table>
 
-La integración de las ramas dejó dos fallas en la suite que se corrigieron dentro del Sprint. Al resolver los conflictos, cinco métodos de prueba perdieron la anotación `@Test` y compilaban sin ejecutarse; se detectaron al revisar los métodos sin anotación y se corrigieron en un pull request propio. Además, los tres escenarios de subasta fallaron en GitHub Actions porque el paso que inicia la junta no guardaba el ciclo; el error estaba en el paso y no en los servicios, y se corrigió antes de cerrar la versión. La Tabla 164 relaciona los commits que solo tocan las pruebas.
+La integración de las ramas dejó dos fallas en la suite que se corrigieron dentro del Sprint. Al resolver los conflictos, cinco métodos de prueba perdieron la anotación `@Test` y compilaban sin ejecutarse; se detectaron al revisar los métodos sin anotación y se corrigieron en un pull request propio. Además, los tres escenarios de subasta fallaron en GitHub Actions porque el paso que inicia la junta no guardaba el ciclo; el error estaba en el paso y no en los servicios, y se corrigió antes de cerrar la versión. La Tabla 165 relaciona los commits que solo tocan las pruebas.
 
 <table>
   <caption>Commits de las pruebas de los servicios RESTful en el Sprint 2</caption>
@@ -4639,19 +4813,33 @@ La integración de las ramas dejó dos fallas en la suite que se corrigieron den
 
 En el Sprint 2 la aplicación móvil incorporó la gestión dinámica del ciclo de vida de la junta y las modalidades avanzadas de asignación de turnos. Se implementó la configuración y ejecución de subastas de turnos con ofertas en vivo bajo el pozo, el recálculo dinámico de las cuotas tras el descuento de la oferta ganadora, el intercambio de turnos no iniciados desde el calendario y el registro directo de aportes en efectivo. Asimismo, la aplicación sumó el flujo de deserción de integrantes con asignación de reemplazos en marcha, la entrega del pozo con comprobante de transferencia bancaria, la consulta de períodos anteriores y la apertura de un nuevo ciclo conservando las reglas de la junta. Por último, se integró la generación de enlaces públicos para compartir constancias de aportes verificables en la web sin exponer el comprobante original.
 
-Para complementar la evidencia de ejecución del Sprint 2, se presenta el video explicativo del flujo de navegación y funcionamiento de la aplicación móvil desarrollado para la Sprint Review, disponible en YouTube: <https://youtu.be/YW2H3MOr3kE>.
+La Figura 159 muestra la subasta de turnos: la cabeza elige la subasta y define cuántos días antes del corte cierra, la oferta mínima y qué pasa si nadie oferta; el integrante ve la subasta del período y mejora su oferta; sin ofertas, la cabeza elige quién cobra entre quienes aún no cobraron; y el calendario marca los turnos que quedan por subastar.
 
-<!-- TODO(equipo): describir y mostrar con capturas las pantallas de la aplicación del Sprint 2 (subasta, deserción y reemplazo, entrega del pozo con su comprobante, cierre y nuevo ciclo, mis aportes y compartir, períodos anteriores) -->
+![Configuración de la subasta, oferta, elección de quien cobra y calendario por subastar](images/chapter_4/app_auction.png){width=100%}
+
+La Figura 160 muestra los cambios de integrantes: el retiro de un integrante antes de iniciar, con la opción de deshacerlo; la deserción de un integrante en una junta en curso; el turno libre ya ocupado por su reemplazo; y el calendario con el botón para intercambiar dos turnos que no empezaron.
+
+![Retiro con deshacer, deserción, reemplazo e intercambio de turnos](images/chapter_4/app_members_changes.png){width=100%}
+
+La Figura 161 muestra la entrega del pozo con el descuento de la subasta, la confirmación de la entrega con la transferencia ya adjunta, los períodos anteriores con quién cobró, cuánto y el estado de cada aporte, y la apertura de un nuevo ciclo en una junta cerrada.
+
+![Entrega del pozo, transferencia adjunta, períodos anteriores y nuevo ciclo](images/chapter_4/app_payout_cycle.png){width=100%}
+
+La Figura 162 muestra el registro de un integrante sin la aplicación, el comprobante de un aporte en Mis aportes con el botón para compartirlo y la hoja de compartir con el enlace verificable.
+
+![Integrante sin la aplicación, comprobante en Mis aportes y enlace verificable](images/chapter_4/app_share_contribution.png){width=75%}
+
+Para complementar la evidencia de ejecución del Sprint 2, se presenta el video explicativo del flujo de navegación y funcionamiento de la aplicación móvil desarrollado para la Sprint Review, disponible en YouTube: <https://youtu.be/YW2H3MOr3kE>.
 
 #### 4.2.2.7. Services Documentation Evidence for Sprint Review
 
 En este Sprint se documentaron con OpenAPI 12 endpoints nuevos, con lo que los servicios suman 66 endpoints en 12 recursos. El recurso nuevo es Auctions, con la subasta de cada período; los demás endpoints se agregaron a recursos que ya existían. La documentación sigue generándose desde el código con springdoc-openapi y está desplegada junto con los servicios: Swagger UI en <https://api-kerolabs.duckdns.org/swagger-ui/index.html> y el documento OpenAPI en <https://api-kerolabs.duckdns.org/v3/api-docs>.
 
-Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y requieren el token Bearer, salvo la marcada como pública. La Figura 159 muestra la documentación desplegada con el recurso nuevo Auctions y los endpoints que se sumaron a Periods y Turns.
+Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y requieren el token Bearer, salvo la marcada como pública. La Figura 163 muestra la documentación desplegada con el recurso nuevo Auctions y los endpoints que se sumaron a Periods y Turns.
 
 ![Swagger UI con los endpoints del Sprint 2](images/chapter_4/swagger_sprint2.png){width=85%}
 
-La Tabla 165 presenta los endpoints nuevos con el verbo HTTP, la sintaxis de la llamada, la acción con su enlace a la documentación desplegada, los parámetros y la respuesta exitosa.
+La Tabla 166 presenta los endpoints nuevos con el verbo HTTP, la sintaxis de la llamada, la acción con su enlace a la documentación desplegada, los parámetros y la respuesta exitosa.
 
 <table>
   <caption>Endpoints documentados en el Sprint 2</caption>
@@ -4755,21 +4943,86 @@ La Tabla 165 presenta los endpoints nuevos con el verbo HTTP, la sintaxis de la 
 
 #### 4.2.2.8. Software Deployment Evidence for Sprint Review
 
-En el Sprint 2 se desplegaron de nuevo los servicios RESTful y las páginas públicas de los enlaces. Como en el Sprint 1, cada producto se publica desde la rama `main` de su repositorio.
+En el Sprint 2 se desplegaron de nuevo los servicios RESTful y las páginas públicas de los enlaces, y se generó un APK nuevo de la aplicación móvil. Como en el Sprint 1, cada producto se publica desde la rama `main` de su repositorio.
 
-**Servicios RESTful.** El despliegue no cambió de infraestructura: la instancia de Oracle Cloud, el dominio `api-kerolabs.duckdns.org` y el workflow `Deploy`, que compila el jar, lo envía al servidor y espera a que responda antes de dar el despliegue por bueno. El Sprint llegó a `main` en dos pull requests de integración. El primero, pozzo-backend#59, llevó las historias del Sprint y se desplegó el 10 de noviembre (<https://github.com/kerolabs/pozzo-backend/actions/runs/42919507445>). El segundo, pozzo-backend#61, llevó la corrección de los escenarios de subasta y se desplegó el mismo día (<https://github.com/kerolabs/pozzo-backend/actions/runs/42938822170>). Su commit quedó marcado como la versión `v0.2.0`: <https://github.com/kerolabs/pozzo-backend/tree/v0.2.0>. La Figura 160 muestra las ejecuciones del workflow `Deploy`, con las dos del Sprint 2 al inicio de la lista.
+**Servicios RESTful.** El despliegue no cambió de infraestructura: la instancia de Oracle Cloud, el dominio `api-kerolabs.duckdns.org` y el workflow `Deploy`, que compila el jar, lo envía al servidor y espera a que responda antes de dar el despliegue por bueno. El Sprint llegó a `main` en cuatro pull requests de integración. El primero, pozzo-backend#59, llevó las historias del Sprint y se desplegó el 10 de noviembre (<https://github.com/kerolabs/pozzo-backend/actions/runs/42919507445>). El segundo, pozzo-backend#61, llevó la corrección de los escenarios de subasta y se desplegó el mismo día (<https://github.com/kerolabs/pozzo-backend/actions/runs/42938822170>); su commit quedó marcado como la versión `v0.2.0`. Los otros dos llevaron las correcciones que aparecieron al probar la aplicación contra los servicios desplegados y se desplegaron el 11 de noviembre: pozzo-backend#64 como `v0.2.1` (<https://github.com/kerolabs/pozzo-backend/actions/runs/42979252247>) y pozzo-backend#66 como `v0.2.2` (<https://github.com/kerolabs/pozzo-backend/actions/runs/42982329663>), la versión que queda desplegada: <https://github.com/kerolabs/pozzo-backend/tree/v0.2.2>. La Figura 164 muestra las ejecuciones del workflow `Deploy`, con las cuatro del Sprint 2 al inicio de la lista.
 
-![Despliegues de los servicios RESTful del Sprint 2 con el workflow Deploy](images/chapter_4/deploy_runs_sprint2.png){width=90%} Las columnas y tablas nuevas las creó Hibernate al arrancar, sin variables de entorno nuevas, porque las propiedades agregadas tienen un valor por defecto.
+![Despliegues de los servicios RESTful del Sprint 2 con el workflow Deploy](images/chapter_4/deploy_runs_sprint2.png){width=90%}
+
+Las columnas y tablas nuevas las creó Hibernate al arrancar, sin variables de entorno nuevas, porque las propiedades agregadas tienen un valor por defecto.
 
 **Páginas públicas de los enlaces.** La página del aporte compartido llegó a `main` de `kerolabs/kerolabs.github.io` en kerolabs.github.io#8 y quedó publicada en <https://kerolabs.github.io/aporte/>, junto a las de invitación e historial.
 
 **Landing Page.** No cambió en este Sprint y sigue publicado en <https://kerolabs.github.io/pozzo-landing-page/>.
 
-<!-- TODO(equipo): describir el APK del Sprint 2 de la aplicación móvil. -->
+**Aplicación móvil.** La aplicación llegó a `main` de `kerolabs/pozzo-mobile` en pozzo-mobile#29 y quedó marcada como la versión `v0.2.0`: <https://github.com/kerolabs/pozzo-mobile/tree/v0.2.0>. No tiene despliegue automático: el APK se genera con la variante `cloudRelease`, que apunta a los servicios desplegados, y se firma con la llave de la aplicación, que se guarda fuera del repositorio. Para este Sprint se generó una llave nueva, por lo que en un celular con el APK del Sprint 1 hay que desinstalar la aplicación antes de instalar la nueva. Este APK es el que se usa en las entrevistas de validación; la distribución con Firebase App Distribution sigue prevista para la entrega final.
 
 #### 4.2.2.9. Team Collaboration Insights during Sprint
 
-<!-- TODO(equipo): al cierre del Sprint, agregar la tabla de commits por integrante y repositorio, las capturas de la pestaña Insights y su análisis, como en el Sprint 1. -->
+Como en el Sprint 1, cada cambio se trabajó en su propia rama, entró a `develop` por pull request con el check `commit-policy` y llegó a `main` en pull requests de integración. La Tabla 167 muestra los commits de cada integrante por repositorio entre el 3 y el 12 de noviembre de 2026, sin contar los merges, y las Figuras 165 y 166 la pestaña Insights de los repositorios de los servicios y de la aplicación en ese período. El landing page no cambió en este Sprint.
+
+<table>
+  <caption>Commits de cada integrante por repositorio en el Sprint 2</caption>
+  <colgroup><col width="30%"><col width="13%"><col width="13%"><col width="13%"><col width="13%"><col width="18%"></colgroup>
+  <thead>
+    <tr>
+      <th>Integrante</th>
+      <th>Landing page</th>
+      <th>Páginas de enlaces</th>
+      <th>Servicios RESTful</th>
+      <th>Aplicación móvil</th>
+      <th>Informe</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>0</td>
+      <td>1</td>
+      <td>17</td>
+      <td>1</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>Flores Pinchi, Jose Fernando</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Sanchez Benavente, Leonardo Matias</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Solis Campos, Estefano Sebastian</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Tirado Carrera, Gabriela Luciana</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+![Contribuciones al repositorio de los servicios RESTful en el Sprint 2](images/chapter_4/insights_sprint2_pozzo-backend.png){width=65%}
+
+![Contribuciones al repositorio de la aplicación móvil en el Sprint 2](images/chapter_4/insights_sprint2_pozzo-mobile.png){width=65%}
+
+La aplicación móvil repartió su trabajo entre los cinco integrantes, como se propuso al cerrar el Sprint 1: Sanchez y Solis llevaron a `develop` la subasta de turnos, su cierre y el intercambio de turnos; Tirado, el retiro con deshacer, la deserción y el reemplazo; Flores, la entrega del pozo con su transferencia, los períodos anteriores y el nuevo ciclo; y Camargo, el enlace para compartir un aporte. Los servicios RESTful y las páginas de enlaces siguieron a cargo de Camargo, y en el informe participaron Camargo, Flores y Solis. La parte de la propuesta que no se cumplió es repartir también los servicios; para el Sprint 3 se propone que cada integrante implemente en los servicios las historias que lleve en la aplicación, con sus escenarios de aceptación.
 
 
 
@@ -4785,7 +5038,7 @@ La entrevista dura unos treinta minutos y se realiza de forma presencial o por v
 
 La sesión se estructura en cinco momentos: saludo y consentimiento; preguntas de contexto para situar a la persona y su junta actual; las tareas guiadas, que son el centro de la entrevista; las preguntas posteriores, que recogen lo que la persona entendió y lo que le faltó; y el cierre. Durante las tareas el entrevistador no guía ni corrige: solo enuncia la tarea y pide a la persona que piense en voz alta. Si la persona se bloquea más de un minuto, se anota el bloqueo y se da la pista mínima para continuar.
 
-De cada tarea se registran cuatro datos: si la completó sin ayuda, con ayuda o no la completó; cuánto tardó; en qué pantalla dudó; y qué dijo mientras la hacía. La Tabla 166 reúne las tareas de cada segmento, la pantalla en la que ocurren, lo que cada una valida y el criterio con el que se considera superada.
+De cada tarea se registran cuatro datos: si la completó sin ayuda, con ayuda o no la completó; cuánto tardó; en qué pantalla dudó; y qué dijo mientras la hacía. La Tabla 168 reúne las tareas de cada segmento, la pantalla en la que ocurren, lo que cada una valida y el criterio con el que se considera superada.
 
 <table>
   <caption>Tareas de validación por segmento</caption>
@@ -4966,7 +5219,7 @@ Al cerrar se agradece la participación, se pregunta si la persona quiere añadi
 
 - **Primera entrevista**
 
-La Tabla 167 presenta la ficha de la primera entrevista de validación al segmento de cabezas de junta.
+La Tabla 169 presenta la ficha de la primera entrevista de validación al segmento de cabezas de junta.
 
 <table>
   <caption>Ficha de la primera entrevista de validación al segmento de cabezas de junta</caption>
@@ -5023,7 +5276,7 @@ La Tabla 167 presenta la ficha de la primera entrevista de validación al segmen
 
 - **Segunda entrevista**
 
-La Tabla 168 presenta la ficha de la segunda entrevista de validación al segmento de cabezas de junta.
+La Tabla 170 presenta la ficha de la segunda entrevista de validación al segmento de cabezas de junta.
 
 <table>
   <caption>Ficha de la segunda entrevista de validación al segmento de cabezas de junta</caption>
@@ -5080,7 +5333,7 @@ La Tabla 168 presenta la ficha de la segunda entrevista de validación al segmen
 
 - **Tercera entrevista**
 
-La Tabla 169 presenta la ficha de la tercera entrevista de validación al segmento de cabezas de junta.
+La Tabla 171 presenta la ficha de la tercera entrevista de validación al segmento de cabezas de junta.
 
 <table>
   <caption>Ficha de la tercera entrevista de validación al segmento de cabezas de junta</caption>
@@ -5139,7 +5392,7 @@ La Tabla 169 presenta la ficha de la tercera entrevista de validación al segmen
 
 - **Primera entrevista**
 
-La Tabla 170 presenta la ficha de la primera entrevista de validación al segmento de participantes.
+La Tabla 172 presenta la ficha de la primera entrevista de validación al segmento de participantes.
 
 <table>
   <caption>Ficha de la primera entrevista de validación al segmento de participantes</caption>
@@ -5196,7 +5449,7 @@ La Tabla 170 presenta la ficha de la primera entrevista de validación al segmen
 
 - **Segunda entrevista**
 
-La Tabla 171 presenta la ficha de la segunda entrevista de validación al segmento de participantes.
+La Tabla 173 presenta la ficha de la segunda entrevista de validación al segmento de participantes.
 
 <table>
   <caption>Ficha de la segunda entrevista de validación al segmento de participantes</caption>
@@ -5253,7 +5506,7 @@ La Tabla 171 presenta la ficha de la segunda entrevista de validación al segmen
 
 - **Tercera entrevista**
 
-La Tabla 172 presenta la ficha de la tercera entrevista de validación al segmento de participantes.
+La Tabla 174 presenta la ficha de la tercera entrevista de validación al segmento de participantes.
 
 <table>
   <caption>Ficha de la tercera entrevista de validación al segmento de participantes</caption>
@@ -5310,7 +5563,7 @@ La Tabla 172 presenta la ficha de la tercera entrevista de validación al segmen
 
 ### 4.3.3. Evaluaciones según heurísticas
 
-El equipo realizó una evaluación heurística del producto del Sprint 1. Es una inspección hecha por el propio equipo, sin usuarios, en la que cada integrante recorre las tareas de la Tabla 166 buscando dónde la interfaz incumple un principio de usabilidad. No sustituye a las entrevistas, porque un equipo no puede sorprenderse con su propio producto, pero encuentra antes los problemas que no hace falta un usuario para detectar. Los hallazgos se contrastaron con las diez heurísticas de Nielsen [@nielsen1994heuristics], las mismas con las que se justificaron los principios de diseño del Capítulo III. La Tabla 173 presenta la cabecera de la evaluación.
+El equipo realizó una evaluación heurística del producto del Sprint 1. Es una inspección hecha por el propio equipo, sin usuarios, en la que cada integrante recorre las tareas de la Tabla 168 buscando dónde la interfaz incumple un principio de usabilidad. No sustituye a las entrevistas, porque un equipo no puede sorprenderse con su propio producto, pero encuentra antes los problemas que no hace falta un usuario para detectar. Los hallazgos se contrastaron con las diez heurísticas de Nielsen [@nielsen1994heuristics], las mismas con las que se justificaron los principios de diseño del Capítulo III. La Tabla 175 presenta la cabecera de la evaluación.
 
 <table>
   <caption>Cabecera de la evaluación heurística</caption>
@@ -5352,7 +5605,7 @@ El equipo realizó una evaluación heurística del producto del Sprint 1. Es una
     </tr>
     <tr>
       <td><b>Alcance</b></td>
-      <td>Las doce tareas de la Tabla 166, que cubren el ingreso, la creación de la junta, la invitación, el reparto de turnos, el registro y la revisión del aporte, el estado del pozo, el calendario de turnos, el historial y los avisos. Quedan fuera la subasta del turno y la deserción de un integrante, que el Sprint 1 dejó para el siguiente por no tener endpoint en los servicios</td>
+      <td>Las doce tareas de la Tabla 168, que cubren el ingreso, la creación de la junta, la invitación, el reparto de turnos, el registro y la revisión del aporte, el estado del pozo, el calendario de turnos, el historial y los avisos. Quedan fuera la subasta del turno y la deserción de un integrante, que el Sprint 1 dejó para el siguiente por no tener endpoint en los servicios</td>
     </tr>
     <tr>
       <td><b>Fecha</b></td>
@@ -5361,7 +5614,7 @@ El equipo realizó una evaluación heurística del producto del Sprint 1. Es una
   </tbody>
 </table>
 
-Cada problema se puntúa con la escala de severidad de Nielsen, que combina la frecuencia con la que ocurre, el impacto que tiene cuando ocurre y la persistencia con la que vuelve a aparecer. La Tabla 174 presenta la escala y lo que significa cada grado para este producto.
+Cada problema se puntúa con la escala de severidad de Nielsen, que combina la frecuencia con la que ocurre, el impacto que tiene cuando ocurre y la persistencia con la que vuelve a aparecer. La Tabla 176 presenta la escala y lo que significa cada grado para este producto.
 
 <table>
   <caption>Escala de severidad de los problemas de usabilidad</caption>
@@ -5402,7 +5655,7 @@ Cada problema se puntúa con la escala de severidad de Nielsen, que combina la f
   </tbody>
 </table>
 
-La inspección encontró nueve problemas, ninguno catastrófico. La Tabla 175 los recoge ordenados por severidad, con la heurística que incumplen, la pantalla donde aparecen y la corrección propuesta. Las pantallas referidas son las de las Figuras 145, 146 y 147 para la aplicación móvil y la Figura 154 para el landing page.
+La inspección encontró nueve problemas, ninguno catastrófico. La Tabla 177 los recoge ordenados por severidad, con la heurística que incumplen, la pantalla donde aparecen y la corrección propuesta. Las pantallas referidas son las de las Figuras 145, 146 y 147 para la aplicación móvil y la Figura 154 para el landing page.
 
 <table>
   <caption>Problemas encontrados en la evaluación heurística</caption>
