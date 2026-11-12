@@ -4966,10 +4966,10 @@ Al cerrar se agradece la participación, se pregunta si la persona quiere añadi
 
 - **Primera entrevista**
 
-La Tabla 167 presenta la ficha de la primera entrevista de validación al segmento de cabezas de junta.
+La Tabla 167 presenta la ficha de la entrevista de validación a Lionel Chávez.
 
 <table>
-  <caption>Ficha de la primera entrevista de validación al segmento de cabezas de junta</caption>
+  <caption>Ficha de la entrevista de validación a Lionel Chávez</caption>
   <colgroup><col width="30%"><col width="70%"></colgroup>
   <thead>
     <tr>
@@ -4980,23 +4980,23 @@ La Tabla 167 presenta la ficha de la primera entrevista de validación al segmen
   <tbody>
     <tr>
       <td><b>Entrevistado(a)</b></td>
-      <td></td>
+      <td>Lionel Chávez</td>
     </tr>
     <tr>
       <td><b>Género</b></td>
-      <td></td>
+      <td>Masculino</td>
     </tr>
     <tr>
       <td><b>Edad</b></td>
-      <td></td>
+      <td>20</td>
     </tr>
     <tr>
       <td><b>Lugar de residencia</b></td>
-      <td></td>
+      <td>Los Olivos, Lima</td>
     </tr>
     <tr>
       <td><b>Entrevistador(a)</b></td>
-      <td></td>
+      <td>Flores Pinchi, José Fernando</td>
     </tr>
     <tr>
       <td><b>Fecha</b></td>
@@ -5008,18 +5008,24 @@ La Tabla 167 presenta la ficha de la primera entrevista de validación al segmen
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
-      <td></td>
+      <td><a href="https://youtu.be/ZIZLua_E0Ns">https://youtu.be/ZIZLua_E0Ns</a></td>
     </tr>
     <tr>
       <td><b>Resultado de las tareas</b></td>
-      <td></td>
+      <td>Las ocho completadas. Siete sin ayuda: crear la junta, invitar, repartir los turnos e iniciar, resolver el comprobante que no coincidía, leer el estado del pozo, averiguar qué hace la aplicación con quien no ha aportado y cerrar el ciclo. La entrega del pozo se completó al segundo intento: el primero devolvió un error.</td>
     </tr>
     <tr>
       <td><b>Observaciones</b></td>
-      <td></td>
+      <td>Describió la interfaz como «súper intuitiva» y el aviso de que el comprobante no coincide como «muy informativo». Anotó dos fricciones: el inicio de la junta «tarda un poquito» sin indicar nada, y el número de Yape del perfil «podría estar conectado directamente con el número de celular».</td>
     </tr>
   </tbody>
 </table>
+
+La Figura 161 muestra la captura de la entrevista a Lionel Chávez.
+
+![Captura de la entrevista de validación a Lionel Chávez](images/chapter_4/validacion_lionel_chavez.png){width=90%}
+
+Lionel es el único entrevistado del segmento de cabezas de junta y el único que recorrió el ciclo entero, desde crear la junta hasta cerrarla. Administra la suya con una hoja a mano, que es el escenario que describió el Capítulo II, y completó las ocho tareas sin que el entrevistador interviniera. Dos observaciones suyas se recogen como problemas en la evaluación heurística: el error que devolvió el primer intento de registrar la entrega del pozo y la espera sin indicador al iniciar la junta.
 
 - **Segunda entrevista**
 
@@ -5139,10 +5145,10 @@ La Tabla 169 presenta la ficha de la tercera entrevista de validación al segmen
 
 - **Primera entrevista**
 
-La Tabla 170 presenta la ficha de la primera entrevista de validación al segmento de participantes.
+La Tabla 170 presenta la ficha de la entrevista de validación a Elizabeth Díaz.
 
 <table>
-  <caption>Ficha de la primera entrevista de validación al segmento de participantes</caption>
+  <caption>Ficha de la entrevista de validación a Elizabeth Díaz</caption>
   <colgroup><col width="30%"><col width="70%"></colgroup>
   <thead>
     <tr>
@@ -5153,23 +5159,23 @@ La Tabla 170 presenta la ficha de la primera entrevista de validación al segmen
   <tbody>
     <tr>
       <td><b>Entrevistado(a)</b></td>
-      <td></td>
+      <td>Elizabeth Díaz</td>
     </tr>
     <tr>
       <td><b>Género</b></td>
-      <td></td>
+      <td>Femenino</td>
     </tr>
     <tr>
       <td><b>Edad</b></td>
-      <td></td>
+      <td>22</td>
     </tr>
     <tr>
       <td><b>Lugar de residencia</b></td>
-      <td></td>
+      <td>Callao</td>
     </tr>
     <tr>
       <td><b>Entrevistador(a)</b></td>
-      <td></td>
+      <td>Flores Pinchi, José Fernando</td>
     </tr>
     <tr>
       <td><b>Fecha</b></td>
@@ -5181,25 +5187,31 @@ La Tabla 170 presenta la ficha de la primera entrevista de validación al segmen
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
-      <td></td>
+      <td><a href="https://youtu.be/T-7__YjW3yU">https://youtu.be/T-7__YjW3yU</a></td>
     </tr>
     <tr>
       <td><b>Resultado de las tareas</b></td>
-      <td></td>
+      <td>Las ocho completadas sin ayuda: entrar con el código de invitación, unirse a la junta, registrar el aporte, leer el calendario de turnos, comprobar que su aporte quedó validado, explicar dónde queda su dinero, consultar su historial de cumplimiento y compartirlo.</td>
     </tr>
     <tr>
       <td><b>Observaciones</b></td>
-      <td></td>
+      <td>Ya participó en las entrevistas del Capítulo II. Describió la aplicación como «todo muy sencillo y bastante intuitivo» y el ingreso sin contraseña como «un poco más seguro tal vez que una contraseña». Corrigió a mano los campos que la aplicación leyó del comprobante y preguntó por iniciativa propia cómo se comprueba «que sea el mismo monto que tú mandas y el mismo monto que estás escribiendo».</td>
     </tr>
   </tbody>
 </table>
+
+La Figura 162 muestra la captura de la entrevista a Elizabeth Díaz.
+
+![Captura de la entrevista de validación a Elizabeth Díaz](images/chapter_4/validacion_elizabeth_diaz.png){width=90%}
+
+Elizabeth completó las ocho tareas sin ayuda y sin preguntar una sola vez dónde tocar. Lo relevante de su sesión no está en lo que le costó, sino en lo que preguntó al final: si los campos que la aplicación lee del comprobante se pueden corregir a mano, qué impide que alguien escriba un monto que el comprobante no dice. La pregunta la planteó ella, sin que se le sugiriera, y es la que origina el problema de mayor severidad que añadió esta ronda de entrevistas.
 
 - **Segunda entrevista**
 
-La Tabla 171 presenta la ficha de la segunda entrevista de validación al segmento de participantes.
+La Tabla 171 presenta la ficha de la entrevista de validación a Mariana López.
 
 <table>
-  <caption>Ficha de la segunda entrevista de validación al segmento de participantes</caption>
+  <caption>Ficha de la entrevista de validación a Mariana López</caption>
   <colgroup><col width="30%"><col width="70%"></colgroup>
   <thead>
     <tr>
@@ -5210,23 +5222,23 @@ La Tabla 171 presenta la ficha de la segunda entrevista de validación al segmen
   <tbody>
     <tr>
       <td><b>Entrevistado(a)</b></td>
-      <td></td>
+      <td>Mariana López</td>
     </tr>
     <tr>
       <td><b>Género</b></td>
-      <td></td>
+      <td>Femenino</td>
     </tr>
     <tr>
       <td><b>Edad</b></td>
-      <td></td>
+      <td>35</td>
     </tr>
     <tr>
       <td><b>Lugar de residencia</b></td>
-      <td></td>
+      <td>San Juan de Lurigancho, Lima</td>
     </tr>
     <tr>
       <td><b>Entrevistador(a)</b></td>
-      <td></td>
+      <td>Flores Pinchi, José Fernando</td>
     </tr>
     <tr>
       <td><b>Fecha</b></td>
@@ -5238,18 +5250,24 @@ La Tabla 171 presenta la ficha de la segunda entrevista de validación al segmen
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
-      <td></td>
+      <td><a href="https://youtu.be/E_9QCZduGvk">https://youtu.be/E_9QCZduGvk</a></td>
     </tr>
     <tr>
       <td><b>Resultado de las tareas</b></td>
-      <td></td>
+      <td>Las ocho completadas sin ayuda. Para el calendario de turnos abrió el menú de los tres puntos de la junta; el resto lo resolvió desde la pantalla en la que estaba.</td>
     </tr>
     <tr>
       <td><b>Observaciones</b></td>
-      <td></td>
+      <td>Ya participó en las entrevistas del Capítulo II. Fue la única que echó en falta más seguridad en el ingreso: «sería mejor usar un PIN, o los dos pasos de verificación». No esperaba que la aplicación leyera el comprobante: «no pensaba que lo iba a leer; que lo lea me llena más de seguridad». Corrigió a mano los campos que no coincidían.</td>
     </tr>
   </tbody>
 </table>
+
+La Figura 163 muestra la captura de la entrevista a Mariana López.
+
+![Captura de la entrevista de validación a Mariana López](images/chapter_4/validacion_mariana_lopez.png){width=90%}
+
+Mariana completó las ocho tareas sin ayuda. Su sesión aporta el contraste sobre el ingreso sin contraseña: donde Elizabeth lo vio más seguro que una contraseña, Mariana esperaba un PIN o una verificación en dos pasos. Las dos reacciones son legítimas, y la diferencia sugiere que la pantalla de ingreso no explica que el código SMS ya cumple esa función. También fue quien expresó con más claridad el valor de la lectura automática del comprobante, que no esperaba.
 
 - **Tercera entrevista**
 
