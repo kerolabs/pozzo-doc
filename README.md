@@ -85,6 +85,12 @@ La Tabla 1 presenta el registro de versiones del informe.
       <td align="center">Todo el equipo</td>
       <td align="center">Versión para AV2: Capítulo IV con el Sprint 2 completo y las entrevistas de validación; Collaboration Insights, Student Outcome e índice actualizados</td>
     </tr>
+    <tr>
+      <td align="center">3.1</td>
+      <td align="center">13/11/2026</td>
+      <td align="center">Flores Pinchi, Jose Fernando</td>
+      <td align="center">Video About-the-Product, armado con las escenas de las entrevistas de validación</td>
+    </tr>
   </tbody>
 </table>
 
@@ -242,7 +248,7 @@ El informe se elabora en el repositorio `pozzo-doc` de la organización Kerolabs
     </tr>
     <tr>
       <td>Flores Pinchi, Jose Fernando</td>
-      <td>Validation Interviews: diseño de las entrevistas con tareas que cubren las nueve épicas, registro de las tres entrevistas realizadas y evaluación heurística del producto con los hallazgos de las entrevistas.</td>
+      <td>Validation Interviews: diseño de las entrevistas con tareas que cubren las nueve épicas, registro de las tres entrevistas realizadas y evaluación heurística del producto con los hallazgos de las entrevistas; Video About-the-Product.</td>
       <td align="center">3</td>
       <td align="center">10</td>
     </tr>
@@ -342,6 +348,7 @@ El informe se elabora en el repositorio `pozzo-doc` de la organización Kerolabs
   - [4.3.1. Diseño de Entrevistas](docs/chapter_4.md#431-diseño-de-entrevistas)
   - [4.3.2. Registro de Entrevistas](docs/chapter_4.md#432-registro-de-entrevistas)
   - [4.3.3. Evaluaciones según heurísticas](docs/chapter_4.md#433-evaluaciones-según-heurísticas)
+- [4.4. Video About-the-Product](docs/chapter_4.md#44-video-about-the-product)
 
 ### [Conclusiones](docs/closing.md#conclusiones)
 - [Conclusiones y recomendaciones](docs/closing.md#conclusiones-y-recomendaciones)
