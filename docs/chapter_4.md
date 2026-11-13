@@ -5038,7 +5038,7 @@ La entrevista dura unos treinta minutos y se realiza de forma presencial o por v
 
 La sesión se estructura en cinco momentos: saludo y consentimiento; preguntas de contexto para situar a la persona y su junta actual; las tareas guiadas, que son el centro de la entrevista; las preguntas posteriores, que recogen lo que la persona entendió y lo que le faltó; y el cierre. Durante las tareas el entrevistador no guía ni corrige: solo enuncia la tarea y pide a la persona que piense en voz alta. Si la persona se bloquea más de un minuto, se anota el bloqueo y se da la pista mínima para continuar.
 
-De cada tarea se registran cuatro datos: si la completó sin ayuda, con ayuda o no la completó; cuánto tardó; en qué pantalla dudó; y qué dijo mientras la hacía. La Tabla 169 reúne las tareas de cada segmento, la pantalla en la que ocurren, lo que cada una valida y el criterio con el que se considera superada.
+De cada tarea se registran cuatro datos: si la completó sin ayuda, con ayuda o no la completó; cuánto tardó; en qué pantalla dudó; y qué dijo mientras la hacía. La Tabla 169 reúne las tareas de cada segmento, la pantalla en la que ocurren, las historias de usuario que ejercitan, lo que cada una valida y el criterio con el que se considera superada. Entre las dieciséis cubren los nueve epics del Product Backlog.
 
 <table>
   <caption>Tareas de validación por segmento</caption>
@@ -5253,11 +5253,11 @@ La Tabla 170 presenta la ficha de la entrevista de validación a Lionel Chávez.
     </tr>
     <tr>
       <td><b>Fecha</b></td>
-      <td></td>
+      <td>12/11/2026</td>
     </tr>
     <tr>
       <td><b>Duración</b></td>
-      <td></td>
+      <td>21:03</td>
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
@@ -5318,11 +5318,11 @@ La Tabla 171 presenta la ficha de la entrevista de validación a Elizabeth Díaz
     </tr>
     <tr>
       <td><b>Fecha</b></td>
-      <td></td>
+      <td>12/11/2026</td>
     </tr>
     <tr>
       <td><b>Duración</b></td>
-      <td></td>
+      <td>20:15</td>
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
@@ -5381,11 +5381,11 @@ La Tabla 172 presenta la ficha de la entrevista de validación a Mariana López.
     </tr>
     <tr>
       <td><b>Fecha</b></td>
-      <td></td>
+      <td>12/11/2026</td>
     </tr>
     <tr>
       <td><b>Duración</b></td>
-      <td></td>
+      <td>13:17</td>
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
@@ -5452,7 +5452,7 @@ El equipo realizó una evaluación heurística del producto construido. Es una i
     </tr>
     <tr>
       <td><b>Alcance</b></td>
-      <td>Las doce tareas de la Tabla 169, que cubren el ingreso, la creación de la junta, la invitación, el reparto de turnos, el registro y la revisión del aporte, el estado del pozo, el calendario de turnos, el historial y los avisos. Quedan fuera la subasta del turno y la deserción de un integrante, que el Sprint 1 dejó para el siguiente por no tener endpoint en los servicios</td>
+      <td>Las dieciséis tareas de la Tabla 169, que cubren el ingreso, la creación de la junta, la invitación, el reparto de turnos, el registro y la revisión del aporte, el estado del pozo, el calendario de turnos, el historial, los avisos, la entrega del pozo, el cierre del ciclo y el historial de cumplimiento. Quedan fuera la subasta del turno y la deserción de un integrante, que el Sprint 1 dejó para el siguiente por no tener endpoint en los servicios</td>
     </tr>
     <tr>
       <td><b>Fecha</b></td>
@@ -5502,7 +5502,7 @@ Cada problema se puntúa con la escala de severidad de Nielsen, que combina la f
   </tbody>
 </table>
 
-La inspección del equipo encontró nueve problemas y las tres entrevistas de validación añadieron cuatro más, ninguno catastrófico. La Tabla 175 recoge los trece ordenados por severidad, con la heurística que incumplen, la pantalla donde aparecen, el origen del hallazgo y la corrección propuesta. Las pantallas referidas son las de las Figuras 146, 146 y 147 para la aplicación móvil y la Figura 155 para el landing page.
+La inspección del equipo encontró nueve problemas y las tres entrevistas de validación añadieron cuatro más, ninguno catastrófico. La Tabla 175 recoge los trece ordenados por severidad, con la heurística que incumplen, la pantalla donde aparecen, el origen del hallazgo y la corrección propuesta. Las pantallas referidas son las de las Figuras 146, 147 y 148 para la aplicación móvil y la Figura 155 para el landing page.
 
 <table>
   <caption>Problemas encontrados en la evaluación heurística</caption>
@@ -5643,6 +5643,6 @@ Cuatro de los trece problemas son de severidad mayor y los cuatro están en el r
 
 Las entrevistas confirmaron además tres decisiones del Capítulo III. El lenguaje de la interfaz usa los términos del Ubiquitous Language: preguntado por si aporte, pozo, turno y fecha de corte significan en la aplicación lo mismo que en su junta, el entrevistado del primer segmento respondió que son los términos que el grupo ya usa. El aviso de que Pozzo no recibe ni retiene el dinero se entendió: las tres personas respondieron sin dudar que el dinero va a la cuenta de quien cobra el turno. Y las veinticuatro tareas de las tres sesiones se completaron, veintitrés de ellas sin ayuda del entrevistador.
 
-Un punto quedó dividido y no se recoge como problema porque las dos reacciones fueron legítimas: el ingreso sin contraseña. Una participante lo consideró más seguro que una contraseña, porque el código llega solo a su celular; otra esperaba un PIN o una verificación en dos pasos. La diferencia sugiere que la pantalla de ingreso no explica que el código SMS ya cumple la función de segundo factor, y se anota como material para la siguiente ronda de entrevistas.
+Un punto quedó dividido y no se recoge como problema porque las dos reacciones fueron legítimas: el ingreso sin contraseña. Una participante lo consideró más seguro que una contraseña, porque el código llega solo a su celular; otra esperaba un PIN o una verificación en dos pasos. La diferencia sugiere que la pantalla de ingreso no explica que el código SMS ya cumple la función de segundo factor.
 
 <!-- pdf:desde-fin -->
