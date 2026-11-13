@@ -5253,11 +5253,11 @@ La Tabla 169 presenta la ficha de la entrevista de validación a Lionel Chávez.
     </tr>
     <tr>
       <td><b>Fecha</b></td>
-      <td></td>
+      <td>12/11/2026</td>
     </tr>
     <tr>
       <td><b>Duración</b></td>
-      <td></td>
+      <td>21:03</td>
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
@@ -5318,11 +5318,11 @@ La Tabla 170 presenta la ficha de la entrevista de validación a Elizabeth Díaz
     </tr>
     <tr>
       <td><b>Fecha</b></td>
-      <td></td>
+      <td>12/11/2026</td>
     </tr>
     <tr>
       <td><b>Duración</b></td>
-      <td></td>
+      <td>20:15</td>
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
@@ -5381,11 +5381,11 @@ La Tabla 171 presenta la ficha de la entrevista de validación a Mariana López.
     </tr>
     <tr>
       <td><b>Fecha</b></td>
-      <td></td>
+      <td>12/11/2026</td>
     </tr>
     <tr>
       <td><b>Duración</b></td>
-      <td></td>
+      <td>13:17</td>
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
