@@ -244,7 +244,20 @@ local function cuadricular(latex, tbl)
   cuerpo = reemplazar(cuerpo, '\\toprule\\noalign{}', '\\hline')
   cuerpo = reemplazar(cuerpo, '\\midrule\\noalign{}', '\\noalign{}')
   cuerpo = reemplazar(cuerpo, '\\bottomrule\\noalign{}', '\\noalign{}')
-  cuerpo = insertarLineas(cuerpo, lineasBajoFilas(tbl))
+  -- Una tabla con titulo trae la cabecera escrita dos veces: con el \caption
+  -- antes de \endfirsthead y sin el antes de \endhead. Sus filas tambien
+  -- cierran con \\, asi que las lineas de la cabecera se cuentan dos veces; si
+  -- no, cada fila del cuerpo recibia la linea de la siguiente y el \cline que
+  -- rodea a una celda con rowspan cortaba la tabla una fila antes.
+  local lineas = lineasBajoFilas(tbl)
+  local primera = cuerpo:find('\\endfirsthead', 1, true)
+  if primera and cuerpo:find('\\endhead', primera, true) then
+    local conRepetida = {}
+    for k = 1, #tbl.head.rows do table.insert(conRepetida, lineas[k]) end
+    for k = 1, #lineas do table.insert(conRepetida, lineas[k]) end
+    lineas = conRepetida
+  end
+  cuerpo = insertarLineas(cuerpo, lineas)
 
   -- Pandoc cierra la cabecera con \endhead, que la repite en cada pagina que
   -- ocupe la tabla. Pasarla a \endfirsthead la imprime solo al principio y deja
