@@ -5645,4 +5645,56 @@ Las entrevistas confirmaron además tres decisiones del Capítulo III. El lengua
 
 Un punto quedó dividido y no se recoge como problema porque las dos reacciones fueron legítimas: el ingreso sin contraseña. Una participante lo consideró más seguro que una contraseña, porque el código llega solo a su celular; otra esperaba un PIN o una verificación en dos pasos. La diferencia sugiere que la pantalla de ingreso no explica que el código SMS ya cumple la función de segundo factor.
 
+## 4.4. Video About-the-Product
+
+El video About-the-Product presenta Pozzo a las personas que podrían usarlo: el problema que resuelve, cómo se usa desde el rol de cabeza de junta y desde el de participante, y lo que dijeron quienes lo probaron. Dura 2 minutos y 36 segundos y está publicado en YouTube: <https://youtu.be/8h5ec2VhwuM>. La Figura 171 muestra un cuadro del video.
+
+![Cuadro del video About-the-Product de Pozzo](images/chapter_4/about_the_product_video.png){width=85%}
+
+Las escenas de la aplicación salen de las grabaciones de las entrevistas de validación de la sección 4.3.2. Lo que se ve en el celular es lo que hicieron Lionel Chávez, Elizabeth Díaz y Mariana López al usar Pozzo por primera vez, sin indicaciones del entrevistador sobre cómo funcionaba. Las tres personas aceptaron aparecer en el video con su nombre y sus palabras. De las grabaciones se dejaron fuera las partes que mostraban números de celular, la lista de contactos, la galería de fotos y datos de terceros que aparecían en un comprobante. La música de fondo es original y no usa obras de terceros. La Tabla 176 resume las partes del video.
+
+<table>
+  <caption>Contenido del video About-the-Product</caption>
+  <colgroup><col width="14%"><col width="26%"><col width="60%"></colgroup>
+  <thead>
+    <tr>
+      <th>Tiempo</th>
+      <th>Parte</th>
+      <th>Qué se muestra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0:00 – 0:22</td>
+      <td>Presentación</td>
+      <td>El logo y el lema de Pozzo, el problema de llevar la junta en un cuaderno o en un grupo de WhatsApp, la aclaración de que Pozzo no recibe ni guarda el dinero y las tres personas que lo probaron</td>
+    </tr>
+    <tr>
+      <td>0:22 – 0:51</td>
+      <td>La cabeza de junta organiza</td>
+      <td>Lionel crea la junta con el aporte, la periodicidad, los integrantes y el número de destino, y reparte los turnos eligiendo entre sorteo, orden acordado y subasta</td>
+    </tr>
+    <tr>
+      <td>0:51 – 1:34</td>
+      <td>Los participantes aportan</td>
+      <td>Mariana se une con un código de invitación; Elizabeth transfiere a la cabeza de junta, sube la captura del comprobante y Pozzo lee el monto, el destinatario y la fecha antes de validar el aporte</td>
+    </tr>
+    <tr>
+      <td>1:34 – 2:15</td>
+      <td>Seguimiento y entrega</td>
+      <td>Lionel revisa un aporte cuyo comprobante no coincide, ve el pozo completo y lo marca como entregado; Mariana revisa su historial de cumplimiento, que puede compartir</td>
+    </tr>
+    <tr>
+      <td>2:15 – 2:30</td>
+      <td>Lo que dijeron</td>
+      <td>Tres frases de las entrevistas: sobre los términos de la aplicación, sobre pedirle a la cabeza de junta que la use y sobre la certeza de recibir el pozo</td>
+    </tr>
+    <tr>
+      <td>2:30 – 2:36</td>
+      <td>Cierre</td>
+      <td>El logo, el lema y la dirección del landing page</td>
+    </tr>
+  </tbody>
+</table>
+
 <!-- pdf:desde-fin -->
