@@ -5042,7 +5042,7 @@ De cada tarea se registran cuatro datos: si la completó sin ayuda, con ayuda o 
 
 <table>
   <caption>Tareas de validación por segmento</caption>
-  <colgroup><col width="9%"><col width="23%"><col width="13%"><col width="11%"><col width="23%"><col width="21%"></colgroup>
+  <colgroup><col width="17%"><col width="20%"><col width="12%"><col width="10%"><col width="21%"><col width="20%"></colgroup>
   <thead>
     <tr>
       <th>Segmento</th>
