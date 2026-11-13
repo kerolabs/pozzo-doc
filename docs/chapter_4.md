@@ -6,7 +6,7 @@ En esta sección se fijan las decisiones que mantienen consistentes los producto
 
 ### 4.1.1. Software Development Environment Configuration
 
-El equipo trabaja con las herramientas de la Tabla 134, agrupadas por la actividad del ciclo de vida en la que se usan. Las que funcionan como servicio en la nube se indican con su ruta de referencia; las que se instalan en el computador de cada integrante, con su ruta de descarga. Todas respetan las restricciones de tecnología del curso: UXPressia para personas, journeys, empathy e impact maps; Figma para wireframes, mock-ups y prototipos; Structurizr para el C4 Model; Kotlin nativo para Android; Spring Boot para los servicios; OpenAPI con Swagger para su documentación, y Trello para la gestión del backlog.
+El equipo trabaja con las herramientas de la Tabla 135, agrupadas por la actividad del ciclo de vida en la que se usan. Las que funcionan como servicio en la nube se indican con su ruta de referencia; las que se instalan en el computador de cada integrante, con su ruta de descarga. Todas respetan las restricciones de tecnología del curso: UXPressia para personas, journeys, empathy e impact maps; Figma para wireframes, mock-ups y prototipos; Structurizr para el C4 Model; Kotlin nativo para Android; Spring Boot para los servicios; OpenAPI con Swagger para su documentación, y Trello para la gestión del backlog.
 
 <table>
   <caption>Herramientas del entorno de desarrollo por actividad del ciclo de vida</caption>
@@ -157,7 +157,7 @@ El equipo trabaja con las herramientas de la Tabla 134, agrupadas por la activid
 
 ### 4.1.2. Source Code Management
 
-El código de Pozzo se versiona con Git y se aloja en GitHub, en la organización `kerolabs`. Cada producto tiene su propio repositorio, de modo que se versiona, se revisa y se despliega por separado. El repositorio de los servicios RESTful incluye, junto al proyecto, sus pruebas unitarias, de integración y de aceptación (ver Tabla 135).
+El código de Pozzo se versiona con Git y se aloja en GitHub, en la organización `kerolabs`. Cada producto tiene su propio repositorio, de modo que se versiona, se revisa y se despliega por separado. El repositorio de los servicios RESTful incluye, junto al proyecto, sus pruebas unitarias, de integración y de aceptación (ver Tabla 136).
 
 <table>
   <caption>Repositorios de los productos de Pozzo en la organización kerolabs</caption>
@@ -198,7 +198,7 @@ El código de Pozzo se versiona con Git y se aloja en GitHub, en la organizació
   </tbody>
 </table>
 
-El flujo de trabajo sigue GitFlow [@driessen2010gitflow]. Además de la rama principal, cada repositorio tiene una rama de integración y ramas de vida corta para cada cambio (ver Tabla 136):
+El flujo de trabajo sigue GitFlow [@driessen2010gitflow]. Además de la rama principal, cada repositorio tiene una rama de integración y ramas de vida corta para cada cambio (ver Tabla 137):
 
 <table>
   <caption>Ramas de GitFlow en los repositorios de Pozzo</caption>
@@ -262,7 +262,7 @@ Tres mecanismos hacen que estas reglas se cumplan y no dependan de la memoria de
 
 ### 4.1.3. Source Code Style Guide & Conventions
 
-Todo el código de Pozzo se escribe en inglés: nombres de clases, funciones, variables, archivos, rutas de la API, comentarios y mensajes de commit. El español queda para los textos que ve el usuario (pantallas, notificaciones, mensajes de error de la API) y para este informe. Sobre esa base, cada lenguaje sigue una guía de referencia (ver Tabla 137):
+Todo el código de Pozzo se escribe en inglés: nombres de clases, funciones, variables, archivos, rutas de la API, comentarios y mensajes de commit. El español queda para los textos que ve el usuario (pantallas, notificaciones, mensajes de error de la API) y para este informe. Sobre esa base, cada lenguaje sigue una guía de referencia (ver Tabla 138):
 
 <table>
   <caption>Guías de estilo de referencia por lenguaje</caption>
@@ -332,7 +332,7 @@ El estado de los despliegues, los recursos de la instancia y el log en vivo de l
 
 **Mobile Application.** La aplicación tiene dos variantes. `cloud`, la predeterminada, apunta a los servicios desplegados; `local` apunta a los servicios corriendo en el computador del integrante y se instala aparte, para que las dos convivan en el mismo celular. El APK de entrega se genera en Android Studio con la variante `cloudRelease`, firmado con la llave de la aplicación, que se guarda fuera del repositorio. El proyecto de Firebase `kerolabs-pozzo` provee las notificaciones push y, para la entrega final, la distribución de la aplicación a quienes la prueban mediante Firebase App Distribution.
 
-El diagrama de despliegue del C4 Model resume dónde corre cada contenedor de la solución (ver Figura 141):
+El diagrama de despliegue del C4 Model resume dónde corre cada contenedor de la solución (ver Figura 142):
 
 ![Diagrama de despliegue de Pozzo en producción](images/chapter_2/c4_deployment.png){width=85%}
 
@@ -342,7 +342,7 @@ El diagrama de despliegue del C4 Model resume dónde corre cada contenedor de la
 
 #### 4.2.1.1. Sprint Planning 1
 
-El Sprint 1 cubre la entrega TB1. Reúne las historias que se implementaron en él: las del landing page, de la creación de la junta, de las invitaciones, de los turnos y del estado del pozo, junto con las del acceso con el código SMS, el registro y la validación de aportes, los recordatorios y avisos, y el historial de cumplimiento, además de las Spike Stories de lectura de comprobantes y de notificaciones push. La reunión de Sprint Planning se realizó el 1 de octubre de 2026 por Discord con los cinco integrantes: el equipo acordó el Sprint Goal, redactado con la plantilla de Scrum.org que recomienda el enunciado, y repartió el liderazgo de cada aspecto del Sprint. La Tabla 138 resume la planificación.
+El Sprint 1 cubre la entrega TB1. Reúne las historias que se implementaron en él: las del landing page, de la creación de la junta, de las invitaciones, de los turnos y del estado del pozo, junto con las del acceso con el código SMS, el registro y la validación de aportes, los recordatorios y avisos, y el historial de cumplimiento, además de las Spike Stories de lectura de comprobantes y de notificaciones push. La reunión de Sprint Planning se realizó el 1 de octubre de 2026 por Discord con los cinco integrantes: el equipo acordó el Sprint Goal, redactado con la plantilla de Scrum.org que recomienda el enunciado, y repartió el liderazgo de cada aspecto del Sprint. La Tabla 139 resume la planificación.
 
 <table>
   <caption>Resumen del Sprint Planning 1</caption>
@@ -407,7 +407,7 @@ El Sprint 1 cubre la entrega TB1. Reúne las historias que se implementaron en �
 
 #### 4.2.1.2. Aspect Leaders and Collaborators
 
-Los aspectos del Sprint 1 son los productos que entrega la TB1 y el informe que los documenta: el landing page, el diseño de la interfaz del Capítulo III, la aplicación móvil, los servicios RESTful con su despliegue, y el informe con su formato APA. Cada aspecto tiene un líder, que responde por su avance y su calidad, y colaboradores que trabajan en él. La matriz se acordó en la reunión de Sprint Planning (ver Tabla 139).
+Los aspectos del Sprint 1 son los productos que entrega la TB1 y el informe que los documenta: el landing page, el diseño de la interfaz del Capítulo III, la aplicación móvil, los servicios RESTful con su despliegue, y el informe con su formato APA. Cada aspecto tiene un líder, que responde por su avance y su calidad, y colaboradores que trabajan en él. La matriz se acordó en la reunión de Sprint Planning (ver Tabla 140).
 
 <table>
   <caption>Leadership-and-Collaboration Matrix del Sprint 1</caption>
@@ -474,11 +474,11 @@ Los aspectos del Sprint 1 son los productos que entrega la TB1 y el informe que 
 
 #### 4.2.1.3. Sprint Backlog 1
 
-El objetivo del Sprint 1 es que una cabeza de junta pueda crear su junta, invitar a los integrantes, asignar los turnos, iniciarla y ver el estado del pozo, con un landing page que presente Pozzo. La Figura 142 muestra el tablero del Sprint en Trello, con la lista "Sprint 1 (TB1)" y sus 141 Story Points. Enlace público del tablero: <https://trello.com/b/fRocSVZA/pozzo-product-backlog>.
+El objetivo del Sprint 1 es que una cabeza de junta pueda crear su junta, invitar a los integrantes, asignar los turnos, iniciarla y ver el estado del pozo, con un landing page que presente Pozzo. La Figura 143 muestra el tablero del Sprint en Trello, con la lista "Sprint 1 (TB1)" y sus 141 Story Points. Enlace público del tablero: <https://trello.com/b/fRocSVZA/pozzo-product-backlog>.
 
 ![Tablero del Product Backlog con la lista del Sprint 1 en Trello](images/closing/product_backlog_trello.png){width=90%}
 
-La Tabla 140 relaciona cada historia del Sprint con las tareas en que se descompuso, su responsable y su estado. Las tareas se obtuvieron de los commits y pull requests de cada repositorio. El equipo no estimó horas por tarea; su estimación está en los Story Points de cada historia.
+La Tabla 141 relaciona cada historia del Sprint con las tareas en que se descompuso, su responsable y su estado. Las tareas se obtuvieron de los commits y pull requests de cada repositorio. El equipo no estimó horas por tarea; su estimación está en los Story Points de cada historia.
 
 <table>
   <caption>Sprint Backlog del Sprint 1</caption>
@@ -1003,7 +1003,7 @@ La Tabla 140 relaciona cada historia del Sprint con las tareas en que se descomp
 
 En el Sprint 1 se implementaron los cuatro productos de la entrega: el landing page, las páginas públicas que abren los enlaces de invitación y de historial compartido, los servicios RESTful y la aplicación móvil. El landing page quedó publicado en GitHub Pages; los servicios RESTful, con sus cinco bounded contexts, quedaron desplegados en Oracle Cloud con su documentación OpenAPI; y la aplicación móvil cubre las historias del Sprint. Las tablas siguientes relacionan, por repositorio, los commits de implementación integrados en `develop`. Los commits de pruebas se presentan en la sección de Testing Suite Evidence.
 
-**Landing Page.** La Tabla 141 lista los 14 commits de `kerolabs/pozzo-landing-page`.
+**Landing Page.** La Tabla 142 lista los 14 commits de `kerolabs/pozzo-landing-page`.
 
 <table>
   <caption>Commits de implementación de pozzo-landing-page</caption>
@@ -1134,7 +1134,7 @@ En el Sprint 1 se implementaron los cuatro productos de la entrega: el landing p
   </tbody>
 </table>
 
-**Páginas públicas de los enlaces.** La Tabla 142 lista los 9 commits de `kerolabs/kerolabs.github.io`.
+**Páginas públicas de los enlaces.** La Tabla 143 lista los 9 commits de `kerolabs/kerolabs.github.io`.
 
 <table>
   <caption>Commits de implementación de kerolabs.github.io</caption>
@@ -1225,7 +1225,7 @@ En el Sprint 1 se implementaron los cuatro productos de la entrega: el landing p
   </tbody>
 </table>
 
-**Servicios RESTful.** La Tabla 143 lista los 98 commits de `kerolabs/pozzo-backend`.
+**Servicios RESTful.** La Tabla 144 lista los 98 commits de `kerolabs/pozzo-backend`.
 
 <table>
   <caption>Commits de implementación de pozzo-backend</caption>
@@ -2028,7 +2028,7 @@ En el Sprint 1 se implementaron los cuatro productos de la entrega: el landing p
   </tbody>
 </table>
 
-**Aplicación móvil.** La Tabla 144 lista los 41 commits de `kerolabs/pozzo-mobile`.
+**Aplicación móvil.** La Tabla 145 lista los 41 commits de `kerolabs/pozzo-mobile`.
 
 <table>
   <caption>Commits de implementación de pozzo-mobile</caption>
@@ -2385,7 +2385,7 @@ Las pruebas están en el repositorio de los servicios, en la carpeta `src/test`:
 
 La aplicación móvil, en cambio, solo tiene por ahora pruebas unitarias del lector de comprobantes. Es la carencia más común en el desarrollo Android: un estudio sobre 2965 aplicaciones Android de código abierto y una encuesta a sus desarrolladores encontró poca adopción de pruebas automatizadas, pocas herramientas en uso y baja cobertura de código y de API [@mahmud2025androidtesting]. Ampliar las pruebas de la aplicación queda para el siguiente Sprint.
 
-**Unit Tests.** Prueban las reglas del dominio sin Spring ni base de datos: los aggregates, los value objects y los domain services de los cinco bounded contexts. La Tabla 145 indica la clase y los comportamientos que verifica cada clase de prueba.
+**Unit Tests.** Prueban las reglas del dominio sin Spring ni base de datos: los aggregates, los value objects y los domain services de los cinco bounded contexts. La Tabla 146 indica la clase y los comportamientos que verifica cada clase de prueba.
 
 <table>
   <caption>Pruebas unitarias del dominio</caption>
@@ -2471,7 +2471,7 @@ La aplicación móvil, en cambio, solo tiene por ahora pruebas unitarias del lec
   </tbody>
 </table>
 
-**Integration Tests.** Prueban que las capas y los bounded contexts funcionen juntos: la seguridad, los controllers, la persistencia en PostgreSQL y los eventos que llevan un aporte de Contributions a Compliance History y a Notifications después de confirmar la transacción. La Tabla 146 los detalla.
+**Integration Tests.** Prueban que las capas y los bounded contexts funcionen juntos: la seguridad, los controllers, la persistencia en PostgreSQL y los eventos que llevan un aporte de Contributions a Compliance History y a Notifications después de confirmar la transacción. La Tabla 147 los detalla.
 
 <table>
   <caption>Pruebas de integración del API REST</caption>
@@ -2507,7 +2507,7 @@ La aplicación móvil, en cambio, solo tiene por ahora pruebas unitarias del lec
   </tbody>
 </table>
 
-**Acceptance Tests.** Siguen el enfoque BDD: cada Technical Story tiene un archivo `.feature` en `src/test/resources/features`, con su identificador en el nombre, y sus escenarios repiten los criterios de aceptación de la historia en Gherkin, en inglés, como lo fija la guía de estilo. Los archivos Steps están en Java, en el paquete `pe.kerolabs.pozzo.acceptance`: una clase por grupo de historias y `CommonSteps` con los pasos que comparten, como crear la cuenta de un integrante o comprobar el código de la respuesta. La Tabla 147 relaciona cada archivo con su Technical Story y su clase de Steps.
+**Acceptance Tests.** Siguen el enfoque BDD: cada Technical Story tiene un archivo `.feature` en `src/test/resources/features`, con su identificador en el nombre, y sus escenarios repiten los criterios de aceptación de la historia en Gherkin, en inglés, como lo fija la guía de estilo. Los archivos Steps están en Java, en el paquete `pe.kerolabs.pozzo.acceptance`: una clase por grupo de historias y `CommonSteps` con los pasos que comparten, como crear la cuenta de un integrante o comprobar el código de la respuesta. La Tabla 148 relaciona cada archivo con su Technical Story y su clase de Steps.
 
 <table>
   <caption>Archivos .feature de las pruebas de aceptación</caption>
@@ -2990,13 +2990,13 @@ Feature: TS08 Compliance history service
     Then the service responds 404 Not Found
 ```
 
-La Figura 143 muestra el reporte de Cucumber de una ejecución local, con los 52 escenarios aprobados, y la Figura 144 la ejecución del workflow `Tests` en el pull request que agregó la suite, que en GitHub Actions corrió las 170 pruebas sin fallas.
+La Figura 144 muestra el reporte de Cucumber de una ejecución local, con los 52 escenarios aprobados, y la Figura 145 la ejecución del workflow `Tests` en el pull request que agregó la suite, que en GitHub Actions corrió las 170 pruebas sin fallas.
 
 ![Reporte de Cucumber de las pruebas de aceptación](images/chapter_4/cucumber_report.png){width=80%}
 
 ![Ejecución del workflow Tests en GitHub Actions](images/chapter_4/tests_workflow_run.png){width=90%}
 
-La Tabla 148 relaciona los commits de los avances en Testing de este Sprint.
+La Tabla 149 relaciona los commits de los avances en Testing de este Sprint.
 
 <table>
   <caption>Commits de las pruebas de los servicios RESTful</caption>
@@ -3075,19 +3075,19 @@ La Tabla 148 relaciona los commits de los avances en Testing de este Sprint.
 
 En el Sprint 1 la aplicación móvil alcanzó el flujo completo de una junta: el ingreso con el número de celular y el código SMS, la creación de la junta con sus reglas y su destino, la invitación por código y enlace, la asignación de turnos, el inicio de la junta y el estado del pozo del período en curso, junto con el registro del aporte con el comprobante leído en el dispositivo, la revisión de los aportes que no coinciden, el historial, los avisos y el perfil. Las capturas se tomaron en un emulador Android con una junta de muestra de cuatro integrantes, conectado a una instancia local de los servicios RESTful.
 
-La Figura 145 muestra la bienvenida, el ingreso con el número de celular, la lista de juntas del integrante con su rol y su turno, y el perfil.
+La Figura 146 muestra la bienvenida, el ingreso con el número de celular, la lista de juntas del integrante con su rol y su turno, y el perfil.
 
 ![Bienvenida, ingreso, mis juntas y perfil en la aplicación móvil](images/chapter_4/app_access_groups.png){width=100%}
 
-La Figura 146 muestra una junta por iniciar con lo que le falta para empezar, la invitación con su código y su enlace, y una junta en curso con el estado del pozo de su período y el calendario de turnos.
+La Figura 147 muestra una junta por iniciar con lo que le falta para empezar, la invitación con su código y su enlace, y una junta en curso con el estado del pozo de su período y el calendario de turnos.
 
 ![Junta por iniciar, invitación, estado del pozo y calendario de turnos](images/chapter_4/app_group_setup.png){width=100%}
 
-La Figura 147 muestra el registro del aporte, con el destino al que se transfiere; la revisión de un comprobante que no coincide, campo por campo; el historial de aportes de la junta; y los avisos que recibe la cabeza de junta.
+La Figura 148 muestra el registro del aporte, con el destino al que se transfiere; la revisión de un comprobante que no coincide, campo por campo; el historial de aportes de la junta; y los avisos que recibe la cabeza de junta.
 
 ![Registro del aporte, revisión de un comprobante, historial y avisos](images/chapter_4/app_contributions.png){width=100%}
 
-Para complementar la evidencia de ejecución del Sprint 1, se presenta el video explicativo del flujo de navegación y funcionamiento de la aplicación móvil desarrollado para la Sprint Review, disponible en YouTube: <https://youtu.be/rGwVmdaVSMA>. La Figura 148 muestra un cuadro del video.
+Para complementar la evidencia de ejecución del Sprint 1, se presenta el video explicativo del flujo de navegación y funcionamiento de la aplicación móvil desarrollado para la Sprint Review, disponible en YouTube: <https://youtu.be/rGwVmdaVSMA>. La Figura 149 muestra un cuadro del video.
 
 ![Cuadro del video del flujo de navegación de la aplicación móvil, Sprint 1](images/chapter_4/app_flow_video.png){width=40%}
 
@@ -3095,11 +3095,11 @@ Para complementar la evidencia de ejecución del Sprint 1, se presenta el video 
 
 En este Sprint se documentaron con OpenAPI los 54 endpoints de los servicios RESTful de Pozzo, agrupados en 11 recursos que corresponden a los cinco bounded contexts. La documentación se genera desde el código con springdoc-openapi: cada controller declara el resumen y la descripción de sus operaciones, los parámetros, el cuerpo esperado y los códigos de respuesta, incluidos los de error, que comparten el mismo cuerpo `Error` con un código y un mensaje. Los recursos describen cada campo y traen valores de ejemplo, y el documento declara el esquema de seguridad Bearer con el token JWT que emite Identity & Access.
 
-La documentación está desplegada junto con los servicios: Swagger UI en <https://api-kerolabs.duckdns.org/swagger-ui/index.html> y el documento OpenAPI 3.1 en <https://api-kerolabs.duckdns.org/v3/api-docs>. El código está en el repositorio <https://github.com/kerolabs/pozzo-backend>. La Figura 149 muestra la documentación desplegada con sus 11 recursos.
+La documentación está desplegada junto con los servicios: Swagger UI en <https://api-kerolabs.duckdns.org/swagger-ui/index.html> y el documento OpenAPI 3.1 en <https://api-kerolabs.duckdns.org/v3/api-docs>. El código está en el repositorio <https://github.com/kerolabs/pozzo-backend>. La Figura 150 muestra la documentación desplegada con sus 11 recursos.
 
 ![Swagger UI de los servicios RESTful desplegados](images/chapter_4/swagger_overview.png){width=85%}
 
-Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y todas requieren el token Bearer, salvo las marcadas como públicas. Las Tablas 149 a 153 presentan los endpoints de cada bounded context: el verbo HTTP, la sintaxis de la llamada, la acción con su enlace a la documentación desplegada, los parámetros y la respuesta exitosa. Los errores de cada operación están en la documentación desplegada.
+Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y todas requieren el token Bearer, salvo las marcadas como públicas. Las Tablas 150 a 154 presentan los endpoints de cada bounded context: el verbo HTTP, la sintaxis de la llamada, la acción con su enlace a la documentación desplegada, los parámetros y la respuesta exitosa. Los errores de cada operación están en la documentación desplegada.
 
 <table>
   <caption>Endpoints documentados de Identity &amp; Access</caption>
@@ -3559,7 +3559,7 @@ Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y todas requieren 
   </tbody>
 </table>
 
-La Tabla 154 muestra un ejemplo de respuesta de los recursos principales, tomado de la junta de muestra con la que se probó la documentación y reducido a los campos que explican cada recurso. La documentación desplegada tiene el esquema completo de cada uno.
+La Tabla 155 muestra un ejemplo de respuesta de los recursos principales, tomado de la junta de muestra con la que se probó la documentación y reducido a los campos que explican cada recurso. La documentación desplegada tiene el esquema completo de cada uno.
 
 <table>
   <caption>Ejemplos de respuesta de los recursos principales</caption>
@@ -3650,25 +3650,25 @@ La Tabla 154 muestra un ejemplo de respuesta de los recursos principales, tomado
   </tbody>
 </table>
 
-Para mostrar la interacción con la documentación se usó una junta de muestra de cuatro integrantes: Anna Weber como cabeza, y Sofia Gonzales, Marta Quispe y Jorge Ramos. Sofia registró un aporte que coincidía con lo esperado y Marta uno por un monto menor. Las Figuras 150 a 153 muestran cuatro llamadas hechas desde Swagger UI con el token de cada integrante, con la URL de la solicitud y la respuesta del servicio. Se hicieron sobre una instancia local de los servicios con una base de datos propia, para no mezclar los datos de muestra con los de producción.
+Para mostrar la interacción con la documentación se usó una junta de muestra de cuatro integrantes: Anna Weber como cabeza, y Sofia Gonzales, Marta Quispe y Jorge Ramos. Sofia registró un aporte que coincidía con lo esperado y Marta uno por un monto menor. Las Figuras 151 a 154 muestran cuatro llamadas hechas desde Swagger UI con el token de cada integrante, con la URL de la solicitud y la respuesta del servicio. Se hicieron sobre una instancia local de los servicios con una base de datos propia, para no mezclar los datos de muestra con los de producción.
 
-Jorge Ramos registra su aporte de S/ 200 con los datos de un comprobante de Plin. El monto, el destinatario y la fecha coinciden con lo esperado, así que el servicio responde 201 Created con el aporte en estado VALIDATED y sin inconsistencias (ver Figura 150).
+Jorge Ramos registra su aporte de S/ 200 con los datos de un comprobante de Plin. El monto, el destinatario y la fecha coinciden con lo esperado, así que el servicio responde 201 Created con el aporte en estado VALIDATED y sin inconsistencias (ver Figura 151).
 
 ![Registro de un aporte desde Swagger UI](images/chapter_4/swagger_register_contribution.png){width=80%}
 
-Anna Weber, la cabeza de la junta, consulta los aportes por revisar del período. Aparece el de Marta Quispe en estado INCONSISTENT: el comprobante dice S/ 150 y se esperaban S/ 200 (ver Figura 151).
+Anna Weber, la cabeza de la junta, consulta los aportes por revisar del período. Aparece el de Marta Quispe en estado INCONSISTENT: el comprobante dice S/ 150 y se esperaban S/ 200 (ver Figura 152).
 
 ![Aportes por revisar desde Swagger UI](images/chapter_4/swagger_pending_review.png){width=80%}
 
-La cabeza aprueba ese aporte con una nota. El servicio responde 200 OK con el aporte en estado APPROVED y la decisión guardada en la revisión, y el aporte pasa a contar como pagado (ver Figura 152).
+La cabeza aprueba ese aporte con una nota. El servicio responde 200 OK con el aporte en estado APPROVED y la decisión guardada en la revisión, y el aporte pasa a contar como pagado (ver Figura 153).
 
 ![Revisión de un aporte desde Swagger UI](images/chapter_4/swagger_review_contribution.png){width=80%}
 
-Con los tres aportes, el estado del pozo muestra S/ 600 reunidos de S/ 800, que en este turno cobra Marta Quispe, que solo falta el aporte de Anna Weber y el estado de cada integrante (ver Figura 153).
+Con los tres aportes, el estado del pozo muestra S/ 600 reunidos de S/ 800, que en este turno cobra Marta Quispe, que solo falta el aporte de Anna Weber y el estado de cada integrante (ver Figura 154).
 
 ![Estado del pozo desde Swagger UI](images/chapter_4/swagger_period_status.png){width=80%}
 
-La documentación se escribió junto con cada controller, en el mismo commit que agrega sus endpoints, de modo que ningún endpoint quedó sin documentar en el historial. La Tabla 155 relaciona los commits de los servicios RESTful que agregaron o cambiaron la documentación OpenAPI en este Sprint.
+La documentación se escribió junto con cada controller, en el mismo commit que agrega sus endpoints, de modo que ningún endpoint quedó sin documentar en el historial. La Tabla 156 relaciona los commits de los servicios RESTful que agregaron o cambiaron la documentación OpenAPI en este Sprint.
 
 <table>
   <caption>Commits de la documentación de los servicios RESTful</caption>
@@ -3803,13 +3803,13 @@ La documentación se escribió junto con cada controller, en el mismo commit que
 
 En el Sprint 1 se desplegaron los cuatro productos digitales. Cada uno se publica desde la rama `main` de su repositorio, de modo que lo desplegado es siempre lo que pasó por un pull request revisado.
 
-**Landing Page.** Se publica con GitHub Pages desde la rama `main` de `kerolabs/pozzo-landing-page`, sin paso de compilación, en <https://kerolabs.github.io/pozzo-landing-page/>. Durante el Sprint se configuró el repositorio con su rama `develop`, la protección de ramas que solo acepta cambios por pull request y el workflow `commit-policy`, y se publicó la versión con el logo actual (ver Figura 154).
+**Landing Page.** Se publica con GitHub Pages desde la rama `main` de `kerolabs/pozzo-landing-page`, sin paso de compilación, en <https://kerolabs.github.io/pozzo-landing-page/>. Durante el Sprint se configuró el repositorio con su rama `develop`, la protección de ramas que solo acepta cambios por pull request y el workflow `commit-policy`, y se publicó la versión con el logo actual (ver Figura 155).
 
 ![Landing page publicado en GitHub Pages](images/chapter_4/landing_live.png){width=85%}
 
 **Páginas públicas de los enlaces.** El repositorio `kerolabs/kerolabs.github.io` publica, también con GitHub Pages, las páginas que abren los enlaces de invitación (`/unirme`) y de historial compartido (`/historial`). Reemplazan al dominio que se había previsto para estos enlaces, que no se compró.
 
-**Servicios RESTful.** Se desplegaron en una instancia Always Free de Oracle Cloud con Ubuntu 24.04. Los pasos fueron: crear la instancia y abrir los puertos 80 y 443 en su lista de seguridad; registrar el dominio `api-kerolabs.duckdns.org` en DuckDNS apuntando a la IP pública; preparar el servidor con `deploy/oracle-setup.sh`, que instala Java 21 y Caddy, crea los usuarios sin privilegios `pozzo` y `deploy` y registra el servicio de systemd; y configurar en GitHub los secretos del workflow `Deploy` con una llave SSH que solo puede ejecutar el script de despliegue. Desde entonces, cada push a `main` compila el jar en GitHub Actions, lo envía al servidor, reinicia el servicio y espera a que `/actuator/health` responda; si la versión nueva no arranca, el servidor vuelve a la anterior. Caddy obtiene el certificado HTTPS automáticamente. La Figura 155 muestra los despliegues del Sprint, todos exitosos. La base de datos PostgreSQL y el almacenamiento de las fotos y los comprobantes están en Supabase.
+**Servicios RESTful.** Se desplegaron en una instancia Always Free de Oracle Cloud con Ubuntu 24.04. Los pasos fueron: crear la instancia y abrir los puertos 80 y 443 en su lista de seguridad; registrar el dominio `api-kerolabs.duckdns.org` en DuckDNS apuntando a la IP pública; preparar el servidor con `deploy/oracle-setup.sh`, que instala Java 21 y Caddy, crea los usuarios sin privilegios `pozzo` y `deploy` y registra el servicio de systemd; y configurar en GitHub los secretos del workflow `Deploy` con una llave SSH que solo puede ejecutar el script de despliegue. Desde entonces, cada push a `main` compila el jar en GitHub Actions, lo envía al servidor, reinicia el servicio y espera a que `/actuator/health` responda; si la versión nueva no arranca, el servidor vuelve a la anterior. Caddy obtiene el certificado HTTPS automáticamente. La Figura 156 muestra los despliegues del Sprint, todos exitosos. La base de datos PostgreSQL y el almacenamiento de las fotos y los comprobantes están en Supabase.
 
 ![Despliegues de los servicios RESTful con el workflow Deploy de GitHub Actions](images/chapter_4/deploy_runs.png){width=90%}
 
@@ -3817,7 +3817,7 @@ En el Sprint 1 se desplegaron los cuatro productos digitales. Cada uno se public
 
 #### 4.2.1.9. Team Collaboration Insights during Sprint
 
-La implementación se organizó con GitFlow en cada repositorio: cada cambio se trabajó en una rama `feature/*`, `fix/*`, `docs/*` o `ci/*`, entró a `develop` por pull request con el check `commit-policy` y llegó a `main` en un pull request de integración. La Tabla 156 muestra los commits de cada integrante por repositorio durante el Sprint, y las Figuras 156 a 158 la pestaña Insights de los tres repositorios de código.
+La implementación se organizó con GitFlow en cada repositorio: cada cambio se trabajó en una rama `feature/*`, `fix/*`, `docs/*` o `ci/*`, entró a `develop` por pull request con el check `commit-policy` y llegó a `main` en un pull request de integración. La Tabla 157 muestra los commits de cada integrante por repositorio durante el Sprint, y las Figuras 157 a 159 la pestaña Insights de los tres repositorios de código.
 
 <table>
   <caption>Commits de cada integrante por repositorio en el Sprint 1</caption>
@@ -3892,7 +3892,7 @@ El enunciado pide que todos participen en la implementación de cada producto, y
 
 #### 4.2.2.1. Sprint Planning 2
 
-El Sprint 2 cubre la entrega AV2. Reúne las historias que permiten que una junta complete su ciclo aunque cambie en el camino: la subasta de turnos, la deserción de un integrante y su reemplazo, el integrante sin la aplicación que luego se registra, la entrega del pozo con su comprobante, el cierre del ciclo y la apertura de uno nuevo, el aporte en efectivo, la consulta de aportes y de períodos anteriores, y los recordatorios por atraso. El enunciado pide para esta entrega los servicios RESTful desplegados al 100 % con su documentación, de modo que el Sprint termina el backend y lleva sus funcionalidades a la aplicación. La reunión de Sprint Planning se realizó el 3 de noviembre de 2026 por Discord con los cinco integrantes. La Tabla 157 resume la planificación.
+El Sprint 2 cubre la entrega AV2. Reúne las historias que permiten que una junta complete su ciclo aunque cambie en el camino: la subasta de turnos, la deserción de un integrante y su reemplazo, el integrante sin la aplicación que luego se registra, la entrega del pozo con su comprobante, el cierre del ciclo y la apertura de uno nuevo, el aporte en efectivo, la consulta de aportes y de períodos anteriores, y los recordatorios por atraso. El enunciado pide para esta entrega los servicios RESTful desplegados al 100 % con su documentación, de modo que el Sprint termina el backend y lleva sus funcionalidades a la aplicación. La reunión de Sprint Planning se realizó el 3 de noviembre de 2026 por Discord con los cinco integrantes. La Tabla 158 resume la planificación.
 
 <table>
   <caption>Resumen del Sprint Planning 2</caption>
@@ -3957,7 +3957,7 @@ El Sprint 2 cubre la entrega AV2. Reúne las historias que permiten que una junt
 
 #### 4.2.2.2. Aspect Leaders and Collaborators
 
-Los aspectos del Sprint 2 son los productos que entrega la AV2 y el informe que los documenta: los servicios RESTful con su despliegue y su documentación, la aplicación móvil, el landing page y las páginas públicas de los enlaces, los videos de la entrega y el informe con su formato APA. La matriz se acordó en la reunión de Sprint Planning: Camargo lidera los servicios y la aplicación, cuya implementación reparte entre los demás integrantes, y Flores lidera los videos y el informe (ver Tabla 158).
+Los aspectos del Sprint 2 son los productos que entrega la AV2 y el informe que los documenta: los servicios RESTful con su despliegue y su documentación, la aplicación móvil, el landing page y las páginas públicas de los enlaces, los videos de la entrega y el informe con su formato APA. La matriz se acordó en la reunión de Sprint Planning: Camargo lidera los servicios y la aplicación, cuya implementación reparte entre los demás integrantes, y Flores lidera los videos y el informe (ver Tabla 159).
 
 <table>
   <caption>Leadership-and-Collaboration Matrix del Sprint 2</caption>
@@ -4026,7 +4026,7 @@ Los aspectos del Sprint 2 son los productos que entrega la AV2 y el informe que 
 
 El objetivo del Sprint 2 es que una junta complete su ciclo en Pozzo aunque cambie en el camino, con subastas, deserciones, reemplazos e integrantes que se registran después. El Sprint se organiza en la lista "Sprint 2 (AV2) - 58 SP" del tablero de Trello: <https://trello.com/b/fRocSVZA/pozzo-product-backlog>.
 
-La Tabla 159 relaciona cada historia con sus tareas, su responsable y su estado. Como en el Sprint 1, las tareas de los servicios se obtuvieron de sus pull requests y no se estimaron en horas. Dos tareas completan escenarios de historias del Sprint 1 que necesitaban un endpoint nuevo: el intercambio de turnos de US18 y la desactivación de los recordatorios ya programados de US34.
+La Tabla 160 relaciona cada historia con sus tareas, su responsable y su estado. Como en el Sprint 1, las tareas de los servicios se obtuvieron de sus pull requests y no se estimaron en horas. Dos tareas completan escenarios de historias del Sprint 1 que necesitaban un endpoint nuevo: el intercambio de turnos de US18 y la desactivación de los recordatorios ya programados de US34.
 
 Las tareas de la aplicación se repartieron entre los cinco integrantes, y cada uno llevó la suya a `develop` en un pull request propio de `kerolabs/pozzo-mobile`; el intercambio de turnos en el calendario entró junto con el cierre de la subasta. Al cierre del Sprint quedan dos tareas abiertas. En el registro en efectivo (T61) falta pedir confirmación cuando el monto difiere del esperado: la aplicación propone lo que debe el integrante y los servicios rechazan un monto distinto. La investigación de Android App Links (T78) no se inició.
 
@@ -4333,7 +4333,7 @@ Las tareas de la aplicación se repartieron entre los cinco integrantes, y cada 
 
 En el Sprint 2 se completaron los servicios RESTful: cada historia que necesitaba un endpoint nuevo se implementó en su propia rama, entró a `develop` por pull request con las pruebas en verde y llegó a `main` en dos pull requests de integración, desplegados en Oracle Cloud como la versión `v0.2.0`. Al probar la aplicación contra esos servicios aparecieron tres fallas, que se corrigieron con su prueba y se desplegaron como `v0.2.1` y `v0.2.2`: los enlaces firmados de las imágenes de comprobantes y transferencias no abrían, el estado del período no decía cuánto debía cada integrante después del descuento de una subasta, y los períodos de un ciclo fallaban después de un reemplazo. Se sumaron además la página pública que abre el enlace de un aporte compartido y, en la aplicación móvil, las pantallas de las historias del Sprint.
 
-**Servicios RESTful.** La Tabla 160 lista los 17 commits de `kerolabs/pozzo-backend` del Sprint, con la rama en la que se hicieron.
+**Servicios RESTful.** La Tabla 161 lista los 17 commits de `kerolabs/pozzo-backend` del Sprint, con la rama en la que se hicieron.
 
 <table>
   <caption>Commits de implementación de pozzo-backend en el Sprint 2</caption>
@@ -4488,7 +4488,7 @@ En el Sprint 2 se completaron los servicios RESTful: cada historia que necesitab
   </tbody>
 </table>
 
-**Páginas públicas de los enlaces.** La Tabla 161 muestra el commit de `kerolabs/kerolabs.github.io` que agrega la página del aporte compartido.
+**Páginas públicas de los enlaces.** La Tabla 162 muestra el commit de `kerolabs/kerolabs.github.io` que agrega la página del aporte compartido.
 
 <table>
   <caption>Commits de implementación de kerolabs.github.io en el Sprint 2</caption>
@@ -4515,7 +4515,7 @@ En el Sprint 2 se completaron los servicios RESTful: cada historia que necesitab
   </tbody>
 </table>
 
-**Aplicación móvil.** La Tabla 162 lista los 16 commits de `kerolabs/pozzo-mobile` del Sprint, con la rama en la que se hicieron. Cada integrante llevó su parte a `develop` en un pull request propio (pozzo-mobile#24 a #28) y la aplicación llegó a `main` en pozzo-mobile#29. La tabla no incluye los dos merges de `develop` con los que se resolvieron los conflictos entre las ramas de la subasta y de la entrega del pozo.
+**Aplicación móvil.** La Tabla 163 lista los 16 commits de `kerolabs/pozzo-mobile` del Sprint, con la rama en la que se hicieron. Cada integrante llevó su parte a `develop` en un pull request propio (pozzo-mobile#24 a #28) y la aplicación llegó a `main` en pozzo-mobile#29. La tabla no incluye los dos merges de `develop` con los que se resolvieron los conflictos entre las ramas de la subasta y de la entrega del pozo.
 
 <table>
   <caption>Commits de implementación de pozzo-mobile en el Sprint 2</caption>
@@ -4666,7 +4666,7 @@ En el Sprint 2 se completaron los servicios RESTful: cada historia que necesitab
 
 En este Sprint la suite de los servicios creció con cada historia: cada pull request agregó las pruebas unitarias de las reglas nuevas del dominio y los escenarios de aceptación de su Technical Story. Se sumaron dos clases y 28 métodos de pruebas unitarias y 23 escenarios de aceptación, con lo que la suite llega a 16 clases de pruebas unitarias con 100 métodos, 3 clases de integración con 15 métodos y 75 escenarios de aceptación. Quedan cubiertos los dos criterios que el Sprint 1 había dejado sin escenario: la subasta de turnos de TS04 y la deserción de TS06. Las herramientas y la forma de ejecución no cambiaron: JUnit 6, AssertJ y Cucumber, con PostgreSQL 16 en Testcontainers, y el workflow `Tests` de GitHub Actions las corre en cada pull request y en cada push a `develop` y `main`. En `main`, tras la versión `v0.2.2`, corrió las 221 pruebas sin fallas: <https://github.com/kerolabs/pozzo-backend/actions/runs/42982329670>.
 
-**Unit Tests.** La Tabla 163 indica las clases de prueba que cambiaron en el Sprint y los comportamientos que agregaron.
+**Unit Tests.** La Tabla 164 indica las clases de prueba que cambiaron en el Sprint y los comportamientos que agregaron.
 
 <table>
   <caption>Pruebas unitarias agregadas en el Sprint 2</caption>
@@ -4717,7 +4717,7 @@ En este Sprint la suite de los servicios creció con cada historia: cada pull re
   </tbody>
 </table>
 
-**Acceptance Tests.** La Tabla 164 lista los escenarios que se agregaron a cada archivo `.feature`. Los archivos completos están en <https://github.com/kerolabs/pozzo-backend/tree/develop/src/test/resources/features>.
+**Acceptance Tests.** La Tabla 165 lista los escenarios que se agregaron a cada archivo `.feature`. Los archivos completos están en <https://github.com/kerolabs/pozzo-backend/tree/develop/src/test/resources/features>.
 
 <table>
   <caption>Escenarios de aceptación agregados en el Sprint 2</caption>
@@ -4758,7 +4758,7 @@ En este Sprint la suite de los servicios creció con cada historia: cada pull re
   </tbody>
 </table>
 
-La integración de las ramas dejó dos fallas en la suite que se corrigieron dentro del Sprint. Al resolver los conflictos, cinco métodos de prueba perdieron la anotación `@Test` y compilaban sin ejecutarse; se detectaron al revisar los métodos sin anotación y se corrigieron en un pull request propio. Además, los tres escenarios de subasta fallaron en GitHub Actions porque el paso que inicia la junta no guardaba el ciclo; el error estaba en el paso y no en los servicios, y se corrigió antes de cerrar la versión. La Tabla 165 relaciona los commits que solo tocan las pruebas.
+La integración de las ramas dejó dos fallas en la suite que se corrigieron dentro del Sprint. Al resolver los conflictos, cinco métodos de prueba perdieron la anotación `@Test` y compilaban sin ejecutarse; se detectaron al revisar los métodos sin anotación y se corrigieron en un pull request propio. Además, los tres escenarios de subasta fallaron en GitHub Actions porque el paso que inicia la junta no guardaba el ciclo; el error estaba en el paso y no en los servicios, y se corrigió antes de cerrar la versión. La Tabla 166 relaciona los commits que solo tocan las pruebas.
 
 <table>
   <caption>Commits de las pruebas de los servicios RESTful en el Sprint 2</caption>
@@ -4813,19 +4813,19 @@ La integración de las ramas dejó dos fallas en la suite que se corrigieron den
 
 En el Sprint 2 la aplicación móvil incorporó la gestión dinámica del ciclo de vida de la junta y las modalidades avanzadas de asignación de turnos. Se implementó la configuración y ejecución de subastas de turnos con ofertas en vivo bajo el pozo, el recálculo dinámico de las cuotas tras el descuento de la oferta ganadora, el intercambio de turnos no iniciados desde el calendario y el registro directo de aportes en efectivo. Asimismo, la aplicación sumó el flujo de deserción de integrantes con asignación de reemplazos en marcha, la entrega del pozo con comprobante de transferencia bancaria, la consulta de períodos anteriores y la apertura de un nuevo ciclo conservando las reglas de la junta. Por último, se integró la generación de enlaces públicos para compartir constancias de aportes verificables en la web sin exponer el comprobante original.
 
-La Figura 159 muestra la subasta de turnos: la cabeza elige la subasta y define cuántos días antes del corte cierra, la oferta mínima y qué pasa si nadie oferta; el integrante ve la subasta del período y mejora su oferta; sin ofertas, la cabeza elige quién cobra entre quienes aún no cobraron; y el calendario marca los turnos que quedan por subastar.
+La Figura 160 muestra la subasta de turnos: la cabeza elige la subasta y define cuántos días antes del corte cierra, la oferta mínima y qué pasa si nadie oferta; el integrante ve la subasta del período y mejora su oferta; sin ofertas, la cabeza elige quién cobra entre quienes aún no cobraron; y el calendario marca los turnos que quedan por subastar.
 
 ![Configuración de la subasta, oferta, elección de quien cobra y calendario por subastar](images/chapter_4/app_auction.png){width=100%}
 
-La Figura 160 muestra los cambios de integrantes: el retiro de un integrante antes de iniciar, con la opción de deshacerlo; la deserción de un integrante en una junta en curso; el turno libre ya ocupado por su reemplazo; y el calendario con el botón para intercambiar dos turnos que no empezaron.
+La Figura 161 muestra los cambios de integrantes: el retiro de un integrante antes de iniciar, con la opción de deshacerlo; la deserción de un integrante en una junta en curso; el turno libre ya ocupado por su reemplazo; y el calendario con el botón para intercambiar dos turnos que no empezaron.
 
 ![Retiro con deshacer, deserción, reemplazo e intercambio de turnos](images/chapter_4/app_members_changes.png){width=100%}
 
-La Figura 161 muestra la entrega del pozo con el descuento de la subasta, la confirmación de la entrega con la transferencia ya adjunta, los períodos anteriores con quién cobró, cuánto y el estado de cada aporte, y la apertura de un nuevo ciclo en una junta cerrada.
+La Figura 162 muestra la entrega del pozo con el descuento de la subasta, la confirmación de la entrega con la transferencia ya adjunta, los períodos anteriores con quién cobró, cuánto y el estado de cada aporte, y la apertura de un nuevo ciclo en una junta cerrada.
 
 ![Entrega del pozo, transferencia adjunta, períodos anteriores y nuevo ciclo](images/chapter_4/app_payout_cycle.png){width=100%}
 
-La Figura 162 muestra el registro de un integrante sin la aplicación, el comprobante de un aporte en Mis aportes con el botón para compartirlo y la hoja de compartir con el enlace verificable.
+La Figura 163 muestra el registro de un integrante sin la aplicación, el comprobante de un aporte en Mis aportes con el botón para compartirlo y la hoja de compartir con el enlace verificable.
 
 ![Integrante sin la aplicación, comprobante en Mis aportes y enlace verificable](images/chapter_4/app_share_contribution.png){width=75%}
 
@@ -4835,11 +4835,11 @@ Para complementar la evidencia de ejecución del Sprint 2, se presenta el video 
 
 En este Sprint se documentaron con OpenAPI 12 endpoints nuevos, con lo que los servicios suman 66 endpoints en 12 recursos. El recurso nuevo es Auctions, con la subasta de cada período; los demás endpoints se agregaron a recursos que ya existían. La documentación sigue generándose desde el código con springdoc-openapi y está desplegada junto con los servicios: Swagger UI en <https://api-kerolabs.duckdns.org/swagger-ui/index.html> y el documento OpenAPI en <https://api-kerolabs.duckdns.org/v3/api-docs>.
 
-Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y requieren el token Bearer, salvo la marcada como pública. La Figura 163 muestra la documentación desplegada con el recurso nuevo Auctions y los endpoints que se sumaron a Periods y Turns.
+Las rutas parten de `https://api-kerolabs.duckdns.org/api/v1` y requieren el token Bearer, salvo la marcada como pública. La Figura 164 muestra la documentación desplegada con el recurso nuevo Auctions y los endpoints que se sumaron a Periods y Turns.
 
 ![Swagger UI con los endpoints del Sprint 2](images/chapter_4/swagger_sprint2.png){width=85%}
 
-La Tabla 166 presenta los endpoints nuevos con el verbo HTTP, la sintaxis de la llamada, la acción con su enlace a la documentación desplegada, los parámetros y la respuesta exitosa.
+La Tabla 167 presenta los endpoints nuevos con el verbo HTTP, la sintaxis de la llamada, la acción con su enlace a la documentación desplegada, los parámetros y la respuesta exitosa.
 
 <table>
   <caption>Endpoints documentados en el Sprint 2</caption>
@@ -4945,7 +4945,7 @@ La Tabla 166 presenta los endpoints nuevos con el verbo HTTP, la sintaxis de la 
 
 En el Sprint 2 se desplegaron de nuevo los servicios RESTful y las páginas públicas de los enlaces, y se generó un APK nuevo de la aplicación móvil. Como en el Sprint 1, cada producto se publica desde la rama `main` de su repositorio.
 
-**Servicios RESTful.** El despliegue no cambió de infraestructura: la instancia de Oracle Cloud, el dominio `api-kerolabs.duckdns.org` y el workflow `Deploy`, que compila el jar, lo envía al servidor y espera a que responda antes de dar el despliegue por bueno. El Sprint llegó a `main` en cuatro pull requests de integración. El primero, pozzo-backend#59, llevó las historias del Sprint y se desplegó el 10 de noviembre (<https://github.com/kerolabs/pozzo-backend/actions/runs/42919507445>). El segundo, pozzo-backend#61, llevó la corrección de los escenarios de subasta y se desplegó el mismo día (<https://github.com/kerolabs/pozzo-backend/actions/runs/42938822170>); su commit quedó marcado como la versión `v0.2.0`. Los otros dos llevaron las correcciones que aparecieron al probar la aplicación contra los servicios desplegados y se desplegaron el 11 de noviembre: pozzo-backend#64 como `v0.2.1` (<https://github.com/kerolabs/pozzo-backend/actions/runs/42979252247>) y pozzo-backend#66 como `v0.2.2` (<https://github.com/kerolabs/pozzo-backend/actions/runs/42982329663>), la versión que queda desplegada: <https://github.com/kerolabs/pozzo-backend/tree/v0.2.2>. La Figura 164 muestra las ejecuciones del workflow `Deploy`, con las cuatro del Sprint 2 al inicio de la lista.
+**Servicios RESTful.** El despliegue no cambió de infraestructura: la instancia de Oracle Cloud, el dominio `api-kerolabs.duckdns.org` y el workflow `Deploy`, que compila el jar, lo envía al servidor y espera a que responda antes de dar el despliegue por bueno. El Sprint llegó a `main` en cuatro pull requests de integración. El primero, pozzo-backend#59, llevó las historias del Sprint y se desplegó el 10 de noviembre (<https://github.com/kerolabs/pozzo-backend/actions/runs/42919507445>). El segundo, pozzo-backend#61, llevó la corrección de los escenarios de subasta y se desplegó el mismo día (<https://github.com/kerolabs/pozzo-backend/actions/runs/42938822170>); su commit quedó marcado como la versión `v0.2.0`. Los otros dos llevaron las correcciones que aparecieron al probar la aplicación contra los servicios desplegados y se desplegaron el 11 de noviembre: pozzo-backend#64 como `v0.2.1` (<https://github.com/kerolabs/pozzo-backend/actions/runs/42979252247>) y pozzo-backend#66 como `v0.2.2` (<https://github.com/kerolabs/pozzo-backend/actions/runs/42982329663>), la versión que queda desplegada: <https://github.com/kerolabs/pozzo-backend/tree/v0.2.2>. La Figura 165 muestra las ejecuciones del workflow `Deploy`, con las cuatro del Sprint 2 al inicio de la lista.
 
 ![Despliegues de los servicios RESTful del Sprint 2 con el workflow Deploy](images/chapter_4/deploy_runs_sprint2.png){width=90%}
 
@@ -4959,7 +4959,7 @@ Las columnas y tablas nuevas las creó Hibernate al arrancar, sin variables de e
 
 #### 4.2.2.9. Team Collaboration Insights during Sprint
 
-Como en el Sprint 1, cada cambio se trabajó en su propia rama, entró a `develop` por pull request con el check `commit-policy` y llegó a `main` en pull requests de integración. La Tabla 167 muestra los commits de cada integrante por repositorio entre el 3 y el 12 de noviembre de 2026, sin contar los merges, y las Figuras 165 y 166 la pestaña Insights de los repositorios de los servicios y de la aplicación en ese período. El landing page no cambió en este Sprint.
+Como en el Sprint 1, cada cambio se trabajó en su propia rama, entró a `develop` por pull request con el check `commit-policy` y llegó a `main` en pull requests de integración. La Tabla 168 muestra los commits de cada integrante por repositorio entre el 3 y el 12 de noviembre de 2026, sin contar los merges, y las Figuras 166 y 167 la pestaña Insights de los repositorios de los servicios y de la aplicación en ese período. El landing page no cambió en este Sprint.
 
 <table>
   <caption>Commits de cada integrante por repositorio en el Sprint 2</caption>
@@ -5038,7 +5038,7 @@ La entrevista dura unos treinta minutos y se realiza de forma presencial o por v
 
 La sesión se estructura en cinco momentos: saludo y consentimiento; preguntas de contexto para situar a la persona y su junta actual; las tareas guiadas, que son el centro de la entrevista; las preguntas posteriores, que recogen lo que la persona entendió y lo que le faltó; y el cierre. Durante las tareas el entrevistador no guía ni corrige: solo enuncia la tarea y pide a la persona que piense en voz alta. Si la persona se bloquea más de un minuto, se anota el bloqueo y se da la pista mínima para continuar.
 
-De cada tarea se registran cuatro datos: si la completó sin ayuda, con ayuda o no la completó; cuánto tardó; en qué pantalla dudó; y qué dijo mientras la hacía. La Tabla 168 reúne las tareas de cada segmento, la pantalla en la que ocurren, lo que cada una valida y el criterio con el que se considera superada.
+De cada tarea se registran cuatro datos: si la completó sin ayuda, con ayuda o no la completó; cuánto tardó; en qué pantalla dudó; y qué dijo mientras la hacía. La Tabla 169 reúne las tareas de cada segmento, la pantalla en la que ocurren, lo que cada una valida y el criterio con el que se considera superada.
 
 <table>
   <caption>Tareas de validación por segmento</caption>
@@ -5219,7 +5219,7 @@ Al cerrar se agradece la participación, se pregunta si la persona quiere añadi
 
 - **Primera entrevista**
 
-La Tabla 169 presenta la ficha de la entrevista de validación a Lionel Chávez.
+La Tabla 170 presenta la ficha de la entrevista de validación a Lionel Chávez.
 
 <table>
   <caption>Ficha de la entrevista de validación a Lionel Chávez</caption>
@@ -5274,7 +5274,7 @@ La Tabla 169 presenta la ficha de la entrevista de validación a Lionel Chávez.
   </tbody>
 </table>
 
-La Figura 167 muestra la captura de la entrevista a Lionel Chávez.
+La Figura 168 muestra la captura de la entrevista a Lionel Chávez.
 
 ![Captura de la entrevista de validación a Lionel Chávez](images/chapter_4/validacion_lionel_chavez.png){width=90%}
 
@@ -5284,7 +5284,7 @@ Lionel es el único entrevistado del segmento de cabezas de junta y el único qu
 
 - **Primera entrevista**
 
-La Tabla 170 presenta la ficha de la entrevista de validación a Elizabeth Díaz.
+La Tabla 171 presenta la ficha de la entrevista de validación a Elizabeth Díaz.
 
 <table>
   <caption>Ficha de la entrevista de validación a Elizabeth Díaz</caption>
@@ -5339,7 +5339,7 @@ La Tabla 170 presenta la ficha de la entrevista de validación a Elizabeth Díaz
   </tbody>
 </table>
 
-La Figura 168 muestra la captura de la entrevista a Elizabeth Díaz.
+La Figura 169 muestra la captura de la entrevista a Elizabeth Díaz.
 
 ![Captura de la entrevista de validación a Elizabeth Díaz](images/chapter_4/validacion_elizabeth_diaz.png){width=90%}
 
@@ -5347,7 +5347,7 @@ Elizabeth completó las ocho tareas sin ayuda y sin preguntar una sola vez dónd
 
 - **Segunda entrevista**
 
-La Tabla 171 presenta la ficha de la entrevista de validación a Mariana López.
+La Tabla 172 presenta la ficha de la entrevista de validación a Mariana López.
 
 <table>
   <caption>Ficha de la entrevista de validación a Mariana López</caption>
@@ -5402,7 +5402,7 @@ La Tabla 171 presenta la ficha de la entrevista de validación a Mariana López.
   </tbody>
 </table>
 
-La Figura 169 muestra la captura de la entrevista a Mariana López.
+La Figura 170 muestra la captura de la entrevista a Mariana López.
 
 ![Captura de la entrevista de validación a Mariana López](images/chapter_4/validacion_mariana_lopez.png){width=90%}
 
@@ -5410,7 +5410,7 @@ Mariana completó las ocho tareas sin ayuda. Su sesión aporta el contraste sobr
 
 ### 4.3.3. Evaluaciones según heurísticas
 
-El equipo realizó una evaluación heurística del producto construido. Es una inspección hecha por el propio equipo, sin usuarios, en la que cada integrante recorre las tareas de la Tabla 168 buscando dónde la interfaz incumple un principio de usabilidad. No sustituye a las entrevistas, porque un equipo no puede sorprenderse con su propio producto, pero encuentra antes los problemas que no hace falta un usuario para detectar. Los hallazgos se contrastaron con las diez heurísticas de Nielsen [@nielsen1994heuristics], las mismas con las que se justificaron los principios de diseño del Capítulo III. La Tabla 172 presenta la cabecera de la evaluación.
+El equipo realizó una evaluación heurística del producto construido. Es una inspección hecha por el propio equipo, sin usuarios, en la que cada integrante recorre las tareas de la Tabla 169 buscando dónde la interfaz incumple un principio de usabilidad. No sustituye a las entrevistas, porque un equipo no puede sorprenderse con su propio producto, pero encuentra antes los problemas que no hace falta un usuario para detectar. Los hallazgos se contrastaron con las diez heurísticas de Nielsen [@nielsen1994heuristics], las mismas con las que se justificaron los principios de diseño del Capítulo III. La Tabla 173 presenta la cabecera de la evaluación.
 
 <table>
   <caption>Cabecera de la evaluación heurística</caption>
@@ -5452,7 +5452,7 @@ El equipo realizó una evaluación heurística del producto construido. Es una i
     </tr>
     <tr>
       <td><b>Alcance</b></td>
-      <td>Las doce tareas de la Tabla 168, que cubren el ingreso, la creación de la junta, la invitación, el reparto de turnos, el registro y la revisión del aporte, el estado del pozo, el calendario de turnos, el historial y los avisos. Quedan fuera la subasta del turno y la deserción de un integrante, que el Sprint 1 dejó para el siguiente por no tener endpoint en los servicios</td>
+      <td>Las doce tareas de la Tabla 169, que cubren el ingreso, la creación de la junta, la invitación, el reparto de turnos, el registro y la revisión del aporte, el estado del pozo, el calendario de turnos, el historial y los avisos. Quedan fuera la subasta del turno y la deserción de un integrante, que el Sprint 1 dejó para el siguiente por no tener endpoint en los servicios</td>
     </tr>
     <tr>
       <td><b>Fecha</b></td>
@@ -5461,7 +5461,7 @@ El equipo realizó una evaluación heurística del producto construido. Es una i
   </tbody>
 </table>
 
-Cada problema se puntúa con la escala de severidad de Nielsen, que combina la frecuencia con la que ocurre, el impacto que tiene cuando ocurre y la persistencia con la que vuelve a aparecer. La Tabla 173 presenta la escala y lo que significa cada grado para este producto.
+Cada problema se puntúa con la escala de severidad de Nielsen, que combina la frecuencia con la que ocurre, el impacto que tiene cuando ocurre y la persistencia con la que vuelve a aparecer. La Tabla 174 presenta la escala y lo que significa cada grado para este producto.
 
 <table>
   <caption>Escala de severidad de los problemas de usabilidad</caption>
@@ -5502,7 +5502,7 @@ Cada problema se puntúa con la escala de severidad de Nielsen, que combina la f
   </tbody>
 </table>
 
-La inspección del equipo encontró nueve problemas y las tres entrevistas de validación añadieron cuatro más, ninguno catastrófico. La Tabla 174 recoge los trece ordenados por severidad, con la heurística que incumplen, la pantalla donde aparecen, el origen del hallazgo y la corrección propuesta. Las pantallas referidas son las de las Figuras 145, 146 y 147 para la aplicación móvil y la Figura 154 para el landing page.
+La inspección del equipo encontró nueve problemas y las tres entrevistas de validación añadieron cuatro más, ninguno catastrófico. La Tabla 175 recoge los trece ordenados por severidad, con la heurística que incumplen, la pantalla donde aparecen, el origen del hallazgo y la corrección propuesta. Las pantallas referidas son las de las Figuras 146, 146 y 147 para la aplicación móvil y la Figura 155 para el landing page.
 
 <table>
   <caption>Problemas encontrados en la evaluación heurística</caption>
