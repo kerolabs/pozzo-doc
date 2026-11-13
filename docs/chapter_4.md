@@ -5261,7 +5261,7 @@ La Tabla 170 presenta la ficha de la entrevista de validación a Lionel Chávez.
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
-      <td><a href="https://youtu.be/ZIZLua_E0Ns">https://youtu.be/ZIZLua_E0Ns</a></td>
+      <td><a href="https://1drv.ms/v/c/b94b009f6d3004d9/IQLonmWaBWsXQ5QUm5wC_DY8ASFgBn5LST7l0uv2vULWO9k?e=PC5DWK">https://1drv.ms/v/c/b94b009f6d3004d9/IQLonmWaBWsXQ5QUm5wC_DY8ASFgBn5LST7l0uv2vULWO9k?e=PC5DWK</a></td>
     </tr>
     <tr>
       <td><b>Resultado de las tareas</b></td>
@@ -5326,7 +5326,7 @@ La Tabla 171 presenta la ficha de la entrevista de validación a Elizabeth Díaz
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
-      <td><a href="https://youtu.be/T-7__YjW3yU">https://youtu.be/T-7__YjW3yU</a></td>
+      <td><a href="https://1drv.ms/v/c/b94b009f6d3004d9/IQKyZXbzxOz0T59RzKSZ8hqGAXVp78sM638ilg0KD8nzXWI?e=4oDNsr">https://1drv.ms/v/c/b94b009f6d3004d9/IQKyZXbzxOz0T59RzKSZ8hqGAXVp78sM638ilg0KD8nzXWI?e=4oDNsr</a></td>
     </tr>
     <tr>
       <td><b>Resultado de las tareas</b></td>
@@ -5389,7 +5389,7 @@ La Tabla 172 presenta la ficha de la entrevista de validación a Mariana López.
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
-      <td><a href="https://youtu.be/E_9QCZduGvk">https://youtu.be/E_9QCZduGvk</a></td>
+      <td><a href="https://1drv.ms/v/c/b94b009f6d3004d9/IQIT7DbhkWXVTq2Hb1EdlW9NAURVoRL4tOETKmCgh-Usw_w?e=Dhz7X8">https://1drv.ms/v/c/b94b009f6d3004d9/IQIT7DbhkWXVTq2Hb1EdlW9NAURVoRL4tOETKmCgh-Usw_w?e=Dhz7X8</a></td>
     </tr>
     <tr>
       <td><b>Resultado de las tareas</b></td>
