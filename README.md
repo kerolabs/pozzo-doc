@@ -55,6 +55,36 @@ La Tabla 1 presenta el registro de versiones del informe.
       <td align="center">Camargo Briceño, Joseph Julius</td>
       <td align="center">Capítulo IV con el Sprint 2: planificación, Sprint Backlog y evidencias de desarrollo, pruebas, documentación y despliegue de los servicios RESTful completos; diagramas de clases, de base de datos y de componentes de Contributions y Savings Groups regenerados; Student Outcome de la AV2</td>
     </tr>
+    <tr>
+      <td align="center">2.4</td>
+      <td align="center">12/11/2026</td>
+      <td align="center">Flores Pinchi, Jose Fernando</td>
+      <td align="center">Validation Interviews: diseño de las entrevistas con tareas que cubren las nueve épicas y evaluación heurística del producto</td>
+    </tr>
+    <tr>
+      <td align="center">2.5</td>
+      <td align="center">12/11/2026</td>
+      <td align="center">Solis Campos, Estefano Sebastian</td>
+      <td align="center">Execution Evidence del Sprint 2 con el video de la navegación de la aplicación móvil</td>
+    </tr>
+    <tr>
+      <td align="center">2.6</td>
+      <td align="center">12/11/2026</td>
+      <td align="center">Camargo Briceño, Joseph Julius</td>
+      <td align="center">Capítulo IV con la aplicación móvil del Sprint 2: tareas del Sprint Backlog, commits, pantallas, APK e insights del equipo; servicios RESTful actualizados a <code>v0.2.2</code>; corrección de la numeración de las figuras</td>
+    </tr>
+    <tr>
+      <td align="center">2.7</td>
+      <td align="center">12/11/2026</td>
+      <td align="center">Flores Pinchi, Jose Fernando</td>
+      <td align="center">Registro de las tres entrevistas de validación realizadas y sus hallazgos en la evaluación heurística</td>
+    </tr>
+    <tr>
+      <td align="center">3.0</td>
+      <td align="center">12/11/2026</td>
+      <td align="center">Todo el equipo</td>
+      <td align="center">Versión para AV2: Capítulo IV con el Sprint 2 completo y las entrevistas de validación; Collaboration Insights, Student Outcome e índice actualizados</td>
+    </tr>
   </tbody>
 </table>
 
@@ -184,6 +214,63 @@ El informe se elabora en el repositorio `pozzo-doc` de la organización Kerolabs
 
 ![Pull Requests integradas en develop, TB1](docs/images/insights_pull_requests_tb1.png)
 
+## AV2
+
+**Organización del trabajo.** El equipo mantuvo el flujo de las entregas anteriores: GitFlow con una rama por sección, Pull Requests hacia `develop` y el check de Conventional Commits requerido para integrar. En esta entrega Camargo alineó el Capítulo II con los servicios del Sprint 2 y redactó la evidencia del Sprint 2 en el Capítulo IV; Flores diseñó y registró las entrevistas de validación y sumó sus hallazgos a la evaluación heurística; y Solis llevó al informe la evidencia de ejecución con el video de la aplicación. Sanchez y Tirado concentraron su aporte en la aplicación móvil, que se detalla en el capítulo de implementación, en la sección Team Collaboration Insights during Sprint del Sprint 2.
+
+**Coordinación.** La reunión de Sprint Planning del 3 de noviembre de 2026, por Discord y con los cinco integrantes, fijó el alcance del Sprint 2 y quién lideraba cada parte del informe y de los productos. La redacción siguió siendo asíncrona, y las revisiones se hicieron en las Pull Requests.
+
+**Aportes por integrante.** Entre el 10 de octubre y el 12 de noviembre de 2026, sin contar esta actualización del registro, se integraron 11 Pull Requests y 21 commits en `develop`. El cuadro resume las secciones que cada integrante redactó o corrigió y su actividad en el repositorio del informe (ver Tabla 4).
+
+<table>
+  <caption>Participación de cada integrante en la entrega AV2</caption>
+  <colgroup><col width="26%"><col width="50%"><col width="12%"><col width="12%"></colgroup>
+  <thead>
+    <tr>
+      <th>Integrante</th>
+      <th>Secciones redactadas o corregidas en AV2</th>
+      <th align="center">Pull Requests</th>
+      <th align="center">Commits</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Camargo Briceño, Joseph Julius</td>
+      <td>Corrección del alcance del Sprint 1; Capítulo II alineado con los servicios del Sprint 2, con sus diagramas regenerados; Capítulo IV con el Sprint 2 (planificación, backlog, evidencias de desarrollo, pruebas, ejecución, documentación de servicios, despliegue e insights del equipo); Registro de Versiones, Collaboration Insights y Student Outcome de esta entrega.</td>
+      <td align="center">7</td>
+      <td align="center">10</td>
+    </tr>
+    <tr>
+      <td>Flores Pinchi, Jose Fernando</td>
+      <td>Validation Interviews: diseño de las entrevistas con tareas que cubren las nueve épicas, registro de las tres entrevistas realizadas y evaluación heurística del producto con los hallazgos de las entrevistas.</td>
+      <td align="center">3</td>
+      <td align="center">10</td>
+    </tr>
+    <tr>
+      <td>Sanchez Benavente, Leonardo Matias</td>
+      <td>Sin aportes al repositorio del informe en esta entrega. Su aporte se concentró en la aplicación móvil, que se detalla en el capítulo de implementación, en la sección Team Collaboration Insights during Sprint.</td>
+      <td align="center">0</td>
+      <td align="center">0</td>
+    </tr>
+    <tr>
+      <td>Solis Campos, Estefano Sebastian</td>
+      <td>Execution Evidence for Sprint Review del Sprint 2, con el video de la navegación de la aplicación.</td>
+      <td align="center">1</td>
+      <td align="center">1</td>
+    </tr>
+    <tr>
+      <td>Tirado Carrera, Gabriela Luciana</td>
+      <td>Sin aportes al repositorio del informe en esta entrega. Su aporte se concentró en la aplicación móvil, que se detalla en el capítulo de implementación, en la sección Team Collaboration Insights during Sprint.</td>
+      <td align="center">0</td>
+      <td align="center">0</td>
+    </tr>
+  </tbody>
+</table>
+
+**Evidencia.** La siguiente captura muestra los commits de la rama `develop` del repositorio entre el 10 de octubre y el 12 de noviembre, con su autor y los merges de cada Pull Request (ver Figura 7).
+
+![Commits de la rama develop del repositorio del informe, AV2](docs/images/insights_commits_av2.png){width=55%}
+
 <!-- pdf:omit-start -->
 
 # Contenido
@@ -250,6 +337,7 @@ El informe se elabora en el repositorio `pozzo-doc` de la organización Kerolabs
   - [4.1.4. Software Deployment Configuration](docs/chapter_4.md#414-software-deployment-configuration)
 - [4.2. Landing Page & Mobile Application Implementation](docs/chapter_4.md#42-landing-page--mobile-application-implementation)
   - [4.2.1. Sprint 1](docs/chapter_4.md#421-sprint-1)
+  - [4.2.2. Sprint 2](docs/chapter_4.md#422-sprint-2)
 - [4.3. Validation Interviews](docs/chapter_4.md#43-validation-interviews)
   - [4.3.1. Diseño de Entrevistas](docs/chapter_4.md#431-diseño-de-entrevistas)
   - [4.3.2. Registro de Entrevistas](docs/chapter_4.md#432-registro-de-entrevistas)
@@ -279,7 +367,7 @@ El curso contribuye al cumplimiento del Student Outcome ABET:\
 ABET - EAC - Student Outcome 7\
 Criterio: La capacidad de adquirir y aplicar nuevos conocimientos según sea necesario, utilizando estrategias de aprendizaje apropiadas.
 
-En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 7 (ver Tabla 4).
+En el siguiente cuadro se describe las acciones realizadas y enunciados de conclusiones por parte del grupo, que permiten sustentar el haber alcanzado el logro del ABET – EAC - Student Outcome 7 (ver Tabla 5).
 
 <table>
   <caption>Student Outcome: criterios, acciones y conclusiones</caption>
@@ -304,8 +392,8 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
     </tr>
     <tr>
       <td></td>
-      <td><b>Camargo Briceño, Joseph Julius</b><br><i>AV2:</i> Completó los servicios RESTful con las historias del Sprint 2: la subasta de turnos con el reparto del descuento, la deserción y el reemplazo de un integrante, el vínculo de quien no tenía la aplicación al registrarse, el intercambio de turnos, el comprobante de la entrega del pozo, el aporte compartido con un enlace verificable, los recordatorios por atraso y el nuevo ciclo. Sumó 12 endpoints documentados en OpenAPI, para un total de 66, y llevó la suite a 217 pruebas; trabajó cada historia en su propia rama y pull request, y desplegó la versión <code>v0.2.0</code>. Alineó el diseño táctico del Capítulo II con lo implementado, regeneró sus diagramas y redactó la evidencia del Sprint 2.</td>
-      <td></td>
+      <td><b>Camargo Briceño, Joseph Julius</b><br><i>AV2:</i> Completó los servicios RESTful con las historias del Sprint 2: la subasta de turnos con el reparto del descuento, la deserción y el reemplazo de un integrante, el vínculo de quien no tenía la aplicación al registrarse, el intercambio de turnos, el comprobante de la entrega del pozo, el aporte compartido con un enlace verificable, los recordatorios por atraso y el nuevo ciclo. Sumó 12 endpoints documentados en OpenAPI, para un total de 66, y llevó la suite a 221 pruebas; trabajó cada historia en su propia rama y pull request, y desplegó hasta la versión <code>v0.2.2</code> con las correcciones que aparecieron al probar la aplicación contra los servicios desplegados. Repartió las historias de la aplicación entre los integrantes, probó la integración en el emulador y generó el APK firmado para las entrevistas de validación. Alineó el diseño táctico del Capítulo II con lo implementado, regeneró sus diagramas y redactó la evidencia del Sprint 2.</td>
+      <td><i>AV2:</i> El Sprint 2 completó los servicios RESTful y llevó a la aplicación los casos en que la junta cambia en el camino: la subasta de turnos, la deserción, el reemplazo y el nuevo ciclo. Probar la aplicación contra los servicios desplegados encontró tres fallas que las pruebas automatizadas no cubrían, y cada corrección volvió con su prueba. Las entrevistas de validación contrastaron el producto con cabezas de junta y participantes, y sus hallazgos se sumaron a la evaluación heurística.</td>
     </tr>
     <tr>
       <td></td>
@@ -315,6 +403,11 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
     <tr>
       <td></td>
       <td><b>Flores Pinchi, Jose Fernando</b><br><i>TB1:</i> Aplicó las normas APA 7 a la numeración y la referencia de todas las tablas y figuras del informe, trajo al Capítulo II los diagramas del diseño estratégico y táctico desde el tablero del equipo, y documentó en los servicios RESTful los repositorios y el contrato de puntuación de Compliance History.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Flores Pinchi, Jose Fernando</b><br><i>AV2:</i> Diseñó las entrevistas de validación con tareas que recorren las nueve épicas del producto, registró las tres entrevistas realizadas a cabezas de junta y participantes, y sumó sus hallazgos a la evaluación heurística. En la aplicación móvil integró a <code>develop</code> la entrega del pozo con su transferencia, los períodos anteriores y el nuevo ciclo.</td>
       <td></td>
     </tr>
     <tr>
@@ -329,6 +422,11 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
     </tr>
     <tr>
       <td></td>
+      <td><b>Sanchez Benavente, Leonardo Matias</b><br><i>AV2:</i> Integró a <code>develop</code> de la aplicación móvil la configuración de la subasta de turnos y las ofertas de los integrantes, con lo que cada uno debe después del descuento.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
       <td><b>Solis Campos, Estefano Sebastian</b><br><i>AV1:</i> Describió los segmentos objetivo con sustento estadístico, realizó el análisis competitivo con el landscape, el SWOT de cada competidor y las estrategias frente a ellos, y modeló la arquitectura de software con el C4 Model en Structurizr en sus niveles de contexto, contenedores y despliegue.</td>
       <td></td>
     </tr>
@@ -339,12 +437,22 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
     </tr>
     <tr>
       <td></td>
+      <td><b>Solis Campos, Estefano Sebastian</b><br><i>AV2:</i> Integró a <code>develop</code> de la aplicación móvil el cierre de la subasta, el intercambio de turnos y el calendario con los turnos por subastar, y llevó al informe la evidencia de ejecución del Sprint 2 con el video de la navegación de la aplicación.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
       <td><b>Tirado Carrera, Gabriela Luciana</b><br><i>AV1:</i> Redactó la descripción de la startup y los perfiles del equipo, elaboró los User Journey Maps y los Empathy Maps en UXPressia, facilitó el Big Picture EventStorming y diseñó los cinco Bounded Context Canvases y el Context Mapping con los patrones de relación entre contextos.</td>
       <td></td>
     </tr>
     <tr>
       <td></td>
       <td><b>Tirado Carrera, Gabriela Luciana</b><br><i>TB1:</i> Diseñó la arquitectura de información del landing page y de la aplicación (sistemas de organización, etiquetado, búsqueda, navegación, SEO y meta tags) y el wireframe y el mock-up del landing page; escribió su contenido y la política de privacidad, y mejoró la accesibilidad de la aplicación para lectores de pantalla.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Tirado Carrera, Gabriela Luciana</b><br><i>AV2:</i> Integró a <code>develop</code> de la aplicación móvil el retiro de un integrante con la opción de deshacerlo, el registro de la deserción y la asignación de su reemplazo.</td>
       <td></td>
     </tr>
     <tr>
@@ -360,7 +468,7 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
     <tr>
       <td></td>
       <td><b>Camargo Briceño, Joseph Julius</b><br><i>AV2:</i> Profundizó en la consistencia entre Bounded Contexts con eventos de integración: qué cambios deben guardarse en la misma transacción, como el intercambio de turnos o el reemplazo de un integrante, y cuáles corren después de confirmada, como el vínculo de una cuenta nueva o los avisos. Aprendió a regenerar los diagramas de PlantUML y Structurizr sin Docker, con sus distribuciones de Java y el Graphviz que trae PlantUML, y a revisar las ramas integradas en busca de pruebas que compilan sin ejecutarse.</td>
-      <td></td>
+      <td><i>AV2:</i> La propuesta de la TB1 se cumplió en parte: en la aplicación cada integrante llevó las historias de una parte del dominio, con su rama y su Pull Request, pero los servicios siguieron a cargo de un integrante. El equipo reconoce que para la TB2 el aprendizaje debe llegar también a los servicios y a la distribución con Firebase App Distribution, con cada integrante implementando y probando las historias que lleve.</td>
     </tr>
     <tr>
       <td></td>
@@ -370,6 +478,11 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
     <tr>
       <td></td>
       <td><b>Flores Pinchi, Jose Fernando</b><br><i>TB1:</i> Profundizó en las reglas de APA 7 para tablas y figuras, en la numeración automática que exige un informe que cambia en cada entrega, y en la documentación de código con Javadoc y KDoc.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Flores Pinchi, Jose Fernando</b><br><i>AV2:</i> Estudió la evaluación heurística de Nielsen y su escala de severidad, y el diseño de entrevistas de validación con tareas observables, para medir si cada participante completa la tarea, con o sin ayuda, y en qué pantalla se detiene.</td>
       <td></td>
     </tr>
     <tr>
@@ -384,12 +497,22 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
     </tr>
     <tr>
       <td></td>
+      <td><b>Sanchez Benavente, Leonardo Matias</b><br><i>AV2:</i> Se familiarizó con la organización por capas de la aplicación en Kotlin (dominio, casos de uso, infraestructura con Retrofit y presentación con Jetpack Compose) y con el flujo de ramas y Pull Requests de su repositorio.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
       <td><b>Solis Campos, Estefano Sebastian</b><br><i>AV1:</i> Aprendió el C4 Model y el DSL de Structurizr para describir la arquitectura como código versionable, e investigó las fuentes estadísticas del INEI y la SBS y la oferta de los competidores para sustentar los segmentos y el análisis competitivo.</td>
       <td></td>
     </tr>
     <tr>
       <td></td>
       <td><b>Solis Campos, Estefano Sebastian</b><br><i>TB1:</i> Aprendió las convenciones de Javadoc y KDoc y a documentar proyectos Spring Boot y Android para que otro integrante pueda construirlos y contribuir sin ayuda.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><b>Solis Campos, Estefano Sebastian</b><br><i>AV2:</i> Pasó de documentar la aplicación a trabajar sobre sus pantallas en Jetpack Compose y sus view models, y aprendió a integrar una rama que parte de la de otro integrante.</td>
       <td></td>
     </tr>
     <tr>
@@ -402,12 +525,17 @@ En el siguiente cuadro se describe las acciones realizadas y enunciados de concl
       <td><b>Tirado Carrera, Gabriela Luciana</b><br><i>TB1:</i> Estudió arquitectura de información, posicionamiento en buscadores con meta tags y hreflang, y las pautas de accesibilidad de Android para que los lectores de pantalla anuncien etiquetas y estados.</td>
       <td></td>
     </tr>
+    <tr>
+      <td></td>
+      <td><b>Tirado Carrera, Gabriela Luciana</b><br><i>AV2:</i> Se familiarizó con la organización por capas de la aplicación en Kotlin y con los mensajes que se pueden deshacer en Jetpack Compose, que llevan a la aplicación la regla de los cinco segundos para retirar a un integrante.</td>
+      <td></td>
+    </tr>
   </tbody>
 </table>
 
 # Objetivos SMART
 
-Cada integrante formula dos objetivos para su desarrollo profesional una vez finalizada la carrera. Cada objetivo es específico, medible, alcanzable, relevante y con plazo definido (ver Tabla 5).
+Cada integrante formula dos objetivos para su desarrollo profesional una vez finalizada la carrera. Cada objetivo es específico, medible, alcanzable, relevante y con plazo definido (ver Tabla 6).
 
 <table>
   <caption>Objetivos SMART del proyecto</caption>
