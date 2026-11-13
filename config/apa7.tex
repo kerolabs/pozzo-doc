@@ -118,13 +118,17 @@
 % sigue llena ese hueco y la figura sale arriba de la pagina siguiente. Con [H]
 % la pagina se quedaba a medias, con la frase que presenta la figura sola al
 % pie. Para que una figura no se aleje de su seccion, placeins las vacia antes
-% de cada capitulo y de cada seccion de segundo y tercer nivel.
+% de cada capitulo y de cada seccion de segundo, tercer y cuarto nivel. El cuarto
+% nivel (####, como 4.2.1.7) es \paragraph en LaTeX; sin la barrera ahi, una
+% figura presentada al final de una seccion salia debajo del titulo de la
+% siguiente.
 \makeatletter\def\fps@figure{!htbp}\def\fps@table{H}\makeatother
 \usepackage[section]{placeins}
 \usepackage{etoolbox}
 \AtBeginDocument{%
   \pretocmd{\subsection}{\FloatBarrier}{}{}%
-  \pretocmd{\subsubsection}{\FloatBarrier}{}{}}
+  \pretocmd{\subsubsection}{\FloatBarrier}{}{}%
+  \pretocmd{\paragraph}{\FloatBarrier}{}{}}
 % Menos restricciones para colocar figuras arriba o abajo de una pagina de
 % texto, en lugar de mandarlas a paginas solo de figuras.
 \renewcommand{\topfraction}{0.9}
