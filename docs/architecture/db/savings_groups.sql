@@ -1,6 +1,6 @@
 -- Bounded Context: Savings Groups (supporting)
 -- Esquema PostgreSQL 16. La junta, sus integrantes, la invitacion vigente,
--- los turnos asignados y las subastas de turno.
+-- los turnos asignados y, si se subastan, las reglas de la subasta.
 
 CREATE SCHEMA IF NOT EXISTS savings_groups;
 
@@ -19,12 +19,16 @@ CREATE TABLE savings_groups.savings_groups (
     turn_method         VARCHAR(10),
     draw_seed           VARCHAR(64),
     turns_assigned_at   TIMESTAMP,
+    auction_closes_days_before SMALLINT,
+    auction_minimum_bid NUMERIC(12, 2),
+    auction_fallback    VARCHAR(10),
     status              VARCHAR(10) NOT NULL DEFAULT 'DRAFT',
     created_at          TIMESTAMP NOT NULL,
     started_at          TIMESTAMP,
     CONSTRAINT ck_groups_periodicity CHECK (periodicity IN ('WEEKLY', 'BIWEEKLY', 'MONTHLY')),
     CONSTRAINT ck_groups_destination CHECK (destination_method IN ('YAPE', 'PLIN')),
     CONSTRAINT ck_groups_turn_method CHECK (turn_method IN ('DRAW', 'AGREED', 'AUCTION')),
+    CONSTRAINT ck_groups_auction_fallback CHECK (auction_fallback IN ('DRAW', 'ORGANIZER')),
     CONSTRAINT ck_groups_status CHECK (status IN ('DRAFT', 'READY', 'STARTED', 'CLOSED')),
     CONSTRAINT ck_groups_seats CHECK (seats BETWEEN 2 AND 50)
 );
@@ -70,30 +74,4 @@ CREATE TABLE savings_groups.turn_slots (
     CONSTRAINT ck_turn_slots_assigned_by CHECK (assigned_by IN ('DRAW', 'AGREED', 'AUCTION'))
 );
 
-CREATE TABLE savings_groups.auctions (
-    id          UUID PRIMARY KEY,
-    group_id    UUID NOT NULL,
-    turn_number SMALLINT NOT NULL,
-    status      VARCHAR(10) NOT NULL DEFAULT 'OPEN',
-    opened_at   TIMESTAMP NOT NULL,
-    closed_at   TIMESTAMP,
-    winner_id   UUID,
-    CONSTRAINT fk_auctions_group FOREIGN KEY (group_id) REFERENCES savings_groups.savings_groups (id),
-    CONSTRAINT fk_auctions_winner FOREIGN KEY (winner_id) REFERENCES savings_groups.memberships (id),
-    CONSTRAINT uq_auctions_turn UNIQUE (group_id, turn_number),
-    CONSTRAINT ck_auctions_status CHECK (status IN ('OPEN', 'CLOSED'))
-);
-
-CREATE TABLE savings_groups.bids (
-    id            UUID PRIMARY KEY,
-    auction_id    UUID NOT NULL,
-    membership_id UUID NOT NULL,
-    amount        NUMERIC(12, 2) NOT NULL,
-    placed_at     TIMESTAMP NOT NULL,
-    CONSTRAINT fk_bids_auction FOREIGN KEY (auction_id) REFERENCES savings_groups.auctions (id),
-    CONSTRAINT fk_bids_membership FOREIGN KEY (membership_id) REFERENCES savings_groups.memberships (id),
-    CONSTRAINT ck_bids_amount CHECK (amount > 0)
-);
-
 CREATE INDEX ix_memberships_member ON savings_groups.memberships (member_id);
-CREATE INDEX ix_bids_auction_amount ON savings_groups.bids (auction_id, amount DESC);

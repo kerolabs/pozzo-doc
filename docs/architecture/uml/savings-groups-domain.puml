@@ -30,6 +30,7 @@ hide empty members
     - turnMethod : TurnMethod
     - drawSeed : String
     - turnsAssignedAt : Instant
+    - auctionRules : AuctionRules
     - status : GroupStatus
     - createdAt : Instant
     - startedAt : Instant
@@ -40,11 +41,15 @@ hide empty members
     + addManualMember(displayName : String, phone : String, now : Instant) : Membership
     + removeMember(membershipId : UUID, now : Instant) : void
     + assignTurns(slots : List<TurnSlot>, method : TurnMethod, seed : String, now : Instant) : void
-    + assignTurnFromAuction(turnNumber : int, winner : UUID) : void
+    + assignTurnsByAuction(rules : AuctionRules, now : Instant) : void
     + hasFreeSeats() : boolean
     + canStart() : boolean
     + start(now : Instant) : void
-    + registerDropout(dropped : UUID, replacement : UUID) : void
+    + linkManualMember(phone : String, accountId : UUID, now : Instant) : Optional<Membership>
+    + applySwappedTurns(firstMembershipId, firstTurn, secondMembershipId, secondTurn) : void
+    + registerDropout(membershipId : UUID, now : Instant) : Membership
+    + replaceDroppedMember(droppedMembershipId, accountId, displayName, phone, now) : Membership
+    + openNewCycle(firstContributionDate : LocalDate, now : Instant) : SavingsGroup
     + turnCalendar() : List<TurnSlot>
   }
 
@@ -61,21 +66,6 @@ hide empty members
     + expire() : void
   }
 
-  class Auction <<Aggregate Root>> {
-    - id : UUID
-    - groupId : UUID
-    - turnNumber : int
-    - bids : List<Bid>
-    - status : AuctionStatus
-    - openedAt : Instant
-    - closedAt : Instant
-    - winnerId : UUID
-    + open(groupId : UUID, turnNumber : int) : Auction {static}
-    + placeBid(memberId : UUID, amount : Money) : Bid
-    + highestBids() : List<Bid>
-    + close(tieBreakBy : UUID) : UUID
-  }
-
   class Membership <<Entity>> {
     - id : UUID
     - memberId : UUID
@@ -86,17 +76,12 @@ hide empty members
     - joinedAt : Instant
     + ofAppMember(memberId, displayName, now) : Membership {static}
     + ofManualMember(displayName, phone, now) : Membership {static}
+    + ofReplacement(memberId, displayName, phone, now) : Membership {static}
     + isActive() : boolean
     + belongsTo(accountId : UUID) : boolean
+    + linkAccount(accountId : UUID) : void
     + remove() : void
     + markDropped() : void
-  }
-
-  class Bid <<Entity>> {
-    - id : UUID
-    - memberId : UUID
-    - amount : Money
-    - placedAt : Instant
   }
 
   class GroupRules <<Value Object>> {
@@ -109,6 +94,11 @@ hide empty members
     + pot() : Money
     + cutoffDay() : int
     + cutoffDateOfTurn(turnNumber : int) : LocalDate
+  }
+  class AuctionRules <<Value Object>> {
+    - closesDaysBeforeCutoff : int
+    - minimumBid : Money
+    - fallback : AuctionFallback
   }
   class TurnSlot <<Value Object>> {
     - turnNumber : int
@@ -157,9 +147,9 @@ hide empty members
     YAPE
     PLIN
   }
-  enum AuctionStatus {
-    OPEN
-    CLOSED
+  enum AuctionFallback {
+    DRAW
+    ORGANIZER
   }
   enum Periodicity {
     WEEKLY
@@ -175,6 +165,7 @@ hide empty members
   interface SavingsGroupRepository <<Repository>> {
     + findById(id : UUID) : Optional<SavingsGroup>
     + findAllByMemberId(memberId : UUID) : List<SavingsGroup>
+    + findAllWithUnlinkedManualMember(phone : String) : List<SavingsGroup>
     + save(group : SavingsGroup) : SavingsGroup
   }
   interface InvitationRepository <<Repository>> {
@@ -183,22 +174,17 @@ hide empty members
     + findAllActiveByGroupId(groupId : UUID) : List<Invitation>
     + save(invitation : Invitation) : Invitation
   }
-  interface AuctionRepository <<Repository>> {
-    + findById(id : UUID) : Optional<Auction>
-    + findOpenByGroupId(groupId : UUID) : Optional<Auction>
-    + save(auction : Auction) : Auction
-  }
 
 SavingsGroup "1" *-- "1" GroupRules : rules
 SavingsGroup "1" *-- "1..*" Membership : memberships
 SavingsGroup "1" *-- "0..*" TurnSlot : turns
 SavingsGroup "1" o-- "0..*" Invitation : invitations >
-SavingsGroup "1" o-- "0..*" Auction : auctions >
-Auction "1" *-- "0..*" Bid : bids
+SavingsGroup "1" *-- "0..1" AuctionRules : auctionRules
 Invitation "1" *-- "1" InvitationCode : code
 GroupRules "1" *-- "0..1" Destination : destination
 Destination --> PaymentMethod
-Bid --> Money
+AuctionRules --> Money
+AuctionRules --> AuctionFallback
 GroupRules --> Money
 GroupRules --> Periodicity
 SavingsGroup --> GroupStatus
@@ -206,10 +192,8 @@ SavingsGroup --> TurnMethod
 Membership --> MembershipKind
 Membership --> MembershipStatus
 Invitation --> InvitationStatus
-Auction --> AuctionStatus
 
 SavingsGroupRepository ..> SavingsGroup : persists
 InvitationRepository ..> Invitation : persists
-AuctionRepository ..> Auction : persists
 TurnAssignmentService ..> SavingsGroup : assigns turns
 @enduml

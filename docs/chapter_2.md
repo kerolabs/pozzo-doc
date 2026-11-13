@@ -18,7 +18,7 @@ El propósito de este análisis es examinar las fortalezas y vacíos de las apli
 
 #### Competitive Analysis Landscape
 
-La Tabla 8 presenta el Competitive Analysis Landscape de Pozzo y sus competidores.
+La Tabla 9 presenta el Competitive Analysis Landscape de Pozzo y sus competidores.
 
 <table>
   <caption>Competitive Analysis Landscape de Pozzo y sus competidores</caption>
@@ -99,7 +99,7 @@ La Tabla 8 presenta el Competitive Analysis Landscape de Pozzo y sus competidore
 
 ##### Pozzo
 
-La Tabla 9 presenta el Análisis SWOT de Pozzo.
+La Tabla 10 presenta el Análisis SWOT de Pozzo.
 
 <table>
   <caption>Análisis SWOT de Pozzo</caption>
@@ -127,7 +127,7 @@ La Tabla 9 presenta el Análisis SWOT de Pozzo.
 
 ##### Tandapp / MiTandita
 
-La Tabla 10 presenta el Análisis SWOT de Tandapp / MiTandita.
+La Tabla 11 presenta el Análisis SWOT de Tandapp / MiTandita.
 
 <table>
   <caption>Análisis SWOT de Tandapp / MiTandita</caption>
@@ -155,7 +155,7 @@ La Tabla 10 presenta el Análisis SWOT de Tandapp / MiTandita.
 
 ##### Moneypool
 
-La Tabla 11 presenta el Análisis SWOT de Moneypool.
+La Tabla 12 presenta el Análisis SWOT de Moneypool.
 
 <table>
   <caption>Análisis SWOT de Moneypool</caption>
@@ -183,7 +183,7 @@ La Tabla 11 presenta el Análisis SWOT de Moneypool.
 
 ##### Splitwise
 
-La Tabla 12 presenta el Análisis SWOT de Splitwise.
+La Tabla 13 presenta el Análisis SWOT de Splitwise.
 
 <table>
   <caption>Análisis SWOT de Splitwise</caption>
@@ -338,7 +338,7 @@ Esta sección presenta el estudio cualitativo basado en entrevistas semiestructu
 
 - **Primera entrevista**
 
-La Tabla 13 presenta la ficha de la entrevista a Shirley Romy Becerra Pinchi.
+La Tabla 14 presenta la ficha de la entrevista a Shirley Romy Becerra Pinchi.
 
 <table>
   <caption>Ficha de la entrevista a Shirley Romy Becerra Pinchi</caption>
@@ -380,7 +380,7 @@ La Tabla 13 presenta la ficha de la entrevista a Shirley Romy Becerra Pinchi.
   </tbody>
 </table>
 
-La Figura 8 muestra la captura de la entrevista a Shirley Romy Becerra Pinchi.
+La Figura 9 muestra la captura de la entrevista a Shirley Romy Becerra Pinchi.
 
 ![Captura de la entrevista a Shirley Romy Becerra Pinchi](images/chapter_2/shirley_pinchi.png){width=90%}
 
@@ -388,7 +388,7 @@ Shirley organiza panderos desde el colegio y lo ve como una forma de ahorrar; po
 
 - **Segunda entrevista**
 
-La Tabla 14 presenta la ficha de la entrevista a Ariel Roberto Mendoza Blanco.
+La Tabla 15 presenta la ficha de la entrevista a Ariel Roberto Mendoza Blanco.
 
 <table>
   <caption>Ficha de la entrevista a Ariel Roberto Mendoza Blanco</caption>
@@ -430,7 +430,7 @@ La Tabla 14 presenta la ficha de la entrevista a Ariel Roberto Mendoza Blanco.
   </tbody>
 </table>
 
-La Figura 9 muestra la captura de la entrevista a Ariel Roberto Mendoza Blanco.
+La Figura 10 muestra la captura de la entrevista a Ariel Roberto Mendoza Blanco.
 
 ![Captura de la entrevista a Ariel Roberto Mendoza Blanco](images/chapter_2/ariel_mendoza.png){width=90%}
 
@@ -438,7 +438,7 @@ Ariel organiza juntas desde los 20 años como una forma de obligarse a ahorrar, 
 
 - **Tercera entrevista**
 
-La Tabla 15 presenta la ficha de la entrevista a Jorge Chávez.
+La Tabla 16 presenta la ficha de la entrevista a Jorge Chávez.
 
 <table>
   <caption>Ficha de la entrevista a Jorge Chávez</caption>
@@ -480,7 +480,7 @@ La Tabla 15 presenta la ficha de la entrevista a Jorge Chávez.
   </tbody>
 </table>
 
-La Figura 10 muestra la captura de la entrevista a Jorge Chávez.
+La Figura 11 muestra la captura de la entrevista a Jorge Chávez.
 
 ![Captura de la entrevista a Jorge Chávez](images/chapter_2/jorge_chavez.png){width=90%}
 
@@ -490,7 +490,7 @@ Jorge organiza juntas desde hace unos cinco años; empezó entre hermanos y prim
 
 - **Primera entrevista**
 
-La Tabla 16 presenta la ficha de la entrevista a Elizabeth Díaz.
+La Tabla 17 presenta la ficha de la entrevista a Elizabeth Díaz.
 
 <table>
   <caption>Ficha de la entrevista a Elizabeth Díaz</caption>
@@ -532,7 +532,7 @@ La Tabla 16 presenta la ficha de la entrevista a Elizabeth Díaz.
   </tbody>
 </table>
 
-La Figura 11 muestra la captura de la entrevista a Elizabeth Díaz.
+La Figura 12 muestra la captura de la entrevista a Elizabeth Díaz.
 
 ![Captura de la entrevista a Elizabeth Díaz](images/chapter_2/elizabeth_diaz.png){width=90%}
 
@@ -540,7 +540,7 @@ Elizabeth entró a su primera junta invitada por una amiga de la universidad, qu
 
 - **Segunda entrevista**
 
-La Tabla 17 presenta la ficha de la entrevista a Mariana López.
+La Tabla 18 presenta la ficha de la entrevista a Mariana López.
 
 <table>
   <caption>Ficha de la entrevista a Mariana López</caption>
@@ -582,7 +582,7 @@ La Tabla 17 presenta la ficha de la entrevista a Mariana López.
   </tbody>
 </table>
 
-La Figura 12 muestra la captura de la entrevista a Mariana López.
+La Figura 13 muestra la captura de la entrevista a Mariana López.
 
 ![Captura de la entrevista a Mariana López](images/chapter_2/mariana_lopez.png){width=90%}
 
@@ -590,7 +590,7 @@ Mariana entró a su primera junta invitada por una amiga del trabajo; prefirió 
 
 - **Tercera entrevista**
 
-La Tabla 18 presenta la ficha de la entrevista a Catherine Villar.
+La Tabla 19 presenta la ficha de la entrevista a Catherine Villar.
 
 <table>
   <caption>Ficha de la entrevista a Catherine Villar</caption>
@@ -632,7 +632,7 @@ La Tabla 18 presenta la ficha de la entrevista a Catherine Villar.
   </tbody>
 </table>
 
-La Figura 13 muestra la captura de la entrevista a Catherine Villar.
+La Figura 14 muestra la captura de la entrevista a Catherine Villar.
 
 ![Captura de la entrevista a Catherine Villar](images/chapter_2/catherine_villar.png){width=90%}
 
@@ -653,7 +653,7 @@ Se realizaron 6 entrevistas semiestructuradas distribuidas en dos segmentos obje
 - El 67% ha tenido que cubrir con su propio dinero, o el de un familiar, el atraso o incumplimiento de un integrante para que la cadena no se cayera.
 - El 100% recibe los aportes por billetera digital (Yape o Plin) y el 67% además recibe una parte en efectivo.
 
-**Prácticas y problemas comunes** (ver Figura 14)
+**Prácticas y problemas comunes** (ver Figura 15)
 
 ![Prácticas y problemas comunes del segmento 1](images/chapter_2/graf_seg1_practicas.png){width=75%}
 
@@ -661,7 +661,7 @@ Se realizaron 6 entrevistas semiestructuradas distribuidas en dos segmentos obje
 
 El registro manual, la verificación uno por uno de los pagos, la necesidad de recordar la cuota cada ciclo y los incidentes de descuadre aparecen en el 100% del segmento, lo que los posiciona como los problemas centrales y compartidos por todas las cabezas de junta. El 67% incluso ha tenido que poner dinero propio para cubrir un atraso, lo que muestra que el costo del desorden no es solo de tiempo, sino también económico.
 
-**Herramienta de registro actual** (ver Figura 15)
+**Herramienta de registro actual** (ver Figura 16)
 
 ![Herramienta de registro del segmento 1](images/chapter_2/graf_seg1_registro.png){width=60%}
 
@@ -669,7 +669,7 @@ El registro manual, la verificación uno por uno de los pagos, la necesidad de r
 
 El 67% del segmento ya se apoya en Excel, con o sin cuaderno, y el 33% restante lleva todo únicamente en un cuaderno; ninguno usa una aplicación dedicada. Esto indica que Pozzo no compite con un sistema digital consolidado, sino que se posiciona como la primera herramienta formal de gestión de la junta, lo que reduce la resistencia al cambio y facilita la adopción.
 
-**Canal de recepción de aportes** (ver Figura 16)
+**Canal de recepción de aportes** (ver Figura 17)
 
 ![Canal de recepción de aportes del segmento 1](images/chapter_2/graf_seg1_canal.png){width=60%}
 
@@ -692,7 +692,7 @@ Las cabezas de junta administran con herramientas insuficientes: dependen del cu
 - El 100% conoce o vivió una junta en la que alguien dejó de pagar, lo que generó incomodidad en el grupo.
 - El 67% tuvo un retraso en su última cobranza porque algún integrante no había aportado a tiempo, y el 67% prefiere la junta a un préstamo bancario para no pagar intereses.
 
-**Experiencias y percepciones** (ver Figura 17)
+**Experiencias y percepciones** (ver Figura 18)
 
 ![Experiencias y percepciones del segmento 2](images/chapter_2/graf_seg2_experiencias.png){width=75%}
 
@@ -700,7 +700,7 @@ Las cabezas de junta administran con herramientas insuficientes: dependen del cu
 
 El desorden de las capturas, los reclamos de "no pagaste" cuando sí se pagó, la dificultad para probar un aporte antiguo, la incertidumbre sobre el pozo y el conocimiento de casos de incumplimiento aparecen en el 100% del segmento. Todos estos puntos apuntan al mismo vacío: la falta de una prueba de pago ordenada y de visibilidad del estado de la junta.
 
-**Última cobranza** (ver Figura 18)
+**Última cobranza** (ver Figura 19)
 
 ![Resultado de la última cobranza del segmento 2](images/chapter_2/graf_seg2_cobranza.png){width=60%}
 
@@ -708,7 +708,7 @@ El desorden de las capturas, los reclamos de "no pagaste" cuando sí se pagó, l
 
 El 67% del segmento tuvo un retraso en su última cobranza porque algún integrante no aportó a tiempo, frente a un 33% que cobró sin contratiempos. Esto confirma que la incertidumbre sobre completar el pozo no es solo una preocupación, sino un problema que efectivamente ocurre.
 
-**Factores para entrar a una junta** (ver Figura 19)
+**Factores para entrar a una junta** (ver Figura 20)
 
 ![Factores para entrar a una junta del segmento 2](images/chapter_2/graf_seg2_decision.png){width=60%}
 
@@ -731,7 +731,7 @@ Se elaboró una ficha de User Persona por cada segmento objetivo, utilizando UXP
 
 #### User Persona 1: Cabeza de junta
 
-La Figura 20 muestra la Anna Weber.
+La Figura 21 muestra la Anna Weber.
 
 ![Anna Weber](images/chapter_2/anna_weber_us1.png){width=48%}
 
@@ -739,14 +739,14 @@ La Figura 20 muestra la Anna Weber.
 
 #### User Persona 2: Participante de junta
 
-La Figura 21 muestra la Sofia Gonzales.
+La Figura 22 muestra la Sofia Gonzales.
 
 ![Sofia Gonzales](images/chapter_2/sofia_gonzales_us2.png){width=48%}
 
 *Nota.* Elaborado por el equipo en UXPressia con su plantilla de User Persona, a partir de las entrevistas a los participantes.
 
 ### 2.3.2. User Task Matrix
-El User Task Matrix concentra las tareas que los User Personas realizan para cumplir sus objetivos dentro de una junta, con independencia de que exista o no una solución de software. No se trata de funcionalidades de Pozzo, sino de actividades que ambos segmentos ya ejecutan hoy con cuaderno, hoja de cálculo y mensajería (ver Tabla 19).
+El User Task Matrix concentra las tareas que los User Personas realizan para cumplir sus objetivos dentro de una junta, con independencia de que exista o no una solución de software. No se trata de funcionalidades de Pozzo, sino de actividades que ambos segmentos ya ejecutan hoy con cuaderno, hoja de cálculo y mensajería (ver Tabla 20).
 
 <table>
   <caption>User Task Matrix de los segmentos objetivo</caption>
@@ -873,7 +873,7 @@ Los User Journey Maps representan el recorrido actual de los dos segmentos objet
 
 #### User Journey Map 1: Anna Weber - Cabeza de junta
 
-El journey de Anna Weber representa el recorrido de una cabeza de junta desde la conformación del grupo hasta la entrega del pozo correspondiente a cada período. El proceso se caracteriza por una alta carga administrativa: coordinación mediante WhatsApp, registro manual de aportes, revisión individual de comprobantes y seguimiento constante a los participantes atrasados. La angustia y estrés se concentran cerca de la fecha de corte, cuando Anna necesita comprobar que todos los aportes hayan sido recibidos y resolver cualquier inconsistencia antes de realizar la entrega (ver Figura 22).
+El journey de Anna Weber representa el recorrido de una cabeza de junta desde la conformación del grupo hasta la entrega del pozo correspondiente a cada período. El proceso se caracteriza por una alta carga administrativa: coordinación mediante WhatsApp, registro manual de aportes, revisión individual de comprobantes y seguimiento constante a los participantes atrasados. La angustia y estrés se concentran cerca de la fecha de corte, cuando Anna necesita comprobar que todos los aportes hayan sido recibidos y resolver cualquier inconsistencia antes de realizar la entrega (ver Figura 23).
 
 ![Anna Weber Journey Map](images/chapter_2/anna_weber_journey_map.png)
 
@@ -881,7 +881,7 @@ El journey de Anna Weber representa el recorrido de una cabeza de junta desde la
 
 #### User Journey Map 2: Sofia Gonzales - Participante de junta
 
-El journey de Sofia Gonzales representa la experiencia de una participante desde que evalúa incorporarse a una junta hasta que recibe el pozo en el turno asignado. Su decisión inicial depende principalmente de la confianza en el organizador y en los demás integrantes. Durante el ciclo realiza sus aportes mediante Yape o, eventualmente, otros medios acordados, envía comprobantes por WhatsApp y conserva las capturas como respaldo. Los principales problemas aparecen al intentar demostrar aportes anteriores y durante la espera previa a su turno, cuando no existe certeza de que todos los integrantes hayan pagado a tiempo (ver Figura 23).
+El journey de Sofia Gonzales representa la experiencia de una participante desde que evalúa incorporarse a una junta hasta que recibe el pozo en el turno asignado. Su decisión inicial depende principalmente de la confianza en el organizador y en los demás integrantes. Durante el ciclo realiza sus aportes mediante Yape o, eventualmente, otros medios acordados, envía comprobantes por WhatsApp y conserva las capturas como respaldo. Los principales problemas aparecen al intentar demostrar aportes anteriores y durante la espera previa a su turno, cuando no existe certeza de que todos los integrantes hayan pagado a tiempo (ver Figura 24).
 
 ![Sofia Gonzales Journey Map](images/chapter_2/sofia_gonzales_journey_map.png)
 
@@ -893,7 +893,7 @@ Los Empathy Maps se elaboraron en UXPressia, uno por cada User Persona, en una s
 
 #### Empathy map 1: Anna Weber - Cabeza de Junta
 
-El empathy map de Anna Weber, como administradora de juntas entre conocidos, refleja su rol clave en coordinar reglas, turnos y la entrega del pozo, enfrentando el desafío de equilibrar su confianza en el grupo con la frustración de la revisión manual de comprobantes y la incomodidad de gestionar cobranzas, lo que demuestra la necesidad de mejorar estos procesos, asegurar la transparencia de los aportes y preservar la confianza (ver Figura 24).
+El empathy map de Anna Weber, como administradora de juntas entre conocidos, refleja su rol clave en coordinar reglas, turnos y la entrega del pozo, enfrentando el desafío de equilibrar su confianza en el grupo con la frustración de la revisión manual de comprobantes y la incomodidad de gestionar cobranzas, lo que demuestra la necesidad de mejorar estos procesos, asegurar la transparencia de los aportes y preservar la confianza (ver Figura 25).
 
 ![Anna Weber Empathy Map](images/chapter_2/anna_webber_empathy_map.png)
 
@@ -901,7 +901,7 @@ El empathy map de Anna Weber, como administradora de juntas entre conocidos, ref
 
 #### Empathy map 2: Sofia Gonzales - Participante de Junta
 
-El empathy map de Sofia Gonzales, como participante en una junta, está basada en la confianza donde busca cumplir puntualmente con sus aportes y recibir el pozo en su turno. Asimismo enfrenta la incomodidad de buscar comprobantes antiguos y la incertidumbre ante posibles retrasos del grupo. Esto demuestra la necesidad de evidenciar de forma organizada los pagos, el estado del pozo y así tener la tranquilidad frente al cumplimiento general (ver Figura 25).
+El empathy map de Sofia Gonzales, como participante en una junta, está basada en la confianza donde busca cumplir puntualmente con sus aportes y recibir el pozo en su turno. Asimismo enfrenta la incomodidad de buscar comprobantes antiguos y la incertidumbre ante posibles retrasos del grupo. Esto demuestra la necesidad de evidenciar de forma organizada los pagos, el estado del pozo y así tener la tranquilidad frente al cumplimiento general (ver Figura 26).
 
 ![Sofia Gonzales Empathy Map](images/chapter_2/sofia_gonzales_empathy_map.png)
 
@@ -921,28 +921,28 @@ El Big Picture EventStorming se utilizó para representar de manera colaborativa
 - **External System**: Sistema o herramienta externa que interactúa con el proceso.
 - **Comment**: Nota, pregunta o aclaración añadida durante el análisis
 
-La Figura 26 muestra la leyenda de conceptos.
+La Figura 27 muestra la leyenda de conceptos.
 
 ![Leyenda de conceptos](images/chapter_2/leyenda.jpg)
 
 *Nota.* Notación del EventStorming [@brandolini2021eventstorming]. Las etiquetas de la leyenda están en inglés, como en el tablero de Miro del equipo.
 
 #### Identificación de eventos
-El equipo inició la sesión identificando los principales eventos que ocurren durante una junta de ahorro. Cada evento se formuló como un hecho ocurrido dentro del dominio, sin considerar todavía su orden ni posibles soluciones tecnológicas (ver Figura 27).
+El equipo inició la sesión identificando los principales eventos que ocurren durante una junta de ahorro. Cada evento se formuló como un hecho ocurrido dentro del dominio, sin considerar todavía su orden ni posibles soluciones tecnológicas (ver Figura 28).
 
 ![Identificacion de eventos](images/chapter_2/identificacion_de_eventos.jpg)
 
 *Nota.* Los colores siguen la leyenda del Big Picture EventStorming. Elaborado por el equipo en Miro.
 
 #### Ordenamiento temporal
-Los eventos identificados se organizaron cronológicamente para reconstruir el recorrido completo de una junta, desde su conformación hasta la finalización del ciclo (ver Figura 28).
+Los eventos identificados se organizaron cronológicamente para reconstruir el recorrido completo de una junta, desde su conformación hasta la finalización del ciclo (ver Figura 29).
 
 ![Ordenamiento temporal](images/chapter_2/ordenamiento_temporal.jpg)
 
 *Nota.* Los colores siguen la leyenda del Big Picture EventStorming; la línea de tiempo se lee de izquierda a derecha. Elaborado por el equipo en Miro.
 
 #### Actores, sistemas externos y comandos
-Posteriormente se incorporaron los roles que participan en cada actividad y las herramientas utilizadas actualmente, entre ellas WhatsApp, Yape, Plin, aplicaciones bancarias y hojas de cálculo. Ademas se utilizan verbos en infinitivo para representar las acciones que se están haciendo (ver Figura 29).
+Posteriormente se incorporaron los roles que participan en cada actividad y las herramientas utilizadas actualmente, entre ellas WhatsApp, Yape, Plin, aplicaciones bancarias y hojas de cálculo. Ademas se utilizan verbos en infinitivo para representar las acciones que se están haciendo (ver Figura 30).
 
 ![Actores,sistemas externos y comandos](images/chapter_2/actores_sistemas_externos_comandos.jpg)
 
@@ -950,7 +950,7 @@ Posteriormente se incorporaron los roles que participan en cada actividad y las 
 
 #### Identificación de problemas y validación
 
-Finalmente, mediante storytelling se revisó el recorrido completo y se identificaron los principales puntos de fricción, como la cobranza repetitiva, la verificación manual y los aportes pendientes (ver Figura 30).
+Finalmente, mediante storytelling se revisó el recorrido completo y se identificaron los principales puntos de fricción, como la cobranza repetitiva, la verificación manual y los aportes pendientes (ver Figura 31).
 
 ![Problemas y Validación](images/chapter_2/problemas_validacion.jpg)
 
@@ -958,7 +958,7 @@ Finalmente, mediante storytelling se revisó el recorrido completo y se identifi
 
 ### 2.3.6. Ubiquitous Language
 
-El siguiente glosario reúne los términos y conceptos del dominio del ahorro rotativo que el equipo utiliza de forma uniforme en todos los artefactos, en el código y en la comunicación con los interesados. Se incluyen únicamente términos del negocio, no términos técnicos de ingeniería de software. Los términos se registran en inglés, con su equivalente de uso corriente en el Perú entre paréntesis (ver Tabla 20).
+El siguiente glosario reúne los términos y conceptos del dominio del ahorro rotativo que el equipo utiliza de forma uniforme en todos los artefactos, en el código y en la comunicación con los interesados. Se incluyen únicamente términos del negocio, no términos técnicos de ingeniería de software. Los términos se registran en inglés, con su equivalente de uso corriente en el Perú entre paréntesis (ver Tabla 21).
 
 <table>
   <caption>Ubiquitous Language del dominio de las juntas</caption>
@@ -1066,7 +1066,7 @@ Los criterios de aceptación siguen la estructura Gherkin (Dado, Cuando, Entonce
 
 #### Epics
 
-La Tabla 21 presenta los epics del Product Backlog.
+La Tabla 22 presenta los epics del Product Backlog.
 
 <table>
   <caption>Epics del Product Backlog</caption>
@@ -1145,7 +1145,7 @@ La Tabla 21 presenta los epics del Product Backlog.
 
 ##### EP01 Acceso y cuenta
 
-Las Tablas 22 a 27 especifican las historias de usuario de este epic.
+Las Tablas 23 a 28 especifican las historias de usuario de este epic.
 
 <table>
   <caption>US01. Ingresar con el número de celular</caption>
@@ -1341,7 +1341,7 @@ Las Tablas 22 a 27 especifican las historias de usuario de este epic.
 
 ##### EP02 Configuración de la junta
 
-Las Tablas 28 a 31 especifican las historias de usuario de este epic.
+Las Tablas 29 a 32 especifican las historias de usuario de este epic.
 
 <table>
   <caption>US07. Crear una junta</caption>
@@ -1473,7 +1473,7 @@ Las Tablas 28 a 31 especifican las historias de usuario de este epic.
 
 ##### EP03 Incorporación de integrantes
 
-Las Tablas 32 a 37 especifican las historias de usuario de este epic.
+Las Tablas 33 a 38 especifican las historias de usuario de este epic.
 
 <table>
   <caption>US11. Invitar integrantes con código y enlace</caption>
@@ -1669,7 +1669,7 @@ Las Tablas 32 a 37 especifican las historias de usuario de este epic.
 
 ##### EP04 Asignación de turnos
 
-Las Tablas 38 a 43 especifican las historias de usuario de este epic.
+Las Tablas 39 a 44 especifican las historias de usuario de este epic.
 
 <table>
   <caption>US17. Asignar turnos por sorteo</caption>
@@ -1865,7 +1865,7 @@ Las Tablas 38 a 43 especifican las historias de usuario de este epic.
 
 ##### EP05 Registro y validación de aportes
 
-Las Tablas 44 a 49 especifican las historias de usuario de este epic.
+Las Tablas 45 a 50 especifican las historias de usuario de este epic.
 
 <table>
   <caption>US23. Registrar mi aporte con el comprobante</caption>
@@ -2061,7 +2061,7 @@ Las Tablas 44 a 49 especifican las historias de usuario de este epic.
 
 ##### EP06 Transparencia del pozo
 
-Las Tablas 50 a 53 especifican las historias de usuario de este epic.
+Las Tablas 51 a 54 especifican las historias de usuario de este epic.
 
 <table>
   <caption>US29. Ver el estado del pozo del período vigente</caption>
@@ -2193,7 +2193,7 @@ Las Tablas 50 a 53 especifican las historias de usuario de este epic.
 
 ##### EP07 Recordatorios y avisos
 
-Las Tablas 54 a 56 especifican las historias de usuario de este epic.
+Las Tablas 55 a 57 especifican las historias de usuario de este epic.
 
 <table>
   <caption>US33. Recibir recordatorios escalonados de mi aporte</caption>
@@ -2293,7 +2293,7 @@ Las Tablas 54 a 56 especifican las historias de usuario de este epic.
 
 ##### EP08 Entrega del pozo y cierre del ciclo
 
-Las Tablas 57 a 60 especifican las historias de usuario de este epic.
+Las Tablas 58 a 61 especifican las historias de usuario de este epic.
 
 <table>
   <caption>US36. Entregar el pozo y abrir el siguiente turno</caption>
@@ -2425,7 +2425,7 @@ Las Tablas 57 a 60 especifican las historias de usuario de este epic.
 
 ##### EP09 Historial de cumplimiento
 
-Las Tablas 61 a 63 especifican las historias de usuario de este epic.
+Las Tablas 62 a 64 especifican las historias de usuario de este epic.
 
 <table>
   <caption>US40. Consultar mi historial de cumplimiento</caption>
@@ -2525,7 +2525,7 @@ Las Tablas 61 a 63 especifican las historias de usuario de este epic.
 
 ##### EP10 Landing page
 
-Las Tablas 64 a 67 especifican las historias de usuario de este epic.
+Las Tablas 65 a 68 especifican las historias de usuario de este epic.
 
 <table>
   <caption>US43. Entender qué resuelve Pozzo</caption>
@@ -2657,7 +2657,7 @@ Las Tablas 64 a 67 especifican las historias de usuario de este epic.
 
 #### Technical Stories
 
-Las Technical Stories describen los servicios RESTful de desarrollo propio que sostienen la aplicación móvil. Se redactan desde el rol Developer y sus criterios de aceptación son escenarios de solicitud y respuesta (ver Tablas 68 a 75).
+Las Technical Stories describen los servicios RESTful de desarrollo propio que sostienen la aplicación móvil. Se redactan desde el rol Developer y sus criterios de aceptación son escenarios de solicitud y respuesta (ver Tablas 69 a 76).
 
 <table>
   <caption>TS01. Servicio de autenticación por SMS</caption>
@@ -2778,11 +2778,11 @@ Las Technical Stories describen los servicios RESTful de desarrollo propio que s
     </tr>
     <tr>
       <td><b>Description</b></td>
-      <td colspan="3">Como desarrollador, deseo contar con endpoints para asignar turnos por sorteo u orden acordado, y para registrar y cerrar subastas, para que la aplicación móvil soporte los tres métodos de reparto.</td>
+      <td colspan="3">Como desarrollador, deseo contar con endpoints para asignar turnos por sorteo, orden acordado o subasta, y para ofertar y cerrar la subasta de cada período, para que la aplicación móvil soporte los tres métodos de reparto.</td>
     </tr>
     <tr>
       <td><b>Acceptance Criteria</b></td>
-      <td colspan="3"><b>Escenario 1: Asignación por sorteo u orden</b><br>Dado el organizador de una junta con todos los cupos ocupados,<br>Cuando envía POST /api/v1/groups/{id}/turns/draw, o POST /api/v1/groups/{id}/turns/agreed con la lista ordenada de integrantes,<br>Entonces el servicio responde 200 OK con el turno y la fecha de corte de cada integrante, sin repeticiones, y en el sorteo la semilla que permite reproducirlo.<br><br><b>Escenario 2: Oferta en subasta</b><br>Dado un integrante que no ha cobrado y una subasta OPEN,<br>Cuando envía POST /api/v1/auctions/{auctionId}/bids con un monto igual o mayor al mínimo,<br>Entonces el servicio responde 201 Created reemplazando cualquier oferta previa del mismo integrante; y responde 422 Unprocessable Entity si el monto es menor al mínimo o 403 Forbidden si el integrante ya cobró.<br><br><b>Escenario 3: Cierre</b><br>Dado el organizador y una subasta OPEN con ofertas,<br>Cuando envía POST /api/v1/auctions/{auctionId}/close,<br>Entonces el servicio responde 200 OK con el ganador, el monto a recibir y el crédito aplicado a cada integrante que aún no cobra; y sin ofertas aplica el mecanismo de respaldo configurado.</td>
+      <td colspan="3"><b>Escenario 1: Asignación por sorteo u orden</b><br>Dado el organizador de una junta con todos los cupos ocupados,<br>Cuando envía POST /api/v1/groups/{id}/turns/draw, POST /api/v1/groups/{id}/turns/agreed con la lista ordenada de integrantes, o POST /api/v1/groups/{id}/turns/auction con los días de anticipación al corte, la oferta mínima y el respaldo,<br>Entonces el servicio responde 200 OK con el turno y la fecha de corte de cada integrante, sin repeticiones; en el sorteo, con la semilla que permite reproducirlo, y en la subasta, con un orden provisional que cada subasta corrige.<br><br><b>Escenario 2: Oferta en subasta</b><br>Dado un integrante que no ha cobrado y la subasta OPEN del período en curso,<br>Cuando envía POST /api/v1/periods/{periodId}/auction/bids con un monto igual o mayor al mínimo y menor al pozo,<br>Entonces el servicio responde 200 OK con la subasta, en la que su oferta reemplaza a cualquier oferta previa suya; y responde 422 Unprocessable Entity si el monto es menor al mínimo, si el integrante ya cobró o si la subasta cerró.<br><br><b>Escenario 3: Cierre</b><br>Dado el organizador y una subasta OPEN,<br>Cuando envía POST /api/v1/periods/{periodId}/auction/close,<br>Entonces el servicio responde 200 OK con el ganador, el descuento, el monto a recibir y cómo se resolvió; con ofertas gana la mayor, y sin ofertas aplica el respaldo configurado: un sorteo, o el integrante que la cabeza envía en el cuerpo. Las subastas cuyo día de cierre pasó se cierran solas.</td>
     </tr>
   </tbody>
 </table>
@@ -2921,7 +2921,7 @@ Las Spike Stories cubren la investigación necesaria antes de implementar las hi
 
 **Contexto común.** La solución de Pozzo se compone de una aplicación móvil nativa para Android, una versión multiplataforma, un backend de servicios RESTful de desarrollo propio con enfoque Domain-Driven Design y un landing page estático. Ninguno de los tres spikes tiene precedente en el curso: la lectura de texto en imágenes, el envío de notificaciones con la aplicación cerrada y la apertura de la aplicación desde un enlace externo dependen de bibliotecas y servicios de terceros cuya selección debe justificarse y documentarse.
 
-**Definition of Done común a los tres spikes.** El prototipo queda registrado en una rama del repositorio; el informe de hallazgos se comparte y revisa en una reunión del equipo o sesión de refinamiento del backlog; los hallazgos se usan para crear o refinar las historias de implementación; y el spike está limitado a entre 8 y 16 horas y se completa dentro del sprint en que se planifica (ver Tablas 76 a 78).
+**Definition of Done común a los tres spikes.** El prototipo queda registrado en una rama del repositorio; el informe de hallazgos se comparte y revisa en una reunión del equipo o sesión de refinamiento del backlog; los hallazgos se usan para crear o refinar las historias de implementación; y el spike está limitado a entre 8 y 16 horas y se completa dentro del sprint en que se planifica (ver Tablas 77 a 79).
 
 <table>
   <caption>SP01. Investigar la lectura automática de comprobantes de Yape y Plin</caption>
@@ -3023,7 +3023,7 @@ Las Spike Stories cubren la investigación necesaria antes de implementar las hi
 
 El Impact Map vincula los objetivos de negocio de Pozzo con las personas que pueden hacerlos posibles, el cambio de comportamiento que se espera de ellas, lo que el producto entrega para provocar ese cambio y las historias que lo implementan. El equipo lo elaboró en UXPressia a partir de las fichas de User Persona de Anna Weber y Sofia Gonzales, respondiendo en cada nivel las preguntas del método: quiénes ayudan a lograr la meta, qué tendrían que hacer, qué puede hacer el negocio digital para provocarlo y con qué historias. Se elaboró un mapa por cada objetivo de negocio.
 
-Los objetivos de negocio se derivan de los resultados que el equipo definió en los Business Outcome Assumptions y en el Problem Statement del Lean UX Process (capítulo I, Solution Profile), formulados con los criterios SMART (específicos, medibles, alcanzables, relevantes y con plazo). El horizonte de medición son las juntas piloto que el equipo acompañará después del lanzamiento. Se seleccionaron los tres outcomes del primer ciclo de uso; el outcome de crecimiento por referidos (una de cada tres juntas nuevas formada por integrantes que ya usaron Pozzo) se medirá recién entre los meses 7 y 12, por lo que queda fuera de estos mapas y se retoma al planificar el segundo semestre (ver Tabla 79).
+Los objetivos de negocio se derivan de los resultados que el equipo definió en los Business Outcome Assumptions y en el Problem Statement del Lean UX Process (capítulo I, Solution Profile), formulados con los criterios SMART (específicos, medibles, alcanzables, relevantes y con plazo). El horizonte de medición son las juntas piloto que el equipo acompañará después del lanzamiento. Se seleccionaron los tres outcomes del primer ciclo de uso; el outcome de crecimiento por referidos (una de cada tres juntas nuevas formada por integrantes que ya usaron Pozzo) se medirá recién entre los meses 7 y 12, por lo que queda fuera de estos mapas y se retoma al planificar el segundo semestre (ver Tabla 80).
 
 <table>
   <caption>Business goals del Impact Mapping</caption>
@@ -3053,7 +3053,7 @@ Los actores son los dos User Personas del proyecto: **Anna Weber**, cabeza de ju
 
 #### Business Goal 01: ciclo completo en Pozzo
 
-Este mapa responde a la pregunta de qué tiene que pasar para que una junta que hoy se administra con cuaderno y mensajería complete un ciclo entero dentro de Pozzo. De Anna Weber se esperan tres cambios: que configure su junta con las mismas reglas que su grupo ya acordó y la inicie sin ayuda (deliverables de configuración de la junta y asignación de turnos, con las historias de crear e iniciar la junta y de repartir turnos por sorteo, orden acordado o subasta); que incorpore al grupo entero, incluidos quienes no instalan la aplicación (incorporación de integrantes, con la invitación por código y enlace, el registro de integrantes sin aplicación y la lista de integrantes); y que registre la entrega de cada pozo y avance de turno dentro de la aplicación hasta cerrar el ciclo (entrega del pozo y cierre). De Sofia Gonzales se esperan dos: que se una a la junta el mismo día que recibe la invitación, sin configurar nada (incorporación de integrantes y acceso y cuenta), y que consulte el estado del pozo y su turno en Pozzo en lugar de preguntar en el grupo de mensajería (transparencia del pozo y calendario de turnos) (ver Figura 31).
+Este mapa responde a la pregunta de qué tiene que pasar para que una junta que hoy se administra con cuaderno y mensajería complete un ciclo entero dentro de Pozzo. De Anna Weber se esperan tres cambios: que configure su junta con las mismas reglas que su grupo ya acordó y la inicie sin ayuda (deliverables de configuración de la junta y asignación de turnos, con las historias de crear e iniciar la junta y de repartir turnos por sorteo, orden acordado o subasta); que incorpore al grupo entero, incluidos quienes no instalan la aplicación (incorporación de integrantes, con la invitación por código y enlace, el registro de integrantes sin aplicación y la lista de integrantes); y que registre la entrega de cada pozo y avance de turno dentro de la aplicación hasta cerrar el ciclo (entrega del pozo y cierre). De Sofia Gonzales se esperan dos: que se una a la junta el mismo día que recibe la invitación, sin configurar nada (incorporación de integrantes y acceso y cuenta), y que consulte el estado del pozo y su turno en Pozzo en lugar de preguntar en el grupo de mensajería (transparencia del pozo y calendario de turnos) (ver Figura 32).
 
 ![Impact Map del Business Goal 01](images/chapter_2/impact_map_bg01.png){width=100%}
 
@@ -3061,7 +3061,7 @@ Este mapa responde a la pregunta de qué tiene que pasar para que una junta que 
 
 #### Business Goal 02: aportes validados y discrepancias resueltas en la aplicación
 
-El segundo mapa sostiene la hipótesis central de Pozzo: que la validación automática del comprobante reemplace la revisión manual de la cabeza y que toda discrepancia se resuelva con evidencia dentro de la aplicación. Sofia Gonzales debe registrar su aporte con el comprobante apenas transfiere, en lugar de enviar la captura al chat (registro y validación de aportes, con las historias de registrar el aporte y revisar los datos leídos); transferir el monto exacto al destinatario correcto, de modo que el comprobante coincida con lo esperado (validación automática, destino de los aportes y número de Yape o Plin en el perfil); y mostrar su comprobante desde Pozzo cuando alguien cuestione su pago (mis aportes con comprobante y consulta sin conexión). Anna Weber debe revisar únicamente los aportes con alguna inconsistencia y confiar en la validación del resto (revisión de aportes con inconsistencia); registrar en la aplicación los aportes en efectivo y las coberturas para que el registro cuadre con el dinero (aporte en efectivo y cobertura); y consultar el registro de aportes en lugar de reconstruir la cuenta de memoria o pedir capturas (estado del pozo y períodos anteriores) (ver Figura 32).
+El segundo mapa sostiene la hipótesis central de Pozzo: que la validación automática del comprobante reemplace la revisión manual de la cabeza y que toda discrepancia se resuelva con evidencia dentro de la aplicación. Sofia Gonzales debe registrar su aporte con el comprobante apenas transfiere, en lugar de enviar la captura al chat (registro y validación de aportes, con las historias de registrar el aporte y revisar los datos leídos); transferir el monto exacto al destinatario correcto, de modo que el comprobante coincida con lo esperado (validación automática, destino de los aportes y número de Yape o Plin en el perfil); y mostrar su comprobante desde Pozzo cuando alguien cuestione su pago (mis aportes con comprobante y consulta sin conexión). Anna Weber debe revisar únicamente los aportes con alguna inconsistencia y confiar en la validación del resto (revisión de aportes con inconsistencia); registrar en la aplicación los aportes en efectivo y las coberturas para que el registro cuadre con el dinero (aporte en efectivo y cobertura); y consultar el registro de aportes en lugar de reconstruir la cuenta de memoria o pedir capturas (estado del pozo y períodos anteriores) (ver Figura 33).
 
 ![Impact Map del Business Goal 02](images/chapter_2/impact_map_bg02.png){width=100%}
 
@@ -3069,7 +3069,7 @@ El segundo mapa sostiene la hipótesis central de Pozzo: que la validación auto
 
 #### Business Goal 03: cero recordatorios manuales
 
-El tercer mapa es el más acotado y apunta al desgaste que las cabezas describieron en las entrevistas: escribirle a dos o tres personas hasta cinco veces por ciclo. De Sofia Gonzales se espera que aporte antes de la fecha de corte al recibir los recordatorios automáticos, sin que la cabeza le escriba (recordatorios y avisos, con los recordatorios escalonados y los avisos de la junta), y que aporte a tiempo porque el grupo entero ve quién debe (transparencia del pozo, con el estado del pozo y el indicador de cuánto falta para quien cobra). De Anna Weber se espera un solo cambio, pero decisivo para el objetivo: que deje que el sistema recuerde los aportes en nombre de la junta y no escriba a nadie por su cuenta (configuración de los recordatorios de la junta) (ver Figura 33).
+El tercer mapa es el más acotado y apunta al desgaste que las cabezas describieron en las entrevistas: escribirle a dos o tres personas hasta cinco veces por ciclo. De Sofia Gonzales se espera que aporte antes de la fecha de corte al recibir los recordatorios automáticos, sin que la cabeza le escriba (recordatorios y avisos, con los recordatorios escalonados y los avisos de la junta), y que aporte a tiempo porque el grupo entero ve quién debe (transparencia del pozo, con el estado del pozo y el indicador de cuánto falta para quien cobra). De Anna Weber se espera un solo cambio, pero decisivo para el objetivo: que deje que el sistema recuerde los aportes en nombre de la junta y no escriba a nadie por su cuenta (configuración de los recordatorios de la junta) (ver Figura 34).
 
 ![Impact Map del Business Goal 03](images/chapter_2/impact_map_bg03.png){width=100%}
 
@@ -3079,9 +3079,9 @@ El tercer mapa es el más acotado y apunta al desgaste que las cabezas describie
 
 El Product Backlog reúne las 46 User Stories, las 8 Technical Stories y las 3 Spike Stories de la especificación, estimadas en Story Points con la escala 1, 2, 3, 5 y 8 y ordenadas por el valor que aportan al negocio. La estimación la hizo el equipo por consenso, comparando cada historia con una de referencia (crear una junta, US07, en 3 puntos) y considerando la incertidumbre técnica: las historias que dependen de la lectura de comprobantes, de las notificaciones o de los enlaces de invitación cargan puntos adicionales hasta que sus spikes las reduzcan.
 
-El orden sigue el Impact Map: primero lo que permite que una junta exista y complete un ciclo (landing page, creación e invitación, turnos, estado del pozo), luego lo que sostiene la validación automática de aportes, después los recordatorios y el historial, y al final la subasta y las historias que amplían la propuesta. Las historias del landing page van en el primer sprint porque el sitio es la puerta de entrada de las cabezas de junta y no depende de que la aplicación exista. La autenticación por SMS no encabeza el backlog: se ubica en el segundo sprint, cuando el flujo principal ya existe y hace falta distinguir a los usuarios.
+El orden sigue el Impact Map: primero lo que permite que una junta exista y complete un ciclo (landing page, creación e invitación, turnos, estado del pozo), luego lo que sostiene la validación automática de aportes, después los recordatorios y el historial, y al final la subasta y las historias que amplían la propuesta. Las historias del landing page van en el primer sprint porque el sitio es la puerta de entrada de las cabezas de junta y no depende de que la aplicación exista. La autenticación por SMS no encabeza el backlog: se ubica después del flujo principal de la junta, cuando ya hace falta distinguir a los usuarios.
 
-Los sprints se alinean con los hitos de entrega del proyecto: el Sprint 1 con TB1, el Sprint 2 con AV2 y los Sprints 3 y 4 con TB2 (ver Tabla 80).
+Los sprints se alinean con los hitos de entrega del proyecto: el Sprint 1 con TB1, el Sprint 2 con AV2 y el Sprint 3 con TB2 (ver Tabla 81).
 
 <table>
   <caption>Product Backlog priorizado de Pozzo</caption>
@@ -3226,70 +3226,70 @@ Los sprints se alinean con los hitos de entrega del proyecto: el Sprint 1 con TB
       <td>US01</td>
       <td>Ingresar con el número de celular</td>
       <td align="center">2</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">20</td>
       <td>US02</td>
       <td>Verificar el código SMS</td>
       <td align="center">2</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">21</td>
       <td>US03</td>
       <td>Completar el registro</td>
       <td align="center">2</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">22</td>
       <td>TS01</td>
       <td>Servicio de autenticación por SMS</td>
       <td align="center">5</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">23</td>
       <td>US04</td>
       <td>Mantener la sesión en el dispositivo</td>
       <td align="center">2</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">24</td>
       <td>US23</td>
       <td>Registrar mi aporte con el comprobante</td>
       <td align="center">5</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">25</td>
       <td>US24</td>
       <td>Revisar los datos leídos del comprobante</td>
       <td align="center">5</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">26</td>
       <td>US25</td>
       <td>Validación automática del aporte</td>
       <td align="center">8</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">27</td>
       <td>TS05</td>
       <td>Servicio de aportes y comprobantes</td>
       <td align="center">8</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">28</td>
       <td>US26</td>
       <td>Revisar un aporte con inconsistencia</td>
       <td align="center">3</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">29</td>
@@ -3310,7 +3310,7 @@ Los sprints se alinean con los hitos de entrega del proyecto: el Sprint 1 con TB
       <td>US30</td>
       <td>Saber si mi pozo estará completo</td>
       <td align="center">2</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">32</td>
@@ -3338,166 +3338,166 @@ Los sprints se alinean con los hitos de entrega del proyecto: el Sprint 1 con TB
       <td>SP02</td>
       <td>Investigar las notificaciones push y la programación de recordatorios</td>
       <td align="center">5</td>
-      <td align="center">2</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">36</td>
       <td>US33</td>
       <td>Recibir recordatorios escalonados de mi aporte</td>
       <td align="center">5</td>
-      <td align="center">3</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">37</td>
       <td>US35</td>
       <td>Recibir avisos de los hechos de la junta</td>
       <td align="center">3</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">38</td>
       <td>US34</td>
       <td>Configurar los recordatorios de la junta</td>
       <td align="center">2</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">39</td>
       <td>TS07</td>
       <td>Servicio de recordatorios y notificaciones</td>
       <td align="center">8</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">40</td>
       <td>US14</td>
       <td>Agregar un integrante sin la aplicación</td>
       <td align="center">3</td>
-      <td align="center">3</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">41</td>
       <td>US15</td>
       <td>Retirar un integrante antes de iniciar</td>
       <td align="center">1</td>
-      <td align="center">3</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">42</td>
       <td>US09</td>
       <td>Consultar y ajustar las reglas de la junta</td>
       <td align="center">2</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">43</td>
       <td>US05</td>
       <td>Administrar mi perfil</td>
       <td align="center">3</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">44</td>
       <td>US31</td>
       <td>Consultar la junta sin conexión</td>
       <td align="center">5</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">45</td>
       <td>US32</td>
       <td>Consultar períodos anteriores</td>
       <td align="center">2</td>
-      <td align="center">3</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">46</td>
       <td>US40</td>
       <td>Consultar mi historial de cumplimiento</td>
       <td align="center">3</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">47</td>
       <td>US42</td>
       <td>Ver el historial de quien se une a mi junta</td>
       <td align="center">2</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">48</td>
       <td>TS08</td>
       <td>Servicio de historial de cumplimiento</td>
       <td align="center">3</td>
-      <td align="center">3</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">49</td>
       <td>SP03</td>
       <td>Investigar los enlaces de invitación que abren la aplicación</td>
       <td align="center">5</td>
-      <td align="center">3</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">50</td>
       <td>US19</td>
       <td>Configurar la junta por subasta</td>
       <td align="center">3</td>
-      <td align="center">4</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">51</td>
       <td>US20</td>
       <td>Ofertar en la subasta del turno</td>
       <td align="center">5</td>
-      <td align="center">4</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">52</td>
       <td>US21</td>
       <td>Cerrar la subasta y asignar el turno</td>
       <td align="center">5</td>
-      <td align="center">4</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">53</td>
       <td>TS04</td>
       <td>Servicio de turnos y subastas</td>
       <td align="center">8</td>
-      <td align="center">4</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">54</td>
       <td>US37</td>
       <td>Registrar la cobertura de un aporte</td>
       <td align="center">3</td>
-      <td align="center">4</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">55</td>
       <td>US38</td>
       <td>Registrar una deserción y su reemplazo</td>
       <td align="center">3</td>
-      <td align="center">4</td>
+      <td align="center">2</td>
     </tr>
     <tr>
       <td align="center">56</td>
       <td>US41</td>
       <td>Compartir mi historial</td>
       <td align="center">2</td>
-      <td align="center">4</td>
+      <td align="center">1</td>
     </tr>
     <tr>
       <td align="center">57</td>
       <td>US06</td>
       <td>Elegir el tema visual</td>
       <td align="center">1</td>
-      <td align="center">4</td>
+      <td align="center">1</td>
     </tr>
   </tbody>
 </table>
 
-El total es de 199 Story Points: 55 en el Sprint 1, 67 en el Sprint 2, 47 en el Sprint 3 y 30 en el Sprint 4. Los dos primeros sprints concentran la carga porque en ellos se construye el ciclo completo de la junta y la validación de aportes, que son las dos hipótesis con mayor valor; el cuarto sprint queda deliberadamente liviano para absorber lo que se desplace de los anteriores y para las validaciones con usuarios.
+El total es de 199 Story Points: 141 en el Sprint 1 y 58 en el Sprint 2. El Sprint 1 reúne las historias que se implementaron en ese sprint: el ciclo completo de la junta, el acceso con el código SMS, el registro y la validación de aportes, los recordatorios y avisos, y el historial de cumplimiento. El Sprint 2 reúne lo que falta para completar el producto: la subasta, la deserción con su reemplazo, los enlaces que abren la aplicación y los escenarios pendientes de la entrega del pozo, el cierre del ciclo y los recordatorios por atraso.
 
 El backlog se administra en Trello, en un tablero público con una lista por sprint: <https://trello.com/b/fRocSVZA/pozzo-product-backlog>. Cada historia es una tarjeta con su código, título y Story Points, en el mismo orden de esta tabla, y su descripción reproduce la historia y los criterios de aceptación para que el equipo trabaje desde el tablero sin volver al informe. La captura del tablero se incluye en el Anexo A, Product Backlog en Trello.
 
@@ -3517,7 +3517,7 @@ La sección cierra con la arquitectura de software de la solución, representada
 
 La sesión de EventStorming de nivel de diseño se realizó en Miro con los cinco integrantes del equipo y duró dos horas. A diferencia del Big Picture, que describía cómo funciona hoy una junta sin Pozzo, esta sesión modeló cómo va a funcionar con Pozzo: qué comandos ejecuta cada actor desde la aplicación, qué agregado los recibe, qué eventos producen, qué políticas reaccionan a esos eventos, qué vistas consulta el usuario para decidir y con qué sistemas externos se conversa. Las User Stories sirvieron de guion: cada historia se tradujo en al menos un comando y en los eventos que su criterio de aceptación describe en la cláusula "Entonces".
 
-Se usó la notación de Brandolini, que asigna un color de nota a cada concepto del dominio. La leyenda que acompaña al tablero recoge los ocho conceptos empleados, su color y lo que representa cada uno, de modo que los tramos se puedan leer sin conocer la convención de antemano (ver Tabla 81).
+Se usó la notación de Brandolini, que asigna un color de nota a cada concepto del dominio. La leyenda que acompaña al tablero recoge los ocho conceptos empleados, su color y lo que representa cada uno, de modo que los tramos se puedan leer sin conocer la convención de antemano (ver Tabla 82).
 
 <table>
   <caption>Leyenda del EventStorming de nivel de diseño</caption>
@@ -3573,7 +3573,7 @@ Se usó la notación de Brandolini, que asigna un color de nota a cada concepto 
   </tbody>
 </table>
 
-La Figura 34 muestra la leyenda del EventStorming de nivel de diseño.
+La Figura 35 muestra la leyenda del EventStorming de nivel de diseño.
 
 ![Leyenda del EventStorming de nivel de diseño](images/chapter_2/es_leyenda.png){width=75%}
 
@@ -3583,7 +3583,7 @@ Para que el resultado se pueda leer, el tablero se organizó en columnas y carri
 
 #### Tramo 1: acceso a Pozzo
 
-El primer tramo cubre la entrada de un integrante a la aplicación. Se identificó un único agregado, Cuenta, que recibe los comandos de solicitar y verificar el código SMS, completar el registro y administrar el perfil, y un agregado Sesión para el token que la aplicación guarda en el dispositivo. Dos políticas conectan este tramo con el resto: si el celular es nuevo se pide el registro, y al iniciar sesión se registra el dispositivo para recibir avisos. Los hotspots recogieron el vencimiento del código, los reintentos y la sesión en dos dispositivos a la vez (ver Figura 35).
+El primer tramo cubre la entrada de un integrante a la aplicación. Se identificó un único agregado, Cuenta, que recibe los comandos de solicitar y verificar el código SMS, completar el registro y administrar el perfil, y un agregado Sesión para el token que la aplicación guarda en el dispositivo. Dos políticas conectan este tramo con el resto: si el celular es nuevo se pide el registro, y al iniciar sesión se registra el dispositivo para recibir avisos. Los hotspots recogieron el vencimiento del código, los reintentos y la sesión en dos dispositivos a la vez (ver Figura 36).
 
 ![EventStorming: acceso a Pozzo](images/chapter_2/es_acceso.png)
 
@@ -3591,7 +3591,7 @@ El primer tramo cubre la entrada de un integrante a la aplicación. Se identific
 
 #### Tramo 2: configuración de la junta, integrantes y turnos
 
-El segundo tramo va desde que la cabeza crea la junta hasta que la inicia. El agregado Junta concentra las reglas (aporte, periodicidad, cupos, fecha de corte y destino de los aportes), la lista de integrantes y los turnos; Invitación y Subasta aparecen como agregados propios porque tienen ciclo de vida independiente. El evento pivotal es Junta iniciada: a partir de él las reglas quedan bloqueadas, el código de invitación caduca y una política abre el primer período de aporte. Los hotspots de este tramo son decisiones que el prototipo dejó abiertas: si el destino de los aportes es la cuenta de la cabeza o la del integrante del turno, cómo se verifica ante el grupo que el sorteo fue justo y qué pasa con un empate en la subasta (ver Figura 36).
+El segundo tramo va desde que la cabeza crea la junta hasta que la inicia. El agregado Junta concentra las reglas (aporte, periodicidad, cupos, fecha de corte y destino de los aportes), la lista de integrantes y los turnos; Invitación y Subasta aparecen como agregados propios porque tienen ciclo de vida independiente. El evento pivotal es Junta iniciada: a partir de él las reglas quedan bloqueadas, el código de invitación caduca y una política abre el primer período de aporte. Los hotspots de este tramo son decisiones que el prototipo dejó abiertas: si el destino de los aportes es la cuenta de la cabeza o la del integrante del turno, cómo se verifica ante el grupo que el sorteo fue justo y qué pasa con un empate en la subasta (ver Figura 37).
 
 ![EventStorming: configuración de la junta, integrantes y turnos](images/chapter_2/es_junta.png)
 
@@ -3599,7 +3599,7 @@ El segundo tramo va desde que la cabeza crea la junta hasta que la inicia. El ag
 
 #### Tramo 3: registro y validación de aportes
 
-El tercer tramo es el núcleo de Pozzo. Al abrir un período, una política calcula el aporte esperado de cada integrante; antes de la fecha de corte, otra envía recordatorios escalonados a quien no ha aportado. El participante registra su aporte con la captura del comprobante, ML Kit lee en el dispositivo el monto, la fecha, el destinatario y el número de operación, y el participante confirma esos datos. El agregado Aporte los valida contra lo esperado y produce el evento pivotal Aporte validado o, si algo no cuadra, Inconsistencia detectada, que pide a la cabeza aprobar o rechazar. Los aportes en efectivo los registra solo la cabeza, porque no tienen comprobante. Cuando todos los aportes del período están validados, el pozo está completo. Los hotspots más discutidos fueron la captura borrosa o recortada, el comprobante reutilizado en dos aportes y el hecho de que la entrega del push no está garantizada (ver Figura 37).
+El tercer tramo es el núcleo de Pozzo. Al abrir un período, una política calcula el aporte esperado de cada integrante; antes de la fecha de corte, otra envía recordatorios escalonados a quien no ha aportado. El participante registra su aporte con la captura del comprobante, ML Kit lee en el dispositivo el monto, la fecha, el destinatario y el número de operación, y el participante confirma esos datos. El agregado Aporte los valida contra lo esperado y produce el evento pivotal Aporte validado o, si algo no cuadra, Inconsistencia detectada, que pide a la cabeza aprobar o rechazar. Los aportes en efectivo los registra solo la cabeza, porque no tienen comprobante. Cuando todos los aportes del período están validados, el pozo está completo. Los hotspots más discutidos fueron la captura borrosa o recortada, el comprobante reutilizado en dos aportes y el hecho de que la entrega del push no está garantizada (ver Figura 38).
 
 ![EventStorming: registro y validación de aportes](images/chapter_2/es_aportes.png)
 
@@ -3607,7 +3607,7 @@ El tercer tramo es el núcleo de Pozzo. Al abrir un período, una política calc
 
 #### Tramo 4: entrega del pozo, cierre del ciclo e historial
 
-El último tramo cubre las excepciones y el cierre. La cobertura de un aporte completa el pozo pero no borra la morosidad, y deja registrada la deuda del moroso con quien cubrió; la deserción incorpora un reemplazo que hereda el turno pendiente. Pozo entregado es el tercer evento pivotal: la transferencia ocurre fuera de Pozzo, por Yape, Plin o el banco, y la aplicación registra el hecho, avisa al grupo y abre el siguiente período. Tras el último turno, Ciclo cerrado cierra la junta. Una política transversal actualiza el historial de cumplimiento de cada integrante con cada aporte validado, cubierto, deserción o cierre, y el integrante puede compartirlo con la hoja de compartir del sistema. Este tramo también recoge el agregado Dispositivo y la política que envía un aviso en cada hecho relevante de la junta (ver Figura 38).
+El último tramo cubre las excepciones y el cierre. La cobertura de un aporte completa el pozo pero no borra la morosidad, y deja registrada la deuda del moroso con quien cubrió; la deserción incorpora un reemplazo que hereda el turno pendiente. Pozo entregado es el tercer evento pivotal: la transferencia ocurre fuera de Pozzo, por Yape, Plin o el banco, y la aplicación registra el hecho, avisa al grupo y abre el siguiente período. Tras el último turno, Ciclo cerrado cierra la junta. Una política transversal actualiza el historial de cumplimiento de cada integrante con cada aporte validado, cubierto, deserción o cierre, y el integrante puede compartirlo con la hoja de compartir del sistema. Este tramo también recoge el agregado Dispositivo y la política que envía un aviso en cada hecho relevante de la junta (ver Figura 39).
 
 ![EventStorming: entrega del pozo, cierre del ciclo e historial](images/chapter_2/es_cierre.png)
 
@@ -3617,49 +3617,49 @@ El último tramo cubre las excepciones y el cierre. La cobertura de un aporte co
 
 Con el EventStorm completo, el equipo dedicó una segunda sesión de dos horas a identificar los Bounded Contexts candidatos. Se trabajó solo con los eventos de dominio, que se copiaron a una zona aparte del tablero para poder reordenarlos sin perder la línea de tiempo original, y se aplicaron dos técnicas en secuencia.
 
-**Paso 1. Look for pivotal events.** Se marcaron los cuatro eventos que cambian el estado de la junta y que ya se habían resaltado durante el EventStorming: Junta iniciada, Aporte validado, Pozo entregado y Ciclo cerrado. Cada uno separa fases con reglas distintas. Antes de Junta iniciada todo puede cambiar; después, las reglas se congelan. Aporte validado convierte una intención de pago en un hecho que cuenta para el pozo y para el historial. Pozo entregado marca el momento en que el dinero sale del proceso y arranca el siguiente turno. Ciclo cerrado deja a la junta como un registro cerrado del que solo queda el historial (ver Figura 39).
+**Paso 1. Look for pivotal events.** Se marcaron los cuatro eventos que cambian el estado de la junta y que ya se habían resaltado durante el EventStorming: Junta iniciada, Aporte validado, Pozo entregado y Ciclo cerrado. Cada uno separa fases con reglas distintas. Antes de Junta iniciada todo puede cambiar; después, las reglas se congelan. Aporte validado convierte una intención de pago en un hecho que cuenta para el pozo y para el historial. Pozo entregado marca el momento en que el dinero sale del proceso y arranca el siguiente turno. Ciclo cerrado deja a la junta como un registro cerrado del que solo queda el historial (ver Figura 40).
 
 ![Candidate Context Discovery, paso 1: eventos pivotales](images/chapter_2/ccd_paso1.png)
 
 *Nota.* Cada columna agrupa los elementos de un paso y el flujo se lee de izquierda a derecha; los colores siguen la leyenda del EventStorming de nivel de diseño y los eventos pivotales van en negrita. Elaborado por el equipo en Miro (ver Anexo B).
 
-**Paso 2. Start with simple.** Con los pivotales como cortes, la línea de tiempo se dividió en cinco segmentos secuenciales: antes de iniciar la junta; período abierto y registro; validación y completitud del pozo; entrega y siguiente turno; cierre e historial. Este paso hizo visible que el segundo, el tercero y el cuarto segmento se repiten por cada turno de la junta, mientras que el primero y el último ocurren una sola vez por ciclo, y que los eventos de acceso (código SMS, cuenta, sesión) y los de avisos (recordatorios, avisos) no pertenecen a ningún segmento en particular: aparecen en todos (ver Figura 40).
+**Paso 2. Start with simple.** Con los pivotales como cortes, la línea de tiempo se dividió en cinco segmentos secuenciales: antes de iniciar la junta; período abierto y registro; validación y completitud del pozo; entrega y siguiente turno; cierre e historial. Este paso hizo visible que el segundo, el tercero y el cuarto segmento se repiten por cada turno de la junta, mientras que el primero y el último ocurren una sola vez por ciclo, y que los eventos de acceso (código SMS, cuenta, sesión) y los de avisos (recordatorios, avisos) no pertenecen a ningún segmento en particular: aparecen en todos (ver Figura 41).
 
 ![Candidate Context Discovery, paso 2: segmentos entre eventos pivotales](images/chapter_2/ccd_paso2.png)
 
 *Nota.* Cada columna agrupa los elementos de un paso y el flujo se lee de izquierda a derecha; los colores siguen la leyenda del EventStorming de nivel de diseño y los eventos pivotales van en negrita. Elaborado por el equipo en Miro (ver Anexo B).
 
-**Contributions, el contexto core.** El flujo recorre un período completo. Con el período abierto se calculan los aportes esperados de cada integrante; el participante registra su aporte con la captura del comprobante, ML Kit lo lee y el participante confirma los datos antes de que el aporte quede registrado. La política de validación compara monto, fecha, destinatario y número de operación, que debe ser único en la junta, y produce Aporte validado. De ahí salen dos ramas: la de inconsistencias, donde la cabeza revisa y el aporte termina aprobado o rechazado, y la del efectivo y las coberturas, que la cabeza registra a mano hasta llegar a Aporte cubierto. Cuando todos los aportes esperados están validados o cubiertos, el pozo se completa, la cabeza lo entrega al integrante del turno, se abre el siguiente período y, tras el último turno, cerrar la junta produce Ciclo cerrado (ver Figura 41).
+**Contributions, el contexto core.** El flujo recorre un período completo. Con el período abierto se calculan los aportes esperados de cada integrante; el participante registra su aporte con la captura del comprobante, ML Kit lo lee y el participante confirma los datos antes de que el aporte quede registrado. La política de validación compara monto, fecha, destinatario y número de operación, que debe ser único en la junta, y produce Aporte validado. De ahí salen dos ramas: la de inconsistencias, donde la cabeza revisa y el aporte termina aprobado o rechazado, y la del efectivo y las coberturas, que la cabeza registra a mano hasta llegar a Aporte cubierto. Cuando todos los aportes esperados están validados o cubiertos, el pozo se completa, la cabeza lo entrega al integrante del turno, se abre el siguiente período y, tras el último turno, cerrar la junta produce Ciclo cerrado (ver Figura 42).
 
 ![Flujo del bounded context Contributions](images/chapter_2/ccd_bc_contributions.png){width=100%}
 
 *Nota.* Cada columna agrupa los elementos de un paso y el flujo se lee de izquierda a derecha; los colores siguen la leyenda del EventStorming de nivel de diseño y los eventos pivotales van en negrita. Elaborado por el equipo en Miro (ver Anexo B).
 
-**Savings Groups.** El flujo empieza cuando la cabeza crea la junta con su aporte, periodicidad, cupos y fecha de corte, define el destino de los aportes y genera la invitación con código y enlace. Desde la invitación salen las dos formas de incorporar gente: unirse con el código o el enlace, que produce Integrante incorporado, y agregar a mano al integrante que no usa la aplicación. Mientras la junta no ha iniciado, la cabeza puede retirar a un integrante. Después asigna los turnos por sorteo u orden acordado o, si la junta lo acordó, abre la subasta del turno, donde los integrantes ofertan hasta que la cabeza la cierra y el turno queda adjudicado. Con los turnos asignados, iniciar la junta produce Junta iniciada. Una rama aparte recoge la deserción y el reemplazo de un integrante durante el ciclo (ver Figura 42).
+**Savings Groups.** El flujo empieza cuando la cabeza crea la junta con su aporte, periodicidad, cupos y fecha de corte, define el destino de los aportes y genera la invitación con código y enlace. Desde la invitación salen las dos formas de incorporar gente: unirse con el código o el enlace, que produce Integrante incorporado, y agregar a mano al integrante que no usa la aplicación. Mientras la junta no ha iniciado, la cabeza puede retirar a un integrante. Después asigna los turnos por sorteo u orden acordado o, si la junta lo acordó, abre la subasta del turno, donde los integrantes ofertan hasta que la cabeza la cierra y el turno queda adjudicado. Con los turnos asignados, iniciar la junta produce Junta iniciada. Una rama aparte recoge la deserción y el reemplazo de un integrante durante el ciclo (ver Figura 43).
 
 ![Flujo del bounded context Savings Groups](images/chapter_2/ccd_bc_savings_groups.png){width=100%}
 
 *Nota.* Cada columna agrupa los elementos de un paso y el flujo se lee de izquierda a derecha; los colores siguen la leyenda del EventStorming de nivel de diseño y los eventos pivotales van en negrita. Elaborado por el equipo en Miro (ver Anexo B).
 
-**Compliance History.** Es el flujo más corto porque el contexto no tiene iniciativa propia: reacciona. Una política actualiza el historial de cada integrante cada vez que un aporte se valida o se cubre, alguien deserta o un ciclo se cierra, y produce Historial actualizado. Desde ahí el integrante puede compartir su historial, que sale por la hoja de compartir del sistema con la restricción de ser verificable sin exponer datos de otras juntas. Al cerrar la junta se genera además el resumen final (ver Figura 43).
+**Compliance History.** Es el flujo más corto porque el contexto no tiene iniciativa propia: reacciona. Una política actualiza el historial de cada integrante cada vez que un aporte se valida o se cubre, alguien deserta o un ciclo se cierra, y produce Historial actualizado. Desde ahí el integrante puede compartir su historial, que sale por la hoja de compartir del sistema con la restricción de ser verificable sin exponer datos de otras juntas. Al cerrar la junta se genera además el resumen final (ver Figura 44).
 
 ![Flujo del bounded context Compliance History](images/chapter_2/ccd_bc_compliance_history.png){width=100%}
 
 *Nota.* Cada columna agrupa los elementos de un paso y el flujo se lee de izquierda a derecha; los colores siguen la leyenda del EventStorming de nivel de diseño y los eventos pivotales van en negrita. Elaborado por el equipo en Miro (ver Anexo B).
 
-**Notifications.** El integrante registra su dispositivo para avisos contra Firebase Cloud Messaging y la cabeza configura los recordatorios de la junta. A partir de ahí trabajan dos políticas: la que recuerda de forma escalonada a quien no ha aportado conforme se acerca la fecha de corte, que produce Recordatorio enviado, y la que avisa a todos los integrantes en cada hecho relevante de la junta, que produce Aviso enviado. El flujo deja anotados sus dos riesgos: la entrega del push no está garantizada y los integrantes sin la aplicación no reciben avisos (ver Figura 44).
+**Notifications.** El integrante registra su dispositivo para avisos contra Firebase Cloud Messaging y la cabeza configura los recordatorios de la junta. A partir de ahí trabajan dos políticas: la que recuerda de forma escalonada a quien no ha aportado conforme se acerca la fecha de corte, que produce Recordatorio enviado, y la que avisa a todos los integrantes en cada hecho relevante de la junta, que produce Aviso enviado. El flujo deja anotados sus dos riesgos: la entrega del push no está garantizada y los integrantes sin la aplicación no reciben avisos (ver Figura 45).
 
 ![Flujo del bounded context Notifications](images/chapter_2/ccd_bc_notifications.png){width=100%}
 
 *Nota.* Cada columna agrupa los elementos de un paso y el flujo se lee de izquierda a derecha; los colores siguen la leyenda del EventStorming de nivel de diseño y los eventos pivotales van en negrita. Elaborado por el equipo en Miro (ver Anexo B).
 
-**Identity & Access.** Es una secuencia lineal de acceso sin contraseña: solicitar el código SMS con el número de celular, verificarlo, completar el registro con nombre y foto, lo que crea la cuenta, iniciar sesión, que queda guardada en el dispositivo, y administrar el perfil y el tema visual. El proveedor de SMS aparece como sistema externo en el primer paso. Los riesgos anotados son el código vencido o con demasiados reintentos y la sesión abierta en dos dispositivos a la vez (ver Figura 45).
+**Identity & Access.** Es una secuencia lineal de acceso sin contraseña: solicitar el código SMS con el número de celular, verificarlo, completar el registro con nombre y foto, lo que crea la cuenta, iniciar sesión, que queda guardada en el dispositivo, y administrar el perfil y el tema visual. El proveedor de SMS aparece como sistema externo en el primer paso. Los riesgos anotados son el código vencido o con demasiados reintentos y la sesión abierta en dos dispositivos a la vez (ver Figura 46).
 
 ![Flujo del bounded context Identity & Access](images/chapter_2/ccd_bc_identity_access.png){width=100%}
 
 *Nota.* Cada columna agrupa los elementos de un paso y el flujo se lee de izquierda a derecha; los colores siguen la leyenda del EventStorming de nivel de diseño y los eventos pivotales van en negrita. Elaborado por el equipo en Miro (ver Anexo B).
 
-El resultado son cinco Bounded Contexts, uno por integrante del equipo, clasificados según el valor que aportan al negocio (ver Tabla 82).
+El resultado son cinco Bounded Contexts, uno por integrante del equipo, clasificados según el valor que aportan al negocio (ver Tabla 83).
 
 <table>
   <caption>Bounded contexts candidatos y los epics que cubren</caption>
@@ -3711,7 +3711,7 @@ Durante el paso 3 se discutió si los turnos y la subasta merecían un contexto 
 
 Para comprobar que los cinco contextos podían resolver los casos de uso sin depender unos de otros más de lo necesario, el equipo modeló los mensajes que cruzan cada frontera. Un Domain Message Flow Diagram muestra los datos que viajan entre los actores, los Bounded Contexts y los sistemas con los que se integran: el actor se dibuja como una silueta, cada Bounded Context como una nube, y los sistemas externos y las bases de datos como un engranaje. Las cajas verdes sobre las flechas negras son los datos que pasan de un contexto a otro; las flechas punteadas bajan a los sistemas externos y al esquema propio de cada contexto. Se dibujaron dos vistas complementarias.
 
-La primera pone los cinco contextos en un solo diagrama, junto con los sistemas externos de los que dependen y los datos que se mueven entre ellos. El integrante entra siempre por la aplicación y el gateway, que reparte hacia el contexto que corresponde; las cajas verdes sobre las flechas negras son los datos que viajan de un contexto a otro, y las flechas punteadas bajan a los sistemas externos y a la base de datos. La vista deja ver dos cosas: que Contributions es el contexto al que llegan datos de más vecinos, y que cada contexto guarda su propio esquema en PostgreSQL, sin tablas compartidas (ver Figura 46).
+La primera pone los cinco contextos en un solo diagrama, junto con los sistemas externos de los que dependen y los datos que se mueven entre ellos. El integrante entra siempre por la aplicación y el gateway, que reparte hacia el contexto que corresponde; las cajas verdes sobre las flechas negras son los datos que viajan de un contexto a otro, y las flechas punteadas bajan a los sistemas externos y a la base de datos. La vista deja ver dos cosas: que Contributions es el contexto al que llegan datos de más vecinos, y que cada contexto guarda su propio esquema en PostgreSQL, sin tablas compartidas (ver Figura 47).
 
 ![Flujo completo entre los cinco bounded contexts de Pozzo](images/chapter_2/dmf_completo.png){width=100%}
 
@@ -3719,31 +3719,31 @@ La primera pone los cinco contextos en un solo diagrama, junto con los sistemas 
 
 La segunda vista descompone ese diagrama en uno por contexto, para leer cada frontera por separado: quién entra, qué datos recibe de sus vecinos, qué datos les entrega y de qué sistemas externos depende.
 
-**Identity & Access.** Es el punto de entrada y no recibe datos de dominio de ningún vecino. Entrega la identidad del integrante a Savings Groups y recibe de Notifications el dispositivo registrado. Fuera de Pozzo se apoya en el proveedor de SMS para enviar el código de verificación (ver Figura 47).
+**Identity & Access.** Es el punto de entrada y no recibe datos de dominio de ningún vecino. Entrega la identidad del integrante a Savings Groups y recibe de Notifications el dispositivo registrado. Fuera de Pozzo se apoya en el proveedor de SMS para enviar el código de verificación (ver Figura 48).
 
 ![Flujo de mensajes del bounded context Identity & Access](images/chapter_2/dmf_identity_access.png){width=100%}
 
 *Nota.* La silueta es el actor, cada nube un Bounded Context y cada engranaje un sistema externo o una base de datos. Las cajas verdes sobre las flechas negras son los datos que pasan de un contexto a otro; las flechas punteadas azules llevan a los sistemas externos y las rojas, a la entrada de cada contexto y a su esquema en PostgreSQL. Elaborado por el equipo en Miro (ver Anexo B).
 
-**Savings Groups.** Recibe de Identity & Access la identidad del integrante y entrega a Contributions las reglas de la junta y los turnos, y a Notifications los eventos de la junta. WhatsApp aparece como sistema externo porque es por donde se comparte el enlace de invitación (ver Figura 48).
+**Savings Groups.** Recibe de Identity & Access la identidad del integrante y entrega a Contributions las reglas de la junta y los turnos, y a Notifications los eventos de la junta. WhatsApp aparece como sistema externo porque es por donde se comparte el enlace de invitación (ver Figura 49).
 
 ![Flujo de mensajes del bounded context Savings Groups](images/chapter_2/dmf_savings_groups.png){width=100%}
 
 *Nota.* La silueta es el actor, cada nube un Bounded Context y cada engranaje un sistema externo o una base de datos. Las cajas verdes sobre las flechas negras son los datos que pasan de un contexto a otro; las flechas punteadas azules llevan a los sistemas externos y las rojas, a la entrada de cada contexto y a su esquema en PostgreSQL. Elaborado por el equipo en Miro (ver Anexo B).
 
-**Contributions.** Recibe de Savings Groups las reglas de la junta y los turnos, entrega a Compliance History el cumplimiento del integrante y a Notifications el estado del pozo. Es el contexto con más sistemas externos: ML Kit Text Recognition para leer el comprobante y Yape, Plin o el banco como origen de la transferencia que se registra (ver Figura 49).
+**Contributions.** Recibe de Savings Groups las reglas de la junta y los turnos, entrega a Compliance History el cumplimiento del integrante y a Notifications el estado del pozo. Es el contexto con más sistemas externos: ML Kit Text Recognition para leer el comprobante y Yape, Plin o el banco como origen de la transferencia que se registra (ver Figura 50).
 
 ![Flujo de mensajes del bounded context Contributions](images/chapter_2/dmf_contributions.png){width=100%}
 
 *Nota.* La silueta es el actor, cada nube un Bounded Context y cada engranaje un sistema externo o una base de datos. Las cajas verdes sobre las flechas negras son los datos que pasan de un contexto a otro; las flechas punteadas azules llevan a los sistemas externos y las rojas, a la entrada de cada contexto y a su esquema en PostgreSQL. Elaborado por el equipo en Miro (ver Anexo B).
 
-**Notifications.** Solo recibe: los eventos de la junta desde Savings Groups y el estado del pozo desde Contributions. No entrega datos de dominio a ningún contexto; su salida va a Firebase Cloud Messaging, que es quien entrega el push al dispositivo (ver Figura 50).
+**Notifications.** Solo recibe: los eventos de la junta desde Savings Groups y el estado del pozo desde Contributions. No entrega datos de dominio a ningún contexto; su salida va a Firebase Cloud Messaging, que es quien entrega el push al dispositivo (ver Figura 51).
 
 ![Flujo de mensajes del bounded context Notifications](images/chapter_2/dmf_notifications.png){width=100%}
 
 *Nota.* La silueta es el actor, cada nube un Bounded Context y cada engranaje un sistema externo o una base de datos. Las cajas verdes sobre las flechas negras son los datos que pasan de un contexto a otro; las flechas punteadas azules llevan a los sistemas externos y las rojas, a la entrada de cada contexto y a su esquema en PostgreSQL. Elaborado por el equipo en Miro (ver Anexo B).
 
-**Compliance History.** También solo recibe: el cumplimiento del integrante desde Contributions y las deserciones y reemplazos desde Savings Groups. Su única salida fuera de Pozzo es la hoja de compartir del sistema, con la que el integrante comparte su historial (ver Figura 51).
+**Compliance History.** También solo recibe: el cumplimiento del integrante desde Contributions y las deserciones y reemplazos desde Savings Groups. Su única salida fuera de Pozzo es la hoja de compartir del sistema, con la que el integrante comparte su historial (ver Figura 52).
 
 ![Flujo de mensajes del bounded context Compliance History](images/chapter_2/dmf_compliance_history.png){width=100%}
 
@@ -3753,31 +3753,31 @@ La segunda vista descompone ese diagrama en uno por contexto, para leer cada fro
 
 Con los contextos y sus fronteras validados por los flujos de mensajes, el equipo elaboró un Bounded Context Canvas por cada uno [@dddcrew2021canvas], en la versión 5 de la plantilla y en orden de importancia: Contributions, Savings Groups, Compliance History, Notifications e Identity & Access. Se siguió el proceso iterativo del canvas: primero la definición del contexto (nombre y propósito en una frase) y su clasificación estratégica en tres dimensiones, tipo de subdominio, modelo de negocio al que sirve y grado de evolución; luego la destilación de reglas de negocio y la captura del lenguaje ubicuo propio del contexto; después el análisis de capabilities, expresado como la comunicación entrante (comandos, consultas y eventos que recibe, y de quién) y la saliente (eventos que publica y quién los consume); y por último los supuestos, las métricas con las que se verificará que el contexto cumple su propósito y las preguntas abiertas. La plantilla ordena el contexto en once casillas: nombre y propósito; clasificación estratégica y roles del dominio; comunicación entrante y saliente; lenguaje ubicuo y decisiones de negocio, que son dos casillas distintas porque los términos del dominio y las reglas que los gobiernan se revisan por separado; y, al pie, supuestos, métricas de verificación y preguntas abiertas. Cada canvas se sometió a una crítica de diseño en la que otro integrante buscó reglas que pertenecieran a otro contexto o dependencias que no aparecieran en las historias.
 
-**Contributions.** Es el core y el único contexto con modelo de negocio de engagement directo: si la validación funciona, la junta completa su ciclo en Pozzo. Sus reglas más importantes son las de validación (monto acordado, fecha dentro del corte, destinatario correcto y número de operación único en la junta) y la de completitud del pozo. Publica nueve eventos que consumen Notifications y Compliance History, y solo hace consultas a Savings Groups. La métrica principal es el porcentaje de aportes validados sin revisión de la cabeza, con una meta del 80 % (ver Figura 52).
+**Contributions.** Es el core y el único contexto con modelo de negocio de engagement directo: si la validación funciona, la junta completa su ciclo en Pozzo. Sus reglas más importantes son las de validación (monto acordado, fecha dentro del corte, destinatario correcto y número de operación único en la junta) y la de completitud del pozo. Publica nueve eventos que consumen Notifications y Compliance History, y solo hace consultas a Savings Groups. La métrica principal es el porcentaje de aportes validados sin revisión de la cabeza, con una meta del 80 % (ver Figura 53).
 
 ![Bounded Context Canvas: Contributions](images/chapter_2/bcc_contributions.png)
 
 *Nota.* Adaptado de la plantilla Bounded Context Canvas, versión 5, de DDD Crew [@dddcrew2021canvas]. En la comunicación entrante y saliente, las nubes son Bounded Contexts, los engranajes sistemas externos y el ícono de documento el frontend. Elaborado por el equipo en Miro (ver Anexo B).
 
-**Savings Groups.** Contexto de soporte con rol de especificación: fija las reglas que Contributions ejecuta. Sus reglas de negocio son las condiciones para iniciar la junta (cupos cubiertos y turnos asignados), el bloqueo de reglas al iniciar, el tratamiento del integrante sin la aplicación y la resolución de la subasta. Es el contexto con más comandos entrantes, todos de la cabeza salvo unirse y ofertar (ver Figura 53).
+**Savings Groups.** Contexto de soporte con rol de especificación: fija las reglas que Contributions ejecuta. Sus reglas de negocio son las condiciones para iniciar la junta (cupos cubiertos y turnos asignados), el bloqueo de reglas al iniciar, el tratamiento del integrante sin la aplicación y la resolución de la subasta. Es el contexto con más comandos entrantes, todos de la cabeza salvo unirse y ofertar (ver Figura 54).
 
 ![Bounded Context Canvas: Savings Groups](images/chapter_2/bcc_savings_groups.png)
 
 *Nota.* Adaptado de la plantilla Bounded Context Canvas, versión 5, de DDD Crew [@dddcrew2021canvas]. En la comunicación entrante y saliente, las nubes son Bounded Contexts, los engranajes sistemas externos y el ícono de documento el frontend. Elaborado por el equipo en Miro (ver Anexo B).
 
-**Compliance History.** Contexto de análisis: un modelo de lectura derivado de los eventos del core y de Savings Groups. Sus reglas protegen la privacidad, porque el historial se muestra agregado, sin montos ni nombres de otras juntas, y la verificabilidad, porque compartirlo genera un enlace con vigencia limitada. La crítica de diseño confirmó que ninguna regla de este contexto modifica una junta, lo que justifica mantenerlo separado del core (ver Figura 54).
+**Compliance History.** Contexto de análisis: un modelo de lectura derivado de los eventos del core y de Savings Groups. Sus reglas protegen la privacidad, porque el historial se muestra agregado, sin montos ni nombres de otras juntas, y la verificabilidad, porque compartirlo genera un enlace con vigencia limitada. La crítica de diseño confirmó que ninguna regla de este contexto modifica una junta, lo que justifica mantenerlo separado del core (ver Figura 55).
 
 ![Bounded Context Canvas: Compliance History](images/chapter_2/bcc_compliance_history.png)
 
 *Nota.* Adaptado de la plantilla Bounded Context Canvas, versión 5, de DDD Crew [@dddcrew2021canvas]. En la comunicación entrante y saliente, las nubes son Bounded Contexts, los engranajes sistemas externos y el ícono de documento el frontend. Elaborado por el equipo en Miro (ver Anexo B).
 
-**Notifications.** Contexto genérico que reacciona a los eventos de los demás. Lo específico de Pozzo está en su política de escalonamiento (tres días, un día y el mismo día de la fecha de corte, solo a quien tiene aporte pendiente) y en la regla de detener los recordatorios al validar el aporte. Es el único contexto que conoce a Firebase Cloud Messaging. Una de sus preguntas abiertas, programador de tareas o cola con retardo, corresponde a una Spike Story ya planificada (ver Figura 55).
+**Notifications.** Contexto genérico que reacciona a los eventos de los demás. Lo específico de Pozzo está en su política de escalonamiento (tres días, un día y el mismo día de la fecha de corte, solo a quien tiene aporte pendiente) y en la regla de detener los recordatorios al validar el aporte. Es el único contexto que conoce a Firebase Cloud Messaging. Una de sus preguntas abiertas, programador de tareas o cola con retardo, corresponde a una Spike Story ya planificada (ver Figura 56).
 
 ![Bounded Context Canvas: Notifications](images/chapter_2/bcc_notifications.png)
 
 *Nota.* Adaptado de la plantilla Bounded Context Canvas, versión 5, de DDD Crew [@dddcrew2021canvas]. En la comunicación entrante y saliente, las nubes son Bounded Contexts, los engranajes sistemas externos y el ícono de documento el frontend. Elaborado por el equipo en Miro (ver Anexo B).
 
-**Identity & Access.** Contexto genérico y commodity: la verificación por SMS se contrata a un proveedor. Sus reglas son las de cualquier acceso sin contraseña (un celular por cuenta, código de seis dígitos con vigencia y reintentos limitados, sesión persistente en el dispositivo). Provee la identidad que los demás contextos usan para referirse a un integrante y el token que autoriza cada solicitud a los servicios RESTful (ver Figura 56).
+**Identity & Access.** Contexto genérico y commodity: la verificación por SMS se contrata a un proveedor. Sus reglas son las de cualquier acceso sin contraseña (un celular por cuenta, código de seis dígitos con vigencia y reintentos limitados, sesión persistente en el dispositivo). Provee la identidad que los demás contextos usan para referirse a un integrante y el token que autoriza cada solicitud a los servicios RESTful (ver Figura 57).
 
 ![Bounded Context Canvas: Identity & Access](images/chapter_2/bcc_identity_access.png)
 
@@ -3785,19 +3785,19 @@ Con los contextos y sus fronteras validados por los flujos de mensajes, el equip
 
 ### 2.5.2. Context Mapping
 
-El Context Map define cómo se relacionan los cinco Bounded Contexts y, en particular, quién se adapta a quién cuando dos contextos necesitan comunicarse. Antes de fijarlo, el equipo discutió cuatro alternativas de partición, siguiendo las preguntas que propone el proceso de Context Mapping [@dddcrew2021contextmapping]: qué pasaría si se unen dos contextos, si se parte uno, si se mueve una capability a otro contexto o si se crea un shared service (ver Figura 57).
+El Context Map define cómo se relacionan los cinco Bounded Contexts y, en particular, quién se adapta a quién cuando dos contextos necesitan comunicarse. Antes de fijarlo, el equipo discutió cuatro alternativas de partición, siguiendo las preguntas que propone el proceso de Context Mapping [@dddcrew2021contextmapping]: qué pasaría si se unen dos contextos, si se parte uno, si se mueve una capability a otro contexto o si se crea un shared service (ver Figura 58).
 
 ![Alternativas de context mapping evaluadas](images/chapter_2/context_map_alternativas.png)
 
 *Nota.* Cada recuadro corresponde a una de las preguntas del proceso de Context Mapping de DDD Crew [@dddcrew2021contextmapping], con los argumentos a favor, en contra y la decisión del equipo.
 
-La primera alternativa, unir Savings Groups y Contributions en un solo contexto Junta, simplificaría las llamadas entre servicios pero mezclaría el core con la configuración y las invitaciones, y dejaría un agregado Junta que crecería con todos los aportes de todos los períodos; se descartó para mantener el core aislado. La segunda, extraer los turnos y la subasta a un contexto Turn Allocation, se descartó porque los tres métodos de reparto operan sobre la misma lista de integrantes y los mismos cupos, y separarlos duplicaría ese modelo para un equipo de cinco personas; si la subasta crece, se extraerá después. La tercera, dejar el historial dentro de Contributions, se descartó porque el historial cruza juntas y se modela por persona, no por período, y exponerlo desde el core filtraría montos y nombres de otras juntas. La cuarta, que cada contexto envíe sus propias notificaciones, se descartó porque tres contextos hablarían con Firebase Cloud Messaging y repetirían el registro de dispositivos, el escalonamiento y la deduplicación; Notifications quedó como un shared service que reacciona a los eventos publicados (ver Figura 58).
+La primera alternativa, unir Savings Groups y Contributions en un solo contexto Junta, simplificaría las llamadas entre servicios pero mezclaría el core con la configuración y las invitaciones, y dejaría un agregado Junta que crecería con todos los aportes de todos los períodos; se descartó para mantener el core aislado. La segunda, extraer los turnos y la subasta a un contexto Turn Allocation, se descartó porque los tres métodos de reparto operan sobre la misma lista de integrantes y los mismos cupos, y separarlos duplicaría ese modelo para un equipo de cinco personas; si la subasta crece, se extraerá después. La tercera, dejar el historial dentro de Contributions, se descartó porque el historial cruza juntas y se modela por persona, no por período, y exponerlo desde el core filtraría montos y nombres de otras juntas. La cuarta, que cada contexto envíe sus propias notificaciones, se descartó porque tres contextos hablarían con Firebase Cloud Messaging y repetirían el registro de dispositivos, el escalonamiento y la deduplicación; Notifications quedó como un shared service que reacciona a los eventos publicados (ver Figura 59).
 
 ![Context Map de Pozzo](images/chapter_2/context_map.png)
 
 *Nota.* Notación de Context Mapping de DDD Crew [@dddcrew2021contextmapping]. El contexto core va en rojo, los supporting en verde, los generic en gris y los sistemas externos en naranja con borde punteado; las abreviaturas de los patrones se explican al pie del diagrama.
 
-El mapa definitivo usa cuatro de los patrones de relación de Domain-Driven Design. En cada relación la flecha va del contexto upstream (U) al downstream (D) (ver Tabla 83).
+El mapa definitivo usa cuatro de los patrones de relación de Domain-Driven Design. En cada relación la flecha va del contexto upstream (U) al downstream (D) (ver Tabla 84).
 
 <table>
   <caption>Relaciones entre bounded contexts del Context Map</caption>
@@ -3870,7 +3870,7 @@ La arquitectura de software de Pozzo se representa con el C4 Model [@brown2018c4
 
 #### 2.5.3.1. Software Architecture Context Level Diagrams
 
-El diagrama de contexto representa la visión de más alto nivel de Pozzo. Establece las fronteras del sistema y muestra las relaciones con los actores humanos (cabeza de junta, participante y visitante) y los ecosistemas externos que habilitan la operación del servicio (ver Figura 59).
+El diagrama de contexto representa la visión de más alto nivel de Pozzo. Establece las fronteras del sistema y muestra las relaciones con los actores humanos (cabeza de junta, participante y visitante) y los ecosistemas externos que habilitan la operación del servicio (ver Figura 60).
 
 ![Diagrama de contexto del sistema Pozzo](images/chapter_2/c4_context.png)
 
@@ -3878,7 +3878,7 @@ El diagrama de contexto representa la visión de más alto nivel de Pozzo. Estab
 
 #### 2.5.3.2. Software Architecture Container Level Diagrams
 
-El diagrama de contenedores descompone el sistema Pozzo en sus unidades de software ejecutables y de almacenamiento de datos, definiendo la tecnología empleada por cada contenedor y los límites de comunicación entre ellos (ver Figura 60).
+El diagrama de contenedores descompone el sistema Pozzo en sus unidades de software ejecutables y de almacenamiento de datos, definiendo la tecnología empleada por cada contenedor y los límites de comunicación entre ellos (ver Figura 61).
 
 ![Diagrama de contenedores del sistema Pozzo](images/chapter_2/c4_container.png)
 
@@ -3886,7 +3886,7 @@ El diagrama de contenedores descompone el sistema Pozzo en sus unidades de softw
 
 #### 2.5.3.3. Software Architecture Deployment Diagrams
 
-El diagrama de despliegue mapea los contenedores de software sobre los nodos de infraestructura física y en la nube en el entorno de producción, detallando los entornos de ejecución, la distribución de componentes y los mecanismos de conectividad (ver Figura 61).
+El diagrama de despliegue mapea los contenedores de software sobre los nodos de infraestructura física y en la nube en el entorno de producción, detallando los entornos de ejecución, la distribución de componentes y los mecanismos de conectividad (ver Figura 62).
 
 ![Diagrama de despliegue en producción del sistema Pozzo](images/chapter_2/c4_deployment.png)
 
@@ -3900,11 +3900,11 @@ Las clases se derivan directamente de los artefactos anteriores: cada comando de
 
 ### 2.6.1. Bounded Context: Contributions
 
-Contributions es el contexto core. Registra y valida los aportes de cada período contra lo esperado, mantiene el estado del pozo, registra su entrega y cierra el ciclo. Su modelo gira en torno a tres agregados. **Cycle** es la copia congelada de la junta que Contributions necesita para operar: las reglas (aporte, periodicidad, fecha de corte, destino), el orden de turnos y el turno en curso; se crea al recibir el evento Junta iniciada de Savings Groups y desde entonces no depende de ese contexto en tiempo de ejecución. **Period** representa un turno del ciclo: sabe cuánto espera de cada integrante, quién cobra y si el pozo está completo. **Contribution** es un aporte registrado por un integrante, con el comprobante leído en el dispositivo, el resultado de su validación y, cuando corresponde, la revisión de la cabeza. Se separaron Period y Contribution en dos agregados porque tienen ciclos de vida y ritmos de cambio distintos: un período cambia pocas veces (se abre, se completa, se entrega), mientras que los aportes se registran, validan y revisan de forma independiente y concurrente. Cada integrante se identifica por su membresía en la junta y, si usa la aplicación, también por su cuenta: quien no tiene la aplicación igual aporta, en efectivo o con una cobertura, así que la membresía es la única referencia que todos tienen.
+Contributions es el contexto core. Registra y valida los aportes de cada período contra lo esperado, mantiene el estado del pozo, registra su entrega y cierra el ciclo. Su modelo gira en torno a cuatro agregados. **Cycle** es la copia congelada de la junta que Contributions necesita para operar: las reglas (aporte, periodicidad, fecha de corte, destino), el orden de turnos y el turno en curso; se crea al recibir el evento Junta iniciada de Savings Groups y desde entonces no depende de ese contexto en tiempo de ejecución. **Period** representa un turno del ciclo: sabe cuánto espera de cada integrante, quién cobra y si el pozo está completo. **Contribution** es un aporte registrado por un integrante, con el comprobante leído en el dispositivo, el resultado de su validación y, cuando corresponde, la revisión de la cabeza. **Auction** es la subasta del turno de un período en las juntas que reparten sus turnos así: recibe las ofertas de quienes aún no cobran y, al cerrarse, decide quién cobra y con cuánto descuento. Vive en Contributions y no en Savings Groups porque cada subasta pertenece a un período, que solo existe una vez iniciado el ciclo; Savings Groups guarda únicamente las reglas de la subasta y las copia al ciclo al iniciar. Se separaron Period y Contribution en dos agregados porque tienen ciclos de vida y ritmos de cambio distintos: un período cambia pocas veces (se abre, se completa, se entrega), mientras que los aportes se registran, validan y revisan de forma independiente y concurrente. Cada integrante se identifica por su membresía en la junta y, si usa la aplicación, también por su cuenta: quien no tiene la aplicación igual aporta, en efectivo o con una cobertura, así que la membresía es la única referencia que todos tienen.
 
 #### 2.6.1.1. Domain Layer
 
-La Tabla 84 presenta las clases del Domain Layer de Contributions.
+La Tabla 85 presenta las clases del Domain Layer de Contributions.
 
 <table>
   <caption>Clases del Domain Layer de Contributions</caption>
@@ -3922,25 +3922,31 @@ La Tabla 84 presenta las clases del Domain Layer de Contributions.
       <td><b>Cycle</b></td>
       <td>Aggregate Root</td>
       <td>Copia de la junta iniciada con la que Contributions opera: reglas, turnos y turno en curso. Abre los períodos y decide cuándo el ciclo termina.</td>
-      <td>id, groupId, groupName, organizerAccountId, rules, turns, currentTurn, status, startedAt, closedAt. start(groupId, groupName, organizerAccountId, rules, turns, now), isOrganizer(accountId), participantOf(accountId), turn(turnNumber), hasRemainingTurns(), advanceToNextTurn(), replaceMember(dropped, replacement), close(now).</td>
+      <td>id, groupId, groupName, organizerAccountId, rules, turns, currentTurn, status, startedAt, closedAt, auctionSettings. start(groupId, groupName, organizerAccountId, rules, turns, auctionSettings, now), isOrganizer(accountId), participantOf(accountId), turn(turnNumber), hasRemainingTurns(), advanceToNextTurn(), linkAccount(membershipId, accountId, now), swapTurns(first, second, now), registerDropout(membershipId, now), replaceMember(dropped, replacement, accountId, displayName, currentPotDelivered), isAuction(), stillToCollect(), giveCurrentTurnTo(winner), close(now).</td>
     </tr>
     <tr>
       <td><b>Period</b></td>
       <td>Aggregate Root</td>
-      <td>Un turno del ciclo. Calcula lo esperado de cada integrante al abrirse, registra qué aportes ya están cubiertos y determina cuándo el pozo está completo y cuándo se entregó.</td>
-      <td>id, cycleId, turnNumber, opensAt, cutoffDate, payoutMembershipId, expected, status, deliveredAt, deliveredBy. open(cycle, turnNumber, now), expectedFor(membershipId), settle(membershipId, how, contributionId, now), isPotComplete(), collected(), potAmount(), pendingMembers(), deliverPot(organizerAccountId, now).</td>
+      <td>Un turno del ciclo. Calcula lo esperado de cada integrante al abrirse, descontando el crédito que le dejó la subasta anterior, registra qué aportes ya están cubiertos y determina cuándo el pozo está completo, cuánto recibe quien cobra y cuándo se entregó.</td>
+      <td>id, cycleId, turnNumber, opensAt, cutoffDate, payoutMembershipId, expected, status, deliveredAt, deliveredBy, payoutProofPath, discount. open(cycle, turnNumber, credits, now), expectedFor(membershipId), settle(membershipId, how, contributionId, now), isPotComplete(), collected(), potAmount(), payoutAmount(), pendingMembers(), deliverPot(organizerAccountId, now), attachPayoutProof(path), reassignMember(dropped, replacement), applyAuctionResult(winner, discount).</td>
     </tr>
     <tr>
       <td><b>Contribution</b></td>
       <td>Aggregate Root</td>
       <td>Aporte de un integrante en un período, con su comprobante, el resultado de la validación, las inconsistencias detectadas y la revisión de la cabeza.</td>
-      <td>id, cycleId, periodId, membershipId, accountId, amount, method, status, receipt, inconsistencies, coveredByMembershipId, registeredByAccountId, review, registeredAt. fromReceipt(...), inCash(...), asCoverage(...), isUnderReview(), isValid(), approve(organizerAccountId, note, cutoffDate, now), reject(organizerAccountId, note, now).</td>
+      <td>id, cycleId, periodId, membershipId, accountId, amount, method, status, receipt, inconsistencies, coveredByMembershipId, registeredByAccountId, review, receiptImagePath, receivedOn, verificationToken, registeredAt. fromReceipt(...), inCash(...), asCoverage(...), isUnderReview(), isValid(), isSettled(), arrivedBy(cutoffDate, zone), approve(organizerAccountId, note, cutoffDate, now), reject(organizerAccountId, note, now), attachReceiptImage(path), shareVerifiably().</td>
+    </tr>
+    <tr>
+      <td><b>Auction</b></td>
+      <td>Aggregate Root</td>
+      <td>Subasta del turno de un período. Recibe una oferta por integrante que no ha cobrado, ordena las ofertas y, al cerrarse, registra al ganador, el descuento y el crédito que ese descuento deja a cada integrante que aún no cobra.</td>
+      <td>id, cycleId, periodId, turnNumber, closesOn, minimumBid, potAmount, fallback, status, bids, winnerMembershipId, discount, creditPerMember, resolution, closedAt. open(cycle, period, now), placeBid(membershipId, amount, eligible, today, now), highestBid(), rankedBids(), close(winner, resolution, othersStillToCollect, now), isDue(today).</td>
     </tr>
     <tr>
       <td><b>ExpectedContribution</b></td>
       <td>Entity</td>
       <td>Lo que un integrante debe aportar en un período y si ya lo hizo; vive dentro de Period.</td>
-      <td>id, membershipId, amount, status, settledByContributionId. pendingFor(membershipId, amount), settle(how, contributionId), isPending(), isLate(today, cutoffDate).</td>
+      <td>id, membershipId, amount, status, settledByContributionId. pendingFor(membershipId, amount), settle(how, contributionId), transferTo(membershipId), isPending(), isLate(today, cutoffDate).</td>
     </tr>
     <tr>
       <td><b>CycleRules</b></td>
@@ -3953,6 +3959,12 @@ La Tabla 84 presenta las clases del Domain Layer de Contributions.
       <td>Value Object</td>
       <td>Posición de un integrante en el orden de cobro, con su membresía, su cuenta si usa la aplicación y su nombre.</td>
       <td>turnNumber, membershipId, accountId, displayName. belongsTo(accountId).</td>
+    </tr>
+    <tr>
+      <td><b>AuctionSettings,<br>Bid,<br>VerificationToken</b></td>
+      <td>Value Object</td>
+      <td>Reglas de la subasta copiadas al iniciar; una oferta de un integrante; el código aleatorio con el que se comparte un aporte.</td>
+      <td>closesDaysBeforeCutoff, minimumBid y fallback; membershipId, amount y placedAt; value y random().</td>
     </tr>
     <tr>
       <td><b>PaymentReceipt</b></td>
@@ -3979,31 +3991,31 @@ La Tabla 84 presenta las clases del Domain Layer de Contributions.
       <td>amount, currency. plus(other), times(n), isSameAmountAs(other).</td>
     </tr>
     <tr>
-      <td><b>CycleStatus,<br>PeriodStatus,<br>ContributionStatus,<br>ContributionMethod,<br>ExpectedStatus,<br>ReviewDecision,<br>Periodicity,<br>ReceiptSource</b></td>
+      <td><b>CycleStatus,<br>PeriodStatus,<br>ContributionStatus,<br>ContributionMethod,<br>ExpectedStatus,<br>ReviewDecision,<br>Periodicity,<br>ReceiptSource,<br>AuctionStatus,<br>AuctionFallback,<br>AuctionResolution</b></td>
       <td>Enumeración</td>
       <td>Estados y clasificaciones del modelo. Un aporte nace validado o con inconsistencia; el atraso no es un estado guardado, se deduce de la fecha de corte.</td>
-      <td>ACTIVE / CLOSED; OPEN / POT_COMPLETE / DELIVERED; VALIDATED / INCONSISTENT / APPROVED / REJECTED; TRANSFER / CASH / COVERAGE; PENDING / PAID / COVERED; APPROVE / REJECT; WEEKLY / BIWEEKLY / MONTHLY; YAPE / PLIN / BANK.</td>
+      <td>ACTIVE / CLOSED; OPEN / POT_COMPLETE / DELIVERED; VALIDATED / INCONSISTENT / APPROVED / REJECTED; TRANSFER / CASH / COVERAGE; PENDING / PAID / COVERED; APPROVE / REJECT; WEEKLY / BIWEEKLY / MONTHLY; YAPE / PLIN / BANK; OPEN / CLOSED; DRAW / ORGANIZER; BID / DRAW / ORGANIZER.</td>
     </tr>
     <tr>
-      <td><b>CycleRepository,<br>PeriodRepository,<br>ContributionRepository</b></td>
+      <td><b>CycleRepository,<br>PeriodRepository,<br>ContributionRepository,<br>AuctionRepository</b></td>
       <td>Repository (interfaz)</td>
       <td>Abstracción de persistencia de cada agregado; la implementación vive en Infrastructure Layer.</td>
-      <td>findById, findByGroupId, existsByGroupId, findByCycleIdAndTurnNumber, findAllByCycleId, findAllByPeriodId, findAllByCycleIdAndMembershipId, existsByCycleIdAndOperationNumber, save.</td>
+      <td>findById, findByGroupId, existsByGroupId, findByCycleIdAndTurnNumber, findAllByCycleId, findAllByPeriodId, findAllByCycleIdAndMembershipId, existsByCycleIdAndOperationNumber, findByVerificationToken, findByPeriodId, findAllOpen, save.</td>
     </tr>
     <tr>
-      <td><b>StartCycleCommand,<br>RegisterContributionCommand,<br>RegisterCashContributionCommand,<br>RegisterCoverageCommand,<br>ReviewContributionCommand,<br>DeliverPotCommand,<br>CloseCycleCommand</b></td>
+      <td><b>StartCycleCommand,<br>RegisterContributionCommand,<br>RegisterCashContributionCommand,<br>RegisterCoverageCommand,<br>ReviewContributionCommand,<br>AttachReceiptImageCommand,<br>ShareContributionCommand,<br>DeliverPotCommand,<br>AttachPayoutProofCommand,<br>SwapTurnsCommand,<br>LinkCycleMemberCommand,<br>RegisterCycleDropoutCommand,<br>ReplaceCycleMemberCommand,<br>PlaceBidCommand,<br>CloseAuctionCommand,<br>CloseDueAuctionsCommand,<br>CloseCycleCommand</b></td>
       <td>Command (record)</td>
       <td>Intenciones de cambio, una por comando del EventStorming. Son inmutables y no contienen lógica.</td>
-      <td>Los datos necesarios para ejecutar el comando: identificadores, monto, comprobante, decisión y nota.</td>
+      <td>Los datos necesarios para ejecutar el comando: identificadores, monto, comprobante, decisión y nota, imagen, turnos a intercambiar, oferta o ganador elegido.</td>
     </tr>
     <tr>
-      <td><b>GetCycleByGroupIdQuery,<br>GetCycleByIdQuery,<br>GetCurrentPeriodQuery,<br>GetPeriodsQuery,<br>GetPotProjectionQuery,<br>GetMemberContributionsQuery,<br>GetPendingReviewsQuery</b></td>
+      <td><b>GetCycleByGroupIdQuery,<br>GetCycleByIdQuery,<br>GetCurrentPeriodQuery,<br>GetPeriodsQuery,<br>GetPotProjectionQuery,<br>GetMemberContributionsQuery,<br>GetPendingReviewsQuery,<br>GetReceiptImageQuery,<br>GetPayoutProofQuery,<br>GetAuctionQuery,<br>GetVerifiedContributionQuery</b></td>
       <td>Query (record)</td>
-      <td>Consultas que alimentan las vistas del EventStorming: el ciclo de una junta, estado del pozo, períodos anteriores, proyección, mis aportes y pendientes de revisión.</td>
-      <td>groupId, cycleId o periodId, y la cuenta de quien consulta, que decide qué puede ver.</td>
+      <td>Consultas que alimentan las vistas del EventStorming: el ciclo de una junta, estado del pozo, períodos anteriores, proyección, mis aportes, pendientes de revisión, imágenes del comprobante y de la entrega, subasta del período y aporte compartido.</td>
+      <td>groupId, cycleId, periodId o contributionId, y la cuenta de quien consulta, que decide qué puede ver; el aporte compartido se consulta solo con su código.</td>
     </tr>
     <tr>
-      <td><b>CycleStartedEvent,<br>PeriodOpenedEvent,<br>ContributionValidatedEvent,<br>InconsistencyDetectedEvent,<br>ContributionRejectedEvent,<br>ContributionCoveredEvent,<br>PotCompletedEvent,<br>PotDeliveredEvent,<br>CycleClosedEvent</b></td>
+      <td><b>CycleStartedEvent,<br>PeriodOpenedEvent,<br>ContributionValidatedEvent,<br>InconsistencyDetectedEvent,<br>ContributionRejectedEvent,<br>ContributionCoveredEvent,<br>PotCompletedEvent,<br>PotDeliveredEvent,<br>CycleClosedEvent,<br>TurnsSwappedEvent,<br>CycleMemberLinkedEvent,<br>CycleMemberDroppedEvent,<br>AuctionOpenedEvent,<br>AuctionClosedEvent</b></td>
       <td>Domain Event</td>
       <td>Hechos que el contexto registra. Se traducen a eventos de integración, que son los que consumen Notifications y Compliance History.</td>
       <td>Identificadores del ciclo, período, aporte y membresía involucrados y la fecha del hecho.</td>
@@ -4011,11 +4023,11 @@ La Tabla 84 presenta las clases del Domain Layer de Contributions.
   </tbody>
 </table>
 
-Las reglas de negocio del canvas quedan repartidas así: la validación del comprobante (monto acordado, fecha dentro del corte, destinatario correcto) está en `Contribution.fromReceipt`, que deja el aporte validado o con sus inconsistencias; la unicidad del número de operación en la junta la verifica el command service con `ContributionRepository.existsByCycleIdAndOperationNumber` antes de crear el aporte; la completitud del pozo en `Period.settle`, que lo marca completo cuando no queda nadie pendiente; el paso al siguiente turno y el cierre tras el último en `Cycle.advanceToNextTurn` y `Cycle.close`; y la restricción de que solo la cabeza aprueba, registra efectivo y coberturas se verifica en los command services antes de invocar al agregado. Los identificadores son UUID que asigna el propio agregado al crearse; los de otros contextos (junta, cuenta, membresía) se guardan como valores, nunca como objetos de esos contextos.
+Las reglas de negocio del canvas quedan repartidas así: la validación del comprobante (monto acordado, fecha dentro del corte, destinatario correcto) está en `Contribution.fromReceipt`, que deja el aporte validado o con sus inconsistencias; la unicidad del número de operación en la junta la verifica el command service con `ContributionRepository.existsByCycleIdAndOperationNumber` antes de crear el aporte; la completitud del pozo en `Period.settle`, que lo marca completo cuando no queda nadie pendiente; el paso al siguiente turno y el cierre tras el último en `Cycle.advanceToNextTurn` y `Cycle.close`; el intercambio de turnos en `Cycle.swapTurns`, que solo acepta turnos cuyo período no ha empezado; el reemplazo de quien desertó en `Cycle.replaceMember`, que le da su turno si aún no cobró, y en `Period.reassignMember`, que le pasa lo que el desertor debía en el período en curso; las reglas de la subasta en `Auction.placeBid` (solo ofertan quienes no han cobrado, desde la oferta mínima y por debajo del pozo, y cuenta la última oferta de cada uno) y en `Auction.close`, donde gana la mayor oferta, en un empate la que se registró primero, y el descuento se reparte como crédito entre quienes aún no cobran, que `Period.open` resta de lo que deben en el siguiente período; y la restricción de que solo la cabeza aprueba, registra efectivo y coberturas, intercambia turnos y cierra subastas se verifica en los command services antes de invocar al agregado. Los identificadores son UUID que asigna el propio agregado al crearse; los de otros contextos (junta, cuenta, membresía) se guardan como valores, nunca como objetos de esos contextos.
 
 #### 2.6.1.2. Interface Layer
 
-La capa de interfaz expone el contexto como recursos REST, documentados con OpenAPI, y traduce entre los recursos JSON y los comandos y consultas del dominio mediante clases assembler (ver Tabla 85).
+La capa de interfaz expone el contexto como recursos REST, documentados con OpenAPI, y traduce entre los recursos JSON y los comandos y consultas del dominio mediante clases assembler (ver Tabla 86).
 
 <table>
   <caption>Clases del Interface Layer de Contributions</caption>
@@ -4030,26 +4042,31 @@ La capa de interfaz expone el contexto como recursos REST, documentados con Open
   <tbody>
     <tr>
       <td><b>ContributionsController</b></td>
-      <td>Registro y revisión de aportes. Cubre las historias de registrar con comprobante, confirmar datos leídos, revisar inconsistencias y registrar efectivo y coberturas.</td>
-      <td>POST /api/v1/periods/{periodId}/contributions (comprobante),<br>POST /api/v1/periods/{periodId}/contributions/cash,<br>POST /api/v1/periods/{periodId}/contributions/coverage,<br>PATCH /api/v1/contributions/{contributionId}/review,<br>GET /api/v1/periods/{periodId}/contributions/pending-review.</td>
+      <td>Registro y revisión de aportes. Cubre las historias de registrar con comprobante, confirmar datos leídos, revisar inconsistencias, registrar efectivo y coberturas y compartir un aporte con un enlace verificable.</td>
+      <td>POST /api/v1/periods/{periodId}/contributions (comprobante),<br>POST /api/v1/periods/{periodId}/contributions/cash,<br>POST /api/v1/periods/{periodId}/contributions/coverage,<br>PATCH /api/v1/contributions/{contributionId}/review,<br>PUT /api/v1/contributions/{contributionId}/receipt-image,<br>GET /api/v1/contributions/{contributionId}/receipt-image,<br>POST /api/v1/contributions/{contributionId}/share,<br>GET /api/v1/contributions/shared/{token} (público),<br>GET /api/v1/periods/{periodId}/contributions/pending-review.</td>
     </tr>
     <tr>
       <td><b>CyclesController</b></td>
-      <td>Consulta del ciclo y del pozo. Cubre las historias de ver el estado del pozo, consultar períodos anteriores y consultar mis aportes.</td>
-      <td>GET /api/v1/groups/{groupId}/cycle,<br>GET /api/v1/cycles/{cycleId}/periods/current,<br>GET /api/v1/cycles/{cycleId}/periods,<br>GET /api/v1/cycles/{cycleId}/members/me/contributions.</td>
+      <td>Consulta del ciclo y del pozo, e intercambio de turnos. Cubre las historias de ver el estado del pozo, consultar períodos anteriores, consultar mis aportes e intercambiar turnos.</td>
+      <td>GET /api/v1/groups/{groupId}/cycle,<br>GET /api/v1/cycles/{cycleId}/periods/current,<br>GET /api/v1/cycles/{cycleId}/periods,<br>GET /api/v1/cycles/{cycleId}/members/me/contributions,<br>POST /api/v1/cycles/{cycleId}/turns/swap.</td>
     </tr>
     <tr>
       <td><b>PeriodsController</b></td>
-      <td>Ciclo de vida del pozo. Cubre las historias de saber si el pozo estará completo, entregarlo y cerrar la junta.</td>
-      <td>POST /api/v1/periods/{periodId}/payout,<br>GET /api/v1/periods/{periodId}/projection,<br>POST /api/v1/cycles/{cycleId}/close.</td>
+      <td>Ciclo de vida del pozo. Cubre las historias de saber si el pozo estará completo, entregarlo con la imagen de la transferencia y cerrar la junta.</td>
+      <td>POST /api/v1/periods/{periodId}/payout,<br>PUT /api/v1/periods/{periodId}/payout/proof,<br>GET /api/v1/periods/{periodId}/payout/proof,<br>GET /api/v1/periods/{periodId}/projection,<br>POST /api/v1/cycles/{cycleId}/close.</td>
     </tr>
     <tr>
-      <td><b>RegisterContributionResource,<br>RegisterCashContributionResource,<br>RegisterCoverageResource,<br>ReviewContributionResource,<br>ContributionResource,<br>CycleResource,<br>PeriodStatusResource,<br>MyContributionsResource,<br>PotDeliveryResource,<br>PotProjectionResource</b></td>
+      <td><b>AuctionsController</b></td>
+      <td>Subasta del turno de un período. Cubre las historias de ofertar en la subasta y cerrarla.</td>
+      <td>GET /api/v1/periods/{periodId}/auction,<br>POST /api/v1/periods/{periodId}/auction/bids,<br>POST /api/v1/periods/{periodId}/auction/close.</td>
+    </tr>
+    <tr>
+      <td><b>RegisterContributionResource,<br>RegisterCashContributionResource,<br>RegisterCoverageResource,<br>ReviewContributionResource,<br>ContributionResource,<br>CycleResource,<br>PeriodStatusResource,<br>MyContributionsResource,<br>PotDeliveryResource,<br>PotProjectionResource,<br>ReceiptImageResource,<br>PayoutProofResource,<br>ContributionShareLinkResource,<br>VerifiedContributionResource,<br>SwapTurnsResource,<br>PlaceBidResource,<br>CloseAuctionResource,<br>AuctionResource</b></td>
       <td>Recursos JSON de entrada y salida.</td>
       <td>No aplica.</td>
     </tr>
     <tr>
-      <td><b>ContributionCommandFromResourceAssembler,<br>ContributionResourceFromEntityAssembler,<br>CycleResourceFromEntityAssembler,<br>PeriodStatusResourceFromViewAssembler,<br>MyContributionsResourceFromViewAssembler</b></td>
+      <td><b>ContributionCommandFromResourceAssembler,<br>ContributionResourceFromEntityAssembler,<br>CycleResourceFromEntityAssembler,<br>PeriodStatusResourceFromViewAssembler,<br>MyContributionsResourceFromViewAssembler,<br>VerifiedContributionResourceFromViewAssembler,<br>AuctionResourceFromViewAssembler</b></td>
       <td>Transforman recursos en comandos y agregados en recursos, para que los controllers no conozcan el modelo de dominio.</td>
       <td>No aplica.</td>
     </tr>
@@ -4058,7 +4075,7 @@ La capa de interfaz expone el contexto como recursos REST, documentados con Open
 
 #### 2.6.1.3. Application Layer
 
-La capa de aplicación orquesta los casos de uso: recibe un comando o una consulta, carga los agregados por sus repositorios, invoca sus métodos, guarda y publica los eventos. No contiene reglas de negocio (ver Tabla 86).
+La capa de aplicación orquesta los casos de uso: recibe un comando o una consulta, carga los agregados por sus repositorios, invoca sus métodos, guarda y publica los eventos. No contiene reglas de negocio (ver Tabla 87).
 
 <table>
   <caption>Clases del Application Layer de Contributions</caption>
@@ -4074,17 +4091,22 @@ La capa de aplicación orquesta los casos de uso: recibe un comando o una consul
     <tr>
       <td><b>ContributionCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>handle(RegisterContributionCommand): verifica que quien registra participa en el ciclo, que el período sigue abierto y que el número de operación no se usó en la junta; crea el aporte desde el comprobante y, si quedó validado, liquida lo esperado en el Period, que puede completar el pozo. handle(RegisterCashContributionCommand) y handle(RegisterCoverageCommand): verifican que quien registra es la cabeza y liquidan lo esperado. handle(ReviewContributionCommand): aprueba, lo que liquida lo esperado, o rechaza, lo que permite al integrante registrar de nuevo.</td>
+      <td>handle(RegisterContributionCommand): verifica que quien registra participa en el ciclo, que el período sigue abierto y que el número de operación no se usó en la junta; crea el aporte desde el comprobante y, si quedó validado, liquida lo esperado en el Period, que puede completar el pozo. handle(RegisterCashContributionCommand) y handle(RegisterCoverageCommand): verifican que quien registra es la cabeza y liquidan lo esperado. handle(ReviewContributionCommand): aprueba, lo que liquida lo esperado, o rechaza, lo que permite al integrante registrar de nuevo. handle(AttachReceiptImageCommand) guarda la imagen del comprobante en un bucket privado, y handle(ShareContributionCommand), pedido por el integrante del aporte o por la cabeza, le asigna un código y devuelve el enlace público con el que cualquiera verifica el aporte sin iniciar sesión.</td>
     </tr>
     <tr>
       <td><b>CycleCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>handle(StartCycleCommand): crea el Cycle con la copia de reglas y turnos que trae el evento de inicio y abre el primer período. handle(DeliverPotCommand): marca el período como entregado y abre el siguiente, o cierra el ciclo si era el último turno. handle(CloseCycleCommand): cierra el ciclo y publica CycleClosedEvent.</td>
+      <td>handle(StartCycleCommand): crea el Cycle con la copia de reglas, turnos y, si los turnos se subastan, reglas de la subasta que trae el evento de inicio, y abre el primer período con su subasta. handle(DeliverPotCommand): marca el período como entregado y abre el siguiente, con el crédito que dejó la subasta y su propia subasta, o cierra el ciclo si era el último turno. handle(AttachPayoutProofCommand): guarda la imagen de la transferencia con la que se entregó el pozo. handle(SwapTurnsCommand): intercambia dos turnos que no han empezado. handle(LinkCycleMemberCommand), handle(RegisterCycleDropoutCommand) y handle(ReplaceCycleMemberCommand): mantienen el ciclo al día cuando Savings Groups vincula una cuenta o registra una deserción o un reemplazo. handle(CloseCycleCommand): cierra el ciclo y publica CycleClosedEvent.</td>
+    </tr>
+    <tr>
+      <td><b>AuctionCommandServiceImpl</b></td>
+      <td>Command Service</td>
+      <td>handle(PlaceBidCommand): verifica que quien oferta participa en el ciclo y registra su oferta en la subasta del período. handle(CloseAuctionCommand): verifica que quien cierra es la cabeza y da el turno a la mayor oferta; sin ofertas, lo sortea entre quienes no han cobrado o se lo da al integrante que eligió la cabeza, según el respaldo. Al dar el turno actualiza el Cycle y el Period con el ganador y el descuento. handle(CloseDueAuctionsCommand): cierra del mismo modo las subastas cuyo día de cierre pasó; si el respaldo es la elección de la cabeza, las deja abiertas hasta que ella elija.</td>
     </tr>
     <tr>
       <td><b>ContributionQueryServiceImpl</b></td>
       <td>Query Service</td>
-      <td>Resuelve las consultas del ciclo, del período vigente, de los períodos anteriores, de mis aportes y de los pendientes de revisión. Responde vacío a quien no participa en el ciclo, de modo que la API no revela qué ciclos existen. La proyección (GetPotProjectionQuery) estima si el pozo estará completo a partir de los aportes validados y de los pendientes con recordatorio enviado.</td>
+      <td>Resuelve las consultas del ciclo, del período vigente, de los períodos anteriores, de mis aportes, de los pendientes de revisión, de la subasta del período, del aporte compartido y de los enlaces temporales a las imágenes de comprobantes y entregas. Responde vacío a quien no participa en el ciclo, de modo que la API no revela qué ciclos existen. La proyección (GetPotProjectionQuery) estima si el pozo estará completo a partir de los aportes validados y de los pendientes con recordatorio enviado.</td>
     </tr>
     <tr>
       <td><b>SavingsGroupStartedEventHandler</b></td>
@@ -4092,21 +4114,21 @@ La capa de aplicación orquesta los casos de uso: recibe un comando o una consul
       <td>Escucha el evento de integración Junta iniciada, de Savings Groups, y emite StartCycleCommand en la misma transacción, para que una junta nunca quede iniciada sin su ciclo. Es el único punto de entrada del ciclo.</td>
     </tr>
     <tr>
-      <td><b>MemberReplacedEventHandler</b></td>
+      <td><b>SavingsGroupMemberLinkedEventHandler,<br>SavingsGroupMembershipEventsHandler</b></td>
       <td>Event Handler</td>
-      <td>Escucha Reemplazo incorporado, de Savings Groups, y actualiza el orden de turnos del Cycle.</td>
+      <td>Capas anticorrupción hacia Savings Groups. La primera escucha Integrante vinculado y le da al integrante que se registró en la aplicación su turno en el ciclo. La segunda escucha Deserción registrada y Reemplazo incorporado y actualiza el Cycle y el período en curso; corre en la misma transacción que el cambio en la junta, de modo que un reemplazo que el ciclo rechaza se deshace también en la junta.</td>
     </tr>
     <tr>
       <td><b>IntegrationEventsPublisher</b></td>
       <td>Event Handler</td>
-      <td>Traduce los eventos de dominio a eventos de integración (aporte liquidado, revisión requerida o rechazada, período abierto, pozo completo o entregado, ciclo cerrado), con el nombre de la junta y la cuenta y el nombre de cada integrante, para que Notifications y Compliance History nunca lean el modelo de Contributions.</td>
+      <td>Traduce los eventos de dominio a eventos de integración (aporte liquidado, revisión requerida o rechazada, período abierto, pozo completo o entregado, ciclo cerrado, turnos intercambiados, integrante vinculado o retirado del ciclo, subasta abierta o cerrada), con el nombre de la junta y la cuenta y el nombre de cada integrante, para que Notifications y Compliance History nunca lean el modelo de Contributions.</td>
     </tr>
   </tbody>
 </table>
 
 #### 2.6.1.4. Infrastructure Layer
 
-La Tabla 87 presenta las clases del Infrastructure Layer de Contributions.
+La Tabla 88 presenta las clases del Infrastructure Layer de Contributions.
 
 <table>
   <caption>Clases del Infrastructure Layer de Contributions</caption>
@@ -4120,57 +4142,67 @@ La Tabla 87 presenta las clases del Infrastructure Layer de Contributions.
   </thead>
   <tbody>
     <tr>
-      <td><b>CycleRepositoryImpl,<br>PeriodRepositoryImpl,<br>ContributionRepositoryImpl</b></td>
+      <td><b>CycleRepositoryImpl,<br>PeriodRepositoryImpl,<br>ContributionRepositoryImpl,<br>AuctionRepositoryImpl</b></td>
       <td>Repository (JPA)</td>
       <td>Adaptadores que implementan las interfaces del dominio con Spring Data JPA sobre el esquema `contributions`. Copian cada agregado a sus entidades de persistencia, guardan y publican los eventos de dominio que el agregado registró con el ApplicationEventPublisher de Spring. La existencia del número de operación se declara como método derivado.</td>
     </tr>
     <tr>
-      <td><b>CyclePersistenceEntity,<br>PeriodPersistenceEntity,<br>ExpectedContributionPersistenceEntity,<br>ContributionPersistenceEntity</b></td>
+      <td><b>CyclePersistenceEntity,<br>PeriodPersistenceEntity,<br>ExpectedContributionPersistenceEntity,<br>ContributionPersistenceEntity,<br>AuctionPersistenceEntity</b></td>
       <td>Entidad JPA</td>
       <td>Representan las tablas del esquema. El modelo de dominio no lleva anotaciones de JPA: los assemblers de persistencia traducen en ambos sentidos, y Money se guarda como monto y moneda en columnas propias.</td>
+    </tr>
+    <tr>
+      <td><b>AuctionClosingScheduler</b></td>
+      <td>Tarea programada</td>
+      <td>Cada hora, por defecto, envía CloseDueAuctionsCommand para cerrar las subastas cuyo día de cierre pasó.</td>
+    </tr>
+    <tr>
+      <td><b>SupabaseReceiptImageStorage,<br>VerifiedContributionLinkBuilder</b></td>
+      <td>Adaptador</td>
+      <td>Guarda las imágenes de comprobantes y entregas en un bucket privado de Supabase Storage y las muestra con enlaces firmados de quince minutos; construye el enlace público de un aporte compartido, que abre la página de verificación del sitio de Kerolabs.</td>
     </tr>
   </tbody>
 </table>
 
 #### 2.6.1.5. Bounded Context Software Architecture Component Level Diagrams
 
-El diagrama de componentes descompone el contenedor de servicios RESTful en los componentes de Contributions y muestra cómo se comunican entre sí, con la aplicación móvil y con la base de datos (ver Figura 62).
+El diagrama de componentes descompone el contenedor de servicios RESTful en los componentes de Contributions y muestra cómo se comunican entre sí, con la aplicación móvil y con la base de datos (ver Figura 63).
 
 ![Diagrama de componentes de Contributions](images/chapter_2/c4_components_contributions.png){width=80%}
 
 *Nota.* Notación del C4 Model [@brown2018c4]. Los componentes del contenedor Servicios RESTful van dentro de su recuadro; cada flecha punteada indica quién llama a quién, con la tecnología entre corchetes cuando corresponde. Generado con Structurizr a partir del archivo `docs/architecture/workspace.dsl` (ver Anexo C).
 
-Los controllers reciben las solicitudes de la aplicación móvil y las convierten en comandos o consultas. Los command services usan el modelo de dominio y los repositorios. Contributions no consulta a Savings Groups en tiempo de ejecución: el evento Junta iniciada trae una copia de las reglas y los turnos, y el event handler que lo recibe es la entrada reactiva del contexto. En la salida, IntegrationEventsPublisher traduce los eventos de dominio a eventos de integración para Notifications y Compliance History. Los repositorios son el único componente que toca la base de datos. La lectura del comprobante con ML Kit no aparece aquí porque ocurre en la aplicación móvil: el servicio recibe los cuatro campos ya leídos y confirmados por el participante.
+Los controllers reciben las solicitudes de la aplicación móvil y las convierten en comandos o consultas. Los command services usan el modelo de dominio y los repositorios, y una tarea programada cierra las subastas vencidas a través de AuctionCommandService. Contributions no consulta a Savings Groups en tiempo de ejecución: el evento Junta iniciada trae una copia de las reglas y los turnos, y los event handlers que lo reciben, junto con los vínculos, deserciones y reemplazos, son la entrada reactiva del contexto. A su vez, Contributions le avisa a Savings Groups cuando intercambia turnos o cierra el ciclo. En la salida, IntegrationEventsPublisher traduce los eventos de dominio a eventos de integración para Notifications y Compliance History. Los repositorios son el único componente que toca la base de datos. La lectura del comprobante con ML Kit no aparece aquí porque ocurre en la aplicación móvil: el servicio recibe los cuatro campos ya leídos y confirmados por el participante.
 
 #### 2.6.1.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.1.6.1. Bounded Context Domain Layer Class Diagrams
 
-La Figura 63 muestra el diagrama de clases del Domain Layer de Contributions.
+La Figura 64 muestra el diagrama de clases del Domain Layer de Contributions.
 
 ![Diagrama de clases del Domain Layer de Contributions](images/chapter_2/uml_contributions_domain.png)
 
 *Nota.* Diagrama de clases en UML. Los estereotipos «Aggregate Root», «Entity», «Value Object» y «Repository» corresponden a los elementos del diseño táctico de Domain-Driven Design; la letra E marca una enumeración y la I una interfaz. El rombo relleno indica composición y la flecha punteada, la dependencia entre el repositorio y el agregado que persiste. Generado con PlantUML (ver Anexo C).
 
-El diagrama muestra los tres agregados y sus relaciones de composición: un Cycle contiene sus reglas y turnos y agrupa uno o más Period; un Period contiene un ExpectedContribution por integrante y agrupa los Contribution que se registran en él; un Contribution contiene como máximo un comprobante y una revisión y cero o más inconsistencias. Las asociaciones entre agregados se expresan por identificador (cycleId, periodId), no por referencia de objeto, para que cada agregado se cargue y guarde de forma independiente. Los repositorios dependen de los agregados.
+El diagrama muestra los cuatro agregados y sus relaciones de composición: un Cycle contiene sus reglas, sus turnos y, si los subasta, las reglas de la subasta, y agrupa uno o más Period; un Period contiene un ExpectedContribution por integrante y agrupa los Contribution que se registran en él y, en las juntas por subasta, una Auction con sus ofertas; un Contribution contiene como máximo un comprobante, una revisión y un código de verificación, y cero o más inconsistencias. Las asociaciones entre agregados se expresan por identificador (cycleId, periodId), no por referencia de objeto, para que cada agregado se cargue y guarde de forma independiente. Los repositorios dependen de los agregados.
 
 ##### 2.6.1.6.2. Bounded Context Database Design Diagram
 
-La Figura 64 muestra el diagrama de base de datos de Contributions.
+La Figura 65 muestra el diagrama de base de datos de Contributions.
 
 ![Diagrama de base de datos de Contributions](images/chapter_2/db_contributions.png)
 
 *Nota.* Diagrama entidad-relación del esquema en PostgreSQL. PK, FK y UQ marcan la clave primaria, las claves foráneas y los valores únicos; el punto negro indica una columna obligatoria, y los extremos de las líneas, la cardinalidad de cada relación. Generado con PlantUML a partir de la definición en SQL (ver Anexo C).
 
-El esquema `contributions` tiene seis tablas. `cycles` guarda el ciclo con sus reglas desnormalizadas (monto, periodicidad, fecha del primer aporte, destino y nombre del destinatario), el nombre de la junta y la cuenta de la cabeza, porque son una copia congelada al iniciar y no deben cambiar si Savings Groups cambia; `cycle_turns` guarda el orden de cobro con clave compuesta por ciclo y turno, y por cada turno la membresía, la cuenta si el integrante usa la aplicación y su nombre. `periods` tiene un período por turno del ciclo con la membresía que cobra, y `expected_contributions` una fila por membresía y período, con el estado y el aporte que la liquidó. `contributions` guarda el aporte con la membresía, la cuenta de quien lo registró, los campos del comprobante en columnas propias, la membresía que cubrió si es cobertura y la decisión de la cabeza; la restricción de unicidad sobre (cycle_id, receipt_operation_number) implementa en la base de datos la regla de que un comprobante se usa una sola vez por junta. `contribution_inconsistencies` guarda una fila por campo que no cuadró. Los identificadores de integrante y de junta son UUID sin clave foránea porque pertenecen a otros esquemas.
+El esquema `contributions` tiene ocho tablas. `cycles` guarda el ciclo con sus reglas desnormalizadas (monto, periodicidad, fecha del primer aporte, destino, nombre del destinatario y, si los turnos se subastan, las reglas de la subasta), el nombre de la junta y la cuenta de la cabeza, porque son una copia congelada al iniciar y no deben cambiar si Savings Groups cambia; `cycle_turns` guarda el orden de cobro con clave compuesta por ciclo y turno, y por cada turno la membresía, la cuenta si el integrante usa la aplicación y su nombre. `periods` tiene un período por turno del ciclo con la membresía que cobra, la ruta de la imagen de la entrega y el descuento de la subasta, y `expected_contributions` una fila por membresía y período, con el estado y el aporte que la liquidó. `contributions` guarda el aporte con la membresía, la cuenta de quien lo registró, los campos del comprobante en columnas propias, la ruta de su imagen, la fecha en que la cabeza recibió el efectivo, la membresía que cubrió si es cobertura, la decisión de la cabeza y el código único con el que se comparte; la restricción de unicidad sobre (cycle_id, receipt_operation_number) implementa en la base de datos la regla de que un comprobante se usa una sola vez por junta. `contribution_inconsistencies` guarda una fila por campo que no cuadró. `auctions` tiene una subasta por período, con su cierre, la oferta mínima, el respaldo y el resultado, y `auction_bids` una oferta por integrante. Los identificadores de integrante y de junta son UUID sin clave foránea porque pertenecen a otros esquemas.
 
 ### 2.6.2. Bounded Context: Savings Groups
 
-Savings Groups es el contexto de soporte que define la junta antes de que exista un ciclo: sus reglas, sus integrantes, la invitación con la que se incorporan y el orden de turnos. Su modelo tiene tres agregados. **SavingsGroup** es la junta con sus reglas, la lista de integrantes y los turnos; concentra las condiciones para iniciar y el bloqueo de reglas posterior. **Invitation** es el código y enlace vigentes de una junta, con su vencimiento; se modela aparte porque una junta puede regenerar invitaciones sin cambiar. **Auction** es la subasta de un turno con sus ofertas; tiene ciclo de vida propio (abierta, cerrada) y termina asignando el turno a la junta. Los integrantes son entidades dentro de SavingsGroup porque no tienen sentido fuera de ella: un mismo celular es un Membership distinto en cada junta, y los integrantes sin la aplicación existen solo como Membership de tipo manual.
+Savings Groups es el contexto de soporte que define la junta antes de que exista un ciclo: sus reglas, sus integrantes, la invitación con la que se incorporan y el orden de turnos. Su modelo tiene dos agregados. **SavingsGroup** es la junta con sus reglas, la lista de integrantes y los turnos; concentra las condiciones para iniciar, el bloqueo de reglas posterior, las deserciones con su reemplazo y la apertura de un nuevo ciclo. **Invitation** es el código y enlace vigentes de una junta, con su vencimiento; se modela aparte porque una junta puede regenerar invitaciones sin cambiar. Cuando los turnos se subastan, la junta solo guarda las reglas de la subasta: cada subasta se abre y se cierra en Contributions, junto al período al que pertenece. Los integrantes son entidades dentro de SavingsGroup porque no tienen sentido fuera de ella: un mismo celular es un Membership distinto en cada junta, y los integrantes sin la aplicación existen solo como Membership de tipo manual.
 
 #### 2.6.2.1. Domain Layer
 
-La Tabla 88 presenta las clases del Domain Layer de Savings Groups.
+La Tabla 89 presenta las clases del Domain Layer de Savings Groups.
 
 <table>
   <caption>Clases del Domain Layer de Savings Groups</caption>
@@ -4188,7 +4220,7 @@ La Tabla 88 presenta las clases del Domain Layer de Savings Groups.
       <td><b>SavingsGroup</b></td>
       <td>Aggregate Root</td>
       <td>La junta: reglas, integrantes, orden de turnos y estado. Aplica las condiciones de inicio y el bloqueo de reglas.</td>
-      <td>id, name, organizerId, rules, memberships, turns, turnMethod, drawSeed, turnsAssignedAt, status, createdAt, startedAt. create(organizerId, organizerName, name, rules, now), updateRules(name, rules), defineDestination(destination), join(memberId, displayName, now), addManualMember(displayName, phone, now), removeMember(membershipId, now), assignTurns(slots, method, seed, now), assignTurnFromAuction(turnNumber, winner), hasFreeSeats(), canStart(), start(now), registerDropout(dropped, replacement), turnCalendar().</td>
+      <td>id, name, organizerId, rules, memberships, turns, turnMethod, drawSeed, turnsAssignedAt, auctionRules, status, createdAt, startedAt. create(organizerId, organizerName, name, rules, now), updateRules(name, rules), defineDestination(destination), join(memberId, displayName, now), addManualMember(displayName, phone, now), removeMember(membershipId, now), assignTurns(slots, method, seed, now), assignTurnsByAuction(auctionRules, now), hasFreeSeats(), canStart(), start(now), linkManualMember(phone, accountId, now), applySwappedTurns(first, firstTurn, second, secondTurn), registerDropout(membershipId, now), replaceDroppedMember(dropped, accountId, displayName, phone, now), openNewCycle(firstContributionDate, now), turnCalendar().</td>
     </tr>
     <tr>
       <td><b>Invitation</b></td>
@@ -4197,22 +4229,10 @@ La Tabla 88 presenta las clases del Domain Layer de Savings Groups.
       <td>id, groupId, code, createdBy, createdAt, expiresAt, status. generate(groupId, organizerId, code, now), isUsable(now), expire().</td>
     </tr>
     <tr>
-      <td><b>Auction</b></td>
-      <td>Aggregate Root</td>
-      <td>Subasta de un turno: recibe ofertas, determina la mayor y resuelve el empate con la decisión de la cabeza.</td>
-      <td>id, groupId, turnNumber, bids, status, openedAt, closedAt, winnerId. open(groupId, turnNumber), placeBid(memberId, amount), highestBids(), close(tieBreakBy).</td>
-    </tr>
-    <tr>
       <td><b>Membership</b></td>
       <td>Entity</td>
       <td>Un integrante dentro de una junta, con la aplicación o registrado a mano por la cabeza; en ese caso el celular es opcional.</td>
-      <td>id, memberId, displayName, phone, kind, status, joinedAt. ofAppMember(...), ofManualMember(...), isActive(), belongsTo(accountId), remove(), markDropped().</td>
-    </tr>
-    <tr>
-      <td><b>Bid</b></td>
-      <td>Entity</td>
-      <td>Una oferta en la subasta.</td>
-      <td>id, memberId, amount, placedAt.</td>
+      <td>id, memberId, displayName, phone, kind, status, joinedAt. ofAppMember(...), ofManualMember(...), ofReplacement(...), isActive(), belongsTo(accountId), linkAccount(accountId), remove(), markDropped().</td>
     </tr>
     <tr>
       <td><b>GroupRules</b></td>
@@ -4221,16 +4241,16 @@ La Tabla 88 presenta las clases del Domain Layer de Savings Groups.
       <td>contribution, periodicity, seats, firstContributionDate, destination. withDestination(destination), pot(), cutoffDay(), cutoffDateOfTurn(turnNumber).</td>
     </tr>
     <tr>
-      <td><b>TurnSlot,<br>InvitationCode,<br>Destination,<br>Money</b></td>
+      <td><b>TurnSlot,<br>InvitationCode,<br>Destination,<br>AuctionRules,<br>Money</b></td>
       <td>Value Object</td>
-      <td>Posición de cobro; código corto de invitación con las iniciales de la junta, por ejemplo JB-7K4M; destino de los aportes (Yape o Plin y el celular); monto con moneda.</td>
-      <td>turnNumber, membershipId y assignedBy; value; method y phoneNumber; amount y currency.</td>
+      <td>Posición de cobro; código corto de invitación con las iniciales de la junta, por ejemplo JB-7K4M; destino de los aportes (Yape o Plin y el celular); reglas de la subasta (con cuántos días de anticipación al corte cierra, la oferta mínima y el respaldo si nadie oferta); monto con moneda.</td>
+      <td>turnNumber, membershipId y assignedBy; value; method y phoneNumber; closesDaysBeforeCutoff, minimumBid y fallback; amount y currency.</td>
     </tr>
     <tr>
-      <td><b>GroupStatus,<br>MembershipKind,<br>MembershipStatus,<br>TurnMethod,<br>InvitationStatus,<br>PaymentMethod,<br>AuctionStatus,<br>Periodicity</b></td>
+      <td><b>GroupStatus,<br>MembershipKind,<br>MembershipStatus,<br>TurnMethod,<br>InvitationStatus,<br>PaymentMethod,<br>AuctionFallback,<br>Periodicity</b></td>
       <td>Enumeración</td>
       <td>Estados y clasificaciones del modelo.</td>
-      <td>DRAFT / READY / STARTED / CLOSED; APP / MANUAL; ACTIVE / REMOVED / DROPPED / REPLACEMENT; DRAW / AGREED / AUCTION; ACTIVE / EXPIRED; YAPE / PLIN; OPEN / CLOSED; WEEKLY / BIWEEKLY / MONTHLY.</td>
+      <td>DRAFT / READY / STARTED / CLOSED; APP / MANUAL; ACTIVE / REMOVED / DROPPED / REPLACEMENT; DRAW / AGREED / AUCTION; ACTIVE / EXPIRED; YAPE / PLIN; DRAW / ORGANIZER; WEEKLY / BIWEEKLY / MONTHLY.</td>
     </tr>
     <tr>
       <td><b>TurnAssignmentService</b></td>
@@ -4239,37 +4259,37 @@ La Tabla 88 presenta las clases del Domain Layer de Savings Groups.
       <td>drawTurns(group, seed), agreedTurns(group, order).</td>
     </tr>
     <tr>
-      <td><b>SavingsGroupRepository,<br>InvitationRepository,<br>AuctionRepository</b></td>
+      <td><b>SavingsGroupRepository,<br>InvitationRepository</b></td>
       <td>Repository (interfaz)</td>
       <td>Persistencia de cada agregado.</td>
-      <td>findById, findAllByMemberId, findByCode, existsByCode, findAllActiveByGroupId, findOpenByGroupId, save.</td>
+      <td>findById, findAllByMemberId, findAllWithUnlinkedManualMember, findByCode, existsByCode, findAllActiveByGroupId, save.</td>
     </tr>
     <tr>
-      <td><b>CreateGroupCommand,<br>UpdateRulesCommand,<br>DefineDestinationCommand,<br>GenerateInvitationCommand,<br>JoinGroupCommand,<br>AddManualMemberCommand,<br>RemoveMemberCommand,<br>AssignTurnsByDrawCommand,<br>AssignTurnsAgreedCommand,<br>OpenAuctionCommand,<br>PlaceBidCommand,<br>CloseAuctionCommand,<br>StartGroupCommand,<br>RegisterDropoutCommand</b></td>
+      <td><b>CreateGroupCommand,<br>UpdateRulesCommand,<br>DefineDestinationCommand,<br>GenerateInvitationCommand,<br>JoinGroupCommand,<br>AddManualMemberCommand,<br>RemoveMemberCommand,<br>LinkManualMembersCommand,<br>AssignTurnsByDrawCommand,<br>AssignTurnsAgreedCommand,<br>AssignTurnsByAuctionCommand,<br>ApplySwappedTurnsCommand,<br>StartGroupCommand,<br>RegisterDropoutCommand,<br>ReplaceMemberCommand,<br>CloseGroupCommand,<br>OpenNewCycleCommand</b></td>
       <td>Command</td>
       <td>Un comando por cada comando del EventStorming en este contexto.</td>
-      <td>Identificadores, reglas, nombre y celular, orden o semilla, oferta, decisión de empate.</td>
+      <td>Identificadores, reglas, nombre y celular, orden o semilla, reglas de la subasta, fecha del primer aporte del nuevo ciclo.</td>
     </tr>
     <tr>
-      <td><b>GetGroupByIdQuery,<br>GetMembersQuery,<br>GetTurnCalendarQuery,<br>GetGroupPreviewQuery,<br>GetActiveInvitationQuery,<br>GetOpenBidsQuery,<br>GetMyGroupsQuery</b></td>
+      <td><b>GetGroupByIdQuery,<br>GetMembersQuery,<br>GetTurnCalendarQuery,<br>GetGroupPreviewQuery,<br>GetActiveInvitationQuery,<br>GetMyGroupsQuery</b></td>
       <td>Query</td>
-      <td>Consultas de las vistas: la junta con sus reglas, lista de integrantes, calendario de turnos, resumen antes de unirse, invitación vigente, ofertas vigentes y mis juntas.</td>
+      <td>Consultas de las vistas: la junta con sus reglas, lista de integrantes, calendario de turnos, resumen antes de unirse, invitación vigente y mis juntas.</td>
       <td>groupId, invitationCode, memberId.</td>
     </tr>
     <tr>
-      <td><b>GroupCreatedEvent,<br>InvitationGeneratedEvent,<br>MemberJoinedEvent,<br>ManualMemberAddedEvent,<br>MemberRemovedEvent,<br>TurnsAssignedEvent,<br>AuctionOpenedEvent,<br>BidPlacedEvent,<br>AuctionClosedEvent,<br>GroupStartedEvent,<br>MemberDroppedEvent,<br>ReplacementJoinedEvent</b></td>
+      <td><b>GroupCreatedEvent,<br>InvitationGeneratedEvent,<br>MemberJoinedEvent,<br>ManualMemberAddedEvent,<br>MemberRemovedEvent,<br>MemberLinkedEvent,<br>TurnsAssignedEvent,<br>GroupStartedEvent,<br>MemberDroppedEvent,<br>MemberReplacedEvent,<br>NewCycleOpenedEvent</b></td>
       <td>Domain Event</td>
-      <td>Hechos que publica el contexto. GroupStartedEvent se traduce al evento de integración Junta iniciada, que inicia el ciclo en Contributions; MemberDroppedEvent y ReplacementJoinedEvent los consumirán Contributions y Compliance History.</td>
+      <td>Hechos que publica el contexto. GroupStartedEvent se traduce al evento de integración Junta iniciada, que inicia el ciclo en Contributions; MemberLinkedEvent, MemberDroppedEvent y MemberReplacedEvent los consumen Contributions y Notifications, y la deserción también Compliance History.</td>
       <td>Identificadores de junta e integrantes, reglas y turnos copiados al iniciar.</td>
     </tr>
   </tbody>
 </table>
 
-Las reglas del canvas quedan en `SavingsGroup.canStart` (cupos cubiertos y turnos asignados), en `SavingsGroup.updateRules` (las reglas solo cambian antes de iniciar y los cupos no pueden quedar por debajo de los integrantes), en `SavingsGroup.start` (bloqueo de reglas y caducidad de la invitación, que se ordena publicando GroupStartedEvent), en `Auction.close` (gana la oferta mayor, el empate lo resuelve la cabeza) y en `SavingsGroup.registerDropout` (el reemplazo hereda el turno pendiente). Que un integrante sin la aplicación no pueda aportar por sí mismo se garantiza porque su Membership no tiene memberId y, por tanto, ninguna cuenta puede actuar en su nombre.
+Las reglas del canvas quedan en `SavingsGroup.canStart` (cupos cubiertos y turnos asignados), en `SavingsGroup.updateRules` (las reglas solo cambian antes de iniciar y los cupos no pueden quedar por debajo de los integrantes), en `SavingsGroup.start` (bloqueo de reglas y caducidad de la invitación, que se ordena publicando GroupStartedEvent), en `SavingsGroup.assignTurnsByAuction` (guarda las reglas de la subasta y un orden provisional), en `SavingsGroup.registerDropout` y `SavingsGroup.replaceDroppedMember` (solo en una junta iniciada; el reemplazo, con la aplicación o sin ella, hereda el turno de quien desertó) y en `SavingsGroup.openNewCycle` (una junta cerrada vuelve a empezar con las mismas reglas e integrantes y una nueva fecha de primer aporte). Que un integrante sin la aplicación no pueda aportar por sí mismo se garantiza porque su Membership no tiene memberId y, por tanto, ninguna cuenta puede actuar en su nombre, hasta que esa persona se registra con el celular que la cabeza anotó y `SavingsGroup.linkManualMember` le asigna su cuenta.
 
 #### 2.6.2.2. Interface Layer
 
-La Tabla 89 presenta las clases del Interface Layer de Savings Groups.
+La Tabla 90 presenta las clases del Interface Layer de Savings Groups.
 
 <table>
   <caption>Clases del Interface Layer de Savings Groups</caption>
@@ -4284,21 +4304,21 @@ La Tabla 89 presenta las clases del Interface Layer de Savings Groups.
   <tbody>
     <tr>
       <td><b>SavingsGroupsController</b></td>
-      <td>Ciclo de vida de la junta: crear, cambiar reglas antes de iniciar, definir destino, consultar la junta, listar mis juntas e iniciar.</td>
-      <td>POST /api/v1/groups,<br>GET /api/v1/groups/{id},<br>GET /api/v1/members/me/groups,<br>PUT /api/v1/groups/{id}/rules,<br>PATCH /api/v1/groups/{id}/destination,<br>POST /api/v1/groups/{id}/start.</td>
+      <td>Ciclo de vida de la junta: crear, cambiar reglas antes de iniciar, definir destino, consultar la junta, listar mis juntas, iniciar y abrir un nuevo ciclo al terminar.</td>
+      <td>POST /api/v1/groups,<br>GET /api/v1/groups/{id},<br>GET /api/v1/members/me/groups,<br>PUT /api/v1/groups/{id}/rules,<br>PATCH /api/v1/groups/{id}/destination,<br>POST /api/v1/groups/{id}/start,<br>POST /api/v1/groups/{id}/new-cycle.</td>
     </tr>
     <tr>
       <td><b>MembershipsController</b></td>
-      <td>Invitaciones e integrantes: generar invitación, resolver un código (resumen antes de unirse), unirse, agregar integrante sin la aplicación, retirar y registrar deserción con reemplazo.</td>
-      <td>POST /api/v1/groups/{id}/invitations,<br>GET /api/v1/groups/{id}/invitations/active,<br>GET /api/v1/invitations/{code},<br>POST /api/v1/invitations/{code}/join,<br>GET /api/v1/groups/{id}/members,<br>POST /api/v1/groups/{id}/members/manual,<br>DELETE /api/v1/groups/{id}/members/{membershipId},<br>POST /api/v1/groups/{id}/members/{membershipId}/dropout.</td>
+      <td>Invitaciones e integrantes: generar invitación, resolver un código (resumen antes de unirse), unirse, agregar integrante sin la aplicación, retirar, registrar una deserción y asignar un reemplazo.</td>
+      <td>POST /api/v1/groups/{id}/invitations,<br>GET /api/v1/groups/{id}/invitations/active,<br>GET /api/v1/invitations/{code},<br>POST /api/v1/invitations/{code}/join,<br>GET /api/v1/groups/{id}/members,<br>POST /api/v1/groups/{id}/members/manual,<br>DELETE /api/v1/groups/{id}/members/{membershipId},<br>POST /api/v1/groups/{id}/members/{membershipId}/dropout,<br>POST /api/v1/groups/{id}/members/{membershipId}/replacement.</td>
     </tr>
     <tr>
       <td><b>TurnsController</b></td>
-      <td>Asignación de turnos: sorteo, orden acordado, subasta (abrir, ofertar, cerrar) y calendario.</td>
-      <td>POST /api/v1/groups/{id}/turns/draw,<br>POST /api/v1/groups/{id}/turns/agreed,<br>GET /api/v1/groups/{id}/turns,<br>POST /api/v1/groups/{id}/auctions,<br>POST /api/v1/auctions/{auctionId}/bids,<br>GET /api/v1/auctions/{auctionId}/bids,<br>POST /api/v1/auctions/{auctionId}/close.</td>
+      <td>Asignación de turnos por sorteo, orden acordado o subasta, y calendario. Las ofertas y el cierre de cada subasta están en AuctionsController, de Contributions.</td>
+      <td>POST /api/v1/groups/{id}/turns/draw,<br>POST /api/v1/groups/{id}/turns/agreed,<br>POST /api/v1/groups/{id}/turns/auction,<br>GET /api/v1/groups/{id}/turns.</td>
     </tr>
     <tr>
-      <td><b>CreateGroupResource, UpdateRulesResource, DestinationResource, RulesResource, GroupResource, GroupPreviewResource, InvitationResource, MembershipResource, AddManualMemberResource, AgreedTurnsResource, TurnCalendarResource, ReadinessResource, BidResource</b> y sus assemblers</td>
+      <td><b>CreateGroupResource, UpdateRulesResource, DestinationResource, RulesResource, GroupResource, GroupPreviewResource, InvitationResource, MembershipResource, AddManualMemberResource, AgreedTurnsResource, AuctionTurnsResource, TurnCalendarResource, ReadinessResource, ReplaceMemberResource, OpenNewCycleResource</b> y sus assemblers</td>
       <td>Recursos JSON y transformaciones entre recursos, comandos y agregados.</td>
       <td>No aplica.</td>
     </tr>
@@ -4307,7 +4327,7 @@ La Tabla 89 presenta las clases del Interface Layer de Savings Groups.
 
 #### 2.6.2.3. Application Layer
 
-La Tabla 90 presenta las clases del Application Layer de Savings Groups.
+La Tabla 91 presenta las clases del Application Layer de Savings Groups.
 
 <table>
   <caption>Clases del Application Layer de Savings Groups</caption>
@@ -4323,22 +4343,32 @@ La Tabla 90 presenta las clases del Application Layer de Savings Groups.
     <tr>
       <td><b>SavingsGroupCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>Atiende CreateGroup, UpdateRules, DefineDestination, GenerateInvitation, JoinGroup, AddManualMember, RemoveMember, StartGroup y RegisterDropout. Carga el SavingsGroup, invoca el método del agregado, guarda y publica los eventos. A quien no es integrante le responde que la junta no existe, igual que si no existiera, para no revelar qué juntas hay; a un integrante que no es la cabeza le niega las operaciones reservadas a ella. Al generar una invitación vence la anterior; al unirse por código, resuelve la Invitation y comprueba que sea usable y que haya cupos.</td>
+      <td>Atiende CreateGroup, UpdateRules, DefineDestination, GenerateInvitation, JoinGroup, AddManualMember, RemoveMember, StartGroup, RegisterDropout, ReplaceMember, OpenNewCycle, LinkManualMembers y CloseGroup. Carga el SavingsGroup, invoca el método del agregado, guarda y publica los eventos. A quien no es integrante le responde que la junta no existe, igual que si no existiera, para no revelar qué juntas hay; a un integrante que no es la cabeza le niega las operaciones reservadas a ella. Al generar una invitación vence la anterior; al unirse por código, resuelve la Invitation y comprueba que sea usable y que haya cupos.</td>
     </tr>
     <tr>
       <td><b>TurnCommandServiceImpl</b></td>
       <td>Command Service</td>
-      <td>Atiende AssignTurnsByDraw y AssignTurnsAgreed con TurnAssignmentService, y OpenAuction, PlaceBid y CloseAuction; al cerrar la subasta asigna el turno en el SavingsGroup.</td>
+      <td>Atiende AssignTurnsByDraw y AssignTurnsAgreed con TurnAssignmentService, AssignTurnsByAuction, que guarda las reglas de la subasta, y ApplySwappedTurns, que sigue en el calendario el intercambio hecho en Contributions.</td>
     </tr>
     <tr>
       <td><b>SavingsGroupQueryServiceImpl</b></td>
       <td>Query Service</td>
-      <td>Resuelve la junta, integrantes, calendario, invitación vigente, ofertas vigentes y mis juntas. Para el resumen antes de unirse (GetGroupPreviewQuery) devuelve solo nombre, reglas y cupos libres, sin la lista de integrantes ni el destino. El celular de un integrante sin la aplicación solo lo ve la cabeza. El nivel de cumplimiento de cada integrante no se calcula aquí: la cabeza lo consulta directamente a Compliance History.</td>
+      <td>Resuelve la junta, integrantes, calendario, invitación vigente y mis juntas. Para el resumen antes de unirse (GetGroupPreviewQuery) devuelve solo nombre, reglas y cupos libres, sin la lista de integrantes ni el destino. El celular de un integrante sin la aplicación solo lo ve la cabeza. El nivel de cumplimiento de cada integrante no se calcula aquí: la cabeza lo consulta directamente a Compliance History.</td>
     </tr>
     <tr>
       <td><b>GroupStartedEventHandler</b></td>
       <td>Event Handler</td>
-      <td>Traduce GroupStartedEvent al evento de integración Junta iniciada, con valores primitivos: reglas, destino, nombre de la cabeza y el orden de turnos con la membresía, la cuenta y el nombre de cada integrante.</td>
+      <td>Traduce GroupStartedEvent al evento de integración Junta iniciada, con valores primitivos: reglas, destino, reglas de la subasta si las hay, nombre de la cabeza y el orden de turnos con la membresía, la cuenta y el nombre de cada integrante.</td>
+    </tr>
+    <tr>
+      <td><b>MembershipEventsHandler</b></td>
+      <td>Event Handler</td>
+      <td>Traduce a eventos de integración las uniones, los vínculos de cuenta, las deserciones, los reemplazos, los cambios de reglas, la junta completa o eliminada y el nuevo ciclo, para Contributions, Notifications y Compliance History.</td>
+    </tr>
+    <tr>
+      <td><b>AccountEventsHandler,<br>TurnsSwappedEventHandler,<br>CycleClosedEventHandler</b></td>
+      <td>Event Handler</td>
+      <td>Entradas reactivas del contexto. La primera escucha Cuenta registrada, de Identity & Access, y vincula la cuenta nueva a los integrantes registrados sin la aplicación con ese celular, después de confirmado el registro y en su propia transacción. Las otras dos escuchan Turnos intercambiados y Ciclo cerrado, de Contributions, y actualizan el calendario o cierran la junta en la misma transacción que el cambio del ciclo.</td>
     </tr>
     <tr>
       <td><b>SavingsGroupsContextFacadeImpl</b></td>
@@ -4353,11 +4383,11 @@ La Tabla 90 presenta las clases del Application Layer de Savings Groups.
   </tbody>
 </table>
 
-Este contexto no tiene event handlers entrantes: todo lo que ocurre en una junta lo inicia una persona desde la aplicación. Es, en cambio, el que publica Junta iniciada, que lleva a Contributions y a Notifications la copia de reglas y turnos, y el que ofrece a los demás contextos la fachada para saber quién pertenece a cada junta.
+Casi todo lo que ocurre en una junta lo inicia una persona desde la aplicación; las únicas entradas reactivas son el registro de una cuenta, el intercambio de turnos y el cierre del ciclo. El contexto es, sobre todo, el que publica Junta iniciada, que lleva a Contributions y a Notifications la copia de reglas y turnos, y el que ofrece a los demás contextos la fachada para saber quién pertenece a cada junta.
 
 #### 2.6.2.4. Infrastructure Layer
 
-La Tabla 91 presenta las clases del Infrastructure Layer de Savings Groups.
+La Tabla 92 presenta las clases del Infrastructure Layer de Savings Groups.
 
 <table>
   <caption>Clases del Infrastructure Layer de Savings Groups</caption>
@@ -4371,7 +4401,7 @@ La Tabla 91 presenta las clases del Infrastructure Layer de Savings Groups.
   </thead>
   <tbody>
     <tr>
-      <td><b>SavingsGroupRepositoryImpl,<br>InvitationRepositoryImpl,<br>AuctionRepositoryImpl</b></td>
+      <td><b>SavingsGroupRepositoryImpl,<br>InvitationRepositoryImpl</b></td>
       <td>Repository (JPA)</td>
       <td>Implementan las interfaces del dominio sobre el esquema `savings_groups`, con entidades de persistencia y assemblers que separan el modelo de dominio de JPA.</td>
     </tr>
@@ -4395,35 +4425,35 @@ La Tabla 91 presenta las clases del Infrastructure Layer de Savings Groups.
 
 #### 2.6.2.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 65 muestra el diagrama de componentes de Savings Groups.
+La Figura 66 muestra el diagrama de componentes de Savings Groups.
 
 ![Diagrama de componentes de Savings Groups](images/chapter_2/c4_components_savings_groups.png){width=80%}
 
 *Nota.* Notación del C4 Model [@brown2018c4]. Los componentes del contenedor Servicios RESTful van dentro de su recuadro; cada flecha punteada indica quién llama a quién, con la tecnología entre corchetes cuando corresponde. Generado con Structurizr a partir del archivo `docs/architecture/workspace.dsl` (ver Anexo C).
 
-Tres controllers reparten las responsabilidades de junta, integrantes y turnos. SavingsGroupCommandService y TurnCommandService comparten el modelo de dominio y los repositorios; el command service sale del contexto solo a través de ExternalIamService, para obtener el nombre de quien crea la junta o se une. Hacia afuera, el contexto expone dos cosas: el evento Junta iniciada, que consume Contributions, y SavingsGroupsContextFacade, que Compliance History y Notifications usan para autorizar sus solicitudes.
+Tres controllers reparten las responsabilidades de junta, integrantes y turnos. SavingsGroupCommandService y TurnCommandService comparten el modelo de dominio y los repositorios; el command service sale del contexto solo a través de ExternalIamService, para obtener el nombre de quien crea la junta o se une. Hacia afuera, el contexto expone el evento Junta iniciada y los de vínculos, deserciones y reemplazos, que consume Contributions, y SavingsGroupsContextFacade, que Compliance History y Notifications usan para autorizar sus solicitudes. Sus event handlers reciben de Contributions el intercambio de turnos y el cierre del ciclo.
 
 #### 2.6.2.6. Bounded Context Software Architecture Code Level Diagrams
 
 ##### 2.6.2.6.1. Bounded Context Domain Layer Class Diagrams
 
-La Figura 66 muestra el diagrama de clases del Domain Layer de Savings Groups.
+La Figura 67 muestra el diagrama de clases del Domain Layer de Savings Groups.
 
 ![Diagrama de clases del Domain Layer de Savings Groups](images/chapter_2/uml_savings_groups_domain.png)
 
 *Nota.* Diagrama de clases en UML. Los estereotipos «Aggregate Root», «Entity», «Value Object» y «Repository» corresponden a los elementos del diseño táctico de Domain-Driven Design; la letra E marca una enumeración y la I una interfaz. El rombo relleno indica composición y la flecha punteada, la dependencia entre el repositorio y el agregado que persiste. Generado con PlantUML (ver Anexo C).
 
-SavingsGroup compone sus reglas, sus integrantes y sus turnos, y agrega por identificador las invitaciones y subastas que le pertenecen. Auction compone sus ofertas. El domain service TurnAssignmentService opera sobre SavingsGroup y devuelve la lista de TurnSlot que el agregado acepta con `assignTurns`.
+SavingsGroup compone sus reglas, sus integrantes, sus turnos y, si los subasta, las reglas de la subasta, y agrega por identificador las invitaciones que le pertenecen. El domain service TurnAssignmentService opera sobre SavingsGroup y devuelve la lista de TurnSlot que el agregado acepta con `assignTurns`.
 
 ##### 2.6.2.6.2. Bounded Context Database Design Diagram
 
-La Figura 67 muestra el diagrama de base de datos de Savings Groups.
+La Figura 68 muestra el diagrama de base de datos de Savings Groups.
 
 ![Diagrama de base de datos de Savings Groups](images/chapter_2/db_savings_groups.png){width=85%}
 
 *Nota.* Diagrama entidad-relación del esquema en PostgreSQL. PK, FK y UQ marcan la clave primaria, las claves foráneas y los valores únicos; el punto negro indica una columna obligatoria, y los extremos de las líneas, la cardinalidad de cada relación. Generado con PlantUML a partir de la definición en SQL (ver Anexo C).
 
-El esquema `savings_groups` tiene seis tablas. `savings_groups` guarda la junta con sus reglas en columnas, la fecha del primer aporte, el destino separado en método (Yape o Plin) y celular, y la semilla y fecha del sorteo de turnos; `memberships` una fila por integrante, con `member_id` nulo para los registrados sin la aplicación, cuyo celular es opcional; `invitations` los códigos, únicos en toda la base; `turn_slots` el orden de cobro con clave compuesta por junta y turno y unicidad por integrante, de modo que nadie ocupa dos turnos; `auctions` una subasta por turno y `bids` sus ofertas con índice descendente por monto para resolver rápido la mayor.
+El esquema `savings_groups` tiene cuatro tablas. `savings_groups` guarda la junta con sus reglas en columnas, la fecha del primer aporte, el destino separado en método (Yape o Plin) y celular, la semilla y fecha del sorteo de turnos y, si los turnos se subastan, las reglas de la subasta; `memberships` una fila por integrante, con `member_id` nulo para los registrados sin la aplicación, cuyo celular es opcional; `invitations` los códigos, únicos en toda la base; `turn_slots` el orden de cobro con clave compuesta por junta y turno y unicidad por integrante, de modo que nadie ocupa dos turnos. Las subastas y sus ofertas no están en este esquema sino en `contributions`.
 
 ### 2.6.3. Bounded Context: Compliance History
 
@@ -4431,7 +4461,7 @@ Compliance History es un contexto de análisis: no toma decisiones sobre la junt
 
 #### 2.6.3.1. Domain Layer
 
-La Tabla 92 presenta las clases del Domain Layer de Compliance History.
+La Tabla 93 presenta las clases del Domain Layer de Compliance History.
 
 <table>
   <caption>Clases del Domain Layer de Compliance History</caption>
@@ -4516,7 +4546,7 @@ La Tabla 92 presenta las clases del Domain Layer de Compliance History.
 
 #### 2.6.3.2. Interface Layer
 
-La Tabla 93 presenta las clases del Interface Layer de Compliance History.
+La Tabla 94 presenta las clases del Interface Layer de Compliance History.
 
 <table>
   <caption>Clases del Interface Layer de Compliance History</caption>
@@ -4544,7 +4574,7 @@ La Tabla 93 presenta las clases del Interface Layer de Compliance History.
 
 #### 2.6.3.3. Application Layer
 
-La Tabla 94 presenta las clases del Application Layer de Compliance History.
+La Tabla 95 presenta las clases del Application Layer de Compliance History.
 
 <table>
   <caption>Clases del Application Layer de Compliance History</caption>
@@ -4587,7 +4617,7 @@ La Tabla 94 presenta las clases del Application Layer de Compliance History.
 
 #### 2.6.3.4. Infrastructure Layer
 
-La Tabla 95 presenta las clases del Infrastructure Layer de Compliance History.
+La Tabla 96 presenta las clases del Infrastructure Layer de Compliance History.
 
 <table>
   <caption>Clases del Infrastructure Layer de Compliance History</caption>
@@ -4620,7 +4650,7 @@ La Tabla 95 presenta las clases del Infrastructure Layer de Compliance History.
 
 #### 2.6.3.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 68 muestra el diagrama de componentes de Compliance History.
+La Figura 69 muestra el diagrama de componentes de Compliance History.
 
 ![Diagrama de componentes de Compliance History](images/chapter_2/c4_components_compliance_history.png){width=75%}
 
@@ -4632,7 +4662,7 @@ El contexto tiene dos entradas: el controller, para las consultas y la compartic
 
 ##### 2.6.3.6.1. Bounded Context Domain Layer Class Diagrams
 
-La Figura 69 muestra el diagrama de clases del Domain Layer de Compliance History.
+La Figura 70 muestra el diagrama de clases del Domain Layer de Compliance History.
 
 ![Diagrama de clases del Domain Layer de Compliance History](images/chapter_2/uml_compliance_history_domain.png){width=80%}
 
@@ -4640,7 +4670,7 @@ La Figura 69 muestra el diagrama de clases del Domain Layer de Compliance Histor
 
 ##### 2.6.3.6.2. Bounded Context Database Design Diagram
 
-La Figura 70 muestra el diagrama de base de datos de Compliance History.
+La Figura 71 muestra el diagrama de base de datos de Compliance History.
 
 ![Diagrama de base de datos de Compliance History](images/chapter_2/db_compliance_history.png){width=75%}
 
@@ -4654,7 +4684,7 @@ Notifications es un contexto genérico y reactivo: casi todo lo que hace lo disp
 
 #### 2.6.4.1. Domain Layer
 
-La Tabla 96 presenta las clases del Domain Layer de Notifications.
+La Tabla 97 presenta las clases del Domain Layer de Notifications.
 
 <table>
   <caption>Clases del Domain Layer de Notifications</caption>
@@ -4727,7 +4757,7 @@ La Tabla 96 presenta las clases del Domain Layer de Notifications.
 
 #### 2.6.4.2. Interface Layer
 
-La Tabla 97 presenta las clases del Interface Layer de Notifications.
+La Tabla 98 presenta las clases del Interface Layer de Notifications.
 
 <table>
   <caption>Clases del Interface Layer de Notifications</caption>
@@ -4765,7 +4795,7 @@ La Tabla 97 presenta las clases del Interface Layer de Notifications.
 
 #### 2.6.4.3. Application Layer
 
-La Tabla 98 presenta las clases del Application Layer de Notifications.
+La Tabla 99 presenta las clases del Application Layer de Notifications.
 
 <table>
   <caption>Clases del Application Layer de Notifications</caption>
@@ -4805,7 +4835,7 @@ El equipo eligió un despachador con tarea programada sobre la tabla de notifica
 
 #### 2.6.4.4. Infrastructure Layer
 
-La Tabla 99 presenta las clases del Infrastructure Layer de Notifications.
+La Tabla 100 presenta las clases del Infrastructure Layer de Notifications.
 
 <table>
   <caption>Clases del Infrastructure Layer de Notifications</caption>
@@ -4843,7 +4873,7 @@ La Tabla 99 presenta las clases del Infrastructure Layer de Notifications.
 
 #### 2.6.4.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 71 muestra el diagrama de componentes de Notifications.
+La Figura 72 muestra el diagrama de componentes de Notifications.
 
 ![Diagrama de componentes de Notifications](images/chapter_2/c4_components_notifications.png){width=80%}
 
@@ -4855,7 +4885,7 @@ Los event handlers son la entrada principal del contexto y los controllers la se
 
 ##### 2.6.4.6.1. Bounded Context Domain Layer Class Diagrams
 
-La Figura 72 muestra el diagrama de clases del Domain Layer de Notifications.
+La Figura 73 muestra el diagrama de clases del Domain Layer de Notifications.
 
 ![Diagrama de clases del Domain Layer de Notifications](images/chapter_2/uml_notifications_domain.png){width=90%}
 
@@ -4863,7 +4893,7 @@ La Figura 72 muestra el diagrama de clases del Domain Layer de Notifications.
 
 ##### 2.6.4.6.2. Bounded Context Database Design Diagram
 
-La Figura 73 muestra el diagrama de base de datos de Notifications.
+La Figura 74 muestra el diagrama de base de datos de Notifications.
 
 ![Diagrama de base de datos de Notifications](images/chapter_2/db_notifications.png){width=85%}
 
@@ -4877,7 +4907,7 @@ Identity & Access es el contexto genérico que identifica a cada integrante por 
 
 #### 2.6.5.1. Domain Layer
 
-La Tabla 100 presenta las clases del Domain Layer de Identity & Access.
+La Tabla 101 presenta las clases del Domain Layer de Identity & Access.
 
 <table>
   <caption>Clases del Domain Layer de Identity & Access</caption>
@@ -4980,7 +5010,7 @@ La Tabla 100 presenta las clases del Domain Layer de Identity & Access.
 
 #### 2.6.5.2. Interface Layer
 
-La Tabla 101 presenta las clases del Interface Layer de Identity & Access.
+La Tabla 102 presenta las clases del Interface Layer de Identity & Access.
 
 <table>
   <caption>Clases del Interface Layer de Identity & Access</caption>
@@ -5013,7 +5043,7 @@ La Tabla 101 presenta las clases del Interface Layer de Identity & Access.
 
 #### 2.6.5.3. Application Layer
 
-La Tabla 102 presenta las clases del Application Layer de Identity & Access.
+La Tabla 103 presenta las clases del Application Layer de Identity & Access.
 
 <table>
   <caption>Clases del Application Layer de Identity & Access</caption>
@@ -5056,7 +5086,7 @@ La Tabla 102 presenta las clases del Application Layer de Identity & Access.
 
 #### 2.6.5.4. Infrastructure Layer
 
-La Tabla 103 presenta las clases del Infrastructure Layer de Identity & Access.
+La Tabla 104 presenta las clases del Infrastructure Layer de Identity & Access.
 
 <table>
   <caption>Clases del Infrastructure Layer de Identity & Access</caption>
@@ -5114,7 +5144,7 @@ La Tabla 103 presenta las clases del Infrastructure Layer de Identity & Access.
 
 #### 2.6.5.5. Bounded Context Software Architecture Component Level Diagrams
 
-La Figura 74 muestra el diagrama de componentes de Identity & Access.
+La Figura 75 muestra el diagrama de componentes de Identity & Access.
 
 ![Diagrama de componentes de Identity & Access](images/chapter_2/c4_components_identity_access.png){width=80%}
 
@@ -5126,7 +5156,7 @@ Además de los controllers y servicios habituales, el diagrama muestra BearerAut
 
 ##### 2.6.5.6.1. Bounded Context Domain Layer Class Diagrams
 
-La Figura 75 muestra el diagrama de clases del Domain Layer de Identity & Access.
+La Figura 76 muestra el diagrama de clases del Domain Layer de Identity & Access.
 
 ![Diagrama de clases del Domain Layer de Identity & Access](images/chapter_2/uml_identity_access_domain.png){width=90%}
 
@@ -5134,7 +5164,7 @@ La Figura 75 muestra el diagrama de clases del Domain Layer de Identity & Access
 
 ##### 2.6.5.6.2. Bounded Context Database Design Diagram
 
-La Figura 76 muestra el diagrama de base de datos de Identity & Access.
+La Figura 77 muestra el diagrama de base de datos de Identity & Access.
 
 ![Diagrama de base de datos de Identity & Access](images/chapter_2/db_identity_access.png){width=75%}
 

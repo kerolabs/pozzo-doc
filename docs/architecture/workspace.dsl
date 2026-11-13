@@ -23,26 +23,30 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
             api = container "Servicios RESTful" "Implementa los cinco bounded contexts como módulos: Identity & Access, Savings Groups, Contributions, Notifications y Compliance History. Expone la API documentada con OpenAPI." "Java 21, Spring Boot 4, Spring Security, springdoc-openapi" "API" {
 
                 # Bounded Context: Contributions
-                contributionsController = component "ContributionsController" "Endpoints para registrar un aporte con comprobante, en efectivo o como cobertura, aprobar o rechazar los que tienen inconsistencias y listar los pendientes de revisión." "Spring MVC REST Controller" "Contributions,Interface"
-                cyclesController = component "CyclesController" "Endpoints para consultar el ciclo de una junta, el estado del pozo, los períodos anteriores y los aportes del integrante." "Spring MVC REST Controller" "Contributions,Interface"
-                periodsController = component "PeriodsController" "Endpoints para registrar la entrega del pozo, consultar la proyección y cerrar la junta." "Spring MVC REST Controller" "Contributions,Interface"
+                contributionsController = component "ContributionsController" "Endpoints para registrar aportes con comprobante, en efectivo o como cobertura, revisar los que tienen inconsistencias y compartir un aporte con un enlace verificable." "Spring MVC REST Controller" "Contributions,Interface"
+                cyclesController = component "CyclesController" "Endpoints para consultar el ciclo, el estado del pozo, los períodos anteriores y los aportes del integrante, e intercambiar turnos." "Spring MVC REST Controller" "Contributions,Interface"
+                periodsController = component "PeriodsController" "Endpoints para registrar la entrega del pozo, adjuntar y consultar la imagen de la transferencia, consultar la proyección y cerrar la junta." "Spring MVC REST Controller" "Contributions,Interface"
                 contributionCommandService = component "ContributionCommandService" "Atiende los comandos de registro, efectivo, cobertura y revisión de aportes; coordina la validación y publica los eventos." "Spring Service" "Contributions,Application"
-                cycleCommandService = component "CycleCommandService" "Atiende los comandos de inicio del ciclo, entrega del pozo y cierre; abre el siguiente período." "Spring Service" "Contributions,Application"
-                periodQueryService = component "ContributionQueryService" "Resuelve las consultas del ciclo, estado del pozo, períodos anteriores, proyección, aportes del integrante y pendientes de revisión." "Spring Service" "Contributions,Application"
-                contributionsEventHandlers = component "Contributions Event Handlers" "SavingsGroupStartedEventHandler inicia el ciclo al recibir Junta iniciada; IntegrationEventsPublisher traduce los eventos de dominio a eventos de integración para los demás contextos." "Spring Event Listeners" "Contributions,Application"
-                contributionsDomain = component "Contributions Domain Model" "Agregados Cycle, Period y Contribution y sus value objects, con las reglas de validación del comprobante." "Java, POJOs" "Contributions,Domain"
-                contributionsRepositories = component "Contributions Repositories" "Implementación JPA de CycleRepository, PeriodRepository y ContributionRepository sobre el esquema contributions." "Spring Data JPA" "Contributions,Infrastructure"
+                auctionsController = component "AuctionsController" "Endpoints para consultar la subasta del período, ofertar y cerrarla." "Spring MVC REST Controller" "Contributions,Interface"
+                cycleCommandService = component "CycleCommandService" "Inicia el ciclo, entrega el pozo, intercambia turnos y aplica vínculos, deserciones y reemplazos; abre el siguiente período y su subasta." "Spring Service" "Contributions,Application"
+                auctionCommandService = component "AuctionCommandService" "Recibe las ofertas, cierra las subastas y da el turno a la mejor oferta o, sin ofertas, por sorteo o a quien elija la cabeza." "Spring Service" "Contributions,Application"
+                auctionClosingScheduler = component "AuctionClosingScheduler" "Tarea programada que cada hora cierra las subastas cuyo día de cierre pasó." "Spring @Scheduled" "Contributions,Infrastructure"
+                periodQueryService = component "ContributionQueryService" "Resuelve el ciclo, el estado del pozo, los períodos, la proyección, los aportes del integrante, los pendientes de revisión, la subasta y el aporte compartido." "Spring Service" "Contributions,Application"
+                contributionsEventHandlers = component "Contributions Event Handlers" "Inician el ciclo al recibir Junta iniciada y lo actualizan ante vínculos, deserciones y reemplazos; IntegrationEventsPublisher publica los eventos de integración." "Spring Event Listeners" "Contributions,Application"
+                contributionsDomain = component "Contributions Domain Model" "Agregados Cycle, Period, Contribution y Auction y sus value objects, con las reglas de validación del comprobante y de la subasta." "Java, POJOs" "Contributions,Domain"
+                contributionsRepositories = component "Contributions Repositories" "Implementación JPA de CycleRepository, PeriodRepository, ContributionRepository y AuctionRepository sobre el esquema contributions." "Spring Data JPA" "Contributions,Infrastructure"
 
                 # Bounded Context: Savings Groups
-                savingsGroupsController = component "SavingsGroupsController" "Endpoints para crear la junta, cambiar sus reglas antes de iniciar, definir el destino de los aportes, consultarla e iniciarla." "Spring MVC REST Controller" "SavingsGroups,Interface"
-                membershipsController = component "MembershipsController" "Endpoints de invitaciones, unirse con código o enlace, agregar integrantes sin la aplicación, retirarlos y registrar deserciones." "Spring MVC REST Controller" "SavingsGroups,Interface"
-                turnsController = component "TurnsController" "Endpoints para asignar turnos por sorteo u orden acordado, abrir y cerrar subastas, ofertar y consultar el calendario." "Spring MVC REST Controller" "SavingsGroups,Interface"
+                savingsGroupsController = component "SavingsGroupsController" "Endpoints para crear la junta, cambiar sus reglas antes de iniciar, definir el destino de los aportes, consultarla, iniciarla y abrir un nuevo ciclo al terminar." "Spring MVC REST Controller" "SavingsGroups,Interface"
+                membershipsController = component "MembershipsController" "Endpoints de invitaciones, unirse con código o enlace, agregar integrantes sin la aplicación, retirarlos, registrar deserciones y asignar un reemplazo." "Spring MVC REST Controller" "SavingsGroups,Interface"
+                turnsController = component "TurnsController" "Endpoints para asignar turnos por sorteo, orden acordado o subasta y consultar el calendario." "Spring MVC REST Controller" "SavingsGroups,Interface"
                 savingsGroupCommandService = component "SavingsGroupCommandService" "Atiende los comandos de la junta, los integrantes, las invitaciones y el inicio; publica los eventos." "Spring Service" "SavingsGroups,Application"
-                turnCommandService = component "TurnCommandService" "Atiende la asignación de turnos y el ciclo de vida de las subastas con el servicio de dominio TurnAssignmentService." "Spring Service" "SavingsGroups,Application"
-                savingsGroupQueryService = component "SavingsGroupQueryService" "Resuelve la junta, lista de integrantes, calendario de turnos, invitación vigente, resumen por invitación y ofertas vigentes." "Spring Service" "SavingsGroups,Application"
+                turnCommandService = component "TurnCommandService" "Atiende la asignación de turnos con el servicio de dominio TurnAssignmentService y guarda las reglas de la subasta cuando los turnos se subastan." "Spring Service" "SavingsGroups,Application"
+                savingsGroupQueryService = component "SavingsGroupQueryService" "Resuelve la junta, lista de integrantes, calendario de turnos, invitación vigente y resumen por invitación." "Spring Service" "SavingsGroups,Application"
                 groupStartedEventHandler = component "GroupStartedEventHandler" "Traduce Junta iniciada a un evento de integración con la copia de reglas y turnos." "Spring Event Listener" "SavingsGroups,Application"
-                savingsGroupsDomain = component "Savings Groups Domain Model" "Agregados SavingsGroup, Invitation y Auction, sus entidades y value objects, y el servicio de dominio TurnAssignmentService." "Java, POJOs" "SavingsGroups,Domain"
-                savingsGroupsRepositories = component "Savings Groups Repositories" "Implementación JPA de SavingsGroupRepository, InvitationRepository y AuctionRepository sobre el esquema savings_groups." "Spring Data JPA" "SavingsGroups,Infrastructure"
+                savingsGroupsEventHandlers = component "Savings Groups Event Handlers" "Vinculan cuentas nuevas, siguen los turnos intercambiados y cierran la junta; MembershipEventsHandler publica uniones, deserciones, reemplazos y nuevos ciclos." "Spring Event Listeners" "SavingsGroups,Application"
+                savingsGroupsDomain = component "Savings Groups Domain Model" "Agregados SavingsGroup e Invitation, sus entidades y value objects, entre ellos las reglas de la subasta, y el servicio de dominio TurnAssignmentService." "Java, POJOs" "SavingsGroups,Domain"
+                savingsGroupsRepositories = component "Savings Groups Repositories" "Implementación JPA de SavingsGroupRepository e InvitationRepository sobre el esquema savings_groups." "Spring Data JPA" "SavingsGroups,Infrastructure"
                 savingsGroupsFacade = component "SavingsGroupsContextFacade" "Open Host Service que dice a los demás contextos quién es cabeza y quién integrante de cada junta." "Spring Service" "SavingsGroups,Application"
 
                 # Bounded Context: Compliance History
@@ -99,16 +103,23 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
         pozzo.mobile -> pozzo.api.contributionsController "Registra, revisa y consulta aportes" "JSON/HTTPS"
         pozzo.mobile -> pozzo.api.cyclesController "Consulta el ciclo, el pozo y sus aportes" "JSON/HTTPS"
         pozzo.mobile -> pozzo.api.periodsController "Entrega el pozo y cierra" "JSON/HTTPS"
+        pozzo.mobile -> pozzo.api.auctionsController "Oferta y cierra la subasta del turno" "JSON/HTTPS"
         pozzo.api.contributionsController -> pozzo.api.contributionCommandService "Envía comandos"
         pozzo.api.contributionsController -> pozzo.api.periodQueryService "Envía consultas"
         pozzo.api.cyclesController -> pozzo.api.periodQueryService "Envía consultas"
         pozzo.api.periodsController -> pozzo.api.cycleCommandService "Envía comandos"
+        pozzo.api.cyclesController -> pozzo.api.cycleCommandService "Envía comandos"
+        pozzo.api.auctionsController -> pozzo.api.auctionCommandService "Envía comandos"
+        pozzo.api.auctionsController -> pozzo.api.periodQueryService "Envía consultas"
+        pozzo.api.auctionClosingScheduler -> pozzo.api.auctionCommandService "Cierra las subastas vencidas"
+        pozzo.api.auctionCommandService -> pozzo.api.contributionsDomain "Usa los agregados"
+        pozzo.api.auctionCommandService -> pozzo.api.contributionsRepositories "Lee y guarda"
         pozzo.api.contributionCommandService -> pozzo.api.contributionsDomain "Usa los agregados"
         pozzo.api.cycleCommandService -> pozzo.api.contributionsDomain "Usa los agregados"
         pozzo.api.contributionCommandService -> pozzo.api.contributionsRepositories "Lee y guarda"
         pozzo.api.cycleCommandService -> pozzo.api.contributionsRepositories "Lee y guarda"
         pozzo.api.periodQueryService -> pozzo.api.contributionsRepositories "Lee"
-        pozzo.api.contributionsEventHandlers -> pozzo.api.cycleCommandService "Dispara el inicio del ciclo"
+        pozzo.api.contributionsEventHandlers -> pozzo.api.cycleCommandService "Dispara el inicio del ciclo y los cambios de integrantes"
         pozzo.api.contributionsEventHandlers -> pozzo.api.contributionsRepositories "Lee el ciclo para enriquecer los eventos"
         pozzo.api.contributionsRepositories -> pozzo.db "Lee y escribe" "JDBC"
 
@@ -129,6 +140,9 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
         pozzo.api.savingsGroupQueryService -> pozzo.api.savingsGroupsRepositories "Lee"
         pozzo.api.groupStartedEventHandler -> pozzo.api.contributionsEventHandlers "Publica Junta iniciada" "Evento de integración"
         pozzo.api.groupStartedEventHandler -> pozzo.api.notificationEventHandlers "Publica Junta iniciada" "Evento de integración"
+        pozzo.api.savingsGroupsEventHandlers -> pozzo.api.savingsGroupCommandService "Envía comandos"
+        pozzo.api.savingsGroupsEventHandlers -> pozzo.api.contributionsEventHandlers "Publica vínculos, deserciones y reemplazos" "Evento de integración"
+        pozzo.api.contributionsEventHandlers -> pozzo.api.savingsGroupsEventHandlers "Publica Turnos intercambiados y Ciclo cerrado" "Evento de integración"
         pozzo.api.savingsGroupsFacade -> pozzo.api.savingsGroupsRepositories "Lee"
         pozzo.api.savingsGroupsRepositories -> pozzo.db "Lee y escribe" "JDBC"
         pozzo.api.contributionsEventHandlers -> pozzo.api.complianceEventHandlers "Publica eventos de integración" "Evento de integración"
@@ -223,13 +237,13 @@ workspace "Pozzo" "Arquitectura de software de Pozzo con el C4 Model: contexto, 
 
         component pozzo.api "ComponentesContributions" "Componentes del bounded context Contributions dentro de los servicios RESTful." {
             include "element.tag==Contributions"
-            include pozzo.mobile pozzo.db pozzo.api.groupStartedEventHandler
+            include pozzo.mobile pozzo.db pozzo.api.groupStartedEventHandler pozzo.api.savingsGroupsEventHandlers
             autoLayout tb 300 300
         }
 
         component pozzo.api "ComponentesSavingsGroups" "Componentes del bounded context Savings Groups dentro de los servicios RESTful." {
             include "element.tag==SavingsGroups"
-            include pozzo.mobile pozzo.db
+            include pozzo.mobile pozzo.db pozzo.api.contributionsEventHandlers
             autoLayout tb 300 300
         }
 

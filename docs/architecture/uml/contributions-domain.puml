@@ -31,13 +31,20 @@ hide empty members
     - status : CycleStatus
     - startedAt : Instant
     - closedAt : Instant
-    + start(groupId, groupName, organizerAccountId, rules, turns, now) : Cycle {static}
+    - auctionSettings : AuctionSettings
+    + start(groupId, groupName, organizerAccountId, rules, turns, auctionSettings, now) : Cycle {static}
     + isOrganizer(accountId : UUID) : boolean
     + participantOf(accountId : UUID) : Optional<CycleTurn>
     + turn(turnNumber : int) : CycleTurn
     + hasRemainingTurns() : boolean
     + advanceToNextTurn() : int
-    + replaceMember(droppedMembershipId : UUID, replacement : CycleTurn) : void
+    + linkAccount(membershipId : UUID, accountId : UUID, now : Instant) : boolean
+    + swapTurns(firstMembershipId : UUID, secondMembershipId : UUID, now : Instant) : void
+    + registerDropout(membershipId : UUID, now : Instant) : void
+    + replaceMember(droppedMembershipId, replacementMembershipId, accountId, displayName, currentPotDelivered) : CycleTurn
+    + isAuction() : boolean
+    + stillToCollect() : List<CycleTurn>
+    + giveCurrentTurnTo(winnerMembershipId : UUID) : void
     + close(now : Instant) : void
   }
 
@@ -52,7 +59,9 @@ hide empty members
     - status : PeriodStatus
     - deliveredAt : Instant
     - deliveredBy : UUID
-    + open(cycle : Cycle, turnNumber : int, now : Instant) : Period {static}
+    - payoutProofPath : String
+    - discount : Money
+    + open(cycle : Cycle, turnNumber : int, credits : Map<UUID, Money>, now : Instant) : Period {static}
     + expectedFor(membershipId : UUID) : Optional<ExpectedContribution>
     + settle(membershipId : UUID, how : ExpectedStatus, contributionId : UUID, now : Instant) : void
     + isPotComplete() : boolean
@@ -60,6 +69,10 @@ hide empty members
     + potAmount() : Money
     + pendingMembers() : List<ExpectedContribution>
     + deliverPot(organizerAccountId : UUID, now : Instant) : void
+    + attachPayoutProof(path : String) : void
+    + reassignMember(droppedMembershipId : UUID, replacementMembershipId : UUID) : void
+    + applyAuctionResult(winnerMembershipId : UUID, discount : Money) : void
+    + payoutAmount() : Money
   }
 
   class Contribution <<Aggregate Root>> {
@@ -76,6 +89,9 @@ hide empty members
     - coveredByMembershipId : UUID
     - registeredByAccountId : UUID
     - review : Review
+    - receiptImagePath : String
+    - receivedOn : LocalDate
+    - verificationToken : VerificationToken
     - registeredAt : Instant
     + fromReceipt(cycleId, periodId, membershipId, accountId, receipt, expectedAmount, cutoffDate, payeeName, now) : Contribution {static}
     + inCash(cycleId, periodId, membershipId, accountId, amount, receivedOn, cutoffDate, organizerAccountId, now) : Contribution {static}
@@ -84,6 +100,34 @@ hide empty members
     + isValid() : boolean
     + approve(organizerAccountId : UUID, note : String, cutoffDate : LocalDate, now : Instant) : void
     + reject(organizerAccountId : UUID, note : String, now : Instant) : void
+    + attachReceiptImage(path : String) : void
+    + isSettled() : boolean
+    + arrivedBy(cutoffDate : LocalDate, zone : ZoneId) : boolean
+    + shareVerifiably() : VerificationToken
+  }
+
+  class Auction <<Aggregate Root>> {
+    - id : UUID
+    - cycleId : UUID
+    - periodId : UUID
+    - turnNumber : int
+    - closesOn : LocalDate
+    - minimumBid : Money
+    - potAmount : Money
+    - fallback : AuctionFallback
+    - status : AuctionStatus
+    - bids : List<Bid>
+    - winnerMembershipId : UUID
+    - discount : Money
+    - creditPerMember : Money
+    - resolution : AuctionResolution
+    - closedAt : Instant
+    + open(cycle : Cycle, period : Period, now : Instant) : Auction {static}
+    + placeBid(membershipId : UUID, amount : Money, eligible : Collection<UUID>, today : LocalDate, now : Instant) : void
+    + highestBid() : Optional<Bid>
+    + rankedBids() : List<Bid>
+    + close(winnerMembershipId : UUID, resolution : AuctionResolution, othersStillToCollect : int, now : Instant) : void
+    + isDue(today : LocalDate) : boolean
   }
 
   class ExpectedContribution <<Entity>> {
@@ -94,6 +138,7 @@ hide empty members
     - settledByContributionId : UUID
     + pendingFor(membershipId : UUID, amount : Money) : ExpectedContribution {static}
     + settle(how : ExpectedStatus, contributionId : UUID) : void
+    + transferTo(membershipId : UUID) : void
     + isPending() : boolean
     + isLate(today : LocalDate, cutoffDate : LocalDate) : boolean
   }
@@ -115,6 +160,20 @@ hide empty members
     - accountId : UUID
     - displayName : String
     + belongsTo(accountId : UUID) : boolean
+  }
+  class AuctionSettings <<Value Object>> {
+    - closesDaysBeforeCutoff : int
+    - minimumBid : Money
+    - fallback : AuctionFallback
+  }
+  class Bid <<Value Object>> {
+    - membershipId : UUID
+    - amount : Money
+    - placedAt : Instant
+  }
+  class VerificationToken <<Value Object>> {
+    - value : String
+    + random() : VerificationToken {static}
   }
   class PaymentReceipt <<Value Object>> {
     - operationNumber : String
@@ -183,6 +242,19 @@ hide empty members
     PLIN
     BANK
   }
+  enum AuctionStatus {
+    OPEN
+    CLOSED
+  }
+  enum AuctionFallback {
+    DRAW
+    ORGANIZER
+  }
+  enum AuctionResolution {
+    BID
+    DRAW
+    ORGANIZER
+  }
 
   interface CycleRepository <<Repository>> {
     + findById(id : UUID) : Optional<Cycle>
@@ -201,7 +273,13 @@ hide empty members
     + findAllByPeriodId(periodId : UUID) : List<Contribution>
     + findAllByCycleIdAndMembershipId(cycleId : UUID, membershipId : UUID) : List<Contribution>
     + existsByCycleIdAndOperationNumber(cycleId : UUID, operationNumber : String) : boolean
+    + findByVerificationToken(token : String) : Optional<Contribution>
     + save(contribution : Contribution) : Contribution
+  }
+  interface AuctionRepository <<Repository>> {
+    + findByPeriodId(periodId : UUID) : Optional<Auction>
+    + findAllOpen() : List<Auction>
+    + save(auction : Auction) : Auction
   }
 
 Cycle "1" *-- "1" CycleRules : rules
@@ -212,6 +290,14 @@ Period "1" o-- "0..*" Contribution : contributions >
 Contribution "1" *-- "0..1" PaymentReceipt : receipt
 Contribution "1" *-- "0..*" Inconsistency : inconsistencies
 Contribution "1" *-- "0..1" Review : review
+Contribution "1" *-- "0..1" VerificationToken : verificationToken
+Cycle "1" *-- "0..1" AuctionSettings : auctionSettings
+Period "1" o-- "0..1" Auction : auction >
+Auction "1" *-- "0..*" Bid : bids
+AuctionSettings --> AuctionFallback
+Auction --> AuctionStatus
+Auction --> AuctionResolution
+Bid --> Money
 Contribution --> Money
 ExpectedContribution --> Money
 PaymentReceipt --> Money
@@ -228,4 +314,5 @@ ExpectedContribution --> ExpectedStatus
 CycleRepository ..> Cycle : persists
 PeriodRepository ..> Period : persists
 ContributionRepository ..> Contribution : persists
+AuctionRepository ..> Auction : persists
 @enduml
