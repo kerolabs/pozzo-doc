@@ -5219,10 +5219,10 @@ Al cerrar se agradece la participación, se pregunta si la persona quiere añadi
 
 - **Primera entrevista**
 
-La Tabla 169 presenta la ficha de la primera entrevista de validación al segmento de cabezas de junta.
+La Tabla 169 presenta la ficha de la entrevista de validación a Lionel Chávez.
 
 <table>
-  <caption>Ficha de la primera entrevista de validación al segmento de cabezas de junta</caption>
+  <caption>Ficha de la entrevista de validación a Lionel Chávez</caption>
   <colgroup><col width="30%"><col width="70%"></colgroup>
   <thead>
     <tr>
@@ -5233,23 +5233,23 @@ La Tabla 169 presenta la ficha de la primera entrevista de validación al segmen
   <tbody>
     <tr>
       <td><b>Entrevistado(a)</b></td>
-      <td></td>
+      <td>Lionel Chávez</td>
     </tr>
     <tr>
       <td><b>Género</b></td>
-      <td></td>
+      <td>Masculino</td>
     </tr>
     <tr>
       <td><b>Edad</b></td>
-      <td></td>
+      <td>20</td>
     </tr>
     <tr>
       <td><b>Lugar de residencia</b></td>
-      <td></td>
+      <td>Los Olivos, Lima</td>
     </tr>
     <tr>
       <td><b>Entrevistador(a)</b></td>
-      <td></td>
+      <td>Flores Pinchi, José Fernando</td>
     </tr>
     <tr>
       <td><b>Fecha</b></td>
@@ -5261,141 +5261,33 @@ La Tabla 169 presenta la ficha de la primera entrevista de validación al segmen
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
-      <td></td>
+      <td><a href="https://youtu.be/ZIZLua_E0Ns">https://youtu.be/ZIZLua_E0Ns</a></td>
     </tr>
     <tr>
       <td><b>Resultado de las tareas</b></td>
-      <td></td>
+      <td>Las ocho completadas. Siete sin ayuda: crear la junta, invitar, repartir los turnos e iniciar, resolver el comprobante que no coincidía, leer el estado del pozo, averiguar qué hace la aplicación con quien no ha aportado y cerrar el ciclo. La entrega del pozo se completó al segundo intento: el primero devolvió un error.</td>
     </tr>
     <tr>
       <td><b>Observaciones</b></td>
-      <td></td>
+      <td>Describió la interfaz como «súper intuitiva» y el aviso de que el comprobante no coincide como «muy informativo». Anotó dos fricciones: el inicio de la junta «tarda un poquito» sin indicar nada, y el número de Yape del perfil «podría estar conectado directamente con el número de celular».</td>
     </tr>
   </tbody>
 </table>
 
-- **Segunda entrevista**
+La Figura 167 muestra la captura de la entrevista a Lionel Chávez.
 
-La Tabla 170 presenta la ficha de la segunda entrevista de validación al segmento de cabezas de junta.
+![Captura de la entrevista de validación a Lionel Chávez](images/chapter_4/validacion_lionel_chavez.png){width=90%}
 
-<table>
-  <caption>Ficha de la segunda entrevista de validación al segmento de cabezas de junta</caption>
-  <colgroup><col width="30%"><col width="70%"></colgroup>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Detalle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>Entrevistado(a)</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Género</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Edad</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Lugar de residencia</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Entrevistador(a)</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Fecha</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Duración</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Link de la entrevista</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Resultado de las tareas</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Observaciones</b></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-- **Tercera entrevista**
-
-La Tabla 171 presenta la ficha de la tercera entrevista de validación al segmento de cabezas de junta.
-
-<table>
-  <caption>Ficha de la tercera entrevista de validación al segmento de cabezas de junta</caption>
-  <colgroup><col width="30%"><col width="70%"></colgroup>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Detalle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>Entrevistado(a)</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Género</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Edad</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Lugar de residencia</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Entrevistador(a)</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Fecha</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Duración</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Link de la entrevista</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Resultado de las tareas</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Observaciones</b></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+Lionel es el único entrevistado del segmento de cabezas de junta y el único que recorrió el ciclo entero, desde crear la junta hasta cerrarla. Administra la suya con una hoja a mano, que es el escenario que describió el Capítulo II, y completó las ocho tareas sin que el entrevistador interviniera. Dos observaciones suyas se recogen como problemas en la evaluación heurística: el error que devolvió el primer intento de registrar la entrega del pozo y la espera sin indicador al iniciar la junta.
 
 **Segmento 2: Participantes de junta**
 
 - **Primera entrevista**
 
-La Tabla 172 presenta la ficha de la primera entrevista de validación al segmento de participantes.
+La Tabla 170 presenta la ficha de la entrevista de validación a Elizabeth Díaz.
 
 <table>
-  <caption>Ficha de la primera entrevista de validación al segmento de participantes</caption>
+  <caption>Ficha de la entrevista de validación a Elizabeth Díaz</caption>
   <colgroup><col width="30%"><col width="70%"></colgroup>
   <thead>
     <tr>
@@ -5406,23 +5298,23 @@ La Tabla 172 presenta la ficha de la primera entrevista de validación al segmen
   <tbody>
     <tr>
       <td><b>Entrevistado(a)</b></td>
-      <td></td>
+      <td>Elizabeth Díaz</td>
     </tr>
     <tr>
       <td><b>Género</b></td>
-      <td></td>
+      <td>Femenino</td>
     </tr>
     <tr>
       <td><b>Edad</b></td>
-      <td></td>
+      <td>22</td>
     </tr>
     <tr>
       <td><b>Lugar de residencia</b></td>
-      <td></td>
+      <td>Callao</td>
     </tr>
     <tr>
       <td><b>Entrevistador(a)</b></td>
-      <td></td>
+      <td>Flores Pinchi, José Fernando</td>
     </tr>
     <tr>
       <td><b>Fecha</b></td>
@@ -5434,25 +5326,31 @@ La Tabla 172 presenta la ficha de la primera entrevista de validación al segmen
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
-      <td></td>
+      <td><a href="https://youtu.be/T-7__YjW3yU">https://youtu.be/T-7__YjW3yU</a></td>
     </tr>
     <tr>
       <td><b>Resultado de las tareas</b></td>
-      <td></td>
+      <td>Las ocho completadas sin ayuda: entrar con el código de invitación, unirse a la junta, registrar el aporte, leer el calendario de turnos, comprobar que su aporte quedó validado, explicar dónde queda su dinero, consultar su historial de cumplimiento y compartirlo.</td>
     </tr>
     <tr>
       <td><b>Observaciones</b></td>
-      <td></td>
+      <td>Ya participó en las entrevistas del Capítulo II. Describió la aplicación como «todo muy sencillo y bastante intuitivo» y el ingreso sin contraseña como «un poco más seguro tal vez que una contraseña». Corrigió a mano los campos que la aplicación leyó del comprobante y preguntó por iniciativa propia cómo se comprueba «que sea el mismo monto que tú mandas y el mismo monto que estás escribiendo».</td>
     </tr>
   </tbody>
 </table>
+
+La Figura 168 muestra la captura de la entrevista a Elizabeth Díaz.
+
+![Captura de la entrevista de validación a Elizabeth Díaz](images/chapter_4/validacion_elizabeth_diaz.png){width=90%}
+
+Elizabeth completó las ocho tareas sin ayuda y sin preguntar una sola vez dónde tocar. Lo relevante de su sesión no está en lo que le costó, sino en lo que preguntó al final: si los campos que la aplicación lee del comprobante se pueden corregir a mano, qué impide que alguien escriba un monto que el comprobante no dice. La pregunta la planteó ella, sin que se le sugiriera, y es la que origina el problema de mayor severidad que añadió esta ronda de entrevistas.
 
 - **Segunda entrevista**
 
-La Tabla 173 presenta la ficha de la segunda entrevista de validación al segmento de participantes.
+La Tabla 171 presenta la ficha de la entrevista de validación a Mariana López.
 
 <table>
-  <caption>Ficha de la segunda entrevista de validación al segmento de participantes</caption>
+  <caption>Ficha de la entrevista de validación a Mariana López</caption>
   <colgroup><col width="30%"><col width="70%"></colgroup>
   <thead>
     <tr>
@@ -5463,23 +5361,23 @@ La Tabla 173 presenta la ficha de la segunda entrevista de validación al segmen
   <tbody>
     <tr>
       <td><b>Entrevistado(a)</b></td>
-      <td></td>
+      <td>Mariana López</td>
     </tr>
     <tr>
       <td><b>Género</b></td>
-      <td></td>
+      <td>Femenino</td>
     </tr>
     <tr>
       <td><b>Edad</b></td>
-      <td></td>
+      <td>35</td>
     </tr>
     <tr>
       <td><b>Lugar de residencia</b></td>
-      <td></td>
+      <td>San Juan de Lurigancho, Lima</td>
     </tr>
     <tr>
       <td><b>Entrevistador(a)</b></td>
-      <td></td>
+      <td>Flores Pinchi, José Fernando</td>
     </tr>
     <tr>
       <td><b>Fecha</b></td>
@@ -5491,79 +5389,28 @@ La Tabla 173 presenta la ficha de la segunda entrevista de validación al segmen
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
-      <td></td>
+      <td><a href="https://youtu.be/E_9QCZduGvk">https://youtu.be/E_9QCZduGvk</a></td>
     </tr>
     <tr>
       <td><b>Resultado de las tareas</b></td>
-      <td></td>
+      <td>Las ocho completadas sin ayuda. Para el calendario de turnos abrió el menú de los tres puntos de la junta; el resto lo resolvió desde la pantalla en la que estaba.</td>
     </tr>
     <tr>
       <td><b>Observaciones</b></td>
-      <td></td>
+      <td>Ya participó en las entrevistas del Capítulo II. Fue la única que echó en falta más seguridad en el ingreso: «sería mejor usar un PIN, o los dos pasos de verificación». No esperaba que la aplicación leyera el comprobante: «no pensaba que lo iba a leer; que lo lea me llena más de seguridad». Corrigió a mano los campos que no coincidían.</td>
     </tr>
   </tbody>
 </table>
 
-- **Tercera entrevista**
+La Figura 169 muestra la captura de la entrevista a Mariana López.
 
-La Tabla 174 presenta la ficha de la tercera entrevista de validación al segmento de participantes.
+![Captura de la entrevista de validación a Mariana López](images/chapter_4/validacion_mariana_lopez.png){width=90%}
 
-<table>
-  <caption>Ficha de la tercera entrevista de validación al segmento de participantes</caption>
-  <colgroup><col width="30%"><col width="70%"></colgroup>
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Detalle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><b>Entrevistado(a)</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Género</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Edad</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Lugar de residencia</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Entrevistador(a)</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Fecha</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Duración</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Link de la entrevista</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Resultado de las tareas</b></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><b>Observaciones</b></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+Mariana completó las ocho tareas sin ayuda. Su sesión aporta el contraste sobre el ingreso sin contraseña: donde Elizabeth lo vio más seguro que una contraseña, Mariana esperaba un PIN o una verificación en dos pasos. Las dos reacciones son legítimas, y la diferencia sugiere que la pantalla de ingreso no explica que el código SMS ya cumple esa función. También fue quien expresó con más claridad el valor de la lectura automática del comprobante, que no esperaba.
 
 ### 4.3.3. Evaluaciones según heurísticas
 
-El equipo realizó una evaluación heurística del producto del Sprint 1. Es una inspección hecha por el propio equipo, sin usuarios, en la que cada integrante recorre las tareas de la Tabla 168 buscando dónde la interfaz incumple un principio de usabilidad. No sustituye a las entrevistas, porque un equipo no puede sorprenderse con su propio producto, pero encuentra antes los problemas que no hace falta un usuario para detectar. Los hallazgos se contrastaron con las diez heurísticas de Nielsen [@nielsen1994heuristics], las mismas con las que se justificaron los principios de diseño del Capítulo III. La Tabla 175 presenta la cabecera de la evaluación.
+El equipo realizó una evaluación heurística del producto construido. Es una inspección hecha por el propio equipo, sin usuarios, en la que cada integrante recorre las tareas de la Tabla 168 buscando dónde la interfaz incumple un principio de usabilidad. No sustituye a las entrevistas, porque un equipo no puede sorprenderse con su propio producto, pero encuentra antes los problemas que no hace falta un usuario para detectar. Los hallazgos se contrastaron con las diez heurísticas de Nielsen [@nielsen1994heuristics], las mismas con las que se justificaron los principios de diseño del Capítulo III. La Tabla 172 presenta la cabecera de la evaluación.
 
 <table>
   <caption>Cabecera de la evaluación heurística</caption>
@@ -5601,7 +5448,7 @@ El equipo realizó una evaluación heurística del producto del Sprint 1. Es una
     </tr>
     <tr>
       <td><b>Productos evaluados</b></td>
-      <td>Aplicación móvil Android, variante <code>cloud</code> del Sprint 1, y landing page publicado en <code>kerolabs.github.io</code></td>
+      <td>Aplicación móvil Android, variante <code>cloud</code> con lo construido en los Sprints 1 y 2, y landing page publicado en <code>kerolabs.github.io</code></td>
     </tr>
     <tr>
       <td><b>Alcance</b></td>
@@ -5614,7 +5461,7 @@ El equipo realizó una evaluación heurística del producto del Sprint 1. Es una
   </tbody>
 </table>
 
-Cada problema se puntúa con la escala de severidad de Nielsen, que combina la frecuencia con la que ocurre, el impacto que tiene cuando ocurre y la persistencia con la que vuelve a aparecer. La Tabla 176 presenta la escala y lo que significa cada grado para este producto.
+Cada problema se puntúa con la escala de severidad de Nielsen, que combina la frecuencia con la que ocurre, el impacto que tiene cuando ocurre y la persistencia con la que vuelve a aparecer. La Tabla 173 presenta la escala y lo que significa cada grado para este producto.
 
 <table>
   <caption>Escala de severidad de los problemas de usabilidad</caption>
@@ -5655,11 +5502,11 @@ Cada problema se puntúa con la escala de severidad de Nielsen, que combina la f
   </tbody>
 </table>
 
-La inspección encontró nueve problemas, ninguno catastrófico. La Tabla 177 los recoge ordenados por severidad, con la heurística que incumplen, la pantalla donde aparecen y la corrección propuesta. Las pantallas referidas son las de las Figuras 145, 146 y 147 para la aplicación móvil y la Figura 154 para el landing page.
+La inspección del equipo encontró nueve problemas y las tres entrevistas de validación añadieron cuatro más, ninguno catastrófico. La Tabla 174 recoge los trece ordenados por severidad, con la heurística que incumplen, la pantalla donde aparecen, el origen del hallazgo y la corrección propuesta. Las pantallas referidas son las de las Figuras 145, 146 y 147 para la aplicación móvil y la Figura 154 para el landing page.
 
 <table>
   <caption>Problemas encontrados en la evaluación heurística</caption>
-  <colgroup><col width="5%"><col width="26%"><col width="14%"><col width="18%"><col width="8%"><col width="29%"></colgroup>
+  <colgroup><col width="4%"><col width="25%"><col width="11%"><col width="16%"><col width="7%"><col width="9%"><col width="28%"></colgroup>
   <thead>
     <tr>
       <th>N.º</th>
@@ -5667,6 +5514,7 @@ La inspección encontró nueve problemas, ninguno catastrófico. La Tabla 177 lo
       <th>Pantalla</th>
       <th>Heurística incumplida</th>
       <th>Severidad</th>
+      <th>Origen</th>
       <th>Corrección propuesta</th>
     </tr>
   </thead>
@@ -5677,6 +5525,7 @@ La inspección encontró nueve problemas, ninguno catastrófico. La Tabla 177 lo
       <td>Revisar aporte</td>
       <td>Error prevention</td>
       <td>3</td>
+      <td>Inspección</td>
       <td>Igualar el peso de ambas acciones y pedir una confirmación corta al aprobar un aporte con diferencias</td>
     </tr>
     <tr>
@@ -5685,69 +5534,115 @@ La inspección encontró nueve problemas, ninguno catastrófico. La Tabla 177 lo
       <td>Revisar aporte</td>
       <td>User control and freedom</td>
       <td>3</td>
+      <td>Inspección</td>
       <td>Permitir revertir la decisión mientras el período siga abierto y dejar constancia del cambio en el historial</td>
     </tr>
     <tr>
       <td>3</td>
+      <td>Los datos que la aplicación lee del comprobante se pueden reescribir a mano antes de registrar el aporte. Las dos participantes corrigieron el monto y el destinatario hasta que coincidieron, y una preguntó por iniciativa propia qué impide escribir un monto que el comprobante no dice</td>
+      <td>Aportar al pozo</td>
+      <td>Error prevention</td>
+      <td>3</td>
+      <td>Entrevista</td>
+      <td>Dejar como solo lectura lo que la aplicación leyó y, si la persona necesita corregirlo, marcar el aporte como corregido a mano para que la cabeza lo revise</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>El primer intento de registrar la entrega del pozo devolvió un error sin explicar qué había fallado. El segundo intento, idéntico, funcionó</td>
+      <td>Entregar el pozo</td>
+      <td>Help users recognize, diagnose, and recover from errors</td>
+      <td>3</td>
+      <td>Entrevista</td>
+      <td>Decir en el mensaje qué falló y si la entrega quedó registrada, y reintentar sin que la cabeza tenga que repetir la acción a ciegas</td>
+    </tr>
+    <tr>
+      <td>5</td>
       <td>La lista «Para iniciar la junta» muestra dos requisitos, grupo completo y turnos definidos, pero el inicio valida además el destino de los aportes. Si falta el destino, la cabeza no se entera por la lista</td>
       <td>Junta por iniciar</td>
       <td>Visibility of system status</td>
       <td>2</td>
+      <td>Inspección</td>
       <td>Mostrar el destino de los aportes como tercer requisito de la lista, con su estado, igual que los otros dos</td>
     </tr>
     <tr>
-      <td>4</td>
+      <td>6</td>
       <td>La leyenda de estados del historial se corta en el borde derecho de la pantalla: el último estado no llega a leerse, de modo que un icono de la cuadrícula queda sin explicación</td>
       <td>Historial</td>
       <td>Recognition rather than recall</td>
       <td>2</td>
+      <td>Inspección</td>
       <td>Repartir la leyenda en dos filas o permitir que se desplace, de modo que todos los estados se lean en pantallas de 360 px</td>
     </tr>
     <tr>
-      <td>5</td>
+      <td>7</td>
       <td>El estado «En revisión» de un aporte no indica a quién le toca actuar ni desde cuándo está así. El participante no sabe si debe esperar o volver a registrar</td>
       <td>Estado del pozo</td>
       <td>Visibility of system status</td>
       <td>2</td>
+      <td>Inspección</td>
       <td>Añadir al estado quién lo tiene que revisar y desde qué fecha, como ya se hace con la fecha de corte</td>
     </tr>
     <tr>
-      <td>6</td>
+      <td>8</td>
       <td>En la lista de avisos, los que piden una acción («Comprobante por revisar») tienen el mismo peso visual que los informativos («Nuevo integrante»), y todos llevan el mismo punto de no leído</td>
       <td>Avisos</td>
       <td>Aesthetic and minimalist design</td>
       <td>2</td>
+      <td>Inspección</td>
       <td>Separar los avisos que piden acción, con una llamada a la acción propia, de los que solo informan</td>
     </tr>
     <tr>
-      <td>7</td>
+      <td>9</td>
+      <td>Iniciar la junta tarda varios segundos sin que la pantalla muestre que está trabajando. La cabeza entrevistada esperó sin saber si la acción se había registrado</td>
+      <td>Junta por iniciar</td>
+      <td>Visibility of system status</td>
+      <td>2</td>
+      <td>Entrevista</td>
+      <td>Mostrar el progreso mientras se inicia la junta y bloquear el botón hasta que termine</td>
+    </tr>
+    <tr>
+      <td>10</td>
       <td>La tarjeta de la lista de juntas dice «Faltan integrantes para iniciar» sin decir cuántos, mientras que el detalle de la junta sí muestra «2 de 6 integrantes»</td>
       <td>Mis juntas</td>
       <td>Visibility of system status</td>
       <td>1</td>
+      <td>Inspección</td>
       <td>Mostrar en la tarjeta el mismo conteo que el detalle</td>
     </tr>
     <tr>
-      <td>8</td>
+      <td>11</td>
       <td>El campo del número de celular no indica el formato esperado ni cuántos dígitos tiene; el texto de ayuda explica para qué se usa el número, pero no cómo escribirlo</td>
       <td>Ingreso</td>
       <td>Help users recognize, diagnose, and recover from errors</td>
       <td>1</td>
+      <td>Inspección</td>
       <td>Indicar los nueve dígitos esperados y validar la longitud antes de habilitar «Enviar código»</td>
     </tr>
     <tr>
-      <td>9</td>
+      <td>12</td>
       <td>En el landing page, el conmutador de tema visual es un icono sin etiqueta ni texto alternativo visible, junto a un conmutador de idioma que sí está etiquetado</td>
       <td>Landing page</td>
       <td>Consistency and standards</td>
       <td>1</td>
+      <td>Inspección</td>
       <td>Etiquetar el conmutador de tema igual que el de idioma, o añadirle una etiqueta accesible</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>El número de Yape o Plin del perfil se pide como un dato aparte del número de celular con el que se entra, y la cabeza entrevistada esperaba que fueran el mismo</td>
+      <td>Perfil</td>
+      <td>Match between system and the real world</td>
+      <td>1</td>
+      <td>Entrevista</td>
+      <td>Proponer por defecto el número de celular de la cuenta como destino de los aportes, y dejar cambiarlo</td>
     </tr>
   </tbody>
 </table>
 
-Dos de los nueve problemas son de severidad mayor y los dos caen en la misma pantalla, la de revisión del comprobante: aprobar un aporte que no coincide es la acción con más peso visual, y ninguna de las dos decisiones se puede deshacer. Los dos se incorporan al Sprint Backlog del Sprint 2 como corrección previa a las entrevistas con usuarios, porque son el punto donde una persona podría equivocarse con consecuencias sobre el dinero del grupo. Los siete restantes, de severidad menor y cosmética, se atienden dentro del Sprint 2 junto a las historias del bounded context al que pertenecen.
+Cuatro de los trece problemas son de severidad mayor y los cuatro están en el recorrido del dinero: las dos decisiones de la pantalla de revisión, que no se pueden deshacer y cuya acción de aprobar pesa más que la de rechazar; la posibilidad de reescribir a mano lo que la aplicación leyó del comprobante; y el error que devolvió el primer intento de registrar la entrega del pozo. Los cuatro entran al Sprint Backlog del Sprint 3, porque son los puntos donde una persona podría equivocarse con consecuencias sobre el dinero del grupo. Los nueve restantes, de severidad menor y cosmética, se atienden junto a las historias del bounded context al que pertenecen.
 
-La inspección también confirmó tres decisiones del Capítulo III que se sostienen en el producto construido: el lenguaje de la interfaz usa los términos del Ubiquitous Language sin introducir vocabulario financiero ajeno al grupo, el aviso de que Pozzo no recibe ni retiene el dinero aparece tanto en el landing page como en la pantalla de aporte, y la pantalla de revisión explica en texto llano la consecuencia de cada decisión antes de tomarla.
+Las entrevistas confirmaron además tres decisiones del Capítulo III. El lenguaje de la interfaz usa los términos del Ubiquitous Language: preguntado por si aporte, pozo, turno y fecha de corte significan en la aplicación lo mismo que en su junta, el entrevistado del primer segmento respondió que son los términos que el grupo ya usa. El aviso de que Pozzo no recibe ni retiene el dinero se entendió: las tres personas respondieron sin dudar que el dinero va a la cuenta de quien cobra el turno. Y las veinticuatro tareas de las tres sesiones se completaron, veintitrés de ellas sin ayuda del entrevistador.
+
+Un punto quedó dividido y no se recoge como problema porque las dos reacciones fueron legítimas: el ingreso sin contraseña. Una participante lo consideró más seguro que una contraseña, porque el código llega solo a su celular; otra esperaba un PIN o una verificación en dos pasos. La diferencia sugiere que la pantalla de ingreso no explica que el código SMS ya cumple la función de segundo factor, y se anota como material para la siguiente ronda de entrevistas.
 
 <!-- pdf:desde-fin -->
