@@ -638,6 +638,7 @@ El contenido nunca supera los 1200 px de ancho. El titular principal mide 45/52 
 La arquitectura de información define dónde se ubica cada contenido, cómo se denomina, de qué manera se accede a él y cómo puede ser localizado por los usuarios. Las cinco secciones siguientes desarrollan los cuatro sistemas principales de la arquitectura de información: organización, etiquetado, navegación y búsqueda. Además, tanto la aplicación móvil como la landing page incorporan una sección específica de etiquetado. En el caso de la landing page, estas etiquetas también contribuyen a mejorar su visibilidad en la búsqueda y la forma en que se presenta el contenido al ser compartido.
 
 En los dos productos el punto de partida es el mismo. La persona que usa Pozzo no explora un catálogo: llega con una tarea concreta (aportar, revisar un aporte, saber cuándo cobra, decidir si le interesa) y la arquitectura debe llevarla a ella con el menor número de toques posible.
+
 #### 3.1.2.1. Organization Systems
 Un sistema de organización combina un esquema, que decide cómo se agrupan los elementos, y una estructura, que decide cómo se relacionan entre sí. En Pozzo el esquema cambia según el producto, porque la aplicación se usa muchas veces con una tarea distinta cada vez y el landing se recorre una sola vez de arriba abajo (ver Tabla 113).
 
@@ -1246,6 +1247,7 @@ El landing tampoco usa migas de pan, porque tiene un solo nivel de profundidad: 
 El landing page presenta Pozzo a quien todavía no lo conoce y recoge su interés mientras la aplicación no está publicada. Responde a las cuatro historias del epic EP10: entender qué resuelve Pozzo (US43), encontrar cómo obtenerlo o dejar un contacto (US44), conocer al equipo (US45) y poder leerlo y navegarlo desde el celular (US46). Se diseñó primero en Figma, en dos fidelidades y en dos anchos, y después se implementó como sitio estático en HTML5, CSS3 y JavaScript sin dependencias de ejecución, con textos en inglés (EN, idioma por defecto) y en español (ES). La implementación sale del diseño y lo respeta; las pocas diferencias están señaladas en cada sección.
 
 Como una página completa es demasiado alta para una figura, cada versión se presenta como un tablero de ventanas: cada recuadro es una ventana del navegador (de 1440 x 900 px en escritorio y de 360 x 800 px en celular) puesta sobre el mismo desplazamiento de la página. El escritorio ocupa ocho ventanas, dos por figura, y el celular trece ventanas en una sola figura.
+
 #### 3.1.3.1. Landing Page Wireframe
 El wireframe define la estructura y la jerarquía visual del landing page antes de incorporar colores, imágenes y contenido final. Sigue el modo wireframe establecido en la guía de estilo de la sección 3.1.1.1, utilizando tonos grises y elementos simplificados para representar la distribución de cada sección.
 La siguiente tabla resume la estructura planteada para las versiones de escritorio y celular: (ver Tabla 123)

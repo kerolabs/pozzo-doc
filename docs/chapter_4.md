@@ -4442,7 +4442,7 @@ En el Sprint 2 se completaron los servicios RESTful: cada historia que necesitab
       <td>fix/missing-test-annotations</td>
       <td><a href="https://github.com/kerolabs/pozzo-backend/commit/2b16ab1">2b16ab1</a></td>
       <td>test: run the domain tests that lost their annotation</td>
-      <td>Resolving the conflicts between the Sprint 2 branches kept the shared @Test line outside the conflict and attached it to only one of the two new methods, so five tests compiled but never ran. All five pass.</td>
+      <td>Resolving the conflicts between the Sprint 2 branches kept the shared <code>@Test</code> line outside the conflict and attached it to only one of the two new methods, so five tests compiled but never ran. All five pass.</td>
       <td>10/11/2026</td>
     </tr>
     <tr>
@@ -4795,7 +4795,7 @@ La integración de las ramas dejó dos fallas en la suite que se corrigieron den
       <td>fix/missing-test-annotations</td>
       <td><a href="https://github.com/kerolabs/pozzo-backend/commit/2b16ab1">2b16ab1</a></td>
       <td>test: run the domain tests that lost their annotation</td>
-      <td>Resolving the conflicts between the Sprint 2 branches kept the shared @Test line outside the conflict and attached it to only one of the two new methods, so five tests compiled but never ran. All five pass.</td>
+      <td>Resolving the conflicts between the Sprint 2 branches kept the shared <code>@Test</code> line outside the conflict and attached it to only one of the two new methods, so five tests compiled but never ran. All five pass.</td>
       <td>10/11/2026</td>
     </tr>
     <tr>
