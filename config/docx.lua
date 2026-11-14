@@ -54,7 +54,7 @@ local CARATULA = {
   cierre = {
     { '' },
     { 'Período 202620', 12, true },
-    { 'Octubre 2026', 12, true },
+    { 'Noviembre 2026', 12, true },
   },
 }
 
