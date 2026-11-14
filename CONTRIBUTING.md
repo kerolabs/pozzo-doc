@@ -62,6 +62,26 @@ Sale en `dist/draft-<entrega>.pdf`, con otro nombre para que nadie lo entregue p
 error. La paginación es la misma que la del PDF completo, porque el marco ocupa
 exactamente el sitio de la imagen.
 
+### Versión en Word
+
+`-Word` genera el informe como documento de Word en lugar de pasar por LaTeX:
+
+```powershell
+.\scripts\build.ps1 av2 -Word
+```
+
+Sale en `dist/` con el mismo nombre y extensión `.docx`. Los estilos APA 7
+(Times New Roman 12, interlineado 1.5, sangría de 0.5 in, márgenes de 1 in,
+niveles de título, número de página, sangría francesa en las referencias y
+control de viudas y huérfanas) vienen de `config/reference.docx`, y lo que en el
+PDF hacen `apa7.tex` y `cover.tex` (carátula, rótulos de tablas y figuras,
+títulos de cuarto y quinto nivel en línea) lo hace `config/docx.lua`. Si Microsoft
+Word está instalado, el build además llena el índice y exporta
+`dist/...-report-<entrega>-word.pdf` desde Word.
+
+`config/reference.docx` no se edita a mano: se regenera con
+`python scripts/reference-docx.py`, que es donde está escrita cada regla.
+
 ## Estructura
 
 <picture>
