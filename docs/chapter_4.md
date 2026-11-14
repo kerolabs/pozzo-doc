@@ -5697,4 +5697,61 @@ Las escenas de la aplicación salen de las grabaciones de las entrevistas de val
   </tbody>
 </table>
 
+## 4.5. Video About-the-Team
+
+El video About-the-Team presenta al equipo de Kerolabs: una presentación breve del equipo y del producto, y el testimonio de cada integrante sobre las actividades que realizó, cómo alcanzó el Student Outcome del curso y las competencias que desarrolló. Dura 6 minutos y 54 segundos y está publicado en YouTube: <https://youtu.be/AYqgVLGH8mo>. La Figura 172 muestra un cuadro del video.
+
+![Cuadro del video About-the-Team de Kerolabs](images/chapter_4/about_the_team_video.png){width=85%}
+
+Cada integrante grabó su testimonio por separado, ante cámara, a partir de un guion común en tres partes: las actividades que realizó en el proyecto, el conocimiento nuevo que adquirió y aplicó, que sustenta el logro del ABET – EAC – Student Outcome 7, y las competencias que desarrolló. Lo que cuenta cada uno corresponde a su fila en el cuadro de Student Outcome. La Tabla 177 resume las partes del video.
+
+<table>
+  <caption>Contenido del video About-the-Team</caption>
+  <colgroup><col width="14%"><col width="26%"><col width="60%"></colgroup>
+  <thead>
+    <tr>
+      <th>Tiempo</th>
+      <th>Parte</th>
+      <th>Qué se muestra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0:00 – 0:05</td>
+      <td>Portada</td>
+      <td>El logo y el lema de Pozzo</td>
+    </tr>
+    <tr>
+      <td>0:05 – 0:35</td>
+      <td>Presentación del equipo</td>
+      <td>Un recorrido por el landing page con la voz en off que presenta a Kerolabs, a sus cinco integrantes y a Pozzo, la aplicación que administra juntas de ahorro y valida los comprobantes sin tocar el dinero</td>
+    </tr>
+    <tr>
+      <td>0:35 – 1:41</td>
+      <td>Testimonio de Camargo Briceño, Joseph Julius</td>
+      <td>Los servicios RESTful en Spring Boot y su despliegue, la base de la aplicación y el reparto de sus historias; lo que aprendió de Spring Security, Testcontainers, Cucumber y Jetpack Compose; y sus competencias en servicios, pruebas automatizadas y coordinación técnica</td>
+    </tr>
+    <tr>
+      <td>1:41 – 3:04</td>
+      <td>Testimonio de Flores Pinchi, Jose Fernando</td>
+      <td>El Lean UX Process, las entrevistas y las entrevistas de validación, los videos y el informe, y la entrega del pozo en la aplicación; la evaluación heurística de Nielsen y su escala de severidad; y sus competencias en investigación con usuarios, evaluación de usabilidad y documentación técnica</td>
+    </tr>
+    <tr>
+      <td>3:04 – 4:09</td>
+      <td>Testimonio de Solis Campos, Estefano Sebastian</td>
+      <td>Los segmentos objetivo, los competidores, el C4 Model, la documentación del código y, en el Sprint 2, el cierre de la subasta y el intercambio de turnos; el paso de documentar la aplicación a programar sus pantallas; y sus competencias en arquitectura, documentación y desarrollo móvil</td>
+    </tr>
+    <tr>
+      <td>4:09 – 5:37</td>
+      <td>Testimonio de Tirado Carrera, Gabriela Luciana</td>
+      <td>El Startup Profile, los Journey y Empathy Maps, los Bounded Context Canvases y el Context Mapping, la arquitectura de información y el landing page, y el retiro, la deserción y el reemplazo en la aplicación; los patrones de Context Mapping y la organización por capas en Kotlin; y sus competencias en modelado del dominio, diseño centrado en el usuario y desarrollo móvil</td>
+    </tr>
+    <tr>
+      <td>5:37 – 6:54</td>
+      <td>Testimonio de Sanchez Benavente, Leonardo Matias</td>
+      <td>Los antecedentes, los User Personas, el Ubiquitous Language, el EventStorming de diseño, la guía de estilos, el diseño de la aplicación y la subasta de turnos; la arquitectura por capas en Kotlin con Retrofit y Jetpack Compose; y sus competencias en modelado del dominio, diseño UX/UI y desarrollo móvil</td>
+    </tr>
+  </tbody>
+</table>
+
 <!-- pdf:desde-fin -->
