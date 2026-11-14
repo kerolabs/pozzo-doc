@@ -148,8 +148,8 @@ El equipo trabaja con las herramientas de la Tabla 135, agrupadas por la activid
       <td><a href="https://plantuml.com">plantuml.com</a></td>
     </tr>
     <tr>
-      <td>Pandoc y XeLaTeX</td>
-      <td>Convierten este informe de Markdown a PDF con formato APA 7.</td>
+      <td>Pandoc y Microsoft Word</td>
+      <td>Pandoc convierte este informe de Markdown a un documento de Word con formato APA 7, y Word lo exporta a PDF.</td>
       <td><a href="https://pandoc.org/installing.html">pandoc.org/installing.html</a></td>
     </tr>
   </tbody>
@@ -4442,7 +4442,7 @@ En el Sprint 2 se completaron los servicios RESTful: cada historia que necesitab
       <td>fix/missing-test-annotations</td>
       <td><a href="https://github.com/kerolabs/pozzo-backend/commit/2b16ab1">2b16ab1</a></td>
       <td>test: run the domain tests that lost their annotation</td>
-      <td>Resolving the conflicts between the Sprint 2 branches kept the shared @Test line outside the conflict and attached it to only one of the two new methods, so five tests compiled but never ran. All five pass.</td>
+      <td>Resolving the conflicts between the Sprint 2 branches kept the shared <code>@Test</code> line outside the conflict and attached it to only one of the two new methods, so five tests compiled but never ran. All five pass.</td>
       <td>10/11/2026</td>
     </tr>
     <tr>
@@ -4795,7 +4795,7 @@ La integración de las ramas dejó dos fallas en la suite que se corrigieron den
       <td>fix/missing-test-annotations</td>
       <td><a href="https://github.com/kerolabs/pozzo-backend/commit/2b16ab1">2b16ab1</a></td>
       <td>test: run the domain tests that lost their annotation</td>
-      <td>Resolving the conflicts between the Sprint 2 branches kept the shared @Test line outside the conflict and attached it to only one of the two new methods, so five tests compiled but never ran. All five pass.</td>
+      <td>Resolving the conflicts between the Sprint 2 branches kept the shared <code>@Test</code> line outside the conflict and attached it to only one of the two new methods, so five tests compiled but never ran. All five pass.</td>
       <td>10/11/2026</td>
     </tr>
     <tr>
@@ -5261,7 +5261,7 @@ La Tabla 170 presenta la ficha de la entrevista de validación a Lionel Chávez.
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
-      <td><a href="https://youtu.be/ZIZLua_E0Ns">https://youtu.be/ZIZLua_E0Ns</a></td>
+      <td><a href="https://1drv.ms/v/c/b94b009f6d3004d9/IQDwo8C7gJpORZkAgvEVyQXZAcwB-XrrcifPvXuf0gnnsuw?e=hLH5qw">https://1drv.ms/v/c/b94b009f6d3004d9/IQDwo8C7gJpORZkAgvEVyQXZAcwB-XrrcifPvXuf0gnnsuw?e=hLH5qw</a></td>
     </tr>
     <tr>
       <td><b>Resultado de las tareas</b></td>
@@ -5326,7 +5326,7 @@ La Tabla 171 presenta la ficha de la entrevista de validación a Elizabeth Díaz
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
-      <td><a href="https://youtu.be/T-7__YjW3yU">https://youtu.be/T-7__YjW3yU</a></td>
+      <td><a href="https://1drv.ms/v/c/b94b009f6d3004d9/IQDgjSaFcwxhSoB6P_Pn5VPaAdxOfyNNOkQu7Z0IwLPX2_0?e=OZSa3U">https://1drv.ms/v/c/b94b009f6d3004d9/IQDgjSaFcwxhSoB6P_Pn5VPaAdxOfyNNOkQu7Z0IwLPX2_0?e=OZSa3U</a></td>
     </tr>
     <tr>
       <td><b>Resultado de las tareas</b></td>
@@ -5389,7 +5389,7 @@ La Tabla 172 presenta la ficha de la entrevista de validación a Mariana López.
     </tr>
     <tr>
       <td><b>Link de la entrevista</b></td>
-      <td><a href="https://youtu.be/E_9QCZduGvk">https://youtu.be/E_9QCZduGvk</a></td>
+      <td><a href="https://1drv.ms/v/c/b94b009f6d3004d9/IQAH4AvM1blDRKFJgzz056YsAWfTkXtFcPJYvsvqQx6XdFM?e=1gzJJF">https://1drv.ms/v/c/b94b009f6d3004d9/IQAH4AvM1blDRKFJgzz056YsAWfTkXtFcPJYvsvqQx6XdFM?e=1gzJJF</a></td>
     </tr>
     <tr>
       <td><b>Resultado de las tareas</b></td>
@@ -5644,5 +5644,114 @@ Cuatro de los trece problemas son de severidad mayor y los cuatro están en el r
 Las entrevistas confirmaron además tres decisiones del Capítulo III. El lenguaje de la interfaz usa los términos del Ubiquitous Language: preguntado por si aporte, pozo, turno y fecha de corte significan en la aplicación lo mismo que en su junta, el entrevistado del primer segmento respondió que son los términos que el grupo ya usa. El aviso de que Pozzo no recibe ni retiene el dinero se entendió: las tres personas respondieron sin dudar que el dinero va a la cuenta de quien cobra el turno. Y las veinticuatro tareas de las tres sesiones se completaron, veintitrés de ellas sin ayuda del entrevistador.
 
 Un punto quedó dividido y no se recoge como problema porque las dos reacciones fueron legítimas: el ingreso sin contraseña. Una participante lo consideró más seguro que una contraseña, porque el código llega solo a su celular; otra esperaba un PIN o una verificación en dos pasos. La diferencia sugiere que la pantalla de ingreso no explica que el código SMS ya cumple la función de segundo factor.
+
+## 4.4. Video About-the-Product
+
+El video About-the-Product presenta Pozzo a las personas que podrían usarlo: el problema que resuelve, cómo se usa desde el rol de cabeza de junta y desde el de participante, y lo que dijeron quienes lo probaron. Dura 2 minutos y 36 segundos y está publicado en YouTube: <https://youtu.be/8h5ec2VhwuM>. La Figura 171 muestra un cuadro del video.
+
+![Cuadro del video About-the-Product de Pozzo](images/chapter_4/about_the_product_video.png){width=85%}
+
+Las escenas de la aplicación salen de las grabaciones de las entrevistas de validación de la sección 4.3.2. Lo que se ve en el celular es lo que hicieron Lionel Chávez, Elizabeth Díaz y Mariana López al usar Pozzo por primera vez, sin indicaciones del entrevistador sobre cómo funcionaba. Las tres personas aceptaron aparecer en el video con su nombre y sus palabras. De las grabaciones se dejaron fuera las partes que mostraban números de celular, la lista de contactos, la galería de fotos y datos de terceros que aparecían en un comprobante. La música de fondo es original y no usa obras de terceros. La Tabla 176 resume las partes del video.
+
+<table>
+  <caption>Contenido del video About-the-Product</caption>
+  <colgroup><col width="14%"><col width="26%"><col width="60%"></colgroup>
+  <thead>
+    <tr>
+      <th>Tiempo</th>
+      <th>Parte</th>
+      <th>Qué se muestra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0:00 – 0:22</td>
+      <td>Presentación</td>
+      <td>El logo y el lema de Pozzo, el problema de llevar la junta en un cuaderno o en un grupo de WhatsApp, la aclaración de que Pozzo no recibe ni guarda el dinero y las tres personas que lo probaron</td>
+    </tr>
+    <tr>
+      <td>0:22 – 0:51</td>
+      <td>La cabeza de junta organiza</td>
+      <td>Lionel crea la junta con el aporte, la periodicidad, los integrantes y el número de destino, y reparte los turnos eligiendo entre sorteo, orden acordado y subasta</td>
+    </tr>
+    <tr>
+      <td>0:51 – 1:34</td>
+      <td>Los participantes aportan</td>
+      <td>Mariana se une con un código de invitación; Elizabeth transfiere a la cabeza de junta, sube la captura del comprobante y Pozzo lee el monto, el destinatario y la fecha antes de validar el aporte</td>
+    </tr>
+    <tr>
+      <td>1:34 – 2:15</td>
+      <td>Seguimiento y entrega</td>
+      <td>Lionel revisa un aporte cuyo comprobante no coincide, ve el pozo completo y lo marca como entregado; Mariana revisa su historial de cumplimiento, que puede compartir</td>
+    </tr>
+    <tr>
+      <td>2:15 – 2:30</td>
+      <td>Lo que dijeron</td>
+      <td>Tres frases de las entrevistas: sobre los términos de la aplicación, sobre pedirle a la cabeza de junta que la use y sobre la certeza de recibir el pozo</td>
+    </tr>
+    <tr>
+      <td>2:30 – 2:36</td>
+      <td>Cierre</td>
+      <td>El logo, el lema y la dirección del landing page</td>
+    </tr>
+  </tbody>
+</table>
+
+## 4.5. Video About-the-Team
+
+El video About-the-Team presenta al equipo de Kerolabs: una presentación breve del equipo y del producto, y el testimonio de cada integrante sobre las actividades que realizó, cómo alcanzó el Student Outcome del curso y las competencias que desarrolló. Dura 6 minutos y 54 segundos y está publicado en YouTube: <https://youtu.be/AYqgVLGH8mo>. La Figura 172 muestra un cuadro del video.
+
+![Cuadro del video About-the-Team de Kerolabs](images/chapter_4/about_the_team_video.png){width=85%}
+
+Cada integrante grabó su testimonio por separado, ante cámara, a partir de un guion común en tres partes: las actividades que realizó en el proyecto, el conocimiento nuevo que adquirió y aplicó, que sustenta el logro del ABET – EAC – Student Outcome 7, y las competencias que desarrolló. Lo que cuenta cada uno corresponde a su fila en el cuadro de Student Outcome. La Tabla 177 resume las partes del video.
+
+<table>
+  <caption>Contenido del video About-the-Team</caption>
+  <colgroup><col width="14%"><col width="26%"><col width="60%"></colgroup>
+  <thead>
+    <tr>
+      <th>Tiempo</th>
+      <th>Parte</th>
+      <th>Qué se muestra</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0:00 – 0:05</td>
+      <td>Portada</td>
+      <td>El logo y el lema de Pozzo</td>
+    </tr>
+    <tr>
+      <td>0:05 – 0:35</td>
+      <td>Presentación del equipo</td>
+      <td>Un recorrido por el landing page con la voz en off que presenta a Kerolabs, a sus cinco integrantes y a Pozzo, la aplicación que administra juntas de ahorro y valida los comprobantes sin tocar el dinero</td>
+    </tr>
+    <tr>
+      <td>0:35 – 1:41</td>
+      <td>Testimonio de Camargo Briceño, Joseph Julius</td>
+      <td>Los servicios RESTful en Spring Boot y su despliegue, la base de la aplicación y el reparto de sus historias; lo que aprendió de Spring Security, Testcontainers, Cucumber y Jetpack Compose; y sus competencias en servicios, pruebas automatizadas y coordinación técnica</td>
+    </tr>
+    <tr>
+      <td>1:41 – 3:04</td>
+      <td>Testimonio de Flores Pinchi, Jose Fernando</td>
+      <td>El Lean UX Process, las entrevistas y las entrevistas de validación, los videos y el informe, y la entrega del pozo en la aplicación; la evaluación heurística de Nielsen y su escala de severidad; y sus competencias en investigación con usuarios, evaluación de usabilidad y documentación técnica</td>
+    </tr>
+    <tr>
+      <td>3:04 – 4:09</td>
+      <td>Testimonio de Solis Campos, Estefano Sebastian</td>
+      <td>Los segmentos objetivo, los competidores, el C4 Model, la documentación del código y, en el Sprint 2, el cierre de la subasta y el intercambio de turnos; el paso de documentar la aplicación a programar sus pantallas; y sus competencias en arquitectura, documentación y desarrollo móvil</td>
+    </tr>
+    <tr>
+      <td>4:09 – 5:37</td>
+      <td>Testimonio de Tirado Carrera, Gabriela Luciana</td>
+      <td>El Startup Profile, los Journey y Empathy Maps, los Bounded Context Canvases y el Context Mapping, la arquitectura de información y el landing page, y el retiro, la deserción y el reemplazo en la aplicación; los patrones de Context Mapping y la organización por capas en Kotlin; y sus competencias en modelado del dominio, diseño centrado en el usuario y desarrollo móvil</td>
+    </tr>
+    <tr>
+      <td>5:37 – 6:54</td>
+      <td>Testimonio de Sanchez Benavente, Leonardo Matias</td>
+      <td>Los antecedentes, los User Personas, el Ubiquitous Language, el EventStorming de diseño, la guía de estilos, el diseño de la aplicación y la subasta de turnos; la arquitectura por capas en Kotlin con Retrofit y Jetpack Compose; y sus competencias en modelado del dominio, diseño UX/UI y desarrollo móvil</td>
+    </tr>
+  </tbody>
+</table>
 
 <!-- pdf:desde-fin -->

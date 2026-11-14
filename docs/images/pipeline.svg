@@ -12,10 +12,10 @@
   <text x="255" y="61" text-anchor="middle" font-size="15" font-weight="600" fill="#0a3622">Pandoc</text>
 
   <rect x="360" y="30" width="130" height="52" rx="8" fill="#fff8c5" stroke="#d4a72c" stroke-width="1.5"/>
-  <text x="425" y="61" text-anchor="middle" font-size="15" font-weight="600" fill="#4d2d00">Un .tex</text>
+  <text x="425" y="61" text-anchor="middle" font-size="15" font-weight="600" fill="#4d2d00">Un .docx</text>
 
   <rect x="530" y="30" width="130" height="52" rx="8" fill="#fbefff" stroke="#c297ff" stroke-width="1.5"/>
-  <text x="595" y="61" text-anchor="middle" font-size="15" font-weight="600" fill="#3e1f79">XeLaTeX</text>
+  <text x="595" y="61" text-anchor="middle" font-size="15" font-weight="600" fill="#3e1f79">Word</text>
 
   <rect x="700" y="30" width="130" height="52" rx="8" fill="#ffebe9" stroke="#ff8182" stroke-width="1.5"/>
   <text x="765" y="61" text-anchor="middle" font-size="15" font-weight="600" fill="#82071e">El PDF</text>
@@ -26,5 +26,5 @@
   <line x1="662" y1="56" x2="696" y2="56" stroke="#8b949e" stroke-width="1.5" marker-end="url(#punta)"/>
 
   <text x="170" y="98" text-anchor="middle" font-size="11" fill="#8b949e">traduce</text>
-  <text x="509" y="98" text-anchor="middle" font-size="11" fill="#8b949e">maqueta</text>
+  <text x="509" y="98" text-anchor="middle" font-size="11" fill="#8b949e">pagina</text>
 </svg>

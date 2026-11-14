@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Comprueba que cada figura y tabla del informe este referenciada en el texto.
 
-Las figuras y tablas las numera LaTeX en el orden en que aparecen. Este script
+Las figuras y tablas las numera config/docx.lua en el orden en que aparecen. Este script
 reproduce esa numeracion leyendo los archivos en el mismo orden que el build y
 avisa si una referencia del texto apunta a un numero que no existe o si queda
 alguna figura o tabla sin mencionar.
