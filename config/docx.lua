@@ -1,7 +1,7 @@
--- Ajusta el documento para Word (scripts/build.ps1 -Word). Hace en el .docx lo
--- que en el PDF hacen apa7.tex, cover.tex y pdf-only.lua; los estilos (fuente,
--- interlineado, sangrias, margenes, numero de pagina) vienen de
--- config/reference.docx, que genera scripts/reference-docx.py.
+-- Arma el documento de Word del informe (scripts/build.ps1). Los estilos
+-- (fuente, interlineado, sangrias, margenes, numero de pagina) vienen de
+-- config/reference.docx, que genera scripts/reference-docx.py; este filtro hace
+-- lo que un estilo no puede:
 --
 --   - Antepone la caratula, en una seccion propia sin numero de pagina.
 --   - Cambia \tableofcontents por un indice de Word y \newpage por un salto.
@@ -16,7 +16,7 @@
 
 if not FORMAT:match('docx') then return {} end
 
--- Caratula. Los mismos datos que config/cover.tex.
+-- Caratula, segun la plantilla del curso.
 local CARATULA = {
   logo = 'docs/images/upc_logo.png',
   logoAncho = '0.8731in',
@@ -96,7 +96,7 @@ end
 
 -- Cierra la seccion de la caratula. Sin headerReference, Word no le pone
 -- encabezado; la seccion siguiente trae el suyo desde reference.docx y empieza
--- a contar desde 1, como el PDF.
+-- a contar desde 1.
 local FIN_DE_CARATULA = raw(
   '<w:p><w:pPr><w:sectPr>' ..
   '<w:pgSz w:w="12240" w:h="15840"/>' ..
@@ -212,8 +212,8 @@ local tablas, figuras = 0, 0
 -- Un identificador largo (AuthenticationCommandServiceImpl, /api/v1/periods)
 -- no tiene espacios donde Word pueda cortar, y en una columna angosta Word lo
 -- parte en cualquier letra. Un espacio de ancho cero entre una minuscula y una
--- mayuscula, y despues de una barra, un punto o un guion bajo, le da los mismos
--- puntos de corte que pdf-only.lua le da a LaTeX.
+-- mayuscula, y despues de una barra, un punto o un guion bajo, le da puntos de
+-- corte donde una persona los pondria.
 local LARGO_MINIMO = 14
 local CORTE = '\u{200B}'
 
@@ -235,8 +235,8 @@ end
 --   - cada celda va con el estilo Table Text (espacio simple, sin sangria y
 --     con particion de palabras);
 --   - la fila de cabecera pasa al cuerpo con el estilo Table Header (negrita,
---     unida a la fila siguiente), para que no se repita en cada pagina, igual
---     que en el PDF (REPETIR_CABECERA en table-grid.lua);
+--     unida a la fila siguiente), para que no se repita en cada pagina: el
+--     equipo prefiere la cabecera una sola vez;
 --   - las palabras largas reciben puntos de corte.
 local function prepararTabla(tbl)
   -- Pandoc escribe todo Plain de una celda con el estilo Compact, sin mirar el
@@ -274,7 +274,7 @@ local function prepararTabla(tbl)
 end
 
 -- Word pega el parrafo siguiente al borde inferior de la tabla. Un parrafo vacio
--- de una linea los separa, como el espacio que deja LaTeX.
+-- de una linea los separa.
 local DESPUES_DE_TABLA = raw('<w:p><w:pPr><w:spacing w:before="0" w:after="0" w:line="240" w:lineRule="auto"/><w:ind w:firstLine="0"/></w:pPr></w:p>')
 
 local procesar
@@ -312,7 +312,8 @@ local function tabla(tbl)
 end
 
 -- Recorre los bloques en el orden del documento, entrando en los Div, para que
--- la numeracion de tablas y figuras coincida con la del PDF.
+-- la numeracion de tablas y figuras siga el orden en que aparecen, el mismo que
+-- reproduce scripts/check-references.py.
 procesar = function(bloques)
   local salida = pandoc.List()
   local saltar = nil

@@ -1,21 +1,8 @@
-# PDF generado por build.ps1
+# Documento y PDF generados por build.ps1
 dist/
 
-# Previsualizacion de la caratula
-config/preview/*.pdf
-
-# Auxiliares de LaTeX
-*.aux
-*.log
-*.out
-*.toc
-*.lof
-*.lot
-*.fls
-*.fdb_latexmk
-*.synctex.gz
-*.bbl
-*.blg
+# Archivo de bloqueo que Word deja junto a un .docx abierto
+~$*.docx
 
 # Basura del sistema
 Thumbs.db
