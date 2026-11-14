@@ -1,4 +1,4 @@
-name: Report PDF
+name: Report
 
 on:
   push:
@@ -45,44 +45,24 @@ jobs:
           rm pandoc.deb
           pandoc --version | head -1
 
-      - name: Install XeLaTeX
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends \
-            texlive-xetex \
-            texlive-latex-recommended \
-            texlive-latex-extra \
-            texlive-fonts-recommended \
-            texlive-lang-spanish \
-            lmodern \
-            fonts-texgyre
-
-      - name: Check the TeX Gyre Termes font
-        run: |
-          echo "--- fontconfig ---"
-          fc-list | grep -i "gyre" || echo "(no matches)"
-          echo "--- texmf ---"
-          kpsewhich texgyretermes-regular.otf || echo "(not in the texmf tree)"
-          if ! fc-list | grep -qi "TeX Gyre Termes"; then
-            echo "::error::TeX Gyre Termes is not available on the runner"
-            exit 1
-          fi
-
       - name: Build
         shell: pwsh
         run: ./scripts/build.ps1 ${{ steps.delivery.outputs.value }}
 
-      - name: Upload the PDF as an artifact
+      # Los runners no tienen Microsoft Word, asi que aqui sale solo el .docx.
+      # El PDF de la entrega se exporta con Word en una maquina del equipo
+      # (scripts/build.ps1 lo hace solo) y se sube a mano al release.
+      - name: Upload the Word document as an artifact
         uses: actions/upload-artifact@v4
         with:
           name: report-${{ steps.delivery.outputs.value }}
-          path: dist/*.pdf
+          path: dist/*.docx
 
       - name: Create the release
         if: startsWith(github.ref, 'refs/tags/')
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create "$GITHUB_REF_NAME" dist/*.pdf \
+          gh release create "$GITHUB_REF_NAME" dist/*.docx \
             --title "Informe ${{ steps.delivery.outputs.value }}" \
-            --notes "PDF generado automaticamente desde el tag $GITHUB_REF_NAME."
+            --notes "Documento de Word generado desde el tag $GITHUB_REF_NAME. El PDF de la entrega se exporta desde Word y se adjunta a este release."

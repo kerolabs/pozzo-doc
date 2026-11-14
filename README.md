@@ -96,7 +96,7 @@ La Tabla 1 presenta el registro de versiones del informe.
 
 # Project Report Collaboration Insights
 
-El informe se elabora en el repositorio `pozzo-doc` de la organización Kerolabs en GitHub: <https://github.com/kerolabs/pozzo-doc>. El informe está escrito en Markdown, con un archivo por capítulo, y el PDF de cada entrega se genera desde el repositorio con Pandoc y XeLaTeX bajo las normas APA 7, de modo que el documento entregado es siempre el estado exacto de la rama `main`.
+El informe se elabora en el repositorio `pozzo-doc` de la organización Kerolabs en GitHub: <https://github.com/kerolabs/pozzo-doc>. El informe está escrito en Markdown, con un archivo por capítulo, y el documento de cada entrega se genera desde el repositorio con Pandoc, sobre una plantilla de Word con las normas APA 7, y se exporta a PDF desde Microsoft Word, de modo que el documento entregado es siempre el estado exacto de la rama `main`.
 
 ## AV1
 

@@ -148,8 +148,8 @@ El equipo trabaja con las herramientas de la Tabla 135, agrupadas por la activid
       <td><a href="https://plantuml.com">plantuml.com</a></td>
     </tr>
     <tr>
-      <td>Pandoc y XeLaTeX</td>
-      <td>Convierten este informe de Markdown a PDF con formato APA 7.</td>
+      <td>Pandoc y Microsoft Word</td>
+      <td>Pandoc convierte este informe de Markdown a un documento de Word con formato APA 7, y Word lo exporta a PDF.</td>
       <td><a href="https://pandoc.org/installing.html">pandoc.org/installing.html</a></td>
     </tr>
   </tbody>

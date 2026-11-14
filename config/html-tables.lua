@@ -1,20 +1,19 @@
 -- Convierte las tablas escritas en HTML (<table>) en tablas nativas de pandoc,
--- para que lleguen al PDF con sus colspan y rowspan.
+-- para que lleguen a Word con sus colspan y rowspan.
 --
 -- Pandoc lee el Markdown y deja cada etiqueta HTML como un bloque crudo, con el
--- texto de las celdas suelto entre etiqueta y etiqueta. Al escribir LaTeX, los
--- bloques crudos se descartan y solo queda el texto, sin ninguna tabla. Este
+-- texto de las celdas suelto entre etiqueta y etiqueta. Al escribir el .docx,
+-- los bloques crudos se descartan y solo queda el texto, sin ninguna tabla. Este
 -- filtro junta esos pedazos, los vuelve a leer como HTML (el lector de HTML si
 -- entiende tablas, colspan, rowspan, <col width> y align) y devuelve la tabla
 -- resultante en lugar de los bloques sueltos.
 --
--- Debe correr antes que pdf-only.lua, para que el resto de ajustes de tabla
--- (imagenes alineadas arriba, \needspace tras un encabezado) se apliquen
--- tambien a estas tablas.
+-- Debe correr antes que docx.lua, para que los ajustes de tabla de Word (estilo
+-- de celda, cabecera, rotulo) se apliquen tambien a estas tablas.
 
 -- Elementos que no sobreviven el viaje Markdown -> HTML -> Markdown: las citas
 -- ([@clave]) se convierten en texto y citeproc ya no las reconoce; las imagenes
--- pierden el ancho; el LaTeX crudo desaparece. Se sacan antes del viaje y se
+-- pierden el ancho; lo crudo que no es HTML desaparece. Se sacan antes del viaje y se
 -- vuelven a poner despues, marcando su sitio con un token.
 local TOKEN = 'PHX%dXPH'
 local PATRON = '^(.-)PHX(%d+)XPH(.*)$'
@@ -53,9 +52,9 @@ local function restaurar(tabla, guardados)
   })
 end
 
--- Sin <col width="..."> el lector de HTML deja las columnas sin ancho, y en
--- LaTeX eso significa "tan anchas como su contenido": una celda con un parrafo
--- se sale de la pagina. Se reparte el ancho de la pagina en proporcion al
+-- Sin <col width="..."> el lector de HTML deja las columnas sin ancho, y el
+-- escritor decide por su cuenta: una columna de codigos cortos puede terminar
+-- tan ancha como una de parrafos. Se reparte el ancho de la pagina en proporcion al
 -- contenido de cada columna, como hace pandoc con las tablas de tuberias.
 -- Una linea de texto en la pagina admite unos 85 caracteres de media, pero el
 -- minimo de una columna lo marca su palabra mas larga, y las palabras que
@@ -64,7 +63,7 @@ end
 -- que el minimo cubra tambien esos casos.
 local CARACTERES_POR_LINEA = 72
 
--- Una "palabra" mas larga que esto es un enlace o algo parecido, que LaTeX si
+-- Una "palabra" mas larga que esto es un enlace o algo parecido, que Word si
 -- puede partir; no tiene sentido ensanchar la columna por ella.
 local PALABRA_MAXIMA = 30
 
@@ -139,8 +138,8 @@ local function repartirAnchos(tabla, html)
   if total == 0 then return tabla end
 
   -- Cada columna recibe ancho en proporcion a su contenido, pero nunca menos
-  -- de lo que ocupa su palabra mas larga: si no, LaTeX la parte con guiones o
-  -- la deja salir por el borde de la celda.
+  -- de lo que ocupa su palabra mas larga: si no, Word la parte en cualquier
+  -- letra para que quepa en la celda.
   --
   -- Las columnas que no llegan a su minimo se fijan en el, y el ancho que queda
   -- se reparte entre las demas en proporcion a su contenido. Fijar una puede
