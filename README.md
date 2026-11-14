@@ -91,6 +91,12 @@ La Tabla 1 presenta el registro de versiones del informe.
       <td align="center">Flores Pinchi, Jose Fernando</td>
       <td align="center">Video About-the-Product, armado con las escenas de las entrevistas de validación</td>
     </tr>
+    <tr>
+      <td align="center">3.2</td>
+      <td align="center">13/11/2026</td>
+      <td align="center">Sanchez Benavente, Leonardo Matias</td>
+      <td align="center">Video About-the-Team, con la presentación del equipo y el testimonio de cada integrante</td>
+    </tr>
   </tbody>
 </table>
 
@@ -254,7 +260,7 @@ El informe se elabora en el repositorio `pozzo-doc` de la organización Kerolabs
     </tr>
     <tr>
       <td>Sanchez Benavente, Leonardo Matias</td>
-      <td>Sin aportes al repositorio del informe en esta entrega. Su aporte se concentró en la aplicación móvil, que se detalla en el capítulo de implementación, en la sección Team Collaboration Insights during Sprint.</td>
+      <td>Video About-the-Team, integrado el 13 de noviembre, después del corte de este cuadro. Su aporte de código se concentró en la aplicación móvil, que se detalla en el capítulo de implementación, en la sección Team Collaboration Insights during Sprint.</td>
       <td align="center">0</td>
       <td align="center">0</td>
     </tr>
@@ -349,6 +355,7 @@ El informe se elabora en el repositorio `pozzo-doc` de la organización Kerolabs
   - [4.3.2. Registro de Entrevistas](docs/chapter_4.md#432-registro-de-entrevistas)
   - [4.3.3. Evaluaciones según heurísticas](docs/chapter_4.md#433-evaluaciones-según-heurísticas)
 - [4.4. Video About-the-Product](docs/chapter_4.md#44-video-about-the-product)
+- [4.5. Video About-the-Team](docs/chapter_4.md#45-video-about-the-team)
 
 ### [Conclusiones](docs/closing.md#conclusiones)
 - [Conclusiones y recomendaciones](docs/closing.md#conclusiones-y-recomendaciones)
