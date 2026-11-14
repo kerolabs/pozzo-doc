@@ -198,11 +198,15 @@ end
 -- parrafo del titulo lleva la marca de parrafo oculta (el "separador de
 -- estilo" de Word): Word lo dibuja en la misma linea que el parrafo que sigue,
 -- y el titulo conserva su estilo y su nivel de esquema.
+-- El estilo de titulo trae "conservar con el siguiente", pero en linea el
+-- titulo y su parrafo son uno solo: Word encadenaria el parrafo entero con la
+-- figura que venga despues y, si el conjunto no cabe en una pagina, dejaria el
+-- rotulo de la figura en una pagina y la imagen en la siguiente.
 local function tituloEnLinea(h)
   local texto = pandoc.utils.stringify(h.content)
   if not texto:match('[%.%?!:]$') then texto = texto .. '.' end
   return raw(string.format(
-    '<w:p><w:pPr><w:pStyle w:val="Heading%d"/><w:rPr><w:vanish/><w:specVanish/></w:rPr></w:pPr>' ..
+    '<w:p><w:pPr><w:pStyle w:val="Heading%d"/><w:keepNext w:val="0"/><w:keepLines w:val="0"/><w:rPr><w:vanish/><w:specVanish/></w:rPr></w:pPr>' ..
     '<w:r><w:t xml:space="preserve">%s </w:t></w:r></w:p>',
     h.level, xml(texto)))
 end
